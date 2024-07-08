@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+
+    <style>
+        .funny-image{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="headline">Programmier-Witze</h1>
+
+    <a href="#" onclick="joke0()">witz</a>
+    <a href="#" onclick="joke1()">neuer witz</a>
+    <a href="#" onclick="joke2()">neuerer witz</a>
+    <a href="#" onclick="joke3()">neuererer witz</a>
+    <img src="2.webp" onclick="joke5()">
+
+    <p id="witz">Witzi</p>
+
+    <script>
+
+        function joke0(){
+            document.getElementById('witz').innerHTML = `Witzi <b>0</b>!
+            <br>
+            <img class="funny-image" src="1.webp">`
+        }
+
+        function joke1(){
+            document.getElementById('witz').innerHTML = 'Witzi <b>1</b>'
+        }
+
+        function joke2(){
+            document.getElementById('witz').innerHTML = 'Witzi 2'
+        }
+
+        function joke3(){
+            document.getElementById('witz').innerHTML = 'Witzi 3'
+        }
+
+        function joke5(){
+            document.getElementById('witz').innerHTML = 'joke'
+        }
+
+    </script>
+
+</body>
+</html>

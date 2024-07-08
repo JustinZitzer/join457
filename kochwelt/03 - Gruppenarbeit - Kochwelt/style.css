@@ -1,0 +1,14 @@
+body {
+    margin: 0px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.croissant-pic {
+    width: 120px;
+    height: 120px;
+
+}
+
+.recipe-button {
+    background-color: #017F03;
+}

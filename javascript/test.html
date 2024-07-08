@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witzige Seite</title>
+</head>
+
+<style>
+    img {
+        width: 100%;
+    }
+</style>
+
+<script>
+    let images = ['1.webp', '2.webp', '3.webp'];
+    let currentImage = 0;
+
+    function start() {
+        let millisecons = +document.getElementById('inputfield').value * 1000;
+
+        if (millisecons > 10000) {
+            alert('Bitte kleinere Zahl eingeben!')
+        }
+
+        if (millisecons < 1000) {
+            alert('Bitte mindestens eine Sekunde angeben!')
+        } else {
+            showImage(currentImage);
+            currentImage++;
+
+            if (currentImage == 3) {
+                currentImage = 0;
+            }
+
+            setTimeout(start, millisecons)
+        }
+    }
+
+    function showImage(i) {
+        document.getElementById('image').src = images[i];
+    }
+
+</script>
+
+</head>
+
+<body onload="start()">
+
+    <input type="number" id="inputfield" placeholder="Wie viele Sekunden?"> <button onclick="start()">Start!</button>
+    <img id="image" src="1.webp">
+
+</body>
+
+</html>
