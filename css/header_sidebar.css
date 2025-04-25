@@ -2,7 +2,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: -webkit-fill-available;
+    width: -webkit-fill-available; /*box shadow geht über die sidebar*/
     height: 96px;
     position: fixed;
     top: 0;
@@ -40,4 +40,11 @@ header h1 {
 .user-profile-font {
     font-weight: bold; /*größe bzw dicke anpassen, ist mir nicht ersichtlich*/
     color: rgba(41, 171, 226, 1);
+}
+
+/*ab hier: sidebar*/
+.sidebar {
+    width: 232px;
+    height: 100vh;
+    background-color: rgba(42, 54, 71, 1);
 }
