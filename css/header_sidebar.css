@@ -98,7 +98,7 @@ header h1 {
 
 .sidebar-join-logo {
     margin-bottom: 100px;
-    } /*ist nicht in figma angegeben*/
+    } /*das margin ist nicht in figma angegeben*/
 
 footer {
     display: flex;
@@ -106,13 +106,20 @@ footer {
     width: 100%;
     color: rgba(168, 168, 168, 1);
     padding-top: 243px;
-    padding-left: 52px;
     gap: 8px;
     font-size: 16px;
     font-weight: 400;
 }
 
 footer a {
+    display: flex;
+    padding-left: 52px !important;
     cursor: pointer;
+    width: 100%;
     padding: 8px;
+}
+
+footer a:hover {
+    color: white;
+    background-color: rgba(9, 25, 49, 1);
 }
