@@ -2,12 +2,42 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: -webkit-fill-available;
     height: 96px;
     position: fixed;
     top: 0;
-    box-shadow: var(--box-shadow-header);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 348px;
 }
 
-h1 {
-    padding-top: 20px;
+header h1 {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.header-icons-container {
+    display: flex;
+    align-items: center;
+    width: 104px;
+    height: 56px;
+    gap: 16px;
+}
+
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    border: 3px solid rgba(42, 54, 71, 1);
+    border-radius: 100%;
+}
+
+.user-profile-font {
+    font-weight: bold; /*größe bzw dicke anpassen, ist mir nicht ersichtlich*/
+    color: rgba(41, 171, 226, 1);
 }
