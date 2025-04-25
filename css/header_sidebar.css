@@ -38,7 +38,7 @@ header h1 {
 }
 
 .user-profile:hover {
-    background-color: rgba(168, 168, 168, 1);
+    background-color: rgba(9, 25, 49, 1);
 }
 
 .user-profile-font {
@@ -46,10 +46,10 @@ header h1 {
     color: rgba(41, 171, 226, 1);
 }
 
-/*ab hier: sidebar*/
 .sidebar {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 232px;
     height: 100vh;
