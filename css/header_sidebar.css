@@ -37,6 +37,10 @@ header h1 {
     border-radius: 100%;
 }
 
+.user-profile:hover {
+    background-color: rgba(168, 168, 168, 1);
+}
+
 .user-profile-font {
     font-weight: bold; /*größe bzw dicke anpassen, ist mir nicht ersichtlich*/
     color: rgba(41, 171, 226, 1);
@@ -46,7 +50,6 @@ header h1 {
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 232px;
     height: 100vh;
@@ -56,8 +59,46 @@ header h1 {
     padding-bottom: 64px;
 }
 
-/*.sidebar-join-logo {
-    }*/ /*braucht man die klasse?*/
+.nav-links {
+    width: 100%;
+    list-style: none;
+    color: rgba(168, 168, 168, 1);
+    gap: 15px;
+}
+
+.nav-links li {
+    display: flex;
+    cursor: pointer;
+    padding-top: 8px;
+    padding-right: 56px;
+    padding-bottom: 8px;
+    padding-left: 56px;
+}
+
+.nav-links li:hover {
+    background-color: rgba(9, 25, 49, 1);
+    color: white;
+}
+
+.nav-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.nav-links li:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.nav-links img {
+    margin-right: 10px; /*nicht fest vergeben bei figma, passt das so???*/
+}
+
+.sidebar-join-logo {
+    margin-bottom: 100px;
+    } /*ist nicht in figma angegeben*/
 
 footer {
     display: flex;
