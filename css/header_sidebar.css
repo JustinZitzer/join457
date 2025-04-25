@@ -2,7 +2,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: -webkit-fill-available; /*box shadow geht über die sidebar*/
+    width: -webkit-fill-available;
     height: 96px;
     position: fixed;
     top: 0;
@@ -44,7 +44,34 @@ header h1 {
 
 /*ab hier: sidebar*/
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 232px;
     height: 100vh;
     background-color: rgba(42, 54, 71, 1);
+    position: fixed;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.sidebar-join-logo {
+    /*braucht man die klasse?*/
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: rgba(168, 168, 168, 1);
+    padding-top: 243px;
+    padding-left: 52px;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+footer a {
+    padding: 8px;
 }
