@@ -72,5 +72,6 @@ footer {
 }
 
 footer a {
+    cursor: pointer;
     padding: 8px;
 }
