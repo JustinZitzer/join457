@@ -56,9 +56,8 @@ header h1 {
     padding-bottom: 64px;
 }
 
-.sidebar-join-logo {
-    /*braucht man die klasse?*/
-}
+/*.sidebar-join-logo {
+    }*/ /*braucht man die klasse?*/
 
 footer {
     display: flex;
