@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    font-family: 'inter';
+    background-color: rgb(233, 226, 226);
+}
+
+.signup-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 598px;
+    height: 630px;
+    top: 197px;
+    left: 421px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+
+}
+
+.title {
+    text-align: center;
+    font-size: 61px;
+    background-color: #FFFFFF;
+}
+
+.signup-content {
+    width: 315px;
+    height: 89px;
+    gap: 16px;
+}
+
+.signup-inputfield-container {
+    width: 422px;
+    height: 326px;
+    gap: 16px;
+    background-color: #FFFFFF;
+}
+
+.inputfield {
+    width: 422px;
+    height: 48px;
+    Gap: 8px;
+    background-color: #FFFFFF;
+}
+
+.signup-title {
+    width: 315px;
+    height: 89px;
+    Gap: 16px
+}
+
+h1 {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.privacy-policy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 24px;
+    background-color: #FFFFFF;
+}
+
+.privacy-policy-accept-button {
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 4px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+
+.text-accept {
+    width: 90px;
+    height: 19px;
+    font-size: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #A8A8A8;
+    top: 2.5px;
+    left: 32px;
+    background-color: #FFFFFF;
+}
+
+.text-privacy-policy {
+    width: 105px;
+    height: 19px;
+    font-size: 16px;
+    color: #29ABE2;
+    top: 2.5px;
+    left: 126px;
+    gap: 10px;
+    background-color: #FFFFFF;
+}
+
+.sign-up-confirm-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.sign-up-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 126px;
+    height: 55px;
+    border-radius: 8px;
+    top: 15px;
+    right: 24px;
+    bottom: 15px;
+    left: 24px;
+    gap: 10px;
+    background-color: #2A3647
+}
+
+.sign-up-button-content {
+    width: 78px;
+    height: 25px;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    background-color: #2A3647;
+}
