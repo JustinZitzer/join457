@@ -112,6 +112,8 @@ footer {
 }
 
 footer a {
+    text-decoration: none;
+    color: rgba(168, 168, 168, 1);
     display: flex;
     padding-left: 52px !important;
     cursor: pointer;
