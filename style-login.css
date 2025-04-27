@@ -10,6 +10,12 @@ body {
   background-color: #f6f7f8;
 }
 
+.Login-Body-Div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .Header-Login {
   display: flex;
   justify-content: space-between;
@@ -47,6 +53,7 @@ body {
   padding-left: 16px;
   margin-left: 25px;
   margin-right: 50px;
+  cursor: pointer;
 }
 
 .Header-Login-Right-Button-Text {
@@ -155,6 +162,7 @@ body {
   letter-spacing: 0%;
   color: #FFFFFF;
   text-align: center;
+  cursor: pointer;
 }
 
 .Login-Box-Passwort-Input-Button {
@@ -165,6 +173,7 @@ body {
   border-width: 1px;
   color: #FFFFFF;
   text-align: center;
+  cursor: pointer;
 }
 
 .Login-Box-Guest-Email-Input-Button-Text {
@@ -180,7 +189,9 @@ body {
 .footer-login-site{
   display: flex;
   justify-content: center;
-  margin-top: 170px;
+  flex-grow: 1;
+  align-items: flex-end;
+  margin-bottom: 80px;
 }
 
 .Privacy-Policy-Text-Login-Site {
@@ -189,6 +200,7 @@ body {
   line-height: 120%;
   letter-spacing: 0%;
   color: #A8A8A8;
+  cursor: pointer;
 }
 
 .Legal-Notice-Text-Login-Site {
@@ -198,4 +210,5 @@ body {
   line-height: 120%;
   letter-spacing: 0%;
   color: #A8A8A8;
+  cursor: pointer;
 }
