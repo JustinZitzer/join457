@@ -1,6 +1,7 @@
 .info-pages {
     margin-left: 100px;
     margin-top: 100px;
+    margin-bottom: 100px; /*bitte noch anpassen*/
 }
 
 .info-pages a {
@@ -8,5 +9,5 @@
 }
 
 .info-pages p {
-    margin-left: 20px;
+    margin-left: 20px; /*bitte noch anpassen*/
 }
