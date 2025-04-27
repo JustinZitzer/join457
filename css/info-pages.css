@@ -1,12 +1,12 @@
-.help-page {
+.info-pages {
     margin-left: 100px;
     margin-top: 100px;
 }
 
-.help-page a {
+.info-pages a {
     color: rgba(75,183,232);
 }
 
-.help-page p {
+.info-pages p {
     margin-left: 20px;
 }
