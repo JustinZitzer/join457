@@ -5,6 +5,7 @@
 }
 
 .signup-main-container {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,27 +15,23 @@
     left: 421px;
     border-radius: 30px;
     background-color: #FFFFFF;
-
 }
 
 .arrow-box {
     position: absolute;
-    top: 225px;
+    top: 90px;
     left: 70px;
     width: 32px;
     height: 32px;
     background-color: #FFFFFF;
-    color: blue;
 }
 
 .arrow-left {
-    width: 21.333332061767578px;
-    height: 20.7413330078125px;
+    width: 21px;
+    height: 20px;
     top: 5.63px;
     left: 5.33px;
-    color: blue;
-    background-color: blue;
-
+    background-color: black;
 }
 
 .title {
@@ -191,9 +188,10 @@ h1 {
     position: absolute;
     width: 246px;
     height: 35px;
-    top: 830px;
-    left: 190px;
-    padding: 8px;
+    top: 949px;
+    left: 597px;
+    
+
 }
 
 .privacy-text {
