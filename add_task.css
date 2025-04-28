@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'inter';
+}
+
+.add-task-box {
+    position: absolute;
+    width: 278px;
+    height: 73px;
+    gap: 1px;
+    top: 206px;
+    left: 328px;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.main-container-for-two-inputfield-container {
+    display: flex;
+    background-color:rgba(168, 168, 168, 1);
+    width: 100%;
+    height: 100vh;
+
+}
+
+.inputfield-box-left-side {
+    position: absolute;
+    width: 440px;
+    height: 376px;
+    top: 327px;
+    left: 328px;
+    border: 2px solid black;
+
+}
+
+.inputfield-box-right-side {
+    position: absolute;
+    width: 440px;
+    height: 400px;
+    gap: 24px;
+    top: 327px;
+    left: 864.25px;
+    border: 2px solid black;
+}
+
+.text-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.text-priority {
+    width: 68px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.main-box-inputfield {
+    display: flex;
+}
+
+.title-inputfield-enter-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #D1D1D1;
+}
+
+.text-inputfield-urgent {
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.text-inputfield-medium {
+    background-color: #FFA800;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.text-inputfield-low {
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.description-main-box {
+    width: 440px;
+    height: 168px;
+    gap: 8px;
+    top: 112px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.inputfield-description {
+    width: 440px;
+    height: 120px;
+    border-width: 1px;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding-top: 18px;
+    padding-right: 16px;
+    padding-bottom: 18px;
+    padding-left: 16px;
+    color: #D1D1D1;
+}
+
+.description-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-size: 20px;
+
+}
+
+.inputfield-due-date-container {
+    width: 440px;
+    height: 96px;
+    gap: 8px;
+    top: 296px;
+    left: 0.25px;
+}
+
+.due-date-text-field {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #D1D1D1;
+    width: 440px;
+    height: 48px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+}
+
+.assigned-inputfield-box {
+    width: 440px;
+    height: 80px;
+    gap: 8px;
+    color: #2A3647;
+
+}
+
+.task-inputfield-box {
+    width: 440px;
+    height: 80px;
+    gap: 8px;
+    color: #2A3647;
+
+}
+
+
+.subtask-inputfield-box {
+    width: 440px;
+    height: 80px;
+    gap: 8px;
+    color: #2A3647;
+}
+
+.inputfield-text-assign {
+    width: 440px;
+    height: 48px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.inputfield-category-assign {
+    height: 48px;
+    width: 440px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.inputfield-subtask-assign {
+    height: 48px;
+    width: 440px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}

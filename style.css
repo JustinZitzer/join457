@@ -1,7 +1,23 @@
 * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    font-family: 'inter';
-  }
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'inter';
+}
+
+.add-Task-box {
+  width: 278px;
+  height: 73px;
+  gap: 1px;
+  top: 206px;
+  left: 328px;
+
+}
+
+h3 {
+  width: 278px;
+  height: 73px;
+  font-size: 61px;
+
+}

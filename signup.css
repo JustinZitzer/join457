@@ -4,12 +4,12 @@
     background-color: rgb(233, 226, 226);
 }
 
-.join-logo{
+.join-logo {
     position: absolute;
-width: 100px;
-height: 121px;
-top: 80px;
-left: 77px;
+    width: 100px;
+    height: 121px;
+    top: 80px;
+    left: 77px;
 
 }
 
@@ -80,7 +80,7 @@ left: 77px;
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 180px;
+    top: 210px;
     background-color: #FFFFFF;
 }
 
@@ -89,7 +89,7 @@ left: 77px;
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 255px;
+    top: 285px;
     background-color: #FFFFFF;
 }
 
@@ -98,7 +98,7 @@ left: 77px;
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 330px;
+    top: 358px;
     background-color: #FFFFFF;
 }
 
@@ -107,7 +107,7 @@ left: 77px;
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 405px;
+    top: 433px;
     background-color: #FFFFFF;
 }
 
@@ -199,7 +199,7 @@ h1 {
     height: 35px;
     top: 949px;
     left: 597px;
-    
+
 
 }
 
