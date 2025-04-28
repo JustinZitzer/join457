@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="add_task.css">
+    <title>add task Erhan</title>
+</head>
+
+<body>
+    <div id="index_html"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('index_html').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+    </script> <!--Bitte erst hier drunter coden-->
+    <div class="add-task-box">
+        <span>Add Task</span>
+    </div>
+
+
+    <div class="main-container-for-two-inputfield-container">
+        <div class="inputfield-box-left-side">
+            <div class="text-title">
+                <span>Title</span>
+            </div>
+            <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title">
+
+
+            <div class="description-main-box">
+                <div class="description-text">
+                    <span>Description</span>
+                    <input type="text" placeholder="Enter Description" class="inputfield-description">
+                </div>
+
+
+                <div class="inputfield-due-date-container">
+                    <span>Due date</span>
+                    <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field">
+                </div>
+            </div>
+
+        </div>
+        <div class="inputfield-box-right-side gap-2">
+            <div class="text-priority">
+                <span>Priority</span>
+                <div class="main-box-inputfield">
+                    <input type="text" placeholder="Urgent" class="text-inputfield-urgent">
+                    <input type="text" placeholder="Medium=" class="text-inputfield-medium">
+                    <input type="text" placeholder="Low" class="text-inputfield-low">
+                </div>
+                <div class="assigned-inputfield-box">
+                    <span>Assigned to</span>
+                    <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign">
+
+                </div>
+                <div class="task-inputfield-box">
+                    <span>Category</span>
+                    <input type="text" placeholder="Select task category" class="inputfield-category-assign">
+                </div>
+                <div class="subtask-inputfield-box">
+                    <span>Subtasks</span>
+                    <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+</body>
+
+</html>

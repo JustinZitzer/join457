@@ -14,13 +14,30 @@
 </head>
 
 <body>
+    <div id="index_html"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('index_html').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+    </script>
     <main class="info-pages">
-        <h1>Help</h1>
+        <div class="headline-arrow-container">
+            <h1>Help</h1>
+            <a href="index.html">
+                <img class="blue-arrow-left" src="./assets/icons/blue-arrow-left.svg" alt="blue-arrow-left">
+            </a>
+        </div>
         <br>
         <h2>Your Guide to Join</h2>
         <br>
         <p>
-            Welcome to the support page for <a href="index.html">Join</a>, your all-in-one assistant for managing tasks and team
+            Welcome to the support page for <a href="index.html">Join</a>, your all-in-one assistant for managing tasks
+            and team
             projects with clarity and ease.
             This guide walks you through what <a href="index.html">Join</a> is, what it offers, and how to get started.
         </p>
@@ -28,19 +45,22 @@
         <h3>What is Join?</h3>
         <br>
         <p>
-            <a href="index.html">Join</a> is a visual project management application built around the <em>kanban method</em>.
+            <a href="index.html">Join</a> is a visual project management application built around the <em>kanban
+                method</em>.
             Developed by students at the Developer Akademie during an intensive web development program, it offers a
             modern, intuitive interface to help teams stay organized.
         </p>
         <p>
             <strong>Kanban</strong> – a method originating from Japan – is based on managing work via visual boards.
             It’s all about improving flow, avoiding overload, and keeping priorities visible at all times.
-            With <a href="index.html">Join</a>, this concept is translated into a simple and effective digital tool for managing your
+            With <a href="index.html">Join</a>, this concept is translated into a simple and effective digital tool for
+            managing your
             daily
             tasks.
         </p>
         <p>
-            Please keep in mind that <a href="index.html">Join</a> was created for learning purposes. It may not meet all standards
+            Please keep in mind that <a href="index.html">Join</a> was created for learning purposes. It may not meet
+            all standards
             required for
             large-scale commercial use.
             While we aim for a smooth experience, occasional bugs or downtimes may occur.
@@ -51,7 +71,8 @@
         <h4>Navigating the Board</h4>
         <br>
         <p>
-            When you open <a href="index.html">Join</a>, you'll land on your kanban board. This board is your workspace and includes four
+            When you open <a href="index.html">Join</a>, you'll land on your kanban board. This board is your workspace
+            and includes four
             predefined columns:
             <strong>To Do</strong>, <strong>In Progress</strong>, <strong>Await Feedback</strong>, and
             <strong>Done</strong>.

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Legal Notice | Join</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -13,8 +13,24 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 <body>
+    <div id="index_html"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('index_html').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+    </script>
     <main class="info-pages">
-        <h1>Legal Notice</h1>
+        <div class="headline-arrow-container">
+            <h1>Legal Notice</h1>
+            <a href="index.html">
+                <img class="blue-arrow-left" src="./assets/icons/blue-arrow-left.svg" alt="blue-arrow-left">
+                </a>
+        </div>
         <br>
         <h2>JOIN Kanban Project Management Tool</h2>
         <br>
