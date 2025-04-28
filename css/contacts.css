@@ -1,0 +1,12 @@
+.contacts-content {
+    margin-top: 206px;
+    margin-left: 743px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts-sidebar-container {
+    width: 200px;
+    height: 200px;
+}
