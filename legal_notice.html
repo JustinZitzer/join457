@@ -15,7 +15,7 @@
 <body>
     <div id="index_html"></div>
     <script>
-        fetch('index.html') // Pfad zur HTML-Datei
+        fetch('index.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('index_html').innerHTML = html;
@@ -25,7 +25,12 @@
             });
     </script>
     <main class="info-pages">
-        <h1>Legal Notice</h1>
+        <div class="headline-arrow-container">
+            <h1>Legal Notice</h1>
+            <a href="index.html">
+                <img class="blue-arrow-left" src="./assets/icons/blue-arrow-left.svg" alt="blue-arrow-left">
+                </a>
+        </div>
         <br>
         <h2>JOIN Kanban Project Management Tool</h2>
         <br>
