@@ -9,7 +9,17 @@
 </head>
 
 <body>
-
+    <div id="index_html"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('index_html').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+    </script> <!--Bitte erst hier drunter coden-->
     <div class="add-task-box">
         <span>Add Task</span>
     </div>
