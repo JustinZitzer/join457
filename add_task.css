@@ -6,17 +6,6 @@
     font-family: 'inter';
 }
 
-<<<<<<< HEAD
-.add-Task-box {
-    width: 278px;
-    height: 73px;
-    gap: 1px;
-    top: 206px;
-    left: 328px;
-}
-
-=======
->>>>>>> b4492e9 (%*)
 h3 {
     width: 278px;
     height: 73px;
@@ -29,7 +18,7 @@ h3 {
     height: 73px;
     gap: 1px;
     top: 170px;
-    left: 400px;
+    left: 390px;
     font-family: Inter;
     font-weight: 700;
     font-size: 61px;
