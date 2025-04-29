@@ -1,19 +1,21 @@
 .contacts-content {
-    margin-left: 743px;;
-    margin-top: 206px;
-    margin-left: 743px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .contacts-sidebar-container {
-    width: 200px;
-    height: 200px;
+    background-color: white;
+    width: 456px;
+    height: 100dvh;
+    margin-top: 96px;
+    margin-left: 232px;
 }
 
 .contacts-side-headline {
+    width: 569px;
+    height: 73px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 8px;
 }
