@@ -1,4 +1,5 @@
 .contacts-content {
+    margin-left: 743px;;
     margin-top: 206px;
     margin-left: 743px;
     display: flex;
@@ -9,4 +10,27 @@
 .contacts-sidebar-container {
     width: 200px;
     height: 200px;
+}
+
+.contacts-side-headline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contacts-side-headline h1 {
+    font-weight: 700;
+    font-size: 61px;
+}
+
+.contacts-side-headline h3 {
+    font-weight: 400;
+    font-size: 27px;
+}
+
+.contacts-headline-seperator {
+    height: 59px;
+    width: 3px;
+    border-radius: 3px;
+    background-color: rgba(41, 171, 226, 1);
 }
