@@ -6,6 +6,7 @@
     font-family: 'inter';
 }
 
+<<<<<<< HEAD
 .add-Task-box {
     width: 278px;
     height: 73px;
@@ -14,6 +15,8 @@
     left: 328px;
 }
 
+=======
+>>>>>>> b4492e9 (%*)
 h3 {
     width: 278px;
     height: 73px;
@@ -25,10 +28,15 @@ h3 {
     width: 278px;
     height: 73px;
     gap: 1px;
-    top: 206px;
-    left: 328px;
-    font-size: 61px;
+    top: 170px;
+    left: 400px;
+    font-family: Inter;
     font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+
 }
 
 .main-container-for-two-inputfield-container {
@@ -48,7 +56,6 @@ h3 {
     height: 376px;
     top: 327px;
     left: 328px;
-    border: 2px solid black;
 
 }
 
@@ -60,7 +67,6 @@ h3 {
     gap: 8px;
     top: 327px;
     left: 864.25px;
-    border: 2px solid black;
 }
 
 .text-title {
@@ -72,6 +78,11 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
 
+}
+
+.text-title-mark:after {
+    content: "*";
+    color: red;
 }
 
 .text-priority {
@@ -198,6 +209,11 @@ h3 {
     left: 0.25px;
 }
 
+.due-date-mark:after {
+    content: "*";
+    color: red;
+}
+
 .due-date-text-field {
     font-weight: 400;
     font-size: 20px;
@@ -276,6 +292,11 @@ h3 {
     font-weight: 400;
 }
 
+.category-mark:after {
+    content: "*";
+    color: red;
+}
+
 .inputfield-subtask-assign {
     height: 48px;
     width: 440px;
@@ -288,4 +309,77 @@ h3 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+}
+
+.field-required {
+    position: absolute;
+    width: 170px;
+    height: 27px;
+    top: 926px;
+    left: 400px;
+
+}
+
+.field-required:before {
+    content: "*";
+    color: red;
+}
+
+.clear-create-container {
+    display: flex;
+    position: absolute;
+    width: 309px;
+    height: 56px;
+    gap: 16px;
+    top: 889px;
+    left: 995.25px;
+
+}
+
+.clear-field {
+    width: 110px;
+    height: 56px;
+    border-width: 1px;
+    gap: 4px;
+    border-radius: 10px;
+    padding: 16px;
+    color: #2A3647;
+    border: solid 1px #2A3647;
+
+}
+
+.clear-text {
+    width: 50px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #2A3647;
+
+
+}
+
+.create-field {
+    width: 183px;
+    height: 56px;
+    gap: 4px;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #2A3647;
+
+}
+
+.text-create-field {
+    width: 123px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+
+
 }
