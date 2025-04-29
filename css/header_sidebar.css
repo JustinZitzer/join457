@@ -62,6 +62,8 @@ header h1 {
 }
 
 .nav-links {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     list-style: none;
     color: rgba(168, 168, 168, 1);
