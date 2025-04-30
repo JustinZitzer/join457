@@ -118,8 +118,13 @@ h3 {
     letter-spacing: 0%;
 }
 
+.text-inputfield-urgent::placeholder {
+    color: #000000;
+}
+
 .text-inputfield-medium {
     background-color: #FFA800;
+    color: white;
     width: 136px;
     height: 56px;
     gap: 8px;
@@ -130,6 +135,10 @@ h3 {
     padding-left: 10px;
     font-size: 21px;
     font-weight: 700;
+}
+
+.text-inputfield-medium::placeholder {
+    color: #FFFFFF;
 }
 
 .text-inputfield-low {
@@ -147,6 +156,10 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
 
+}
+
+.text-inputfield-low::placeholder {
+    color: #000000;
 }
 
 .description-main-box {
@@ -176,6 +189,14 @@ h3 {
     color: #D1D1D1;
 }
 
+.inputfield-description::placeholder {
+    color: #D1D1D1;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
 .description-text {
     display: flex;
     flex-direction: column;
@@ -185,6 +206,15 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     font-size: 20px;
+
+}
+
+
+.description-text::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
 
 }
 
@@ -228,8 +258,8 @@ h3 {
     height: 80px;
     gap: 8px;
     color: #2A3647;
-
 }
+
 
 .task-inputfield-box {
     display: flex;
@@ -267,6 +297,10 @@ h3 {
     font-weight: 400;
 }
 
+.inputfield-text-assign::placeholder {
+    color: #000000;
+}
+
 .inputfield-category-assign {
     height: 48px;
     width: 440px;
@@ -279,6 +313,11 @@ h3 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+}
+
+
+.inputfield-category-assign::placeholder {
+    color: #000000;
 }
 
 .category-mark:after {
@@ -375,20 +414,30 @@ h3 {
 
 /* Icons */
 
-.double-arrowup-box-up{
+.double-arrowup-box-up {
     position: absolute;
     width: 20px;
     height: 14.51px;
-    color:#FF3D00;
-    left: 945px;
-    bottom: 600px;
+    color: #FF3D00;
+    left: 950px;
+    bottom: 595px;
 }
 
-.double-arrowup-box-down{
+.double-arrowup-box-down {
     position: absolute;
     width: 20px;
     height: 14.51px;
-    left:1240px;
-    bottom:590px;
-    color:#7AE229;
+    left: 1210px;
+    bottom: 595px;
+    color: #7AE229;
+}
+
+.calendar-clock {
+    position:relative;
+    width: 18px;
+    height: 20px;
+    top: 14px;
+    left: 400px;
+    top: 72px;
+    color: #2A3647;
 }
