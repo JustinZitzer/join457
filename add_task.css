@@ -370,5 +370,25 @@ h3 {
     letter-spacing: 0%;
     color: #FFFFFF;
 
+}
 
+
+/* Icons */
+
+.double-arrowup-box-up{
+    position: absolute;
+    width: 20px;
+    height: 14.51px;
+    color:#FF3D00;
+    left: 945px;
+    bottom: 600px;
+}
+
+.double-arrowup-box-down{
+    position: absolute;
+    width: 20px;
+    height: 14.51px;
+    left:1240px;
+    bottom:590px;
+    color:#7AE229;
 }
