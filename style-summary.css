@@ -1,0 +1,39 @@
+.Summary-Box-Z-Index-Container {
+    margin-left: 232px;
+    margin-top: 96px;
+    position: fixed;
+    z-index: 4;
+    height: 100vh;
+    width: 100vh;
+}
+
+.Summary-Box-Container {
+    display: flex;
+    align-items: center;
+    margin-top: 110px;
+}
+
+.Headline-Join-360 {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    margin-left: 80px;
+}
+
+.Headline-Blue-Line {
+    height: 63px;
+    border: 2px solid #29ABE2;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.Headline-Join-360-Text {
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    margin-left: 20px;
+}
+
+.To-Do-Six-Box-Container {
+    
+}
