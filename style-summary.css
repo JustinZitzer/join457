@@ -35,5 +35,15 @@
 }
 
 .To-Do-Six-Box-Container {
-    
+    margin-left: 80px;
+    width: 560px;
+    height: 562px;
+}
+
+.First-Two-Box-Container {
+    display: flex;
+}
+
+.First-Two-Box-Container-Flex-Box {
+    display: flex;
 }
