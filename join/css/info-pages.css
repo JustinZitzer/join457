@@ -1,0 +1,19 @@
+.info-pages {
+    margin-left: 328px;
+    margin-right: 80px;
+    margin-top: 190px;
+    margin-bottom: 100px; /*bitte noch anpassen*/
+}
+
+.info-pages a {
+    color: rgba(75,183,232);
+}
+
+.info-pages p {
+    margin-left: 20px; /*bitte noch anpassen*/
+}
+
+.headline-arrow-container {
+    display: flex;
+    justify-content: space-between;
+}

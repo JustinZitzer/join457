@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board | Join</title>
+    <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="board.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="index_html"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('index_html').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+    </script> <!--Bitte erst hier drunter coden-->
+
+    <body>
+
+
+        <div class="task-container-header">
+            <div class="board-text"><span>Board</span></div>
+            <div class="Inputfield-container-find-add-task">
+                <input type="text" placeholder="Find Task" class="text-find-task">
+                <input type="text" placeholder="Add task" class="text-add-task">
+            </div>
+        </div>
+
+        <div class="main-container-todos">
+            <div class="to-do-content-main">
+                <div class="to-do-title">
+                    <span>To do</span>
+                </div>
+            </div>
+
+            <div class="in-progress-content-main">
+                <div class="in-progress-title">
+                    <span>In progress</span>
+                </div>
+            </div>
+
+            <div class="await-feedback-content-main">
+                <div class="await-feedback-title">
+                    <span>Await Feedback</span>
+                </div>
+            </div>
+
+            <div class="done-content-main">
+                <div class="done-title">
+                    <span>Done</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="mainboard-container">
+            <div class="container-todo">
+                <div class="content-title">
+                    <input type="text" placeholder="No tasks To do" class="no-task-to-do-title">
+                </div>
+
+
+            </div>
+            <div class="container-inprogress">
+                <div class="container-user-story">
+                    <div class="container-content-main">
+                        <input type="text" placeholder="User Story" class="user-story-container">
+                        <div class="kochwelt-container">
+                            <div class="title-kochwelt">
+                                <span>Kochwelt Page & Recipe Recommender </span>
+                            </div>
+                            <div class="build-start-page-containr">
+                                <span>Build start page with recipe recommendation...</span>
+                            </div>
+
+
+                            <div class="progressbar-container">
+                                <div class="progress-bar-content"></div>
+                                <div class="subtask-container">
+                                    <span>1/2 Subtasks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-initial-circle">
+                        <div class="circle-with-name-shortcut">
+                            <div class="letter-text">
+                                <span>EF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-initial-circle">
+                        <div class="circle-with-name-shortcut">
+                            <div class="letter-text">
+                                <span>EF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-initial-circle">
+                        <div class="circle-with-name-shortcut">
+                            <div class="letter-text">
+                                <span>EF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        </div>
+        </div>
+
+
+
+    </body>
+
+</html>
