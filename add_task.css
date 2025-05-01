@@ -18,7 +18,7 @@ h3 {
     height: 73px;
     gap: 1px;
     top: 170px;
-    left: 358px;
+    left: 404px;
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
@@ -52,7 +52,7 @@ h3 {
     flex-direction: column;
     width: 440px;
     height: 400px;
-    gap: 8px;
+    gap: 24px;
     top: 327px;
     left: 864.25px;
 }
@@ -78,7 +78,6 @@ h3 {
     flex-direction: column;
     gap: 8px;
     width: 68px;
-    height: 24px;
     font-family: Inter;
     font-weight: 400;
     font-size: 20px;
@@ -111,6 +110,9 @@ h3 {
 }
 
 .arrow-container-red {
+    justify-content: center;
+    display: flex;
+    align-items: center;
     width: 132px;
     height: 56px;
     gap: 8px;
@@ -119,7 +121,6 @@ h3 {
     padding-right: 10px;
     padding-bottom: 16px;
     padding-left: 10px;
-
 }
 
 h4 {
@@ -139,8 +140,6 @@ h5 {
 
 .arrow-red {
     position: relative;
-    left: 52px;
-    bottom: 18px;
     width: 20px;
     height: 14.51px;
 
@@ -148,14 +147,15 @@ h5 {
 
 .arrow-green {
     position: relative;
-    left: 42px;
-    bottom: 18px;
     width: 20px;
     height: 14.51px;
 
 }
 
 .arrow-container-green {
+    justify-content: center;
+    display: flex;
+    align-items: center;
     width: 132px;
     height: 56px;
     gap: 8px;
@@ -325,7 +325,6 @@ h5 {
 .subtask-inputfield-box {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     width: 440px;
     height: 80px;
     gap: 8px;
@@ -495,7 +494,7 @@ h5 {
     height: 24px;
     color: #2A3647;
     left: 400px;
-    top: 45px
+    top: 77px
 }
 
 .assigned-arrow-icon {
@@ -513,5 +512,28 @@ h5 {
     height: 24px;
     left: 400px;
     bottom: 45px;
+
+}
+
+.check-button {
+    position: absolute;
+    bottom: 20px;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    left: 270px;
+    color: #FFFFFF;
+
+}
+
+.close-button {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    color: #2A3647;
+    top: 16px;
+    left: 72px;
+    border-width: 2px;
+
 
 }
