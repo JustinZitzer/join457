@@ -59,11 +59,12 @@
 }
 
 .signup-inputfield-container {
+    display: flex;
+    flex-direction: column;
     width: 422px;
     height: 326px;
-    gap: 16px;
+    gap: 24px;
     background-color: #FFFFFF;
-
 }
 
 .signup-title {
@@ -72,18 +73,97 @@
     Gap: 16px
 }
 
-.underline-text-singup{
+.underline-text-singup {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 12px;
     background-color: white;
+    margin-bottom: 12px;
 }
 
-.inputfield {
+.inputfield-name {
+    display: flex;
+    flex-direction: column;
     width: 422px;
     height: 48px;
     background-color: #FFFFFF;
+    border-width: 1px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+
+}
+
+
+.inputfield-email {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+    height: 48px;
+    background-color: #FFFFFF;
+    border-width: 1px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+
+}
+
+
+.inputfield-password {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+    height: 48px;
+    border-width: 1px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+    background-color: #FFFFFF;
+}
+
+.inputfield-confirm {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+    height: 48px;
+    border-width: 1px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+    background-color: #FFFFFF;
+}
+
+.lock-icon-size {
+    position:absolute;
+    width: 24px;
+    height: 24px;
+}
+
+.email-icon-size {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+}
+
+.name-icon-size {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 470px;
+    top: 160px;
 }
 
 .inputfield::placeholder {
@@ -92,6 +172,45 @@
     line-height: 120%;
     letter-spacing: 0%;
     margin-left: 21px;
+}
+
+.name-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 380px;
+    height: 24px;
+    justify-content: space-between;
+
+
+}
+
+.email-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 380px;
+    height: 24px;
+    justify-content: space-between;
+
+}
+
+.password-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 380px;
+    height: 24px;
+    justify-content: space-between;
+}
+
+.Confirm-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 380px;
+    height: 24px;
+    justify-content: space-between;
 }
 
 .person-icon {

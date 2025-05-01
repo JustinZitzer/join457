@@ -6,3 +6,326 @@
     font-family: 'inter';
     background-color: #E7E7E7;
 }
+
+.main-container-board {
+    position: relative;
+    top: 96px;
+    left: 232px;
+}
+
+.task-container-header {
+    display: flex;
+    width: 1208px;
+    height: 232px;
+    top: 96px;
+    left: 232px;
+    justify-content: space-between;
+    top: 79.5px;
+    left: 64px;
+
+}
+
+.board-text {
+    width: 176px;
+    height: 73px;
+    gap: 1px;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.Inputfield-container-find-add-task {
+    width: 504px;
+    height: 48px;
+    gap: 32px;
+
+}
+
+.text-find-task {
+    width: 312px;
+    height: 48px;
+    border-width: 1px;
+    gap: 10px;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #D1D1D1;
+
+
+}
+
+.text-add-task {
+    width: 160px;
+    height: 48px;
+    border-width: 1px;
+    gap: 4px;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    background-color: #2A3647;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.main-container-todos {
+    display: flex;
+    width: 1208px;
+    height: 24px;
+    justify-content: space-between;
+    top: 200.5px;
+    padding-right: 64px;
+    padding-left: 64px;
+
+}
+
+.to-do-content-main {
+    width: 244px;
+    height: 24px;
+    justify-content: space-between;
+
+}
+
+.to-do-title {
+    width: 54px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+
+}
+
+.in-progress-content-main {
+    width: 244px;
+    height: 24px;
+    justify-content: space-between;
+
+}
+
+.in-progress-title {
+    width: 111px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+
+
+}
+
+.await-feedback-content-main {
+    width: 244px;
+    height: 24px;
+    justify-content: space-between;
+}
+
+.await-feedback-title {
+    width: 152px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+
+}
+
+.done-content-main {
+    width: 244px;
+    height: 24px;
+    justify-content: space-between;
+    Gap: 35px;
+}
+
+.done-title {
+    width: 52px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+
+}
+
+.mainboard-container {
+    display: flex;
+    width: 1208px;
+    height: 688px;
+    gap: 26px;
+    top: 336px;
+    left: 232px;
+    padding-right: 64px;
+    padding-left: 64px;
+    border: 2px solid blue;
+}
+
+.container-todo {
+    width: 246px;
+    height: 688px;
+    gap: 24px;
+
+}
+
+.content-title {
+    text-align: center;
+    width: 111px;
+    height: 19px;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.no-task-to-do-title {
+    width: 246px;
+    height: 48px;
+    border-width: 1px;
+    gap: 10px;
+    border-radius: 10px;
+    background: #E7E7E7;
+
+}
+
+.container-inprogress {
+    width: 252px;
+    height: 688px;
+    gap: 16px;
+
+}
+
+.container-user-story {
+    width: 252px;
+    height: 263px;
+    gap: 10px;
+
+}
+
+.container-content-main {
+    width: 220px;
+    height: 231px;
+    gap: 24px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+}
+
+.user-story-container {
+    width: 113px;
+    height: 27px;
+    gap: 10px;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+    background-color: #0038FF;
+
+}
+
+.kochwelt-container {
+    width: 220px;
+    height: 84px;
+    gap: 8px;
+    background-color: #FFFFFF;
+
+}
+
+.title-kochwelt {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #2A3647;
+}
+
+.build-start-page-container {
+    width: 220px;
+    height: 38px;
+    color: #A8A8A8;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.progressbar-container {
+    display: flex;
+    width: 220px;
+    height: 16px;
+
+}
+
+.progress-bar-content {
+    width: 128px;
+    height: 8px;
+    gap: 10px;
+    top: 4px;
+    border-radius: 8px;
+    padding-right: 64px;
+    color: #F4F4F4;
+    background-color: blue;
+
+}
+
+.subtask-container {
+    width: 73px;
+    height: 14px;
+    left: 139px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+
+}
+
+.container-initial-circle {
+    width: 220px;
+    height: 32px;
+    justify-content: space-between;
+
+}
+
+.circle-with-name-shortcut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    background-color: blue;
+}
+
+.letter-text {
+    width: 21.33333396911621px;
+    height: 7.61904764175415px;
+    top: 12.19px;
+    left: 5.33px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+
+}
