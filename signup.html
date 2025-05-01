@@ -10,44 +10,57 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-        <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
+    <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
 <body>
 
-    <img src="./assets/img/join-logo-white.svg" alt="join-logo">
+    <img class="join-logo" src="./assets/img/join-logo-black.svg" alt="join-logo">
 
     <div class="signup-main-container">
         <div class="arrow-box">
-            <img class="arrow-left" src="./assets/icons/arrow-left.png" alt="">
+            <img class="arrow-left" color="#29ABE2" src="./assets/icons/arrow-left.png" alt="">
         </div>
 
         <div class="title">Sign up
-            <hr  width="30%"color="#29ABE2" heigt>
-
-<img class="person-icon" src="./assets/icons/person.png" alt="person-icon">
-<img class="mail-icon"  src="./assets/icons/mail.png" alt="mail-icon">
-<img class="lock-first" src="./assets/icons/lock-alt.png" alt="lock-first">
-<img class="lock-second" src="./assets/icons/lock-alt.png" alt="lock-second">
+            <div class="underline-text-singup">
+                <hr width="30%" color="#29ABE2" heigt>
+            </div>
 
             <div class="signup-inputfield-container">
-                <input type="inputfield" class="inputfield" placeholder="Name">
-                <input type="inputfield" class="inputfield" placeholder="Email">
-                <input type="inputfield" class="inputfield" placeholder="Password">
-                <input type="inputfield" class="inputfield" placeholder="Confirm Password">
-            </div>
-            <div class="privacy-policy-container">
-                <div class="privacy-policy-accept-button"></div>
-                <div class="text-accept">I accept the</div>
-                <div class="text-privacy-policy">Privacy Policy</div>
-            </div>
-            <div class="sign-up-confirm-container">
-                <div class="sign-up-button-container">
-                    <div class="sign-up-button-content">Sign up
-                    </div>
+                <div class="name-box">
+                    <input type="inputfield" class="inputfield-name" placeholder="Name">
+                    <img class="name-icon-size" src="./assets/icons/person.png" alt="person-icon">
+                </div>
+
+                <div class="email-box">
+                    <input type="inputfield" class="inputfield-email" placeholder="Email">
+                    <img class="email-icon-size" src="./assets/icons/mail.png" alt="mail-icon" alt="email-icon">
+                </div>
+
+                <div class="password-box">
+                    <input type="inputfield" class="inputfield-password" placeholder="Password">
+                    <img class="lock-icon-size-first" src="./assets/icons/lock-alt.png" alt="lock-first"
+                        alt="password-icon">
+                </div>
+
+                <div class="Confirm-box">
+                    <input type="inputfield" class="inputfield-confirm" placeholder="Confirm Password">
+                    <img class="lock-icon-size-second" src="./assets/icons/lock-alt.png" alt="lock-second"
+                        alt="confirm-icon">
+
+                </div>
+                <div class="privacy-policy-container">
+                    <div class="privacy-policy-accept-button"></div>
+                    <div class="text-accept">I accept the</div>
+                    <div class="text-privacy-policy">Privacy Policy</div>
                 </div>
             </div>
+
+            <button class="sign-up-button-container">Sign up</button>
+
         </div>
+    </div>
     </div>
     </div>
     </div>

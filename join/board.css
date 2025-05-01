@@ -1,19 +1,10 @@
-.main-container-board {
-    position: relative;
-    top: 96px;
-    left: 232px;
-}
-
 .task-container-header {
     display: flex;
-    width: 1208px;
-    height: 232px;
-    top: 96px;
-    left: 232px;
+    width: 1056px;
+    height: 73px;
     justify-content: space-between;
     top: 79.5px;
     left: 64px;
-
 }
 
 .board-text {
