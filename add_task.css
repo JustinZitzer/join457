@@ -18,8 +18,7 @@ h3 {
     height: 73px;
     gap: 1px;
     top: 170px;
-    left: 390px;
-    font-family: Inter;
+    left: 358px;
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
@@ -415,29 +414,54 @@ h3 {
 /* Icons */
 
 .double-arrowup-box-up {
-    position: absolute;
+    position: relative;
+    top: 315px;
     width: 20px;
     height: 14.51px;
     color: #FF3D00;
-    left: 950px;
-    bottom: 595px;
+
 }
 
 .double-arrowup-box-down {
-    position: absolute;
     width: 20px;
     height: 14.51px;
-    left: 1210px;
-    bottom: 595px;
     color: #7AE229;
 }
 
+
 .calendar-clock {
-    position:relative;
+    position: relative;
     width: 18px;
     height: 20px;
     top: 14px;
     left: 400px;
     top: 72px;
     color: #2A3647;
+}
+
+.add-icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    color: #2A3647;
+    left: 400px;
+    top: 45px
+}
+
+.assigned-arrow-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 45px;
+
+}
+
+.assigned-arrow-icon-down {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 45px;
+
 }
