@@ -40,19 +40,22 @@
     height: 20px;
     top: 5.63px;
     left: 5.33px;
-    background-color: black;
 }
+
 
 .title {
     text-align: center;
     font-size: 61px;
     background-color: #FFFFFF;
+    font-weight: 700;
+
 }
 
 .signup-content {
     width: 315px;
     height: 89px;
     gap: 16px;
+
 }
 
 .signup-inputfield-container {
@@ -60,6 +63,7 @@
     height: 326px;
     gap: 16px;
     background-color: #FFFFFF;
+
 }
 
 .signup-title {
@@ -68,11 +72,26 @@
     Gap: 16px
 }
 
+.underline-text-singup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    background-color: white;
+}
+
 .inputfield {
     width: 422px;
     height: 48px;
-    Gap: 8px;
     background-color: #FFFFFF;
+}
+
+.inputfield::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    margin-left: 21px;
 }
 
 .person-icon {
@@ -80,7 +99,7 @@
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 210px;
+    top: 185px;
     background-color: #FFFFFF;
 }
 
@@ -89,7 +108,7 @@
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 285px;
+    top: 265px;
     background-color: #FFFFFF;
 }
 
@@ -98,7 +117,7 @@
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 358px;
+    top: 340px;
     background-color: #FFFFFF;
 }
 
@@ -107,7 +126,7 @@
     width: 24px;
     height: 24px;
     left: 475px;
-    top: 433px;
+    top: 418px;
     background-color: #FFFFFF;
 }
 
@@ -149,7 +168,7 @@ h1 {
 }
 
 .text-privacy-policy {
-    width: 105px;
+    width: 122px;
     height: 19px;
     font-size: 16px;
     color: #29ABE2;
@@ -200,11 +219,10 @@ h1 {
     top: 949px;
     left: 597px;
 
-
 }
 
 .privacy-text {
-    width: 121px;
+    width: 130px;
     height: 35px;
     gap: 8px;
     padding: 8px;
