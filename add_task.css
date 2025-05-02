@@ -26,9 +26,6 @@ h3 {
     color: #000000;
 
 
-
-
-
 }
 
 .main-container-for-two-inputfield-container {
@@ -164,6 +161,7 @@ h3 {
     padding-right: 10px;
     padding-bottom: 16px;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 h4 {
@@ -199,6 +197,7 @@ h5 {
     justify-content: center;
     display: flex;
     align-items: center;
+    cursor: pointer;
     width: 136px;
     height: 56px;
     gap: 8px;
@@ -227,6 +226,7 @@ h5 {
     padding-left: 10px;
     font-size: 21px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .text-inputfield-medium::placeholder {
@@ -247,6 +247,7 @@ h5 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
+    cursor: pointer;
 
 }
 
@@ -432,8 +433,8 @@ h5 {
     width: 170px;
     height: 27px;
     top: 600px;
-    left:0px;
-    
+    left: 0px;
+
 }
 
 .field-required:before {
@@ -448,7 +449,7 @@ h5 {
     height: 56px;
     left: 950px;
     gap: 16px;
-top:889px;
+    top: 889px;
 
 }
 
@@ -461,7 +462,7 @@ top:889px;
     padding: 16px;
     color: #2A3647;
     border: solid 1px #2A3647;
-
+    cursor: pointer;
 }
 
 .clear-text {
@@ -484,7 +485,7 @@ top:889px;
     border-radius: 10px;
     padding: 16px;
     background-color: #2A3647;
-
+cursor: pointer;
 }
 
 .text-create-field {
@@ -496,6 +497,7 @@ top:889px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #FFFFFF;
+    cursor: pointer;
 
 }
 
@@ -525,16 +527,17 @@ top:889px;
     top: 14px;
     left: 400px;
     top: 72px;
+    cursor: pointer;
+    ;
     color: #2A3647;
 }
 
 .add-icon-container {
     position: relative;
-    width: 24px;
-    height: 24px;
     color: #2A3647;
     left: 315px;
-    top: 44px;
+    top: 35px;
+    cursor: pointer;
 }
 
 .assigned-arrow-icon {
@@ -543,6 +546,7 @@ top:889px;
     height: 24px;
     left: 400px;
     bottom: 45px;
+    cursor: pointer;
 
 }
 
@@ -552,6 +556,7 @@ top:889px;
     height: 24px;
     left: 400px;
     bottom: 45px;
+    cursor: pointer;
 
 }
 
