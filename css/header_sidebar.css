@@ -27,6 +27,38 @@ header h1 {
     gap: 16px;
 }
 
+.user-profile-menu {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 160px;
+    height: 158px;
+    border-radius: 20px 0px 20px 20px;
+    background-color: rgba(42, 54, 71, 1);
+}
+
+.user-profile-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;;
+    gap: 8px;
+    padding: 10px;
+}
+
+.user-profile-content a {
+    text-decoration: none;
+    color: rgba(168, 168, 168, 1);
+    font-weight: 400;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.user-profile-content a:hover {
+    background-color: rgba(9, 25, 49, 1);
+    color: white;
+}
+
 .user-profile {
     display: flex;
     justify-content: center;
@@ -43,7 +75,7 @@ header h1 {
 }
 
 .user-profile-font {
-    font-weight: bold; /*größe bzw dicke anpassen, ist mir nicht ersichtlich*/
+    font-weight: bold;
     color: rgba(41, 171, 226, 1);
 }
 
@@ -103,12 +135,12 @@ header h1 {
 }
 
 .nav-links img {
-    margin-right: 10px; /*nicht fest vergeben bei figma, passt das so???*/
+    margin-right: 10px;
 }
 
 .sidebar-join-logo {
     margin-bottom: 100px;
-    } /*das margin ist nicht in figma angegeben*/
+}
 
 footer {
     display: flex;
