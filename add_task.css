@@ -76,7 +76,7 @@ h3 {
 .text-priority {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 24px;
     width: 68px;
     font-family: Inter;
     font-weight: 400;
@@ -321,13 +321,10 @@ h5 {
 
 }
 
-
 .subtask-inputfield-box {
-    display: flex;
     flex-direction: column;
     width: 440px;
     height: 80px;
-    gap: 8px;
     color: #2A3647;
 }
 
