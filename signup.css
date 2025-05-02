@@ -4,6 +4,22 @@
     background-color: #F6F7F8;
 }
 
+.main-container-join {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.container-join-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 80%;
+}
+
 .join-logo {
     position: absolute;
     width: 100px;
@@ -14,7 +30,6 @@
 }
 
 .signup-main-container {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,9 +42,8 @@
 }
 
 .arrow-box {
-    position: absolute;
-    top: 90px;
-    left: 70px;
+    position: relative;
+    bottom: 230px;
     width: 32px;
     height: 32px;
     background-color: #FFFFFF;
@@ -146,37 +160,38 @@
     background-color: #FFFFFF;
 }
 
-.lock-icon-size-first {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left:470px;
-    top:300px;
-}
-
-.lock-icon-size-second {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left:470px;
-    top:355px;
-}
-
 .email-icon-size {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 470px;
-    top: 240px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    bottom: 37px;
+    left: 380px;
 }
 
 .name-icon-size {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 470px;
-    top: 180px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    bottom: 40px;
+    left: 380px;
 }
+
+.lock-icon-size-first {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    left: 380px;
+    bottom: 37px;
+}
+
+.lock-icon-size-second {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    left: 380px;
+    bottom: 37px;
+}
+
 
 .inputfield::placeholder {
     font-weight: 400;
