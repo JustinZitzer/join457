@@ -224,11 +224,13 @@
 }
 
 .contacts-overlay-edit-container {
+    cursor: pointer;
     display: flex;
     gap: 8px;
 }
 
 .contacts-overlay-delete-container {
+    cursor: pointer;
     display: flex;
     gap: 8px;
 }
@@ -245,6 +247,7 @@
 }
 
 .contacts-details-container a {
+    cursor: pointer;
     font-weight: 400;
     font-size: 16px;
 }
