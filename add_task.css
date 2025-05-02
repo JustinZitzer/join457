@@ -78,6 +78,7 @@ h3 {
 .inputfield-box-right-side {
     display: flex;
     flex-direction: column;
+    gap: 24px;
     width: 440px;
     height: 400px;
     top: 327px;
@@ -120,7 +121,7 @@ h3 {
 .main-box-inputfield {
     display: flex;
     justify-content: space-around;
-    gap: 8px;
+    gap: 16px;
 }
 
 .title-inputfield-enter-title {
@@ -348,7 +349,6 @@ h5 {
     gap: 8px;
     width: 440px;
     height: 80px;
-    gap: 8px;
     color: #2A3647;
 }
 
@@ -359,16 +359,17 @@ h5 {
     gap: 8px;
     width: 440px;
     height: 80px;
-    gap: 8px;
     color: #2A3647;
 
 }
 
 .subtask-inputfield-box {
+    display: flex;
     flex-direction: column;
     width: 440px;
     height: 80px;
     color: #2A3647;
+    gap: 8px;
 }
 
 .inputfield-text-assign {
@@ -417,7 +418,6 @@ h5 {
     height: 48px;
     width: 440px;
     border-width: 1px;
-    justify-content: space-between;
     border-radius: 10px;
     padding-top: 12px;
     padding-right: 16px;
