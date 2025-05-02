@@ -136,7 +136,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-left: 65px;
+    margin-left: 70px;
 }
 
 .Double-Arrow-Up-Icon {
@@ -178,5 +178,7 @@
 }
 
 .Date-Of-The-Deadline {
-    
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
 }
