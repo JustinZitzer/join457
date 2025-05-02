@@ -136,10 +136,47 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-left: 60px;
+    margin-left: 65px;
 }
 
 .Double-Arrow-Up-Icon {
     position: absolute;
     left: 13px;
+}
+
+.Counter-Urgent-Text-Div {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Counter-Urgent {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.Urgent-Text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+.Second-One-Box-Container-Line {
+    height: 102px;
+    border: 1px solid #D1D1D1;
+    border-radius: 2px;
+    margin-left: 50px;
+}
+
+.Date-And-Deadline-Div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+}
+
+.Date-Of-The-Deadline {
+    
 }
