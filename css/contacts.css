@@ -122,6 +122,11 @@
 
 /*ab hier rechte seite*/
 
+.contacts-right-main-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .contacts-side-headline {
     margin-top: 206px;
     margin-left: 60px;
@@ -148,4 +153,110 @@
     width: 3px;
     border-radius: 3px;
     background-color: rgba(41, 171, 226, 1);
+}
+
+.contacts-overlay-container {
+    display: flex;
+    flex-direction: column;
+    width: 461px;
+    height: 364px;
+    margin-top: 120px;
+    margin-left: 60px;
+    gap: 21px;
+}
+
+.contacts-overlay-container span {
+    display: flex;
+    font-weight: 400;
+    font-size: 20px;
+    gap: 59px;
+}
+
+.contacts-overlay-header {
+    display: flex;
+    width: 461px;
+    height: 120px;
+    gap: 54px;
+}
+
+.contacts-overlay-user-profile {
+    background-color: #FF7A00;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 500;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 3px;
+    gap: 10px;
+}
+
+.contacts-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 287px;
+    height: 88px;
+    gap: 8px;
+}
+
+.contacts-info-headline-container {
+    width: 287px;
+    height: 56px;
+    gap: 5px;
+}
+
+.contacts-info-container h3 {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.contacts-overlay-action-buttons-container {
+    display: flex;
+    gap: 13px;
+}
+
+.contacts-overlay-action-buttons-container p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contacts-overlay-edit-container {
+    display: flex;
+    gap: 8px;
+}
+
+.contacts-overlay-delete-container {
+    display: flex;
+    gap: 8px;
+}
+
+.contacts-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contacts-details-container h4 {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.contacts-details-container a {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contacts-email-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacts-phone-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
