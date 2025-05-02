@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     font-family: 'inter';
-    background-color: #F6F7F8;
 }
 
 .main-container-join {
@@ -293,6 +292,7 @@ h1 {
     border: 2px solid black;
     border-radius: 3px;
     background-color: #FFFFFF;
+    cursor: pointer;
 }
 
 .text-accept {
@@ -328,6 +328,7 @@ h1 {
     font-weight: 700;
     background-color: #2A3647;
     bottom: 40px;
+    cursor: pointer;
 
 }
 
