@@ -266,13 +266,17 @@
 
 .add-contact-overlay {
     display: flex;
-    position: absolute; /*muss angepasst werden*/
-    top: 300px; /*muss angepasst werden*/
-    left: 500px; /*muss angepasst werden*/
+    position: absolute;
+    /*muss angepasst werden*/
+    top: 300px;
+    /*muss angepasst werden*/
+    left: 500px;
+    /*muss angepasst werden*/
     width: 1212px;
     height: 592px;
     border-radius: 30px;
     background-color: white;
+    box-shadow: 0px 0px 4px rgba(42, 54, 71, 1);
 }
 
 .add-contact-left-section {
@@ -301,6 +305,7 @@
     flex-direction: column;
     color: white;
     gap: 16px;
+    margin-top: 20px;
 }
 
 .add-contact-headline h1 {
@@ -392,4 +397,44 @@
 
 .add-contact-phone-input {
     background-image: url(../assets/icons/phone-icon.svg);
+}
+
+.add-contact-btn-section {
+    display: flex;
+    margin-top: 16px;
+    width: 364px;
+    height: 57px;
+    gap: 24px;
+}
+
+.add-contact-cancel-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 126px;
+    height: 56px;
+    background-color: white;
+    border: 1px solid rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    color: rgba(42, 54, 71, 1);
+    padding: 16px;
+    gap: 9px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.add-contact-create-contact-btn {
+    cursor: pointer;
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 21px;
 }
