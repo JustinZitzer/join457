@@ -122,6 +122,11 @@
 
 /*ab hier rechte seite*/
 
+.contacts-right-main-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .contacts-side-headline {
     margin-top: 206px;
     margin-left: 60px;
@@ -148,4 +153,288 @@
     width: 3px;
     border-radius: 3px;
     background-color: rgba(41, 171, 226, 1);
+}
+
+.contacts-overlay-container {
+    display: flex;
+    flex-direction: column;
+    width: 461px;
+    height: 364px;
+    margin-top: 120px;
+    margin-left: 60px;
+    gap: 21px;
+}
+
+.contacts-overlay-container span {
+    display: flex;
+    font-weight: 400;
+    font-size: 20px;
+    gap: 59px;
+}
+
+.contacts-overlay-header {
+    display: flex;
+    width: 461px;
+    height: 120px;
+    gap: 54px;
+}
+
+.contacts-overlay-user-profile {
+    background-color: #FF7A00;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 500;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 3px;
+    gap: 10px;
+}
+
+.contacts-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 287px;
+    height: 88px;
+    gap: 8px;
+}
+
+.contacts-info-headline-container {
+    width: 287px;
+    height: 56px;
+    gap: 5px;
+}
+
+.contacts-info-container h3 {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.contacts-overlay-action-buttons-container {
+    display: flex;
+    gap: 13px;
+}
+
+.contacts-overlay-action-buttons-container p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contacts-overlay-edit-container {
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+}
+
+.contacts-overlay-delete-container {
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+}
+
+.contacts-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contacts-details-container h4 {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.contacts-details-container a {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contacts-email-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacts-phone-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-contact-overlay {
+    display: flex;
+    position: absolute;
+    /*muss angepasst werden*/
+    top: 300px;
+    /*muss angepasst werden*/
+    left: 500px;
+    /*muss angepasst werden*/
+    width: 1212px;
+    height: 592px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 4px rgba(42, 54, 71, 1);
+}
+
+.add-contact-left-section {
+    width: 467px;
+    height: 594px;
+    padding: 66px 48px;
+    gap: 12px;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 30px 0px 0px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-contact-left-section-content {
+    margin-left: 46.9px;
+}
+
+.add-contact-join-logo {
+    width: 55.6px;
+    height: 66.48px;
+    margin-top: 154px;
+}
+
+.add-contact-headline {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.add-contact-headline h1 {
+    font-weight: 700;
+    font-size: 57px;
+}
+
+.add-contact-headline h2 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.add-contact-underlined {
+    width: 90px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgba(41, 171, 226, 1);
+}
+
+.add-contact-right-section {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.add-contact-person-svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 120px;
+    background-color: #d1d1d1;
+    border-radius: 100%;
+}
+
+.add-contact-close-btn {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 40px;
+    right: 40px;
+}
+
+.add-contact-right-section form {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+    height: 215px;
+    gap: 32px;
+}
+
+.add-contact-input-containers {
+    display: flex;
+    width: 422px;
+    height: 50px;
+    gap: 8px;
+    margin-left: 60px;
+}
+
+.add-contact-input-containers input {
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    display: flex;
+    justify-content: space-between;
+    width: 422px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    padding: 13px 21px;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.add-contact-input-containers input:focus {
+    outline: 1px solid rgba(41, 171, 226, 1);
+}
+
+.add-contact-name-input {
+    background-image: url(../assets/icons/person-icon.svg);
+}
+
+.add-contact-email-input {
+    background-image: url(../assets/icons/mail.svg);
+}
+
+.add-contact-phone-input {
+    background-image: url(../assets/icons/phone-icon.svg);
+}
+
+.add-contact-btn-section {
+    display: flex;
+    margin-top: 16px;
+    width: 364px;
+    height: 57px;
+    gap: 24px;
+}
+
+.add-contact-cancel-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 126px;
+    height: 56px;
+    background-color: white;
+    border: 1px solid rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    color: rgba(42, 54, 71, 1);
+    padding: 16px;
+    gap: 9px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.add-contact-create-contact-btn {
+    cursor: pointer;
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 21px;
 }
