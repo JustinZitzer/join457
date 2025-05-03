@@ -377,7 +377,6 @@ h5 {
     width: 440px;
     height: 48px;
     border-width: 1px;
-    justify-content: space-between;
     border-radius: 10px;
     padding-top: 12px;
     padding-right: 16px;
@@ -416,6 +415,8 @@ h5 {
 }
 
 .inputfield-subtask-assign {
+    display: flex;
+    justify-content: space-between;
     height: 48px;
     width: 440px;
     border-width: 1px;
@@ -426,6 +427,10 @@ h5 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+}
+
+.subtask-inputfield-container {
+    position: absolute;
 }
 
 .field-required {
@@ -534,9 +539,11 @@ h5 {
 
 .add-icon-container {
     position: relative;
+    top: 41px;
+    left: 400px;
+    height: 24px;
+    width: 24px;
     color: #2A3647;
-    left: 315px;
-    top: 35px;
     cursor: pointer;
 }
 
