@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 * {
+=======
+*body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'inter';
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     box-sizing: border-box;
     scroll-behavior: smooth;
     margin: 0;
@@ -123,13 +131,21 @@ h3 {
 
 .todos-bar-container {
     display: flex;
+<<<<<<< HEAD
     width: 200px;
     height: 24px;
+=======
+    width: 1208px;
+    height: 24px;
+    top: 200.5px;
+    padding-right: 64px;
+    padding-left: 64px;
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     border: 2px solid black;
+    margin-top: 200.5px;
 }
 
 .todo-container {
-    position: absolute;
     width: 244px;
     height: 24px;
     justify-content: space-between;
@@ -139,12 +155,31 @@ h3 {
 .todo-content {
     width: 54px;
     height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.inprogress-container {
+    width: 244px;
+    height: 24px;
+    margin-left: 32px;
+    justify-content: space-between;
+
+}
+
+.inprogress-content {
+    width: 111px;
+    height: 24px;
     font-family: Inter;
     font-weight: 700;
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
+<<<<<<< HEAD
 
 }
 
@@ -213,6 +248,87 @@ h3 {
 }
 
 .user-story-container {
+=======
+}
+
+.await-feedback-task-container {
+    width: 244px;
+    height: 24px;
+    margin-left: 32px;
+    justify-content: space-between;
+
+}
+
+.await-feedback-content {
+    width: 152px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.done-task-container {
+    margin-left: 32px;
+    width: 244px;
+    height: 24px;
+    gap: 35px;
+
+}
+
+.done-content {
+    width: 52px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.main-container-middle-part {
+    display: flex;
+    width: 1208px;
+    height: 688px;
+    top: 336px;
+    margin-top: 110px;
+    margin-left: 232px;
+    gap: 24px;
+    padding-right: 64px;
+    padding-left: 64px;
+    border: solid 2px black;
+}
+
+.todo-container-middle {
+    width: 252px;
+    height: 688px;
+    border: 2px solid black;
+}
+
+.todo-content-box {
+    width: 252px;
+    height: 244px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.todo-user-story-box {
+    width: 220px;
+    height: 212px;
+    gap: 24px;
+
+}
+
+.user-story-image {
+    position: relative;
+    right: 15px;
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 113px;
     height: 27px;
     gap: 10px;
@@ -221,6 +337,7 @@ h3 {
     padding-right: 16px;
     padding-bottom: 4px;
     padding-left: 16px;
+<<<<<<< HEAD
     background-color: #0038FF;
 
 }
@@ -245,6 +362,21 @@ h3 {
     width: 220px;
     height: 38px;
     color: #A8A8A8;
+=======
+
+}
+
+.text-box-contact {
+    width: 220px;
+    height: 65px;
+    gap: 8px;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+.text-contact-content {
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -252,13 +384,18 @@ h3 {
 
 }
 
+<<<<<<< HEAD
 .progressbar-container {
     display: flex;
+=======
+.progressbar-box {
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 220px;
     height: 16px;
 
 }
 
+<<<<<<< HEAD
 .progress-bar-content {
     width: 128px;
     height: 8px;
@@ -275,19 +412,33 @@ h3 {
     width: 73px;
     height: 14px;
     left: 139px;
+=======
+.progressbar-content {
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
     letter-spacing: 0%;
+<<<<<<< HEAD
 }
 
 .container-initial-circle {
+=======
+    top: 4px;
+    gap: 10px;
+    border-radius: 8px;
+
+}
+
+.user-story-three-circle-content {
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 220px;
     height: 32px;
     justify-content: space-between;
 
 }
 
+<<<<<<< HEAD
 .circle-with-name-shortcut {
     display: flex;
     justify-content: center;
@@ -311,4 +462,72 @@ h3 {
     text-align: center;
     vertical-align: middle;
 
+=======
+.progressbar-container-middle-part {
+    width: 252px;
+    height: 688px;
+    gap: 16px;
+
+}
+
+.progressbar-content-box {
+    width: 252px;
+    height: 263px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.text-field-progressbar {
+    width: 220px;
+    height: 84px;
+    gap: 8px;
+    border-radius: 10px;
+
+}
+
+.progressbar-content-half-filled {
+    width: 220px;
+    height: 16px;
+
+}
+
+
+.three-circle-content-inprogressbar {
+    width: 220px;
+    height: 32px;
+    justify-content: space-between;
+}
+
+.await-feedback-bar-content-box {
+    width: 252px;
+    height: 196px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.awaitbar-content-box {
+    width: 252px;
+    height: 215px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.done-content-box {
+    width: 252px;
+    height: 244px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+    ;
+>>>>>>> 5187028c3e287df72c97034c7216475c758a5055
 }
