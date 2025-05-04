@@ -2,7 +2,7 @@ function getNavLinkLogInTemplate() {
     return `
         <ul class="nav-links">
             <li>
-                <a>
+                <a href="index.html">
                     <img src="./assets/icons/log-in-icon.svg" alt="log-in-icon">
                     <span>Log In</span>
                 </a>
@@ -13,7 +13,7 @@ function getNavLinkLogInTemplate() {
 
 function getContactOverlay() {
     return `
-    <div class="contacts-overlay-container"> <!--in JS implementieren-->
+    <div id="contacts_side_overlay" class="contacts-overlay-container">
                 <div class="contacts-overlay-header">
                     <div class="contacts-overlay-user-profile">
                         <p>AM</p>
@@ -21,7 +21,7 @@ function getContactOverlay() {
                     <div class="contacts-info-container">
                         <h3>Anton Za</h3>
                         <div class="contacts-overlay-action-buttons-container">
-                            <div class="contacts-overlay-edit-container">
+                            <div onclick="openEditContactOverlay()" class="contacts-overlay-edit-container">
                                 <img src="./assets/icons/edit-icon.svg" alt="edit-icon">
                                 <p>Edit</p>
                             </div>
@@ -49,7 +49,7 @@ function getContactOverlay() {
 
 function getAddContactOverlay() {
     return `
-    <div class="add-contact-overlay">
+    <div id="add_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
                 <div class="add-contact-left-section-content">
                     <img class="add-contact-join-logo" src="./assets/img/join-logo-white.svg" alt="join-logo-white">
@@ -61,7 +61,7 @@ function getAddContactOverlay() {
                 </div>
             </div>
             <div class="add-contact-right-section">
-                <img class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                <img onclick="removeAddNewContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
                 <div class="add-contact-person-svg-container">
                     <img src="./assets/img/contacts-person.svg" alt="contact-person">
                 </div>
@@ -76,7 +76,7 @@ function getAddContactOverlay() {
                         <input class="add-contact-phone-input" type="text" placeholder="Phone">
                     </div>
                     <div class="add-contact-btn-section">
-                        <button class="add-contact-cancel-btn">Cancel <img src="./assets/icons/contacts-close-icon.svg" alt="close-icon"></button>
+                        <button onclick="removeAddNewContactOverlay()" class="add-contact-cancel-btn">Cancel <img src="./assets/icons/contacts-close-icon.svg" alt="close-icon"></button>
                         <button class="add-contact-create-contact-btn">Create Contact <img src="./assets/icons/check-icon.svg" alt="check-icon"></button>
                     </div>
                 </form>
@@ -87,7 +87,7 @@ function getAddContactOverlay() {
 
 function getEditContactOverlay() {
     return `
-    <div class="add-contact-overlay">
+    <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
                 <div class="add-contact-left-section-content">
                     <img class="add-contact-join-logo" src="./assets/img/join-logo-white.svg" alt="join-logo-white">
@@ -98,7 +98,7 @@ function getEditContactOverlay() {
                 </div>
             </div>
             <div class="add-contact-right-section">
-                <img class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                <img onclick="removeEditContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
                 <div class="add-contact-person-svg-container">
                     <p>AZ</p>
                 </div>
@@ -126,11 +126,11 @@ function getEditContactOverlay() {
 
 function getUserProfileMenuOverlay() {
     return `
-    <div class="user-profile-menu"> <!--in JS implementieren-->
+    <div class="user-profile-menu">
             <div class="user-profile-content">
                 <a href="legal_notice.html">Legal Notice</a>
                 <a href="privacy_policy.html">Privacy Policy</a>
-                <a href="">Log Out</a> <!--href ergänzen-->
+                <a href="index.html">Log Out</a>
             </div>
         </div>
     `;

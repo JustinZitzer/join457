@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/header_sidebar.css">
     <link rel="stylesheet" href="./css/contacts.css">
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
+
 </head>
 
 <body>
@@ -28,16 +29,16 @@
                 console.error('Fehler beim Laden der Datei:', error);
             });
     </script>
-    <main class="contacts-content">
+    <main id="main_contacts" class="contacts-content">
         <div class="contacts-sidebar-container">
-            <button class="add-new-contact-btn">
+            <button class="add-new-contact-btn" onclick="openAddNewContactOverlay()">
                 <p>Add new contact</p>
                 <img src="./assets/icons/new-contact-icon.svg" alt="new-contact-icon">
             </button>
             <div class="contact-list">
                 <p>A</p> <!--Variable einfügen-->
                 <div class="contact-list-seperator"></div>
-                <div class="contact-card">
+                <div class="contact-card" onclick="openContactsSideCardOverlay()">
                     <div class="contact-profile">AZ</div> <!--vervollständigen-->
                     <div class="contact-info">
                         <span>Anton</span><!--Variable einfügen-->
@@ -46,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="contacts-right-main-container">
+        <div id="contacts_right_section" class="contacts-right-main-container">
             <div class="contacts-side-headline">
                 <h1>Contacts</h1>
                 <div class="contacts-headline-seperator">
@@ -55,6 +56,9 @@
             </div>
         </div>
     </main>
+    <script src="script.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/templates.js"></script>
 </body>
 
 </html>

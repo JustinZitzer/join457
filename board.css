@@ -8,7 +8,13 @@ main {
     display: flex;
     width: 1056px;
     height: 73px;
+<<<<<<< HEAD
     border: 2px solid black;
+=======
+    top: 79.5px;
+    left: 64px;
+
+>>>>>>> 57b80aabf5bd34f5539ac7918f69a10e104ef2b6
 }
 
 h3 {
@@ -120,7 +126,6 @@ h3 {
     top: 200.5px;
     padding-right: 64px;
     padding-left: 64px;
-    border: 2px solid black;
     margin-top: 200.5px;
 }
 
@@ -226,13 +231,11 @@ h3 {
     gap: 24px;
     padding-right: 64px;
     padding-left: 64px;
-    border: solid 2px black;
 }
 
 .todo-container-middle {
     width: 252px;
     height: 688px;
-    border: 2px solid black;
 }
 
 .todo-content-box {
