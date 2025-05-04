@@ -8,13 +8,9 @@ main {
     display: flex;
     width: 1056px;
     height: 73px;
-<<<<<<< HEAD
     border: 2px solid black;
-=======
     top: 79.5px;
     left: 64px;
-
->>>>>>> 57b80aabf5bd34f5539ac7918f69a10e104ef2b6
 }
 
 h3 {
