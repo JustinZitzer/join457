@@ -1,5 +1,8 @@
 *body {
-
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'inter';
     box-sizing: border-box;
     width: 1440px;
     height: 100vh;
@@ -135,18 +138,17 @@ h3 {
 }
 
 .todos-bar-container {
-    position: absolute;
+    display: flex;
     width: 1208px;
     height: 24px;
     top: 200.5px;
-    justify-content: space-between;
     padding-right: 64px;
     padding-left: 64px;
     border: 2px solid black;
+    margin-top: 200.5px;
 }
 
 .todo-container {
-    position: absolute;
     width: 244px;
     height: 24px;
     justify-content: space-between;
@@ -156,10 +158,195 @@ h3 {
 .todo-content {
     width: 54px;
     height: 24px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.inprogress-container {
+    width: 244px;
+    height: 24px;
+    margin-left: 32px;
+    justify-content: space-between;
+
+}
+
+.inprogress-content {
+    width: 111px;
+    height: 24px;
     font-family: Inter;
     font-weight: 700;
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
+}
+
+.await-feedback-task-container {
+    width: 244px;
+    height: 24px;
+    margin-left: 32px;
+    justify-content: space-between;
+
+}
+
+.await-feedback-content {
+    width: 152px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.done-task-container {
+    margin-left: 32px;
+    width: 244px;
+    height: 24px;
+    gap: 35px;
+
+}
+
+.done-content {
+    width: 52px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #42526E;
+}
+
+.main-container-middle-part {
+    display: flex;
+    width: 1208px;
+    height: 688px;
+    top: 336px;
+    margin-top: 110px;
+    margin-left: 232px;
+    gap: 24px;
+    padding-right: 64px;
+    padding-left: 64px;
+    border: solid 2px black;
+}
+
+.todo-container-middle {
+    width: 252px;
+    height: 688px;
+    border: 2px solid black;
+}
+
+.todo-content-box {
+    width: 252px;
+    height: 244px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.todo-user-story-box {
+    width: 220px;
+    height: 212px;
+    gap: 24px;
+
+}
+
+.user-story-image {
+    position: relative;
+    right: 15px;
+    width: 113px;
+    height: 27px;
+    gap: 10px;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+
+}
+
+.text-box-contact {
+    width: 220px;
+    height: 65px;
+    gap: 8px;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+.text-contact-content {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.progressbar-box {
+    width: 220px;
+    height: 16px;
+
+}
+
+.progressbar-content {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    top: 4px;
+    gap: 10px;
+    border-radius: 8px;
+
+}
+
+.user-story-three-circle-content {
+    width: 220px;
+    height: 32px;
+    justify-content: space-between;
+
+}
+
+.progressbar-container-middle-part {
+    width: 252px;
+    height: 688px;
+    gap: 16px;
+
+}
+
+.progressbar-content-box {
+    width: 252px;
+    height: 263px;
+    gap: 10px;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: #FFFFFF;
+
+}
+
+.text-field-progressbar {
+    width: 220px;
+    height: 84px;
+    gap: 8px;
+    border-radius: 10px;
+
+}
+
+.progressbar-content-half-filled {
+    width: 220px;
+    height: 16px;
+
+}
+
+
+.three-circle-content-inprogressbar {
+    width: 220px;
+    height: 32px;
+    justify-content: space-between;
 }
