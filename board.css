@@ -28,7 +28,6 @@
     height: 73px;
     top: 79.5px;
     left: 64px;
-    border: 2px solid black;
 
 }
 
@@ -144,7 +143,6 @@ h3 {
     top: 200.5px;
     padding-right: 64px;
     padding-left: 64px;
-    border: 2px solid black;
     margin-top: 200.5px;
 }
 
@@ -250,13 +248,11 @@ h3 {
     gap: 24px;
     padding-right: 64px;
     padding-left: 64px;
-    border: solid 2px black;
 }
 
 .todo-container-middle {
     width: 252px;
     height: 688px;
-    border: 2px solid black;
 }
 
 .todo-content-box {
