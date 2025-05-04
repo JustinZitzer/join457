@@ -93,6 +93,10 @@
     box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+.contact-card-acticated {
+    background-color: rgba(42, 54, 71, 1);
+}
+
 .contact-profile {
     display: flex;
     justify-content: center;

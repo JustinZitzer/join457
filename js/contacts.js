@@ -6,8 +6,14 @@ function openContactsSideCardOverlay() {
     const contactsRightSection = document.getElementById('contacts_right_section')
     if (!openedContactsSideCardOverlay) {
         contactsRightSection.innerHTML += getContactOverlay();
+        toggleContactCardColor();
         openedContactsSideCardOverlay = true;
     }
+}
+
+function toggleContactCardColor() {
+    const contactCard = document.getElementById('contact_card');
+    contactCard.classList.toggle('contact-card-acticated'); /*hier gehts weiter */
 }
 
 /*funktionen der card ergänzen*/
