@@ -50,11 +50,12 @@
     padding-top: 12px;
     padding-bottom: 12px;
     gap: 16px;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .add-new-contact-btn:hover {
     background-color: rgba(41, 171, 226, 1);
-    box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .add-new-contact-btn p {
@@ -84,11 +85,12 @@
     align-items: center;
     gap: 35px;
     border-radius: 10px;
-
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .contact-card:hover {
     background-color: rgb(226, 226, 226);
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .contact-profile {
@@ -229,10 +231,34 @@
     gap: 8px;
 }
 
+.contacts-overlay-edit-container:hover {
+    color: rgba(41, 171, 226, 1);
+}
+
+.contacts-overlay-edit-container img {
+    filter: brightness(0) saturate(100%);
+}
+
+.contacts-overlay-edit-container:hover img {
+    filter: brightness(0) saturate(100%) invert(55%) sepia(95%) saturate(730%) hue-rotate(165deg) brightness(92%) contrast(89%);
+}
+
 .contacts-overlay-delete-container {
     cursor: pointer;
     display: flex;
     gap: 8px;
+}
+
+.contacts-overlay-delete-container:hover {
+    color: rgba(41, 171, 226, 1);
+}
+
+.contacts-overlay-delete-container img {
+    filter: brightness(0) saturate(100%);
+}
+
+.contacts-overlay-delete-container:hover img {
+    filter: brightness(0) saturate(100%) invert(55%) sepia(95%) saturate(730%) hue-rotate(165deg) brightness(92%) contrast(89%);
 }
 
 .contacts-details-container {
@@ -262,6 +288,11 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.contacts-details-container a:hover {
+    color: rgba(41, 171, 226, 1);
+    text-decoration: underline;
 }
 
 .add-contact-overlay {
@@ -343,6 +374,12 @@
     border-radius: 100%;
 }
 
+.add-contact-person-svg-container p {
+    font-weight: 500;
+    font-size: 47px;
+    color: white;
+}
+
 .add-contact-close-btn {
     cursor: pointer;
     position: absolute;
@@ -422,6 +459,11 @@
     gap: 9px;
     font-weight: 400;
     font-size: 20px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.add-contact-cancel-btn:hover {
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .add-contact-create-contact-btn {
@@ -437,4 +479,11 @@
     gap: 4px;
     font-weight: 700;
     font-size: 21px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.add-contact-create-contact-btn:hover {
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(41, 171, 226, 1);
+    border: 1px solid rgba(41, 171, 226, 1);
 }
