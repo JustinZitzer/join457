@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-* {
-=======
-*body {
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    font-family: 'inter';
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    font-family: 'inter';
-}
-
 main {
     display: flex;
     margin-left: 232px;
@@ -131,16 +115,11 @@ h3 {
 
 .todos-bar-container {
     display: flex;
-<<<<<<< HEAD
-    width: 200px;
     height: 24px;
-=======
     width: 1208px;
-    height: 24px;
     top: 200.5px;
     padding-right: 64px;
     padding-left: 64px;
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     border: 2px solid black;
     margin-top: 200.5px;
 }
@@ -179,76 +158,6 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
-<<<<<<< HEAD
-
-}
-
-.mainboard-container {
-    display: flex;
-    width: 1208px;
-    height: 688px;
-    gap: 26px;
-    top: 336px;
-    left: 232px;
-    padding-right: 64px;
-    padding-left: 64px;
-    border: 2px solid blue;
-}
-
-.container-todo {
-    width: 246px;
-    height: 688px;
-    gap: 24px;
-
-}
-
-.content-title {
-    text-align: center;
-    width: 111px;
-    height: 19px;
-    font-family: Open Sans;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    letter-spacing: 0%;
-
-}
-
-.no-task-to-do-title {
-    width: 246px;
-    height: 48px;
-    border-width: 1px;
-    gap: 10px;
-    border-radius: 10px;
-    background: #E7E7E7;
-
-}
-
-.container-inprogress {
-    width: 252px;
-    height: 688px;
-    gap: 16px;
-
-}
-
-.container-user-story {
-    width: 252px;
-    height: 263px;
-    gap: 10px;
-
-}
-
-.container-content-main {
-    width: 220px;
-    height: 231px;
-    gap: 24px;
-    border-radius: 24px;
-    padding: 16px;
-    background-color: #FFFFFF;
-}
-
-.user-story-container {
-=======
 }
 
 .await-feedback-task-container {
@@ -328,7 +237,6 @@ h3 {
 .user-story-image {
     position: relative;
     right: 15px;
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 113px;
     height: 27px;
     gap: 10px;
@@ -337,32 +245,6 @@ h3 {
     padding-right: 16px;
     padding-bottom: 4px;
     padding-left: 16px;
-<<<<<<< HEAD
-    background-color: #0038FF;
-
-}
-
-.kochwelt-container {
-    width: 220px;
-    height: 84px;
-    gap: 8px;
-    background-color: #FFFFFF;
-
-}
-
-.title-kochwelt {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: #2A3647;
-}
-
-.build-start-page-container {
-    width: 220px;
-    height: 38px;
-    color: #A8A8A8;
-=======
 
 }
 
@@ -376,7 +258,6 @@ h3 {
 }
 
 .text-contact-content {
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -384,46 +265,17 @@ h3 {
 
 }
 
-<<<<<<< HEAD
-.progressbar-container {
-    display: flex;
-=======
 .progressbar-box {
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 220px;
     height: 16px;
 
 }
 
-<<<<<<< HEAD
-.progress-bar-content {
-    width: 128px;
-    height: 8px;
-    gap: 10px;
-    top: 4px;
-    border-radius: 8px;
-    padding-right: 64px;
-    color: #F4F4F4;
-    background-color: blue;
-
-}
-
-.subtask-container {
-    width: 73px;
-    height: 14px;
-    left: 139px;
-=======
 .progressbar-content {
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
     letter-spacing: 0%;
-<<<<<<< HEAD
-}
-
-.container-initial-circle {
-=======
     top: 4px;
     gap: 10px;
     border-radius: 8px;
@@ -431,38 +283,12 @@ h3 {
 }
 
 .user-story-three-circle-content {
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
     width: 220px;
     height: 32px;
     justify-content: space-between;
 
 }
 
-<<<<<<< HEAD
-.circle-with-name-shortcut {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    gap: 10px;
-    border-radius: 45px;
-    background-color: blue;
-}
-
-.letter-text {
-    width: 21.33333396911621px;
-    height: 7.61904764175415px;
-    top: 12.19px;
-    left: 5.33px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    text-align: center;
-    vertical-align: middle;
-
-=======
 .progressbar-container-middle-part {
     width: 252px;
     height: 688px;
@@ -529,5 +355,4 @@ h3 {
     padding: 16px;
     background-color: #FFFFFF;
     ;
->>>>>>> 5187028c3e287df72c97034c7216475c758a5055
 }
