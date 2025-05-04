@@ -19,3 +19,7 @@ body {
 .blue-color {
   color: rgba(41, 171, 226, 1);
 }
+
+.hide {
+  display: none;
+}

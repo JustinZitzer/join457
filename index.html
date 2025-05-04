@@ -22,7 +22,7 @@
             <a href="help.html">
                 <img src="assets/icons/help-icon.svg" alt="help-icon">
             </a>
-            <div class="user-profile-container">
+            <div onclick="toggleUserProfileOverlay()" class="user-profile-container">
                 <div class="user-profile">
                     <span class="user-profile-font">SM</span>
                 </div>
@@ -64,6 +64,14 @@
             <a href="legal_notice.html">Legal Notice</a>
         </footer>
     </div>
+    <div id="user_profile_menu" class="user-profile-menu hide">
+        <div class="user-profile-content">
+            <a href="legal_notice.html">Legal Notice</a>
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="index.html">Log Out</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
