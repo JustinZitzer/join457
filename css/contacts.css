@@ -18,6 +18,18 @@
     flex-direction: column;
 }
 
+.contact-list::webkit-scrollbar {
+    width: 8px;
+}
+
+.contact-list::webkit-scrollbar-track {
+    background: #eee;
+}
+
+.contact-list::webkit-scrollbar-thumb {
+    background: #bbb;
+}
+
 .contact-list p {
     width: 352px;
     height: 58px;
@@ -91,10 +103,12 @@
 .contact-card:hover {
     background-color: rgb(226, 226, 226);
     box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
+    color: black;
 }
 
 .contact-card-acticated {
     background-color: rgba(42, 54, 71, 1);
+    color: white;
 }
 
 .contact-profile {
@@ -106,6 +120,7 @@
     width: 42px;
     height: 42px;
     background-color: #FF7A00;
+    border: 2px solid white;
     border-radius: 100%;
     color: white;
 }

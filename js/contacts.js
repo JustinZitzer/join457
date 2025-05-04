@@ -1,19 +1,28 @@
 let openedContactsSideCardOverlay = false;
 let openedAddNewContactOverlay = false;
 let openedEditContactsOverlay = false;
+let toggledCard = false;
 
 function openContactsSideCardOverlay() {
     const contactsRightSection = document.getElementById('contacts_right_section')
+    const contactsSideOverlay = document.getElementById('contacts_side_overlay');
     if (!openedContactsSideCardOverlay) {
         contactsRightSection.innerHTML += getContactOverlay();
-        toggleContactCardColor();
         openedContactsSideCardOverlay = true;
+    } else {
+        contactsSideOverlay.remove();
+        openedContactsSideCardOverlay = false;
     }
 }
 
 function toggleContactCardColor() {
     const contactCard = document.getElementById('contact_card');
-    contactCard.classList.toggle('contact-card-acticated'); /*hier gehts weiter */
+    if (!toggledCard) {
+        contactCard.classList.remove('contact-card-acticated')
+        toggledCard = false;
+    }
+    contactCard.classList.toggle('contact-card-acticated');
+    toggledCard = true;
 }
 
 /*funktionen der card ergänzen*/
