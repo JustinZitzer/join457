@@ -3,4 +3,7 @@ window.onload = function () {
     setTimeout(() => {
       logo.classList.add('loading-screen-logo-small');
     }, 100); // Sofort beim Laden
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 1000);
   };
