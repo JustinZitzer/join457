@@ -50,6 +50,17 @@ h3 {
 
 }
 
+.image-x {
+    position: relative;
+    bottom: 24px;
+    left: 100px;
+    width: 32px;
+    height: 32px;
+    width: 18.666667938232422;
+    height: 18.666667938232422;
+    background-color: #2A3647;
+
+}
 
 .inputfield-task {
     width: 312px;
@@ -62,6 +73,31 @@ h3 {
     padding-bottom: 8px;
     padding-left: 16px;
 
+}
+
+.search-button-container {
+    width: 48px;
+    height: 32px;
+    gap: 16px;
+
+}
+
+.search-button {
+    width: 32px;
+    height: 32px;
+
+}
+
+.line-task-field {
+    height: 31px;
+    border-width: 1px;
+    background-color: #D1D1D1;
+}
+
+.content-x {
+    border: #2A3647;
+    background-color: #2A3647;
+    ;
 }
 
 .inputfield-task-content {
@@ -92,7 +128,7 @@ h3 {
 
 
 .add-task-box {
-    width: 92px;
+    width: 160px;
     height: 24px;
     font-family: Inter;
     font-weight: 700;
@@ -128,6 +164,7 @@ h3 {
 }
 
 .todo-container {
+    display: flex;
     width: 244px;
     height: 24px;
     justify-content: space-between;
@@ -146,6 +183,7 @@ h3 {
 }
 
 .inprogress-container {
+    display: flex;
     width: 244px;
     height: 24px;
     margin-left: 32px;
@@ -174,6 +212,7 @@ h3 {
 }
 
 .await-feedback-task-container {
+    display: flex;
     width: 244px;
     height: 24px;
     margin-left: 32px;
@@ -202,10 +241,12 @@ h3 {
 }
 
 .done-task-container {
+    display: flex;
+    justify-content: space-between;
     margin-left: 32px;
     width: 244px;
     height: 24px;
-    gap: 35px;
+    gap: 10px;
 
 }
 
@@ -535,7 +576,7 @@ h5 {
     background-color: rgb(184, 79, 23);
 }
 
-.button-add {
+.add-button-container {
     width: 24px;
     height: 24px;
     gap: 10px;
@@ -545,23 +586,8 @@ h5 {
 
 }
 
-.button-add-content {
-    width: 8px;
-    height: 8px;
-    top: 8px;
-    left: 8px;
-    border-width: 2px;
-
-}
-
-.plus-button {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
+.add-button {
     cursor: pointer;
-
+    background-color: white;
+    border: white;
 }
