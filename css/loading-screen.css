@@ -19,7 +19,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1000ms ease-in-out;
+    transition: all 900ms ease-in-out;
 }
 
 .loading-screen-logo-small {
