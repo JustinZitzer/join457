@@ -76,6 +76,7 @@ h3 {
     width: 312px;
     height: 48px;
     gap: 10px;
+    border-radius: 10%;
     border-radius: 10px;
     border-width: 1px;
     padding-right: 16px;
@@ -98,6 +99,7 @@ h3 {
     width: 312px;
     height: 48px;
     border: 10px;
+    border-radius: 10px;
     font-weight: 400;
     color: #D1D1D1;
 }
@@ -154,6 +156,7 @@ h3 {
 }
 
 .todo-content {
+    display: flex;
     width: 54px;
     height: 24px;
     font-weight: 700;
@@ -403,7 +406,7 @@ h3 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:blueviolet;
+    background-color: blueviolet;
 
 
 }
@@ -412,7 +415,7 @@ h5 {
     color: white;
 }
 
-.single-circle-second{
+.single-circle-second {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -424,44 +427,10 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:deeppink;
+    background-color: deeppink;
 }
 
-.single-circle-orange{
-    width: 32px;
-    height: 32px;
-    gap: 10px;
-    border-radius: 45px;
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    text-align: center;
-    vertical-align: middle;
-    background-color:orange;
-
-}
-
-.single-circle-darkblue{
-    width: 32px;
-    height: 32px;
-    gap: 10px;
-    border-radius: 45px;
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    text-align: center;
-    vertical-align: middle;
-    background-color:darkblue;
-
-}
-
-
-
-.single-circle-third{
+.single-circle-orange {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -477,7 +446,7 @@ h5 {
 
 }
 
-.single-circle-turkis{
+.single-circle-darkblue {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -489,11 +458,13 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:turquoise;
+    background-color: darkblue;
+
 }
 
 
-.single-circle-blue{
+
+.single-circle-third {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -505,10 +476,11 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:blue;
+    background-color: orange;
+
 }
 
-.single-circle-pink{
+.single-circle-turkis {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -520,10 +492,11 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:rgb(191, 53, 140);  
+    background-color: turquoise;
 }
 
-.single-circle-violett{
+
+.single-circle-blue {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -535,10 +508,10 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:rgb(152, 23, 184);  
+    background-color: blue;
 }
 
-.single-circle-red{
+.single-circle-pink {
     width: 32px;
     height: 32px;
     gap: 10px;
@@ -550,5 +523,66 @@ h5 {
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
-    background-color:rgb(184, 79, 23);  
+    background-color: rgb(191, 53, 140);
+}
+
+.single-circle-violett {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(152, 23, 184);
+}
+
+.single-circle-red {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(184, 79, 23);
+}
+
+.button-add {
+    width: 24px;
+    height: 24px;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 3px;
+    border-width: 2px;
+
+}
+
+.button-add-content {
+    width: 8px;
+    height: 8px;
+    top: 8px;
+    left: 8px;
+    border-width: 2px;
+
+}
+
+.plus-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+
 }
