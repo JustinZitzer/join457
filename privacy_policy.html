@@ -14,18 +14,8 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body>
+<body onload="loadHTML()">
     <div id="index_html"></div>
-    <script>
-        fetch('index.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('index_html').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden der Datei:', error);
-            });
-    </script>
     <main class="info-pages">
         <div class="headline-arrow-container">
             <h1>Privacy Policy</h1>
@@ -128,6 +118,7 @@
         </p>
     </main>
     <script src="script.js"></script>
+    <script src="./js/load_html.js"></script>
 </body>
 
 </html>

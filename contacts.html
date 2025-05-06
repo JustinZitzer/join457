@@ -17,18 +17,8 @@
 
 </head>
 
-<body>
+<body onload="loadHTML()">
     <div id="index_html"></div>
-    <script>
-        fetch('index.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('index_html').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden der Datei:', error);
-            });
-    </script>
     <main id="main_contacts" class="contacts-content">
         <div class="contacts-sidebar-container">
             <button class="add-new-contact-btn" onclick="openAddNewContactOverlay()">
@@ -61,6 +51,7 @@
     <script src="./js/contacts_templates.js"></script>
     <script src="./js/contacts.js"></script>
     <script src="./js/templates.js"></script>
+    <script src="./js/load_html.js"></script>
 </body>
 
 </html>
