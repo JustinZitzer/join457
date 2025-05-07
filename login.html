@@ -53,16 +53,16 @@
 
         <div class="Input-Wrapper-Log-In">
           <img class="input-icon" src="assets/icons/mail.svg" alt="Mail Icon">
-          <input class="Login-Box-Email-Input" placeholder="Email" type="email">
+          <input id="Login-Box-Email-Input" class="Login-Box-Email-Input" placeholder="Email" type="email">
         </div>
 
         <div class="Input-Wrapper-Log-In">
           <img class="input-icon" src="assets/icons/lock.svg" alt="Lock Icon">
-          <input class="Login-Box-Passwort-Input" placeholder="Password" type="password">
+          <input id="Login-Box-Passwort-Input" class="Login-Box-Passwort-Input" placeholder="Password" type="password">
         </div>
 
         <div class="Login-Box-Button-Div">
-          <button class="Login-Box-Email-Input-Button">
+          <button onclick="login()" class="Login-Box-Email-Input-Button">
             <p class="Login-Box-Email-Input-Button-Text">Log in</p>
           </button>
           <button onclick="loginGuest()" class="Login-Box-Passwort-Input-Button">
