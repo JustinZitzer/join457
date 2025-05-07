@@ -281,3 +281,7 @@
     line-height: 120%;
     color: #29ABE2;
 }
+
+.display-none {
+    display: none;
+}
