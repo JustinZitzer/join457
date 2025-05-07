@@ -2,6 +2,10 @@ function initSummary () {
     getLoginGuest();
 }
 
+function login() {
+    
+}
+
 function loginGuest () {
     const guestName = 'Gast';
     sessionStorage.setItem('username', guestName);
