@@ -6,15 +6,21 @@ main {
 
 .header-content-board {
     display: flex;
+    justify-content: space-between;
     width: 1056px;
     height: 73px;
-    border: 2px solid black;
-    top: 79.5px;
-    left: 64px;
+    padding-left: 64px;
+}
+
+.header-main-container {
+    width: 1208px;
+    height: 176px;
+    top: 96px;
+    left: 232px;
+
 }
 
 h3 {
-    font-family: Inter;
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
@@ -53,11 +59,9 @@ h3 {
 .image-x {
     position: relative;
     bottom: 24px;
-    left: 100px;
-    width: 32px;
-    height: 32px;
-    width: 18.666667938232422;
-    height: 18.666667938232422;
+    left: 98px;
+    border: 1px solid #2A3647;
+    cursor: pointer;
     background-color: #2A3647;
 
 }
@@ -66,6 +70,7 @@ h3 {
     width: 312px;
     height: 48px;
     gap: 10px;
+    border: 10px;
     border-radius: 10%;
     border-radius: 10px;
     border-width: 1px;
@@ -76,17 +81,27 @@ h3 {
 }
 
 .search-button-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 240px;
+    bottom: 38px;
     width: 48px;
     height: 32px;
-    gap: 16px;
-
+    gap: 12px;
+    border: 1px solid #D1D1D1;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+cursor: pointer;
 }
 
 .search-button {
-    width: 32px;
-    height: 32px;
+    width: 17.6px;
+    height: 17.6px;
 
 }
+
 
 .line-task-field {
     height: 31px;
@@ -110,6 +125,7 @@ h3 {
 }
 
 .title-findtask {
+    padding-left: 16px;
     font-size: 20px;
     width: 312px;
     height: 48px;
@@ -126,11 +142,10 @@ h3 {
 
 }
 
-
 .add-task-box {
     width: 160px;
     height: 24px;
-    font-family: Inter;
+    padding-top: 2px;
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
@@ -160,7 +175,7 @@ h3 {
     top: 200.5px;
     padding-right: 64px;
     padding-left: 64px;
-    margin-top: 200.5px;
+    padding-top: 64px;
 }
 
 .todo-container {
@@ -266,8 +281,6 @@ h3 {
     display: flex;
     height: 688px;
     top: 336px;
-    margin-top: 110px;
-    margin-left: 232px;
     gap: 24px;
     padding-right: 64px;
     padding-left: 64px;
@@ -334,6 +347,7 @@ h3 {
     width: 220px;
     height: 65px;
     gap: 8px;
+    padding-top: 12px;
     border-radius: 10px;
     font-family: Inter;
     font-weight: 700;
@@ -349,6 +363,7 @@ h3 {
     width: 220px;
     height: 38px;
     font-weight: 400;
+    padding-top: 4px;
     font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
@@ -360,6 +375,7 @@ h3 {
     display: flex;
     width: 220px;
     height: 16px;
+    padding-top: 36px;
 
 }
 
@@ -389,6 +405,7 @@ h3 {
     width: 220px;
     height: 32px;
     justify-content: space-between;
+    padding-top: 20px;
 
 }
 

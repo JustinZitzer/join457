@@ -8,6 +8,7 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="board.css">
+    <script src="js/add_task.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -27,117 +28,113 @@
             });
     </script> <!--Bitte erst hier drunter coden-->
     </head>
+</body>
 
-    <body>
-        <main>
+<body>
+    <main>
         <div class="header-container-board">
-            <div class="header-content-board">
-                <h3>Board</h3>
-                <div class="find-task-add-task-container">
+
+            <div class="header-main-container">
+                <div class="header-content-board">
+                    <h3>Board</h3>
+                    <div class="find-task-add-task-container">
 
 
-                    <div class="inputfield-task">
-                        <div class="inputfield-task-content">
-                            <input type="text" placeholder="Find task" class="title-findtask">
+                        <div class="inputfield-task">
+                            <div class="inputfield-task-content">
+                                <input type="text" placeholder="Find task" class="title-findtask">
+                                <div class="search-button-container">
+                                    <div class="line-infind-task-field"></div>
+                                    <div class="search-icon-content"></div>
+                                    <img class="search-button" src="./assets/icons/search.png" alt="search-icon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-task-container">
+                            <div class="add-task-box">Add task</div>
+                            <button  onclick="openOverlayAddTask()" class="image-x">
+                                <img src="./assets/icons/add.png" alt="add-icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="todos-bar-container">
+                    <div class="todo-container">
+                        <div class="todo-content">
+                            To do
+                        </div>
+                        <div class="add-button-container">
+                            <button class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inprogress-container">
+                        <div class="inprogress-content">
+                            In progress
+                        </div>
+                        <div class="add-button-container">
+                            <button class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
                         </div>
                     </div>
 
-                    <div class="add-task-container">
-                        <div class="add-task-box">Add task</div>
-                        <button class="image-x">
-                            <img src="./assets/icons/add.png" alt="">
-                        </button>
+                    <div class="await-feedback-task-container">
+                        <div class="await-feedback-content">
+                            Await feedback
+                        </div>
+                        <div class="add-button-container">
+                            <button class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="done-task-container">
+                        <div class="done-content">
+                            Done
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="todos-bar-container">
-                <div class="todo-container">
-                    <div class="todo-content">
-                        To do
-                    </div>
-                    <div class="add-button-container">
-                        <button class="add-button">
-                            <img src="./assets/icons/plus button.png" alt="Plus" />
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="progressbar-container-middle-part">
-                <div class="progressbar-content-box">
-                    <div class="todo-user-story-box">
-                        <img class="user-story-image" src="./assets/icons/user-story.png" alt="">
-                        <div class="text-field-progressbar">
-                            <img src="./assets/icons/text-field.png" alt="text-field-progressbar">
-                            <div class="progressbar-box-half">
-                                <img class="progressabr-content-half-filled" src="./assets/icons/Progressbar-1:2.png"
-                                    alt="progressbar-half">
 
-                <div class="inprogress-container">
-                    <div class="inprogress-content">
-                        In progress
-                    </div>
-                    <div class="add-button-container">
-                        <button class="add-button">
-                            <img src="./assets/icons/plus button.png" alt="Plus" />
-                        </button>
-                    </div>
-                </div>
-
-                <div class="await-feedback-task-container">
-                    <div class="await-feedback-content">
-                        Await feedback
-                    </div>
-                    <div class="add-button-container">
-                        <button class="add-button">
-                            <img src="./assets/icons/plus button.png" alt="Plus" />
-                        </button>
-                    </div>
-                </div>
-                <div class="done-task-container">
-                    <div class="done-content">
-                        Done
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="main-container-middle-part">
-
-            <div class="todo-content-box">
-
-                <div class="user-story-box">
-                    <span>User story</span>
-                </div>
-
-                <div class="text-contact-box">
-                    <span>Contact Form & Imprint</span>
-
-                    <div class="text-create-box">
-                        <span>Create a contactform and imprint page...</span>
-                    </div>
-                </div>
-                <div class="progressbar-box">
-                    <div class="progressbar-content">
+            <div class="main-container-middle-part">
+                <div class="todo-content-box">
+                    <div class="user-story-box">
+                        <span>User story</span>
                     </div>
 
-                    <div class="subtask-text">
-                        0/2 subtasks
-                    </div>
-                </div>
+                    <div class="text-contact-box">
+                        <span>Contact Form & Imprint</span>
 
-                <div class="three-circle-todo">
-                    <div class="three-circle-container">
-                        <div class="single-circle-first">
-                            <h5>AS</h5>
+                        <div class="text-create-box">
+                            <span>Create a contactform and imprint page...</span>
+                        </div>
+                    </div>
+                    <div class="progressbar-box">
+                        <div class="progressbar-content">
                         </div>
 
-                        <div class="single-circle-second">
-                            <h5>DE</h5>
+                        <div class="subtask-text">
+                            0/2 subtasks
                         </div>
+                    </div>
 
-                        <div class="single-circle-third">
-                            <h5>EF</h5>
+                    <div class="three-circle-todo">
+                        <div class="three-circle-container">
+                            <div class="single-circle-first">
+                                <h5>AS</h5>
+                            </div>
+
+                            <div class="single-circle-second">
+                                <h5>DE</h5>
+                            </div>
+
+                            <div class="single-circle-third">
+                                <h5>EF</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,7 +142,7 @@
         </div>
         </div>
         </div>
-
-    </body>
+        </div>
+</body>
 
 </html>
