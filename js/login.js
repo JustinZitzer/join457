@@ -27,7 +27,7 @@ function getLogin () {
     const lastNameFirstLetter = dotIndex + 1;
     const firstName = first.charAt(0).toUpperCase() + first.slice(1);
     const lastName = last.charAt(0).toUpperCase() + last.slice(1);
-    const fullName = firstName + ' ' + lastName;
+    const fullName = lastName;
     if (username) {
         summaryNameTextDiv.innerHTML = `${fullName}`;
     }
