@@ -3,8 +3,9 @@
 function openOverlayAddTask() {
     let openOverlayAddTask = document.getElementById('open-overlay');
     openOverlayAddTask.classList.toggle('d-none');
+    openOverlayAddTask.innerHTML = '';
     openOverlayAddTask.innerHTML += `
-    <div class="container-both-sides">
+    <div class="container-both-sides-overlay">
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
@@ -82,13 +83,29 @@ function openOverlayAddTask() {
                         </div>
                     </div>
                 </div>
+
                 <div class="field-required">
                     <span>This field is required</span>
                 </div>
             </div>
-        </div>
-    `
+        </div> 
+    </div>
+    </div>
 
+    <div class="clear-create-container">
+        <div class="clear-field">
+            <div class="clear-text">Clear</div>
+            <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
+        </div>
+
+        <div class="create-field">
+            <div class="text-create-field">Create Task</div>
+            <img class="check-button" src="./assets/icons/check.png" alt="check-button">
+        </div>
+    </div>
+    </div>
+    </div>
+    `
 }
 
 function closeOverlayAddTask() {

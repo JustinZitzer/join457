@@ -93,7 +93,7 @@ h3 {
     border-top: none;
     border-right: none;
     border-bottom: none;
-cursor: pointer;
+    cursor: pointer;
 }
 
 .search-button {
@@ -607,4 +607,576 @@ h5 {
     cursor: pointer;
     background-color: white;
     border: white;
+}
+
+.container-both-sides-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 700px;
+    top: 327px;
+    left: 328px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.main-container-for-two-inputfield-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 24px;
+}
+
+.container-both-sides {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 976.24853515625px;
+    height: 424px;
+    top: 327px;
+    left: 328px;
+    border-width: 1px;
+
+}
+
+.line-middle-of-both-container {
+    width: 1px;
+    height: 424.0000000000004px;
+    top: 327px;
+    left: 816.25px;
+    border-width: 1px;
+    background-color: #D1D1D1;
+
+}
+
+.inputfield-box-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 440px;
+    height: 376px;
+    top: 327px;
+    left: 328px;
+    gap: 24px;
+
+}
+
+.inputfield-box-right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 440px;
+    height: 400px;
+    top: 327px;
+    left: 864.25px;
+}
+
+.text-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.text-title-mark:after {
+    content: "*";
+    color: red;
+}
+
+.text-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.priority-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.main-box-inputfield {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.title-inputfield-enter-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #D1D1D1;
+    width: 440px;
+    height: 48;
+    gap: 10px;
+    border-radius: 10px;
+    border-width: 1px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+
+}
+
+.arrow-container-main-red {
+    width: 136px;
+}
+
+.arrow-container-main-green {
+    width: 136px;
+}
+
+.arrow-container-red {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.arrow-red {
+    position: relative;
+    width: 20px;
+    height: 14.51px;
+
+}
+
+.arrow-green {
+    position: relative;
+    width: 20px;
+    height: 14.51px;
+
+}
+
+.arrow-container-green {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+}
+
+
+.text-inputfield-urgent::placeholder {
+    color: #000000;
+}
+
+.text-inputfield-medium {
+    background-color: #FFA800;
+    color: white;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.text-inputfield-medium::placeholder {
+    color: #FFFFFF;
+}
+
+.text-inputfield-low {
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    cursor: pointer;
+
+}
+
+.text-inputfield-low::placeholder {
+    color: #000000;
+}
+
+.description-main-box {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 168px;
+    gap: 8px;
+    top: 112px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.inputfield-description {
+    width: 440px;
+    height: 120px;
+    border-width: 1px;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding-top: 18px;
+    padding-right: 16px;
+    padding-bottom: 18px;
+    padding-left: 16px;
+    color: #D1D1D1;
+}
+
+.inputfield-description::placeholder {
+    color: #D1D1D1;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.description-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-size: 20px;
+
+}
+
+
+.description-text::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.inputfield-due-date-container {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 96px;
+    gap: 8px;
+    top: 296px;
+    left: 0.25px;
+}
+
+.due-date-mark:after {
+    content: "*";
+    color: red;
+}
+
+.due-date-text-field {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #D1D1D1;
+    width: 440px;
+    height: 48px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+}
+
+.assigned-inputfield-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 440px;
+    height: 80px;
+    color: #2A3647;
+}
+
+
+.task-inputfield-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 440px;
+    height: 80px;
+    color: #2A3647;
+
+}
+
+.subtask-inputfield-box {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 80px;
+    color: #2A3647;
+    gap: 8px;
+}
+
+.inputfield-text-assign {
+    width: 440px;
+    height: 48px;
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.inputfield-text-assign::placeholder {
+    color: #000000;
+}
+
+.inputfield-category-assign {
+    height: 48px;
+    width: 440px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.inputfield-category-assign::placeholder {
+    color: #000000;
+}
+
+.category-mark:after {
+    content: "*";
+    color: red;
+}
+
+.inputfield-subtask-assign {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    width: 440px;
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.subtask-inputfield-container {
+    position: absolute;
+}
+
+.field-required {
+    position: absolute;
+    width: 170px;
+    height: 27px;
+    top: 600px;
+    left: 0px;
+
+}
+
+.field-required:before {
+    content: "*";
+    color: red;
+}
+
+.clear-create-container {
+    display: flex;
+    position: absolute;
+    width: 309px;
+    height: 56px;
+    left: 950px;
+    gap: 16px;
+    top: 889px;
+
+}
+
+.clear-field {
+    width: 110px;
+    height: 56px;
+    border-width: 1px;
+    gap: 4px;
+    border-radius: 10px;
+    padding: 16px;
+    color: #2A3647;
+    border: solid 1px #2A3647;
+    cursor: pointer;
+}
+
+.clear-text {
+    width: 50px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #2A3647;
+
+
+}
+
+.create-field {
+    width: 183px;
+    height: 56px;
+    gap: 4px;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #2A3647;
+    cursor: pointer;
+}
+
+.text-create-field {
+    width: 123px;
+    height: 24px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
+
+
+/* Icons */
+
+.double-arrowup-box-up {
+    position: relative;
+    top: 315px;
+    width: 20px;
+    height: 14.51px;
+    color: #FF3D00;
+
+}
+
+.double-arrowup-box-down {
+    width: 20px;
+    height: 14.51px;
+    color: #7AE229;
+}
+
+
+.calendar-clock {
+    position: relative;
+    width: 18px;
+    height: 20px;
+    top: 14px;
+    left: 400px;
+    top: 72px;
+    cursor: pointer;
+    color: #2A3647;
+}
+
+.add-icon-container {
+    position: relative;
+    top: 41px;
+    left: 400px;
+    height: 24px;
+    width: 24px;
+    color: #2A3647;
+    cursor: pointer;
+}
+
+.assigned-arrow-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 45px;
+    cursor: pointer;
+
+}
+
+.assigned-arrow-icon-down {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 45px;
+    cursor: pointer;
+
+}
+
+.check-button {
+    position: absolute;
+    bottom: 20px;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    left: 270px;
+    color: #FFFFFF;
+
+}
+
+.close-button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    color: #2A3647;
+    border-width: 2px;
+    left: 60px;
+    bottom: 24px;
 }
