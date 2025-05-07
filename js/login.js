@@ -21,11 +21,15 @@ function getLogin () {
     let summaryNameTextDiv = document.getElementById('Summary-Name-Text-Greeting');
     const username = sessionStorage.getItem('username');
     const name = username.split('@')[0];
-    const dotIndex = localPart.indexOf('.');
-    const first = localPart.substring(0, dotIndex);
-    const last  = localPart.substring(dotIndex + 1);
+    const dotIndex = name.indexOf('.');
+    const first = name.substring(0, dotIndex);
+    const last  = name.substring(dotIndex + 1);
+    const lastNameFirstLetter = dotIndex + 1;
+    const firstName = first.charAt(0).toUpperCase() + first.slice(1);
+    const lastName = last.charAt(0).toUpperCase() + last.slice(1);
+    const fullName = firstName + ' ' + lastName;
     if (username) {
-        summaryNameTextDiv.innerHTML = `${name}`;
+        summaryNameTextDiv.innerHTML = `${fullName}`;
     }
 }
 
