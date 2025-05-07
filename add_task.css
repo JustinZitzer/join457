@@ -586,3 +586,16 @@ h5 {
     left: 60px;
     bottom: 24px;
 }
+
+.d-none {
+    display: none;
+}
+
+.overlay-container-add-task {
+    display: flex;
+    position: absolute;
+    gap: 55px;
+    background-color: blue;
+    width: 90%;
+    height: 90vh;
+}
