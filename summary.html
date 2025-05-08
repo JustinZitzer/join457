@@ -13,19 +13,8 @@
     <script src="js/summary.js" defer></script>
     <script src="js/login.js" defer></script>
 </head>
-<body onload="initSummary()">
-    <div id="index_html"></div>
-    <script>
-        fetch('index.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('index_html').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden der Datei:', error);
-            });
-    </script> <!--Bitte erst hier drunter coden-->
-
+<body onload="initSummary(), loadHTML()">
+    <div id="index_html"></div> <!--lädt html (header,sidebar)-->
     <div class="Summary-Box-Z-Index-Container">
         <div class="Box-Div-Wrapper">
             <div class="Summary-Box-Container">
@@ -97,6 +86,7 @@
             </div>
         </div>
     </div>
-
+    <script src="script.js"></script>
+    <script src="./js/load_html.js"></script>
 </body>
 </html>
