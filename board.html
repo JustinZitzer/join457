@@ -14,23 +14,8 @@
         rel="stylesheet">
 </head>
 
-<body>
-
-    <div id="index_html"></div>
-    <script>
-        fetch('index.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('index_html').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden der Datei:', error);
-            });
-    </script> <!--Bitte erst hier drunter coden-->
-    </head>
-</body>
-
-<body>
+<body onload="loadHTML()">
+    <div id="index_html"></div> <!--lädt html (header,sidebar)-->
     <main>
         <div class="header-container-board">
 
@@ -153,6 +138,8 @@
         </div>
         </div>
         </div>
+        <script src="script.js"></script>
+        <script src="./js/load_html.js"></script>
 </body>
 
 
