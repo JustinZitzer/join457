@@ -1,9 +1,13 @@
 function openOverlay() {
     const overlay = document.getElementById('overlay');
     overlay.classList.add('overlay-visible');
-    let overlayContent= document.getElementById('content-add-task-overlay');
+    let overlayContent = document.getElementById('content-add-task-overlay');
     overlayContent.innerHTML += `
-     <div class="container-both-sides">
+    <div class="add-task-overlay">
+    <span>Add Task</span>
+    </div>
+    <div class="container-both-sides">
+    
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
@@ -80,16 +84,16 @@ function openOverlay() {
                             <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
                         </div>
                     </div>
+                    
                 </div>
                 <div class="field-required">
                     <span>This field is required</span>
+                    
                 </div>
             </div>
+            
         </div>
-    </div>
-    </div>
-
-
+        
     <div class="clear-create-container">
         <div class="clear-field">
             <div class="clear-text">Clear</div>
@@ -100,6 +104,8 @@ function openOverlay() {
             <div class="text-create-field">Create Task</div>
             <img class="check-button" src="./assets/icons/check.png" alt="check-button">
         </div>
+    </div>
+    </div>
     </div>
 
     </div>
