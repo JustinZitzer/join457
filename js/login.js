@@ -1,5 +1,6 @@
 const emailInput = document.getElementById('Login-Box-Email-Input');
 const passwordInput = document.getElementById('Login-Box-Passwort-Input');
+const FireBaseUrl = "https://console.firebase.google.com/u/1/project/join-457/database/join-457-default-rtdb/data/~2F";
 
 function initSummary () {
     getLoginGuest();
@@ -18,19 +19,7 @@ function login() {
 }
 
 function getLogin () {
-    let summaryNameTextDiv = document.getElementById('Summary-Name-Text-Greeting');
-    const username = sessionStorage.getItem('username');
-    const name = username.split('@')[0];
-    const dotIndex = name.indexOf('.');
-    const first = name.substring(0, dotIndex);
-    const last  = name.substring(dotIndex + 1);
-    const lastNameFirstLetter = dotIndex + 1;
-    const firstName = first.charAt(0).toUpperCase() + first.slice(1);
-    const lastName = last.charAt(0).toUpperCase() + last.slice(1);
-    const fullName = lastName;
-    if (username) {
-        summaryNameTextDiv.innerHTML = `${fullName}`;
-    }
+
 }
 
 function loginGuest () {
