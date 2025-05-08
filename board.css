@@ -1180,3 +1180,70 @@ h5 {
     left: 60px;
     bottom: 24px;
 }
+
+
+/* Overlay-Hintergrund */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* Sichtbares Overlay */
+#overlay.overlay-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Der weiße Slide-In-Bereich von rechts */
+
+.container-both-sides {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 976.24853515625px;
+    height: 424px;
+    top: 327px;
+    left: 328px;
+    border-width: 1px;
+    background: white;
+    width: 900px;
+    height: 100%;
+    transform: translateX(100%);
+    animation: slideInRight 0.4s ease forwards;
+    padding: 32px;
+    border-radius: 16px 0 0 16px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+}
+.overlay-content {
+    background: white;
+    width: 400px;
+    height: 100%;
+    transform: translateX(100%);
+    animation: slideInRight 0.4s ease forwards;
+    padding: 32px;
+    border-radius: 16px 0 0 16px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Slide-in Animation */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}

@@ -51,11 +51,21 @@
                             </div>
                         </div>
 
-                        <div id="open-overlay" class="add-task-container">
+                        <div class="add-task-container">
                             <div class="add-task-box">Add task</div>
-                            <button onclick="openOverlayAddTask()" class="image-x">
+                            <button onclick="openOverlay()" class="image-x">
                                 <img src="./assets/icons/add.png" alt="add-icon">
                             </button>
+
+                            <!-- Overlay-Hintergrund -->
+                            <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
+                                <!-- Seitlich hereinslidenes Overlay -->
+                                <div class="container-both-sides" onclick="event.stopPropagation();">
+                                    <h2>Neuen Task hinzufügen</h2>
+                                    <!-- Hier kannst du dein Formular platzieren -->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -144,5 +154,6 @@
         </div>
         </div>
 </body>
+
 
 </html>
