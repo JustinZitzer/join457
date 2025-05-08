@@ -14,6 +14,13 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
+  transition: transform 0.3s ease-in-out;
+}
+
+.blue-arrow-left:hover {
+  border-radius: 100%;
+  background-color: #d1d1d1;
+  transform: scale(1.15);
 }
 
 .blue-color {

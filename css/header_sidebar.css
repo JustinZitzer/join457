@@ -25,10 +25,12 @@ header h1 {
     width: 104px;
     height: 56px;
     gap: 16px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .header-icons-container img:hover {
     filter: brightness(0) saturate(100%) invert(55%) sepia(95%) saturate(730%) hue-rotate(165deg) brightness(92%) contrast(89%);
+    transform: scale(1.2);
 }
 
 .user-profile-menu {
