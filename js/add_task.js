@@ -1,13 +1,10 @@
-
-
-
-
 function openOverlay() {
     const overlay = document.getElementById('overlay');
     overlay.classList.add('overlay-visible');
-    let overlayAddTask = document.getElementById('overlay');
-    overlayAddTask.innerHTML += `
-<div class="inputfield-box-left-side">
+    let overlayContent= document.getElementById('content-add-task-overlay');
+    overlayContent.innerHTML += `
+     <div class="container-both-sides">
+            <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
                         <span>Title</span>
@@ -83,9 +80,30 @@ function openOverlay() {
                             <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
                         </div>
                     </div>
-                </div>`
+                </div>
+                <div class="field-required">
+                    <span>This field is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
+    <div class="clear-create-container">
+        <div class="clear-field">
+            <div class="clear-text">Clear</div>
+            <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
+        </div>
+
+        <div class="create-field">
+            <div class="text-create-field">Create Task</div>
+            <img class="check-button" src="./assets/icons/check.png" alt="check-button">
+        </div>
+    </div>
+
+    </div>
+    `
 
     // Animation erneut triggern (falls mehrfach geöffnet)
     const content = overlay.querySelector('.overlay-content');
@@ -93,11 +111,8 @@ function openOverlay() {
     void content.offsetWidth; // Reflow erzwingen
     content.style.animation = '';
     content.classList.add('slide-in');
-    content.innerHTML += `
-    `
 }
 
 function closeOverlay(event) {
     document.getElementById('overlay').classList.remove('overlay-visible');
 }
-

@@ -609,18 +609,6 @@ h5 {
     border: white;
 }
 
-.container-both-sides-overlay {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 700px;
-    top: 327px;
-    left: 328px;
-    border-width: 1px;
-    background-color: white;
-}
 
 .main-container-for-two-inputfield-container {
     display: flex;
@@ -631,18 +619,6 @@ h5 {
     gap: 24px;
 }
 
-.container-both-sides {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    width: 976.24853515625px;
-    height: 424px;
-    top: 327px;
-    left: 328px;
-    border-width: 1px;
-
-}
 
 .line-middle-of-both-container {
     width: 1px;
@@ -1212,26 +1188,12 @@ h5 {
     display: flex;
     align-items: center;
     gap: 24px;
-    width: 976.24853515625px;
-    height: 424px;
-    top: 327px;
+    top: 250px;
     left: 328px;
-    border-width: 1px;
-    background: white;
     width: 900px;
     height: 100%;
     transform: translateX(100%);
-    animation: slideInRight 0.4s ease forwards;
-    padding: 32px;
-    border-radius: 16px 0 0 16px;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
-}
-.overlay-content {
-    background: white;
-    width: 400px;
-    height: 100%;
-    transform: translateX(100%);
-    animation: slideInRight 0.4s ease forwards;
+    animation: slideInRight 0.2s ease forwards;
     padding: 32px;
     border-radius: 16px 0 0 16px;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
