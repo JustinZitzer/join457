@@ -4,7 +4,6 @@ const emailInputSignUp = document.getElementById('inputfield-email');
 const passwordInputSignUp = document.getElementById('inputfield-password');
 const confirmPasswordInputSignUp = document.getElementById('inputfield-confirm');
 
-
 async function init() {
   await loadData();
 }
@@ -24,6 +23,13 @@ function valueOfInputFields() {
   return { name, email, password, confirmPassword };
 }
 
+function clearInputFields() {
+  nameInputSignUp.value = "";
+  emailInputSignUp.value = "";
+  passwordInputSignUp.value = "";
+  confirmPasswordInputSignUp.value = "";
+}
+
 async function postRegistryDataBaseFunction(path= "", data= {}) {
   let response = await fetch (FireBaseUrl + path + ".json", {
     method : "POST",
@@ -38,5 +44,7 @@ async function postRegistryDataBaseFunction(path= "", data= {}) {
 async function postValueDataIntoFirebase() {
   const userData = valueOfInputFields();
   const dataPost = await postRegistryDataBaseFunction("userData", userData);
+  clearInputFields();
   console.log(dataPost);
 }
+
