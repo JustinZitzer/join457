@@ -3,6 +3,8 @@ const nameInputSignUp = document.getElementById('inputfield-name');
 const emailInputSignUp = document.getElementById('inputfield-email');
 const passwordInputSignUp = document.getElementById('inputfield-password');
 const confirmPasswordInputSignUp = document.getElementById('inputfield-confirm');
+const checkboxSignUp = document.getElementById('privacy-policy-accept-button');
+
 
 async function init() {
   await loadData();
@@ -42,9 +44,15 @@ async function postRegistryDataBaseFunction(path= "", data= {}) {
 }
 
 async function postValueDataIntoFirebase() {
-  const userData = valueOfInputFields();
-  const dataPost = await postRegistryDataBaseFunction("userData", userData);
-  clearInputFields();
-  console.log(dataPost);
+  if (checkboxSignUp.checked && passwordInputSignUp.value === confirmPasswordInputSignUp.value) {
+    const userData = valueOfInputFields();
+    const dataPost = await postRegistryDataBaseFunction("userData", userData);
+    clearInputFields();
+    console.log(dataPost);
+  } else if (!checkboxSignUp.checked) {
+    alert("Please accept the privacy policy");
+  } else if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
+    alert("Please check your Password they do not match");
+  }
 }
 
