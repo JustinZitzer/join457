@@ -1157,6 +1157,7 @@ h5 {
     bottom: 24px;
 }
 
+
 .add-task-overlay{
     position: relative;
     width: 278px;
@@ -1223,4 +1224,18 @@ h5 {
     to {
         transform: translateX(0%);
     }
+}
+
+.add-task-overlay-todo{
+    position: relative;
+    width: 278px;
+    height: 73px;
+    top: 206px;
+    left: 328px;
+    gap: 1px;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #000000;
 }
