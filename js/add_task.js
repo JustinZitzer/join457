@@ -482,3 +482,22 @@ function openOverlayFeedback() {
 function closeOverlayFeedback(event) {
     document.getElementById('overlay-await-feedback').classList.remove('overlay-visible');
 }
+
+
+    function selectContacts() {
+        const dropdown = document.getElementById('contacts-dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
+
+    function toggleRed(button) {
+        button.classList.toggle('active');
+    }
+
+    function toggleOrange(button) {
+        button.classList.toggle('active');
+    }
+
+    function toggleGreen(button) {
+        button.classList.toggle('active');
+    }

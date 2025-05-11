@@ -150,6 +150,12 @@ h3 {
     width: 136px;
 }
 
+.arrow-container-main-orange {
+    width: 136px;
+}
+
+
+
 .arrow-container-red {
     justify-content: center;
     display: flex;
@@ -164,6 +170,7 @@ h3 {
     padding-left: 10px;
     cursor: pointer;
 }
+
 
 h4 {
     font-weight: 400;
@@ -215,8 +222,7 @@ h5 {
 }
 
 .text-inputfield-medium {
-    background-color: #FFA800;
-    color: white;
+    color: black;
     width: 136px;
     height: 56px;
     gap: 8px;
@@ -587,3 +593,146 @@ h5 {
     bottom: 24px;
 }
 
+/*contact assigned to*/
+
+.assign-container {
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Kein Abstand zwischen Elementen */
+}
+
+.inputfield-text-assign {
+    padding: 8px;
+    width: 100%;
+}
+
+.assigned-arrow-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-top: 4px;
+    align-self: flex-start;
+}
+
+/* Kontaktliste direkt anschließen, ohne Abstand */
+.contacts-dropdown {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* versteckt */
+.hidden {
+    transform: scaleY(0);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+}
+
+/* Einzelner Kontakt */
+.contact-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.contact-option:hover {
+    background-color: #e0e0e0;
+}
+
+.contact-option input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+/* Inhalt darunter */
+.some-content {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.arrow-container-red {
+    background-color: transparent; /* or your original color */
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-container-red.active {
+    background-color: red;
+    color: white;
+}
+
+.arrow-container-medium {
+    background-color: transparent; /* or your original color */
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-container-orange {
+    background-color: transparent; /* or original color */
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-container-orange.active {
+    background-color: orange;
+    color: white;
+}
+
+.arrow-container-green {
+    background-color: transparent; /* or your original color */
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-container-green.active {
+    background-color: lightgreen;
+    color: white;
+}

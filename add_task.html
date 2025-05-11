@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="add_task.css">
     <link rel="stylesheet" href="style.css">
+    <script src="./js/add_task.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -54,17 +55,24 @@
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button class="arrow-container-red">
+                                <button onclick="toggleRed(this)" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
                                 </button>
                             </div>
 
-                            <input type="text" placeholder="Medium =" class="text-inputfield-medium">
+
+                        <div class="main-box-inputfield">
+                            <div class="arrow-container-main-red">
+                                <button  onclick="toggleOrange(this)" class="arrow-container-red">
+                                    <h4>Medium =</h4>
+                                </button>
+                            </div>
+
 
                             <div class="arrow-container-main-green">
-                                <button class="arrow-container-green">
+                                <button onclick="toggleGreen(this)" class="arrow-container-green">
                                     <h5>Low</h5>
                                     <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                         alt="green-arrow">
@@ -77,34 +85,42 @@
                         <span>Assigned to</span>
                         <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign">
 
-                        <img class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png"
-                            alt="assigned-arrow-button">
-
-                    </div>
-                    <div class="task-inputfield-box">
-                        <div class="category-mark">
-                            <span>Category</span>
+                        <img id="contact-list" onclick="selectContacts()" class="assigned-arrow-icon"
+                            src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+                        <div id="contacts-dropdown" class="contacts-dropdown hidden">
+                            <label class="contact-option"><span>Anna Müller</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Ben Schmidt</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Clara Hoffmann</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>David Weber</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Eva Schneider</span><input type="checkbox"></label>
                         </div>
-                        <input type="text" placeholder="Select task category" class="inputfield-category-assign">
-                        <img class="assigned-arrow-icon-down" src="./assets/icons/arrow_drop_down.png"
-                            alt="assigned-arrow-button">
-                    </div>
 
-                    <div class="subtask-inputfield-box">
-                        <span>Subtasks</span>
-                        <div class="subtask-inputfield-container">
-                            <img class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
-                                alt="subtask-plus-icon">
-                            <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
+
+                        <div class="task-inputfield-box">
+                            <div class="category-mark">
+                                <span>Category</span>
+                            </div>
+                            <input type="text" placeholder="Select task category" class="inputfield-category-assign">
+                            <img class="assigned-arrow-icon-down" src="./assets/icons/arrow_drop_down.png"
+                                alt="assigned-arrow-button">
+
+                        </div>
+
+                        <div class="subtask-inputfield-box">
+                            <span>Subtasks</span>
+                            <div class="subtask-inputfield-container">
+                                <img class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
+                                    alt="subtask-plus-icon">
+                                <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="field-required">
-                    <span>This field is required</span>
+                    <div class="field-required">
+                        <span>This field is required</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 
