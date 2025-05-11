@@ -121,11 +121,10 @@ function closeOverlay(event) {
 
 function overlayToDo() {
     const overlayToDoContainer = document.getElementById('overlay-todo');
-    overlayToDoContainer.classList.add('overlay-visible-todo')
+    overlayToDoContainer.classList.add('overlay-visible')
     let overlayContentToDo = document.getElementById('content-add-task-overlay-todo');
     overlayContentToDo.innerHTML += `
     <div class="container-both-sides">
-    
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
@@ -228,7 +227,7 @@ function overlayToDo() {
     </div>
     `
     // Animation erneut triggern (falls mehrfach geöffnet)
-    const contentTodo = overlay.querySelector('.overlay-content');
+    const contentTodo = overlayToDoContainer.querySelector('.overlay-todo-contentTodo');
     contentTodo.style.animation = 'none';
     void contentTodo.offsetWidth; // Reflow erzwingen
     contentTodo.style.animation = '';
@@ -237,7 +236,7 @@ function overlayToDo() {
 }
 
 function closeOverlayToDo(event) {
-    document.getElementById('overlay-todo').classList.remove('overlay-visible-todo');
+    document.getElementById('overlay-todo').classList.remove('overlay-visible');
 }
 
 function openOverlayInProgress() {
@@ -349,7 +348,7 @@ function openOverlayInProgress() {
     </div>
     `
     // Animation erneut triggern (falls mehrfach geöffnet)
-    const content = overlay.querySelector('.overlay-content');
+    const content = overlayInProgress.querySelector('.overlay-content');
     content.style.animation = 'none';
     void content.offsetWidth; // Reflow erzwingen
     content.style.animation = '';
@@ -472,11 +471,11 @@ function openOverlayFeedback() {
     `
 
     // Animation erneut triggern (falls mehrfach geöffnet)
-    const content = overlay.querySelector('.overlay-content');
-    content.style.animation = 'none';
-    void content.offsetWidth; // Reflow erzwingen
-    content.style.animation = '';
-    content.classList.add('slide-in');
+    const contentAwait = openOverlayAwaitFeedback.querySelector('.overlay-await-feedback-contentAwait');
+    contentAwait.style.animation = 'none';
+    void contentAwait.offsetWidth; // Reflow erzwingen
+    contentAwait.style.animation = '';
+    contentAwait.classList.add('slide-in');
 }
 
 
