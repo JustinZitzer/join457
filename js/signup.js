@@ -6,11 +6,11 @@ const confirmPasswordInputSignUp = document.getElementById('inputfield-confirm')
 const checkboxSignUp = document.getElementById('privacy-policy-accept-button');
 
 
-async function init() {
-  await loadData();
+async function initSignUp() {
+  await loadDataSignUp();
 }
 
-async function loadData(path="") {
+async function loadDataSignUp(path="") {
   let response = await fetch(FireBaseUrl+ path + ".json");
   let responseToJson = await response.json();
   console.log(responseToJson);
