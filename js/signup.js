@@ -30,6 +30,7 @@ function clearInputFields() {
   emailInputSignUp.value = "";
   passwordInputSignUp.value = "";
   confirmPasswordInputSignUp.value = "";
+  checkboxSignUp.checked = false;
 }
 
 async function postRegistryDataBaseFunction(path= "", data= {}) {
