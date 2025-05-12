@@ -10,6 +10,10 @@ body {
   background-color: #f6f7f8;
 }
 
+.display-none {
+  display: none;
+}
+
 .Animation-Logo-Div-Z-Index {
   position: absolute;
   top: 0;

@@ -3,6 +3,7 @@ const passwordInput = document.getElementById('Login-Box-Passwort-Input');
 const FireBaseUrl = "https://console.firebase.google.com/u/1/project/join-457/database/join-457-default-rtdb/data/~2F";
 const bigLogoLogin = document.getElementById('Loading-Screen-Logo-Big');
 const smallLogoLogin = document.getElementById('Loading-Screen-Logo-Mini');
+const animationLogoDiv = document.getElementById('Animation-Logo-Div-Z-Index');
 
 function initSummary () {
     getLoginGuest();
@@ -24,7 +25,9 @@ window.addEventListener('load', () => {
 });
 
 function hideLoadingScreen() {
-
+    setTimeout(() => {
+        animationLogoDiv.classList.add('display-none');
+    }, 710);
 }
 
 function login() {
