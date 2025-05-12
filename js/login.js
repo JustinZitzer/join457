@@ -10,25 +10,22 @@ function initSummary () {
 }
 
 window.addEventListener('load', () => {
-  // Positionen und Größen abfragen
-  const bigRect   = bigLogoLogin.getBoundingClientRect();
-  const smallRect = smallLogoLogin.getBoundingClientRect();
-
-  // Deltas für die Verschiebung
-  const dx = smallRect.left - bigRect.left;
-  const dy = smallRect.top  - bigRect.top;
-
-  // Skalierungsfaktor berechnen
-  const scale = smallRect.width / bigRect.width;
-
-  // Animation im nächsten Frame starten
-  requestAnimationFrame(() => {
-    bigLogoLogin.style.transform = `
-      translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))
-      scale(${scale})
-    `;
-  });
+  const bigLogoSizeAndPosition   = bigLogoLogin.getBoundingClientRect();
+  const smallLogoSizeAndPostion = smallLogoLogin.getBoundingClientRect();
+  const differenceXPostion = smallLogoSizeAndPostion.left - bigLogoSizeAndPosition.left;
+  const differenceYPostion = smallLogoSizeAndPostion.top  - bigLogoSizeAndPosition.top;
+  const scaleFactorForLogo = smallLogoSizeAndPostion.width / bigLogoSizeAndPosition.width;
+    requestAnimationFrame(() => {
+        bigLogoLogin.style.transform = `
+        translate(calc(-50% + ${differenceXPostion}px), calc(-50% + ${differenceYPostion}px))
+        scale(${scaleFactorForLogo})
+        `;
+    });
 });
+
+function hideLoadingScreen() {
+
+}
 
 function login() {
     const email = emailInput.value;
