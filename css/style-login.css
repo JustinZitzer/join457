@@ -56,6 +56,10 @@ body {
   cursor: pointer;
 }
 
+.Header-Login-Right-Button:hover {
+  background-color: #29ABE2;
+}
+
 .Header-Login-Right-Button-Text {
   width: 59px;
   height: 19px;
@@ -138,6 +142,7 @@ body {
   font-size: 20px;
   font-weight: 400;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .Login-Box-Email-Input-Button {
@@ -151,6 +156,10 @@ body {
   font-size: 21px;
   line-height: 120%;
   text-align: center;
+}
+
+.Login-Box-Email-Input-Button:hover {
+  background-color: #29ABE2;
 }
 
 .Login-Box-Email-Input-Button-Text {
@@ -174,6 +183,10 @@ body {
   color: #FFFFFF;
   text-align: center;
   cursor: pointer;
+}
+
+.Login-Box-Passwort-Input-Button:hover {
+  background-color: #29ABE2;
 }
 
 .Login-Box-Guest-Email-Input-Button-Text {
@@ -203,6 +216,12 @@ body {
   cursor: pointer;
 }
 
+.Privacy-Policy-Text-Login-Site:hover {
+  color: #29ABE2;
+  scale: 1.1;
+  font-weight: bold;
+}
+
 .Legal-Notice-Text-Login-Site {
   margin-left: 50px;
   font-weight: 400;
@@ -211,4 +230,10 @@ body {
   letter-spacing: 0%;
   color: #A8A8A8;
   cursor: pointer;
+}
+
+.Legal-Notice-Text-Login-Site:hover {
+  color: #29ABE2;
+  scale: 1.1;
+  font-weight: bold;
 }
