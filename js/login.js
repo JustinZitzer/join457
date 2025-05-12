@@ -22,11 +22,13 @@ window.addEventListener('load', () => {
         scale(${scaleFactorForLogo})
         `;
     });
+    hideLoadingScreen();
 });
 
 function hideLoadingScreen() {
     setTimeout(() => {
         animationLogoDiv.classList.add('display-none');
+        smallLogoLogin.classList.remove('Visibility-Hidden');
     }, 710);
 }
 
