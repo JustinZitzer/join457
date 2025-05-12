@@ -9,7 +9,6 @@ const loginBodyDiv = document.getElementById('Login-Body-Div');
 function initSummary () {
     getLoginGuest();
     getLogin();
-    showLoginBody();
 }
 
 window.addEventListener('load', () => {
@@ -32,12 +31,9 @@ function hideLoadingScreen() {
         animationLogoDiv.classList.add('display-none');
         smallLogoLogin.classList.remove('Visibility-Hidden');
     }, 710);
-}
-
-function showLoginBody() {
-    setTimeout(() => {
-        loginDiv.classList.add('visible');
-    }, 700);
+    requestAnimationFrame(() => {
+        loginBodyDiv.style.opacity = '1';
+    });
 }
 
 function login() {
