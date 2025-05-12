@@ -4,10 +4,12 @@ const FireBaseUrl = "https://console.firebase.google.com/u/1/project/join-457/da
 const bigLogoLogin = document.getElementById('Loading-Screen-Logo-Big');
 const smallLogoLogin = document.getElementById('Loading-Screen-Logo-Mini');
 const animationLogoDiv = document.getElementById('Animation-Logo-Div-Z-Index');
+const loginBodyDiv = document.getElementById('Login-Body-Div');
 
 function initSummary () {
     getLoginGuest();
     getLogin();
+    showLoginBody();
 }
 
 window.addEventListener('load', () => {
@@ -30,6 +32,12 @@ function hideLoadingScreen() {
         animationLogoDiv.classList.add('display-none');
         smallLogoLogin.classList.remove('Visibility-Hidden');
     }, 710);
+}
+
+function showLoginBody() {
+    setTimeout(() => {
+        loginDiv.classList.add('visible');
+    }, 700);
 }
 
 function login() {
