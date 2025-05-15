@@ -600,7 +600,8 @@ h5 {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    gap: 0; /* Kein Abstand zwischen Elementen */
+    gap: 0;
+    /* Kein Abstand zwischen Elementen */
 }
 
 .inputfield-text-assign {
@@ -671,7 +672,8 @@ h5 {
 }
 
 .arrow-container-red {
-    background-color: transparent; /* or your original color */
+    background-color: transparent;
+    /* or your original color */
     color: black;
     border: 1px solid #ccc;
     padding: 10px;
@@ -689,7 +691,8 @@ h5 {
 }
 
 .arrow-container-medium {
-    background-color: transparent; /* or your original color */
+    background-color: transparent;
+    /* or your original color */
     color: black;
     border: 1px solid #ccc;
     padding: 10px;
@@ -702,7 +705,8 @@ h5 {
 }
 
 .arrow-container-orange {
-    background-color: transparent; /* or original color */
+    background-color: transparent;
+    /* or original color */
     color: black;
     border: 1px solid #ccc;
     padding: 10px;
@@ -720,7 +724,8 @@ h5 {
 }
 
 .arrow-container-green {
-    background-color: transparent; /* or your original color */
+    background-color: transparent;
+    /* or your original color */
     color: black;
     border: 1px solid #ccc;
     padding: 10px;
