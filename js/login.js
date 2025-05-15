@@ -40,10 +40,11 @@ function hideLoadingScreen() {
         setTimeout(() => {
             animationLogoDiv.classList.add('display-none');
             smallLogoLogin.classList.remove('Visibility-Hidden');
+            loginBodyDiv.style.backgroundColor = 'white';
         }, 710);
         requestAnimationFrame(() => {
             loginBodyDiv.style.opacity = '1';
-            loginBodyDiv.style.backgroundColor = 'white';
+            loginBodyDiv.style.backgroundColor = 'black';
         });
     }
 }
