@@ -36,8 +36,15 @@ function hideLoadingScreen() {
         requestAnimationFrame(() => {
             loginBodyDiv.style.opacity = '1';
         });
-    } else {
-        
+    } else if (browserResulution < 652) {
+        setTimeout(() => {
+            animationLogoDiv.classList.add('display-none');
+            smallLogoLogin.classList.remove('Visibility-Hidden');
+        }, 710);
+        requestAnimationFrame(() => {
+            loginBodyDiv.style.opacity = '1';
+            loginBodyDiv.style.backgroundColor = 'white';
+        });
     }
 }
 
