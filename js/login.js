@@ -5,6 +5,7 @@ const bigLogoLogin = document.getElementById('Loading-Screen-Logo-Big');
 const smallLogoLogin = document.getElementById('Loading-Screen-Logo-Mini');
 const animationLogoDiv = document.getElementById('Animation-Logo-Div-Z-Index');
 const loginBodyDiv = document.getElementById('Login-Body-Div');
+const browserResulution = window.innerWidth;
 
 function initSummary () {
     getLoginGuest();
@@ -27,13 +28,17 @@ window.addEventListener('load', () => {
 });
 
 function hideLoadingScreen() {
-    setTimeout(() => {
-        animationLogoDiv.classList.add('display-none');
-        smallLogoLogin.classList.remove('Visibility-Hidden');
-    }, 710);
-    requestAnimationFrame(() => {
-        loginBodyDiv.style.opacity = '1';
-    });
+    if (browserResulution > 652) {
+        setTimeout(() => {
+            animationLogoDiv.classList.add('display-none');
+            smallLogoLogin.classList.remove('Visibility-Hidden');
+        }, 710);
+        requestAnimationFrame(() => {
+            loginBodyDiv.style.opacity = '1';
+        });
+    } else {
+        
+    }
 }
 
 function login() {
