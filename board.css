@@ -1173,7 +1173,7 @@ h5 {
     color: #000000;
 }
 
-/* Overlay-Hintergrund */
+
 #overlay {
     position: fixed;
     top: 0;
@@ -1234,28 +1234,6 @@ h5 {
     justify-content: center;
     align-items: center;
 }
-
-.overlay-todo-contentTodo {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-
-
 
 @keyframes slideInRight {
     from {
