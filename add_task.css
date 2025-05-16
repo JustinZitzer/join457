@@ -741,3 +741,7 @@ h5 {
     background-color: lightgreen;
     color: white;
 }
+
+.overlay-hidden {
+    display: none;
+}
