@@ -37,13 +37,13 @@ function hideLoadingScreen() {
             loginBodyDiv.style.opacity = '1';
         });
     } else if (browserResulution < 652) {
-        setTimeout(() => {
+        requestAnimationFrame(() => {
+            bigLogoLogin.src = 'assets/img/join-logo-white.svg';
             animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
             loginBodyDiv.style.backgroundColor = 'white';
             smallLogoLogin.classList.remove('Visibility-Hidden');
             loginBodyDiv.style.opacity = '1';
-        }, 10);
-
+        });
         setTimeout(() => {
             animationLogoDiv.classList.add('display-none');
         }, 710);

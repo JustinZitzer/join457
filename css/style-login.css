@@ -299,4 +299,16 @@ body {
     opacity: 1;
   }
 
+  .Loading-Screen-Logo-Big {
+  position: absolute;
+  z-index: 8;
+  top: 50%;
+  left: 50%;
+  width: 150px; /* Beispiel-Startgröße – anpassen nach Bedarf */
+  height: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: top left;
+  transition: transform 700ms ease-in-out;
+  }
+
 }
