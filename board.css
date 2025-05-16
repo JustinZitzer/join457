@@ -1174,7 +1174,7 @@ h5 {
 }
 
 
-#overlay {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -1191,7 +1191,7 @@ h5 {
 }
 
 /* Sichtbares Overlay */
-#overlay.overlay-visible {
+.overlay.overlay-visible {
     opacity: 1;
     pointer-events: all;
 }
@@ -1258,3 +1258,4 @@ h5 {
     letter-spacing: 0%;
     color: #000000;
 }
+

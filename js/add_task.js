@@ -209,32 +209,20 @@ function overlayToDo() {
                 </div>
             </div>
         </div>
+
     `;
-
-    // Animation anwenden
-    const contentTodoElements = overlayToDoContainer.getElementsByClassName('overlay-todo-contentTodo');
-    const contentTodo = contentTodoElements[contentTodoElements.length - 1];
-    if (contentTodo) {
-        contentTodo.style.animation = 'none';
-        void contentTodo.offsetWidth;
-        contentTodo.style.animation = '';
-        contentTodo.classList.add('slide-in');
-    }
-
-    // Klick außerhalb des Inhalts => Overlay schließen
-    overlayToDoContainer.onclick = function () {
-        closeOverlayToDo();
-    };
 }
 
-function closeOverlayToDo() {
-    const overlay = document.getElementById('overlay-todo');
-    if (overlay) {
-        overlay.classList.remove('overlay-visible');
-    }
+    // Animation erneut triggern (falls mehrfach geöffnet)
+    const todo = overlayInProgress.querySelector('.overlay-todo');
+    todo.style.animation = 'none';
+    void todo.offsetWidth; // Reflow erzwingen
+    todo.style.animation = '';
+    todo.classList.add('slide-in');
+
+function closeOverlayToDo(event) {
+    document.getElementById('overlay-todo').classList.remove('overlay-visible');
 }
-
-
 
 function openOverlayInProgress() {
     const overlayInProgress = document.getElementById('overlay-in-progress');
@@ -349,7 +337,6 @@ function openOverlayInProgress() {
     void content.offsetWidth; // Reflow erzwingen
     content.style.animation = '';
     content.classList.add('slide-in');
-
 
 }
 
