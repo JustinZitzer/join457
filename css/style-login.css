@@ -39,6 +39,7 @@ body {
 
 .Loading-Screen-Logo-Big {
   position: absolute;
+  z-index: 8;
   top: 50%;
   left: 50%;
   width: 300px; /* Beispiel-Startgröße – anpassen nach Bedarf */
@@ -293,15 +294,9 @@ body {
   }
 
   .Animation-Logo-Div-Z-Index {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    pointer-events: none; /* Z-Index is above but you can still click everything*/
-    background-color: 700ms ease-in-out;
     background-color: black;
+    transition: opacity 2000ms ease-in-out;
+    opacity: 1;
   }
 
 }

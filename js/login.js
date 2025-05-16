@@ -38,14 +38,15 @@ function hideLoadingScreen() {
         });
     } else if (browserResulution < 652) {
         setTimeout(() => {
-            animationLogoDiv.classList.add('display-none');
-            smallLogoLogin.classList.remove('Visibility-Hidden');
+            animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
             loginBodyDiv.style.backgroundColor = 'white';
-        }, 710);
-        requestAnimationFrame(() => {
+            smallLogoLogin.classList.remove('Visibility-Hidden');
             loginBodyDiv.style.opacity = '1';
-            loginBodyDiv.style.backgroundColor = 'black';
-        });
+        }, 10);
+
+        setTimeout(() => {
+            animationLogoDiv.classList.add('display-none');
+        }, 710);
     }
 }
 
