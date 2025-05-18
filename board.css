@@ -279,12 +279,13 @@ h3 {
 
 .main-container-middle-part {
     width: 1208px;
-    display: flex;
     height: 688px;
     top: 336px;
-    gap: 24px;
+    margin-left: 232px;
     padding-right: 64px;
     padding-left: 64px;
+    gap: 24px;
+    
 }
 
 .todo-container-middle {
