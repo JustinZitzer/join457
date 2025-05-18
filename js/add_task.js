@@ -533,3 +533,51 @@ function toggleOrange(button) {
 function toggleGreen(button) {
     button.classList.toggle('active');
 }
+
+function toggleDropdown() {
+    var dropdown = document.getElementById('category-dropdown');
+    if (dropdown.classList.contains('dropdown-open')) {
+        dropdown.classList.remove('dropdown-open');
+    } else {
+        dropdown.classList.add('dropdown-open');
+    }
+}
+
+function selectCategory(category) {
+    var input = document.getElementById('category-input');
+    input.value = category;
+
+    var dropdown = document.getElementById('category-dropdown');
+    dropdown.classList.remove('dropdown-open');
+}
+
+function validateInput() {
+    const input = document.getElementById("titleInput");
+    const errorMsg = document.getElementById("error-message");
+
+    if (input.value.trim() === "") {
+        errorMsg.textContent = "This field is required.";
+        errorMsg.style.display = "block";
+        input.classList.add("input-error");
+    } else {
+        errorMsg.textContent = "";
+        errorMsg.style.display = "none";
+        input.classList.remove("input-error");
+    }
+}
+
+function validateDueDateInput() {
+    const input = document.getElementById("dueDateInput");
+    const errorMsg = document.getElementById("due-date-error");
+
+    if (input.value.trim() === "") {
+        errorMsg.textContent = "This field is required.";
+        errorMsg.style.display = "block";
+        input.classList.add("input-error");
+    } else {
+        errorMsg.textContent = "";
+        errorMsg.style.display = "none";
+        input.classList.remove("input-error");
+    }
+}
+

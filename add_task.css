@@ -441,7 +441,7 @@ h5 {
 
 .field-required {
     position: absolute;
-    width: 170px;
+    width: 230px;
     height: 27px;
     top: 600px;
     left: 0px;
@@ -567,7 +567,7 @@ h5 {
     width: 24px;
     height: 24px;
     left: 400px;
-    bottom: 45px;
+    bottom: 38px;
     cursor: pointer;
 
 }
@@ -704,6 +704,11 @@ h5 {
     transition: background-color 0.3s ease;
 }
 
+.arrow-container-orange.active {
+    background-color: orange;
+    color: white;
+}
+
 .arrow-container-orange {
     background-color: transparent;
     /* or original color */
@@ -716,6 +721,18 @@ h5 {
     gap: 8px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    border-radius: 10px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 .arrow-container-orange.active {
@@ -743,5 +760,75 @@ h5 {
 }
 
 .overlay-hidden {
+    display: none;
+}
+
+.task-inputfield-box {
+    position: relative;
+    display: inline-block;
+    width: 440px;
+}
+
+.inputfield-category-assign {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+/* Dropdown-Styling */
+.category-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
+    overflow: hidden;
+
+    /* Animation */
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Sichtbar */
+.dropdown-open {
+    max-height: 200px; /* genug für die Inhalte */
+    opacity: 1;
+}
+
+/* Einträge */
+.category-dropdown div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.category-dropdown div:hover {
+    background-color: #f0f0f0;
+}
+
+.title-inputfield-enter-title.input-error {
+    border: 1px solid red;
+    box-shadow: 0 0 5px red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.due-date-text-field.input-error {
+    border: 1px solid red;
+    box-shadow: 0 0 5px red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
     display: none;
 }

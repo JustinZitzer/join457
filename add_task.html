@@ -21,30 +21,41 @@
     </div>
 
     <div class="main-container-for-two-inputfield-container">
-
         <div class="container-both-sides" onclick="event.stopPropagation()">
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
                         <span>Title</span>
                     </div>
-                    <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title">
+                    <input type="text" id="titleInput" placeholder="Enter a title" class="title-inputfield-enter-title" onclick="validateInput()">
+                    <div id="error-message" class="error-message"></div>
                 </div>
+
+        
                 <div class="description-main-box">
                     <div class="description-text">
                         <span>Description</span>
                         <input type="text" placeholder="Enter Description" class="inputfield-description">
                     </div>
+
+
                     <div class="inputfield-due-date-container">
                         <img class="calendar-clock" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-
+                    
                         <div class="due-date-mark">
                             <span>Due date</span>
                         </div>
-                        <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field">
+                    
+                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field" onclick="validateDueDateInput()">
+                        <div id="due-date-error" class="error-message"></div>
                     </div>
+
                 </div>
             </div>
+
+
+
+
             <img class="line-middle-of-both-container" src="./assets/icons/Vector 4.png"
                 alt="line between bothcontainers">
 
@@ -65,7 +76,7 @@
 
                             <div class="main-box-inputfield">
                                 <div class="arrow-container-main-red">
-                                    <button onclick="toggleOrange(this)" class="arrow-container-red">
+                                    <button onclick="toggleOrange(this)" class="arrow-container-orange">
                                         <h4>Medium =</h4>
                                     </button>
                                 </div>
@@ -100,12 +111,19 @@
                                 <div class="category-mark">
                                     <span>Category</span>
                                 </div>
-                                <input type="text" placeholder="Select task category"
-                                    class="inputfield-category-assign">
-                                <img class="assigned-arrow-icon-down" src="./assets/icons/arrow_drop_down.png"
-                                    alt="assigned-arrow-button">
-
+                                <input id="category-input" type="text" placeholder="Select task category"
+                                    class="inputfield-category-assign" readonly>
+                                <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
+                                    src="./assets/icons/arrow_drop_down.png"
+                            alt="assigned-arrow-button" onclick="toggleDropdown()">
+                            
+                                <!-- Dropdown-Fenster -->
+                                <div id="category-dropdown" class="category-dropdown dropdown-closed">
+                                    <div onclick="selectCategory('Technical Task')">Technical Task</div>
+                                    <div onclick="selectCategory('User Story')">User Story</div>
+                                </div>
                             </div>
+
 
                             <div class="subtask-inputfield-box">
                                 <span>Subtasks</span>
@@ -116,6 +134,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
                         <div class="field-required">
                             <span>This field is required</span>
                         </div>
