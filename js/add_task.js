@@ -276,7 +276,7 @@ function openOverlayInProgress() {
     const overlayContentProgress = document.getElementById('content-add-task-overlay-in-progress');
     overlayContentProgress.innerHTML = `
         <div id="overlay-content-progress" class="overlay-content" onclick="event.stopPropagation()">
-           <div class="container-both-sides">
+        <div class="container-both-sides">
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
@@ -386,13 +386,6 @@ function openOverlayInProgress() {
         void content.offsetWidth;
         content.style.animation = '';
         content.classList.add('slide-in');
-    }
-}
-
-function closeOverlayInProgress() {
-    const overlayInProgress = document.getElementById('overlay-in-progress');
-    if (overlayInProgress) {
-        overlayInProgress.classList.remove('overlay-visible');
     }
 }
 
