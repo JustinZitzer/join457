@@ -98,13 +98,34 @@
 }
 
 .Pencil-Icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+}
+
+.Pencil-Icon path {
     position: absolute;
-    left: 18px;
+    fill: white;
+}
+
+.To-Do-Box:hover .Pencil-Icon path {
+  fill: #2A3647;
 }
 
 .Checked-Icon {
     position: absolute;
     left: 15px;
+}
+
+.Checked-Icon path {
+  stroke: white;
+}
+
+.Done-Box:hover .Checked-Icon path {
+  stroke: #2A3647;
 }
 
 .Counter-To-Do {
@@ -113,10 +134,26 @@
     line-height: 120%;
 }
 
+.To-Do-Box:hover .Counter-To-Do {
+    color: #FFFFFF;
+}
+
+.To-Do-Box:hover .To-Do-Box-Text {
+    color: #FFFFFF;
+}
+
 .Counter-Done {
     font-weight: 600;
     font-size: 64px;
     line-height: 120%;
+}
+
+.Done-Box:hover .Counter-Done {
+    color: #FFFFFF;
+}
+
+.Done-Box:hover .Done-Box-Text {
+    color: #FFFFFF;
 }
 
 .To-Do-Box-Text {
