@@ -55,6 +55,12 @@
     align-items: center;
 }
 
+.To-Do-Box:hover {
+    cursor: pointer;
+    scale: 1.10;
+    background-color: #2A3647;
+}
+
 .Done-Box {
     height: 168px;
     width: 264px;
