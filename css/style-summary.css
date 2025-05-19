@@ -55,6 +55,14 @@
     align-items: center;
 }
 
+.Circle-Logo-Svg-Summary circle {
+    fill: #2A3647;
+}
+
+.To-Do-Box:hover .Circle-Logo-Svg-Summary circle {
+  fill: #FFFFFF;
+}
+
 .To-Do-Box:hover {
     cursor: pointer;
     scale: 1.10;
@@ -70,6 +78,16 @@
     display: flex;
     align-items: center;
     margin-left: 30px;
+}
+
+.Done-Box:hover {
+    background-color: #2A3647;
+    scale: 1.10;
+    cursor: pointer;
+}
+
+.Done-Box:hover .Circle-Logo-Svg-Summary circle {
+    fill: #FFFFFF;
 }
 
 .Circle-Logo-Container {

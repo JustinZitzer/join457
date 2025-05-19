@@ -23,21 +23,22 @@ function initLogin() {
 window.addEventListener('resize', showMobileVersion);
 
 window.addEventListener('load', () => {
-  const bigLogoSizeAndPosition   = bigLogoLogin.getBoundingClientRect();
-  const smallLogoSizeAndPostion = smallLogoLogin.getBoundingClientRect();
-  const differenceXPostion = smallLogoSizeAndPostion.left - bigLogoSizeAndPosition.left;
-  const differenceYPostion = smallLogoSizeAndPostion.top  - bigLogoSizeAndPosition.top;
-  const scaleFactorForLogo = smallLogoSizeAndPostion.width / bigLogoSizeAndPosition.width;
+    if (!window.location.pathname.endsWith("login.html")) return;
+    const bigLogoSizeAndPosition   = bigLogoLogin.getBoundingClientRect();
+    const smallLogoSizeAndPostion = smallLogoLogin.getBoundingClientRect();
+    const differenceXPostion = smallLogoSizeAndPostion.left - bigLogoSizeAndPosition.left;
+    const differenceYPostion = smallLogoSizeAndPostion.top  - bigLogoSizeAndPosition.top;
+    const scaleFactorForLogo = smallLogoSizeAndPostion.width / bigLogoSizeAndPosition.width;
     requestAnimationFrame(() => {
         bigLogoLogin.style.transform = `
-        translate(calc(-50% + ${differenceXPostion}px), calc(-50% + ${differenceYPostion}px))
-        scale(${scaleFactorForLogo})
+            translate(calc(-50% + ${differenceXPostion}px), calc(-50% + ${differenceYPostion}px)) scale(${scaleFactorForLogo})
         `;
     });
     hideLoadingScreen();
 });
 
 function showMobileVersion() {
+    if (!window.location.pathname.endsWith("login.html")) return;
     const currentWidth = window.innerWidth;
     if (currentWidth < 652) {
         if (!rightHeaderDivMobileVersion.contains(rightHeaderDiv)) {
