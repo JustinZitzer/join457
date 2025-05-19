@@ -95,6 +95,9 @@ body {
   margin-left: 25px;
   margin-right: 50px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Header-Login-Right-Button:hover {
@@ -309,6 +312,78 @@ body {
   transform: translate(-50%, -50%) scale(1);
   transform-origin: top left;
   transition: transform 700ms ease-in-out;
+  }
+
+  .Loading-Screen-Logo-Mini {
+    height: auto;
+    width: 70px;
+  }
+
+  .Header-Login-Right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  }
+
+  .Header-Login-Right-Button {
+    margin-right: 0px;
+    width: 110px;
+  }
+
+  .Header-Login-Left {
+    padding-top: 40px;
+    padding-left: 40px;
+  }
+
+  .Login-Box {
+    width: 93%;
+    gap: 24px;
+    height: 470px;
+  }
+
+  .Input-Wrapper-Log-In {
+    width: 85vw;
+  }
+
+  .Login-Box-Passwort-Input {
+    width: 100%;
+  }
+
+  .Login-Box-Email-Input {
+    width: 100%;
+  }
+
+  .input-icon {
+    left: 95%; /* oder z. B. 320px, je nach Design */
+    transform: translateX(-100%) translateY(-50%);
+  }
+
+  .Login-Box-Button-Div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Login-Box-Email-Input {
+    width: 100%;
+  }
+
+  .Login-Box-Email-Input-Button {
+    width: 177px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-login-site {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
   }
 
 }

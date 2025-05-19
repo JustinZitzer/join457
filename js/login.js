@@ -5,12 +5,22 @@ const bigLogoLogin = document.getElementById('Loading-Screen-Logo-Big');
 const smallLogoLogin = document.getElementById('Loading-Screen-Logo-Mini');
 const animationLogoDiv = document.getElementById('Animation-Logo-Div-Z-Index');
 const loginBodyDiv = document.getElementById('Login-Body-Div');
+const rightHeaderDiv = document.getElementById('Header-Login-Right');
+const rightHeaderDivMobileVersion = document.getElementById('Header-Login-Right-Mobile-Version-Div');
+const headerDiv = document.getElementById('Header-Login');
 const browserResulution = window.innerWidth;
 
-function initSummary () {
+function initSummary() {
     getLoginGuest();
     getLogin();
 }
+
+function initLogin() {
+    showMobileVersion();
+}
+
+
+window.addEventListener('resize', showMobileVersion);
 
 window.addEventListener('load', () => {
   const bigLogoSizeAndPosition   = bigLogoLogin.getBoundingClientRect();
@@ -27,6 +37,19 @@ window.addEventListener('load', () => {
     hideLoadingScreen();
 });
 
+function showMobileVersion() {
+    const currentWidth = window.innerWidth;
+    if (currentWidth < 652) {
+        if (!rightHeaderDivMobileVersion.contains(rightHeaderDiv)) {
+            rightHeaderDivMobileVersion.appendChild(rightHeaderDiv);
+        }
+    } else {
+        if (!headerDiv.contains(rightHeaderDiv)) {
+            headerDiv.appendChild(rightHeaderDiv);
+        }
+    }
+}
+
 function hideLoadingScreen() {
     if (browserResulution > 652) {
         setTimeout(() => {
@@ -40,7 +63,6 @@ function hideLoadingScreen() {
         requestAnimationFrame(() => {
             bigLogoLogin.src = 'assets/img/join-logo-white.svg';
             animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
-            loginBodyDiv.style.backgroundColor = 'white';
             smallLogoLogin.classList.remove('Visibility-Hidden');
             loginBodyDiv.style.opacity = '1';
         });
