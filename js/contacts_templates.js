@@ -110,3 +110,16 @@ function getEditContactOverlay() {
         </div>
     `;
 }
+
+function getContactCard(contact) {
+    return `
+        <div id="contact_card" class="contact-card"
+                    onclick="openContactsSideCardOverlay(), toggleContactCardColor()">
+                    <div class="contact-profile">AZ</div> <!--vervollständigen-->
+                    <div class="contact-info">
+                        <span>${contact.name}</span><!--Variable einfügen-->
+                        <a>${contact.email}</a><!--Variable einfügen-->
+                    </div>
+        </div>
+    `;
+}

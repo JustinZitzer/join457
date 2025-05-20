@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="loadHTML()">
+<body onload="loadHTML(), loadContacts()">
     <div id="index_html"></div>
     <main id="main_contacts" class="contacts-content">
         <div class="contacts-sidebar-container">
@@ -25,17 +25,9 @@
                 <p>Add new contact</p>
                 <img src="./assets/icons/new-contact-icon.svg" alt="new-contact-icon">
             </button>
-            <div class="contact-list">
+            <div id="contact_list" class="contact-list">
                 <p>A</p> <!--Variable einfügen-->
                 <div class="contact-list-seperator"></div>
-                <div id="contact_card" class="contact-card"
-                    onclick="openContactsSideCardOverlay(), toggleContactCardColor()">
-                    <div class="contact-profile">AZ</div> <!--vervollständigen-->
-                    <div class="contact-info">
-                        <span>Anton</span><!--Variable einfügen-->
-                        <a>Anton.za@gmail.com</a><!--Variable einfügen-->
-                    </div>
-                </div>
             </div>
         </div>
         <div id="contacts_right_section" class="contacts-right-main-container">
@@ -50,8 +42,10 @@
     <script src="script.js"></script>
     <script src="./js/contacts_templates.js"></script>
     <script src="./js/contacts.js"></script>
+    <script src="./js/contacts_data.js"></script>
     <script src="./js/templates.js"></script>
     <script src="./js/load_html.js"></script>
+    <script src="./js/firebase.js"></script>
 </body>
 
 </html>
