@@ -115,9 +115,9 @@ function getContactCard(contact) {
     return `
         <div id="contact_card" class="contact-card"
                     onclick="openContactsSideCardOverlay(), toggleContactCardColor()">
-                    <div class="contact-profile">${contact.name[0]}</div> <!--vervollständigen-->
+                    <div class="contact-profile">${contact.firstName[0]}${contact.lastName[0]}</div> <!--vervollständigen-->
                     <div class="contact-info">
-                        <span>${contact.name}</span>
+                        <span>${contact.firstName} ${contact.lastName}</span>
                         <a>${contact.email}</a>
                     </div>
         </div>
