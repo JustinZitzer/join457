@@ -199,6 +199,70 @@
     margin-top: 25px;
 }
 
+.Second-One-Box-Container:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.Second-One-Box-Container:hover .Counter-Urgent {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Urgent-Text {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Date-Of-The-Deadline {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Text-Upcoming-Deadline {
+    color: #FFFFFF;
+}
+
+.tiny-box-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box-div:hover .Tasks-In-Board-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box2-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box2-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box2-div:hover .Tasks-In-Progress-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box3-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box3-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box3-div:hover .Awaiting-Feedback-Tiny-Div {
+    color: #FFFFFF;
+}
+
 .Urgent-Picture-Div {
     display: flex;
     align-items: center;
