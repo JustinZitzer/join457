@@ -17,3 +17,6 @@ async function getInformationSummaryBoard(path) {
     summaryGreetingTextName.innerHTML = firstUser.name;
 }
 
+function showSummaryMobileVersion () {
+    
+}

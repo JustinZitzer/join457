@@ -1,8 +1,9 @@
 .Summary-Box-Z-Index-Container {
-    margin-left: 232px;
-    margin-top: 50px;
-    position: fixed;
-    z-index: 4;
+    margin-top: 40px;
+    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100vh;
 }
@@ -409,4 +410,8 @@
 
 .display-none {
     display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    
 }
