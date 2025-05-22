@@ -1,18 +1,18 @@
-function getContactOverlay() {
+function getContactOverlay(contact) {
     return `
     <div id="contacts_side_overlay" class="contacts-overlay-container">
                 <div class="contacts-overlay-header">
                     <div class="contacts-overlay-user-profile">
-                        <p>AM</p>
+                        <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                     </div>
                     <div class="contacts-info-container">
-                        <h3>Anton Za</h3>
+                        <h3>${contact.firstName} ${contact.lastName}</h3>
                         <div class="contacts-overlay-action-buttons-container">
-                            <div onclick="openEditContactOverlay()" class="contacts-overlay-edit-container">
+                            <div onclick="openEditContactOverlay(${contact.id})" class="contacts-overlay-edit-container">
                                 <img src="./assets/icons/edit-icon.svg" alt="edit-icon">
                                 <p>Edit</p>
                             </div>
-                            <div class="contacts-overlay-delete-container">
+                            <div onclick="deleteContact(${contact.id})" class="contacts-overlay-delete-container">
                                 <img src="./assets/icons/delete-icon.svg" alt="delete-icon">
                                 <p>Delete</p>
                             </div>
@@ -23,11 +23,11 @@ function getContactOverlay() {
                 <div class="contacts-details-container">
                     <div class="contacts-email-details-container">
                         <h4>Email</h4>
-                        <a class="blue-color">Anton.za@gmail.com</a>
+                        <a class="blue-color">${contact.email}</a>
                     </div>
                     <div class="contacts-phone-details-container">
                         <h4>Phone</h4>
-                        <a>+491645128738</a>
+                        <a>${contact.phone}</a>
                     </div>
                 </div>
             </div>
@@ -113,13 +113,13 @@ function getEditContactOverlay() {
 
 function getContactCard(contact) {
     return `
-        <div id="contact_card" class="contact-card"
-                    onclick="openContactsSideCardOverlay(), toggleContactCardColor()">
-                    <div class="contact-profile">${contact.firstName[0]}${contact.lastName[0]}</div> <!--vervollständigen-->
-                    <div class="contact-info">
-                        <span>${contact.firstName} ${contact.lastName}</span>
-                        <a>${contact.email}</a>
-                    </div>
-        </div>
-    `;
+    <div id="contact_card_${contact.id}" class="contact-card"
+         onclick="openContactsSideCardOverlayById(${contact.id})">
+      <div class="contact-profile">${contact.firstName[0]}${contact.lastName[0]}</div>
+      <div class="contact-info">
+        <span>${contact.firstName} ${contact.lastName}</span>
+        <a>${contact.email}</a>
+      </div>
+    </div>
+  `;
 }

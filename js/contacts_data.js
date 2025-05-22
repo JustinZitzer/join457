@@ -1,3 +1,5 @@
+let allContacts = {};
+
 async function fetchContacts() {
   try {
     const data = await loadData('contacts');
@@ -9,20 +11,20 @@ async function fetchContacts() {
 }
 
 async function loadContacts() {
+  const container = document.getElementById('contact_list');
   try {
     const contacts = await fetchContacts();
-    renderContacts(contacts);
+    allContacts = contacts
+    for (const key in contacts) {
+        container.innerHTML += getContactCard(contacts[key]);
+        console.log(contacts[key]);
+    }
   } catch (error) {
     console.error("Error loading contacts:", error);
   }
 }
 
-function renderContacts(contacts) {
+async function renderContacts(contacts) {
   const container = document.getElementById('contact_list');
-  for (const key in contacts) {
-    if (contacts.hasOwnProperty(key)) {
-      const contact = contacts[key];
-      container.innerHTML += getContactCard(contact);
-    }
-  }
+  container.innerHTML += getContactCard(contacts);
 }

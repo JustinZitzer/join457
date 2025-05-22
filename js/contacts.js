@@ -3,27 +3,40 @@ let openedAddNewContactOverlay = false;
 let openedEditContactsOverlay = false;
 let toggledCard = false;
 
-function openContactsSideCardOverlay() {
-    const contactsRightSection = document.getElementById('contacts_right_section')
-    const contactsSideOverlay = document.getElementById('contacts_side_overlay');
-    if (!openedContactsSideCardOverlay) {
-        contactsRightSection.innerHTML += getContactOverlay();
-        openedContactsSideCardOverlay = true;
-    } else {
-        contactsSideOverlay.remove();
-        openedContactsSideCardOverlay = false;
+function openContactsSideCardOverlay(contactId) {
+    const contact = allContacts[contactId];
+    
+    
+    if (!contact) {
+        console.warn(`Kontakt mit ID ${contactId} nicht gefunden.`);
+        return;
     }
+    const contactsRightSection = document.getElementById('contacts_right_section');
+    const existingOverlay = document.getElementById('contacts_side_overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
+    contactsRightSection.innerHTML += getContactOverlay(contactId, contact);
 }
 
-function toggleContactCardColor() {
-    const contactCard = document.getElementById('contact_card');
-    if (!toggledCard) {
-        contactCard.classList.remove('contact-card-acticated')
-        toggledCard = false;
+function openContactsSideCardOverlayById(contactId) {
+    const firstKey = Object.keys(allContacts)[contactId];
+    const firstContact = allContacts[firstKey]
+    console.log(firstContact);
+    const contactsRightSection = document.getElementById('contacts_right_section');
+    const contactsSideOverlay = document.getElementById('contacts_side_overlay');
+    if (contactsSideOverlay) {
+        contactsSideOverlay.remove();
     }
-    contactCard.classList.toggle('contact-card-acticated');
-    toggledCard = true;
+    contactsRightSection.innerHTML += getContactOverlay(firstContact);
+
 }
+
+function toggleContactCardColor(contactId) {
+    const contactCard = document.getElementById(`contact_card_${contactId}`);
+    contactCard.classList.toggle('contact-card-activated');
+}
+
 
 /*funktionen der card ergänzen*/
 
@@ -31,13 +44,13 @@ function openAddNewContactOverlay() {
     const main = document.getElementById('main_contacts');
     if (!openedAddNewContactOverlay) {
         main.innerHTML += getAddContactOverlay();
+        openedAddNewContactOverlay = true;
     }
 }
-
 function removeAddNewContactOverlay() {
-    if (!openedAddNewContactOverlay) {
-        const addContactOverlay = document.getElementById('add_contact_overlay');
-        addContactOverlay.remove();
+    const overlay = document.getElementById('add_contact_overlay');
+    if (overlay) {
+        overlay.remove();
         openedAddNewContactOverlay = false;
     }
 }
@@ -55,4 +68,13 @@ function removeEditContactOverlay() {
         editContactOverlay.remove();
         openedEditContactsOverlay = false;
     }
+}
+
+function handleContactClick(contact) {
+    openContactsSideCardOverlay(contact);
+    toggleContactCardColor(contact);
+}
+
+function getContactById(contactId) {
+    return allContacts[contactId];
 }
