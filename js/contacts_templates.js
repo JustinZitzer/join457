@@ -27,7 +27,7 @@ function getContactOverlay(contact) {
                     </div>
                     <div class="contacts-phone-details-container">
                         <h4>Phone</h4>
-                        <a>${contact.phone}</a>
+                        <a>+${contact.phoneNumber}</a>
                     </div>
                 </div>
             </div>
