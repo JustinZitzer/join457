@@ -419,5 +419,24 @@ body {
 }
 
 @media screen and (max-width: 1400px) {
-    
+    .Text-Wrapper-Div {
+        display: none;
+    }
+
+    .Summary-Box-Z-Index-Container {
+        margin-left: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    /* width: 100vh; */
+    }
+
+    .Summary-Box-Container {
+        display: flex;
+        align-items: center;
+        margin-top: 0px;
+    }
+
 }
