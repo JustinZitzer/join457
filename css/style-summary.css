@@ -1,9 +1,15 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
 .Summary-Box-Z-Index-Container {
-    margin-top: 40px;
     margin-left: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100%;
     width: 100vh;
 }
@@ -11,7 +17,7 @@
 .Summary-Box-Container {
     display: flex;
     align-items: center;
-    margin-top: 110px;
+    margin-top: 60px;
 }
 
 .Headline-Join-360 {
@@ -412,6 +418,6 @@
     display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
     
 }

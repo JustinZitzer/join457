@@ -175,3 +175,9 @@ footer a:hover {
     color: white;
     background-color: rgba(9, 25, 49, 1);
 }
+
+@media screen and (max-width: 1400px) {
+    .sidebar {
+        width: 232px;
+    }
+}
