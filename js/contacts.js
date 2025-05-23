@@ -22,14 +22,20 @@ function openContactsSideCardOverlay(contactId) {
 function openContactsSideCardOverlayById(contactId) {
     const firstKey = Object.keys(allContacts)[contactId];
     const firstContact = allContacts[firstKey]
-    console.log(firstContact);
     const contactsRightSection = document.getElementById('contacts_right_section');
     const contactsSideOverlay = document.getElementById('contacts_side_overlay');
     if (contactsSideOverlay) {
         contactsSideOverlay.remove();
     }
     contactsRightSection.innerHTML += getContactOverlay(firstContact);
+    setTimeout(() => {
+        flyInOverlay();
+    },10)
+}
 
+function flyInOverlay() {
+    const overlay = document.getElementById('contacts_side_overlay');
+    overlay.classList.toggle("active-side-overlay")
 }
 
 function toggleContactCardColor(contactId) {
