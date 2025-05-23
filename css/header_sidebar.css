@@ -208,12 +208,23 @@ footer a:hover {
     }
 
     .nav-links li {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links a {
         display: flex;
         flex-direction: column;
-        cursor: pointer;
-        padding-top: 8px;
-        padding-right: 56px;
-        padding-bottom: 8px;
-        padding-left: 56px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%; /* optional, falls nötig */
+        width: 100%;  /* optional, falls nötig */
+    }
+
+    .nav-links img {
+        margin-right: 0px;
     }
 }
