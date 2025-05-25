@@ -5,13 +5,13 @@ body {
 }
 
 .Summary-Box-Z-Index-Container {
-    margin-left: 150px;
+    margin-left: 350px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     height: 100%;
-    width: 100vh;
+    width: 100%;
 }
 
 .Summary-Box-Container {
@@ -24,7 +24,7 @@ body {
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
-    margin-left: 80px;
+    margin-left: 0px;
 }
 
 .Headline-Blue-Line {
@@ -42,7 +42,7 @@ body {
 }
 
 .To-Do-Six-Box-Container {
-    margin-left: 80px;
+    margin-left: 0px;
     width: 560px;
     height: 562px;
 }
@@ -424,13 +424,13 @@ body {
     }
 
     .Summary-Box-Z-Index-Container {
-        margin-left: 150px;
+        margin-left: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100%;
-        width: 100vh;
+        width: 100%;
     }
 
     .Summary-Box-Container {
