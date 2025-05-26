@@ -439,4 +439,9 @@ body {
         margin-top: 0px;
     }
 
+    #header-title-project-management-tool,
+    #help-icon-logo {
+    display: none;
+  }
+
 }
