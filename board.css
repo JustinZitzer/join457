@@ -746,15 +746,6 @@ h5 {
     color: white;
 }
 
-.arrow-container-orange.active {
-    background-color: orange;
-    color: white;
-}
-.arrow-container-green.active {
-    background-color: lightgreen;
-    color: white;
-}
-
 
 h4 {
     font-weight: 400;
@@ -799,6 +790,12 @@ h5 {
     padding-right: 10px;
     padding-bottom: 16px;
     padding-left: 10px;
+}
+
+
+.arrow-container-green.active {
+    background-color: lightgreen;
+    color: white;
 }
 
 
@@ -1225,10 +1222,10 @@ h5 {
     align-items: center;
     justify-content: center;
     gap: 32px;
-    top: 100px;
+    top: 70px;
     left: 180px;
     width: 75%;
-    height: 80vh;
+    height: 85vh;
     transform: translateX(100%);
     animation: slideInRight 0.2s ease forwards;
     padding: 16px;
@@ -1239,6 +1236,16 @@ h5 {
 
 /* Slide-in Animation */
 
+.add-task-text-box {
+    position: fixed;
+    left: 175px;
+    bottom: 630px;
+}
+
+
+h2 {
+    font-size: 64px;
+}
 
 .overlay-hidden {
     display: none;

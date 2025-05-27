@@ -27,11 +27,12 @@
                     <div class="text-title-mark">
                         <span>Title</span>
                     </div>
-                    <input type="text" id="titleInput" placeholder="Enter a title" class="title-inputfield-enter-title" onclick="validateInput()">
+                    <input type="text" id="titleInput" placeholder="Enter a title" class="title-inputfield-enter-title"
+                        onclick="validateInput()">
                     <div id="error-message" class="error-message"></div>
                 </div>
 
-        
+
                 <div class="description-main-box">
                     <div class="description-text">
                         <span>Description</span>
@@ -41,12 +42,13 @@
 
                     <div class="inputfield-due-date-container">
                         <img class="calendar-clock" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-                    
+
                         <div class="due-date-mark">
                             <span>Due date</span>
                         </div>
-                    
-                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field" onclick="validateDueDateInput()">
+
+                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                            onclick="validateDueDateInput()">
                         <div id="due-date-error" class="error-message"></div>
                     </div>
 
@@ -100,11 +102,11 @@
                                     <div class="single-circle-first">
                                         <h6>AS</h6>
                                     </div>
-        
+
                                     <div class="single-circle-second">
                                         <h6>DE</h6>
                                     </div>
-        
+
                                     <div class="single-circle-third">
                                         <h6>EF</h6>
                                     </div>
@@ -114,66 +116,66 @@
 
 
 
-                            <img id="contact-list" onclick="selectContacts()" class="assigned-arrow-icon"
-                                src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-                            <div id="contacts-dropdown" class="contacts-dropdown hidden">
-                                <label class="contact-option"><span>Anna Müller</span><input type="checkbox"></label>
-                                <label class="contact-option"><span>Ben Schmidt</span><input type="checkbox"></label>
-                                <label class="contact-option"><span>Clara Hoffmann</span><input type="checkbox"></label>
-                                <label class="contact-option"><span>David Weber</span><input type="checkbox"></label>
-                                <label class="contact-option"><span>Eva Schneider</span><input type="checkbox"></label>
+                        <img id="contact-list" onclick="selectContacts()" class="assigned-arrow-icon"
+                            src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+                        <div id="contacts-dropdown" class="contacts-dropdown hidden">
+                            <label class="contact-option"><span>Anna Müller</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Ben Schmidt</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Clara Hoffmann</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>David Weber</span><input type="checkbox"></label>
+                            <label class="contact-option"><span>Eva Schneider</span><input type="checkbox"></label>
+                        </div>
+
+
+                        <div class="task-inputfield-box">
+                            <div class="category-mark">
+                                <span>Category</span>
                             </div>
+                            <input id="category-input" type="text" placeholder="Select task category"
+                                class="inputfield-category-assign" readonly>
+                            <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
+                                src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
+                                onclick="toggleDropdown()">
 
-
-                            <div class="task-inputfield-box">
-                                <div class="category-mark">
-                                    <span>Category</span>
-                                </div>
-                                <input id="category-input" type="text" placeholder="Select task category"
-                                    class="inputfield-category-assign" readonly>
-                                <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
-                                    src="./assets/icons/arrow_drop_down.png"
-                            alt="assigned-arrow-button" onclick="toggleDropdown()">
-                            
-                                <!-- Dropdown-Fenster -->
-                                <div id="category-dropdown" class="category-dropdown dropdown-closed">
-                                    <div onclick="selectCategory('Technical Task')">Technical Task</div>
-                                    <div onclick="selectCategory('User Story')">User Story</div>
-                                </div>
-                            </div>
-
-
-                            <div class="subtask-inputfield-box">
-                                <span>Subtasks</span>
-                                <div class="subtask-inputfield-container">
-                                    <img class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
-                                        alt="subtask-plus-icon">
-                                    <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
-                                </div>
+                            <!-- Dropdown-Fenster -->
+                            <div id="category-dropdown" class="category-dropdown dropdown-closed">
+                                <div onclick="selectCategory('Technical Task')">Technical Task</div>
+                                <div onclick="selectCategory('User Story')">User Story</div>
                             </div>
                         </div>
 
-                        
-                        <div class="field-required">
-                            <span>This field is required</span>
+
+                        <div class="subtask-inputfield-box">
+                            <span>Subtasks</span>
+                            <div class="subtask-inputfield-container">
+                                <img class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
+                                    alt="subtask-plus-icon">
+                                <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                            </div>
                         </div>
+                    </div>
+
+
+                    <div class="field-required">
+                        <span>This field is required</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div class="clear-create-container">
-            <div class="clear-field">
-                <div class="clear-text">Clear</div>
-                <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
-            </div>
-
-            <div class="create-field">
-                <div class="text-create-field">Create Task</div>
-                <img class="check-button" src="./assets/icons/check.png" alt="check-button">
-            </div>
+    <div class="clear-create-container">
+        <div class="clear-field">
+            <div class="clear-text">Clear</div>
+            <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
         </div>
+
+        <div class="create-field">
+            <div class="text-create-field">Create Task</div>
+            <img class="check-button" src="./assets/icons/check.png" alt="check-button">
+        </div>
+    </div>
 
     </div>
 
