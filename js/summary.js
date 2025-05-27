@@ -3,6 +3,7 @@ const fireBaseUrlSummary = "https://join-457-default-rtdb.europe-west1.firebased
 async function initSummaryAndHTML() {
     await loadHTML();
     await initSummaryBoard();
+    showSummaryBoardMobile();
 }
 
 async function getInfoForSummaryBoardBaseFunction (path) {
@@ -20,4 +21,14 @@ async function getInformationSummaryBoard(path) {
 
 async function initSummaryBoard() {
     await getInformationSummaryBoard("/userData");
+}
+
+function showSummaryBoardMobile() {
+    const resolutionWidth = window.innerWidth;
+    const headerIndexHtml = document.getElementById("header-index-html");
+    const blueLineDesktopVersion = document.getElementById("Headline-Blue-Line");
+    const blueLineMobileContainer = document.getElementById("Headline-Blue-Line-Mobile-Container");
+
+    if (resolutionWidth < 1400) {
+    }
 }
