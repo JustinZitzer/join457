@@ -196,12 +196,12 @@ function overlayToDo() {
 
                 <input type="text" placeholder="Medium =" class="text-inputfield-medium">
 
-                <div class="arrow-container-main-green">
-                    <button onclick="toggleGreen(this)"class="arrow-container-green">
-                        <h5>Low</h5>
-                        <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
-                            alt="green-arrow">
-                    </button>
+                    <div class="arrow-container-main-green">
+                        <button onclick="toggleGreen(this)"class="arrow-container-green">
+                            <h5>Low</h5>
+                            <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
+                                alt="green-arrow">
+                        </button>
                 </div>
             </div>
         </div>
@@ -606,3 +606,5 @@ function validateDueDateInput() {
     input.classList.remove("input-error");
   }
 }
+
+

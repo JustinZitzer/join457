@@ -757,10 +757,11 @@ h4 {
 
 h5 {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 20px;
     padding-top: 8px;
     line-height: 120%;
     letter-spacing: 0%;
+    color: black;
 }
 
 .arrow-red {
@@ -772,6 +773,7 @@ h5 {
 
 .arrow-green {
     position: relative;
+    top: 4px;
     width: 20px;
     height: 14.51px;
 
@@ -797,7 +799,6 @@ h5 {
     background-color: lightgreen;
     color: white;
 }
-
 
 .text-inputfield-urgent::placeholder {
     color: #000000;

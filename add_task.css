@@ -422,7 +422,7 @@ h6 {
     color: red;
 }
 
-.category-mark{
+.category-mark {
     padding-bottom: 6px;
 }
 
@@ -869,7 +869,7 @@ h6 {
     width: 100%;
     background-color: white;
     border: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 100;
     overflow: hidden;
 
@@ -881,7 +881,8 @@ h6 {
 
 /* Sichtbar */
 .dropdown-open {
-    max-height: 200px; /* genug für die Inhalte */
+    max-height: 200px;
+    /* genug für die Inhalte */
     opacity: 1;
 }
 
