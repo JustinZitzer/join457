@@ -1,15 +1,15 @@
 function openOverlay() {
-    const overlay = document.getElementById('overlay');
-    overlay.classList.add('overlay-visible');
+  const overlay = document.getElementById("overlay");
+  overlay.classList.add("overlay-visible");
 
-    overlay.onclick = function(event) {
-        if (event.target === overlay) {
-            closeOverlay();
-        }
-    };
+  overlay.onclick = function (event) {
+    if (event.target === overlay) {
+      closeOverlay();
+    }
+  };
 
-    const overlayContent = document.getElementById('content-add-task-overlay');
-    overlayContent.innerHTML = `
+  const overlayContent = document.getElementById("content-add-task-overlay");
+  overlayContent.innerHTML = `
         <div id="overlay-content" class="overlay-content" onclick="event.stopPropagation()">
             <div class="container-both-sides">
             <div class="inputfield-box-left-side">
@@ -44,7 +44,7 @@ function openOverlay() {
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button class="arrow-container-red">
+                                <button onclick="toggleRed(this)" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -54,7 +54,7 @@ function openOverlay() {
                             <input type="text" placeholder="Medium =" class="text-inputfield-medium">
 
                             <div class="arrow-container-main-green">
-                                <button class="arrow-container-green">
+                                <button onclick="toggleGreen(this)"class="arrow-container-green">
                                     <h5>Low</h5>
                                     <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                         alt="green-arrow">
@@ -100,7 +100,7 @@ function openOverlay() {
         
     <div class="clear-create-container">
         <div class="clear-field">
-            <div class="clear-text">Clear</div>
+            <div class="clear-text">Cancel</div>
             <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
         </div>
 
@@ -115,34 +115,36 @@ function openOverlay() {
 
     `;
 
-    const content = document.getElementById('overlay-content');
-    if (content) {
-        content.style.animation = 'none';
-        void content.offsetWidth;
-        content.style.animation = '';
-        content.classList.add('slide-in');
-    }
+  const content = document.getElementById("overlay-content");
+  if (content) {
+    content.style.animation = "none";
+    void content.offsetWidth;
+    content.style.animation = "";
+    content.classList.add("slide-in");
+  }
 }
 
 function closeOverlay() {
-    const overlay = document.getElementById('overlay');
-    if (overlay) {
-        overlay.classList.remove('overlay-visible');
-    }
+  const overlay = document.getElementById("overlay");
+  if (overlay) {
+    overlay.classList.remove("overlay-visible");
+  }
 }
 
 function overlayToDo() {
-    const overlayToDoContainer = document.getElementById('overlay-todo');
-    overlayToDoContainer.classList.add('overlay-visible');
+  const overlayToDoContainer = document.getElementById("overlay-todo");
+  overlayToDoContainer.classList.add("overlay-visible");
 
-    overlayToDoContainer.onclick = function(event) {
-        if (event.target === overlayToDoContainer) {
-            closeOverlayToDo();
-        }
-    };
+  overlayToDoContainer.onclick = function (event) {
+    if (event.target === overlayToDoContainer) {
+      closeOverlayToDo();
+    }
+  };
 
-    const overlayContentToDo = document.getElementById('content-add-task-overlay-todo');
-    overlayContentToDo.innerHTML = `
+  const overlayContentToDo = document.getElementById(
+    "content-add-task-overlay-todo"
+  );
+  overlayContentToDo.innerHTML = `
         <div id="overlay-content-todo" class="overlay-todo-contentTodo" onclick="event.stopPropagation()">
             <div class="container-both-sides">
             <div class="inputfield-box-left-side">
@@ -177,7 +179,7 @@ function overlayToDo() {
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button class="arrow-container-red">
+                                <button onclick="toggleRed(this)" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -187,7 +189,7 @@ function overlayToDo() {
                             <input type="text" placeholder="Medium =" class="text-inputfield-medium">
 
                             <div class="arrow-container-main-green">
-                                <button class="arrow-container-green">
+                                <button onclick="toggleGreen(this)" class="arrow-container-green">
                                     <h5>Low</h5>
                                     <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                         alt="green-arrow">
@@ -233,7 +235,7 @@ function overlayToDo() {
         
     <div class="clear-create-container">
         <div class="clear-field">
-            <div class="clear-text">Clear</div>
+            <div class="clear-text">Cancel</div>
             <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
         </div>
 
@@ -247,34 +249,36 @@ function overlayToDo() {
     </div>
     `;
 
-    const content = document.getElementById('overlay-content-todo');
-    if (content) {
-        content.style.animation = 'none';
-        void content.offsetWidth;
-        content.style.animation = '';
-        content.classList.add('slide-in');
-    }
+  const content = document.getElementById("overlay-content-todo");
+  if (content) {
+    content.style.animation = "none";
+    void content.offsetWidth;
+    content.style.animation = "";
+    content.classList.add("slide-in");
+  }
 }
 
 function closeOverlayToDo() {
-    const overlayToDo = document.getElementById('overlay-todo');
-    if (overlayToDo) {
-        overlayToDo.classList.remove('overlay-visible');
-    }
+  const overlayToDo = document.getElementById("overlay-todo");
+  if (overlayToDo) {
+    overlayToDo.classList.remove("overlay-visible");
+  }
 }
 
 function openOverlayInProgress() {
-    const overlayInProgress = document.getElementById('overlay-in-progress');
-    overlayInProgress.classList.add('overlay-visible');
+  const overlayInProgress = document.getElementById("overlay-in-progress");
+  overlayInProgress.classList.add("overlay-visible");
 
-    overlayInProgress.onclick = function(event) {
-        if (event.target === overlayInProgress) {
-            closeOverlayInProgress();
-        }
-    };
+  overlayInProgress.onclick = function (event) {
+    if (event.target === overlayInProgress) {
+      closeOverlayInProgress();
+    }
+  };
 
-    const overlayContentProgress = document.getElementById('content-add-task-overlay-in-progress');
-    overlayContentProgress.innerHTML = `
+  const overlayContentProgress = document.getElementById(
+    "content-add-task-overlay-in-progress"
+  );
+  overlayContentProgress.innerHTML = `
         <div id="overlay-content-progress" class="overlay-content" onclick="event.stopPropagation()">
         <div class="container-both-sides">
             <div class="inputfield-box-left-side">
@@ -309,7 +313,7 @@ function openOverlayInProgress() {
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button class="arrow-container-red">
+                                <button onclick="toggleRed(this)" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -319,7 +323,7 @@ function openOverlayInProgress() {
                             <input type="text" placeholder="Medium =" class="text-inputfield-medium">
 
                             <div class="arrow-container-main-green">
-                                <button class="arrow-container-green">
+                                <button onclick="toggleGreen(this)" class="arrow-container-green">
                                     <h5>Low</h5>
                                     <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                         alt="green-arrow">
@@ -365,7 +369,7 @@ function openOverlayInProgress() {
         
     <div class="clear-create-container">
         <div class="clear-field">
-            <div class="clear-text">Clear</div>
+            <div class="clear-text">Cancel</div>
             <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
         </div>
 
@@ -380,26 +384,32 @@ function openOverlayInProgress() {
         </div>
     `;
 
-    const content = document.getElementById('overlay-content-progress');
-    if (content) {
-        content.style.animation = 'none';
-        void content.offsetWidth;
-        content.style.animation = '';
-        content.classList.add('slide-in');
-    }
+  const content = document.getElementById("overlay-content-progress");
+  if (content) {
+    content.style.animation = "none";
+    void content.offsetWidth;
+    content.style.animation = "";
+    content.classList.add("slide-in");
+  }
 }
 
-
 function closeOverlayInProgress(event) {
-    document.getElementById('overlay-in-progress').classList.remove('overlay-visible');
+  document
+    .getElementById("overlay-in-progress")
+    .classList.remove("overlay-visible");
 }
 
 function openOverlayFeedback() {
-    const openOverlayAwaitFeedback = document.getElementById('overlay-await-feedback');
-    openOverlayAwaitFeedback.classList.add('overlay-visible')
-    let overlayAwaitFeedback = document.getElementById('content-add-task-overlay-await-feedback');
-    overlayAwaitFeedback.innerHTML += `
-    <div class="container-both-sides">
+  const openOverlayAwaitFeedback = document.getElementById(
+    "overlay-await-feedback"
+  );
+  openOverlayAwaitFeedback.classList.add("overlay-visible");
+  let overlayAwaitFeedback = document.getElementById(
+    "content-add-task-overlay-await-feedback"
+  );
+  overlayAwaitFeedback.innerHTML += `
+   <div id="overlay-content-progress" class="overlay-content" onclick="event.stopPropagation()">
+        <div class="container-both-sides">
             <div class="inputfield-box-left-side">
                 <div class="text-title">
                     <div class="text-title-mark">
@@ -432,7 +442,7 @@ function openOverlayFeedback() {
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button class="arrow-container-red">
+                                <button onclick="toggleRed(this)" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -442,7 +452,7 @@ function openOverlayFeedback() {
                             <input type="text" placeholder="Medium =" class="text-inputfield-medium">
 
                             <div class="arrow-container-main-green">
-                                <button class="arrow-container-green">
+                                <button onclick="toggleGreen(this)" class="arrow-container-green">
                                     <h5>Low</h5>
                                     <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                         alt="green-arrow">
@@ -488,7 +498,7 @@ function openOverlayFeedback() {
         
     <div class="clear-create-container">
         <div class="clear-field">
-            <div class="clear-text">Clear</div>
+            <div class="clear-text">Cancel</div>
             <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
         </div>
 
@@ -500,84 +510,85 @@ function openOverlayFeedback() {
     </div>
     </div>
     </div>
-    `
+        </div>
+    `;
 
-    // Animation erneut triggern (falls mehrfach geöffnet)
-    const contentAwait = openOverlayAwaitFeedback.querySelector('.overlay-await-feedback-contentAwait');
-    contentAwait.style.animation = 'none';
-    void contentAwait.offsetWidth; // Reflow erzwingen
-    contentAwait.style.animation = '';
-    contentAwait.classList.add('slide-in');
+  // Animation erneut triggern (falls mehrfach geöffnet)
+  const contentAwait = openOverlayAwaitFeedback.querySelector(
+    ".overlay-await-feedback-contentAwait"
+  );
+  contentAwait.style.animation = "none";
+  void contentAwait.offsetWidth; // Reflow erzwingen
+  contentAwait.style.animation = "";
+  contentAwait.classList.add("slide-in");
 }
-
 
 function closeOverlayFeedback(event) {
-    document.getElementById('overlay-await-feedback').classList.remove('overlay-visible');
+  document
+    .getElementById("overlay-await-feedback")
+    .classList.remove("overlay-visible");
 }
-
 
 function selectContacts() {
-    const dropdown = document.getElementById('contacts-dropdown');
-    dropdown.classList.toggle('hidden');
+  const dropdown = document.getElementById("contacts-dropdown");
+  dropdown.classList.toggle("hidden");
 }
 
-
 function toggleRed(button) {
-    button.classList.toggle('active');
+  button.classList.toggle("active");
 }
 
 function toggleOrange(button) {
-    button.classList.toggle('active');
+  button.classList.toggle("active");
 }
 
 function toggleGreen(button) {
-    button.classList.toggle('active');
+  button.classList.toggle("active");
 }
 
 function toggleDropdown() {
-    var dropdown = document.getElementById('category-dropdown');
-    if (dropdown.classList.contains('dropdown-open')) {
-        dropdown.classList.remove('dropdown-open');
-    } else {
-        dropdown.classList.add('dropdown-open');
-    }
+  var dropdown = document.getElementById("category-dropdown");
+  if (dropdown.classList.contains("dropdown-open")) {
+    dropdown.classList.remove("dropdown-open");
+  } else {
+    dropdown.classList.add("dropdown-open");
+  }
 }
 
 function selectCategory(category) {
-    var input = document.getElementById('category-input');
-    input.value = category;
+  var input = document.getElementById("category-input");
+  input.value = category;
 
-    var dropdown = document.getElementById('category-dropdown');
-    dropdown.classList.remove('dropdown-open');
+  var dropdown = document.getElementById("category-dropdown");
+  dropdown.classList.remove("dropdown-open");
 }
 
 function validateInput() {
-    const input = document.getElementById("titleInput");
-    const errorMsg = document.getElementById("error-message");
+  const input = document.getElementById("titleInput");
+  const errorMsg = document.getElementById("error-message");
 
-    if (input.value.trim() === "") {
-        errorMsg.textContent = "This field is required.";
-        errorMsg.style.display = "block";
-        input.classList.add("input-error");
-    } else {
-        errorMsg.textContent = "";
-        errorMsg.style.display = "none";
-        input.classList.remove("input-error");
-    }
+  if (input.value.trim() === "") {
+    errorMsg.textContent = "This field is required.";
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  } else {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
 }
 
 function validateDueDateInput() {
-    const input = document.getElementById("dueDateInput");
-    const errorMsg = document.getElementById("due-date-error");
+  const input = document.getElementById("dueDateInput");
+  const errorMsg = document.getElementById("due-date-error");
 
-    if (input.value.trim() === "") {
-        errorMsg.textContent = "This field is required.";
-        errorMsg.style.display = "block";
-        input.classList.add("input-error");
-    } else {
-        errorMsg.textContent = "";
-        errorMsg.style.display = "none";
-        input.classList.remove("input-error");
-    }
+  if (input.value.trim() === "") {
+    errorMsg.textContent = "This field is required.";
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  } else {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
 }
-

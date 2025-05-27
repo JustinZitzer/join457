@@ -422,6 +422,10 @@ h6 {
     color: red;
 }
 
+.category-mark{
+    padding-bottom: 6px;
+}
+
 .three-circle-todo {
     width: 220px;
     height: 32px;
@@ -820,6 +824,7 @@ h6 {
     background-color: orange;
     color: white;
 }
+
 
 .arrow-container-green {
     background-color: transparent;

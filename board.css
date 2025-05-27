@@ -285,7 +285,7 @@ h3 {
     padding-right: 64px;
     padding-left: 64px;
     gap: 24px;
-    
+
 }
 
 .todo-container-middle {
@@ -741,6 +741,21 @@ h5 {
     cursor: pointer;
 }
 
+.arrow-container-red.active {
+    background-color: red;
+    color: white;
+}
+
+.arrow-container-orange.active {
+    background-color: orange;
+    color: white;
+}
+.arrow-container-green.active {
+    background-color: lightgreen;
+    color: white;
+}
+
+
 h4 {
     font-weight: 400;
     font-size: 20px;
@@ -1011,12 +1026,11 @@ h5 {
 }
 
 .field-required {
-    position: absolute;
+    position: relative;
     width: 170px;
     height: 27px;
-    top: 600px;
-    left: 0px;
-
+    right: 510px;
+    top: 70px
 }
 
 .field-required:before {
@@ -1024,15 +1038,16 @@ h5 {
     color: red;
 }
 
+
+
 .clear-create-container {
     display: flex;
-    position: absolute;
+    position: relative;
     width: 309px;
     height: 56px;
-    left: 950px;
     gap: 16px;
-    top: 889px;
-
+    top: 300px;
+    left: 280px
 }
 
 .clear-field {
@@ -1264,4 +1279,3 @@ h5 {
     letter-spacing: 0%;
     color: #000000;
 }
-
