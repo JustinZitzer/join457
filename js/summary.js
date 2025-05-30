@@ -6,6 +6,14 @@ async function initSummaryAndHTML() {
     showSummaryBoardMobile();
 }
 
+window.addEventListener("load", () => {
+    const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
+    setTimeout(() => {
+    loadingScreenMobileDiv.classList.add('hidden');
+    }, 1000);
+});
+
+
 async function getInfoForSummaryBoardBaseFunction (path) {
     let response = await fetch(fireBaseUrlSummary + path + ".json");
     return await response.json();
