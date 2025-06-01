@@ -597,6 +597,92 @@ h6 {
 
 }
 
+/* ---------- Clear Button ---------- */
+.clear-field {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    /* Standard: schwarzer Rahmen */
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.clear-text {
+    color: black;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    margin-right: 8px;
+}
+
+.close-button {
+    width: 16px;
+    height: 16px;
+    transition: filter 0.2s ease;
+}
+
+.clear-field:hover {
+    border-color: #1a9fff;
+}
+
+.clear-field:hover .clear-text {
+    color: #1a9fff;
+}
+
+.clear-field:hover .close-button {
+    filter: brightness(0) saturate(100%) invert(57%) sepia(87%) saturate(422%) hue-rotate(177deg) brightness(101%) contrast(96%);
+}
+
+/* ---------- Create Task Button ---------- */
+.create-field {
+    display: flex;
+    align-items: center;
+    background-color: #2A3647;
+    /* Standard-Hintergrund */
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.text-create-field {
+    color: white;
+    /* Immer weiß */
+    font-weight: 500;
+    transition: color 0.2s ease;
+    margin-right: 8px;
+}
+
+.check-button {
+    width: 16px;
+    height: 16px;
+    transition: filter 0.2s ease;
+}
+
+.create-field:hover {
+    background-color: #1a9fff;
+    border-color: #1a9fff;
+}
+
+.create-field:hover .text-create-field {
+    color: white;
+    /* Bleibt weiß */
+}
+
+.create-field:hover .check-button {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg);
+ 
+}
+
+.check-button {
+    width: 16px;
+    height: 16px;
+    filter: invert(100%) brightness(100%); /* Macht das schwarze Icon weiß */
+    transition: filter 0.2s ease;
+}
+
 
 /* Icons */
 
@@ -674,8 +760,7 @@ h6 {
     height: 24px;
     color: #2A3647;
     border-width: 2px;
-    left: 60px;
-    bottom: 24px;
+
 }
 
 /*contact assigned to*/
