@@ -1096,6 +1096,128 @@ h5 {
 
 }
 
+.clear-create-container {
+    display: flex;
+    gap: 16px;
+}
+
+/* --------------------- CANCEL BUTTON --------------------- */
+.clear-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    /* schwarzer Rand */
+    border-radius: 8px;
+    color: black;
+    /* schwarze Schrift */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-field .close-button {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+.clear-field:hover {
+    border-color: #1a9fff;
+    /* hellblauer Rand */
+}
+
+.clear-field:hover .clear-text {
+    color: #1a9fff;
+}
+
+.clear-field:hover .close-button {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(99%) saturate(748%) hue-rotate(179deg) brightness(102%) contrast(100%);
+}
+
+
+/* --------------------- CREATE TASK BUTTON --------------------- */
+.create-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    /* schwarzer Rand */
+    border-radius: 8px;
+    background-color: transparent;
+    /* kein Hintergrund anfangs */
+    color: black;
+    /* schwarze Schrift */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-field .check-button {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+.create-field:hover {
+    background-color: #1a9fff;
+    /* hellblauer Hintergrund */
+    border-color: #1a9fff;
+}
+
+.create-field:hover .text-create-field {
+    color: white;
+}
+
+.create-field:hover .check-button {
+    filter: brightness(0) invert(1);
+    /* Icon wird weiß */
+}
+
+.create-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    /* schwarzer Rand */
+    border-radius: 8px;
+    background-color: #2A3647;
+    /* dunkles Blau im Normalzustand */
+    color: white;
+    /* weißer Text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-field .check-button {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+    filter: brightness(0) invert(1);
+    /* Icon im Standard schon weiß */
+}
+
+.create-field:hover {
+    background-color: #1a9fff;
+    /* hellblauer Hintergrund beim Hover */
+    border-color: #1a9fff;
+}
+
+.create-field:hover .text-create-field {
+    color: white;
+    /* bleibt weiß */
+}
+
+.create-field:hover .check-button {
+    filter: brightness(0) invert(1);
+    /* bleibt weiß */
+}
+
+.create-field .check-button {
+    filter: none;
+}
+
 
 /* Icons */
 
@@ -1173,8 +1295,7 @@ h5 {
     height: 24px;
     color: #2A3647;
     border-width: 2px;
-    left: 60px;
-    bottom: 24px;
+    left: 5px;
 }
 
 
