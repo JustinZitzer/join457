@@ -47,7 +47,6 @@ h3 {
 .find-task-add-task-container {
     display: flex;
     width: 504px;
-    height: 48px;
     gap: 32px;
     border-radius: 10px;
     border-width: 1px;
@@ -59,8 +58,8 @@ h3 {
 
 .image-x {
     position: relative;
-    bottom: 24px;
-    left: 98px;
+    right: 50px;
+    top: 4px;
     border: 1px solid #2A3647;
     cursor: pointer;
     background-color: #2A3647;
@@ -143,30 +142,65 @@ h3 {
 
 }
 
-.add-task-box {
-    width: 160px;
-    height: 24px;
-    padding-top: 2px;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: #FFFFFF;
-
+.add-task-container {
+    display: flex;
+    gap: 8px;
 }
 
-.add-task-container {
-    background-color: #2A3647;
+.add-task-box {
     width: 160px;
     height: 48px;
     gap: 4px;
+    font-size: 21px;
     border-radius: 10px;
     border-width: 1px;
     padding-top: 8px;
     padding-right: 16px;
     padding-bottom: 8px;
     padding-left: 16px;
+    padding: 10px 20px;
+    background-color: #2A3647;
+    color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 100px;
+}
 
+.image-x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+}
+
+.image-x img {
+    width: 24px;
+    height: 24px;
+    top: 14.67px;
+    left: 118.67px;
+    transition: filter 0.3s ease;
+}
+
+.add-task-container:hover .add-task-box {
+    background-color: #1a9fff;
+    color: white;
+    border-color: #1a9fff;
+}
+
+.add-task-container:hover .image-x img {
+    filter: brightness(0) invert(1);
 }
 
 .todos-bar-container {
