@@ -3,7 +3,6 @@ const fireBaseUrlSummary = "https://join-457-default-rtdb.europe-west1.firebased
 async function initSummaryAndHTML() {
     await loadHTML();
     await initSummaryBoard();
-    showSummaryBoardMobile();
 }
 
 window.addEventListener("load", () => {
