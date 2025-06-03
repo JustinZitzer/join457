@@ -181,6 +181,11 @@ footer a:hover {
 }
 
 @media screen and (max-width: 1400px) {
+    .nav-links li:hover {
+        background-color: rgba(9, 25, 49, 1);
+        color: white;
+        border-radius: 30px;
+    }
     .sidebar {
         flex-direction: row;
         justify-content: space-around;
@@ -210,14 +215,16 @@ footer a:hover {
         flex-direction: row;
         height: 100%;
         width: 100%;
+        gap: 0px;
     }
 
     .nav-links li {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20%;
+        width: 100%;
         height: 100%;
+        padding: 0px;
     }
 
     .nav-links a {
