@@ -1121,7 +1121,7 @@ h6 {
         width: 18px;
         height: 20px;
         top: 14px;
-        left: 1290px;
+        left: 92.8vw;
         top: 72px;
         cursor: pointer;
         color: #2A3647;
@@ -1139,7 +1139,7 @@ h6 {
         cursor: pointer;
         margin-top: 4px;
         align-self: flex-start;
-        left: 1285px;
+        left: 92vw;
         bottom: 50px;
     }
 
@@ -1152,7 +1152,8 @@ h6 {
     }
 
     .assigned-arrow-icon-down {
-        left: 1285px;
+        left: 93vw;
+        transform: translateX(-50%);
     }
 
     .inputfield-subtask-assign {
@@ -1160,6 +1161,14 @@ h6 {
     }
 
     .add-icon-container {
-        left: 1287px;
+        left: 93vw;
+        transform: translateX(-50%);
     }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 95vw;
+    }
+    
 }
