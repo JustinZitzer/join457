@@ -12,19 +12,21 @@ h3 {
     font-size: 61px;
 }
 
-#overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* halbtransparent */
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-  }
-  
+.add-task-box {
+    position: relative;
+    width: 278px;
+    height: 73px;
+    top: 206px;
+    left: 328px;
+    gap: 1px;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #000000;
+
+
+}
 
 .main-container-for-two-inputfield-container {
     display: flex;
@@ -1023,19 +1025,19 @@ h6 {
     }
 
     .add-task-box {
-        position: relative;
+        position: absolute;
+        z-index: 1;
         width: 278px;
-        height: 73px; 
-        top: 206px; 
-        left: 328px; 
+        height: 73px;
+        top: 140px;
+        left: 30px;
         gap: 1px;
         font-weight: 700;
-        font-size: 61px; 
+        font-size: 61px;
         line-height: 120%;
         letter-spacing: 0%;
-        color: #000000; 
+        color: #000000;
     }
-    
 
     .container-both-sides {
         flex-direction: column;
