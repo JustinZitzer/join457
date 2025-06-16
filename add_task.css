@@ -1172,3 +1172,245 @@ h6 {
     }
     
 }
+
+@media (max-width: 1000px) {
+    .title-inputfield-enter-title {
+        width: 92vw;
+    }
+    
+    .inputfield-description {
+        width: 92vw;
+    }
+
+    .due-date-text-field {
+        width: 92vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 89.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .arrow-container-main-red {
+        width: 26vw;
+    }
+
+    .arrow-container-main-green {
+        width: 26vw;
+    }
+
+    .arrow-container-red {
+        width: 26vw;
+    }
+
+    .arrow-container-orange {
+        width: 30vw;
+    }
+
+    .arrow-container-green {
+        width: 26vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 87.8vw;
+    }
+
+    .inputfield-category-assign {
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 89.3vw;
+    }
+
+    .inputfield-subtask-assign {
+        width: 92vw;
+    }
+
+    .add-icon-container {
+        left: 89.3vw;
+        transform: translateX(-50%);
+    }
+
+    body {
+    }
+
+}
+
+@media (max-width: 700px) {
+     .title-inputfield-enter-title {
+        width: 90vw;
+    }
+    
+    .inputfield-description {
+        width: 90vw;
+    }
+
+    .due-date-text-field {
+        width: 90vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 86.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .arrow-container-main-red {
+        width: 23.4vw;
+    }
+
+    .arrow-container-main-green {
+        width: 23.4vw;
+    }
+
+    .arrow-container-red {
+        width: 26.4vw;
+    }
+
+    .arrow-container-orange {
+        width: 30.4vw;
+    }
+
+    .arrow-container-green {
+        width: 23.4vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 84.4vw;
+    }
+
+    .inputfield-category-assign {
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 86.3vw;
+    }
+
+    .inputfield-subtask-assign {
+        width: 90vw;
+    }
+
+    .add-icon-container {
+        left: 86.1vw;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 500px) {
+     .title-inputfield-enter-title {
+        width: 87vw;
+    }
+    
+    .inputfield-description {
+        width: 87vw;
+    }
+
+    .due-date-text-field {
+        width: 87vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 83.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .main-box-inputfield {
+        display: flex;
+        justify-content: space-around;
+        gap: 16px;
+        width: 91.7%;
+    }
+
+    .arrow-container-main-red {
+        width: 23.4vw;
+    }
+
+    .arrow-container-main-green {
+        width: 23.4vw;
+    }
+
+    .arrow-container-red {
+        width: 26.4vw;
+    }
+
+    .arrow-container-orange {
+        width: 28.4vw;
+    }
+
+    .arrow-container-green {
+        width: 26.4vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 87vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 80.4vw;
+    }
+
+    .inputfield-category-assign {
+        width: 87vw;
+    }
+
+    .assigned-arrow-icon-down {
+        position: relative!important;
+        width: 24px!important;
+        height: 24px!important;
+        left: 82.8vw !important;
+        transform: translateX(-50%) !important;
+        bottom: 38px!important;
+        cursor: pointer!important;
+    }
+
+    .task-inputfield-box {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 440px;
+        height: 80px;
+        color: #2A3647;
+    }
+
+    .inputfield-subtask-assign {
+        width: 87vw;
+    }
+
+    .add-icon-container {
+        left: 82.8vw;
+        transform: translateX(-50%);
+    }
+}
