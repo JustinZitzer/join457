@@ -12,6 +12,7 @@
     height: 100dvh;
     margin-top: 96px;
     margin-left: 232px;
+    padding-top: 20px;
 }
 
 .contacts-sidebar-container::-webkit-scrollbar {
@@ -237,6 +238,7 @@
 }
 
 .contacts-info-container {
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     width: 287px;

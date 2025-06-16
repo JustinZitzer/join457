@@ -1,4 +1,4 @@
-let allContacts = {};
+let allContacts = [];
 
 async function fetchContacts() {
   try {
@@ -13,11 +13,20 @@ async function fetchContacts() {
 async function loadContacts() {
   const container = document.getElementById('contact_list');
   try {
-    const contacts = await fetchContacts();
-    allContacts = contacts
+    const contactsUnsorted = await fetchContacts();
+    const contacts = Object.values(contactsUnsorted);
+    contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    allContacts = contacts;
+    let lastFirstLetter = "";
     for (const key in contacts) {
-        container.innerHTML += getContactCard(contacts[key]);
-        console.log(contacts[key]);
+      const currentFirstLetter = contacts[key].firstName[0].toUpperCase();
+      if (currentFirstLetter !== lastFirstLetter) {
+        container.innerHTML += getLetterGroup(currentFirstLetter);
+        lastFirstLetter = currentFirstLetter;
+      }
+      container.innerHTML += getContactCard(contacts[key]);
+      console.log(contacts[key]);
+      console.log(allContacts);
     }
   } catch (error) {
     console.error("Error loading contacts:", error);

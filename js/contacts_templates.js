@@ -123,3 +123,12 @@ function getContactCard(contact) {
     </div>
   `;
 }
+
+function getLetterGroup(currentFirstLetter) {
+    return `
+    <div class="contacts-letter-group">
+        <p>${currentFirstLetter}</p>
+        <div class="contact-list-seperator"></div>
+    </div>
+        `;
+}
