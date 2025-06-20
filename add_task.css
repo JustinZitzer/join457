@@ -728,7 +728,7 @@ h6 {
     width: 24px;
     height: 24px;
     left: 400px;
-    bottom: 45px;
+    bottom: 51px;
     cursor: pointer;
 
 }
@@ -949,6 +949,7 @@ h6 {
 /* Dropdown-Styling */
 .category-dropdown {
     position: absolute;
+    border-radius: 8px;
     top: 100%;
     left: 0;
     width: 100%;
@@ -1139,7 +1140,7 @@ h6 {
         cursor: pointer;
         margin-top: 4px;
         align-self: flex-start;
-        left: 92vw;
+        left: 91.9vw;
         bottom: 50px;
     }
 
@@ -1149,6 +1150,11 @@ h6 {
 
     .inputfield-category-assign {
         width: 95vw;
+    }
+
+    .contacts-dropdown {
+        width: 95vw;
+        margin-top: 0px;
     }
 
     .assigned-arrow-icon-down {
