@@ -544,8 +544,18 @@ function openOverlay() {
   }
   
   function selectContacts() {
+    const fieldRequiered = document.getElementById("field-required");
+    const windowWidth = window.innerWidth;
     const dropdown = document.getElementById("contacts-dropdown");
+    const isHidden = dropdown.classList.contains("hidden");
     dropdown.classList.toggle("hidden");
+    if (windowWidth <= 1400) {
+        if (isHidden) {
+        fieldRequiered.style.top = "1100px";
+        } else {
+        fieldRequiered.style.top = "870px";
+        }
+    }
   }
   
   function toggleRed(button) {

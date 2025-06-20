@@ -1253,6 +1253,17 @@ h6 {
     body {
     }
 
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 92vw;
+    }
+
+    .contacts-dropdown {
+        width: 92vw;
+        margin-top: 0px;
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -1325,6 +1336,17 @@ h6 {
         left: 86.1vw;
         transform: translateX(-50%);
     }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 90vw;
+    }
+
+    .contacts-dropdown {
+        width: 90vw;
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -1390,6 +1412,7 @@ h6 {
 
     .inputfield-category-assign {
         width: 87vw;
+        min-height: 48px;
     }
 
     .assigned-arrow-icon-down {
@@ -1398,7 +1421,7 @@ h6 {
         height: 24px!important;
         left: 82.8vw !important;
         transform: translateX(-50%) !important;
-        bottom: 38px!important;
+        bottom: 45px!important;
         cursor: pointer!important;
     }
 
@@ -1418,5 +1441,16 @@ h6 {
     .add-icon-container {
         left: 82.8vw;
         transform: translateX(-50%);
+    }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 87vw;
+    }
+
+    .contacts-dropdown {
+        width: 87vw;
+        margin-top: 0px;
     }
 }
