@@ -20,7 +20,7 @@
 <body onload="loadHTML(), loadContacts()">
     <div id="index_html"></div>
     <main id="main_contacts" class="contacts-content">
-        <div class="contacts-sidebar-container">
+        <div id="contacts-sidebar-container" class="contacts-sidebar-container">
             <button class="add-new-contact-btn" onclick="openAddNewContactOverlay()">
                 <p>Add new contact</p>
                 <img src="./assets/icons/new-contact-icon.svg" alt="new-contact-icon">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </main>
-    <button class="add-new-contact-btn-mobile-version">
+    <button id="add-new-contact-btn-mobile-version" class="add-new-contact-btn-mobile-version">
         <img src="./assets/icons/new-contact-icon.svg" onclick="openAddNewContactOverlay()" alt="new-contact-icon">
     </button>
     <script src="./js/load_html.js"></script>
