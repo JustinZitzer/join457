@@ -12,8 +12,8 @@ h3 {
     font-size: 61px;
 }
 
-/* Hier ist der Fehler Erhan zweimal gleiche klasse
-.add-task-box {
+/* Hier habe ich die Klasse unbenannt damit die Überschrift richtig im Add Task dargestellt wird und deine Template function nicht in board stört*/
+.add-task-box-headline-container {
     position: relative;
     width: 278px;
     height: 73px;
@@ -26,7 +26,7 @@ h3 {
     letter-spacing: 0%;
     color: #000000;
 }
-*/
+
 
 .main-container-for-two-inputfield-container {
     display: flex;
@@ -1014,6 +1014,11 @@ h6 {
 
     #header-index-html {
         z-index: 2;
+    }
+
+    .add-task-box-headline-container {
+        top: 130px;
+        left: 30px;
     }
 
     .main-container-for-two-inputfield-container {

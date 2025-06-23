@@ -681,9 +681,9 @@
         flex-direction: column;
         position: fixed;
         left: 2.1vw;
-        top: 5vh;
+        top: 11vh;
         width: 95vw;
-        height: 89vh;
+        height: 77.5vh;
         z-index: 4;
         border-radius: 30px;
         background-color: white;
@@ -692,14 +692,24 @@
 
     .add-contact-left-section {
         width: 100%;
-        border-radius: 30px;
-        height: 50%;
+        border-radius: 30px 30px 0 0;
+        height: 43%;
         padding: 0px 48px;
         gap: 12px;
         background-color: rgba(42, 54, 71, 1);
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .add-contact-headline h1 {
+        font-weight: 700;
+        font-size: 49px;
+    }
+
+    .add-contact-headline h2 {
+    font-weight: 400;
+    font-size: 22px;
     }
 
     .add-contact-left-section-content {
@@ -715,7 +725,7 @@
     }
 
     .add-contact-underlined {
-        width: 107px;
+        width: 95px;
     }
 
     .add-contact-right-section {
@@ -723,7 +733,7 @@
         align-items: center;
         justify-content: center;
         margin-left: 0px;
-        margin-top: 160px;
+        margin-top: 130px;
     }
 
     .add-contact-right-section form {
@@ -733,20 +743,21 @@
         align-content: center;
         justify-content: center;
         width: 100%;
-        height: 215px;
+        height: 100px;
+        margin-top: 50px;
         gap: 32px;
         margin-left: 20px;
     }
 
     .add-contact-person-svg-container {
         position: fixed;
-        left: 52%;
-        top: 42%;
+        left: 51%;
+        top: 38%;
         transform: translateX(-50%);
         border: 3px solid white;
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-        width: 140px;
-        height: 140px;
+        width: 110px;
+        height: 110px;
         background-color: #d1d1d1;
         border-radius: 100%;
     }
@@ -765,13 +776,14 @@
         display: flex;
         justify-content: space-between;
         width: 98.5%;
-        height: 50px;
+        height: 45px;
         border-radius: 10px;
         border: 1px solid #d1d1d1;
         padding: 13px 21px;
         gap: 10px;
         font-weight: 400;
         font-size: 20px;
+        margin-top: 0px;
     }
 
     .add-contact-close-btn {
@@ -790,6 +802,19 @@
         filter: brightness(0) invert(1);    
     }
 
+    .add-contact-cancel-btn {
+        display: none;
+    }
+
+    .add-contact-btn-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        width: 100%;
+        padding-top: 0px;
+        height: 57px;
+        gap: 0px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
