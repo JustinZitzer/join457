@@ -1,6 +1,7 @@
 function openOverlay() {
     const overlay = document.getElementById("overlay");
     overlay.classList.add("overlay-visible");
+    overlay.classList.remove("overlay-hidden"); // Overlay hidden wurde in dieser function nicht entfernt. 
   
     overlay.onclick = function (event) {
       if (event.target === overlay) {
