@@ -35,6 +35,7 @@ header h1 {
 
 .user-profile-menu {
     position: absolute;
+    z-index: 2;
     top: 80px;
     right: 80px;
     width: 160px;
