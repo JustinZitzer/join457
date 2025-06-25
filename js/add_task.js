@@ -132,7 +132,7 @@ function openOverlay() {
   function closeOverlay() {
     const overlay = document.getElementById("overlay");
     if (overlay) {
-      overlay.classList.remove("overlay-visible");
+      overlay.classList.add("overlay-hidden");
     }
   }
   
