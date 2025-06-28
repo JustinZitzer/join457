@@ -138,6 +138,7 @@ function openOverlay() {
   
   function overlayToDo() {
     const overlayToDoContainer = document.getElementById("overlay-todo");
+    overlayToDoContainer.classList.remove("overlay-hidden");
     overlayToDoContainer.classList.add("overlay-visible");
   
     overlayToDoContainer.onclick = function (event) {
@@ -271,12 +272,14 @@ function openOverlay() {
     const overlayToDo = document.getElementById("overlay-todo");
     if (overlayToDo) {
       overlayToDo.classList.remove("overlay-visible");
+      overlayToDo.classList.add("overlay-hidden");
     }
   }
   
   function openOverlayInProgress() {
     const overlayInProgress = document.getElementById("overlay-in-progress");
     overlayInProgress.classList.add("overlay-visible");
+    overlayInProgress.classList.remove("overlay-hidden");
   
     overlayInProgress.onclick = function (event) {
       if (event.target === overlayInProgress) {
@@ -409,6 +412,9 @@ function openOverlay() {
     document
       .getElementById("overlay-in-progress")
       .classList.remove("overlay-visible");
+    document
+      .getElementById("overlay-in-progress")
+      .classList.add("overlay-hidden");
   }
   
   function openOverlayFeedback() {
@@ -416,6 +422,7 @@ function openOverlay() {
       "overlay-await-feedback"
     );
     openOverlayAwaitFeedback.classList.add("overlay-visible");
+    openOverlayAwaitFeedback.classList.remove("overlay-hidden");
     let overlayAwaitFeedback = document.getElementById(
       "content-add-task-overlay-await-feedback"
     );
@@ -542,6 +549,9 @@ function openOverlay() {
     document
       .getElementById("overlay-await-feedback")
       .classList.remove("overlay-visible");
+    document
+      .getElementById("overlay-await-feedback")
+      .classList.add("overlay-hidden");
   }
   
   function selectContacts() {
