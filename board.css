@@ -1472,3 +1472,35 @@ h2 {
     letter-spacing: 0%;
     color: #000000;
 }
+
+@media screen and (max-width: 1400px) {
+    main {
+        width: 99vw;
+        margin-left: 0px;
+        margin-top: 150px;
+    }
+
+    .header-main-container {
+        width: 99vw;
+    }
+
+    .header-content-board {
+        width: 99vw;
+        margin-left: 1vw;
+        padding-left: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .add-task-container {
+        display: none;
+    }
+
+    .find-task-add-task-container {
+        padding-left: 0px;
+    }
+
+    .inputfield-task {
+        padding-left: 0px;
+    }
+}
