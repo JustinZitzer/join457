@@ -10,6 +10,14 @@ window.addEventListener("load", () => {
     setTimeout(() => {
     loadingScreenMobileDiv.classList.add('hidden');
     }, 1000);
+    document.addEventListener('click', function(event) {
+        let targetLink = event.target.closest('.sidebar .nav-links a');
+        if (targetLink) {
+            event.preventDefault(); // Standardverhalten verhindern
+            const href = targetLink.getAttribute('href');
+            window.location.href = href; // Manuell zur neuen Seite navigieren
+        }
+    });
 });
 
 
