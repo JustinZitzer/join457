@@ -539,10 +539,10 @@ function openOverlay() {
     const contentAwait = openOverlayAwaitFeedback.querySelector(
       ".overlay-await-feedback-contentAwait"
     );
-    contentAwait.style.animation = "none";
-    void contentAwait.offsetWidth; // Reflow erzwingen
-    contentAwait.style.animation = "";
-    contentAwait.classList.add("slide-in");
+    overlayAwaitFeedback.style.animation = "none";
+    void overlayAwaitFeedback.offsetWidth; // Reflow erzwingen
+    overlayAwaitFeedback.style.animation = "";
+    overlayAwaitFeedback.classList.add("slide-in");
   }
   
   function closeOverlayFeedback(event) {
