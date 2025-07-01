@@ -24,7 +24,6 @@
                     <h3 class="board-headline-board">Board</h3>
                     <div class="find-task-add-task-container">
 
-
                         <div class="inputfield-task">
                             <div class="inputfield-task-content">
                                 <input type="text" placeholder="Find task" class="title-findtask" id="title-findtask-inputfield">
@@ -55,67 +54,93 @@
                 </div>
 
                 <div class="todos-bar-container">
-                    <div class="todo-container">
-                        <div class="todo-content">
-                            To do
+                        <div class="todo-container">
+                            <div class="todo-content">
+                                To do
+                            </div>
+
+                            <div class="add-button-container">
+                                <button onclick="overlayToDo()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus"/>
+                                </button>
+                                    <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
+                                        <!-- Seitlich hereinslidenes Overlay -->
+                                        <div id="content-add-task-overlay-todo"></div>
+                                            <!-- Hier kannst du dein Formular platzieren -->
+                                    </div>
+                            </div>
                         </div>
 
-                        <div class="add-button-container">
-                            <button onclick="overlayToDo()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus"/>
-                            </button>
-                                <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
-                                    <!-- Seitlich hereinslidenes Overlay -->
-                                    <div id="content-add-task-overlay-todo"></div>
-                                        <!-- Hier kannst du dein Formular platzieren -->
-                                </div>
+                        <div class="todo-container-content-mobile-version">
+                            <div class="todo-container-content-mobile-version-task" id="todo-container-content-mobile-version-task">
+                                Hier ist der Content to do
+                            </div>
                         </div>
-                    </div>
-                
             
 
-                    <div class="inprogress-container">
-                        <div class="inprogress-content">
-                            In progress
-                        </div>
+                        <div class="inprogress-container">
+                            <div class="inprogress-content">
+                                In progress
+                            </div>
 
 
-                        <div class="add-button-container">
-                            <button onclick="openOverlayInProgress()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus" />
-                            </button>
-                                <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
-                                    <!-- Seitlich hereinslidenes Overlay -->
-                                    <div id="content-add-task-overlay-in-progress"></div>
-                                        <!-- Hier kannst du dein Formular platzieren -->
+                            <div class="add-button-container">
+                                <button onclick="openOverlayInProgress()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                                    <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
+                                        <!-- Seitlich hereinslidenes Overlay -->
+                                        <div id="content-add-task-overlay-in-progress"></div>
+                                            <!-- Hier kannst du dein Formular platzieren -->
+                                    </div>
+                            </div>
                         </div>
+
+                        <div class="inprogress-container-content-mobile-version">
+                            <div class="inprogress-container-content-mobile-version-task" id="inprogress-container-content-mobile-version-task">
+                                Hier ist der Content inprogress
+                            </div>
                         </div>
-                    </div>
                 
 
-                    <div class="await-feedback-task-container">
-                        <div class="await-feedback-content">
-                            Await feedback
+                        <div class="await-feedback-task-container">
+                            <div class="await-feedback-content">
+                                Await feedback
+                            </div>
+                            <div class="add-button-container">
+                                <button onclick="openOverlayFeedback()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                                    <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
+                            
+                                        <!-- Seitlich hereinslidenes Overlay -->
+                                        <div id="content-add-task-overlay-await-feedback"></div>
+                                            <!-- Hier kannst du dein Formular platzieren -->
+                                    </div>
+                            </div>
                         </div>
-                        <div class="add-button-container">
-                            <button onclick="openOverlayFeedback()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus" />
-                            </button>
-                                <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
+
+                        <div class="await-feedback-container-content-mobile-version">
+                            <div class="await-feedback-container-content-mobile-version-task" id="await-feedback-container-content-mobile-version-task">
+                                Hier ist der Content await feedback
+                            </div>
+                        </div>
                         
-                                    <!-- Seitlich hereinslidenes Overlay -->
-                                    <div id="content-add-task-overlay-await-feedback"></div>
-                                        <!-- Hier kannst du dein Formular platzieren -->
-                                </div>
+
+                        <div class="done-task-container">
+                            <div class="done-content">
+                                Done
+                            </div>
                         </div>
-                    </div>
-                        
-                    <div class="done-task-container">
-                        <div class="done-content">
-                            Done
+
+                        <div class="done-container-content-mobile-version" id="done-container-content-mobile-version">
+                            Hier ist der fertige Content
                         </div>
+
                 </div>
-            </div></div></div></main>
+            </div>
+        </div>
+    </main>
         
 
             <div class="main-container-middle-part">
