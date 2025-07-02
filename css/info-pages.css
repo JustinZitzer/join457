@@ -17,3 +17,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.font-size-35px {
+    font-size: 35px;
+}
