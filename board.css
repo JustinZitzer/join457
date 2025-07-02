@@ -684,7 +684,7 @@ h5 {
 }
 
 
-.line-middle-of-both-container {
+.line-middle-of-both-container-board {
     width: 1px;
     height: 424.0000000000004px;
     top: 327px;
@@ -694,7 +694,7 @@ h5 {
 
 }
 
-.inputfield-box-left-side {
+.inputfield-box-left-side-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -706,7 +706,7 @@ h5 {
 
 }
 
-.inputfield-box-right-side {
+.inputfield-box-right-side-board {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -716,7 +716,7 @@ h5 {
     left: 864.25px;
 }
 
-.text-title {
+.text-title-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -727,12 +727,12 @@ h5 {
 
 }
 
-.text-title-mark:after {
+.text-title-mark-board:after {
     content: "*";
     color: red;
 }
 
-.text-priority {
+.text-priority-board {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -743,19 +743,19 @@ h5 {
     letter-spacing: 0%;
 }
 
-.priority-box {
+.priority-box-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.main-box-inputfield {
+.main-box-inputfield-board {
     display: flex;
     justify-content: space-around;
     gap: 16px;
 }
 
-.title-inputfield-enter-title {
+.title-inputfield-enter-title-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -776,15 +776,15 @@ h5 {
 
 }
 
-.arrow-container-main-red {
+.arrow-container-main-red-board {
     width: 136px;
 }
 
-.arrow-container-main-green {
+.arrow-container-main-green-board {
     width: 136px;
 }
 
-.arrow-container-red {
+.arrow-container-red-board {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -799,7 +799,7 @@ h5 {
     cursor: pointer;
 }
 
-.arrow-container-red.active {
+.arrow-container-red-board.active {
     background-color: red;
     color: white;
 }
@@ -822,14 +822,14 @@ h5 {
     color: black;
 }
 
-.arrow-red {
+.arrow-red-board {
     position: relative;
     width: 20px;
     height: 14.51px;
 
 }
 
-.arrow-green {
+.arrow-green-board {
     position: relative;
     top: 4px;
     width: 20px;
@@ -837,7 +837,7 @@ h5 {
 
 }
 
-.arrow-container-green {
+.arrow-container-green-board {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -853,7 +853,7 @@ h5 {
 }
 
 
-.arrow-container-green.active {
+.arrow-container-green-board.active {
     background-color: lightgreen;
     color: white;
 }
@@ -862,7 +862,7 @@ h5 {
     color: #000000;
 }
 
-.text-inputfield-medium {
+.text-inputfield-medium-board {
     background-color: #FFA800;
     color: white;
     width: 136px;
@@ -878,7 +878,7 @@ h5 {
     cursor: pointer;
 }
 
-.text-inputfield-medium::placeholder {
+.text-inputfield-medium-board::placeholder {
     color: #FFFFFF;
 }
 
@@ -904,7 +904,7 @@ h5 {
     color: #000000;
 }
 
-.description-main-box {
+.description-main-box-board {
     display: flex;
     flex-direction: column;
     width: 440px;
@@ -917,7 +917,7 @@ h5 {
     letter-spacing: 0%;
 }
 
-.inputfield-description {
+.inputfield-description-board {
     width: 440px;
     height: 120px;
     border-width: 1px;
@@ -931,7 +931,7 @@ h5 {
     color: #D1D1D1;
 }
 
-.inputfield-description::placeholder {
+.inputfield-description-board::placeholder {
     color: #D1D1D1;
     font-weight: 400;
     font-size: 20px;
@@ -939,7 +939,7 @@ h5 {
     letter-spacing: 0%;
 }
 
-.description-text {
+.description-text-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -952,7 +952,7 @@ h5 {
 }
 
 
-.description-text::placeholder {
+.description-text-board::placeholder {
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
@@ -960,7 +960,7 @@ h5 {
 
 }
 
-.inputfield-due-date-container {
+.inputfield-due-date-container-board {
     display: flex;
     flex-direction: column;
     width: 440px;
@@ -970,12 +970,12 @@ h5 {
     left: 0.25px;
 }
 
-.due-date-mark:after {
+.due-date-mark-board:after {
     content: "*";
     color: red;
 }
 
-.due-date-text-field {
+.due-date-text-field-board {
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
@@ -992,7 +992,7 @@ h5 {
     padding-left: 16px;
 }
 
-.assigned-inputfield-box {
+.assigned-inputfield-box-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1002,7 +1002,7 @@ h5 {
 }
 
 
-.task-inputfield-box {
+.task-inputfield-box-board {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1012,7 +1012,7 @@ h5 {
 
 }
 
-.subtask-inputfield-box {
+.subtask-inputfield-box-board {
     display: flex;
     flex-direction: column;
     width: 440px;
@@ -1021,7 +1021,7 @@ h5 {
     gap: 8px;
 }
 
-.inputfield-text-assign {
+.inputfield-text-assign-board {
     width: 440px;
     height: 48px;
     border-width: 1px;
@@ -1034,11 +1034,11 @@ h5 {
     font-weight: 400;
 }
 
-.inputfield-text-assign::placeholder {
+.inputfield-text-assign-board::placeholder {
     color: #000000;
 }
 
-.inputfield-category-assign {
+.inputfield-category-assign-board {
     height: 48px;
     width: 440px;
     border-width: 1px;
@@ -1053,16 +1053,16 @@ h5 {
 }
 
 
-.inputfield-category-assign::placeholder {
+.inputfield-category-assign-board::placeholder {
     color: #000000;
 }
 
-.category-mark:after {
+.category-mark-board:after {
     content: "*";
     color: red;
 }
 
-.inputfield-subtask-assign {
+.inputfield-subtask-assign-board {
     display: flex;
     justify-content: space-between;
     height: 48px;
@@ -1077,11 +1077,11 @@ h5 {
     font-weight: 400;
 }
 
-.subtask-inputfield-container {
+.subtask-inputfield-container-board {
     position: absolute;
 }
 
-.field-required {
+.field-required-board {
     position: relative;
     width: 170px;
     height: 27px;
@@ -1089,14 +1089,14 @@ h5 {
     top: 70px
 }
 
-.field-required:before {
+.field-required-board:before {
     content: "*";
     color: red;
 }
 
 
 
-.clear-create-container {
+.clear-create-container-board {
     display: flex;
     position: relative;
     width: 309px;
@@ -1106,7 +1106,7 @@ h5 {
     left: 280px
 }
 
-.clear-field {
+.clear-field-board {
     width: 110px;
     height: 56px;
     border-width: 1px;
@@ -1118,7 +1118,7 @@ h5 {
     cursor: pointer;
 }
 
-.clear-text {
+.clear-text-board {
     width: 50px;
     height: 24px;
     font-family: Inter;
@@ -1131,7 +1131,7 @@ h5 {
 
 }
 
-.create-field {
+.create-field-board {
     width: 183px;
     height: 56px;
     gap: 4px;
@@ -1141,7 +1141,7 @@ h5 {
     cursor: pointer;
 }
 
-.text-create-field {
+.text-create-field-board {
     width: 123px;
     height: 24px;
     font-family: Inter;
@@ -1154,13 +1154,13 @@ h5 {
 
 }
 
-.clear-create-container {
+.clear-create-container-board {
     display: flex;
     gap: 16px;
 }
 
 /* --------------------- CANCEL BUTTON --------------------- */
-.clear-field {
+.clear-field-board {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1174,28 +1174,28 @@ h5 {
     transition: all 0.3s ease;
 }
 
-.clear-field .close-button {
+.clear-field-board .close-button-board {
     width: 20px;
     height: 20px;
     transition: filter 0.3s ease;
 }
 
-.clear-field:hover {
+.clear-field-board:hover {
     border-color: #1a9fff;
     /* hellblauer Rand */
 }
 
-.clear-field:hover .clear-text {
+.clear-field-board:hover .clear-text-board {
     color: #1a9fff;
 }
 
-.clear-field:hover .close-button {
+.clear-field-board:hover .close-button-board {
     filter: brightness(0) saturate(100%) invert(41%) sepia(99%) saturate(748%) hue-rotate(179deg) brightness(102%) contrast(100%);
 }
 
 
 /* --------------------- CREATE TASK BUTTON --------------------- */
-.create-field {
+.create-field-board {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1211,28 +1211,28 @@ h5 {
     transition: all 0.3s ease;
 }
 
-.create-field .check-button {
+.create-field-board .check-button-board {
     width: 20px;
     height: 20px;
     transition: filter 0.3s ease;
 }
 
-.create-field:hover {
+.create-field-board:hover {
     background-color: #1a9fff;
     /* hellblauer Hintergrund */
     border-color: #1a9fff;
 }
 
-.create-field:hover .text-create-field {
+.create-field-board:hover .text-create-field-board {
     color: white;
 }
 
-.create-field:hover .check-button {
+.create-field-board:hover .check-button-board {
     filter: brightness(0) invert(1);
     /* Icon wird weiß */
 }
 
-.create-field {
+.create-field-board {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1248,7 +1248,7 @@ h5 {
     transition: all 0.3s ease;
 }
 
-.create-field .check-button {
+.create-field-board .check-button-board {
     width: 20px;
     height: 20px;
     transition: filter 0.3s ease;
@@ -1256,27 +1256,27 @@ h5 {
     /* Icon im Standard schon weiß */
 }
 
-.create-field:hover {
+.create-field-board:hover {
     background-color: #1a9fff;
     /* hellblauer Hintergrund beim Hover */
     border-color: #1a9fff;
 }
 
-.create-field:hover .text-create-field {
+.create-field-board:hover .text-create-field-board {
     color: white;
     /* bleibt weiß */
 }
 
-.create-field:hover .check-button {
+.create-field-board:hover .check-button-board {
     filter: brightness(0) invert(1);
     /* bleibt weiß */
 }
 
-.create-field .check-button {
+.create-field-board .check-button-board {
     filter: none;
 }
 
-.check-button {
+.check-button-board {
     width: 16px;
     height: 16px;
     filter: invert(100%) brightness(100%);
@@ -1302,7 +1302,7 @@ h5 {
 }
 
 
-.calendar-clock {
+.calendar-clock-board {
     position: relative;
     width: 18px;
     height: 20px;
@@ -1313,7 +1313,7 @@ h5 {
     color: #2A3647;
 }
 
-.add-icon-container {
+.add-icon-container-board {
     position: relative;
     top: 41px;
     left: 400px;
@@ -1323,7 +1323,7 @@ h5 {
     cursor: pointer;
 }
 
-.assigned-arrow-icon {
+.assigned-arrow-icon-board {
     position: relative;
     width: 24px;
     height: 24px;
@@ -1333,7 +1333,7 @@ h5 {
 
 }
 
-.assigned-arrow-icon-down {
+.assigned-arrow-icon-down-board {
     position: relative;
     width: 24px;
     height: 24px;
@@ -1343,7 +1343,7 @@ h5 {
 
 }
 
-.check-button {
+.check-button-board {
     position: absolute;
     bottom: 20px;
     width: 24px;
@@ -1353,7 +1353,7 @@ h5 {
     color: #FFFFFF;
 }
 
-.close-button {
+.close-button-board {
     position: relative;
     width: 24px;
     height: 24px;
@@ -1402,7 +1402,7 @@ h5 {
 
 /* Der weiße Slide-In-Bereich von rechts */
 
-.container-both-sides {
+.container-both-sides-board {
     position: absolute;
     display: flex;
     align-items: center;
@@ -1422,7 +1422,7 @@ h5 {
 
 /* Slide-in Animation */
 
-.add-task-text-box {
+.add-task-text-box-board {
     position: fixed;
     left: 175px;
     bottom: 630px;
@@ -1433,7 +1433,7 @@ h2 {
     font-size: 64px;
 }
 
-.overlay-hidden {
+.overlay-hidden-board {
     display: none;
 }
 
