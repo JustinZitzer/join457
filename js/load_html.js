@@ -1,4 +1,4 @@
-function reapplyStylesheets() {
+/*function reapplyStylesheets() {
     const links = document.querySelectorAll('link[rel="stylesheet"]');
     links.forEach(link => {
         const href = link.href;
@@ -69,3 +69,4 @@ function triggerResizeEvent() {
         body.style.width = originalWidth || '';
     });
 }
+  */
