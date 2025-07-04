@@ -62,7 +62,7 @@ function hideLoadingScreen() {
         });
     } else if (browserResulution < 652) {
         requestAnimationFrame(() => {
-            bigLogoLogin.src = 'assets/img/join-logo-white.svg';
+            bigLogoLogin.src = './assets/img/join-logo-white.svg';
             animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
             smallLogoLogin.classList.remove('Visibility-Hidden');
             loginBodyDiv.style.opacity = '1';
