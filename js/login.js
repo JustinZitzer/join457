@@ -78,7 +78,7 @@ function login() {
     const password = passwordInput.value;
     sessionStorage.setItem('username', email);
     if (email && password) {
-        window.location.href='summary.html';
+        window.location.href='./summary.html';
     } else {
         alert('Please enter a valid email and password.');
     }
@@ -91,7 +91,7 @@ function getLogin () {
 function loginGuest () {
     const guestName = 'Gast';
     sessionStorage.setItem('guestUsername', guestName);
-    window.location.href='summary-guest.html'
+    window.location.href='./summary-guest.html'
 }
 
 function getLoginGuest () {
