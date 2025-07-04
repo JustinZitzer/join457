@@ -105,7 +105,7 @@ function openOverlay() {
         content.classList.add("slide-in");
       }
     } else {
-      window.location.href='add_task.html'
+      window.location.href='./add_task.html'
     }
 }
   
@@ -226,7 +226,7 @@ function openOverlay() {
       content.classList.add("slide-in");
     }
   } else {
-    window.location.href='add_task.html';
+    window.location.href='./add_task.html';
   }
 }
   
@@ -347,7 +347,7 @@ function openOverlay() {
       content.classList.add("slide-in");
     }
   } else {
-      window.location.href='add_task.html';
+      window.location.href='./add_task.html';
     }
 }
   
@@ -465,7 +465,7 @@ function openOverlay() {
     overlayAwaitFeedback.style.animation = "";
     overlayAwaitFeedback.classList.add("slide-in");
   } else  {
-    window.location.href='add_task.html';
+    window.location.href='./add_task.html';
   }
 }
   
