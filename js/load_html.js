@@ -1,4 +1,21 @@
-/*function reapplyStylesheets() {
+async function loadHTML() {
+  await loadIndexHTML();
+}
+
+async function loadIndexHTML() {
+    try {
+      const response = await fetch('index.html');
+      if (!response.ok) {
+        throw new Error(`Fehler beim Laden der Datei: ${response.status}`);
+      }
+      const html = await response.text();
+      document.getElementById('index_html').innerHTML = html;
+    } catch (error) {
+      console.error(error);
+    }
+}
+
+function reapplyStylesheets() {
     const links = document.querySelectorAll('link[rel="stylesheet"]');
     links.forEach(link => {
         const href = link.href;
@@ -24,33 +41,6 @@ function triggerMediaQueryReflow() {
     });
 }
 
-async function loadHTML() {
-  await loadIndexHTML(); // HTML laden und warten, bis es im DOM ist
-  // Verzögert das Auslösen des Resize-Events bis nach dem nächsten Browser-Render-Frame.
-  // Ein doppelter requestAnimationFrame ist eine gängige Technik, um maximale Sicherheit zu bieten,
-  // dass der DOM vollständig gerendert und die Stylesheets angewendet wurden.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      triggerResizeEvent();
-      triggerMediaQueryReflow();
-      reapplyStylesheets();
-    });
-  });
-}
-
-async function loadIndexHTML() {
-    try {
-      const response = await fetch('index.html');
-      if (!response.ok) {
-        throw new Error(`Fehler beim Laden der Datei: ${response.status}`);
-      }
-      const html = await response.text();
-      document.getElementById('index_html').innerHTML = html;
-    } catch (error) {
-      console.error(error);
-    }
-}
-
 // Dies ist die geänderte triggerResizeEvent-Funktion:
 function triggerResizeEvent() {
     const body = document.body;
@@ -69,4 +59,3 @@ function triggerResizeEvent() {
         body.style.width = originalWidth || '';
     });
 }
-  */
