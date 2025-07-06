@@ -12,7 +12,8 @@ h3 {
     font-size: 61px;
 }
 
-.add-task-box {
+/* Hier habe ich die Klasse unbenannt damit die Überschrift richtig im Add Task dargestellt wird und deine Template function nicht in board stört*/
+.add-task-box-headline-container {
     position: relative;
     width: 278px;
     height: 73px;
@@ -24,9 +25,8 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #000000;
-
-
 }
+
 
 .main-container-for-two-inputfield-container {
     display: flex;
@@ -728,7 +728,7 @@ h6 {
     width: 24px;
     height: 24px;
     left: 400px;
-    bottom: 45px;
+    bottom: 51px;
     cursor: pointer;
 
 }
@@ -949,6 +949,7 @@ h6 {
 /* Dropdown-Styling */
 .category-dropdown {
     position: absolute;
+    border-radius: 8px;
     top: 100%;
     left: 0;
     width: 100%;
@@ -1015,6 +1016,11 @@ h6 {
         z-index: 2;
     }
 
+    .add-task-box-headline-container {
+        top: 130px;
+        left: 30px;
+    }
+
     .main-container-for-two-inputfield-container {
         display: flex;
         justify-content: flex-start;
@@ -1022,21 +1028,6 @@ h6 {
         width: 100%;
         height: 155vh;
         gap: 24px;
-    }
-
-    .add-task-box {
-        position: absolute;
-        z-index: 1;
-        width: 278px;
-        height: 73px;
-        top: 140px;
-        left: 30px;
-        gap: 1px;
-        font-weight: 700;
-        font-size: 61px;
-        line-height: 120%;
-        letter-spacing: 0%;
-        color: #000000;
     }
 
     .container-both-sides {
@@ -1139,7 +1130,7 @@ h6 {
         cursor: pointer;
         margin-top: 4px;
         align-self: flex-start;
-        left: 92vw;
+        left: 91.9vw;
         bottom: 50px;
     }
 
@@ -1149,6 +1140,11 @@ h6 {
 
     .inputfield-category-assign {
         width: 95vw;
+    }
+
+    .contacts-dropdown {
+        width: 95vw;
+        margin-top: 0px;
     }
 
     .assigned-arrow-icon-down {
@@ -1171,4 +1167,280 @@ h6 {
         width: 95vw;
     }
     
+}
+
+@media (max-width: 1000px) {
+    .title-inputfield-enter-title {
+        width: 92vw;
+    }
+    
+    .inputfield-description {
+        width: 92vw;
+    }
+
+    .due-date-text-field {
+        width: 92vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 89.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .arrow-container-main-red {
+        width: 26vw;
+    }
+
+    .arrow-container-main-green {
+        width: 26vw;
+    }
+
+    .arrow-container-red {
+        width: 26vw;
+    }
+
+    .arrow-container-orange {
+        width: 30vw;
+    }
+
+    .arrow-container-green {
+        width: 26vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 87.8vw;
+    }
+
+    .inputfield-category-assign {
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 89.3vw;
+    }
+
+    .inputfield-subtask-assign {
+        width: 92vw;
+    }
+
+    .add-icon-container {
+        left: 89.3vw;
+        transform: translateX(-50%);
+    }
+
+    body {
+    }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 92vw;
+    }
+
+    .contacts-dropdown {
+        width: 92vw;
+        margin-top: 0px;
+    }
+
+}
+
+@media (max-width: 700px) {
+     .title-inputfield-enter-title {
+        width: 90vw;
+    }
+    
+    .inputfield-description {
+        width: 90vw;
+    }
+
+    .due-date-text-field {
+        width: 90vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 86.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .arrow-container-main-red {
+        width: 23.4vw;
+    }
+
+    .arrow-container-main-green {
+        width: 23.4vw;
+    }
+
+    .arrow-container-red {
+        width: 26.4vw;
+    }
+
+    .arrow-container-orange {
+        width: 30.4vw;
+    }
+
+    .arrow-container-green {
+        width: 23.4vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 84.4vw;
+    }
+
+    .inputfield-category-assign {
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 86.3vw;
+    }
+
+    .inputfield-subtask-assign {
+        width: 90vw;
+    }
+
+    .add-icon-container {
+        left: 86.1vw;
+        transform: translateX(-50%);
+    }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 90vw;
+    }
+
+    .contacts-dropdown {
+        width: 90vw;
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+     .title-inputfield-enter-title {
+        width: 87vw;
+    }
+    
+    .inputfield-description {
+        width: 87vw;
+    }
+
+    .due-date-text-field {
+        width: 87vw;
+    }
+
+    .calendar-clock {
+        position: relative;
+        width: 18px;
+        height: 20px;
+        top: 14px;
+        left: 83.0vw;
+        top: 72px;
+        cursor: pointer;
+        color: #2A3647;
+        transform: translateX(-50%);
+    }
+
+    .main-box-inputfield {
+        display: flex;
+        justify-content: space-around;
+        gap: 16px;
+        width: 91.7%;
+    }
+
+    .arrow-container-main-red {
+        width: 23.4vw;
+    }
+
+    .arrow-container-main-green {
+        width: 23.4vw;
+    }
+
+    .arrow-container-red {
+        width: 26.4vw;
+    }
+
+    .arrow-container-orange {
+        width: 28.4vw;
+    }
+
+    .arrow-container-green {
+        width: 26.4vw;
+    }
+
+    .inputfield-text-assign {
+        padding: 8px;
+        width: 87vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 80.4vw;
+    }
+
+    .inputfield-category-assign {
+        width: 87vw;
+        min-height: 48px;
+    }
+
+    .assigned-arrow-icon-down {
+        position: relative!important;
+        width: 24px!important;
+        height: 24px!important;
+        left: 82.8vw !important;
+        transform: translateX(-50%) !important;
+        bottom: 45px!important;
+        cursor: pointer!important;
+    }
+
+    .task-inputfield-box {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 440px;
+        height: 80px;
+        color: #2A3647;
+    }
+
+    .inputfield-subtask-assign {
+        width: 87vw;
+    }
+
+    .add-icon-container {
+        left: 82.8vw;
+        transform: translateX(-50%);
+    }
+
+    .dropdown-open {
+        max-height: 200px;
+        opacity: 1;
+        width: 87vw;
+    }
+
+    .contacts-dropdown {
+        width: 87vw;
+        margin-top: 0px;
+    }
 }

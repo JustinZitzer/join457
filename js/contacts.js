@@ -54,16 +54,22 @@ function toggleContactCardColor(contactId) {
 
 function openAddNewContactOverlay() {
     const main = document.getElementById('main_contacts');
+    const containerGreyBackground = document.getElementById('contacts-sidebar-container');
+    const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
     if (!openedAddNewContactOverlay) {
         main.innerHTML += getAddContactOverlay();
         openedAddNewContactOverlay = true;
+        containerGreyBackground.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+        addContactButton.style.display = 'none';
     }
 }
 function removeAddNewContactOverlay() {
     const overlay = document.getElementById('add_contact_overlay');
+    const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
     if (overlay) {
         overlay.remove();
         openedAddNewContactOverlay = false;
+        addContactButton.style.display = 'block';
     }
 }
 

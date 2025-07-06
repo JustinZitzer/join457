@@ -8,18 +8,85 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/info-pages.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body onload="loadHTML()">
-    <div id="index_html"></div>
+<body>
+    <div id="index_html">
+            <header id="header-index-html"> <!--box-shadow anpassen, nicht 100% umgesetzt-->
+            <div class="header-logo-div-mobile">
+                <svg class="header-logo-mobile" width="50" height="71" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M71.672 0H49.5142V25.4923H71.672V0Z" fill="#2A3647"/>
+                    <path d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z" fill="#2A3647"/>
+                    <path d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z" fill="#29ABE2"/>
+                    <path d="M83.2795 111.522C83.2795 116.265 80.8762 118.815 77.5184 118.815C74.1607 118.815 71.9619 115.785 71.9619 111.762C71.9619 107.739 74.2288 104.554 77.7059 104.554C81.183 104.554 83.2795 107.687 83.2795 111.522ZM74.5356 111.711C74.5356 114.57 75.6776 116.675 77.6377 116.675C79.5978 116.675 80.7057 114.45 80.7057 111.539C80.7057 108.988 79.6831 106.592 77.6377 106.592C75.5924 106.592 74.5356 108.903 74.5356 111.711Z" fill="#2A3647"/>
+                    <path d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z" fill="#2A3647"/>
+                    <path d="M90.3357 118.593V104.76H93.0628L95.9945 110.461C96.7492 111.952 97.4206 113.483 98.0057 115.049C97.8523 113.337 97.7841 111.368 97.7841 109.177V104.76H100.034V118.593H97.4944L94.5286 112.772C93.7434 111.243 93.0435 109.671 92.4322 108.064C92.4322 109.776 92.5515 111.711 92.5515 114.09V118.576L90.3357 118.593Z" fill="#2A3647"/>
+                </svg>
+            </div>
+            <h1 class="header-title-project-management-tool" id="header-title-project-management-tool">Kanban Project Management Tool</h1>
+            <div class="header-icons-container">
+                <a class="help-icon-logo" id="help-icon-logo" href="./help.html">
+                    <img src="./assets/icons/help-icon.svg" alt="help-icon">
+                </a>
+                <div onclick="toggleUserProfileOverlay()" class="user-profile-container">
+                    <div class="user-profile">
+                        <span class="user-profile-font">SM</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="sidebar-join-logo">
+                <img src="./assets/img/join-logo-white.svg" alt="join-sidebar-img">
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="./summary.html">
+                        <img src="./assets/icons/summary-icon.svg" alt="summary-icon">
+                        <span>Summary</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./add_task.html">
+                        <img src="./assets/icons/add-task-icon.svg" alt="add-task-icon">
+                        <span>Add Task</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./board.html">
+                        <img src="./assets/icons/board-icon.svg" alt="board-icon">
+                        <span>Board</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./contacts.html">
+                        <img src="./assets/icons/contacts-icon.svg" alt="contacts-icon">
+                        <span>Contacts</span>
+                    </a>
+                </li>
+            </ul>
+            <footer>
+                <a href="./privacy_policy.html">Privacy Policy</a>
+                <a href="./legal_notice.html">Legal Notice</a>
+            </footer>
+        </div>
+        <div id="user_profile_menu" class="user-profile-menu hide">
+            <div class="user-profile-content">
+                <a class="help-html-display-none" href="./help.html">Help</a>
+                <a href="./legal_notice.html">Legal Notice</a>
+                <a href="./privacy_policy.html">Privacy Policy</a>
+                <a href="./index.html">Log Out</a>
+            </div>
+        </div>
+    </div> <!--lädt html (header,sidebar)-->
     <main class="info-pages">
         <div class="headline-arrow-container">
-            <h1>Privacy Policy</h1>
-            <a href="summary.html">
+            <h1 class="privacy-policy-headline">Privacy Policy</h1>
+            <a href="./summary.html">
             <img class="blue-arrow-left" src="./assets/icons/blue-arrow-left.svg" alt="blue-arrow-left">
             </a>
         </div>
@@ -117,7 +184,7 @@
             <a href="mailto:info@developerakademie.de">info@developerakademie.de</a>
         </p>
     </main>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
     <script src="./js/load_html.js"></script>
 </body>
 

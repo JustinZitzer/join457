@@ -35,12 +35,17 @@ header h1 {
 
 .user-profile-menu {
     position: absolute;
+    z-index: 2;
     top: 80px;
     right: 80px;
     width: 160px;
     height: 158px;
     border-radius: 20px 0px 20px 20px;
     background-color: rgba(42, 54, 71, 1);
+}
+
+.help-html-display-none {
+    display: none;
 }
 
 .user-profile-content {
@@ -268,13 +273,28 @@ footer a:hover {
     }
 
     .header-icons-container {
-    display: flex;
-    align-items: center;
-    height: 56px;
-    gap: 16px;
-    width: 40px;
-    transition: transform 0.3sease-in-out;
-}
+        display: flex;
+        align-items: center;
+        height: 56px;
+        gap: 16px;
+        width: 40px;
+        transition: transform 0.3sease-in-out;
+    }
+
+    .help-html-display-none {
+        display: block;
+    }
+
+    .user-profile-menu {
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        right: 80px;
+        width: 160px;
+        height: 200px;
+        border-radius: 20px 0px 20px 20px;
+        background-color: rgba(42, 54, 71, 1);
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -328,4 +348,5 @@ footer a:hover {
     margin: 0;
     padding: 0;
   }
+
 }

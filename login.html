@@ -5,11 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log in | Join</title>
-  <script src="/js/login.js" defer></script>
-  <script src="/js/summary.js"></script>
-  <link rel="stylesheet" href="css/style-login.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="css/style-summary.css">
+  <link rel="stylesheet" href="./css/style-login.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style-summary.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
@@ -20,7 +18,7 @@
   
   <div id="Animation-Logo-Div-Z-Index" class="Animation-Logo-Div-Z-Index">
     <div class="Animation-Logo-Div">
-      <img id="Loading-Screen-Logo-Big" class="Loading-Screen-Logo-Big" src="assets/icons/loading-screen-logo.svg" alt="">
+      <img id="Loading-Screen-Logo-Big" class="Loading-Screen-Logo-Big" src="./assets/icons/loading-screen-logo.svg" alt="">
     </div>
   </div>
 
@@ -29,13 +27,13 @@
     <div id="Header-Login" class="Header-Login">
       <div class="Header-Login-Left-Div">
         <div class="Header-Login-Left">
-          <img id="Loading-Screen-Logo-Mini" class="Loading-Screen-Logo-Mini Visibility-Hidden" src="assets/icons/join-logo-mini.svg" alt="">
+          <img id="Loading-Screen-Logo-Mini" class="Loading-Screen-Logo-Mini Visibility-Hidden" src="./assets/icons/join-logo-mini.svg" alt="">
         </div>
       </div>
       
       <div id="Header-Login-Right" class="Header-Login-Right">
         <p class="Header-Login-Right-Thin-Text">Not a Join user?</p>
-        <Button onclick="window.location.href='signup.html'" class="Header-Login-Right-Button">
+        <Button onclick="window.location.href='./signup.html'" class="Header-Login-Right-Button">
           <p class="Header-Login-Right-Button-Text">Sign up</p>
         </Button>
       </div>
@@ -48,12 +46,12 @@
         <hr class="Login-Box-Line">
 
         <div class="Input-Wrapper-Log-In">
-          <img class="input-icon" src="assets/icons/mail.svg" alt="Mail Icon">
+          <img class="input-icon" src="./assets/icons/mail.svg" alt="Mail Icon">
           <input id="Login-Box-Email-Input" class="Login-Box-Email-Input" placeholder="Email" type="email">
         </div>
 
         <div class="Input-Wrapper-Log-In">
-          <img class="input-icon" src="assets/icons/lock.svg" alt="Lock Icon">
+          <img class="input-icon" src="./assets/icons/lock.svg" alt="Lock Icon">
           <input id="Login-Box-Passwort-Input" class="Login-Box-Passwort-Input" placeholder="Password" type="password">
         </div>
 
@@ -71,12 +69,14 @@
     <div id="Header-Login-Right-Mobile-Version-Div" class="Header-Login-Right-Mobile-Version-Div"></div>
 
     <footer class="footer-login-site">
-      <p onclick="window.location.href='privacy_policy.html'" class="Privacy-Policy-Text-Login-Site">Privacy Policy</p>
-      <p onclick="window.location.href='legal_notice.html'" class="Legal-Notice-Text-Login-Site">Legal Notice</p>
+      <p onclick="window.location.href='./privacy_policy.html'" class="Privacy-Policy-Text-Login-Site">Privacy Policy</p>
+      <p onclick="window.location.href='./legal_notice.html'" class="Legal-Notice-Text-Login-Site">Legal Notice</p>
     </footer>
 
   </div>
 
+    <script src="./js/login.js"></script>
+    <script src="./js/summary.js"></script>
 </body>
 
 </html>

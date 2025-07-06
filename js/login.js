@@ -62,7 +62,7 @@ function hideLoadingScreen() {
         });
     } else if (browserResulution < 652) {
         requestAnimationFrame(() => {
-            bigLogoLogin.src = 'assets/img/join-logo-white.svg';
+            bigLogoLogin.src = './assets/img/join-logo-white.svg';
             animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
             smallLogoLogin.classList.remove('Visibility-Hidden');
             loginBodyDiv.style.opacity = '1';
@@ -78,7 +78,7 @@ function login() {
     const password = passwordInput.value;
     sessionStorage.setItem('username', email);
     if (email && password) {
-        window.location.href='summary.html';
+        window.location.href='./summary.html';
     } else {
         alert('Please enter a valid email and password.');
     }
@@ -91,7 +91,7 @@ function getLogin () {
 function loginGuest () {
     const guestName = 'Gast';
     sessionStorage.setItem('guestUsername', guestName);
-    window.location.href='summary-guest.html'
+    window.location.href='./summary-guest.html'
 }
 
 function getLoginGuest () {
