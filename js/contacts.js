@@ -19,8 +19,6 @@ function openContactsSideCardOverlay(contactId) {
 }
 
 function openContactsSideCardOverlayById(contactId) {
-    console.log(contactId);
-    
     openContactsSideCardOverlay(contactId);
     setTimeout(flyInOverlay, 10);
     toggleContactCardColor(contactId);

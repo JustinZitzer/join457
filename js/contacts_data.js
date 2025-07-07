@@ -25,8 +25,6 @@ async function loadContacts() {
         lastFirstLetter = currentFirstLetter;
       }
       container.innerHTML += getContactCard(contacts[key]);
-      console.log(contacts[key]);
-      console.log(allContacts);
     }
   } catch (error) {
     console.error("Error loading contacts:", error);

@@ -2,9 +2,17 @@
     display: flex;
 }
 
+:root {
+  --scrollbar-bg: black;   /* Track */
+  --thumb-bg: #white;           /* Thumb normal */
+  --thumb-hover-bg: white;     /* Thumb hover/active */
+}
+
 .contacts-sidebar-container {
-    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: thin;
     display: flex;
+    scrollbar-color: var(--thumb-bg) var(--scrollbar-bg);
     flex-direction: column;
     align-items: center;
     background-color: white;
@@ -20,12 +28,13 @@
 }
 
 .contacts-sidebar-container::-webkit-scrollbar-track {
-    background-color: #FF7A00;
+    background-color: var(--scrollbar-bg);
     margin: 8px 0px;
     border-radius: 4px;
 }
 
 .contacts-sidebar-container::-webkit-scrollbar-thumb {
+    background: var(--thumb-bg);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -34,10 +43,12 @@
     background-color: #a8a8a8;
     border-radius: 3px;
     border: 8px;
+    transition: background 0.2s ease-in-out;
 }
 
-.contacts-sidebar-container::-webkit-scrollbar-thumb:hover {
-    background-color: #999;
+.contacts-sidebar-container::-webkit-scrollbar-thumb:hover,
+.contacts-sidebar-container::-webkit-scrollbar-thumb:active {
+  background: var(--thumb-hover-bg);
 }
 
 .contact-list {
@@ -175,11 +186,15 @@
 }
 
 .contacts-side-headline h1 {
+    display: flex;
+    align-items: center;
     font-weight: 700;
     font-size: 61px;
 }
 
 .contacts-side-headline h3 {
+    display: flex;
+    align-items: center;
     font-weight: 400;
     font-size: 27px;
 }
@@ -193,8 +208,9 @@
 
 .contacts-overlay-container {
     transform: translateX(100%);
-    /* Start außerhalb des Bildschirms */
-    transition: transform 0.6s ease-in-out;
+    transition: transform 0.9s ease-in;
+    
+    opacity: 0;
     display: flex;
     flex-direction: column;
     width: 461px;
@@ -206,6 +222,9 @@
 
 .active-side-overlay {
     transform: translateX(0);
+    transition: opacity 0.6s ease-in, transform 0.7s ease-out;
+    opacity: 1;
+
 }
 
 .contacts-overlay-container span {
