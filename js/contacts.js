@@ -1,12 +1,12 @@
 let openedContactsSideCardOverlay = false;
 let openedAddNewContactOverlay = false;
 let openedEditContactsOverlay = false;
-let toggledCard = false;
+let activeCard = null;
 
 function openContactsSideCardOverlay(contactId) {
     const contact = allContacts[contactId];
-    
-    
+
+
     if (!contact) {
         console.warn(`Kontakt mit ID ${contactId} nicht gefunden.`);
         return;
@@ -30,7 +30,8 @@ function openContactsSideCardOverlayById(contactId) {
     contactsRightSection.innerHTML += getContactOverlay(firstContact);
     setTimeout(() => {
         flyInOverlay();
-    },10)
+    }, 10)
+    toggleContactCardColor(contactId);
 }
 
 function flyInOverlay() {
@@ -38,9 +39,14 @@ function flyInOverlay() {
     overlay.classList.toggle("active-side-overlay")
 }
 
+
 function toggleContactCardColor(contactId) {
-    const contactCard = document.getElementById(`contact_card_${contactId}`);
-    contactCard.classList.toggle('contact-card-activated');
+  const contactCard = document.getElementById(`contact_card_${contactId}`);
+  if (activeCard && activeCard !== contactCard) {
+    activeCard.classList.remove('contact-card-activated');
+  }
+  const isNowActive = contactCard.classList.toggle('contact-card-activated');
+  activeCard = isNowActive ? contactCard : null;
 }
 
 

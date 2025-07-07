@@ -10,15 +10,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
     <link rel="stylesheet" href="./css/contacts.css">
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 
 </head>
 
-<body onload="loadHTML(), loadContacts()">
-    <div id="index_html"></div>
+<body onload="loadContacts(), loadHTML()">
+    <div id="index_html"></div> <!--lädt html (header,sidebar)-->
     <main id="main_contacts" class="contacts-content">
         <div id="contacts-sidebar-container" class="contacts-sidebar-container">
             <button class="add-new-contact-btn" onclick="openAddNewContactOverlay()">
@@ -42,7 +42,7 @@
     </button>
     <script src="./js/load_html.js"></script>
     <script src="./js/templates.js"></script>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
     <script src="./js/firebase.js"></script>
     <script src="./js/contacts_data.js"></script>
     <script src="./js/contacts_templates.js"></script>
