@@ -2,11 +2,10 @@ let openedContactsSideCardOverlay = false;
 let openedAddNewContactOverlay = false;
 let openedEditContactsOverlay = false;
 let activeCard = null;
+const STORAGE_KEY = 'contactColors';
 
 function openContactsSideCardOverlay(contactId) {
-    const contact = allContacts[contactId];
-
-
+    const contact = allContacts.find(c => c.id === contactId);
     if (!contact) {
         console.warn(`Kontakt mit ID ${contactId} nicht gefunden.`);
         return;
@@ -16,23 +15,17 @@ function openContactsSideCardOverlay(contactId) {
     if (existingOverlay) {
         existingOverlay.remove();
     }
-    contactsRightSection.innerHTML += getContactOverlay(contactId, contact);
+    contactsRightSection.innerHTML += (getContactOverlay(contact));
 }
 
 function openContactsSideCardOverlayById(contactId) {
-    const firstKey = Object.keys(allContacts)[contactId];
-    const firstContact = allContacts[firstKey]
-    const contactsRightSection = document.getElementById('contacts_right_section');
-    const contactsSideOverlay = document.getElementById('contacts_side_overlay');
-    if (contactsSideOverlay) {
-        contactsSideOverlay.remove();
-    }
-    contactsRightSection.innerHTML += getContactOverlay(firstContact);
-    setTimeout(() => {
-        flyInOverlay();
-    }, 10)
+    console.log(contactId);
+    
+    openContactsSideCardOverlay(contactId);
+    setTimeout(flyInOverlay, 10);
     toggleContactCardColor(contactId);
 }
+
 
 function flyInOverlay() {
     const overlay = document.getElementById('contacts_side_overlay');
@@ -41,12 +34,12 @@ function flyInOverlay() {
 
 
 function toggleContactCardColor(contactId) {
-  const contactCard = document.getElementById(`contact_card_${contactId}`);
-  if (activeCard && activeCard !== contactCard) {
-    activeCard.classList.remove('contact-card-activated');
-  }
-  const isNowActive = contactCard.classList.toggle('contact-card-activated');
-  activeCard = isNowActive ? contactCard : null;
+    const contactCard = document.getElementById(`contact_card_${contactId}`);
+    if (activeCard && activeCard !== contactCard) {
+        activeCard.classList.remove('contact-card-activated');
+    }
+    const isNowActive = contactCard.classList.toggle('contact-card-activated');
+    activeCard = isNowActive ? contactCard : null;
 }
 
 
@@ -95,4 +88,28 @@ function handleContactClick(contact) {
 
 function getContactById(contactId) {
     return allContacts[contactId];
+}
+
+function getRandomColor() {
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = 100;
+    const lightness = 50;
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+
+function loadColorMap() {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+}
+
+function saveColorMap(map) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
+}
+
+function getColorForContact(id) {
+  const map = loadColorMap();
+  if (!map[id]) {
+    map[id] = getRandomColor();
+    saveColorMap(map);
+  }
+  return map[id];
 }

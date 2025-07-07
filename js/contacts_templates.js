@@ -1,8 +1,11 @@
 function getContactOverlay(contact) {
+    console.log(contact);
+    
+    const color = getColorForContact(contact.id);
     return `
     <div id="contacts_side_overlay" class="contacts-overlay-container">
                 <div class="contacts-overlay-header">
-                    <div class="contacts-overlay-user-profile">
+                    <div class="contacts-overlay-user-profile" style="background-color:${color};">
                         <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                     </div>
                     <div class="contacts-info-container">
@@ -112,10 +115,13 @@ function getEditContactOverlay() {
 }
 
 function getContactCard(contact) {
+    const color = getColorForContact(contact.id);
+    console.log(contact.id);
+    
     return `
     <div id="contact_card_${contact.id}" class="contact-card"
          onclick="openContactsSideCardOverlayById(${contact.id})">
-      <div class="contact-profile">${contact.firstName[0]}${contact.lastName[0]}</div>
+      <div class="contact-profile" style="background-color:${color}">${contact.firstName[0]}${contact.lastName[0]}</div>
       <div class="contact-info">
         <span>${contact.firstName} ${contact.lastName}</span>
         <a>${contact.email}</a>
