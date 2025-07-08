@@ -3,9 +3,9 @@
 }
 
 :root {
-  --scrollbar-bg: black;   /* Track */
-  --thumb-bg: #white;           /* Thumb normal */
-  --thumb-hover-bg: white;     /* Thumb hover/active */
+  --scrollbar-bg: black;
+  --thumb-bg: #white;
+  --thumb-hover-bg: white;
 }
 
 .contacts-sidebar-container {
@@ -127,8 +127,7 @@
 }
 
 .contact-card:hover {
-    background-color: rgb(226, 226, 226);
-    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
     color: black;
 }
 
