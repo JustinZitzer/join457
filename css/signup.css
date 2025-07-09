@@ -579,3 +579,37 @@ h1 {
     }
 
 }
+
+@media screen and (max-width: 1000px) {
+
+    .name-icon-size,
+    .email-icon-size,
+    .lock-icon-size-first,
+    .lock-icon-size-second {
+        left: 92%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .name-icon-size,
+    .email-icon-size,
+    .lock-icon-size-first,
+    .lock-icon-size-second {
+        left: 90%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .name-icon-size,
+    .email-icon-size,
+    .lock-icon-size-first,
+    .lock-icon-size-second {
+        left: 88%;
+    }
+
+}
+
