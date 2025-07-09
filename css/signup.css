@@ -578,15 +578,34 @@ h1 {
         top: 16px;
     }
 
+    .inputfield-name,
+    .inputfield-email,
+    .inputfield-password,
+    .inputfield-confirm {
+        font-size: 18px;
+    }
+
 }
 
 @media screen and (max-width: 1000px) {
+
+    .inputfield-name,
+    .inputfield-email,
+    .inputfield-password,
+    .inputfield-confirm {
+        font-size: 18px;
+        width: 96%;
+    }
 
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 92%;
+        left: 91%;
+    }
+
+    .hr-line-signup {
+        width: 15%;
     }
 
 }
@@ -597,7 +616,19 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 90%;
+        left: 86%;
+    }
+
+    .hr-line-signup {
+        width: 20%;
+    }
+
+    .inputfield-name,
+    .inputfield-email,
+    .inputfield-password,
+    .inputfield-confirm {
+        font-size: 18px;
+        width: 94%;
     }
 
 }
@@ -608,8 +639,68 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 88%;
+        left: 83%;
+    }
+
+    .inputfield-name,
+    .inputfield-email,
+    .inputfield-password,
+    .inputfield-confirm {
+        font-size: 18px;
+        width: 92%;
+    }
+
+    .hr-line-signup {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .name-icon-size,
+    .email-icon-size,
+    .lock-icon-size-first,
+    .lock-icon-size-second {
+        left: 78%;
+    }
+
+    .hr-line-signup {
+        width: 30%;
+    }
+
+    .inputfield-name,
+    .inputfield-email,
+    .inputfield-password,
+    .inputfield-confirm {
+        font-size: 18px;
+        width: 90%;
     }
 
 }
 
+@media screen and (max-width: 350px) {
+
+    .name-icon-size,
+    .email-icon-size,
+    .lock-icon-size-first,
+    .lock-icon-size-second {
+        left: 76%;
+    }
+
+    .inputfield-confirm,
+    .inputfield-password,
+    .inputfield-email,
+    .inputfield-name {
+        width: 89%;
+    }
+
+
+    .hr-line-signup {
+        width: 35%;
+    }
+
+    .signup-main-container {
+        width: 95%;
+    }
+
+}
