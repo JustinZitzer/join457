@@ -3,6 +3,7 @@ let openedAddNewContactOverlay = false;
 let openedEditContactsOverlay = false;
 let activeCard = null;
 const STORAGE_KEY = 'contactColors';
+let show = false;
 
 function openContactsSideCardOverlay(contactId) {
     const contact = allContacts.find(c => c.id === contactId);
@@ -20,16 +21,28 @@ function openContactsSideCardOverlay(contactId) {
 
 function openContactsSideCardOverlayById(contactId) {
     openContactsSideCardOverlay(contactId);
-    setTimeout(flyInOverlay, 10);
     toggleContactCardColor(contactId);
+    requestAnimationFrame(flyInOverlay);
 }
-
 
 function flyInOverlay() {
     const overlay = document.getElementById('contacts_side_overlay');
-    overlay.classList.toggle("active-side-overlay")
+    if (activeCard) {
+        overlay.classList.add('active-side-overlay');
+        overlay.classList.remove('hide-side-overlay');
+    } else {
+        removeSideOverlay();
+    }
 }
 
+function removeSideOverlay() {
+    const overlay = document.getElementById('contacts_side_overlay');
+    if (!overlay) return;
+    overlay.classList.remove('active-side-overlay');
+    requestAnimationFrame(() =>
+        overlay.classList.add('hide-side-overlay')
+    );
+}
 
 function toggleContactCardColor(contactId) {
     const contactCard = document.getElementById(`contact_card_${contactId}`);
@@ -96,18 +109,18 @@ function getRandomColor() {
 }
 
 function loadColorMap() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 }
 
 function saveColorMap(map) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
 }
 
 function getColorForContact(id) {
-  const map = loadColorMap();
-  if (!map[id]) {
-    map[id] = getRandomColor();
-    saveColorMap(map);
-  }
-  return map[id];
+    const map = loadColorMap();
+    if (!map[id]) {
+        map[id] = getRandomColor();
+        saveColorMap(map);
+    }
+    return map[id];
 }
