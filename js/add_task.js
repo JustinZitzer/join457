@@ -109,14 +109,14 @@ function openOverlay() {
     }
 }
   
-  function closeOverlay() {
+function closeOverlay() {
     const overlay = document.getElementById("overlay");
     if (overlay) {
       overlay.classList.add("overlay-hidden");
     }
-  }
+}
   
-  function overlayToDo() {
+function overlayToDo() {
     const overlayToDoContainer = document.getElementById("overlay-todo");
     overlayToDoContainer.classList.remove("overlay-hidden");
     overlayToDoContainer.classList.add("overlay-visible");
@@ -230,15 +230,15 @@ function openOverlay() {
   }
 }
   
-  function closeOverlayToDo() {
+function closeOverlayToDo() {
     const overlayToDo = document.getElementById("overlay-todo");
     if (overlayToDo) {
       overlayToDo.classList.remove("overlay-visible");
       overlayToDo.classList.add("overlay-hidden");
     }
-  }
+}
   
-  function openOverlayInProgress() {
+function openOverlayInProgress() {
     const overlayInProgress = document.getElementById("overlay-in-progress");
     overlayInProgress.classList.add("overlay-visible");
     overlayInProgress.classList.remove("overlay-hidden");
@@ -351,16 +351,16 @@ function openOverlay() {
     }
 }
   
-  function closeOverlayInProgress(event) {
+function closeOverlayInProgress(event) {
     document
       .getElementById("overlay-in-progress")
       .classList.remove("overlay-visible");
     document
       .getElementById("overlay-in-progress")
       .classList.add("overlay-hidden");
-  }
+}
   
-  function openOverlayFeedback() {
+function openOverlayFeedback() {
     const openOverlayAwaitFeedback = document.getElementById(
       "overlay-await-feedback"
     );
@@ -469,16 +469,16 @@ function openOverlay() {
   }
 }
   
-  function closeOverlayFeedback(event) {
+function closeOverlayFeedback(event) {
     document
       .getElementById("overlay-await-feedback")
       .classList.remove("overlay-visible");
     document
       .getElementById("overlay-await-feedback")
       .classList.add("overlay-hidden");
-  }
+}
   
-  function selectContacts() {
+function selectContacts() {
     const fieldRequiered = document.getElementById("field-required");
     const windowWidth = window.innerWidth;
     const dropdown = document.getElementById("contacts-dropdown");
@@ -491,38 +491,38 @@ function openOverlay() {
         fieldRequiered.style.top = "870px";
         }
     }
-  }
+}
   
-  function toggleRed(button) {
+function toggleRed(button) {
     button.classList.toggle("active");
-  }
+}
   
-  function toggleOrange(button) {
+function toggleOrange(button) {
     button.classList.toggle("active");
-  }
+}
   
-  function toggleGreen(button) {
+function toggleGreen(button) {
     button.classList.toggle("active");
-  }
+}
   
-  function toggleDropdown() {
+function toggleDropdown() {
     var dropdown = document.getElementById("category-dropdown");
     if (dropdown.classList.contains("dropdown-open")) {
       dropdown.classList.remove("dropdown-open");
     } else {
       dropdown.classList.add("dropdown-open");
     }
-  }
+}
   
-  function selectCategory(category) {
+function selectCategory(category) {
     var input = document.getElementById("category-input");
     input.value = category;
   
     var dropdown = document.getElementById("category-dropdown");
     dropdown.classList.remove("dropdown-open");
-  }
+}
   
-  function validateInput() {
+function validateInput() {
     const input = document.getElementById("titleInput");
     const errorMsg = document.getElementById("error-message");
   
@@ -535,9 +535,9 @@ function openOverlay() {
       errorMsg.style.display = "none";
       input.classList.remove("input-error");
     }
-  }
+}
   
-  function validateDueDateInput() {
+function validateDueDateInput() {
     const input = document.getElementById("dueDateInput");
     const errorMsg = document.getElementById("due-date-error");
   
@@ -550,4 +550,55 @@ function openOverlay() {
       errorMsg.style.display = "none";
       input.classList.remove("input-error");
     }
+}
+
+let todosArray = [{
+  'content' : 'To do task',
+  'category' : 'todo'
+}, {
+  'content' : 'In progress task',
+  'category' : 'inprogress'
+}];
+
+function openNewTaskInToDo() {
+  const toDoContent = document.getElementById("todo-content");
+  toDoContent.innerHTML = `
+                <div  class="todo-content-box">
+                    <div class="user-story-box">
+                        <span>User story</span>
+                    </div>
+
+                    <div class="text-contact-box">
+                        <span>Contact Form & Imprint</span>
+
+                        <div class="text-create-box">
+                            <span>Create a contactform and imprint page...</span>
+                        </div>
+                    </div>
+                    <div class="progressbar-box">
+                        <div class="progressbar-content">
+                        </div>
+
+                        <div class="subtask-text">
+                            0/2 subtasks
+                        </div>
+                    </div>
+
+                    <div class="three-circle-todo">
+                        <div class="three-circle-container">
+                            <div class="single-circle-first">
+                                <h5>AS</h5>
+                            </div>
+
+                            <div class="single-circle-second">
+                                <h5>DE</h5>
+                            </div>
+
+                            <div class="single-circle-third">
+                                <h5>EF</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+              ;
   }
