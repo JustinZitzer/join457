@@ -566,18 +566,32 @@ let todosArray = [{
   'id' : '2',
   'content' : 'Task 3',
   'category' : 'inprogress'
+}, {
+  'id' : '3',
+  'content' : 'Task 4',
+  'category' : 'await-feedback'
+}, {
+  'id' : '4',
+  'content' : 'Task 5',
+  'category' : 'done'
 }];
 
 function updateTasksHtml() {
   const toDoContent = document.getElementById("todo-content-box");
   const toDoContentFinalDiv = document.getElementById("todo-content-task");
   const inProgressContent = document.getElementById("inprogress-content-task");
+  const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
+  const doneContent = document.getElementById("done-content-task");
   let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
   let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
+  let awaitFeedbackTasks = todosArray.filter(awaitfeedback => awaitfeedback['category'] == 'await-feedback');
+  let doneTasks = todosArray.filter(done => done['category'] == 'done');
 
-  toDoContent.innerHTML = '';
+
   toDoContentFinalDiv.innerHTML = '';
   inProgressContent.innerHTML = '';
+  awaitFeedbackContent.innerHTML = '';
+  doneContent.innerHTML = '';
 
 
   for (let i = 0; i < toDoTasks.length; i++) {
@@ -590,6 +604,15 @@ function updateTasksHtml() {
     inProgressContent.innerHTML += generateToDoTaskHtml(task);
   }
 
+  for (let i = 0; i < awaitFeedbackTasks.length; i++) {
+    const task = awaitFeedbackTasks[i];
+    awaitFeedbackContent.innerHTML += generateToDoTaskHtml(task);
+  }
+
+  for (let i = 0; i < doneTasks.length; i++) {
+    const task = doneTasks[i];
+    doneContent.innerHTML += generateToDoTaskHtml(task);
+  }
 }
 
 function generateToDoTaskHtml(task) {
