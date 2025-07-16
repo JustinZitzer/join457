@@ -223,6 +223,7 @@ h3 {
 
 .todo-content {
     display: flex;
+    flex-direction: column;
     width: 54px;
     height: 24px;
     font-weight: 700;
@@ -232,6 +233,9 @@ h3 {
     color: #42526E;
 }
 
+.todo-content-task{
+    width: 244px;
+}
 
 .inprogress-container {
     display: flex;
@@ -243,6 +247,8 @@ h3 {
 }
 
 .inprogress-content {
+    display: flex;
+    flex-direction: column;
     width: 111px;
     height: 24px;
     font-weight: 700;
@@ -250,6 +256,10 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
+}
+
+.inprogress-content-task {
+    width: 244px;
 }
 
 .inprogress-content-box {
@@ -281,6 +291,8 @@ h3 {
 }
 
 .await-feedback-content {
+    display: flex;
+    flex-direction: column;
     width: 152px;
     height: 24px;
     font-family: Inter;
@@ -289,6 +301,10 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
+}
+
+.await-feedback-content-task {
+    width: 244px;
 }
 
 .done-task-container {
@@ -302,6 +318,8 @@ h3 {
 }
 
 .done-content {
+    display: flex;
+    flex-direction: column;
     width: 52px;
     height: 24px;
     font-family: Inter;
@@ -310,6 +328,10 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #42526E;
+}
+
+.done-content-task {
+    width: 244px;
 }
 
 .add-button {
