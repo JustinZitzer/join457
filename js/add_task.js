@@ -562,12 +562,18 @@ let todosArray = [{
   'id' : '1',
   'content' : 'To do Task 2',
   'category' : 'todo'
+},  {
+  'id' : '2',
+  'content' : 'Task 3',
+  'category' : 'inprogress'
 }];
 
 function updateTasksHtml() {
   const toDoContent = document.getElementById("todo-content");
   const toDoContentFinalDiv = document.getElementById("todo-content-task");
   let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
+  const inProgressContent = document.getElementById("inprogress-content-task");
+  let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
 
   toDoContent.innerHTML = '';
   toDoContentFinalDiv.innerHTML = '';
@@ -577,20 +583,27 @@ function updateTasksHtml() {
     toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task);
   }
 
+  inProgressContent.innerHTML = '';
+
+  for (let i = 0; i < inProgressTasks.length; i++) {
+    const task = inProgressTasks[i];
+    inProgressContent.innerHTML += generateToDoTaskHtml(task);
+  }
+
 }
 
 function generateToDoTaskHtml(task) {
   return `<div ondragstart="startDragging(${task['id']})" draggable="true" class="">${task['content']}</div>`;
 }
 
-function startDragging(id) {
-  currentDraggedElement = id;
+function startDragging(taskId) {
+  currentDraggedElement = taskId;
 }
 
 function allowDrop(event) {
   event.preventDefault();
 }
 
-function moveTo() {
-  
+function moveTo(category) {
+  todos[currentDraggedElement]['category'] = category;
 }
