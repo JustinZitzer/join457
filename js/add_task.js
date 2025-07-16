@@ -552,54 +552,35 @@ function validateDueDateInput() {
     }
 }
 
+let currentDraggedElement;
+
 let todosArray = [{
+  'id' : '0',
   'content' : 'To do task',
   'category' : 'todo'
 }, {
-  'content' : 'In progress task',
-  'category' : 'inprogress'
+  'id' : '1',
+  'content' : 'To do Task 2',
+  'category' : 'todo'
 }];
 
-function UpdateTasksHtml() {
+function updateTasksHtml() {
   const toDoContent = document.getElementById("todo-content");
+  let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
 
-  toDoContent.innerHTML += `
-    <div class="todo-content-box">
-      <div class="user-story-box">
-        <span>User story</span>
-      </div>
+  toDoContent.innerHTML = '';
 
-      <div class="text-contact-box">
-        <span>Contact Form & Imprint</span>
+  for (let i = 0; i < toDoTasks.length; i++) {
+    const task = toDoTasks[i];
+    toDoContent.innerHTML += generateToDoTaskHtml(task);
+  }
 
-        <div class="text-create-box">
-          <span>Create a contactform and imprint page...</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content">
-        </div>
+}
 
-        <div class="subtask-text">
-          0/2 subtasks
-        </div>
-      </div>
+function generateToDoTaskHtml(task) {
+  return `<div ondragstart="startDragging(${task['id']})" draggable="true" class="">${task['content']}</div>`;
+}
 
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first">
-            <h5>AS</h5>
-          </div>
-
-          <div class="single-circle-second">
-            <h5>DE</h5>
-          </div>
-
-          <div class="single-circle-third">
-            <h5>EF</h5>
-          </div>
-        </div>
-      </div>
-    </div>`
-  ;
+function startDragging(id) {
+  currentDraggedElement = id;
 }
