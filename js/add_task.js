@@ -566,13 +566,15 @@ let todosArray = [{
 
 function updateTasksHtml() {
   const toDoContent = document.getElementById("todo-content");
+  const toDoContentFinalDiv = document.getElementById("todo-content-task");
   let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
 
   toDoContent.innerHTML = '';
+  toDoContentFinalDiv.innerHTML = '';
 
   for (let i = 0; i < toDoTasks.length; i++) {
     const task = toDoTasks[i];
-    toDoContent.innerHTML += generateToDoTaskHtml(task);
+    toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task);
   }
 
 }
@@ -583,4 +585,12 @@ function generateToDoTaskHtml(task) {
 
 function startDragging(id) {
   currentDraggedElement = id;
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function moveTo() {
+  
 }

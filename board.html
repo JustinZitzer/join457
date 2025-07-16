@@ -62,7 +62,7 @@
                         <div class="todo-container">
                             <div id="todo-content" class="todo-content">
                                 <p>To do</p>
-                                <div class="todo-content-task" id="todo-content-task"></div>
+                                <div ondrop="moveTo('todo-content-task')" ondragover="allowDrop(event)" class="todo-content-task" id="todo-content-task"></div>
                             </div>
 
                             <div class="add-button-container">
@@ -86,7 +86,7 @@
                         <div class="inprogress-container">
                             <div id="inprogress-content" class="inprogress-content">
                                 <p>In progress</p>
-                                <div class="inprogress-content-task" id="inprogress-content-task"></div>
+                                <div ondrop="moveTo('inprogress-content-task')" ondragover="allowDrop(event)" class="inprogress-content-task" id="inprogress-content-task"></div>
                             </div>
 
 
@@ -112,7 +112,7 @@
                         <div class="await-feedback-task-container">
                             <div id="await-feedback-content" class="await-feedback-content">
                                 <p>Await feedback</p>
-                                <div class="await-feedback-content-task" id="await-feedback-content-task"></div>
+                                <div ondrop="moveTo('await-feedback-content-task')" ondragover="allowDrop(event)" class="await-feedback-content-task" id="await-feedback-content-task"></div>
                             </div>
                             <div class="add-button-container">
                                 <button onclick="openOverlayFeedback()" class="add-button">
@@ -137,7 +137,7 @@
                         <div class="done-task-container">
                             <div id="done-content" class="done-content">
                                 <p>Done</p>
-                                <div class="done-content-task" id="done-content-task"></div>
+                                <div ondrop="moveTo('done-content-task')" ondragover="allowDrop(event)" class="done-content-task" id="done-content-task"></div>
                             </div>
                         </div>
 
