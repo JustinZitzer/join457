@@ -235,6 +235,7 @@ h3 {
 
 .todo-content-task{
     width: 244px;
+    height: 400px;
 }
 
 .inprogress-container {
@@ -260,6 +261,13 @@ h3 {
 
 .inprogress-content-task {
     width: 244px;
+    height: 400px;
+}
+
+.generate-task {
+    height: 50px;
+    width: 244px;
+    font-size: 20px;
 }
 
 .inprogress-content-box {

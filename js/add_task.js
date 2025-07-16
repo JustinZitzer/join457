@@ -569,21 +569,21 @@ let todosArray = [{
 }];
 
 function updateTasksHtml() {
-  const toDoContent = document.getElementById("todo-content");
+  const toDoContent = document.getElementById("todo-content-box");
   const toDoContentFinalDiv = document.getElementById("todo-content-task");
-  let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
   const inProgressContent = document.getElementById("inprogress-content-task");
+  let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
   let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
 
   toDoContent.innerHTML = '';
   toDoContentFinalDiv.innerHTML = '';
+  inProgressContent.innerHTML = '';
+
 
   for (let i = 0; i < toDoTasks.length; i++) {
     const task = toDoTasks[i];
     toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task);
   }
-
-  inProgressContent.innerHTML = '';
 
   for (let i = 0; i < inProgressTasks.length; i++) {
     const task = inProgressTasks[i];
@@ -593,17 +593,18 @@ function updateTasksHtml() {
 }
 
 function generateToDoTaskHtml(task) {
-  return `<div ondragstart="startDragging(${task['id']})" draggable="true" class="">${task['content']}</div>`;
+  return `<div ondragstart="startDragging(${task['id']})" draggable="true" class="generate-task">${task['content']}</div>`;
 }
 
 function startDragging(taskId) {
   currentDraggedElement = taskId;
 }
 
-function allowDrop(event) {
-  event.preventDefault();
+function allowDrop(ev) {
+  ev.preventDefault();
 }
 
 function moveTo(category) {
-  todos[currentDraggedElement]['category'] = category;
+  todosArray[currentDraggedElement]['category'] = category;
+  updateTasksHtml();
 }
