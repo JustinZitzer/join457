@@ -38,7 +38,7 @@
                 <div class="description-main-box">
                     <div class="description-text">
                         <span>Description</span>
-                        <input type="text" placeholder="Enter Description" class="inputfield-description">
+                        <input type="text" id="inputfield-description" placeholder="Enter Description" class="inputfield-description">
                     </div>
 
 
@@ -68,7 +68,7 @@
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red">
-                                <button onclick="toggleRed(this)" class="arrow-container-red">
+                                <button onclick="toggleRed(this)" id="arrow-container-red" class="arrow-container-red">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -77,14 +77,14 @@
 
                             <div class="main-box-inputfield">
                                 <div class="arrow-container-main-red">
-                                    <button onclick="toggleOrange(this)" class="arrow-container-orange">
+                                    <button onclick="toggleOrange(this)" id="arrow-container-orange" class="arrow-container-orange">
                                         <h4>Medium =</h4>
                                     </button>
                                 </div>
 
 
                                 <div class="arrow-container-main-green">
-                                    <button onclick="toggleGreen(this)" class="arrow-container-green">
+                                    <button onclick="toggleGreen(this)" id="arrow-container-green" class="arrow-container-green">
                                         <h4>Low</h4>
                                         <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                             alt="green-arrow">
@@ -95,7 +95,7 @@
 
                         <div class="assigned-inputfield-box">
                             <span>Assigned to</span>
-                            <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign">
+                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign" class="inputfield-text-assign">
                             <div class="three-circle-todo">
                                 <div class="three-circle-container">
                                     <div class="single-circle-first">
@@ -118,7 +118,7 @@
                         <img id="contact-list" onclick="selectContacts()" class="assigned-arrow-icon"
                             src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
                         <div id="contacts-dropdown" class="contacts-dropdown hidden">
-                            <label class="contact-option"><span>Anna Müller</span><input type="checkbox"></label>
+                            <label id="contact-option" class="contact-option"><span>Anna Müller</span><input type="checkbox"></label>
                             <label class="contact-option"><span>Ben Schmidt</span><input type="checkbox"></label>
                             <label class="contact-option"><span>Clara Hoffmann</span><input type="checkbox"></label>
                             <label class="contact-option"><span>David Weber</span><input type="checkbox"></label>
@@ -149,7 +149,7 @@
                             <div class="subtask-inputfield-container">
                                 <img class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
                                     alt="subtask-plus-icon">
-                                <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                                <input type="text" id="inputfield-subtask-assign" placeholder="Add new subtask" class="inputfield-subtask-assign">
                             </div>
                         </div>
                     </div>

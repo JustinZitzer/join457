@@ -1,3 +1,14 @@
+const taskTitel = document.getElementById("titleInput");
+const taskDescription = document.getElementById("inputfield-description");
+const taskDueDate = document.getElementById("dueDateInput");
+const taskPriorityUrgent = document.getElementById("arrow-container-red");
+const taskPriorityMedium = document.getElementById("arrow-container-orange");
+const taskPriorityLow = document.getElementById("arrow-container-green");
+const taskAssignedTo = document.getElementById("inputfield-text-assign");
+const taskAssignedContacts = document.getElementById("contacts-dropdown");
+const taskCategory = document.getElementById("category-input");
+const taskSubtask = document.getElementById("inputfield-subtask-assign");
+
 function openOverlay() {
     const overlay = document.getElementById("overlay");
     overlay.classList.add("overlay-visible");
@@ -606,6 +617,26 @@ function openOverlay() {
       input.classList.remove("input-error");
     }
   }
-  
-  
-  
+
+  function getInfoForNewTask() {
+    let titel = taskTitel.value;
+    let description = taskDescription.value;
+    let dueDate = taskDueDate.value;
+    let priority = getPriorityForNewTask();
+    let assignedTo = taskAssignedContacts.checked ? taskAssignedTo.textContent : null;
+    let category = taskCategory.value;
+    let subtask = taskSubtask.value || null;
+    return { titel, description, dueDate, priority, assignedTo, category, subtask };
+  }
+
+  function getPriorityForNewTask() {
+    if (taskPriorityUrgent.classList.contains("active")) {
+      return "Urgent";
+    } else if (taskPriorityMedium.classList.contains("active")) {
+      return "Medium";
+    } else if (taskPriorityLow.classList.contains("active")) {
+      return "Low";
+    } else {
+      return "No priority selected";
+    }
+  }
