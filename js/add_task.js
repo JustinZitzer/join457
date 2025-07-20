@@ -1,3 +1,9 @@
+  const toDoContent = document.getElementById("todo-content-box");
+  const toDoContentFinalDiv = document.getElementById("todo-content-task");
+  const inProgressContent = document.getElementById("inprogress-content-task");
+  const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
+  const doneContent = document.getElementById("done-content-task");
+
 function openOverlay() {
     const overlay = document.getElementById("overlay");
     overlay.classList.add("overlay-visible");
@@ -577,22 +583,12 @@ let todosArray = [{
 }];
 
 function updateTasksHtml() {
-  const toDoContent = document.getElementById("todo-content-box");
-  const toDoContentFinalDiv = document.getElementById("todo-content-task");
-  const inProgressContent = document.getElementById("inprogress-content-task");
-  const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
-  const doneContent = document.getElementById("done-content-task");
   let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
   let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
   let awaitFeedbackTasks = todosArray.filter(awaitfeedback => awaitfeedback['category'] == 'await-feedback');
   let doneTasks = todosArray.filter(done => done['category'] == 'done');
 
-
-  toDoContentFinalDiv.innerHTML = '';
-  inProgressContent.innerHTML = '';
-  awaitFeedbackContent.innerHTML = '';
-  doneContent.innerHTML = '';
-
+  clearTaskDivsForUpdatingHtml();
 
   for (let i = 0; i < toDoTasks.length; i++) {
     const task = toDoTasks[i];
@@ -613,6 +609,13 @@ function updateTasksHtml() {
     const task = doneTasks[i];
     doneContent.innerHTML += generateToDoTaskHtml(task);
   }
+}
+
+function clearTaskDivsForUpdatingHtml() {
+  toDoContentFinalDiv.innerHTML = '';
+  inProgressContent.innerHTML = '';
+  awaitFeedbackContent.innerHTML = '';
+  doneContent.innerHTML = '';
 }
 
 function generateToDoTaskHtml(task) {
