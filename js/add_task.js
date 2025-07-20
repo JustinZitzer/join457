@@ -631,3 +631,39 @@ function moveTo(category) {
   todosArray[currentDraggedElement]['category'] = category;
   updateTasksHtml();
 }
+
+function getContactCardForDropdown(contact) {
+  // Falls Nachname nicht vorhanden ist, wird nur der Vorname angezeigt
+  const name = contact.lastName
+    ? `${contact.firstName} ${contact.lastName}`
+    : contact.firstName;
+  return `
+    <label class="contact-option">
+      <span>${name}</span>
+      <input type="checkbox" data-contact-id="${contact.id || ''}">
+    </label>
+  `;
+}
+
+async function loadContactsForDropdown() {
+  const container = document.getElementById('contacts-dropdown');
+  container.innerHTML = "";
+  try {
+    const contactsUnsorted = await fetchContacts();
+    const contacts = Object.values(contactsUnsorted);
+    contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    allContacts = contacts;
+    let lastFirstLetter = "";
+    for (const key in contacts) {
+      const currentFirstLetter = contacts[key].firstName[0].toUpperCase();
+      if (currentFirstLetter !== lastFirstLetter) {
+        container.innerHTML += getLetterGroup(currentFirstLetter);
+        lastFirstLetter = currentFirstLetter;
+      }
+      container.innerHTML += getContactCard(contacts[key]);
+    }
+  } catch (error) {
+    console.error("Error loading contacts:", error);
+  }
+  selectContacts();
+}
