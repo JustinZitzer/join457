@@ -583,32 +583,30 @@ let todosArray = [{
 }];
 
 function updateTasksHtml() {
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+
+  const tasksArrays = [toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks];
+  const containers = [toDoContentFinalDiv, inProgressContent, awaitFeedbackContent, doneContent];
+
+  clearTaskDivsForUpdatingHtml();
+
+  for (let c = 0; c < tasksArrays.length; c++) {
+    const tasks = tasksArrays[c];
+    const container = containers[c];
+
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
+      container.innerHTML += generateToDoTaskHtml(task);
+    }
+  }
+}
+
+function filterTasksByCategory() {
   let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
   let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
   let awaitFeedbackTasks = todosArray.filter(awaitfeedback => awaitfeedback['category'] == 'await-feedback');
   let doneTasks = todosArray.filter(done => done['category'] == 'done');
-
-  clearTaskDivsForUpdatingHtml();
-
-  for (let i = 0; i < toDoTasks.length; i++) {
-    const task = toDoTasks[i];
-    toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task);
-  }
-
-  for (let i = 0; i < inProgressTasks.length; i++) {
-    const task = inProgressTasks[i];
-    inProgressContent.innerHTML += generateToDoTaskHtml(task);
-  }
-
-  for (let i = 0; i < awaitFeedbackTasks.length; i++) {
-    const task = awaitFeedbackTasks[i];
-    awaitFeedbackContent.innerHTML += generateToDoTaskHtml(task);
-  }
-
-  for (let i = 0; i < doneTasks.length; i++) {
-    const task = doneTasks[i];
-    doneContent.innerHTML += generateToDoTaskHtml(task);
-  }
+  return {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks};
 }
 
 function clearTaskDivsForUpdatingHtml() {
@@ -636,7 +634,6 @@ function moveTo(category) {
 }
 
 function getContactCardForDropdown(contact) {
-  // Falls Nachname nicht vorhanden ist, wird nur der Vorname angezeigt
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
     : contact.firstName;
