@@ -653,14 +653,8 @@ async function loadContactsForDropdown() {
     const contacts = Object.values(contactsUnsorted);
     contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
     allContacts = contacts;
-    let lastFirstLetter = "";
     for (const key in contacts) {
-      const currentFirstLetter = contacts[key].firstName[0].toUpperCase();
-      if (currentFirstLetter !== lastFirstLetter) {
-        container.innerHTML += getLetterGroup(currentFirstLetter);
-        lastFirstLetter = currentFirstLetter;
-      }
-      container.innerHTML += getContactCard(contacts[key]);
+      container.innerHTML += getContactCardForDropdown(contacts[key]);
     }
   } catch (error) {
     console.error("Error loading contacts:", error);
