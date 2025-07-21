@@ -3,6 +3,9 @@
   const inProgressContent = document.getElementById("inprogress-content-task");
   const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
   const doneContent = document.getElementById("done-content-task");
+  const arrowContainerRed = document.getElementById("arrow-container-red");
+  const arrowContainerOrange = document.getElementById("arrow-container-orange");
+  const arrowContainerGreen = document.getElementById("arrow-container-green");
 
 function openOverlay() {
     const overlay = document.getElementById("overlay");
@@ -499,37 +502,20 @@ function selectContacts() {
     }
 }
   
-/*function toggleRed(button) {
-  const groupButtons = document.getElementsByClassName("arrowgroup");
-  let anyActive = false;
+function togglePriority(button) {
+  const anyActive = arrowContainerRed.classList.contains("active") || arrowContainerOrange.classList.contains("active")
+  || arrowContainerGreen.classList.contains("active");
 
-  // Prüfen, ob irgendeiner aktiv ist
-  for (let i = 0; i < groupButtons.length; i++) {
-    if (groupButtons[i].classList.contains("active")) {
-      anyActive = true;
-      break;
-    }
+  if (button.classList.contains("active")) {
+    button.classList.remove("active");
+  } else if (anyActive) {
+    arrowContainerRed.classList.remove("active");
+    arrowContainerOrange.classList.remove("active");
+    arrowContainerGreen.classList.remove("active");
+    button.classList.add("active");
+  } else {
+    button.classList.add("active");
   }
-
-  // Nur wenn KEINER aktiv ist, togglen
-  if (!anyActive) {
-    button.classList.toggle("active");
-  }
-}
-Diese Function soll nachher für jeden Button genutzt werden.  
-*/
-
-function toggleRed(button) {
-  const groupButtons = document.getElementsByClassName("arrowgroup");
-    button.classList.toggle("active");
-}
-  
-function toggleOrange(button) {
-    button.classList.toggle("active");
-}
-  
-function toggleGreen(button) {
-    button.classList.toggle("active");
 }
   
 function toggleDropdown() {
