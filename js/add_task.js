@@ -499,7 +499,28 @@ function selectContacts() {
     }
 }
   
+/*function toggleRed(button) {
+  const groupButtons = document.getElementsByClassName("arrowgroup");
+  let anyActive = false;
+
+  // Prüfen, ob irgendeiner aktiv ist
+  for (let i = 0; i < groupButtons.length; i++) {
+    if (groupButtons[i].classList.contains("active")) {
+      anyActive = true;
+      break;
+    }
+  }
+
+  // Nur wenn KEINER aktiv ist, togglen
+  if (!anyActive) {
+    button.classList.toggle("active");
+  }
+}
+Diese Function soll nachher für jeden Button genutzt werden.  
+*/
+
 function toggleRed(button) {
+  const groupButtons = document.getElementsByClassName("arrowgroup");
     button.classList.toggle("active");
 }
   
