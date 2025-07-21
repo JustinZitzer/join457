@@ -16,7 +16,7 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body onload="loadHTML()">
+<body onload="loadHTML(), initAddTask()">
     <div id="index_html"></div> <!--lädt html (header,sidebar)-->
     <div class="add-task-box-headline-container">
         <span class="add-task-box-headline">Add Task</span>
@@ -30,7 +30,7 @@
                         <span>Title</span>
                     </div>
                     <input type="text" id="titleInput" placeholder="Enter a title" class="title-inputfield-enter-title"
-                        onclick="validateInput()">
+                        onblur="validateInput()">
                     <div id="error-message" class="error-message"></div>
                 </div>
 
@@ -49,8 +49,8 @@
                             <span>Due date</span>
                         </div>
 
-                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
-                            onclick="validateDueDateInput()">
+                        <input type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                            onblur="validateDueDateInput()">
                         <div id="due-date-error" class="error-message"></div>
                     </div>
 
@@ -183,6 +183,7 @@
     <script src="./js/contacts.js"></script>
     <script src="./js/firebase.js"></script>
     <script src="./js/templatetask.js"></script>
+    <script src="./js/signup.js"></script>
 </body>
 
 </html>

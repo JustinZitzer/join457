@@ -11,7 +11,7 @@ async function initSignUp() {
 }
 
 async function loadDataSignUp(path="") {
-  let response = await fetch(FireBaseUrl+ path + ".json");
+  let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
   console.log(responseToJson);
 }

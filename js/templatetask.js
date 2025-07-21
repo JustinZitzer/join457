@@ -657,3 +657,20 @@ function clearInputFieldsForNewTask() {
       return "No priority selected";
     }
   }
+
+  async function postNewTaskToFirebase() {
+    if (taskTitel.value && taskDueDate.value) {
+        const inputsForTask = getInfoForNewTask();
+        const dataPost = await postRegistryDataBaseFunction("tasks", inputsForTask);
+        clearInputFieldsForNewTask();
+        console.log(dataPost);
+    } else if (!taskTitel.value) {
+        alert("Please enter a title for the task.");
+    } else if (!taskDueDate.value) {
+        alert("Please enter a due date for the task.");
+    }
+  }
+
+  async function initAddTask() {
+    await loadDataSignUp();
+  }
