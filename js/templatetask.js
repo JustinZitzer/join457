@@ -629,6 +629,23 @@ function openOverlay() {
     return { titel, description, dueDate, priority, assignedTo, category, subtask };
   }
 
+function clearInputFieldsForNewTask() {
+    const contacts = document.getElementsByClassName("contact-checkbox");
+    taskTitel.value = "";
+    taskDescription.value = "";
+    taskDueDate.value = "";
+    taskPriorityUrgent.classList.remove("active");
+    taskPriorityMedium.classList.remove("active");
+    taskPriorityLow.classList.remove("active");
+    taskAssignedTo.value = "";
+    taskCategory.value = "";
+    taskSubtask.value = "";
+    for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contact.checked = false;
+    }
+}
+
   function getPriorityForNewTask() {
     if (taskPriorityUrgent.classList.contains("active")) {
       return "Urgent";

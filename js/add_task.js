@@ -640,7 +640,7 @@ function getContactCardForDropdown(contact) {
   return `
     <label class="contact-option">
       <span>${name}</span>
-      <input type="checkbox" data-contact-id="${contact.id || ''}">
+      <input type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ''}">
     </label>
   `;
 }
@@ -656,8 +656,6 @@ async function loadContactsForDropdown() {
     for (const key in contacts) {
       container.innerHTML += getContactCardForDropdown(contacts[key]);
     }
-  } catch (error) {
-    console.error("Error loading contacts:", error);
-  }
+  } catch (error) {console.error("Error loading contacts:", error);}
   selectContacts();
 }
