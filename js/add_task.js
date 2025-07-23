@@ -1,11 +1,21 @@
-  const toDoContent = document.getElementById("todo-content-box");
-  const toDoContentFinalDiv = document.getElementById("todo-content-task");
-  const inProgressContent = document.getElementById("inprogress-content-task");
-  const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
-  const doneContent = document.getElementById("done-content-task");
-  const arrowContainerRed = document.getElementById("arrow-container-red");
-  const arrowContainerOrange = document.getElementById("arrow-container-orange");
-  const arrowContainerGreen = document.getElementById("arrow-container-green");
+const toDoContent = document.getElementById("todo-content-box");
+const toDoContentFinalDiv = document.getElementById("todo-content-task");
+const inProgressContent = document.getElementById("inprogress-content-task");
+const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
+const doneContent = document.getElementById("done-content-task");
+const arrowContainerRed = document.getElementById("arrow-container-red");
+const arrowContainerOrange = document.getElementById("arrow-container-orange");
+const arrowContainerGreen = document.getElementById("arrow-container-green");
+const taskTitel = document.getElementById("titleInput");
+const taskDescription = document.getElementById("inputfield-description");
+const taskDueDate = document.getElementById("dueDateInput");
+const taskPriorityUrgent = document.getElementById("arrow-container-red");
+const taskPriorityMedium = document.getElementById("arrow-container-orange");
+const taskPriorityLow = document.getElementById("arrow-container-green");
+const taskAssignedTo = document.getElementById("inputfield-text-assign");
+const taskAssignedContacts = document.getElementById("contacts-dropdown");
+const taskCategory = document.getElementById("category-input");
+const taskSubtask = document.getElementById("inputfield-subtask-assign");
 
 function openOverlay() {
     const overlay = document.getElementById("overlay");
@@ -20,91 +30,7 @@ function openOverlay() {
     
     if (window.innerWidth > 1400) {
     const overlayContent = document.getElementById("content-add-task-overlay");
-    overlayContent.innerHTML = `
-    <div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
-    <div class="container-both-sides-board">
-      <div class="add-task-text-box-board">
-        <h2>Add Task</h2>
-      </div>
-      <div class="inputfield-box-left-side-board">
-        <div class="text-title-board">
-          <div class="text-title-mark-board">
-            <span>Title</span>
-          </div>
-          <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board">
-        </div>
-        <div class="description-main-box-board">
-          <div class="description-text-board">
-            <span>Description</span>
-            <input type="text" placeholder="Enter Description" class="inputfield-description-board">
-          </div>
-          <div class="inputfield-due-date-container-board">
-            <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-            <div class="due-date-mark-board">
-              <span>Due date</span>
-            </div>
-            <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board">
-          </div>
-        </div>
-      </div>
-      <img class="line-middle-of-both-container-board" src="./assets/icons/Vector 4.png" alt="line between bothcontainers">
-      <div class="inputfield-box-right-side-board">
-        <div class="text-priority-board">
-          <div class="priority-box-board">
-            <span>Priority</span>
-            <div class="main-box-inputfield-board">
-              <div class="arrow-container-main-red-board">
-                <button onclick="toggleRed(this)" class="arrow-container-red-board">
-                  <h4>Urgent</h4>
-                  <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
-                </button>
-              </div>
-              <input type="text" placeholder="Medium =" class="text-inputfield-medium-board">
-              <div class="arrow-container-main-green-board">
-                <button onclick="toggleGreen(this)" class="arrow-container-green-board">
-                  <h5>Low</h5>
-                  <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="assigned-inputfield-box-board">
-            <span>Assigned to</span>
-            <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board">
-            <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-          </div>
-          <div class="task-inputfield-box-board">
-            <div class="category-mark-board">
-              <span>Category</span>
-            </div>
-            <input type="text" placeholder="Select task category" class="inputfield-category-assign-board">
-            <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-          </div>
-          <div class="subtask-inputfield-box-board">
-            <span>Subtasks</span>
-            <div class="subtask-inputfield-container-board">
-              <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon">
-              <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board">
-            </div>
-          </div>
-        </div>
-        <div class="field-required-board">
-          <span>This field is required</span>
-        </div>
-      </div>
-    </div>
-    <div class="clear-create-container-board">
-      <div class="clear-field-board">
-        <div class="clear-text-board">Cancel</div>
-        <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
-      </div>
-      <div class="create-field-board">
-        <div class="text-create-field-board">Create Task</div>
-        <img class="check-button-board" src="./assets/icons/check.png" alt="check-button">
-      </div>
-    </div>
-  </div>
-    `;
+    overlayContent.innerHTML = getTaskOverlayTemplate();
   
       const content = document.getElementById("overlay-content");
       if (content) {
@@ -141,91 +67,7 @@ function overlayToDo() {
     );
     if (window.innerWidth > 1400) {
 
-    overlayContentToDo.innerHTML = `
-<div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
-  <div class="container-both-sides-board">
-    <div class="add-task-text-box-board">
-      <h2>Add Task</h2>
-    </div>
-    <div class="inputfield-box-left-side-board">
-      <div class="text-title-board">
-        <div class="text-title-mark-board">
-          <span>Title</span>
-        </div>
-        <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board">
-      </div>
-      <div class="description-main-box-board">
-        <div class="description-text-board">
-          <span>Description</span>
-          <input type="text" placeholder="Enter Description" class="inputfield-description-board">
-        </div>
-        <div class="inputfield-due-date-container-board">
-          <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-          <div class="due-date-mark-board">
-            <span>Due date</span>
-          </div>
-          <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board">
-        </div>
-      </div>
-    </div>
-    <img class="line-middle-of-both-container-board" src="./assets/icons/Vector 4.png" alt="line between bothcontainers">
-    <div class="inputfield-box-right-side-board">
-      <div class="text-priority-board">
-        <div class="priority-box-board">
-          <span>Priority</span>
-          <div class="main-box-inputfield-board">
-            <div class="arrow-container-main-red-board">
-              <button onclick="toggleRed(this)" class="arrow-container-red-board">
-                <h4>Urgent</h4>
-                <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
-              </button>
-            </div>
-            <input type="text" placeholder="Medium =" class="text-inputfield-medium-board">
-            <div class="arrow-container-main-green-board">
-              <button onclick="toggleGreen(this)" class="arrow-container-green-board">
-                <h5>Low</h5>
-                <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="assigned-inputfield-box-board">
-          <span>Assigned to</span>
-          <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board">
-          <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="task-inputfield-box-board">
-          <div class="category-mark-board">
-            <span>Category</span>
-          </div>
-          <input type="text" placeholder="Select task category" class="inputfield-category-assign-board">
-          <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="subtask-inputfield-box-board">
-          <span>Subtasks</span>
-          <div class="subtask-inputfield-container-board">
-            <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon">
-            <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board">
-          </div>
-        </div>
-      </div>
-      <div class="field-required-board">
-        <span>This field is required</span>
-      </div>
-    </div>
-  </div>
-  <div class="clear-create-container-board">
-    <div class="clear-field-board">
-      <div class="clear-text-board">Cancel</div>
-      <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
-    </div>
-    <div class="create-field-board">
-      <div class="text-create-field-board">Create Task</div>
-      <img class="check-button-board" src="./assets/icons/check.png" alt="check-button">
-    </div>
-  </div>
-</div>
-        `;
+    overlayContentToDo.innerHTML = getTaskOverlayTemplate();
   
     const content = document.getElementById("overlay-content-todo");
     if (content) {
@@ -262,91 +104,7 @@ function openOverlayInProgress() {
       "content-add-task-overlay-in-progress"
     );
     if (window.innerWidth > 1400) {
-    overlayContentProgress.innerHTML = `
-<div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
-  <div class="container-both-sides-board">
-    <div class="add-task-text-box-board">
-      <h2>Add Task</h2>
-    </div>
-    <div class="inputfield-box-left-side-board">
-      <div class="text-title-board">
-        <div class="text-title-mark-board">
-          <span>Title</span>
-        </div>
-        <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board">
-      </div>
-      <div class="description-main-box-board">
-        <div class="description-text-board">
-          <span>Description</span>
-          <input type="text" placeholder="Enter Description" class="inputfield-description-board">
-        </div>
-        <div class="inputfield-due-date-container-board">
-          <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-          <div class="due-date-mark-board">
-            <span>Due date</span>
-          </div>
-          <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board">
-        </div>
-      </div>
-    </div>
-    <img class="line-middle-of-both-container-board" src="./assets/icons/Vector 4.png" alt="line between bothcontainers">
-    <div class="inputfield-box-right-side-board">
-      <div class="text-priority-board">
-        <div class="priority-box-board">
-          <span>Priority</span>
-          <div class="main-box-inputfield-board">
-            <div class="arrow-container-main-red-board">
-              <button onclick="toggleRed(this)" class="arrow-container-red-board">
-                <h4>Urgent</h4>
-                <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
-              </button>
-            </div>
-            <input type="text" placeholder="Medium =" class="text-inputfield-medium-board">
-            <div class="arrow-container-main-green-board">
-              <button onclick="toggleGreen(this)" class="arrow-container-green-board">
-                <h5>Low</h5>
-                <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="assigned-inputfield-box-board">
-          <span>Assigned to</span>
-          <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board">
-          <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="task-inputfield-box-board">
-          <div class="category-mark-board">
-            <span>Category</span>
-          </div>
-          <input type="text" placeholder="Select task category" class="inputfield-category-assign-board">
-          <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="subtask-inputfield-box-board">
-          <span>Subtasks</span>
-          <div class="subtask-inputfield-container-board">
-            <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon">
-            <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board">
-          </div>
-        </div>
-      </div>
-      <div class="field-required-board">
-        <span>This field is required</span>
-      </div>
-    </div>
-  </div>
-  <div class="clear-create-container-board">
-    <div class="clear-field-board">
-      <div class="clear-text-board">Cancel</div>
-      <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
-    </div>
-    <div class="create-field-board">
-      <div class="text-create-field-board">Create Task</div>
-      <img class="check-button-board" src="./assets/icons/check.png" alt="check-button">
-    </div>
-  </div>
-</div>
-        `;
+    overlayContentProgress.innerHTML = getTaskOverlayTemplate();
   
     const content = document.getElementById("overlay-content-progress");
     if (content) {
@@ -379,91 +137,7 @@ function openOverlayFeedback() {
       "content-add-task-overlay-await-feedback"
     );
     if (window.innerWidth > 1400) {
-    overlayAwaitFeedback.innerHTML += `
-<div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
-  <div class="container-both-sides-board">
-    <div class="add-task-text-box-board">
-      <h2>Add Task</h2>
-    </div>
-    <div class="inputfield-box-left-side-board">
-      <div class="text-title-board">
-        <div class="text-title-mark-board">
-          <span>Title</span>
-        </div>
-        <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board">
-      </div>
-      <div class="description-main-box-board">
-        <div class="description-text-board">
-          <span>Description</span>
-          <input type="text" placeholder="Enter Description" class="inputfield-description-board">
-        </div>
-        <div class="inputfield-due-date-container-board">
-          <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
-          <div class="due-date-mark-board">
-            <span>Due date</span>
-          </div>
-          <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board">
-        </div>
-      </div>
-    </div>
-    <img class="line-middle-of-both-container-board" src="./assets/icons/Vector 4.png" alt="line between bothcontainers">
-    <div class="inputfield-box-right-side-board">
-      <div class="text-priority-board">
-        <div class="priority-box-board">
-          <span>Priority</span>
-          <div class="main-box-inputfield-board">
-            <div class="arrow-container-main-red-board">
-              <button onclick="toggleRed(this)" class="arrow-container-red-board">
-                <h4>Urgent</h4>
-                <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
-              </button>
-            </div>
-            <input type="text" placeholder="Medium =" class="text-inputfield-medium-board">
-            <div class="arrow-container-main-green-board">
-              <button onclick="toggleGreen(this)" class="arrow-container-green-board">
-                <h5>Low</h5>
-                <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="assigned-inputfield-box-board">
-          <span>Assigned to</span>
-          <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board">
-          <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="task-inputfield-box-board">
-          <div class="category-mark-board">
-            <span>Category</span>
-          </div>
-          <input type="text" placeholder="Select task category" class="inputfield-category-assign-board">
-          <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
-        </div>
-        <div class="subtask-inputfield-box-board">
-          <span>Subtasks</span>
-          <div class="subtask-inputfield-container-board">
-            <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon">
-            <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board">
-          </div>
-        </div>
-      </div>
-      <div class="field-required-board">
-        <span>This field is required</span>
-      </div>
-    </div>
-  </div>
-  <div class="clear-create-container-board">
-    <div class="clear-field-board">
-      <div class="clear-text-board">Cancel</div>
-      <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
-    </div>
-    <div class="create-field-board">
-      <div class="text-create-field-board">Create Task</div>
-      <img class="check-button-board" src="./assets/icons/check.png" alt="check-button">
-    </div>
-  </div>
-</div>
-        `;
+    overlayAwaitFeedback.innerHTML = getTaskOverlayTemplate();
   
     // Animation erneut triggern (falls mehrfach geöffnet)
     const contentAwait = openOverlayAwaitFeedback.querySelector(
@@ -665,4 +339,92 @@ async function loadContactsForDropdown() {
     }
   } catch (error) {console.error("Error loading contacts:", error);}
   selectContacts();
+}
+
+function getInfoForNewTask() {
+  let titel = taskTitel.value;
+  let description = taskDescription.value || "No description";
+  let dueDate = taskDueDate.value;
+  let priority = getPriorityForNewTask();
+  let assignedTo = taskAssignedContacts.checked ? taskAssignedTo.textContent : "Not Assigned to anyone";
+  let category = taskCategory.value;
+  let subtask = taskSubtask.value || "No subtasks";
+  return { titel, description, dueDate, priority, assignedTo, category, subtask };
+}
+
+function clearInputFieldsForNewTask() {
+  const contacts = document.getElementsByClassName("contact-checkbox");
+  taskTitel.value = "";
+  taskDescription.value = "";
+  taskDueDate.value = "";
+  taskPriorityUrgent.classList.remove("active");
+  taskPriorityMedium.classList.remove("active");
+  taskPriorityLow.classList.remove("active");
+  taskAssignedTo.value = "";
+  taskCategory.value = "";
+  taskSubtask.value = "";
+  for (let i = 0; i < contacts.length; i++) {
+  let contact = contacts[i];
+  contact.checked = false;
+  }
+}
+
+function getPriorityForNewTask() {
+  if (taskPriorityUrgent.classList.contains("active")) {
+    return "Urgent";
+  } else if (taskPriorityMedium.classList.contains("active")) {
+    return "Medium";
+  } else if (taskPriorityLow.classList.contains("active")) {
+    return "Low";
+  } else {
+    return "No priority selected";
+  }
+}
+
+async function postNewTaskToFirebase() {
+  if (taskTitel.value && taskDueDate.value) {
+      const inputsForTask = getInfoForNewTask();
+      const newTaskNumber = await getTaskCountAndSmallestNumber()
+      const newTaskKey = "task" + newTaskNumber;
+      const dataPost = await putRegistryDataBaseFunction("tasks/" + newTaskKey, inputsForTask);
+      clearInputFieldsForNewTask();
+      console.log(dataPost);
+  } else if (!taskTitel.value) {
+      alert("Please enter a title for the task.");
+  } else if (!taskDueDate.value) {
+      alert("Please enter a due date for the task.");
+  }
+}
+
+async function putRegistryDataBaseFunction(path= "", data= {}) {
+  let response = await fetch (FireBaseUrl + path + ".json", {
+    method : "PUT",
+    headers : {
+      "Content-Type" : "application/json"
+    },
+    body : JSON.stringify(data)
+  });
+  return responseToJson = await response.json();
+}
+
+async function getTaskCountAndSmallestNumber() {
+  let response = await fetch(FireBaseUrl + "tasks.json");
+  let data = await response.json();
+  if (!data) return 1;
+  const usedNumbers = Object.keys(data)
+    .map(key => parseInt(key.replace('task', '')))
+    .sort((a, b) => a - b);
+  let freeNumber = 1;
+  for (let i = 0; i < usedNumbers.length; i++) {
+    let num = usedNumbers[i];
+    if (num !== freeNumber) {
+        break;
+    }
+    freeNumber++;
+}
+  return freeNumber;
+}
+
+async function initAddTask() {
+    await loadDataSignUp();
 }
