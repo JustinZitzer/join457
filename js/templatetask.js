@@ -661,7 +661,9 @@ function clearInputFieldsForNewTask() {
   async function postNewTaskToFirebase() {
     if (taskTitel.value && taskDueDate.value) {
         const inputsForTask = getInfoForNewTask();
-        const dataPost = await postRegistryDataBaseFunction("tasks", inputsForTask);
+        const newTaskNumber = await getTaskCountAndSmallestNumber()
+        const newTaskKey = "task" + newTaskNumber;
+        const dataPost = await putRegistryDataBaseFunction("tasks/" + newTaskKey, inputsForTask);
         clearInputFieldsForNewTask();
         console.log(dataPost);
     } else if (!taskTitel.value) {
@@ -671,6 +673,35 @@ function clearInputFieldsForNewTask() {
     }
   }
 
-  async function initAddTask() {
+async function putRegistryDataBaseFunction(path= "", data= {}) {
+  let response = await fetch (FireBaseUrl + path + ".json", {
+    method : "PUT",
+    headers : {
+      "Content-Type" : "application/json"
+    },
+    body : JSON.stringify(data)
+  });
+  return responseToJson = await response.json();
+}
+
+async function getTaskCountAndSmallestNumber() {
+  let response = await fetch(FireBaseUrl + "tasks.json");
+  let data = await response.json();
+  if (!data) return 1;
+  const usedNumbers = Object.keys(data)
+    .map(key => parseInt(key.replace('task', '')))
+    .sort((a, b) => a - b);
+  let freeNumber = 1;
+  for (let i = 0; i < usedNumbers.length; i++) {
+    let num = usedNumbers[i];
+    if (num !== freeNumber) {
+        break;
+    }
+    freeNumber++;
+}
+  return freeNumber;
+}
+
+async function initAddTask() {
     await loadDataSignUp();
-  }
+}

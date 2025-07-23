@@ -647,7 +647,7 @@ function getContactCardForDropdown(contact) {
   return `
     <label class="contact-option">
       <span>${name}</span>
-      <input type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ''}">
+      <input id="contact-${contact.id}" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ''}">
     </label>
   `;
 }
