@@ -620,12 +620,12 @@ function openOverlay() {
 
   function getInfoForNewTask() {
     let titel = taskTitel.value;
-    let description = taskDescription.value;
+    let description = taskDescription.value || "No description";
     let dueDate = taskDueDate.value;
     let priority = getPriorityForNewTask();
-    let assignedTo = taskAssignedContacts.checked ? taskAssignedTo.textContent : null;
+    let assignedTo = taskAssignedContacts.checked ? taskAssignedTo.textContent : "Not Assigned to anyone";
     let category = taskCategory.value;
-    let subtask = taskSubtask.value || null;
+    let subtask = taskSubtask.value || "No subtasks";
     return { titel, description, dueDate, priority, assignedTo, category, subtask };
   }
 
