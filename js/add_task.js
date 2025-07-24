@@ -12,8 +12,6 @@ const taskDueDate = document.getElementById("dueDateInput");
 const taskPriorityUrgent = document.getElementById("arrow-container-red");
 const taskPriorityMedium = document.getElementById("arrow-container-orange");
 const taskPriorityLow = document.getElementById("arrow-container-green");
-const taskAssignedTo = document.getElementById("inputfield-text-assign");
-const taskAssignedContacts = document.getElementById("contacts-dropdown");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 
@@ -320,8 +318,8 @@ function getContactCardForDropdown(contact) {
     : contact.firstName;
   return `
     <label class="contact-option">
-      <span>${name}</span>
-      <input id="contact-${contact.id}" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ''}">
+      <span id="contact-name-${contact.id}">${name}</span>
+      <input id="contact-checkbox-${contact.id}" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ''}">
     </label>
   `;
 }
@@ -346,7 +344,18 @@ function getInfoForNewTask() {
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
   let priority = getPriorityForNewTask();
-  let assignedTo = taskAssignedContacts.checked ? taskAssignedTo.textContent : "Not Assigned to anyone";
+  let assignedTo = [];
+  for (let i = 0; i < allContacts.length; i++) {
+    const contact = allContacts[i];
+    const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
+    const nameElem = document.getElementById(`contact-name-${contact.id}`);
+    if (checkbox && checkbox.checked && nameElem) {
+      assignedTo.push(nameElem.textContent.trim());
+    }
+  }
+  if (assignedTo.length === 0) {
+    assignedTo = ["Not Assigned to anyone"];
+  }
   let category = taskCategory.value;
   let subtask = taskSubtask.value || "No subtasks";
   return { titel, description, dueDate, priority, assignedTo, category, subtask };
@@ -360,7 +369,6 @@ function clearInputFieldsForNewTask() {
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
   taskPriorityLow.classList.remove("active");
-  taskAssignedTo.value = "";
   taskCategory.value = "";
   taskSubtask.value = "";
   for (let i = 0; i < contacts.length; i++) {
@@ -384,9 +392,8 @@ function getPriorityForNewTask() {
 async function postNewTaskToFirebase() {
   if (taskTitel.value && taskDueDate.value) {
       const inputsForTask = getInfoForNewTask();
-      const newTaskNumber = await getTaskCountAndSmallestNumber()
-      const newTaskKey = "task" + newTaskNumber;
-      const dataPost = await putRegistryDataBaseFunction("tasks/" + newTaskKey, inputsForTask);
+      const newTaskKey = taskTitel.value;
+      const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
       clearInputFieldsForNewTask();
       console.log(dataPost);
   } else if (!taskTitel.value) {
@@ -407,7 +414,7 @@ async function putRegistryDataBaseFunction(path= "", data= {}) {
   return responseToJson = await response.json();
 }
 
-async function getTaskCountAndSmallestNumber() {
+/*async function getTaskCountAndSmallestNumber() {
   let response = await fetch(FireBaseUrl + "tasks.json");
   let data = await response.json();
   if (!data) return 1;
@@ -423,7 +430,8 @@ async function getTaskCountAndSmallestNumber() {
     freeNumber++;
 }
   return freeNumber;
-}
+} evtl später für ID nutzen
+*/
 
 async function initAddTask() {
     await loadDataSignUp();
