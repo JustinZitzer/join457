@@ -1,4 +1,9 @@
 function getContactOverlay(contact) {
+    console.log(contact);
+    console.log(contact.key);
+    console.log(contact.id);
+    
+    
     const color = getColorForContact(contact.id);
     return `
     <div id="contacts_side_overlay" class="contacts-overlay-container">
@@ -13,7 +18,7 @@ function getContactOverlay(contact) {
                                 <img src="./assets/icons/edit-icon.svg" alt="edit-icon">
                                 <p>Edit</p>
                             </div>
-                            <div onclick="deleteContact(${contact.id})" class="contacts-overlay-delete-container">
+                            <div onclick="deleteContact(${contact.key})" class="contacts-overlay-delete-container">
                                 <img src="./assets/icons/delete-icon.svg" alt="delete-icon">
                                 <p>Delete</p>
                             </div>
@@ -65,7 +70,7 @@ function getAddContactOverlay() {
                     </div>
                     <div class="add-contact-btn-section">
                         <button onclick="removeAddNewContactOverlay()" class="add-contact-cancel-btn">Cancel <img src="./assets/icons/contacts-close-icon.svg" alt="close-icon"></button>
-                        <button class="add-contact-create-contact-btn">Create Contact <img src="./assets/icons/check-icon.svg" alt="check-icon"></button>
+                        <button onclick="createNewContact(event)" class="add-contact-create-contact-btn">Create Contact <img src="./assets/icons/check-icon.svg" alt="check-icon"></button>
                     </div>
                 </form>
             </div>
