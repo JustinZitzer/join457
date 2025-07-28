@@ -88,44 +88,27 @@ function getTaskOverlayTemplate() {
 
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
-  <div class="main-container-middle-part" id="main-container-middle-part${taskKey}">
-    <div id="todo-content-box" class="todo-content-box">
+    <div id="todo-content-box${taskKey}" class="todo-content-box" draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
       <div class="user-story-box">
-        <span>${task.category}</span>
+        <span>${task.categoryUserOrTechnicalTask}</span>
       </div>
-
       <div class="text-contact-box">
         <span>${task.titel}</span>
-
-          <div class="text-create-box">
-            <span>${task.description}</span>
-          </div>
+        <div class="text-create-box">
+          <span>${task.description}</span>
+        </div>
       </div>
       <div class="progressbar-box">
-        <div class="progressbar-content">
-        </div>
-
-        <div class="subtask-text">
-          0/2 subtasks
-        </div>
+        <div class="progressbar-content"></div>
+        <div class="subtask-text">0/2 subtasks</div>
       </div>
-
       <div class="three-circle-todo">
         <div class="three-circle-container">
-          <div class="single-circle-first">
-            <h5>AS</h5>
-          </div>
-
-          <div class="single-circle-second">
-            <h5>DE</h5>
-          </div>
-
-          <div class="single-circle-third">
-            <h5>EF</h5>
-          </div>
+          <div class="single-circle-first"><h5>AS</h5></div>
+          <div class="single-circle-second"><h5>DE</h5></div>
+          <div class="single-circle-third"><h5>EF</h5></div>
         </div>
       </div>
     </div>
-  </div>
   `;
 }

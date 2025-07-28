@@ -237,30 +237,8 @@ function validateDueDateInput() {
     }
 }
 
-let currentDraggedElement;
 
-let todosArray = [{
-  'id' : '0',
-  'content' : 'To do task',
-  'category' : 'todo'
-}, {
-  'id' : '1',
-  'content' : 'To do Task 2',
-  'category' : 'todo'
-},  {
-  'id' : '2',
-  'content' : 'Task 3',
-  'category' : 'inprogress'
-}, {
-  'id' : '3',
-  'content' : 'Task 4',
-  'category' : 'await-feedback'
-}, {
-  'id' : '4',
-  'content' : 'Task 5',
-  'category' : 'done'
-}];
-
+/*
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
 
@@ -311,6 +289,7 @@ function moveTo(category) {
   todosArray[currentDraggedElement]['category'] = category;
   updateTasksHtml();
 }
+*/
 
 function getContactCardForDropdown(contact) {
   const name = contact.lastName
@@ -356,9 +335,9 @@ function getInfoForNewTask() {
   if (assignedTo.length === 0) {
     assignedTo = ["Not Assigned to anyone"];
   }
-  let category = taskCategory.value;
+  let categoryUserOrTechnicalTask = taskCategory.value;
   let subtask = taskSubtask.value || "No subtasks";
-  return { titel, description, dueDate, priority, assignedTo, category, subtask };
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtask };
 }
 
 function clearInputFieldsForNewTask() {
@@ -433,6 +412,8 @@ async function putRegistryDataBaseFunction(path= "", data= {}) {
 } evtl später für ID nutzen
 */
 
+let todosArray = [];
+
 async function loadToDoTasksFromFirebase() {
   const response = await fetch(FireBaseUrl + 'tasks/toDo.json');
   const data = await response.json();
@@ -457,3 +438,89 @@ async function loadToDoTasksFromFirebase() {
 async function initAddTask() {
     await loadDataSignUp();
 }
+
+async function loadAllTasksFromFirebase() {
+  todosArray = []; // Leeren!
+  const response = await fetch(FireBaseUrl + 'tasks.json');
+  const data = await response.json();
+
+  if (data) {
+    for (const categoryKey in data) { // z.B. "toDo", "done", ...
+      const categoryTasks = data[categoryKey];
+      for (const taskKey in categoryTasks) {
+        const task = categoryTasks[taskKey];
+        // Schreibe Info dazu (für Filter, Drag&Drop usw.)
+        task.id = taskKey;          // z.B. "task1"
+        task.category = categoryKey; // z.B. "toDo"
+        todosArray.push(task);
+      }
+    }
+  }
+  updateTasksHtml(); // Jetzt alles rendern!
+}
+
+function filterTasksByCategory() {
+  let toDoTasks = todosArray.filter(task => task.category === 'toDo');
+  let inProgressTasks = todosArray.filter(task => task.category === 'inProgress');
+  let awaitFeedbackTasks = todosArray.filter(task => task.category === 'awaitFeedback');
+  let doneTasks = todosArray.filter(task => task.category === 'done');
+  return {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks};
+}
+
+function updateTasksHtml() {
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+
+  toDoContentFinalDiv.innerHTML = '';
+  inProgressContent.innerHTML = '';
+  awaitFeedbackContent.innerHTML = '';
+  doneContent.innerHTML = '';
+
+  for (let i = 0; i < toDoTasks.length; i++) {
+    toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(toDoTasks[i], toDoTasks[i].id);
+  }
+  for (let i = 0; i < inProgressTasks.length; i++) {
+    inProgressContent.innerHTML += getTaskFromFirebaseTemplate(inProgressTasks[i], inProgressTasks[i].id);
+  }
+  for (let i = 0; i < awaitFeedbackTasks.length; i++) {
+    awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(awaitFeedbackTasks[i], awaitFeedbackTasks[i].id);
+  }
+  for (let i = 0; i < doneTasks.length; i++) {
+    doneContent.innerHTML += getTaskFromFirebaseTemplate(doneTasks[i], doneTasks[i].id);
+  }
+}
+
+let currentDraggedElement = null;
+let currentDraggedCategory = null;
+
+function startDragging(taskId, category) {
+  currentDraggedElement = taskId;
+  currentDraggedCategory = category;
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+async function moveTo(newCategory) {
+  // 1. Finde Task im Array
+  const taskIndex = todosArray.findIndex(
+    t => t.id === currentDraggedElement && t.category === currentDraggedCategory
+  );
+  if (taskIndex === -1) return;
+  const task = todosArray[taskIndex];
+
+  // 2. Lösche aus alter Kategorie in Firebase
+  await fetch(FireBaseUrl + `tasks/${currentDraggedCategory}/${task.id}.json`, { method: "DELETE" });
+
+  // 3. Neue Kategorie setzen und speichern
+  task.category = newCategory;
+  await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(task)
+  });
+
+  // 4. Tasks neu laden und rendern
+  loadAllTasksFromFirebase();
+}
+
