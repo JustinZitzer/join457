@@ -437,16 +437,20 @@ async function loadToDoTasksFromFirebase() {
   const response = await fetch(FireBaseUrl + 'tasks/toDo.json');
   const data = await response.json();
 
-  toDoContentFinalDiv.innerHTML = '';
   const keys = Object.keys(data);
-  if (data) {
-    for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    const task = data[key];
-    toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task, key);
+  try {
+    if (data) {
+      for (let i = 0; i < keys.length; i++) {
+      const taskKey = keys[i];
+      const task = data[taskKey];
+      toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, taskKey);
+    }
+    } else {
+      toDoContentFinalDiv.innerHTML = '<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>';
+    }
   }
-  } else {
-    toDoContentFinalDiv.innerHTML = '<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>';
+  catch (error) {
+    console.error('Error loading can not load tasks data:', error);
   }
 }
 
