@@ -433,6 +433,23 @@ async function putRegistryDataBaseFunction(path= "", data= {}) {
 } evtl später für ID nutzen
 */
 
+async function loadToDoTasksFromFirebase() {
+  const response = await fetch(FireBaseUrl + 'tasks/toDo.json');
+  const data = await response.json();
+
+  toDoContentFinalDiv.innerHTML = '';
+  const keys = Object.keys(data);
+  if (data) {
+    for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const task = data[key];
+    toDoContentFinalDiv.innerHTML += generateToDoTaskHtml(task, key);
+  }
+  } else {
+    toDoContentFinalDiv.innerHTML = '<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>';
+  }
+}
+
 async function initAddTask() {
     await loadDataSignUp();
 }
