@@ -237,60 +237,6 @@ function validateDueDateInput() {
     }
 }
 
-
-/*
-function updateTasksHtml() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
-
-  const tasksArrays = [toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks];
-  const containers = [toDoContentFinalDiv, inProgressContent, awaitFeedbackContent, doneContent];
-
-  clearTaskDivsForUpdatingHtml();
-
-  for (let c = 0; c < tasksArrays.length; c++) {
-    const tasks = tasksArrays[c];
-    const container = containers[c];
-
-    for (let i = 0; i < tasks.length; i++) {
-      const task = tasks[i];
-      container.innerHTML += generateToDoTaskHtml(task);
-    }
-  }
-}
-
-function filterTasksByCategory() {
-  let toDoTasks = todosArray.filter(todo => todo['category'] == 'todo');
-  let inProgressTasks = todosArray.filter(inprogress => inprogress['category'] == 'inprogress');
-  let awaitFeedbackTasks = todosArray.filter(awaitfeedback => awaitfeedback['category'] == 'await-feedback');
-  let doneTasks = todosArray.filter(done => done['category'] == 'done');
-  return {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks};
-}
-
-function clearTaskDivsForUpdatingHtml() {
-  toDoContentFinalDiv.innerHTML = '';
-  inProgressContent.innerHTML = '';
-  awaitFeedbackContent.innerHTML = '';
-  doneContent.innerHTML = '';
-}
-
-function generateToDoTaskHtml(task) {
-  return `<div ondragstart="startDragging(${task['id']})" draggable="true" class="generate-task">${task['content']}</div>`;
-}
-
-function startDragging(taskId) {
-  currentDraggedElement = taskId;
-}
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function moveTo(category) {
-  todosArray[currentDraggedElement]['category'] = category;
-  updateTasksHtml();
-}
-*/
-
 function getContactCardForDropdown(contact) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
@@ -323,6 +269,13 @@ function getInfoForNewTask() {
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
   let priority = getPriorityForNewTask();
+  let assignedTo = getAssignedToValue();
+  let categoryUserOrTechnicalTask = taskCategory.value;
+  let subtask = taskSubtask.value || "No subtasks";
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtask };
+}
+
+function getAssignedToValue() {
   let assignedTo = [];
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -335,10 +288,9 @@ function getInfoForNewTask() {
   if (assignedTo.length === 0) {
     assignedTo = ["Not Assigned to anyone"];
   }
-  let categoryUserOrTechnicalTask = taskCategory.value;
-  let subtask = taskSubtask.value || "No subtasks";
-  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtask };
+  return assignedTo;
 }
+
 
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
@@ -392,25 +344,6 @@ async function putRegistryDataBaseFunction(path= "", data= {}) {
   });
   return responseToJson = await response.json();
 }
-
-/*async function getTaskCountAndSmallestNumber() {
-  let response = await fetch(FireBaseUrl + "tasks.json");
-  let data = await response.json();
-  if (!data) return 1;
-  const usedNumbers = Object.keys(data)
-    .map(key => parseInt(key.replace('task', '')))
-    .sort((a, b) => a - b);
-  let freeNumber = 1;
-  for (let i = 0; i < usedNumbers.length; i++) {
-    let num = usedNumbers[i];
-    if (num !== freeNumber) {
-        break;
-    }
-    freeNumber++;
-}
-  return freeNumber;
-} evtl später für ID nutzen
-*/
 
 let todosArray = [];
 
