@@ -283,14 +283,12 @@ function addSubtaskInContainer() {
   savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
   subtaskSavedCounter++;
   taskSubtask.value = "";
+  return { subtask, subtaskSavedCounter };
 }
 
-function editSavedSubtask(subtask, subtaskSavedCounter) {
-  savedSubtasks.innerHTML = 
-  `
-  <input class="editSavedSubtasks" id="editSavedSubtasks">
-  
-  `;
+function editSavedSubtask(subtaskSavedCounter, subtaskText) {
+  const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
+  subTaskElement.innerHTML = `<input type="text" placeholder="${subtaskText}">`;
 }
 
 function getAssignedToValue() {
