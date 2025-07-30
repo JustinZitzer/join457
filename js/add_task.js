@@ -14,6 +14,9 @@ const taskPriorityMedium = document.getElementById("arrow-container-orange");
 const taskPriorityLow = document.getElementById("arrow-container-green");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
+const savedSubtasks = document.getElementById("subtask-added-tasks");
+let subtaskSavedCounter = 1;
+
 
 function openOverlay() {
     const overlay = document.getElementById("overlay");
@@ -275,6 +278,21 @@ function getInfoForNewTask() {
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtask };
 }
 
+function addSubtaskInContainer() {
+  let subtask = taskSubtask.value;
+  savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
+  subtaskSavedCounter++;
+  taskSubtask.value = "";
+}
+
+function editSavedSubtask(subtask, subtaskSavedCounter) {
+  savedSubtasks.innerHTML = 
+  `
+  <input class="editSavedSubtasks" id="editSavedSubtasks">
+  
+  `;
+}
+
 function getAssignedToValue() {
   let assignedTo = [];
   for (let i = 0; i < allContacts.length; i++) {
@@ -302,6 +320,7 @@ function clearInputFieldsForNewTask() {
   taskPriorityLow.classList.remove("active");
   taskCategory.value = "";
   taskSubtask.value = "";
+  savedSubtasks.innerHTML = "";
   for (let i = 0; i < contacts.length; i++) {
   let contact = contacts[i];
   contact.checked = false;

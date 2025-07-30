@@ -1006,6 +1006,43 @@ h6 {
     display: none;
 }
 
+.subtask-added-tasks-container {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.subtask-list-element {
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subtask-list-element-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pen-and-bin-container {
+    display: flex;
+    align-items: center;
+}
+
+.seperator-pen-bin {
+    min-height: 20px;
+    width: 1px;
+    background-color: gray;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.editSavedSubtasks {
+    
+}
+
 @media (max-width: 1400px) {
     #header-title-project-management-tool,
     #help-icon-logo {
