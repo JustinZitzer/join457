@@ -286,9 +286,15 @@ function addSubtaskInContainer() {
   return { subtask, subtaskSavedCounter };
 }
 
-function editSavedSubtask(subtaskSavedCounter, subtaskText) {
+function editSavedSubtask(subtaskSavedCounter, subtask) {
   const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
-  subTaskElement.innerHTML = `<input type="text" placeholder="${subtaskText}">`;
+  subTaskElement.innerHTML = `<input type="text" placeholder="${subtask}">`;
+}
+
+function deleteSavedSubTask(subtaskSavedCounter, subtask) {
+  const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
+  if(subTaskElement)
+  subTaskElement.remove();
 }
 
 function getAssignedToValue() {

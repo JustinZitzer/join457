@@ -128,7 +128,7 @@ function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
             </g>
           </svg>
           <div class="seperator-pen-bin"></div>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
+          <svg onclick="deleteSavedSubTask(${subtaskSavedCounter}, '${subtask}')" width="24" height="24" viewBox="0 0 24 24" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
               <rect width="24" height="24"/>
             </mask>
