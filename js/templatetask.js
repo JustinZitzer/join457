@@ -119,7 +119,7 @@ function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
       <div class="subtask-list-element-div" id="subtask-list-element-div${subtaskSavedCounter}">
         • ${subtask}
         <div class="pen-and-bin-container">
-          <svg onclick="editSavedSubtask(${subtaskSavedCounter}, '${subtask.replace(/'/g, "\\'")}')" width="25" height="25" viewBox="0 0 33 32" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
+          <svg class="pen-icon-before-edit" onclick="editSavedSubtask(${subtaskSavedCounter}, '${subtask.replace(/'/g, "\\'")}')" width="25" height="25" viewBox="0 0 33 32" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
               <rect x="0.5" width="32" height="32"/>
             </mask>
@@ -128,7 +128,7 @@ function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
             </g>
           </svg>
           <div class="seperator-pen-bin"></div>
-          <svg onclick="deleteSavedSubTask(${subtaskSavedCounter}, '${subtask}')" width="24" height="24" viewBox="0 0 24 24" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
+          <svg class="bin-icon-before-edit" onclick="deleteSavedSubTask(${subtaskSavedCounter}, '${subtask}')" width="24" height="24" viewBox="0 0 24 24" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
               <rect width="24" height="24"/>
             </mask>
@@ -139,5 +139,34 @@ function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
         </div>
       </div>
     </li>
+  `;
+}
+
+function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
+  return `
+  <div class="subtask-input-with-icons">
+      <input
+        id="edit-subtask-inputfield${subtaskSavedCounter}"
+        class="edit-subtask-inputfield"
+        type="text"
+        value="${subtask}"
+        onkeydown="if(event.key==='Enter'){saveEditedSubtask(${subtaskSavedCounter})}"
+        style="padding-right: 65px"
+      >
+      <span class="input-icon-container">
+        <svg class="bin-edit-subtask-icon" onclick="deleteSavedSubTask(${subtaskSavedCounter}, '${subtask}')" width="22" height="22" viewBox="0 0 24 24" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <rect width="24" height="24"/>
+          </mask>
+          <g mask="url(#mask0_314135_4497)">
+            <path d="M7 21C6.45 21 5.97917 20.8042 5.5875 20.4125C5.19583 20.0208 5 19.55 5 19V6C4.71667 6 4.47917 5.90417 4.2875 5.7125C4.09583 5.52083 4 5.28333 4 5C4 4.71667 4.09583 4.47917 4.2875 4.2875C4.47917 4.09583 4.71667 4 5 4H9C9 3.71667 9.09583 3.47917 9.2875 3.2875C9.47917 3.09583 9.71667 3 10 3H14C14.2833 3 14.5208 3.09583 14.7125 3.2875C14.9042 3.47917 15 3.71667 15 4H19C19.2833 4 19.5208 4.09583 19.7125 4.2875C19.9042 4.47917 20 4.71667 20 5C20 5.28333 19.9042 5.52083 19.7125 5.7125C19.5208 5.90417 19.2833 6 19 6V19C19 19.55 18.8042 20.0208 18.4125 20.4125C18.0208 20.8042 17.55 21 17 21H7ZM7 6V19H17V6H7ZM9 16C9 16.2833 9.09583 16.5208 9.2875 16.7125C9.47917 16.9042 9.71667 17 10 17C10.2833 17 10.5208 16.9042 10.7125 16.7125C10.9042 16.5208 11 16.2833 11 16V9C11 8.71667 10.9042 8.47917 10.7125 8.2875C10.5208 8.09583 10.2833 8 10 8C9.71667 8 9.47917 8.09583 9.2875 8.2875C9.09583 8.47917 9 8.71667 9 9V16ZM13 16C13 16.2833 13.0958 16.5208 13.2875 16.7125C13.4792 16.9042 13.7167 17 14 17C14.2833 17 14.5208 16.9042 14.7125 16.7125C14.9042 16.5208 15 16.2833 15 16V9C15 8.71667 14.9042 8.47917 14.7125 8.2875C14.5208 8.09583 14.2833 8 14 8C13.7167 8 13.4792 8.09583 13.2875 8.2875C13.0958 8.47917 13 8.71667 13 9V16Z" fill="#2A3647"/>
+          </g>
+        </svg>
+        <div class="seperator-pen-bin"></div>
+        <svg class="check-edit-subtask-icon" onclick="saveEditedSubtask(${subtaskSavedCounter})" width="18" height="18" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408" stroke="#2A3647" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
   `;
 }

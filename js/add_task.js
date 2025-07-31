@@ -280,15 +280,30 @@ function getInfoForNewTask() {
 
 function addSubtaskInContainer() {
   let subtask = taskSubtask.value;
-  savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
-  subtaskSavedCounter++;
-  taskSubtask.value = "";
+  if (subtask) {
+    savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
+    subtaskSavedCounter++;
+    taskSubtask.value = "";
+  }
   return { subtask, subtaskSavedCounter };
 }
 
 function editSavedSubtask(subtaskSavedCounter, subtask) {
   const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
-  subTaskElement.innerHTML = `<input type="text" placeholder="${subtask}">`;
+  subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter);
+}
+
+
+function saveEditedSubtask(subtaskSavedCounter) {
+  const input = document.getElementById(`edit-subtask-inputfield${subtaskSavedCounter}`);
+  if (!input) return;
+  const newValue = input.value;
+
+  const subTaskElementDiv = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
+  if (!subTaskElementDiv) return;
+  const liElement = subTaskElementDiv.parentElement;
+
+  liElement.outerHTML = getSubtaskListElementTemplate(newValue, subtaskSavedCounter);
 }
 
 function deleteSavedSubTask(subtaskSavedCounter, subtask) {

@@ -1006,14 +1006,10 @@ h6 {
     display: none;
 }
 
-.subtask-added-tasks-container {
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
 .subtask-list-element {
-    width: 100%;
+    width: 98%;
     margin-top: 5px;
+    margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1039,8 +1035,61 @@ h6 {
     margin-left: 3px;
 }
 
-.editSavedSubtasks {
-    
+.edit-subtask-inputfield {
+    width: 100%;
+    height: 30px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 2px solid #29ABE2;
+    background-color: #f2f2f2;    
+    outline: none;                
+    box-sizing: border-box;       
+    margin: 0;
+    color: black;
+    font-size: 16px;
+}
+
+.check-edit-subtask-icon:hover {
+    cursor: pointer;
+    background: #e2e6ea;
+    border-radius: 50%;
+    transform: scale(1.04);
+}
+
+.bin-edit-subtask-icon:hover {
+    cursor: pointer;
+    background: #e2e6ea;
+    border-radius: 50%;
+    transform: scale(1.04);
+}
+
+.subtask-input-with-icons {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 22px;
+    background: none;
+}
+
+.pen-icon-before-edit:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+.bin-icon-before-edit:hover {
+    cursor: pointer;
+    transform: scale(1.04);    
 }
 
 @media (max-width: 1400px) {
