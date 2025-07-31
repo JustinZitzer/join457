@@ -280,6 +280,7 @@ function getInfoForNewTask() {
 
 function addSubtaskInContainer() {
   let subtask = taskSubtask.value;
+  let subtaskInputField = document.getElementById("inputfield-subtask-assign");
   if (subtask) {
     savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
     subtaskSavedCounter++;
