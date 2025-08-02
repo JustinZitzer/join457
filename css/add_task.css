@@ -736,13 +736,14 @@ h6 {
 
 .create-field:hover .check-button {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg);
- 
+
 }
 
 .check-button {
     width: 16px;
     height: 16px;
-    filter: invert(100%) brightness(100%); /* Macht das schwarze Icon weiß */
+    filter: invert(100%) brightness(100%);
+    /* Macht das schwarze Icon weiß */
     transition: filter 0.2s ease;
 }
 
@@ -1201,6 +1202,7 @@ h6 {
 }
 
 @media (max-width: 1400px) {
+
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
@@ -1261,6 +1263,7 @@ h6 {
     .arrow-container-main-red {
         width: 30vw;
     }
+
     .arrow-container-main-green {
         width: 30vw;
     }
@@ -1285,14 +1288,10 @@ h6 {
         left: 0px;
     }
 
-    .clear-create-container {
-        display: none;
-    }
-
     .title-inputfield-enter-title {
         width: 95vw;
     }
-    
+
     .inputfield-description {
         width: 95vw;
     }
@@ -1360,14 +1359,56 @@ h6 {
         opacity: 1;
         width: 95vw;
     }
-    
+
+    .clear-create-container {
+        position: absolute;
+        top: 1100px;
+        left: 300px;
+
+    }
+
+    .field-required {
+        position: absolute;
+        width: 230px;
+        height: 27px;
+        top: 600px;
+        left: 0px;
+        display: none;
+
+    }
+
+    .field-required:before {
+        content: "*";
+        color: red;
+        display: none;
+    }
+}
+
+@media (max-width: 660px) {
+
+    .clear-create-container {
+        position: absolute;
+        top: 1100px;
+        left: 140px;
+
+    }
+}
+
+@media (max-width: 488px) {
+
+    .clear-create-container {
+        position: absolute;
+        top: 1100px;
+        left: 50px;
+
+    }
 }
 
 @media (max-width: 1000px) {
     .title-inputfield-enter-title {
         width: 92vw;
     }
-    
+
     .inputfield-description {
         width: 92vw;
     }
@@ -1434,8 +1475,7 @@ h6 {
         transform: translateX(-50%);
     }
 
-    body {
-    }
+    body {}
 
     .dropdown-open {
         max-height: 200px;
@@ -1448,13 +1488,14 @@ h6 {
         margin-top: 0px;
     }
 
+
 }
 
 @media (max-width: 700px) {
-     .title-inputfield-enter-title {
+    .title-inputfield-enter-title {
         width: 90vw;
     }
-    
+
     .inputfield-description {
         width: 90vw;
     }
@@ -1531,13 +1572,15 @@ h6 {
         width: 90vw;
         margin-top: 0px;
     }
+
 }
 
+
 @media (max-width: 500px) {
-     .title-inputfield-enter-title {
+    .title-inputfield-enter-title {
         width: 87vw;
     }
-    
+
     .inputfield-description {
         width: 87vw;
     }
@@ -1600,13 +1643,13 @@ h6 {
     }
 
     .assigned-arrow-icon-down {
-        position: relative!important;
-        width: 24px!important;
-        height: 24px!important;
+        position: relative !important;
+        width: 24px !important;
+        height: 24px !important;
         left: 82.8vw !important;
         transform: translateX(-50%) !important;
-        bottom: 45px!important;
-        cursor: pointer!important;
+        bottom: 45px !important;
+        cursor: pointer !important;
     }
 
     .task-inputfield-box {
