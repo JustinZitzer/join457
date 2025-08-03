@@ -1694,36 +1694,7 @@ h2 {
 
     }
 
-        .inprogress-container-content-mobile-version-task {
-            width: 23vh;
-            height: 50vh;
-            padding-top: 4px;
-            padding-right: 16px;
-            padding-bottom: 4px;
-            padding-left: 16px;
-            gap: 10px;
-            border-radius: 8px;
-            background-color: white;
-            color: white;
-            font-family: Inter;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            letter-spacing: 0%;
-    
-        }
-    }
-
-    .todo-container-content-mobile-version {
-        display: flex;
-        flex-direction: column;
-        visibility: visible;
-        width: 100vw;
-        height: 22vh;
-    }
-
-    .await-feedback-container-content-mobile-version-task {
-        position: relative;
+    .inprogress-container-content-mobile-version-task {
         width: 23vh;
         height: 50vh;
         padding-top: 4px;
@@ -1741,6 +1712,26 @@ h2 {
         letter-spacing: 0%;
 
     }
+
+    .await-feedback-container-content-mobile-version-task {
+        width: 23vh;
+        height: 50vh;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: white;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+
+    }
+
 
     .user-story-box-mobile-version-task {
         height: 27px;
@@ -2080,7 +2071,7 @@ h2 {
 
     .responsive-btn {
         z-index: 1000;
-        position: fixed;
+        position: absolute;
         margin-left: 300px;
         margin-top: 20px;
         width: 40px;
