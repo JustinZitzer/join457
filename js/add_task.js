@@ -15,6 +15,7 @@ const taskPriorityLow = document.getElementById("arrow-container-green");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
+const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
 let subtaskSavedCounter = 1;
 
 
@@ -280,13 +281,39 @@ function getInfoForNewTask() {
 
 function addSubtaskInContainer() {
   let subtask = taskSubtask.value;
-  let subtaskInputField = document.getElementById("inputfield-subtask-assign");
   if (subtask) {
     savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
     subtaskSavedCounter++;
     taskSubtask.value = "";
   }
   return { subtask, subtaskSavedCounter };
+}
+
+function addNewStyleToSubtaskInputField() {
+  const changedSubtaskInputField = document.getElementById("changed-subtask-inputfield-id");
+  if (!changedSubtaskInputField) {
+  subtaskInputFieldContainer.innerHTML = `
+      <div id="changed-subtask-inputfield-id">
+        <span>Subtasks</span>
+        <div class="subtask-input-icon-flexbox">
+          <input onclick="addNewStyleToSubtaskInputField()" type="text" id="inputfield-subtask-assign" placeholder="Add new subtask" class="inputfield-subtask-assign">
+          <span class="input-icon-container">
+                <svg onclick="clearSubtaskInputField()" class="subtask-icon-cross" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 5L15 15M15 5L5 15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="subtask-icon-separator"></div>
+                <svg class="subtask-icon-check" width="16" height="16" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408" stroke="#2A3647" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </div>
+      </div>
+    `;
+  }
+}
+
+function clearSubtaskInputField() {
+  taskSubtask.value = "";
 }
 
 function editSavedSubtask(subtaskSavedCounter, subtask) {

@@ -140,10 +140,10 @@
 
                         <div class="subtask-inputfield-box">
                             <span>Subtasks</span>
-                            <div class="subtask-inputfield-container">
+                            <div id="subtask-inputfield-container" class="subtask-inputfield-container">
                                 <img onclick="addSubtaskInContainer()" class="add-icon-container" src="./assets/icons/subtask-plus-icon.svg"
                                     alt="subtask-plus-icon">
-                                <input type="text" id="inputfield-subtask-assign" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                                <input onclick="addNewStyleToSubtaskInputField()" type="text" id="inputfield-subtask-assign" placeholder="Add new subtask" class="inputfield-subtask-assign">
                                 <div>
                                     <ul class="subtask-added-tasks-container list-subtask" id="subtask-added-tasks"></ul>
                                 </div>

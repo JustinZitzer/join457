@@ -128,18 +128,22 @@ h3 {
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    letter-spacing: 0%;
-    color: #D1D1D1;
+    letter-spacing: 0;
+    color: #333;
     width: 440px;
-    height: 48;
-    gap: 10px;
+    height: 48px;
     border-radius: 10px;
-    border-width: 1px;
+    border: 1px solid #D1D1D1;
+    background: #fff;
     padding-top: 12px;
     padding-right: 21px;
     padding-bottom: 12px;
     padding-left: 21px;
+}
 
+.title-inputfield-enter-title:focus {
+    border-color: #29ABE2;
+    outline: none;
 }
 
 .arrow-container-main-red {
@@ -288,6 +292,7 @@ h6 {
     padding-right: 16px;
     padding-bottom: 18px;
     padding-left: 16px;
+    border: 1px solid #D1D1D1;
     color: #D1D1D1;
 }
 
@@ -297,6 +302,11 @@ h6 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
+}
+
+.inputfield-description:focus {
+    border-color: #29ABE2;
+    outline: none;
 }
 
 .description-text {
@@ -350,6 +360,12 @@ h6 {
     padding-right: 16px;
     padding-bottom: 12px;
     padding-left: 16px;
+    border: 1px solid #D1D1D1;
+}
+
+.due-date-text-field:focus {
+    border-color: #29ABE2;
+    outline: none;
 }
 
 .assigned-inputfield-box {
@@ -384,7 +400,9 @@ h6 {
 .inputfield-text-assign {
     width: 440px;
     height: 48px;
-    border-width: 1px;
+    border: none;
+    border-bottom: 1.9px solid #D1D1D1;
+    border-right: 1.5px solid #D1D1D1;
     border-radius: 10px;
     padding-top: 12px;
     padding-right: 16px;
@@ -392,6 +410,20 @@ h6 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.inputfield-text-assign:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.9px solid #29ABE2;
+    border-right: 1.5px solid #29ABE2;
+}
+
+.inputfield-text-assign:hover {
+    border-bottom: 2.5px solid #b1b0b0;
+    border-right: 2px solid #b1b0b0;
 }
 
 .inputfield-text-assign::placeholder {
@@ -410,6 +442,21 @@ h6 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    border: none;
+    border-bottom: 1.9px solid #D1D1D1;
+    border-right: 1.5px solid #D1D1D1;
+}
+
+.inputfield-category-assign:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.9px solid #29ABE2;
+    border-right: 1.5px solid #29ABE2;
+}
+
+.inputfield-category-assign:hover {
+    border-bottom: 2.5px solid #b1b0b0;
+    border-right: 2px solid #b1b0b0;
 }
 
 
@@ -508,6 +555,7 @@ h6 {
 .inputfield-subtask-assign {
     display: flex;
     justify-content: space-between;
+    padding-right: 70px; /* Platz für die Icons rechts */
     height: 48px;
     width: 440px;
     border-width: 1px;
@@ -518,6 +566,13 @@ h6 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    border: 1px solid #D1D1D1;
+}
+
+.inputfield-subtask-assign:focus {
+    outline: none;
+    border-top: 1px solid #29ABE2;
+    border-right: 1px solid #29ABE2;
 }
 
 .subtask-inputfield-container {
@@ -774,11 +829,6 @@ h6 {
     /* Kein Abstand zwischen Elementen */
 }
 
-.inputfield-text-assign {
-    padding: 8px;
-    width: 100%;
-}
-
 .assigned-arrow-icon {
     width: 24px;
     height: 24px;
@@ -858,6 +908,11 @@ h6 {
 .arrow-container-red.active {
     background-color: red;
     color: white;
+    box-shadow: none !important;
+}
+
+.arrow-container-red:hover {
+    box-shadow: 0 8px 7px 0 rgba(100,100,100,0.65);
 }
 
 .arrow-container-medium {
@@ -905,9 +960,14 @@ h6 {
     cursor: pointer;
 }
 
+.arrow-container-orange:hover {
+    box-shadow: 0 8px 7px 0 rgba(100,100,100,0.65);
+}
+
 .arrow-container-orange.active {
     background-color: orange;
     color: white;
+    box-shadow: none;
 }
 
 
@@ -925,9 +985,14 @@ h6 {
     transition: background-color 0.3s ease;
 }
 
+.arrow-container-green:hover {
+    box-shadow: 0 8px 7px 0 rgba(100,100,100,0.65);
+}
+
 .arrow-container-green.active {
     background-color: lightgreen;
     color: white;
+    box-shadow: none;
 }
 
 .overlay-hidden {
@@ -1090,6 +1155,30 @@ h6 {
 .bin-icon-before-edit:hover {
     cursor: pointer;
     transform: scale(1.04);    
+}
+
+.subtask-input-icon-flexbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon-container {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 24px;
+}
+
+.subtask-icon-separator {
+    width: 1px;
+    height: 20px;
+    background: #D1D1D1;
 }
 
 @media (max-width: 1400px) {
