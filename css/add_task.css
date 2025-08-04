@@ -790,7 +790,7 @@ h6 {
     width: 24px;
     height: 24px;
     left: 400px;
-    bottom: 51px;
+    bottom: 5px;
     cursor: pointer;
 
 }
@@ -858,6 +858,9 @@ h6 {
     transform: scaleY(1);
     transform-origin: top;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    max-height: 230px;
+    overflow-y: auto;
+    z-index: 1;
 }
 
 /* versteckt */
