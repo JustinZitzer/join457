@@ -27,6 +27,9 @@ h3 {
     color: #000000;
 }
 
+.display-none {
+    display: none;
+}
 
 .main-container-for-two-inputfield-container {
     display: flex;
@@ -566,6 +569,7 @@ h6 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    margin-top: 5px;
     border: 1px solid #D1D1D1;
 }
 
@@ -769,13 +773,16 @@ h6 {
 }
 
 .add-icon-container {
-    position: relative;
-    top: 41px;
-    left: 400px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     height: 24px;
     width: 24px;
     color: #2A3647;
     cursor: pointer;
+    z-index: 2;
+    background: #fff;
 }
 
 .assigned-arrow-icon {
