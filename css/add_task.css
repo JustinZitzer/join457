@@ -376,7 +376,7 @@ h6 {
     flex-direction: column;
     gap: 8px;
     width: 440px;
-    height: 80px;
+    height: 35px;
     color: #2A3647;
 }
 
@@ -855,15 +855,9 @@ h6 {
     flex-direction: column;
     gap: 8px;
     opacity: 1;
-    margin-top: 0px;
-    top: 0;
     transform: scaleY(1);
     transform-origin: top;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    max-height: 230px;
-    overflow-y: auto;
-    scrollbar-width: 25px;
-    scrollbar-color: #ccc #fff;
 }
 
 /* versteckt */
