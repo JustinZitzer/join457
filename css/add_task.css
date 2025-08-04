@@ -378,6 +378,8 @@ h6 {
     width: 440px;
     height: 35px;
     color: #2A3647;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -415,6 +417,8 @@ h6 {
     font-weight: 400;
     box-sizing: border-box;
     background: #fff;
+    position: relative;
+    z-index: 3;
 }
 
 .inputfield-text-assign:focus {
@@ -842,6 +846,8 @@ h6 {
     cursor: pointer;
     margin-top: 4px;
     align-self: flex-start;
+    position: relative;
+    z-index: 5;
 }
 
 /* Kontaktliste direkt anschließen, ohne Abstand */
@@ -861,6 +867,9 @@ h6 {
     max-height: 230px;
     overflow-y: auto;
     z-index: 1;
+    position: relative;
+    top: 0px;
+    margin-top: -2px;
 }
 
 /* versteckt */
