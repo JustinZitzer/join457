@@ -1,15 +1,16 @@
 .contacts-content {
     display: flex;
+    height: 100dvh;
 }
 
 :root {
-  --scrollbar-bg: black;
-  --thumb-bg: #white;
+  --scrollbar-bg: white;
+  --thumb-bg: black;
   --thumb-hover-bg: white;
 }
 
 .contacts-sidebar-container {
-    overflow-y: auto;
+    overflow-y: scroll;
     scrollbar-width: thin;
     display: flex;
     scrollbar-color: var(--thumb-bg) var(--scrollbar-bg);
