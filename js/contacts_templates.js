@@ -74,8 +74,6 @@ function getAddContactOverlay() {
 }
 
 function getEditContactOverlay(contact) {
-    console.log(contact);
-    
     return `
     <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
