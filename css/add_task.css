@@ -142,6 +142,7 @@ h3 {
     padding-right: 21px;
     padding-bottom: 12px;
     padding-left: 21px;
+    cursor: pointer;
 }
 
 .title-inputfield-enter-title:focus {
@@ -297,6 +298,7 @@ h6 {
     padding-left: 16px;
     border: 1px solid #D1D1D1;
     color: #D1D1D1;
+    cursor: pointer;
 }
 
 .inputfield-description::placeholder {
@@ -364,6 +366,7 @@ h6 {
     padding-bottom: 12px;
     padding-left: 16px;
     border: 1px solid #D1D1D1;
+    cursor: pointer;
 }
 
 .due-date-text-field:focus {
@@ -419,6 +422,7 @@ h6 {
     background: #fff;
     position: relative;
     z-index: 3;
+    cursor: pointer;
 }
 
 .inputfield-text-assign:focus {
@@ -575,6 +579,7 @@ h6 {
     font-weight: 400;
     margin-top: 5px;
     border: 1px solid #D1D1D1;
+    cursor: pointer;
 }
 
 .inputfield-subtask-assign:focus {
@@ -1029,6 +1034,7 @@ h6 {
     width: 100%;
     box-sizing: border-box;
     padding: 8px;
+    cursor: pointer;
 }
 
 /* Dropdown-Styling */
@@ -1199,6 +1205,15 @@ h6 {
     width: 1px;
     height: 20px;
     background: #D1D1D1;
+    cursor: pointer;
+}
+
+.subtask-icon-cross {
+    cursor: pointer;
+}
+
+.subtask-icon-check {
+    cursor: pointer;
 }
 
 @media (max-width: 1400px) {
