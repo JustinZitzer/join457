@@ -16,6 +16,7 @@ const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
 const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
+const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 let subtaskSavedCounter = 1;
 
 
@@ -227,18 +228,31 @@ function validateInput() {
 }
   
 function validateDueDateInput() {
-    const input = document.getElementById("dueDateInput");
-    const errorMsg = document.getElementById("due-date-error");
-  
-    if (input.value.trim() === "") {
-      errorMsg.textContent = "This field is required.";
-      errorMsg.style.display = "block";
-      input.classList.add("input-error");
-    } else {
-      errorMsg.textContent = "";
-      errorMsg.style.display = "none";
-      input.classList.remove("input-error");
-    }
+  const input = document.getElementById("dueDateInput");
+  const errorMsg = document.getElementById("due-date-error");
+  const value = input.value.trim();
+
+  const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+
+  if (!value) {
+    showError("Dieses Feld ist erforderlich.");
+  } else if (!dateCheckSlash.test(value)) {
+    showError("Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
+  } else {
+    clearError();
+  }
+
+  function showError(message) {
+    errorMsg.textContent = message;
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  }
+
+  function clearError() {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
 }
 
 function getContactCardForDropdown(contact) {
@@ -267,6 +281,19 @@ async function loadContactsForDropdown() {
   } catch (error) {console.error("Error loading contacts:", error);}
   selectContacts();
 }
+
+function changeinputFieldAssignToStyle() {
+  if (inputFieldAssignTo.classList.contains('custom-border')) {
+    inputFieldAssignTo.style.borderTop = '';
+    inputFieldAssignTo.style.borderRight = '';
+    inputFieldAssignTo.classList.remove('custom-border');
+  } else {
+    inputFieldAssignTo.style.borderTop = '1px solid #29ABE2';
+    inputFieldAssignTo.style.borderRight = '1px solid #29ABE2';
+    inputFieldAssignTo.classList.add('custom-border');
+  }
+}
+
 
 function getInfoForNewTask() {
   let titel = taskTitel.value;

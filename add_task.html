@@ -49,7 +49,7 @@
                             <span>Due date</span>
                         </div>
 
-                        <input type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()">
                         <div id="due-date-error" class="error-message"></div>
                     </div>
@@ -98,7 +98,7 @@
                             <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign" class="inputfield-text-assign">
                         </div>
 
-                        <img id="contact-list" onclick="loadContactsForDropdown()" class="assigned-arrow-icon"
+                        <img id="contact-list" onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle()" class="assigned-arrow-icon"
                             src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
                         <div id="contacts-dropdown" class="contacts-dropdown hidden"></div>
 
