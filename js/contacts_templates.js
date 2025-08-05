@@ -74,6 +74,7 @@ function getAddContactOverlay() {
 }
 
 function getEditContactOverlay(contact) {
+    const color = getColorForContact(contact.id);
     return `
     <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
@@ -87,7 +88,7 @@ function getEditContactOverlay(contact) {
             </div>
             <div class="add-contact-right-section">
                 <img onclick="removeEditContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
-                <div class="add-contact-person-svg-container">
+                <div class="add-contact-person-svg-container" style="background-color:${color};">
                     <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                 </div>
                 <form>
