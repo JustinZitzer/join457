@@ -87,7 +87,7 @@ function getEditContactOverlay(contact) {
                 </div>
             </div>
             <div class="add-contact-right-section">
-                <img onclick="removeEditContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                <img onclick="removeEditContactOverlay(), handleActiveCard(${contact.id})" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
                 <div class="add-contact-person-svg-container" style="background-color:${color};">
                     <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                 </div>
