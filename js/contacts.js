@@ -77,15 +77,21 @@ function removeAddNewContactOverlay() {
     }
 }
 
-function openEditContactOverlay() {
+function openEditContactOverlay(contactId) {
     const main = document.getElementById('main_contacts');
+    const contact = allContacts.find(c => c.id === contactId);
+    if (!contact) {
+        console.warn(`Kontakt mit ID ${contactId} nicht gefunden.`);
+        return;
+    }
     if (!openedEditContactsOverlay) {
-        main.innerHTML += getEditContactOverlay();
+        main.innerHTML += getEditContactOverlay(contact);
+        openedEditContactsOverlay = true;
     }
 }
 
 function removeEditContactOverlay() {
-    if (!openedEditContactsOverlay) {
+    if (openedEditContactsOverlay) {
         const editContactOverlay = document.getElementById('edit_contact_overlay');
         editContactOverlay.remove();
         openedEditContactsOverlay = false;

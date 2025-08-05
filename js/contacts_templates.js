@@ -73,7 +73,9 @@ function getAddContactOverlay() {
         `;
 }
 
-function getEditContactOverlay() {
+function getEditContactOverlay(contact) {
+    console.log(contact);
+    
     return `
     <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
@@ -88,7 +90,7 @@ function getEditContactOverlay() {
             <div class="add-contact-right-section">
                 <img onclick="removeEditContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
                 <div class="add-contact-person-svg-container">
-                    <p>AZ</p>
+                    <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                 </div>
                 <form>
                     <div class="add-contact-input-containers">
