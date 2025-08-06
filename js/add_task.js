@@ -528,15 +528,31 @@ function updateTasksHtml() {
 
   for (let i = 0; i < toDoTasks.length; i++) {
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(toDoTasks[i], toDoTasks[i].id);
+    toDoContentFinalDiv.innerHTML += `
+    <div>${toDoTasks[i].id}</div>
+
+  `;
   }
+
   for (let i = 0; i < inProgressTasks.length; i++) {
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(inProgressTasks[i], inProgressTasks[i].id);
+    inProgressContent.innerHTML += `
+    <div>${inProgressTasks[i].id}</div>
+`;
+
   }
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
     awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(awaitFeedbackTasks[i], awaitFeedbackTasks[i].id);
+    awaitFeedbackContent.innerHTML += `
+    <div>${awaitFeedbackTasks[i].id}</div>
+
+    `;
   }
   for (let i = 0; i < doneTasks.length; i++) {
     doneContent.innerHTML += getTaskFromFirebaseTemplate(doneTasks[i], doneTasks[i].id);
+    doneContent.innerHTML += `
+    <div>${doneTasks[i].id}</div>
+    `;
   }
 }
 
