@@ -17,6 +17,8 @@ const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
 const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
 const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
+const circleFlexContainer = document.getElementById("three-circle-todo");
+const circleRenderContainer = document.getElementById("three-circle-container");
 let subtaskSavedCounter = 1;
 
 
@@ -269,17 +271,21 @@ function getContactCardForDropdown(contact) {
 
 async function loadContactsForDropdown() {
   const container = document.getElementById('contacts-dropdown');
-  container.innerHTML = "";
+  if (!container) return;
+  if (container.innerHTML === "") {
   try {
-    const contactsUnsorted = await fetchContacts();
-    const contacts = Object.values(contactsUnsorted);
-    contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
-    allContacts = contacts;
-    for (const key in contacts) {
-      container.innerHTML += getContactCardForDropdown(contacts[key]);
-    }
-  } catch (error) {console.error("Error loading contacts:", error);}
-  selectContacts();
+      const contactsUnsorted = await fetchContacts();
+      const contacts = Object.values(contactsUnsorted);
+      contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+      allContacts = contacts;
+      for (const key in contacts) {
+        container.innerHTML += getContactCardForDropdown(contacts[key]);
+      }
+    } catch (error) {console.error("Error loading contacts:", error);}
+    selectContacts();
+  } else {
+    selectContacts();
+  }
 }
 
 function changeinputFieldAssignToStyle() {
@@ -376,6 +382,32 @@ function getAssignedToValue() {
   return assignedTo;
 }
 
+function getContactForCircle() {
+  let assignedContacts = getAssignedToValue();
+  assignedContacts = assignedContacts.filter(contact => contact !== "Not assigned to anyone");
+
+  let nameInitialesArray = [];
+  for (let i = 0; i < assignedContacts.length; i++) {
+    const fullNames = assignedContacts[i].trim();
+    const names = fullNames.split(" ");
+    let initials = "";
+    if (names[0]) initials += names[0][0].toUpperCase();
+    if (names[1]) initials += names[1][0].toUpperCase();
+    nameInitialesArray.push(initials);
+  }
+  renderCirclesForAssignedContacts(nameInitialesArray);
+}
+
+function renderCirclesForAssignedContacts(nameInitialesArray) {
+  for (let i = 0; i < nameInitialesArray.length; i++) {
+    const initials = nameInitialesArray[i];
+    circleRenderContainer.innerHtml += `
+    <div class="single-circle-first">
+      <h6 id="contact-circle-1">${initials}</h6>
+    </div>`;
+  }
+  circleFlexContainer.classList.remove("display-none");
+}
 
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
