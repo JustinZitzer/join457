@@ -19,6 +19,7 @@ const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-c
 const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
+const contactsDropdown = document.getElementById("contacts-dropdown");
 let subtaskSavedCounter = 1;
 
 
@@ -384,7 +385,7 @@ function getAssignedToValue() {
 
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
-  assignedContacts = assignedContacts.filter(contact => contact !== "Not assigned to anyone");
+  assignedContacts = assignedContacts.filter(contact => contact !== "Not Assigned to anyone");
 
   let nameInitialesArray = [];
   for (let i = 0; i < assignedContacts.length; i++) {
@@ -399,12 +400,23 @@ function getContactForCircle() {
 }
 
 function renderCirclesForAssignedContacts(nameInitialesArray) {
-  for (let i = 0; i < nameInitialesArray.length; i++) {
+  circleRenderContainer.innerHTML = '';
+  if (nameInitialesArray.length == 0 || nameInitialesArray.includes("Not Assigned to anyone")) {
+    circleFlexContainer.classList.add("display-none");
+    return;
+  } else if (!contactsDropdown.classList.contains("hidden")) {
+    circleFlexContainer.classList.add("display-none");
+    return;
+  }
+
+  const circleClasses = ["single-circle-first","single-circle-second","single-circle-third"];
+  for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
-    circleRenderContainer.innerHtml += `
-    <div class="single-circle-first">
-      <h6 id="contact-circle-1">${initials}</h6>
-    </div>`;
+    circleRenderContainer.innerHTML += `
+      <div class="${circleClasses[i]}">
+        <h6>${initials}</h6>
+      </div>
+    `;
   }
   circleFlexContainer.classList.remove("display-none");
 }

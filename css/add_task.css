@@ -1039,7 +1039,6 @@ h6 {
 
 /* Dropdown-Styling */
 .category-dropdown {
-    position: absolute;
     border-radius: 8px;
     top: 100%;
     left: 0;
