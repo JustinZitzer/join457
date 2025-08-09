@@ -3,19 +3,9 @@
     height: 100dvh;
 }
 
-:root {
-  --scrollbar-bg: white;
-  --thumb-bg: black;
-  --thumb-hover-bg: white;
-}
-
 .contacts-sidebar-container {
-    overflow-y: scroll;
-    scrollbar-width: thin;
     display: flex;
-    scrollbar-color: var(--thumb-bg) var(--scrollbar-bg);
     flex-direction: column;
-    align-items: center;
     background-color: white;
     width: 456px;
     height: 100dvh;
@@ -24,37 +14,28 @@
     padding-top: 20px;
 }
 
-.contacts-sidebar-container::-webkit-scrollbar {
-    width: 24px;
-}
-
-.contacts-sidebar-container::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-bg);
-    margin: 8px 0px;
-    border-radius: 4px;
-}
-
-.contacts-sidebar-container::-webkit-scrollbar-thumb {
-    background: var(--thumb-bg);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    height: 53px;
-    width: 8px;
-    background-color: #a8a8a8;
-    border-radius: 3px;
-    border: 8px;
-    transition: background 0.2s ease-in-out;
-}
-
-.contacts-sidebar-container::-webkit-scrollbar-thumb:hover,
-.contacts-sidebar-container::-webkit-scrollbar-thumb:active {
-  background: var(--thumb-hover-bg);
+.contacts-sidebar-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: 24px;
+    scrollbar-color: #a8a8a8 white;
+    margin-bottom: 20px;
 }
 
 .contact-list {
+    margin-top: 90px;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    height: 1188px;
+}
+
+.contact-list-fix-container {
+    position: fixed;
+    top: 60px;
+    background-color: white;
+    width: 430px;
+    height: 160px;
+    z-index: 100;
 }
 
 .contact-list p {
@@ -69,10 +50,13 @@
 }
 
 .add-new-contact-btn-container {
+    position: fixed;
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 456px;
     height: 101px;
+    z-index: 120;
 }
 
 .add-new-contact-btn {
@@ -360,17 +344,16 @@
 
 .add-contact-overlay {
     display: flex;
+    margin-top: 150px;
     position: absolute;
-    /*muss angepasst werden*/
     top: 300px;
-    /*muss angepasst werden*/
     left: 500px;
-    /*muss angepasst werden*/
     width: 1212px;
     height: 592px;
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(42, 54, 71, 1);
+    z-index: 200;
 }
 
 .add-contact-left-section {
