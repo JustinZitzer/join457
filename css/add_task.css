@@ -1040,7 +1040,7 @@ h6 {
 /* Dropdown-Styling */
 .category-dropdown {
     border-radius: 8px;
-    top: 100%;
+    top: -10px;
     left: 0;
     width: 100%;
     background-color: white;
@@ -1048,7 +1048,7 @@ h6 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 100;
     overflow: hidden;
-
+    position: relative;
     /* Animation */
     max-height: 0;
     opacity: 0;
