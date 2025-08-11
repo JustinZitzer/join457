@@ -102,7 +102,7 @@
                             src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
                         <div id="contacts-dropdown" class="contacts-dropdown hidden"></div>
 
-                        <div id="three-circle-todo" class="three-circle-todo display-none">
+                        <div id="three-circle-todo" class="three-circle-todo">
                             <div id="three-circle-container" class="three-circle-container">
                                 <div class="single-circle-first">
                                     <h6 id="contact-circle-1">AS</h6>
@@ -127,13 +127,15 @@
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
                                 onclick="toggleDropdown()">
-                        </div>
-                        
-                        <div id="category-dropdown" class="category-dropdown dropdown-closed">
+
+                            <!-- Dropdown-Fenster -->
+                            <div id="category-dropdown" class="category-dropdown dropdown-closed">
                                 <div onclick="selectCategory('Technical Task')">Technical Task</div>
                                 <div onclick="selectCategory('User Story')">User Story</div>
+                            </div>
                         </div>
-                        
+
+
                         <div class="subtask-inputfield-box">
                             <div id="subtask-inputfield-container" class="subtask-inputfield-container">
                                 <div onclick="hidePlusIconShowCheckAndCrossIcon()" id="changed-subtask-inputfield-id">
@@ -193,6 +195,17 @@
     <script src="./js/firebase.js"></script>
     <script src="./js/templatetask.js"></script>
     <script src="./js/signup.js"></script>
+
+
+    <div class="todo-container-content-mobile-version-task "></div>
+    <div class="user-story-box-mobile-version-task"></div>
+    <div class="text-contact-box-mobile-version-task"></div>
+    <div class="text-create-box-mobile-version-task "></div>
+    <div class="progressbar-box-mobile-version-task"></div>
+    <div class="progressbar-content-mobile-version-task"></div>
+    <div class="subtask-text-mobile-version-task "></div>
+
+
 </body>
 
 </html>

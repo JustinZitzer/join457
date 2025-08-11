@@ -530,6 +530,7 @@ function filterTasksByCategory() {
   return {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks};
 }
 
+
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
 
@@ -541,29 +542,31 @@ function updateTasksHtml() {
   for (let i = 0; i < toDoTasks.length; i++) {
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(toDoTasks[i], toDoTasks[i].id);
     toDoContentFinalDiv.innerHTML += `
-    <div>${toDoTasks[i].id}</div>
-
+    <div class="todo-container-content-mobile-version">${toDoTasks[i].id}</div>
+  
   `;
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(inProgressTasks[i], inProgressTasks[i].id);
     inProgressContent.innerHTML += `
-    <div>${inProgressTasks[i].id}</div>
+    <div class="inprogress-container-content-mobile-version">${inProgressTasks[i].id}</div>
+
 `;
 
   }
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
     awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(awaitFeedbackTasks[i], awaitFeedbackTasks[i].id);
     awaitFeedbackContent.innerHTML += `
-    <div>${awaitFeedbackTasks[i].id}</div>
-
+     <div class="todo-container-content-mobile-version">${awaitFeedbackTasks[i].id}</div>
+    <div class="await-feedback-container-content-mobile-version-task"></div>
     `;
   }
   for (let i = 0; i < doneTasks.length; i++) {
     doneContent.innerHTML += getTaskFromFirebaseTemplate(doneTasks[i], doneTasks[i].id);
     doneContent.innerHTML += `
-    <div>${doneTasks[i].id}</div>
+     <div class="done-container-content-mobile-version">${doneTasks[i].id}</div>
+    
     `;
   }
 }
