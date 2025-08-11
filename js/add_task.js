@@ -199,13 +199,22 @@ function togglePriority(button) {
 }
   
 function toggleDropdown() {
+    const taskSubtask = document.getElementById("inputfield-subtask-assign");
     var dropdown = document.getElementById("category-dropdown");
     if (dropdown.classList.contains("dropdown-open")) {
       dropdown.classList.remove("dropdown-open");
+      taskSubtask.style.borderBottom = "1px solid #29ABE2";
+      taskSubtask.style.borderRight = "1px solid #29ABE2";
+      taskSubtask.style.borderTop = "none";
     } else {
       dropdown.classList.add("dropdown-open");
+      if (taskSubtask.value.trim() !== "") {
+        taskSubtask.style.borderTop = "1px solid #29ABE2";
+        taskSubtask.style.borderRight = "1px solid #29ABE2";
+        taskSubtask.style.borderBottom = "none";
+      }
     }
-}
+  }
   
 function selectCategory(category) {
     var input = document.getElementById("category-input");
