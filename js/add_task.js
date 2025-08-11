@@ -345,11 +345,18 @@ function hidePlusIconShowCheckAndCrossIcon() {
   checkIconCheck.classList.remove("display-none");
 }
 
-function clearSubtaskInputField() {
+function clearSubtaskInputField(event) {
+  if (event) event.stopPropagation();
+  const plusIcon = document.getElementById("add-icon-container");
+  const checkIcon = document.getElementById("subtask-icon-cross");
+  const separatorIcon = document.getElementById("subtask-icon-separator");
+  const checkIconCheck = document.getElementById("subtask-icon-check");
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
-    if (taskSubtask) {
-        taskSubtask.value = "";
-    }
+  taskSubtask.value = "";
+  plusIcon.classList.remove("display-none");
+  checkIcon.classList.add("display-none");
+  separatorIcon.classList.add("display-none");
+  checkIconCheck.classList.add("display-none");
 }
 
 function editSavedSubtask(subtaskSavedCounter, subtask) {
