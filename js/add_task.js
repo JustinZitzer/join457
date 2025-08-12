@@ -199,13 +199,22 @@ function togglePriority(button) {
 }
   
 function toggleDropdown() {
+    const taskSubtask = document.getElementById("inputfield-subtask-assign");
     var dropdown = document.getElementById("category-dropdown");
     if (dropdown.classList.contains("dropdown-open")) {
       dropdown.classList.remove("dropdown-open");
+      taskSubtask.style.borderBottom = "1px solid #29ABE2";
+      taskSubtask.style.borderRight = "1px solid #29ABE2";
+      taskSubtask.style.borderTop = "none";
     } else {
       dropdown.classList.add("dropdown-open");
+      if (taskSubtask.value.trim() !== "") {
+        taskSubtask.style.borderTop = "1px solid #29ABE2";
+        taskSubtask.style.borderRight = "1px solid #29ABE2";
+        taskSubtask.style.borderBottom = "none";
+      }
     }
-}
+  }
   
 function selectCategory(category) {
     var input = document.getElementById("category-input");
@@ -336,11 +345,18 @@ function hidePlusIconShowCheckAndCrossIcon() {
   checkIconCheck.classList.remove("display-none");
 }
 
-function clearSubtaskInputField() {
+function clearSubtaskInputField(event) {
+  if (event) event.stopPropagation();
+  const plusIcon = document.getElementById("add-icon-container");
+  const checkIcon = document.getElementById("subtask-icon-cross");
+  const separatorIcon = document.getElementById("subtask-icon-separator");
+  const checkIconCheck = document.getElementById("subtask-icon-check");
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
-    if (taskSubtask) {
-        taskSubtask.value = "";
-    }
+  taskSubtask.value = "";
+  plusIcon.classList.remove("display-none");
+  checkIcon.classList.add("display-none");
+  separatorIcon.classList.add("display-none");
+  checkIconCheck.classList.add("display-none");
 }
 
 function editSavedSubtask(subtaskSavedCounter, subtask) {
