@@ -297,7 +297,7 @@ h6 {
     padding-bottom: 18px;
     padding-left: 16px;
     border: 1px solid #D1D1D1;
-    color: #333;
+    color: #D1D1D1;
     cursor: pointer;
 }
 
@@ -355,7 +355,7 @@ h6 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
-    color: #333;
+    color: #D1D1D1;
     width: 440px;
     height: 48px;
     border-width: 1px;
@@ -564,10 +564,6 @@ h6 {
 
 }
 
-.error-field-category {
-    color: red;
-    font-size: 14px;
-}
 
 .inputfield-subtask-assign {
     display: flex;
@@ -1061,9 +1057,14 @@ h6 {
     overflow: hidden;
     position: relative;
     /* Animation */
-    max-height: 0px;
+    max-height: 0;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.error-field-category {
+    font-size: 14px;
+    color: red;
 }
 
 /* Sichtbar */
@@ -1071,7 +1072,6 @@ h6 {
     max-height: 200px;
     /* genug für die Inhalte */
     opacity: 1;
-    display: block;
 }
 
 /* Einträge */

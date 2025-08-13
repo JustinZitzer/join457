@@ -204,12 +204,14 @@ function toggleDropdown() {
     var dropdown = document.getElementById("category-dropdown");
     if (dropdown.classList.contains("dropdown-open")) {
       dropdown.classList.remove("dropdown-open");
+      setTimeout(() => {dropdown.classList.add("display-none");}, 300);
       taskSubtask.style.borderBottom = "1px solid #29ABE2";
       taskSubtask.style.borderRight = "1px solid #29ABE2";
       taskSubtask.style.borderTop = "none";
       validateGetCategoryForNewTask();
     } else {
-      dropdown.classList.add("dropdown-open");
+      dropdown.classList.remove("display-none");
+      setTimeout(() => {dropdown.classList.add("dropdown-open");}, 1);
       if (taskSubtask.value.trim() !== "") {
         taskSubtask.style.borderTop = "1px solid #29ABE2";
         taskSubtask.style.borderRight = "1px solid #29ABE2";
@@ -327,12 +329,16 @@ function getInfoForNewTask() {
 function validateGetCategoryForNewTask() {
   const taskCategory = document.getElementById("category-input");
   const fieldRequired = document.getElementById("error-field-category");
-  const dropdown = document.getElementById("category-dropdown");
   if(taskCategory == "Technical Task" || taskCategory == "User Story") {
     return taskCategory.value;
   } else {
     fieldRequired.classList.remove("display-none");
   }
+}
+
+function addStyleForDropdownAnimation() {
+  const dropdown = document.getElementById("category-dropdown");
+  dropdown.classList.remove("display-none");
 }
 
 function updateSubtasksArray() {
