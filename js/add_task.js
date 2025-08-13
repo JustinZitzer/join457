@@ -207,6 +207,7 @@ function toggleDropdown() {
       taskSubtask.style.borderBottom = "1px solid #29ABE2";
       taskSubtask.style.borderRight = "1px solid #29ABE2";
       taskSubtask.style.borderTop = "none";
+      validateGetCategoryForNewTask();
     } else {
       dropdown.classList.add("dropdown-open");
       if (taskSubtask.value.trim() !== "") {
@@ -248,7 +249,7 @@ function validateDueDateInput() {
   const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
-    showError("Dieses Feld ist erforderlich.");
+    showError("This field is required.");
   } else if (!dateCheckSlash.test(value)) {
     showError("Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
   } else {
@@ -323,16 +324,28 @@ function getInfoForNewTask() {
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
 }
 
+function validateGetCategoryForNewTask() {
+  const taskCategory = document.getElementById("category-input");
+  const fieldRequired = document.getElementById("error-field-category");
+  const dropdown = document.getElementById("category-dropdown");
+  if(taskCategory == "Technical Task" || taskCategory == "User Story") {
+    return taskCategory.value;
+  } else {
+    fieldRequired.classList.remove("display-none");
+  }
+}
+
 function updateSubtasksArray() {
   let subtasksArray = [];
   subtasksArray = [];
 
   for (let index = 0; index < subtaskSavedCounter; index++) {
     const subtaskElement = document.getElementById(`subtask-${index}`);
-    if (subtaskElement) {
-      const subtaskTextElement = subtaskElement.querySelector('.subtask-list-element-div');
-      const subtaskText = subtaskTextElement.childNodes[0].textContent.trim().replace('• ', '');
-      subtasksArray.push({subtaskText});
+    const subtaskTextElement = document.getElementById(`subtask-list-element-div${index}`);
+
+    if (subtaskElement && subtaskTextElement) {
+      const subtask = subtaskTextElement.textContent.trim().replace('• ', '');
+      subtasksArray.push(subtask);
     }
   }
   return subtasksArray;
