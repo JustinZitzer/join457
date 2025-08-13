@@ -322,7 +322,7 @@ function getInfoForNewTask() {
   let priority = getPriorityForNewTask();
   let assignedTo = getAssignedToValue();
   let categoryUserOrTechnicalTask = getCategoryForNewTask();
-  let subtasks = updateSubtasksArray();
+  let subtasks = updateSubtasksArray() || "No subtasks";
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
 }
 
