@@ -507,17 +507,17 @@ h6 {
 
 .three-circle-container {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-top: 8px;
     width: 110px;
-    height: 32px;
+    height: 40px;
     gap: 8px;
+    padding-bottom: 20px;
 
 }
 
 .single-circle-first {
-    width: 50px;
+    width: 32px;
     height: 32px;
     gap: 10px;
     border-radius: 45px;
@@ -534,7 +534,7 @@ h6 {
 
 
 .single-circle-second {
-    width: 50px;
+    width: 32px;
     height: 32px;
     gap: 10px;
     border-radius: 45px;
@@ -549,7 +549,7 @@ h6 {
 }
 
 .single-circle-third {
-    width: 50px;
+    width: 32px;
     height: 32px;
     gap: 10px;
     border-radius: 45px;
