@@ -316,14 +316,24 @@ function changeinputFieldAssignToStyle() {
 
 
 function getInfoForNewTask() {
-  let titel = taskTitel.value;
+  let titel = taskTitel.value || "New Task";
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
   let priority = getPriorityForNewTask();
   let assignedTo = getAssignedToValue();
-  let categoryUserOrTechnicalTask = taskCategory.value;
+  let categoryUserOrTechnicalTask = getCategoryForNewTask();
   let subtasks = updateSubtasksArray();
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
+}
+
+function getCategoryForNewTask() {
+  const taskCategory = document.getElementById("category-input");
+
+  if(!taskCategory.value =="") {
+    return taskCategory.value;
+  } else {
+    alert("Please select a valid category: 'Technical Task' or 'User Story'");
+  }
 }
 
 function validateGetCategoryForNewTask() {
@@ -507,7 +517,7 @@ function getPriorityForNewTask() {
 }
 
 async function postNewTaskToFirebase() {
-  if (taskTitel.value && taskDueDate.value) {
+  if (taskTitel.value && taskDueDate.value && taskCategory.value) {
       const inputsForTask = getInfoForNewTask();
       const newTaskKey = taskTitel.value;
       const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
@@ -517,6 +527,8 @@ async function postNewTaskToFirebase() {
       alert("Please enter a title for the task.");
   } else if (!taskDueDate.value) {
       alert("Please enter a due date for the task.");
+  } else if (!taskCategory.value) {
+      alert("Please select a category for the task.");
   }
 }
 
