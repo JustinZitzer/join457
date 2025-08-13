@@ -21,6 +21,7 @@ const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
 const contactsDropdown = document.getElementById("contacts-dropdown");
 let subtaskSavedCounter = 1;
+let todosArray = [];
 
 
 function openOverlay() {
@@ -318,20 +319,37 @@ function getInfoForNewTask() {
   let priority = getPriorityForNewTask();
   let assignedTo = getAssignedToValue();
   let categoryUserOrTechnicalTask = taskCategory.value;
-  let subtask = taskSubtask.value || "No subtasks";
-  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtask };
+  let subtasks = updateSubtasksArray();
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
+}
+
+function updateSubtasksArray() {
+  let subtasksArray = [];
+  subtasksArray = [];
+
+  for (let index = 0; index < subtaskSavedCounter; index++) {
+    const subtaskElement = document.getElementById(`subtask-${index}`);
+    if (subtaskElement) {
+      const subtaskTextElement = subtaskElement.querySelector('.subtask-list-element-div');
+      const subtaskText = subtaskTextElement.childNodes[0].textContent.trim().replace('• ', '');
+      subtasksArray.push({subtaskText});
+    }
+  }
+  return subtasksArray;
 }
 
 function addSubtaskInContainer() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
   const savedSubtasks = document.getElementById("subtask-added-tasks");
-  let subtask = taskSubtask.value;
+  let subtask = taskSubtask.value.trim();
+
   if (subtask) {
     savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
     subtaskSavedCounter++;
     taskSubtask.value = "";
+
+    updateSubtasksArray();
   }
-  return { subtask, subtaskSavedCounter };
 }
 
 function hidePlusIconShowCheckAndCrossIcon() {
@@ -364,7 +382,6 @@ function editSavedSubtask(subtaskSavedCounter, subtask) {
   subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter);
 }
 
-
 function saveEditedSubtask(subtaskSavedCounter) {
   const input = document.getElementById(`edit-subtask-inputfield${subtaskSavedCounter}`);
   if (!input) return;
@@ -375,12 +392,15 @@ function saveEditedSubtask(subtaskSavedCounter) {
   const liElement = subTaskElementDiv.parentElement;
 
   liElement.outerHTML = getSubtaskListElementTemplate(newValue, subtaskSavedCounter);
+
+  updateSubtasksArray();
 }
 
 function deleteSavedSubTask(subtaskSavedCounter, subtask) {
-  const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
-  if(subTaskElement)
-  subTaskElement.remove();
+  const subTaskElement = document.getElementById(`subtask-${subtaskSavedCounter}`);
+  if (subTaskElement) subTaskElement.remove();
+
+  updateSubtasksArray();
 }
 
 function getAssignedToValue() {
@@ -402,8 +422,8 @@ function getAssignedToValue() {
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
   assignedContacts = assignedContacts.filter(contact => contact !== "Not Assigned to anyone");
-
   let nameInitialesArray = [];
+  
   for (let i = 0; i < assignedContacts.length; i++) {
     const fullNames = assignedContacts[i].trim();
     const names = fullNames.split(" ");
@@ -413,6 +433,7 @@ function getContactForCircle() {
     nameInitialesArray.push(initials);
   }
   renderCirclesForAssignedContacts(nameInitialesArray);
+  return nameInitialesArray;
 }
 
 function renderCirclesForAssignedContacts(nameInitialesArray) {
@@ -490,8 +511,6 @@ async function putRegistryDataBaseFunction(path= "", data= {}) {
   });
   return responseToJson = await response.json();
 }
-
-let todosArray = [];
 
 async function loadToDoTasksFromFirebase() {
   const response = await fetch(FireBaseUrl + 'tasks/toDo.json');
