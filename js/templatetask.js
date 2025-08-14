@@ -89,8 +89,8 @@ function getTaskOverlayTemplate() {
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
     <div id="todo-content-box${taskKey}" class="todo-content-box" draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
-      <div class="user-story-box">
-        <span>${task.categoryUserOrTechnicalTask}</span>
+      <div class="" id="user-story-box${taskKey}">
+        <span class="" id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
       </div>
       <div class="text-contact-box">
         <span>${task.titel}</span>

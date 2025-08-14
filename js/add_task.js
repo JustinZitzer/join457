@@ -599,42 +599,38 @@ function filterTasksByCategory() {
 
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+  clearAllTasks();
 
+  for (let i = 0; i < toDoTasks.length; i++) {
+    const task = toDoTasks[i];
+    toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    userStoryOrTechnicalTaskStyle(task.id);
+  }
+
+  for (let i = 0; i < inProgressTasks.length; i++) {
+    const task = inProgressTasks[i];
+    inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    userStoryOrTechnicalTaskStyle(task.id);
+  }
+
+  for (let i = 0; i < awaitFeedbackTasks.length; i++) {
+    const task = awaitFeedbackTasks[i];
+    awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    userStoryOrTechnicalTaskStyle(task.id);
+  }
+
+  for (let i = 0; i < doneTasks.length; i++) {
+    const task = doneTasks[i];
+    doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    userStoryOrTechnicalTaskStyle(task.id);
+  }
+}
+
+function clearAllTasks() {
   toDoContentFinalDiv.innerHTML = '';
   inProgressContent.innerHTML = '';
   awaitFeedbackContent.innerHTML = '';
   doneContent.innerHTML = '';
-
-  for (let i = 0; i < toDoTasks.length; i++) {
-    toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(toDoTasks[i], toDoTasks[i].id);
-    toDoContentFinalDiv.innerHTML += `
-    <div class="todo-container-content-mobile-version">${toDoTasks[i].id}</div>
-  
-  `;
-  }
-
-  for (let i = 0; i < inProgressTasks.length; i++) {
-    inProgressContent.innerHTML += getTaskFromFirebaseTemplate(inProgressTasks[i], inProgressTasks[i].id);
-    inProgressContent.innerHTML += `
-    <div class="inprogress-container-content-mobile-version">${inProgressTasks[i].id}</div>
-
-`;
-
-  }
-  for (let i = 0; i < awaitFeedbackTasks.length; i++) {
-    awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(awaitFeedbackTasks[i], awaitFeedbackTasks[i].id);
-    awaitFeedbackContent.innerHTML += `
-     <div class="todo-container-content-mobile-version">${awaitFeedbackTasks[i].id}</div>
-    <div class="await-feedback-container-content-mobile-version-task"></div>
-    `;
-  }
-  for (let i = 0; i < doneTasks.length; i++) {
-    doneContent.innerHTML += getTaskFromFirebaseTemplate(doneTasks[i], doneTasks[i].id);
-    doneContent.innerHTML += `
-     <div class="done-container-content-mobile-version">${doneTasks[i].id}</div>
-    
-    `;
-  }
 }
 
 let currentDraggedElement = null;
@@ -670,5 +666,17 @@ async function moveTo(newCategory) {
 
   // 4. Tasks neu laden und rendern
   loadAllTasksFromFirebase();
+}
+
+function userStoryOrTechnicalTaskStyle(taskKey) {
+  const userOrTechnicalTextBox = document.getElementById(`user-story-or-technical-task-box${taskKey}`);
+  const userOrTechnicalDiv = document.getElementById(`user-story-box${taskKey}`);
+  if (!userOrTechnicalTextBox || !userOrTechnicalDiv) return;
+
+  if (userOrTechnicalTextBox.innerHTML == "User Story") {
+    userOrTechnicalDiv.classList.add("user-story-box");
+  } else if (userOrTechnicalTextBox.innerHTML == "Technical Task") {
+    userOrTechnicalDiv.classList.add("technical-task-box");
+  }
 }
 
