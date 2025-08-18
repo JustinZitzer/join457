@@ -680,3 +680,6 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
   }
 }
 
+function progressBarStyle () {
+  
+}
