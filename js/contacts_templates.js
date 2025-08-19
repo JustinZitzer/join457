@@ -91,18 +91,18 @@ function getEditContactOverlay(contact) {
                 <div class="add-contact-person-svg-container" style="background-color:${color};">
                     <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                 </div>
-                <form>
+                <form onsubmit="saveEditedContact(event, '${contact.key}')">
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-name-input" type="text" placeholder="Name">
+                        <input class="add-contact-name-input" type="text" placeholder="Name" value="${contact.firstName} ${contact.lastName}">
                     </div>
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-email-input" type="text" placeholder="Email">
+                        <input class="add-contact-email-input" type="text" placeholder="Email" value="${contact.email}">
                     </div>
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-phone-input" type="text" placeholder="Phone">
+                        <input class="add-contact-phone-input" type="text" placeholder="Phone" value="${contact.phoneNumber}">
                     </div>
                     <div class="add-contact-btn-section">
-                        <button class="add-contact-cancel-btn">Delete<img src="./assets/icons/delete-icon.svg"
+                        <button onclick="deleteContact('${contact.key}')" class="add-contact-cancel-btn">Delete<img src="./assets/icons/delete-icon.svg"
                                 alt="close-icon"></button>
                         <button class="add-contact-create-contact-btn">Save<img src="./assets/icons/check-icon.svg"
                                 alt="check-icon"></button>
