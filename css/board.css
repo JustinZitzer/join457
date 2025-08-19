@@ -1550,6 +1550,185 @@ h2 {
     width: 1px;
 }
 
+.task-big-container-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-big-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 89%;
+    width: 31%;
+    background-color: white;
+    border-radius: 16px;
+    position: relative;
+    z-index: 112;
+}
+
+.task-category-and-cross-icon-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 20px
+}
+
+.task-board-big-headline {
+    font-size: 50px;
+    width: 80%;
+}
+
+.task-board-big-description {
+    width: 80%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.task-board-big-date-div {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.task-board-big-date-number {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.task-board-big-priority-div {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.task-board-big-priority {
+    margin-left: 38px;
+    font-size: 18px;
+}
+
+.task-board-big-priority-icon {
+    margin-left: 10px;
+    height: 18px;
+}
+
+.task-board-big-assigned-to-div {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.task-board-big-assigned-to-contacts-div{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 20px;
+}
+
+.task-board-big-first-contact {
+    display: flex;
+    margin-top: 15px;
+}
+
+.task-board-big-second-contact {
+    display: flex;
+    margin-top: 25px;
+}
+
+.task-board-big-third-contact {
+    display: flex;
+    margin-top: 25px;
+}
+
+.task-board-big-first-circle {
+    margin-right: 10px;
+}
+
+.task-board-big-second-circle {
+    margin-right: 10px;
+}
+
+.task-board-big-third-circle {
+    margin-right: 10px;
+}
+
+.subtasks-board-big-headline {
+    width: 80%;
+    font-size: 30px;
+}
+
+.subtasks-board-big-headline {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+.subtasks-board-tasks-div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subtasks-board-first-task {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.subtasks-board-second-task {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-board-subtasks {
+    margin-right: 15px;
+}
+
+.task-board-big-delete-edit-div {
+    width: 80%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.task-board-big-delete-edit-div-first {
+    display: flex;
+    align-items: center;
+}
+
+.seperator-big-subtask {
+    width: 1px;
+    height: 20px;
+    background-color: #000000;
+}
+
+.delete-icon-board {
+    margin-right: 5px;
+}
+
+.delete-text-board {
+    margin-right: 10px;
+}
+
+.seperator-big-subtask {
+    margin-right: 10px;
+}
+
+.edit-icon-board {
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 1400px) {
     main {
         width: 99vw;

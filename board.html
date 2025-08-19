@@ -15,10 +15,10 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataSignUp()">
+<body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataBoard()">
     <div id="index_html"></div> <!--lädt html (header,sidebar)-->
 
-    <main>
+    <main id="main-container-board">
         <div class="header-container-board">
 
             <div class="header-main-container">
@@ -146,6 +146,71 @@
                         </div>
 
                 </div>
+            </div>
+        </div>
+
+        <div onclick="hideBigTaskInfo()" id="task-big-container-absolute" class="task-big-container-absolute display-none">
+            <div id="task-big-container" class="task-big-container display-none">
+                <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+                    <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>
+                    <img src="./assets/icons/contacts-close-icon.svg" alt="">
+                </div>
+
+                <h1 id="task-board-big-headline" class="task-board-big-headline">Kochwelt Page & Recipe Recommender</h1>
+                <span id="task-board-big-description" class="task-board-big-description">Build start page with recipe recommendation.</span>
+
+                <div class="task-board-big-date-div">
+                    <p class="task-board-big-date-text">Due Date:</p>
+                    <span id="task-board-big-date-number" class="task-board-big-date-number">10/05/2023</span>
+                </div>
+
+                <div id="task-board-big-priority-div" class="task-board-big-priority-div">
+                    <p class="task-board-big-priority-text">Priority:</p>
+                    <span id="task-board-big-priority" class="task-board-big-priority">Medium</span>
+                    <img id="task-board-big-priority-icon" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
+                </div>
+
+                <div class="task-board-big-assigned-to-div">
+                    <p>Assigned to:</p>
+                    <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
+                        <div class="task-board-big-first-contact">
+                            <span class="task-board-big-first-circle">EM</span>
+                            <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+                        </div>
+                        <div class="task-board-big-second-contact">
+                            <span class="task-board-big-second-circle">MB</span>
+                            <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+                        </div>
+                        <div class="task-board-big-third-contact">
+                            <span class="task-board-big-third-circle">AM</span>
+                            <p class="task-board-big-third-contact-name">Anton Mayer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="subtasks-board-big-headline">Subtasks</span>
+
+                <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
+                    <div class="subtasks-board-first-task">
+                        <input class="checkbox-board-subtasks" type="checkbox">
+                        <span>Implement Recipe Recommendation</span>
+                    </div>
+                    <div class="subtasks-board-second-task">
+                        <input class="checkbox-board-subtasks" type="checkbox">
+                        <span>Start Page Layout</span>
+                    </div>
+                </div>
+
+                <div class="task-board-big-delete-edit-div">
+                    <div class="task-board-big-delete-edit-div-first">
+                        <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
+                        <p class="delete-text-board">Delete</p>
+                        <div class="seperator-big-subtask"></div>
+                        <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
+                        <p class="edit-text-board">Edit</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 

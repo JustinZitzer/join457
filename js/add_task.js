@@ -22,7 +22,7 @@ const circleRenderContainer = document.getElementById("three-circle-container");
 const contactsDropdown = document.getElementById("contacts-dropdown");
 let subtaskSavedCounter = 1;
 let todosArray = [];
-
+let fullTaskInfoArray = [];
 
 function openOverlay() {
     const overlay = document.getElementById("overlay");
@@ -680,6 +680,23 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
   }
 }
 
-function progressBarStyle () {
-  
+async function loadDataBoard(path="") {
+  let response = await fetch(FireBaseUrl + path + ".json");
+  let responseToJson = await response.json();
+  fullTaskInfoArray.push(responseToJson);
+  console.log(fullTaskInfoArray);
+}
+
+function showBigTaskInfo() {
+  const bigTaskDivContent = document.getElementById("task-big-container");
+  const bigTaskAbsoluteDiv = document.getElementById("task-big-container-absolute");
+  bigTaskDivContent.classList.remove("display-none");
+  bigTaskAbsoluteDiv.classList.remove("display-none");
+}
+
+function hideBigTaskInfo() {
+  const bigTaskDivContent = document.getElementById("task-big-container");
+  const bigTaskAbsoluteDiv = document.getElementById("task-big-container-absolute");
+  bigTaskDivContent.classList.add("display-none");
+  bigTaskAbsoluteDiv.classList.add("display-none");
 }
