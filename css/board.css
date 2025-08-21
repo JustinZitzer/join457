@@ -1627,7 +1627,7 @@ h2 {
     margin-top: 20px;
 }
 
-.task-board-big-assigned-to-contacts-div{
+.task-board-big-assigned-to-contacts-div {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -1806,13 +1806,26 @@ h2 {
         cursor: pointer;
     }
 
-
     .search-button {
         width: 17.6px;
         height: 17.6px;
 
     }
 
+    .todos-bar-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        gap:300px;
+    }
+
+    .todo-container {
+        margin-left: 35px;
+    }
+
+    .todo-container-content-mobile-version {
+        display: none;
+    }
 
     .title-findtask {
         padding-left: 16px;
@@ -1835,7 +1848,7 @@ h2 {
 
     }
 }
-  
+
 
 .responsive-btn {
     display: none;

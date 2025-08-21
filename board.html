@@ -7,7 +7,9 @@
     <title>Board | Join</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
     <link rel="stylesheet" href="./css/board.css">
@@ -31,7 +33,8 @@
 
                         <div class="inputfield-task">
                             <div class="inputfield-task-content">
-                                <input type="text" placeholder="Find task" class="title-findtask" id="title-findtask-inputfield">
+                                <input type="text" placeholder="Find task" class="title-findtask"
+                                    id="title-findtask-inputfield">
                                 <div class="search-button-container">
                                     <div class="line-infind-task-field"></div>
                                     <div class="search-icon-content"></div>
@@ -59,170 +62,187 @@
                 </div>
 
                 <div class="todos-bar-container">
-                        <div class="todo-container">
-                            <div id="todo-content" class="todo-content">
-                                <p>To do</p>
-                                <div ondrop="moveTo('toDo')" ondragover="allowDrop(event)" class="todo-content-task" id="todo-content-task"></div>
-                            </div>
-
-                            <div class="add-button-container">
-                                <button onclick="overlayToDo()" class="add-button">
-                                    <img src="./assets/icons/plus button.png" alt="Plus"/>
-                                </button>
-                                    <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-todo"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
-                            </div>
+                    <div class="todo-container">
+                        <div id="todo-content" class="todo-content">
+                            <p>To do</p>
+                            <div ondrop="moveTo('toDo')" ondragover="allowDrop(event)" class="todo-content-task"
+                                id="todo-content-task"></div>
                         </div>
 
-                        <div class="todo-container-content-mobile-version">
-                            <div class="todo-container-content-mobile-version-task" id="todo-container-content-mobile-version-task">
+                        <div class="add-button-container">
+                            <button onclick="overlayToDo()" class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
+                            <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
+                                <!-- Seitlich hereinslidenes Overlay -->
+                                <div id="content-add-task-overlay-todo"></div>
+                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
-            
+                    </div>
 
-                        <div class="inprogress-container">
-                            <div id="inprogress-content" class="inprogress-content">
-                                <p>In progress</p>
-                                <div ondrop="moveTo('inProgress')" ondragover="allowDrop(event)" class="inprogress-content-task" id="inprogress-content-task"></div>
-                            </div>
+                    <div class="todo-container-content-mobile-version">
+                        <div class="todo-container-content-mobile-version-task"
+                            id="todo-container-content-mobile-version-task">
+                        </div>
+                    </div>
 
 
-                            <div class="add-button-container">
-                                <button onclick="openOverlayInProgress()" class="add-button">
-                                    <img src="./assets/icons/plus button.png" alt="Plus" />
-                                </button>
-                                    <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-in-progress"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
-                            </div>
+                    <div class="inprogress-container">
+                        <div id="inprogress-content" class="inprogress-content">
+                            <p>In progress</p>
+                            <div ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"
+                                class="inprogress-content-task" id="inprogress-content-task"></div>
                         </div>
 
-                        <div class="inprogress-container-content-mobile-version">
-                            <div class="inprogress-container-content-mobile-version-task" id="inprogress-container-content-mobile-version-task">
-                                Hier ist der Content inprogress
-                            </div>
-                        </div>
-                
 
-                        <div class="await-feedback-task-container">
-                            <div id="await-feedback-content" class="await-feedback-content">
-                                <p>Await feedback</p>
-                                <div ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)" class="await-feedback-content-task" id="await-feedback-content-task"></div>
-                            </div>
-                            <div class="add-button-container">
-                                <button onclick="openOverlayFeedback()" class="add-button">
-                                    <img src="./assets/icons/plus button.png" alt="Plus" />
-                                </button>
-                                    <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
-                            
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-await-feedback"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
+                        <div class="add-button-container">
+                            <button onclick="openOverlayInProgress()" class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
+                            <div id="overlay-in-progress" class="overlay-hidden"
+                                onclick="closeOverlayInProgress(event)">
+                                <!-- Seitlich hereinslidenes Overlay -->
+                                <div id="content-add-task-overlay-in-progress"></div>
+                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
+                    </div>
 
-                        <div class="await-feedback-container-content-mobile-version">
-                            <div class="await-feedback-container-content-mobile-version-task" id="await-feedback-container-content-mobile-version-task">
-                                Hier ist der Content await feedback
-                            </div>
+                    <div class="inprogress-container-content-mobile-version">
+                        <div class="inprogress-container-content-mobile-version-task"
+                            id="inprogress-container-content-mobile-version-task">
+                            Hier ist der Content inprogress
                         </div>
-                        
+                    </div>
 
-                        <div class="done-task-container">
-                            <div id="done-content" class="done-content">
-                                <p>Done</p>
-                                <div ondrop="moveTo('done')" ondragover="allowDrop(event)" class="done-content-task" id="done-content-task"></div>
+
+                    <div class="await-feedback-task-container">
+                        <div id="await-feedback-content" class="await-feedback-content">
+                            <p>Await feedback</p>
+                            <div ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)"
+                                class="await-feedback-content-task" id="await-feedback-content-task"></div>
+                        </div>
+                        <div class="add-button-container">
+                            <button onclick="openOverlayFeedback()" class="add-button">
+                                <img src="./assets/icons/plus button.png" alt="Plus" />
+                            </button>
+                            <div id="overlay-await-feedback" class="overlay-hidden"
+                                onclick="closeOverlayFeedback(event)">
+
+                                <!-- Seitlich hereinslidenes Overlay -->
+                                <div id="content-add-task-overlay-await-feedback"></div>
+                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
+                    </div>
+
+                    <div class="await-feedback-container-content-mobile-version">
+                        <div class="await-feedback-container-content-mobile-version-task"
+                            id="await-feedback-container-content-mobile-version-task">
+                            Hier ist der Content await feedback
+                        </div>
+                    </div>
+
+                    <div class="done-task-container">
+                        <div id="done-content" class="done-content">
+                            <p>Done</p>
+                            <div ondrop="moveTo('done')" ondragover="allowDrop(event)" class="done-content-task"
+                                id="done-content-task"></div>
+                        </div>
+                    </div>
+                    <div class="add-button-container">
+                        <button onclick="openOverlayFeedback()" class="add-button">
+                            <img src="./assets/icons/plus button.png" alt="Plus" />
+                        </button>
 
                         <div class="done-container-content-mobile-version" id="done-container-content-mobile-version">
                             Hier ist der fertige Content
                         </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div onclick="hideBigTaskInfo()" id="task-big-container-absolute" class="task-big-container-absolute display-none">
-            <div id="task-big-container" class="task-big-container display-none">
-                <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
-                    <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>
-                    <img src="./assets/icons/contacts-close-icon.svg" alt="">
-                </div>
+            <div onclick="hideBigTaskInfo()" id="task-big-container-absolute"
+                class="task-big-container-absolute display-none">
+                <div id="task-big-container" class="task-big-container display-none">
+                    <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+                        <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>
+                        <img src="./assets/icons/contacts-close-icon.svg" alt="">
+                    </div>
 
-                <h1 id="task-board-big-headline" class="task-board-big-headline">Kochwelt Page & Recipe Recommender</h1>
-                <span id="task-board-big-description" class="task-board-big-description">Build start page with recipe recommendation.</span>
+                    <h1 id="task-board-big-headline" class="task-board-big-headline">Kochwelt Page & Recipe Recommender
+                    </h1>
+                    <span id="task-board-big-description" class="task-board-big-description">Build start page with
+                        recipe recommendation.</span>
 
-                <div class="task-board-big-date-div">
-                    <p class="task-board-big-date-text">Due Date:</p>
-                    <span id="task-board-big-date-number" class="task-board-big-date-number">10/05/2023</span>
-                </div>
+                    <div class="task-board-big-date-div">
+                        <p class="task-board-big-date-text">Due Date:</p>
+                        <span id="task-board-big-date-number" class="task-board-big-date-number">10/05/2023</span>
+                    </div>
 
-                <div id="task-board-big-priority-div" class="task-board-big-priority-div">
-                    <p class="task-board-big-priority-text">Priority:</p>
-                    <span id="task-board-big-priority" class="task-board-big-priority">Medium</span>
-                    <img id="task-board-big-priority-icon" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
-                </div>
+                    <div id="task-board-big-priority-div" class="task-board-big-priority-div">
+                        <p class="task-board-big-priority-text">Priority:</p>
+                        <span id="task-board-big-priority" class="task-board-big-priority">Medium</span>
+                        <img id="task-board-big-priority-icon" class="task-board-big-priority-icon"
+                            src="./assets/icons/double-arrow-down-14228.png" alt="">
+                    </div>
 
-                <div class="task-board-big-assigned-to-div">
-                    <p>Assigned to:</p>
-                    <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
-                        <div class="task-board-big-first-contact">
-                            <span class="task-board-big-first-circle">EM</span>
-                            <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+                    <div class="task-board-big-assigned-to-div">
+                        <p>Assigned to:</p>
+                        <div id="task-board-big-assigned-to-contacts-div"
+                            class="task-board-big-assigned-to-contacts-div">
+                            <div class="task-board-big-first-contact">
+                                <span class="task-board-big-first-circle">EM</span>
+                                <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+                            </div>
+                            <div class="task-board-big-second-contact">
+                                <span class="task-board-big-second-circle">MB</span>
+                                <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+                            </div>
+                            <div class="task-board-big-third-contact">
+                                <span class="task-board-big-third-circle">AM</span>
+                                <p class="task-board-big-third-contact-name">Anton Mayer</p>
+                            </div>
                         </div>
-                        <div class="task-board-big-second-contact">
-                            <span class="task-board-big-second-circle">MB</span>
-                            <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+                    </div>
+
+                    <span class="subtasks-board-big-headline">Subtasks</span>
+
+                    <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
+                        <div class="subtasks-board-first-task">
+                            <input class="checkbox-board-subtasks" type="checkbox">
+                            <span>Implement Recipe Recommendation</span>
                         </div>
-                        <div class="task-board-big-third-contact">
-                            <span class="task-board-big-third-circle">AM</span>
-                            <p class="task-board-big-third-contact-name">Anton Mayer</p>
+                        <div class="subtasks-board-second-task">
+                            <input class="checkbox-board-subtasks" type="checkbox">
+                            <span>Start Page Layout</span>
                         </div>
                     </div>
-                </div>
 
-                <span class="subtasks-board-big-headline">Subtasks</span>
-
-                <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
-                    <div class="subtasks-board-first-task">
-                        <input class="checkbox-board-subtasks" type="checkbox">
-                        <span>Implement Recipe Recommendation</span>
+                    <div class="task-board-big-delete-edit-div">
+                        <div class="task-board-big-delete-edit-div-first">
+                            <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
+                            <p class="delete-text-board">Delete</p>
+                            <div class="seperator-big-subtask"></div>
+                            <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
+                            <p class="edit-text-board">Edit</p>
+                        </div>
                     </div>
-                    <div class="subtasks-board-second-task">
-                        <input class="checkbox-board-subtasks" type="checkbox">
-                        <span>Start Page Layout</span>
-                    </div>
-                </div>
 
-                <div class="task-board-big-delete-edit-div">
-                    <div class="task-board-big-delete-edit-div-first">
-                        <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
-                        <p class="delete-text-board">Delete</p>
-                        <div class="seperator-big-subtask"></div>
-                        <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
-                        <p class="edit-text-board">Edit</p>
-                    </div>
                 </div>
-
             </div>
-        </div>
 
     </main>
-        
-        <script src="./js/script.js"></script>
-        <script src="./js/add_task.js"></script>
-        <script src="./js/templatetask.js"></script>
-        <script src="./js/summary.js"></script>
-        <script src="./js/load_html.js"></script>
-        <script src="./js/firebase.js"></script>
-        <script src="./js/signup.js"></script>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/add_task.js"></script>
+    <script src="./js/templatetask.js"></script>
+    <script src="./js/summary.js"></script>
+    <script src="./js/load_html.js"></script>
+    <script src="./js/firebase.js"></script>
+    <script src="./js/signup.js"></script>
 </body>
 
 
