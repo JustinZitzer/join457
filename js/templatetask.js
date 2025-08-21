@@ -88,9 +88,10 @@ function getTaskOverlayTemplate() {
 
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
-    <div onclick="showBigTaskInfo()" id="todo-content-box${taskKey}" class="todo-content-box" draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
-      <div class="" id="user-story-box${taskKey}">
-        <span class="" id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
+    <div onclick="showBigTaskInfo('${taskKey}')" id="todo-content-box${taskKey}" class="todo-content-box"
+         draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
+      <div id="user-story-box${taskKey}">
+        <span id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
       </div>
       <div class="text-contact-box">
         <span>${task.titel}</span>
@@ -112,6 +113,74 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
     </div>
   `;
 }
+
+
+function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
+  return `
+    <div id="big-task-${taskKey}" class="big-task-panel display-none">
+      <div class="task-category-and-cross-icon-div">
+        <span class="big-board-user-or-technical">${task.categoryUserOrTechnicalTask}</span>
+        <img src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+      </div>
+
+      <h1 class="task-board-big-headline">${task.titel}</h1>
+      <span class="task-board-big-description">${task.description}</span>
+
+      <div class="task-board-big-date-div">
+        <p class="task-board-big-date-text">Due Date:</p>
+        <span class="task-board-big-date-number">${task.dueDate}</span>
+      </div>
+
+      <div class="task-board-big-priority-div">
+        <p class="task-board-big-priority-text">Priority:</p>
+        <span class="task-board-big-priority">${task.priority}</span>
+        <img class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
+      </div>
+
+      <div class="task-board-big-assigned-to-div">
+        <p>Assigned to:</p>
+        <div class="task-board-big-assigned-to-contacts-div">
+          <div class="task-board-big-first-contact">
+            <span class="task-board-big-first-circle">EM</span>
+            <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+          </div>
+          <div class="task-board-big-second-contact">
+            <span class="task-board-big-second-circle">MB</span>
+            <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+          </div>
+          <div class="task-board-big-third-contact">
+            <span class="task-board-big-third-circle">AM</span>
+            <p class="task-board-big-third-contact-name">Anton Mayer</p>
+          </div>
+        </div>
+      </div>
+
+      <span class="subtasks-board-big-headline">Subtasks</span>
+      <div class="subtasks-board-tasks-div">
+        <div class="subtasks-board-first-task">
+          <input class="checkbox-board-subtasks" type="checkbox">
+          <span>Implement Recipe Recommendation</span>
+        </div>
+        <div class="subtasks-board-second-task">
+          <input class="checkbox-board-subtasks" type="checkbox">
+          <span>Start Page Layout</span>
+        </div>
+      </div>
+
+      <div class="task-board-big-delete-edit-div">
+        <div class="task-board-big-delete-edit-div-first">
+          <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
+          <p class="delete-text-board">Delete</p>
+          <div class="seperator-big-subtask"></div>
+          <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
+          <p class="edit-text-board">Edit</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
 
 function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
   return `

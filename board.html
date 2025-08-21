@@ -17,7 +17,7 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataBoard()">
+<body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataBoard(), initBigTaskInfoOverlay()">
     <div id="index_html"></div> <!--lädt html (header,sidebar)-->
 
     <main id="main-container-board">
@@ -164,8 +164,7 @@
                 </div>
             </div>
 
-            <div onclick="hideBigTaskInfo()" id="task-big-container-absolute"
-                class="task-big-container-absolute display-none">
+            <div id="task-big-container-absolute" class="task-big-container-absolute display-none">
                 <div id="task-big-container" class="task-big-container display-none">
                     <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
                         <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>

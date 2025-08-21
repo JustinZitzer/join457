@@ -1,5 +1,6 @@
 const toDoContent = document.getElementById("todo-content-box");
 const toDoContentFinalDiv = document.getElementById("todo-content-task");
+const bigTaskDiv = document.getElementById("task-big-container");
 const inProgressContent = document.getElementById("inprogress-content-task");
 const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
 const doneContent = document.getElementById("done-content-task");
@@ -600,28 +601,33 @@ function filterTasksByCategory() {
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
   clearAllTasks();
+  bigTaskDiv.innerHTML = '';
 
   for (let i = 0; i < toDoTasks.length; i++) {
     const task = toDoTasks[i];
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
     const task = inProgressTasks[i];
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
     const task = awaitFeedbackTasks[i];
     awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
     const task = doneTasks[i];
     doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
+    bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
   }
 }
@@ -687,16 +693,40 @@ async function loadDataBoard(path="") {
   console.log(fullTaskInfoArray);
 }
 
-function showBigTaskInfo() {
-  const bigTaskDivContent = document.getElementById("task-big-container");
-  const bigTaskAbsoluteDiv = document.getElementById("task-big-container-absolute");
-  bigTaskDivContent.classList.remove("display-none");
-  bigTaskAbsoluteDiv.classList.remove("display-none");
+function showBigTaskInfo(taskKey) {
+  const overlay = document.getElementById("task-big-container-absolute");
+  const wrapper = document.getElementById("task-big-container");
+  // Klasse bzw css anpassen
+  const panels = wrapper.getElementsByClassName('big-task-panel');
+  for (let i = 0; i < panels.length; i++) {
+    panels[i].classList.add('display-none');
+  }
+  // Task zeigen
+  const task = document.getElementById(`big-task-${taskKey}`);
+  if (!task) return;
+  overlay.classList.remove("display-none");
+  wrapper.classList.remove("display-none");
+  task.classList.remove("display-none");
 }
 
-function hideBigTaskInfo() {
-  const bigTaskDivContent = document.getElementById("task-big-container");
-  const bigTaskAbsoluteDiv = document.getElementById("task-big-container-absolute");
-  bigTaskDivContent.classList.add("display-none");
-  bigTaskAbsoluteDiv.classList.add("display-none");
+function hideBigTaskInfo(taskKey) {
+  const overlay = document.getElementById("task-big-container-absolute");
+  const wrapper = document.getElementById("task-big-container");
+  overlay.classList.add("display-none");
+  wrapper.classList.add("display-none");
+  const task = document.getElementById(`big-task-${taskKey}`);
+  if (task) task.classList.add("display-none");
+}
+
+function initBigTaskInfoOverlay() {
+  const overlay = document.getElementById("task-big-container-absolute");
+  const taskWindow = document.getElementById("task-big-container");
+
+  overlay.addEventListener("click", function() {
+    hideBigTaskInfo();
+  });
+
+  taskWindow.addEventListener("click", function(event) {
+    event.stopPropagation();
+  });
 }
