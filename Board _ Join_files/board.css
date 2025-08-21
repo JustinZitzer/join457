@@ -17,6 +17,7 @@ main {
     height: 176px;
     top: 96px;
     left: 232px;
+    http: //join-457.developerakademie.net/join457/board.html
 
 }
 
@@ -1728,7 +1729,7 @@ h2 {
     margin-right: 5px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1400px) {
     main {
         width: 99vw;
         margin-left: 0px;
@@ -1834,8 +1835,449 @@ h2 {
         padding-left: 64px;
 
     }
+
+    .todo-content-box {
+        width: 17vw;
+        height: 244px;
+        gap: 10px;
+        border-radius: 24px;
+        padding: 16px;
+        display: none;
+
+    }
+
+    .todos-bar-container {
+        display: flex;
+        flex-direction: column;
+        width: 99vw;
+        padding-left: 0px;
+        margin-top: 60px;
+        margin-left: 1vw;
+    }
+
+    .todo-container {
+        display: flex;
+        width: 97vw;
+        height: 24px;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+
+    .todo-container-content-mobile-version {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        width: 100vw;
+        height: 22vh;
+    }
+
+
+    .todo-container-content-mobile-version-task {
+        width: 23vh;
+        height: 50vh;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: white;
+        color: #ffffff;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+
+    }
+
+    .inprogress-container-content-mobile-version-task {
+        width: 23vh;
+        height: 50vh;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: white;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+
+    }
+
+    .await-feedback-container-content-mobile-version-task {
+        width: 23vh;
+        height: 50vh;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: white;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+
+    }
+
+
+    .user-story-box-mobile-version-task {
+        height: 27px;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #0038FF;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+    }
+
+
+    .text-contact-box-mobile-version-task {
+        width: 220px;
+        height: 65px;
+        gap: 8px;
+        padding-top: 12px;
+        border-radius: 10px;
+        font-family: Inter;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #2A3647;
+
+
+    }
+
+    .text-create-box-mobile-version-task {
+        width: 220px;
+        height: 38px;
+        font-weight: 400;
+        padding-top: 4px;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #A8A8A8;
+    }
+
+
+    .progressbar-box-mobile-version-task {
+        display: flex;
+        width: 220px;
+        height: 16px;
+        padding-top: 36px;
+
+    }
+
+    .progressbar-content-mobile-version-task {
+        width: 128px;
+        height: 8px;
+        top: 4px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #F4F4F4;
+
+    }
+
+    .subtask-text-mobile-version-task {
+        width: 75px;
+        height: 14px;
+        left: 139px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #000000;
+
+    }
+
+    .three-circle-todo {
+        width: 220px;
+        height: 32px;
+        justify-content: space-between;
+        padding-top: 20px;
+
+    }
+
+    .three-circle-await {
+        width: 220px;
+        height: 32px;
+        justify-content: space-between;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 32px;
+
+    }
+
+    .three-circle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 22px;
+        width: 110px;
+        height: 32px;
+        gap: 8px;
+
+    }
+
+    .single-circle-first {
+        width: 50px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: blueviolet;
+
+
+    }
+
+
+    .single-circle-second {
+        width: 50px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: deeppink;
+    }
+
+
+    h5 {
+        color: white;
+    }
+
+
+    .single-circle-orange {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: orange;
+
+    }
+
+    .single-circle-darkblue {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: darkblue;
+
+    }
+
+
+
+    .single-circle-third {
+        width: 50px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: orange;
+
+    }
+
+    .single-circle-turkis {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: turquoise;
+    }
+
+
+    .single-circle-blue {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: blue;
+    }
+
+    .single-circle-pink {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgb(191, 53, 140);
+    }
+
+    .single-circle-violett {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgb(152, 23, 184);
+    }
+
+    .single-circle-red {
+        width: 32px;
+        height: 32px;
+        gap: 10px;
+        border-radius: 45px;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgb(184, 79, 23);
+    }
+
+
+    .inprogress-container-content-mobile-version {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        width: 97vw;
+        height: 200px;
+    }
+
+    .await-feedback-container-content-mobile-version {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        width: 97vw;
+        height: 200px;
+    }
+
+
+    .done-container-content-mobile-version {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        width: 97vw;
+        height: 200px;
+    }
+
+    .inprogress-container {
+        display: flex;
+        width: 97vw;
+        height: 24px;
+        margin-left: 0px;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+
+    .await-feedback-task-container {
+        display: flex;
+        width: 97vw;
+        height: 24px;
+        margin-left: 0px;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+
+    .done-task-container {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0px;
+        width: 244px;
+        height: 24px;
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .responsive-btn-container {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background-color: black;
+    }
+
+    .responsive-btn {
+        z-index: 1000;
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 20px;
+        width: 40px;
+        height: 40px;
+        display: block !important;
+        height: auto;
+        background-color: white;
+        border-radius: black;
+        border: 2px solid black;
+        border-radius: 25%;
+    }
 }
-  
 
 .responsive-btn {
     display: none;

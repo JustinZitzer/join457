@@ -1,0 +1,698 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.Summary-Box-Z-Index-Container {
+    margin-left: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.Summary-Box-Container {
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.Headline-Join-360 {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    margin-left: 0px;
+}
+
+.Headline-Blue-Line {
+    height: 63px;
+    border: 2px solid #29ABE2;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.Headline-Join-360-Text {
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    margin-left: 20px;
+}
+
+.To-Do-Six-Box-Container {
+    margin-left: 0px;
+    width: 560px;
+    height: 562px;
+}
+
+.First-Two-Box-Container {
+    display: flex;
+    margin-top: 30px;
+}
+
+.To-Do-Box {
+    height: 168px;
+    width: 264px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    display: flex;
+    align-items: center;
+}
+
+.Circle-Logo-Svg-Summary circle {
+    fill: #2A3647;
+}
+
+.To-Do-Box:hover .Circle-Logo-Svg-Summary circle {
+  fill: #FFFFFF;
+}
+
+.To-Do-Box:hover {
+    cursor: pointer;
+    scale: 1.10;
+    background-color: #2A3647;
+}
+
+.Done-Box {
+    height: 168px;
+    width: 264px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.Done-Box:hover {
+    background-color: #2A3647;
+    scale: 1.10;
+    cursor: pointer;
+}
+
+.Done-Box:hover .Circle-Logo-Svg-Summary circle {
+    fill: #FFFFFF;
+}
+
+.Circle-Logo-Container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 60px;
+}
+
+.Pencil-Icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+}
+
+.Pencil-Icon path {
+    position: absolute;
+    fill: white;
+}
+
+.To-Do-Box:hover .Pencil-Icon path {
+  fill: #2A3647;
+}
+
+.Checked-Icon {
+    position: absolute;
+    left: 15px;
+}
+
+.Checked-Icon path {
+  stroke: white;
+}
+
+.Done-Box:hover .Checked-Icon path {
+  stroke: #2A3647;
+}
+
+.Counter-To-Do {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.To-Do-Box:hover .Counter-To-Do {
+    color: #FFFFFF;
+}
+
+.To-Do-Box:hover .To-Do-Box-Text {
+    color: #FFFFFF;
+}
+
+.Counter-Done {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.Done-Box:hover .Counter-Done {
+    color: #FFFFFF;
+}
+
+.Done-Box:hover .Done-Box-Text {
+    color: #FFFFFF;
+}
+
+.To-Do-Box-Text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+}
+
+.Done-Box-Text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+}
+
+.Counter-Text-To-Do-Box-Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.Counter-Text-Done-Box-Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.Second-Container-Box-Greeting-Wrapper {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+.Second-One-Box-Container {
+    display: flex;
+    border-radius: 30px;
+    height: 168px;
+    width: 560px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.Second-One-Box-Container:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.Second-One-Box-Container:hover .Counter-Urgent {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Urgent-Text {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Date-Of-The-Deadline {
+    color: #FFFFFF;
+}
+
+.Second-One-Box-Container:hover .Text-Upcoming-Deadline {
+    color: #FFFFFF;
+}
+
+.tiny-box-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box-div:hover .Tasks-In-Board-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box2-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box2-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box2-div:hover .Tasks-In-Progress-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box3-div:hover {
+    background-color: #2A3647;
+    cursor: pointer;
+    scale: 1.10;
+}
+
+.tiny-box3-div:hover .Counter-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.tiny-box3-div:hover .Awaiting-Feedback-Tiny-Div {
+    color: #FFFFFF;
+}
+
+.Urgent-Picture-Div {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 70px;
+}
+
+.Double-Arrow-Up-Icon {
+    position: absolute;
+    left: 13px;
+}
+
+.Counter-Urgent-Text-Div {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Counter-Urgent {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.Urgent-Text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+.Second-One-Box-Container-Line {
+    height: 102px;
+    border: 1px solid #D1D1D1;
+    border-radius: 2px;
+    margin-left: 50px;
+}
+
+.Date-And-Deadline-Div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+}
+
+.Date-Of-The-Deadline {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.Third-Box-Container {
+    display: flex;
+    align-items: center;
+    height: 170px;
+    width: 560px;
+    margin-top: 25px;
+}
+
+.tiny-box-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    height: 168px;
+    width: 168px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+}
+
+.tiny-box2-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    height: 168px;
+    width: 168px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    margin-left: 50px;
+}
+
+.tiny-box3-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    height: 168px;
+    width: 168px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    margin-left: 50px;
+}
+
+.Counter-Tiny-Div{
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.Tasks-In-Board-Tiny-Div {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+}
+
+.Tasks-In-Progress-Tiny-Div {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+}
+
+.Awaiting-Feedback-Tiny-Div {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+}
+
+.Text-Wrapper-Div {
+    height: 136px;
+    width: 385px;
+    margin-top: 25px;
+    margin-left: 150px;
+}
+
+.Good-Morning-Text {
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.Name-Text {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 120%;
+    color: #29ABE2;
+}
+
+.display-none {
+    display: none;
+}
+
+.Headline-Blue-Line-Mobile {
+    display: none;
+    height: 63px;
+    border: 2px solid #29ABE2;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.Loading-Screen-Mobile-Z-Container {
+    display: none;
+}
+
+@media screen and (max-width: 1400px) {
+    .Loading-Screen-Mobile-Z-Container {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #FFFFFF;
+        opacity: 1;
+        transition: opacity 1s ease-out, visibility 0s 1s;
+    }
+
+    .Loading-Screen-Mobile-Z-Container.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .Loading-Screen-Mobile {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 400;
+        color: #2A3647;
+    }
+
+    .Text-Wrapper-Div {
+        display: none;
+    }
+
+    .Summary-Box-Z-Index-Container {
+        margin-left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Summary-Box-Container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 60px;
+    }
+
+    #header-title-project-management-tool,
+    #help-icon-logo {
+        display: none;
+    }
+
+    .Headline-Blue-Line {
+        display: none;
+    }
+
+    .Headline-Blue-Line-Mobile {
+        display: block;
+        height: 2px;
+        width: 130px;
+        border: 2px solid #29ABE2;
+        border-radius: 3px;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    .Headline-Join-360-Text {
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 120%;
+        margin-left: 0px;
+    }
+
+    .To-Do-Six-Box-Container {
+        margin-left: 0px;
+        width: 100%;
+        height: 562px;
+    }
+
+    .First-Two-Box-Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .To-Do-Box {
+        height: 150px;
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45.5%;
+        margin-left: 0px;
+    }
+
+    .Done-Box {
+        height: 150px;
+        width: 45.5%;
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0px;
+        margin-left: 4%;
+    }
+
+    .Circle-Logo-Container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-left: 0px;
+    }
+
+    .Second-Container-Box-Greeting-Wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .Second-One-Box-Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        height: 150px;
+        width: 94%;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .Date-And-Deadline-Div {
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Date-Of-The-Deadline {
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 120%;
+    }
+
+    .Text-Upcoming-Deadline {
+        font-size: 20px;
+    }
+
+    .Third-Box-Container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .tiny-box-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        height: 100%;
+        width: 96%;
+        margin-left: 4%;
+        background-color: #FFFFFF;
+        border-radius: 30px;
+    }
+
+    .tiny-box2-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        height: 100%;
+        width: 96%;
+        background-color: #FFFFFF;
+        border-radius: 30px;
+        margin-left: 4%;
+    }
+
+    .tiny-box3-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        height: 100%;
+        width: 96%;
+        margin-left: 4%;
+        background-color: #FFFFFF;
+        border-radius: 30px;
+        margin-right: 3%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .Second-One-Box-Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        height: 150px;
+        width: 94%;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .Urgent-Picture-Div {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-left: 35px;
+    }
+
+    .Counter-Urgent-Text-Div {
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Second-One-Box-Container-Line {
+        height: 102px;
+        border: 1px solid #D1D1D1;
+        border-radius: 2px;
+        margin-left: 30px;
+    }
+
+    .Date-And-Deadline-Div {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Date-Of-The-Deadline {
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 120%;
+    }
+
+    .Text-Upcoming-Deadline {
+        font-size: 18px;
+    }
+}

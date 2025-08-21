@@ -1,0 +1,389 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'inter';
+  }
+
+body {
+  background-color: #f6f7f8;
+}
+
+.display-none {
+  display: none;
+}
+
+.Visibility-Hidden {
+  visibility: hidden;
+}
+
+.Animation-Logo-Div-Z-Index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none; /* Z-Index is above but you can still click everything*/
+}
+
+.Animation-Logo-Div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Loading-Screen-Logo-Big {
+  position: absolute;
+  z-index: 8;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* Beispiel-Startgröße – anpassen nach Bedarf */
+  height: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: top left;
+  transition: transform 700ms ease-in-out;
+}
+
+.Login-Body-Div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.Header-Login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header-Login-Right {
+  display: flex;
+  align-items: center;
+}
+
+.Header-Login-Left {
+  padding-top: 80px;
+  padding-left: 80px;
+}
+
+.Header-Login-Right-Thin-Text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0%;
+  width: 154px;
+  height: 24px;
+}
+
+.Header-Login-Right-Button {
+  background-color: #2A3647;
+  height: 49px;
+  width: 91px;
+  border-radius: 8px;
+  gap: 10px;
+  padding-top: 15px;
+  padding-right: 16px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  margin-left: 25px;
+  margin-right: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header-Login-Right-Button:hover {
+  background-color: #29ABE2;
+  box-shadow: 0px 5px 0px 0px #0000001c;
+
+}
+
+.Header-Login-Right-Button-Text {
+  width: 59px;
+  height: 19px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 0%;
+  line-height: 120%;
+}
+
+.Login-Box-Div {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.Login-Box {
+  width: 652px;
+  height: 449px;
+  gap: 32px;
+  border-radius: 30px;
+  padding-top: 48px;
+  padding-right: 115px;
+  padding-bottom: 48px;
+  padding-left: 115px;
+  box-shadow: 0px 0px 14px 3px #0000000A;
+}
+
+.Login-Box {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.Login-Box-Text {
+  width: 315px;
+  height: 73px;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.Login-Box-Line {
+  border: 2px solid #29ABE2;
+  border-radius: 5px;
+  width: 145px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.Input-Wrapper-Log-In {
+  position: relative;
+  width: 422px;
+  height: 48px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 380px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #A8A8A8;
+}
+
+.Login-Box-Email-Input,
+.Login-Box-Passwort-Input {
+  width: 422px;
+  height: 48px;
+  gap: 10px;
+  border-radius: 10px;
+  padding-top: 12px;
+  padding-right: 21px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  border-width: 1px;
+  font-size: 20px;
+  font-weight: 400;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.Login-Box-Email-Input-Button {
+  width: 110px;
+  height: 48px;
+  gap: 10px;
+  border-radius: 8px;
+  padding-left: 24px;
+  background-color: #2A3647;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 120%;
+  text-align: center;
+}
+
+.Login-Box-Email-Input-Button:hover {
+  background-color: #29ABE2;
+  box-shadow: 0px 5px 0px 0px #0000001c;
+}
+
+.Login-Box-Email-Input-Button-Text {
+  width: 62px;
+  height: 25px;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Login-Box-Passwort-Input-Button {
+  width: 177px;
+  height: 48px;
+  gap: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Login-Box-Passwort-Input-Button:hover {
+  background-color: #29ABE2;
+  box-shadow: 0px 5px 0px 0px #0000001c;
+}
+
+.Login-Box-Guest-Email-Input-Button-Text {
+  height: 25px;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #2A3647;
+  text-align: center;
+}
+
+.footer-login-site{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: flex-end;
+  margin-bottom: 80px;
+}
+
+.Privacy-Policy-Text-Login-Site {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #A8A8A8;
+  cursor: pointer;
+}
+
+.Privacy-Policy-Text-Login-Site:hover {
+  color: #29ABE2;
+  scale: 1.1;
+  font-weight: bold;
+}
+
+.Legal-Notice-Text-Login-Site {
+  margin-left: 50px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #A8A8A8;
+  cursor: pointer;
+}
+
+.Legal-Notice-Text-Login-Site:hover {
+  color: #29ABE2;
+  scale: 1.1;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 651px) {
+
+    .Login-Body-Div {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 700ms ease-in-out;
+  }
+
+  .Animation-Logo-Div-Z-Index {
+    background-color: black;
+    transition: opacity 2000ms ease-in-out;
+    opacity: 1;
+  }
+
+  .Loading-Screen-Logo-Big {
+  position: absolute;
+  z-index: 8;
+  top: 50%;
+  left: 50%;
+  width: 150px; /* Beispiel-Startgröße – anpassen nach Bedarf */
+  height: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: top left;
+  transition: transform 700ms ease-in-out;
+  }
+
+  .Loading-Screen-Logo-Mini {
+    height: auto;
+    width: 70px;
+  }
+
+  .Header-Login-Right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  }
+
+  .Header-Login-Right-Button {
+    margin-right: 0px;
+    width: 110px;
+  }
+
+  .Header-Login-Left {
+    padding-top: 40px;
+    padding-left: 40px;
+  }
+
+  .Login-Box {
+    width: 93%;
+    gap: 24px;
+    height: 470px;
+  }
+
+  .Input-Wrapper-Log-In {
+    width: 85vw;
+  }
+
+  .Login-Box-Passwort-Input {
+    width: 100%;
+  }
+
+  .Login-Box-Email-Input {
+    width: 100%;
+  }
+
+  .input-icon {
+    left: 95%; /* oder z. B. 320px, je nach Design */
+    transform: translateX(-100%) translateY(-50%);
+  }
+
+  .Login-Box-Button-Div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Login-Box-Email-Input {
+    width: 100%;
+  }
+
+  .Login-Box-Email-Input-Button {
+    width: 177px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-login-site {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+
+}
