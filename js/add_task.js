@@ -608,6 +608,7 @@ function updateTasksHtml() {
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
+    priorityStyle(task.id);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -615,6 +616,7 @@ function updateTasksHtml() {
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
+    priorityStyle(task.id);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -622,6 +624,7 @@ function updateTasksHtml() {
     awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
+    priorityStyle(task.id);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -629,6 +632,7 @@ function updateTasksHtml() {
     doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
+    priorityStyle(task.id);
   }
 }
 
@@ -687,6 +691,19 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
   } else if (userOrTechnicalTextBox.innerHTML == "Technical Task") {
     userOrTechnicalDiv.classList.add("technical-task-box");
     userOrTechnicalDivBig.classList.add("technical-task-box");
+  }
+}
+
+function priorityStyle(taskKey) {
+  const priorityBox = document.getElementById(`task-board-big-priority${taskKey}`);
+  const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
+  
+  if(priorityBox.textContent == "Urgent") {
+    priorityBoxLogo.innerHTML = `<img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">`;
+  } else if(priorityBox.textContent == "Medium") {
+    priorityBoxLogo.innerHTML = `<div class="arrow-orange"><p>Medium</p><p>=</p></div>`;
+  } else if(priorityBox.textContent == "Low") {
+    priorityBoxLogo.innerHTML = `<img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">`;
   }
 }
 

@@ -133,8 +133,8 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
 
       <div id="task-board-big-priority-div" class="task-board-big-priority-div">
         <p class="task-board-big-priority-text">Priority:</p>
-        <span id="task-board-big-priority" class="task-board-big-priority">${task.priority}</span>
-        <img id="task-board-big-priority-icon" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
+        <span id="task-board-big-priority${taskKey}" class="task-board-big-priority">${task.priority}</span>
+        <img id="task-board-big-priority-icon${taskKey}" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
       </div>
 
       <div class="task-board-big-assigned-to-div">
