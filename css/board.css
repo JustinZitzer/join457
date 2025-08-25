@@ -1728,6 +1728,10 @@ h2 {
     margin-right: 5px;
 }
 
+.big-task-panel {
+
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
@@ -1854,7 +1858,10 @@ h2 {
     display: none;
 }
 
-/*responsive overlay*/
+.big-task-panel {
+    height: 100%;
+    width: 80%;
+}
 
 @media (max-width: 1400px) {
 

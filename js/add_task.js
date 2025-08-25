@@ -696,12 +696,12 @@ async function loadDataBoard(path="") {
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
-  // Klasse bzw css anpassen
+
   const panels = wrapper.getElementsByClassName('big-task-panel');
   for (let i = 0; i < panels.length; i++) {
     panels[i].classList.add('display-none');
   }
-  // Task zeigen
+  
   const task = document.getElementById(`big-task-${taskKey}`);
   if (!task) return;
   overlay.classList.remove("display-none");
@@ -712,21 +712,25 @@ function showBigTaskInfo(taskKey) {
 function hideBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
+
   overlay.classList.add("display-none");
   wrapper.classList.add("display-none");
-  const task = document.getElementById(`big-task-${taskKey}`);
-  if (task) task.classList.add("display-none");
+
+  if (taskKey) {
+    const task = document.getElementById(`big-task-${taskKey}`);
+    if (task) task.classList.add("display-none");
+  }
 }
 
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
 
-  overlay.addEventListener("click", function() {
+  overlay.addEventListener("click", function () {
     hideBigTaskInfo();
   });
 
-  taskWindow.addEventListener("click", function(event) {
+  taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
 }

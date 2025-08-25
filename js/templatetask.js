@@ -117,29 +117,29 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
 
 function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
-    <div id="big-task-${taskKey}" class="big-task-panel display-none">
-      <div class="task-category-and-cross-icon-div">
-        <span class="big-board-user-or-technical">${task.categoryUserOrTechnicalTask}</span>
+    <div id="big-task-${taskKey}" class="big-task-panel  display-none">
+      <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+        <span class="big-board-user-or-technical" id="big-board-user-or-technical">${task.categoryUserOrTechnicalTask}</span>
         <img src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
       </div>
 
-      <h1 class="task-board-big-headline">${task.titel}</h1>
-      <span class="task-board-big-description">${task.description}</span>
+      <h1 id="task-board-big-headline" class="task-board-big-headline">${task.titel}</h1>
+      <span id="task-board-big-description" class="task-board-big-description">${task.description}</span>
 
       <div class="task-board-big-date-div">
         <p class="task-board-big-date-text">Due Date:</p>
-        <span class="task-board-big-date-number">${task.dueDate}</span>
+        <span id="task-board-big-date-number" class="task-board-big-date-number">${task.dueDate}</span>
       </div>
 
-      <div class="task-board-big-priority-div">
+      <div id="task-board-big-priority-div" class="task-board-big-priority-div">
         <p class="task-board-big-priority-text">Priority:</p>
-        <span class="task-board-big-priority">${task.priority}</span>
-        <img class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
+        <span id="task-board-big-priority" class="task-board-big-priority">${task.priority}</span>
+        <img id="task-board-big-priority-icon" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
       </div>
 
       <div class="task-board-big-assigned-to-div">
         <p>Assigned to:</p>
-        <div class="task-board-big-assigned-to-contacts-div">
+        <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
           <div class="task-board-big-first-contact">
             <span class="task-board-big-first-circle">EM</span>
             <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
@@ -156,7 +156,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
       </div>
 
       <span class="subtasks-board-big-headline">Subtasks</span>
-      <div class="subtasks-board-tasks-div">
+      <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
         <div class="subtasks-board-first-task">
           <input class="checkbox-board-subtasks" type="checkbox">
           <span>Implement Recipe Recommendation</span>
@@ -179,6 +179,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
     </div>
   `;
 }
+
 
 
 
