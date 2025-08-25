@@ -119,7 +119,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
     <div id="big-task-${taskKey}" class="big-task-panel  display-none">
       <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
-        <span class="big-board-user-or-technical" id="big-board-user-or-technical">${task.categoryUserOrTechnicalTask}</span>
+        <span class="big-board-user-or-technical" id="big-board-user-or-technical${taskKey}">${task.categoryUserOrTechnicalTask}</span>
         <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
       </div>
 
@@ -138,7 +138,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
       </div>
 
       <div class="task-board-big-assigned-to-div">
-        <p>Assigned to:</p>
+        <p class="assigned-to-big-task-headline">Assigned to:</p>
         <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
           <div class="task-board-big-first-contact">
             <span class="task-board-big-first-circle">EM</span>
@@ -155,7 +155,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
         </div>
       </div>
 
-      <span class="subtasks-board-big-headline">Subtasks</span>
+      <h2 class="subtasks-board-big-headline">Subtasks</h2>
       <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
         <div class="subtasks-board-first-task">
           <input class="checkbox-board-subtasks" type="checkbox">

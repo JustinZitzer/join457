@@ -677,12 +677,16 @@ async function moveTo(newCategory) {
 function userStoryOrTechnicalTaskStyle(taskKey) {
   const userOrTechnicalTextBox = document.getElementById(`user-story-or-technical-task-box${taskKey}`);
   const userOrTechnicalDiv = document.getElementById(`user-story-box${taskKey}`);
+  const userOrTechnicalDivBig = document.getElementById(`big-board-user-or-technical${taskKey}`);
+
   if (!userOrTechnicalTextBox || !userOrTechnicalDiv) return;
 
   if (userOrTechnicalTextBox.innerHTML == "User Story") {
     userOrTechnicalDiv.classList.add("user-story-box");
+    userOrTechnicalDivBig.classList.add("user-story-box");
   } else if (userOrTechnicalTextBox.innerHTML == "Technical Task") {
     userOrTechnicalDiv.classList.add("technical-task-box");
+    userOrTechnicalDivBig.classList.add("technical-task-box");
   }
 }
 
