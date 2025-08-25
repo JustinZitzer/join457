@@ -1577,9 +1577,14 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 20px
+}
+
+.close-icon-big-task {
+    margin-right: 30px;
+    cursor: pointer;
 }
 
 .task-board-big-headline {
@@ -1729,7 +1734,8 @@ h2 {
 }
 
 .big-task-panel {
-
+    height: 100%;
+    width: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -1856,11 +1862,6 @@ h2 {
 
 .responsive-btn {
     display: none;
-}
-
-.big-task-panel {
-    height: 100%;
-    width: 80%;
 }
 
 @media (max-width: 1400px) {

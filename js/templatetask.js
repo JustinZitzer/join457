@@ -120,7 +120,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
     <div id="big-task-${taskKey}" class="big-task-panel  display-none">
       <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
         <span class="big-board-user-or-technical" id="big-board-user-or-technical">${task.categoryUserOrTechnicalTask}</span>
-        <img src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
       </div>
 
       <h1 id="task-board-big-headline" class="task-board-big-headline">${task.titel}</h1>
