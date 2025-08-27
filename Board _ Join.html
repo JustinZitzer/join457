@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://127.0.0.1:5501/board.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board | Join</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="./Board _ Join_files/css2" rel="stylesheet">
-    <link rel="stylesheet" href="./Board _ Join_files/style.css">
-    <link rel="stylesheet" href="./Board _ Join_files/header_sidebar.css">
-    <link rel="stylesheet" href="./Board _ Join_files/board.css">
-    <link rel="stylesheet" href="./Board _ Join_files/add_task.css">
-    <link rel="icon" href="./Board _ Join_files/join-logo-white.svg" type="image/svg+xml">
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board | Join</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Board _ Join_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./Board _ Join_files/style.css">
+  <link rel="stylesheet" href="./Board _ Join_files/header_sidebar.css">
+  <link rel="stylesheet" href="./Board _ Join_files/board.css">
+  <link rel="stylesheet" href="./Board _ Join_files/add_task.css">
+  <link rel="icon" href="./Board _ Join_files/join-logo-white.svg" type="image/svg+xml">
 </head>
 
 <body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataBoard()">
-    <div id="index_html">
+  <div id="index_html">
 
 
 
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>join</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -33,479 +36,532 @@
 
 
     <header id="header-index-html"> <!--box-shadow anpassen, nicht 100% umgesetzt-->
-        <div class="header-logo-div-mobile">
-            <svg class="header-logo-mobile" width="50" height="71" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M71.672 0H49.5142V25.4923H71.672V0Z" fill="#2A3647"></path>
-                <path d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z" fill="#2A3647"></path>
-                <path d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z" fill="#29ABE2"></path>
-                <path d="M83.2795 111.522C83.2795 116.265 80.8762 118.815 77.5184 118.815C74.1607 118.815 71.9619 115.785 71.9619 111.762C71.9619 107.739 74.2288 104.554 77.7059 104.554C81.183 104.554 83.2795 107.687 83.2795 111.522ZM74.5356 111.711C74.5356 114.57 75.6776 116.675 77.6377 116.675C79.5978 116.675 80.7057 114.45 80.7057 111.539C80.7057 108.988 79.6831 106.592 77.6377 106.592C75.5924 106.592 74.5356 108.903 74.5356 111.711Z" fill="#2A3647"></path>
-                <path d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z" fill="#2A3647"></path>
-                <path d="M90.3357 118.593V104.76H93.0628L95.9945 110.461C96.7492 111.952 97.4206 113.483 98.0057 115.049C97.8523 113.337 97.7841 111.368 97.7841 109.177V104.76H100.034V118.593H97.4944L94.5286 112.772C93.7434 111.243 93.0435 109.671 92.4322 108.064C92.4322 109.776 92.5515 111.711 92.5515 114.09V118.576L90.3357 118.593Z" fill="#2A3647"></path>
-            </svg>
+      <div class="header-logo-div-mobile">
+        <svg class="header-logo-mobile" width="50" height="71" viewBox="0 0 101 122" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M71.672 0H49.5142V25.4923H71.672V0Z" fill="#2A3647"></path>
+          <path
+            d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z"
+            fill="#2A3647"></path>
+          <path d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z" fill="#29ABE2"></path>
+          <path
+            d="M83.2795 111.522C83.2795 116.265 80.8762 118.815 77.5184 118.815C74.1607 118.815 71.9619 115.785 71.9619 111.762C71.9619 107.739 74.2288 104.554 77.7059 104.554C81.183 104.554 83.2795 107.687 83.2795 111.522ZM74.5356 111.711C74.5356 114.57 75.6776 116.675 77.6377 116.675C79.5978 116.675 80.7057 114.45 80.7057 111.539C80.7057 108.988 79.6831 106.592 77.6377 106.592C75.5924 106.592 74.5356 108.903 74.5356 111.711Z"
+            fill="#2A3647"></path>
+          <path d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z" fill="#2A3647"></path>
+          <path
+            d="M90.3357 118.593V104.76H93.0628L95.9945 110.461C96.7492 111.952 97.4206 113.483 98.0057 115.049C97.8523 113.337 97.7841 111.368 97.7841 109.177V104.76H100.034V118.593H97.4944L94.5286 112.772C93.7434 111.243 93.0435 109.671 92.4322 108.064C92.4322 109.776 92.5515 111.711 92.5515 114.09V118.576L90.3357 118.593Z"
+            fill="#2A3647"></path>
+        </svg>
+      </div>
+      <h1 class="header-title-project-management-tool" id="header-title-project-management-tool">Kanban Project
+        Management Tool</h1>
+      <div class="header-icons-container">
+        <a class="help-icon-logo" id="help-icon-logo" href="http://127.0.0.1:5501/help.html">
+          <img src="./Board _ Join_files/help-icon.svg" alt="help-icon">
+        </a>
+        <div onclick="toggleUserProfileOverlay()" class="user-profile-container">
+          <div class="user-profile">
+            <span class="user-profile-font">SM</span>
+          </div>
         </div>
-        <h1 class="header-title-project-management-tool" id="header-title-project-management-tool">Kanban Project Management Tool</h1>
-        <div class="header-icons-container">
-            <a class="help-icon-logo" id="help-icon-logo" href="http://127.0.0.1:5501/help.html">
-                <img src="./Board _ Join_files/help-icon.svg" alt="help-icon">
-            </a>
-            <div onclick="toggleUserProfileOverlay()" class="user-profile-container">
-                <div class="user-profile">
-                    <span class="user-profile-font">SM</span>
-                </div>
-            </div>
-        </div>
+      </div>
     </header>
     <div class="sidebar">
-        <div class="sidebar-join-logo">
-            <img src="./Board _ Join_files/join-logo-white.svg" alt="join-sidebar-img">
-        </div>
-        <ul class="nav-links">
-            <li>
-                <a href="http://127.0.0.1:5501/board.html#" onclick="goToSummaryHtml()">
-                    <img src="./Board _ Join_files/summary-icon.svg" alt="summary-icon">
-                    <span>Summary</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://127.0.0.1:5501/board.html#" onclick="goToAddTaskHtml()">
-                    <img src="./Board _ Join_files/add-task-icon.svg" alt="add-task-icon">
-                    <span>Add Task</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://127.0.0.1:5501/board.html#" onclick="goToBoardHtml()">
-                    <img src="./Board _ Join_files/board-icon.svg" alt="board-icon">
-                    <span>Board</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://127.0.0.1:5501/board.html#" onclick="goToContactsHtml()">
-                    <img src="./Board _ Join_files/contacts-icon.svg" alt="contacts-icon">
-                    <span>Contacts</span>
-                </a>
-            </li>
-        </ul>
-        <footer>
-            <a href="http://127.0.0.1:5501/privacy_policy.html">Privacy Policy</a>
-            <a href="http://127.0.0.1:5501/legal_notice.html">Legal Notice</a>
-        </footer>
+      <div class="sidebar-join-logo">
+        <img src="./Board _ Join_files/join-logo-white.svg" alt="join-sidebar-img">
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="http://127.0.0.1:5501/board.html#" onclick="goToSummaryHtml()">
+            <img src="./Board _ Join_files/summary-icon.svg" alt="summary-icon">
+            <span>Summary</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:5501/board.html#" onclick="goToAddTaskHtml()">
+            <img src="./Board _ Join_files/add-task-icon.svg" alt="add-task-icon">
+            <span>Add Task</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:5501/board.html#" onclick="goToBoardHtml()">
+            <img src="./Board _ Join_files/board-icon.svg" alt="board-icon">
+            <span>Board</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:5501/board.html#" onclick="goToContactsHtml()">
+            <img src="./Board _ Join_files/contacts-icon.svg" alt="contacts-icon">
+            <span>Contacts</span>
+          </a>
+        </li>
+      </ul>
+      <footer>
+        <a href="http://127.0.0.1:5501/privacy_policy.html">Privacy Policy</a>
+        <a href="http://127.0.0.1:5501/legal_notice.html">Legal Notice</a>
+      </footer>
     </div>
     <div id="user_profile_menu" class="user-profile-menu hide">
-        <div class="user-profile-content">
-            <a class="help-html-display-none" href="http://127.0.0.1:5501/help.html">Help</a>
-            <a href="http://127.0.0.1:5501/legal_notice.html">Legal Notice</a>
-            <a href="http://127.0.0.1:5501/privacy_policy.html">Privacy Policy</a>
-            <a href="http://127.0.0.1:5501/index.html">Log Out</a>
-        </div>
+      <div class="user-profile-content">
+        <a class="help-html-display-none" href="http://127.0.0.1:5501/help.html">Help</a>
+        <a href="http://127.0.0.1:5501/legal_notice.html">Legal Notice</a>
+        <a href="http://127.0.0.1:5501/privacy_policy.html">Privacy Policy</a>
+        <a href="http://127.0.0.1:5501/index.html">Log Out</a>
+      </div>
     </div>
     <script src="./Board _ Join_files/script.js"></script>
     <script src="./Board _ Join_files/summary.js"></script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ('WebSocket' in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+          var address = protocol + window.location.host + window.location.pathname + '/ws';
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+          }
+        })();
+      }
+      else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+      }
+      // ]]>
+    </script>
 
 
-</div> <!--lädt html (header,sidebar)-->
+  </div> <!--lädt html (header,sidebar)-->
 
-    <main id="main-container-board">
-        <div class="header-container-board">
+  <main id="main-container-board">
+    <div class="header-container-board">
 
-            <div class="header-main-container">
-                <div class="header-content-board">
-                    <h3 class="board-headline-board">Board</h3>
-                    <img class="responsive-btn" src="./Board _ Join_files/add-icon.png" alt="Add Icon">
+      <div class="header-main-container">
+        <div class="header-content-board">
+          <h3 class="board-headline-board">Board</h3>
+          <img class="responsive-btn" src="./Board _ Join_files/add-icon.png" alt="Add Icon">
 
 
-                    <div class="find-task-add-task-container">
+          <div class="find-task-add-task-container">
 
-                        <div class="inputfield-task">
-                            <div class="inputfield-task-content">
-                                <input type="text" placeholder="Find task" class="title-findtask" id="title-findtask-inputfield">
-                                <div class="search-button-container">
-                                    <div class="line-infind-task-field"></div>
-                                    <div class="search-icon-content"></div>
-                                    <img class="search-button" src="./Board _ Join_files/search.png" alt="search-icon">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="add-task-container">
-                            <div class="add-task-box">Add task</div>
-                            <button onclick="openOverlay()" class="image-x">
-                                <img src="./Board _ Join_files/add.png" alt="add-icon">
-                            </button>
-
-                            <!-- Overlay-Hintergrund -->
-                            <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
-                                <!-- Seitlich hereinslidenes Overlay -->
-                                <div id="content-add-task-overlay"></div>
-                                <div>
-                                    <!-- Hier kannst du dein Formular platzieren -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="inputfield-task">
+              <div class="inputfield-task-content">
+                <input type="text" placeholder="Find task" class="title-findtask" id="title-findtask-inputfield">
+                <div class="search-button-container">
+                  <div class="line-infind-task-field"></div>
+                  <div class="search-icon-content"></div>
+                  <img class="search-button" src="./Board _ Join_files/search.png" alt="search-icon">
                 </div>
-
-                <div class="todos-bar-container">
-                        <div class="todo-container">
-                            <div id="todo-content" class="todo-content">
-                                <p>To do</p>
-                                <div ondrop="moveTo(&#39;toDo&#39;)" ondragover="allowDrop(event)" class="todo-content-task" id="todo-content-task">
-    <div onclick="showBigTaskInfo()" id="todo-content-boxMarvin Test" class="todo-content-box" draggable="true" ondragstart="startDragging(&#39;Marvin Test&#39;, &#39;toDo&#39;)">
-      <div class="user-story-box" id="user-story-boxMarvin Test">
-        <span class="" id="user-story-or-technical-task-boxMarvin Test">User Story</span>
-      </div>
-      <div class="text-contact-box">
-        <span>Marvin Test</span>
-        <div class="text-create-box">
-          <span>Hier könnte die Beschreibung stehen</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
-      </div>
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first"><h5>AS</h5></div>
-          <div class="single-circle-second"><h5>DE</h5></div>
-          <div class="single-circle-third"><h5>EF</h5></div>
-        </div>
-      </div>
-    </div>
-  </div>
-                            </div>
-
-                            <div class="add-button-container">
-                                <button onclick="overlayToDo()" class="add-button">
-                                    <img src="./Board _ Join_files/plus button.png" alt="Plus">
-                                </button>
-                                    <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-todo"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
-                            </div>
-                        </div>
-
-                        <div class="todo-container-content-mobile-version">
-                            <div class="todo-container-content-mobile-version-task" id="todo-container-content-mobile-version-task">
-                            </div>
-                        </div>
-            
-
-                        <div class="inprogress-container">
-                            <div id="inprogress-content" class="inprogress-content">
-                                <p>In progress</p>
-                                <div ondrop="moveTo(&#39;inProgress&#39;)" ondragover="allowDrop(event)" class="inprogress-content-task" id="inprogress-content-task">
-    <div onclick="showBigTaskInfo()" id="todo-content-boxArbeit" class="todo-content-box" draggable="true" ondragstart="startDragging(&#39;Arbeit&#39;, &#39;inProgress&#39;)">
-      <div class="technical-task-box" id="user-story-boxArbeit">
-        <span class="" id="user-story-or-technical-task-boxArbeit">Technical Task</span>
-      </div>
-      <div class="text-contact-box">
-        <span>Arbeit</span>
-        <div class="text-create-box">
-          <span>join programmieren</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
-      </div>
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first"><h5>AS</h5></div>
-          <div class="single-circle-second"><h5>DE</h5></div>
-          <div class="single-circle-third"><h5>EF</h5></div>
-        </div>
-      </div>
-    </div>
-  
-    <div onclick="showBigTaskInfo()" id="todo-content-boxErhan" class="todo-content-box" draggable="true" ondragstart="startDragging(&#39;Erhan&#39;, &#39;inProgress&#39;)">
-      <div class="" id="user-story-boxErhan">
-        <span class="" id="user-story-or-technical-task-boxErhan"></span>
-      </div>
-      <div class="text-contact-box">
-        <span>Erhan</span>
-        <div class="text-create-box">
-          <span>No description</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
-      </div>
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first"><h5>AS</h5></div>
-          <div class="single-circle-second"><h5>DE</h5></div>
-          <div class="single-circle-third"><h5>EF</h5></div>
-        </div>
-      </div>
-    </div>
-  </div>
-                            </div>
-
-
-                            <div class="add-button-container">
-                                <button onclick="openOverlayInProgress()" class="add-button">
-                                    <img src="./Board _ Join_files/plus button.png" alt="Plus">
-                                </button>
-                                    <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-in-progress"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
-                            </div>
-                        </div>
-
-                        <div class="inprogress-container-content-mobile-version">
-                            <div class="inprogress-container-content-mobile-version-task" id="inprogress-container-content-mobile-version-task">
-                                Hier ist der Content inprogress
-                            </div>
-                        </div>
-                
-
-                        <div class="await-feedback-task-container">
-                            <div id="await-feedback-content" class="await-feedback-content">
-                                <p>Await feedback</p>
-                                <div ondrop="moveTo(&#39;awaitFeedback&#39;)" ondragover="allowDrop(event)" class="await-feedback-content-task" id="await-feedback-content-task">
-    <div onclick="showBigTaskInfo()" id="todo-content-boxnew Task" class="todo-content-box" draggable="true" ondragstart="startDragging(&#39;new Task&#39;, &#39;awaitFeedback&#39;)">
-      <div class="technical-task-box" id="user-story-boxnew Task">
-        <span class="" id="user-story-or-technical-task-boxnew Task">Technical Task</span>
-      </div>
-      <div class="text-contact-box">
-        <span>new Task</span>
-        <div class="text-create-box">
-          <span>Plan</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
-      </div>
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first"><h5>AS</h5></div>
-          <div class="single-circle-second"><h5>DE</h5></div>
-          <div class="single-circle-third"><h5>EF</h5></div>
-        </div>
-      </div>
-    </div>
-  </div>
-                            </div>
-                            <div class="add-button-container">
-                                <button onclick="openOverlayFeedback()" class="add-button">
-                                    <img src="./Board _ Join_files/plus button.png" alt="Plus">
-                                </button>
-                                    <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
-                            
-                                        <!-- Seitlich hereinslidenes Overlay -->
-                                        <div id="content-add-task-overlay-await-feedback"></div>
-                                            <!-- Hier kannst du dein Formular platzieren -->
-                                    </div>
-                            </div>
-                        </div>
-
-                        <div class="await-feedback-container-content-mobile-version">
-                            <div class="await-feedback-container-content-mobile-version-task" id="await-feedback-container-content-mobile-version-task">
-                                Hier ist der Content await feedback
-                            </div>
-                        </div>
-                        
-
-                        <div class="done-task-container">
-                            <div id="done-content" class="done-content">
-                                <p>Done</p>
-                                <div ondrop="moveTo(&#39;done&#39;)" ondragover="allowDrop(event)" class="done-content-task" id="done-content-task">
-    <div onclick="showBigTaskInfo()" id="todo-content-boxnew task" class="todo-content-box" draggable="true" ondragstart="startDragging(&#39;new task&#39;, &#39;done&#39;)">
-      <div class="technical-task-box" id="user-story-boxnew task">
-        <span class="" id="user-story-or-technical-task-boxnew task">Technical Task</span>
-      </div>
-      <div class="text-contact-box">
-        <span>new task</span>
-        <div class="text-create-box">
-          <span>testversion</span>
-        </div>
-      </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
-      </div>
-      <div class="three-circle-todo">
-        <div class="three-circle-container">
-          <div class="single-circle-first"><h5>AS</h5></div>
-          <div class="single-circle-second"><h5>DE</h5></div>
-          <div class="single-circle-third"><h5>EF</h5></div>
-        </div>
-      </div>
-    </div>
-  </div>
-                            </div>
-                            </div>
-                            <div class="add-button-container">
-                              <button onclick="openOverlayFeedback()" class="add-button">
-                                  <img src="./Board _ Join_files/plus button.png" alt="Plus">
-                              </button>
-                        </div>
-
-                        <div class="done-container-content-mobile-version" id="done-container-content-mobile-version">
-                            Hier ist der fertige Content
-                        </div>
-
-                </div>
+              </div>
             </div>
-        </div>
 
-        <div onclick="hideBigTaskInfo()" id="task-big-container-absolute" class="task-big-container-absolute display-none">
-            <div id="task-big-container" class="task-big-container display-none">
-                <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
-                    <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>
-                    <img src="./Board _ Join_files/contacts-close-icon.svg" alt="">
+            <div class="add-task-container">
+              <div class="add-task-box">Add task</div>
+              <button onclick="openOverlay()" class="image-x">
+                <img src="./Board _ Join_files/add.png" alt="add-icon">
+              </button>
+
+              <!-- Overlay-Hintergrund -->
+              <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
+                <!-- Seitlich hereinslidenes Overlay -->
+                <div id="content-add-task-overlay"></div>
+                <div>
+                  <!-- Hier kannst du dein Formular platzieren -->
                 </div>
-
-                <h1 id="task-board-big-headline" class="task-board-big-headline">Kochwelt Page &amp; Recipe Recommender</h1>
-                <span id="task-board-big-description" class="task-board-big-description">Build start page with recipe recommendation.</span>
-
-                <div class="task-board-big-date-div">
-                    <p class="task-board-big-date-text">Due Date:</p>
-                    <span id="task-board-big-date-number" class="task-board-big-date-number">10/05/2023</span>
-                </div>
-
-                <div id="task-board-big-priority-div" class="task-board-big-priority-div">
-                    <p class="task-board-big-priority-text">Priority:</p>
-                    <span id="task-board-big-priority" class="task-board-big-priority">Medium</span>
-                    <img id="task-board-big-priority-icon" class="task-board-big-priority-icon" src="./Board _ Join_files/double-arrow-down-14228.png" alt="">
-                </div>
-
-                <div class="task-board-big-assigned-to-div">
-                    <p>Assigned to:</p>
-                    <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
-                        <div class="task-board-big-first-contact">
-                            <span class="task-board-big-first-circle">EM</span>
-                            <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
-                        </div>
-                        <div class="task-board-big-second-contact">
-                            <span class="task-board-big-second-circle">MB</span>
-                            <p class="task-board-big-second-contact-name">Marcel Bauer</p>
-                        </div>
-                        <div class="task-board-big-third-contact">
-                            <span class="task-board-big-third-circle">AM</span>
-                            <p class="task-board-big-third-contact-name">Anton Mayer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <span class="subtasks-board-big-headline">Subtasks</span>
-
-                <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
-                    <div class="subtasks-board-first-task">
-                        <input class="checkbox-board-subtasks" type="checkbox">
-                        <span>Implement Recipe Recommendation</span>
-                    </div>
-                    <div class="subtasks-board-second-task">
-                        <input class="checkbox-board-subtasks" type="checkbox">
-                        <span>Start Page Layout</span>
-                    </div>
-                </div>
-
-                <div class="task-board-big-delete-edit-div">
-                    <div class="task-board-big-delete-edit-div-first">
-                        <img class="delete-icon-board" src="./Board _ Join_files/delete-icon.svg" alt="">
-                        <p class="delete-text-board">Delete</p>
-                        <div class="seperator-big-subtask"></div>
-                        <img class="edit-icon-board" src="./Board _ Join_files/edit-icon.svg" alt="">
-                        <p class="edit-text-board">Edit</p>
-                    </div>
-                </div>
-
+              </div>
             </div>
+          </div>
         </div>
 
-    </main>
-        
-        <script src="./Board _ Join_files/script.js"></script>
-        <script src="./Board _ Join_files/add_task.js"></script>
-        <script src="./Board _ Join_files/templatetask.js"></script>
-        <script src="./Board _ Join_files/summary.js"></script>
-        <script src="./Board _ Join_files/load_html.js"></script>
-        <script src="./Board _ Join_files/firebase.js"></script>
-        <script src="./Board _ Join_files/signup.js"></script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+        <div class="todos-bar-container">
+          <div class="todo-container">
+            <div id="todo-content" class="todo-content">
+              <p>To do</p>
+              <div ondrop="moveTo(&#39;toDo&#39;)" ondragover="allowDrop(event)" class="todo-content-task"
+                id="todo-content-task">
+                <div onclick="showBigTaskInfo()" id="todo-content-boxMarvin Test" class="todo-content-box"
+                  draggable="true" ondragstart="startDragging(&#39;Marvin Test&#39;, &#39;toDo&#39;)">
+                  <div class="user-story-box" id="user-story-boxMarvin Test">
+                    <span class="" id="user-story-or-technical-task-boxMarvin Test">User Story</span>
+                  </div>
+                  <div class="text-contact-box">
+                    <span>Marvin Test</span>
+                    <div class="text-create-box">
+                      <span>Hier könnte die Beschreibung stehen</span>
+                    </div>
+                  </div>
+                  <div class="progressbar-box">
+                    <div class="progressbar-content"></div>
+                    <div class="subtask-text">0/2 subtasks</div>
+                  </div>
+                  <div class="three-circle-todo">
+                    <div class="three-circle-container">
+                      <div class="single-circle-first">
+                        <h5>AS</h5>
+                      </div>
+                      <div class="single-circle-second">
+                        <h5>DE</h5>
+                      </div>
+                      <div class="single-circle-third">
+                        <h5>EF</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="add-button-container">
+              <button onclick="overlayToDo()" class="add-button">
+                <img src="./Board _ Join_files/plus button.png" alt="Plus">
+              </button>
+              <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
+                <!-- Seitlich hereinslidenes Overlay -->
+                <div id="content-add-task-overlay-todo"></div>
+                <!-- Hier kannst du dein Formular platzieren -->
+              </div>
+            </div>
+          </div>
+
+          <div class="todo-container-content-mobile-version">
+            <div class="todo-container-content-mobile-version-task" id="todo-container-content-mobile-version-task">
+            </div>
+          </div>
+
+
+          <div class="inprogress-container">
+            <div id="inprogress-content" class="inprogress-content">
+              <p>In progress</p>
+              <div ondrop="moveTo(&#39;inProgress&#39;)" ondragover="allowDrop(event)" class="inprogress-content-task"
+                id="inprogress-content-task">
+                <div onclick="showBigTaskInfo()" id="todo-content-boxArbeit" class="todo-content-box" draggable="true"
+                  ondragstart="startDragging(&#39;Arbeit&#39;, &#39;inProgress&#39;)">
+                  <div class="technical-task-box" id="user-story-boxArbeit">
+                    <span class="" id="user-story-or-technical-task-boxArbeit">Technical Task</span>
+                  </div>
+                  <div class="text-contact-box">
+                    <span>Arbeit</span>
+                    <div class="text-create-box">
+                      <span>join programmieren</span>
+                    </div>
+                  </div>
+                  <div class="progressbar-box">
+                    <div class="progressbar-content"></div>
+                    <div class="subtask-text">0/2 subtasks</div>
+                  </div>
+                  <div class="three-circle-todo">
+                    <div class="three-circle-container">
+                      <div class="single-circle-first">
+                        <h5>AS</h5>
+                      </div>
+                      <div class="single-circle-second">
+                        <h5>DE</h5>
+                      </div>
+                      <div class="single-circle-third">
+                        <h5>EF</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div onclick="showBigTaskInfo()" id="todo-content-boxErhan" class="todo-content-box" draggable="true"
+                  ondragstart="startDragging(&#39;Erhan&#39;, &#39;inProgress&#39;)">
+                  <div class="" id="user-story-boxErhan">
+                    <span class="" id="user-story-or-technical-task-boxErhan"></span>
+                  </div>
+                  <div class="text-contact-box">
+                    <span>Erhan</span>
+                    <div class="text-create-box">
+                      <span>No description</span>
+                    </div>
+                  </div>
+                  <div class="progressbar-box">
+                    <div class="progressbar-content"></div>
+                    <div class="subtask-text">0/2 subtasks</div>
+                  </div>
+                  <div class="three-circle-todo">
+                    <div class="three-circle-container">
+                      <div class="single-circle-first">
+                        <h5>AS</h5>
+                      </div>
+                      <div class="single-circle-second">
+                        <h5>DE</h5>
+                      </div>
+                      <div class="single-circle-third">
+                        <h5>EF</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="add-button-container">
+              <button onclick="openOverlayInProgress()" class="add-button">
+                <img src="./Board _ Join_files/plus button.png" alt="Plus">
+              </button>
+              <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
+                <!-- Seitlich hereinslidenes Overlay -->
+                <div id="content-add-task-overlay-in-progress"></div>
+                <!-- Hier kannst du dein Formular platzieren -->
+              </div>
+            </div>
+          </div>
+
+          <div class="inprogress-container-content-mobile-version">
+            <div class="inprogress-container-content-mobile-version-task"
+              id="inprogress-container-content-mobile-version-task">
+              Hier ist der Content inprogress
+            </div>
+          </div>
+
+
+          <div class="await-feedback-task-container">
+            <div id="await-feedback-content" class="await-feedback-content">
+              <p>Await feedback</p>
+              <div ondrop="moveTo(&#39;awaitFeedback&#39;)" ondragover="allowDrop(event)"
+                class="await-feedback-content-task" id="await-feedback-content-task">
+                <div onclick="showBigTaskInfo()" id="todo-content-boxnew Task" class="todo-content-box" draggable="true"
+                  ondragstart="startDragging(&#39;new Task&#39;, &#39;awaitFeedback&#39;)">
+                  <div class="technical-task-box" id="user-story-boxnew Task">
+                    <span class="" id="user-story-or-technical-task-boxnew Task">Technical Task</span>
+                  </div>
+                  <div class="text-contact-box">
+                    <span>new Task</span>
+                    <div class="text-create-box">
+                      <span>Plan</span>
+                    </div>
+                  </div>
+                  <div class="progressbar-box">
+                    <div class="progressbar-content"></div>
+                    <div class="subtask-text">0/2 subtasks</div>
+                  </div>
+                  <div class="three-circle-todo">
+                    <div class="three-circle-container">
+                      <div class="single-circle-first">
+                        <h5>AS</h5>
+                      </div>
+                      <div class="single-circle-second">
+                        <h5>DE</h5>
+                      </div>
+                      <div class="single-circle-third">
+                        <h5>EF</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="add-button-container">
+              <button onclick="openOverlayFeedback()" class="add-button">
+                <img src="./Board _ Join_files/plus button.png" alt="Plus">
+              </button>
+              <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
+
+                <!-- Seitlich hereinslidenes Overlay -->
+                <div id="content-add-task-overlay-await-feedback"></div>
+                <!-- Hier kannst du dein Formular platzieren -->
+              </div>
+            </div>
+          </div>
+
+          <div class="await-feedback-container-content-mobile-version">
+            <div class="await-feedback-container-content-mobile-version-task"
+              id="await-feedback-container-content-mobile-version-task">
+              Hier ist der Content await feedback
+            </div>
+          </div>
+
+
+          <div class="done-task-container">
+            <div id="done-content" class="done-content">
+              <p>Done</p>
+              <div ondrop="moveTo(&#39;done&#39;)" ondragover="allowDrop(event)" class="done-content-task"
+                id="done-content-task">
+                <div onclick="showBigTaskInfo()" id="todo-content-boxnew task" class="todo-content-box" draggable="true"
+                  ondragstart="startDragging(&#39;new task&#39;, &#39;done&#39;)">
+                  <div class="technical-task-box" id="user-story-boxnew task">
+                    <span class="" id="user-story-or-technical-task-boxnew task">Technical Task</span>
+                  </div>
+                  <div class="text-contact-box">
+                    <span>new task</span>
+                    <div class="text-create-box">
+                      <span>testversion</span>
+                    </div>
+                  </div>
+                  <div class="progressbar-box">
+                    <div class="progressbar-content"></div>
+                    <div class="subtask-text">0/2 subtasks</div>
+                  </div>
+                  <div class="three-circle-todo">
+                    <div class="three-circle-container">
+                      <div class="single-circle-first">
+                        <h5>AS</h5>
+                      </div>
+                      <div class="single-circle-second">
+                        <h5>DE</h5>
+                      </div>
+                      <div class="single-circle-third">
+                        <h5>EF</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-button-container">
+            <button onclick="openOverlayFeedback()" class="add-button">
+              <img src="./Board _ Join_files/plus button.png" alt="Plus">
+            </button>
+          </div>
+
+          <div class="done-container-content-mobile-version" id="done-container-content-mobile-version">
+            Hier ist der fertige Content
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div onclick="hideBigTaskInfo()" id="task-big-container-absolute" class="task-big-container-absolute display-none">
+      <div id="task-big-container" class="task-big-container display-none">
+        <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+          <span class="big-board-user-or-technical" id="big-board-user-or-technical">user-story</span>
+          <img src="./Board _ Join_files/contacts-close-icon.svg" alt="">
+        </div>
+
+        <h1 id="task-board-big-headline" class="task-board-big-headline">Kochwelt Page &amp; Recipe Recommender</h1>
+        <span id="task-board-big-description" class="task-board-big-description">Build start page with recipe
+          recommendation.</span>
+
+        <div class="task-board-big-date-div">
+          <p class="task-board-big-date-text">Due Date:</p>
+          <span id="task-board-big-date-number" class="task-board-big-date-number">10/05/2023</span>
+        </div>
+
+        <div id="task-board-big-priority-div" class="task-board-big-priority-div">
+          <p class="task-board-big-priority-text">Priority:</p>
+          <span id="task-board-big-priority" class="task-board-big-priority">Medium</span>
+          <img id="task-board-big-priority-icon" class="task-board-big-priority-icon"
+            src="./Board _ Join_files/double-arrow-down-14228.png" alt="">
+        </div>
+
+        <div class="task-board-big-assigned-to-div">
+          <p>Assigned to:</p>
+          <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
+            <div class="task-board-big-first-contact">
+              <span class="task-board-big-first-circle">EM</span>
+              <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+            </div>
+            <div class="task-board-big-second-contact">
+              <span class="task-board-big-second-circle">MB</span>
+              <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+            </div>
+            <div class="task-board-big-third-contact">
+              <span class="task-board-big-third-circle">AM</span>
+              <p class="task-board-big-third-contact-name">Anton Mayer</p>
+            </div>
+          </div>
+        </div>
+
+        <span class="subtasks-board-big-headline">Subtasks</span>
+
+        <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
+          <div class="subtasks-board-first-task">
+            <input class="checkbox-board-subtasks" type="checkbox">
+            <span>Implement Recipe Recommendation</span>
+          </div>
+          <div class="subtasks-board-second-task">
+            <input class="checkbox-board-subtasks" type="checkbox">
+            <span>Start Page Layout</span>
+          </div>
+        </div>
+
+        <div class="task-board-big-delete-edit-div">
+          <div class="task-board-big-delete-edit-div-first">
+            <img class="delete-icon-board" src="./Board _ Join_files/delete-icon.svg" alt="">
+            <p class="delete-text-board">Delete</p>
+            <div class="seperator-big-subtask"></div>
+            <img class="edit-icon-board" src="./Board _ Join_files/edit-icon.svg" alt="">
+            <p class="edit-text-board">Edit</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="./Board _ Join_files/script.js"></script>
+  <script src="./Board _ Join_files/add_task.js"></script>
+  <script src="./Board _ Join_files/templatetask.js"></script>
+  <script src="./Board _ Join_files/summary.js"></script>
+  <script src="./Board _ Join_files/load_html.js"></script>
+  <script src="./Board _ Join_files/firebase.js"></script>
+  <script src="./Board _ Join_files/signup.js"></script>
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
 
 
 
-</body></html>
+</body>
+
+</html>

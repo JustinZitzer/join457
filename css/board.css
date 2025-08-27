@@ -236,6 +236,8 @@ h3 {
     display: block;
 }
 
+
+
 .inprogress-container {
     display: flex;
     width: 244px;
@@ -287,6 +289,7 @@ h3 {
     justify-content: space-between;
 
 }
+
 
 .await-feedback-content-box {
     width: 252px;
@@ -344,6 +347,7 @@ h3 {
     min-height: 400px;
     display: block;
 }
+
 
 .add-button {
     border: 2px solid transparent;
@@ -1858,17 +1862,41 @@ h2 {
     .todos-bar-container {
         display: flex;
         flex-direction: column;
-        margin-top: 10px;
-        gap:300px;
+        margin-top: 70px;
+        padding: 12px;
+
     }
 
     .todo-container {
-        margin-left: 35px;
+        left: 0px;
+        margin-left: 32px;
+    }
+
+    .inprogress-container {
+        margin-top: 270px;
+
+    }
+
+    .await-feedback-task-container {
+        margin-top: 540px;
+
+    }
+
+
+    .done-task-container {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 32px;
+        width: 244px;
+        height: 24px;
+        gap: 10px;
+        margin-top: 270px;
     }
 
     .todo-container-content-mobile-version {
         display: none;
     }
+
 
     .title-findtask {
         padding-left: 16px;
@@ -2032,9 +2060,6 @@ h2 {
         bottom: 50px;
     }
 
-    .three-circle-todo {
-        display: none;
-    }
 
     .inputfield-category-assign {
         width: 95vw;
@@ -2272,9 +2297,7 @@ h2 {
         bottom: 50px;
     }
 
-    .three-circle-todo {
-        display: none;
-    }
+
 
     .inputfield-category-assign {
         width: 95vw;
@@ -2506,9 +2529,6 @@ h2 {
         bottom: 50px;
     }
 
-    .three-circle-todo {
-        display: none;
-    }
 
     .inputfield-category-assign {
         width: 95vw;
