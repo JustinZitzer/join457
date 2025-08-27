@@ -50,8 +50,11 @@ async function renderContacts(contacts) {
 async function deleteContact(key) {
   try {
     await deleteData('contacts', key);
-    console.log(`Kontakt gelöscht :, ${key}`);
+    console.log(`Kontakt gelöscht: ${key}`);
     loadContacts();
+    removeSideOverlay();
+    activeCard = null;
+
   } catch (error) {
     console.error("Error deleting contacts:", error);
   }
@@ -94,18 +97,22 @@ async function saveEditedContact(event, key) {
     const nameInput = document.querySelector('#edit_contact_overlay .add-contact-name-input').value.trim();
     const emailInput = document.querySelector('#edit_contact_overlay .add-contact-email-input').value.trim();
     const phoneInput = document.querySelector('#edit_contact_overlay .add-contact-phone-input').value.trim();
+
     if (!nameInput || !emailInput || !phoneInput) {
         alert("Bitte alle Felder ausfüllen.");
         return;
     }
+
     const nameParts = nameInput.split(" ");
     const firstName = nameParts[0];
     const lastName = nameParts.slice(1).join(" ") || " ";
     const originalContact = allContacts.find(c => c.key === key);
+
     if (!originalContact) {
         console.error("Kontakt nicht gefunden");
         return;
     }
+
     const updatedContact = {
         ...originalContact,
         firstName,
@@ -113,11 +120,16 @@ async function saveEditedContact(event, key) {
         email: emailInput,
         phoneNumber: phoneInput
     };
+
     try {
         await updateData(`contacts/${key}`, updatedContact);
         console.log("Kontakt aktualisiert:", updatedContact);
+
         removeEditContactOverlay();
-        loadContacts();
+        await loadContacts();
+
+        openContactsSideCardOverlayById(updatedContact.id);
+
     } catch (error) {
         console.error("Fehler beim Speichern:", error);
         alert("Fehler beim Speichern. Bitte versuche es erneut.");
