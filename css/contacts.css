@@ -438,7 +438,7 @@
 
 .add-contact-close-btn:hover {
     transform: scale(1.15);
-    filter: brightness(0) saturate(100%) invert(28%) sepia(89%) saturate(7485%) hue-rotate(1deg) brightness(93%) contrast(103%);
+    filter: invert(56%) sepia(60%) saturate(428%) hue-rotate(163deg) brightness(94%) contrast(92%);
 }
 
 .add-contact-right-section form {
@@ -516,12 +516,12 @@
 
 .add-contact-cancel-btn:hover {
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
-    color: rgba(229, 57, 53, 1);
-    border: 1px solid rgba(229, 57, 53, 1);
+    color: rgba(41, 171, 226, 1);
+    border: 1px solid rgba(41, 171, 226, 1);
 }
 
 .add-contact-cancel-btn:hover img {
-    filter: brightness(0) saturate(100%) invert(28%) sepia(89%) saturate(7485%) hue-rotate(1deg) brightness(93%) contrast(103%);
+    filter: invert(56%) sepia(60%) saturate(428%) hue-rotate(163deg) brightness(94%) contrast(92%);
 }
 
 .add-contact-create-contact-btn {
