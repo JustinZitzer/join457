@@ -139,7 +139,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
 
       <div class="task-board-big-assigned-to-div">
         <p class="assigned-to-big-task-headline">Assigned to:</p>
-        <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
+        <div id="task-board-big-assigned-to-contacts-div${taskKey}" class="task-board-big-assigned-to-contacts-div">
           <div class="task-board-big-first-contact">
             <span class="task-board-big-first-circle">EM</span>
             <p class="task-board-big-first-contact-name">${task.assignedTo[0]}</p>
@@ -156,7 +156,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
       </div>
 
       <h2 class="subtasks-board-big-headline">Subtasks</h2>
-      <div id="subtasks-board-tasks-div" class="subtasks-board-tasks-div">
+      <div id="subtasks-board-tasks-div${taskKey}" class="subtasks-board-tasks-div">
         <div class="subtasks-board-first-task">
           <input class="checkbox-board-subtasks" type="checkbox">
           <span>Implement Recipe Recommendation</span>

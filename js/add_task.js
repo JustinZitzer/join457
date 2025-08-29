@@ -609,6 +609,7 @@ function updateTasksHtml() {
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
+    renderAssignedContacts(task.id, task.assignedTo);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -617,6 +618,7 @@ function updateTasksHtml() {
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
+    renderAssignedContacts(task.id, task.assignedTo);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -625,6 +627,7 @@ function updateTasksHtml() {
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
+    renderAssignedContacts(task.id, task.assignedTo);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -633,6 +636,7 @@ function updateTasksHtml() {
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
+    renderAssignedContacts(task.id, task.assignedTo);
   }
 }
 
@@ -701,9 +705,27 @@ function priorityStyle(taskKey) {
   if(priorityBoxText.innerHTML == "Urgent") {
     priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
   } else if(priorityBoxText.innerHTML == "Medium") {
-    priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
+    priorityBoxLogo.src = "./assets/icons/medium-priority-icon.png";
   } else if(priorityBoxText.innerHTML == "Low") {
     priorityBoxLogo.innerHTML = "./assets/icons/double-arrow-down-14228.png";
+  }
+}
+
+function renderAssignedContacts(taskKey, assignedTo) {
+  const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const circleClasses = ["single-circle-first","single-circle-second","single-circle-third"];
+  container.innerHTML = "";
+
+  for (let i = 0; i < assignedTo.length; i++) {
+    const name = assignedTo[i];
+    const initials = name.split(" ").map(word => word.charAt(0).toUpperCase()).join("").substring(0, 2);
+    if(name == "undefined") return;
+    container.innerHTML += `
+      <div class="task-board-big-first-contact">
+        <span class="${circleClasses[i]}">${initials}</span>
+        <p class="task-board-big-first-contact-name">${name}</p>
+      </div>
+    `;
   }
 }
 
