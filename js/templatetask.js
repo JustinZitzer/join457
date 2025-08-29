@@ -134,7 +134,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
       <div id="task-board-big-priority-div" class="task-board-big-priority-div">
         <p class="task-board-big-priority-text">Priority:</p>
         <span id="task-board-big-priority${taskKey}" class="task-board-big-priority">${task.priority}</span>
-        <img id="task-board-big-priority-icon${taskKey}" class="task-board-big-priority-icon" src="./assets/icons/double-arrow-down-14228.png" alt="">
+        <img id="task-board-big-priority-icon${taskKey}" class="task-board-big-priority-icon" src="" alt="">
       </div>
 
       <div class="task-board-big-assigned-to-div">
@@ -142,15 +142,15 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
         <div id="task-board-big-assigned-to-contacts-div" class="task-board-big-assigned-to-contacts-div">
           <div class="task-board-big-first-contact">
             <span class="task-board-big-first-circle">EM</span>
-            <p class="task-board-big-first-contact-name">Emmanuel Mauer</p>
+            <p class="task-board-big-first-contact-name">${task.assignedTo[0]}</p>
           </div>
           <div class="task-board-big-second-contact">
             <span class="task-board-big-second-circle">MB</span>
-            <p class="task-board-big-second-contact-name">Marcel Bauer</p>
+            <p class="task-board-big-second-contact-name">${task.assignedTo[1]}</p>
           </div>
           <div class="task-board-big-third-contact">
             <span class="task-board-big-third-circle">AM</span>
-            <p class="task-board-big-third-contact-name">Anton Mayer</p>
+            <p class="task-board-big-third-contact-name">${task.assignedTo[2]}</p>
           </div>
         </div>
       </div>

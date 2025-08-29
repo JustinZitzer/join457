@@ -695,15 +695,15 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
 }
 
 function priorityStyle(taskKey) {
-  const priorityBox = document.getElementById(`task-board-big-priority${taskKey}`);
+  const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
   const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
   
-  if(priorityBox.textContent == "Urgent") {
-    priorityBoxLogo.innerHTML = `<img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">`;
-  } else if(priorityBox.textContent == "Medium") {
-    priorityBoxLogo.innerHTML = `<div class="arrow-orange"><p>Medium</p><p>=</p></div>`;
-  } else if(priorityBox.textContent == "Low") {
-    priorityBoxLogo.innerHTML = `<img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">`;
+  if(priorityBoxText.innerHTML == "Urgent") {
+    priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
+  } else if(priorityBoxText.innerHTML == "Medium") {
+    priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
+  } else if(priorityBoxText.innerHTML == "Low") {
+    priorityBoxLogo.innerHTML = "./assets/icons/double-arrow-down-14228.png";
   }
 }
 
