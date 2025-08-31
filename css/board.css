@@ -1457,6 +1457,15 @@ h5 {
 
 /* Der weiße Slide-In-Bereich von rechts */
 
+
+.container-both-sides {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    border-width: 1px;
+
+}
+
 .container-both-sides-board {
     position: absolute;
     display: flex;
@@ -1775,156 +1784,6 @@ h2 {
     width: 100%;
 }
 
-@media screen and (max-width: 800px) {
-    main {
-        width: 99vw;
-        margin-left: 0px;
-        margin-top: 140px;
-    }
-
-    .header-main-container {
-        width: 99vw;
-    }
-
-
-    .progressbar-box {
-        display: flex;
-        width: 220px;
-        height: 16px;
-        padding-top: 36px;
-
-    }
-
-    .progressbar-content {
-        width: 128px;
-        height: 8px;
-        top: 4px;
-        gap: 10px;
-        border-radius: 8px;
-        background-color: #F4F4F4;
-
-    }
-
-    .header-content-board {
-        width: 99vw;
-        margin-left: 1vw;
-        padding-left: 0px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .board-headline-board {
-        margin-bottom: 10px;
-    }
-
-    .add-task-container {
-        display: none;
-
-    }
-
-    .find-task-add-task-container {
-        padding-left: 0px;
-        width: 97vw;
-    }
-
-    .inputfield-task {
-        padding-left: 0px;
-        width: 97vw;
-    }
-
-    .inputfield-task-content {
-        width: 97vw;
-        justify-content: space-between;
-    }
-
-    .search-button-container {
-        display: flex;
-        align-items: center;
-        position: relative;
-        left: 92.5vw;
-        bottom: 38px;
-        width: 100%;
-        height: 32px;
-        gap: 12px;
-        border: 1px solid #D1D1D1;
-        border-top: none;
-        border-right: none;
-        border-bottom: none;
-        cursor: pointer;
-    }
-
-    .search-button {
-        width: 17.6px;
-        height: 17.6px;
-
-    }
-
-    .todos-bar-container {
-        display: flex;
-        flex-direction: column;
-        margin-top: 70px;
-        padding: 12px;
-
-    }
-
-    .todo-container {
-        left: 0px;
-        margin-left: 32px;
-    }
-
-    .inprogress-container {
-        margin-top: 270px;
-
-    }
-
-    .await-feedback-task-container {
-        margin-top: 540px;
-
-    }
-
-
-    .done-task-container {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 32px;
-        width: 244px;
-        height: 24px;
-        gap: 10px;
-        margin-top: 270px;
-    }
-
-    .todo-container-content-mobile-version {
-        display: none;
-    }
-
-
-    .title-findtask {
-        padding-left: 16px;
-        font-size: 20px;
-        width: 97vw;
-        height: 48px;
-        border: 10px;
-        border-radius: 10px;
-        font-weight: 400;
-        color: #D1D1D1;
-    }
-
-
-    .main-container-middle-part {
-        width: 1208px;
-        height: 688px;
-        margin-left: 232px;
-        padding-right: 64px;
-        padding-left: 64px;
-
-    }
-}
-
-
-.responsive-btn {
-    display: none;
-}
-
 @media (max-width: 1400px) {
 
     #header-title-project-management-tool,
@@ -1932,43 +1791,36 @@ h2 {
         display: none;
     }
 
-    .container-both-sides-board {
-        width: 100%;
-    }
-
     #header-index-html {
         z-index: 2;
     }
 
-    .add-task-box-headline-container {
-        top: 130px;
-        left: 30px;
-    }
-
-
-    .main-container-for-two-inputfield-container {
+    .container-both-sides-board {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        flex-direction: column;
         width: 100%;
-        height: 155vh;
-        gap: 24px;
+        background-color: white;
     }
 
     .container-both-sides {
+        align-items: center;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        width: 70%;
-        height: 424px;
-        top: 250px;
-        left: 0px;
-        border-width: 1px;
-        margin-left: 30px;
+        top: 150px;
+        width: 100%;
+        transform: translateX(100%);
+        background-color: white;
     }
 
-    .line-middle-of-both-container {
-        display: none;
+
+    .inputfield-box-left-side {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 440px;
+        height: 376px;
+        top: 327px;
+        left: 328px;
+        gap: 24px;
     }
 
     .inputfield-box-right-side {
@@ -1984,7 +1836,7 @@ h2 {
 
     .main-box-inputfield {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         gap: 16px;
         width: 100%;
     }
@@ -2015,10 +1867,6 @@ h2 {
         height: 27px;
         top: 870px;
         left: 0px;
-    }
-
-    .clear-create-container {
-        display: none;
     }
 
     .title-inputfield-enter-title {
@@ -2090,611 +1938,19 @@ h2 {
         width: 95vw;
     }
 
-}
-
-@media (max-width: 1000px) {
-
-
-    .title-inputfield-enter-title {
-        width: 92vw;
-    }
-
-    .inputfield-description {
-        width: 92vw;
-    }
-
-    .due-date-text-field {
-        width: 92vw;
-    }
-
-    .calendar-clock {
-        position: relative;
-        width: 18px;
-        height: 20px;
-        top: 14px;
-        left: 89.0vw;
-        top: 72px;
-        cursor: pointer;
-        color: #2A3647;
-        transform: translateX(-50%);
-    }
-
-
-    .arrow-container-main-red {
-        width: 26vw;
-    }
-
-    .arrow-container-main-green {
-        width: 26vw;
-    }
-
-    .arrow-container-red {
-        width: 26vw;
-    }
-
-    .arrow-container-orange {
-        width: 30vw;
-    }
-
-    .arrow-container-green {
-        width: 26vw;
-    }
-
-    .inputfield-text-assign {
-        padding: 8px;
-        width: 92vw;
-    }
-
-    .assigned-arrow-icon {
-        left: 87.8vw;
-    }
-
-    .inputfield-category-assign {
-        width: 92vw;
-    }
-
-    .assigned-arrow-icon-down {
-        left: 89.3vw;
-    }
-
-    .inputfield-subtask-assign {
-        width: 92vw;
-    }
-
-    .add-icon-container {
-        left: 89.3vw;
-        transform: translateX(-50%);
-    }
-
-    body {}
-
-    .dropdown-open {
-        max-height: 200px;
-        opacity: 1;
-        width: 92vw;
-    }
-
-    .contacts-dropdown {
-        width: 92vw;
-        margin-top: 0px;
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    .main-container-for-two-inputfield-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        height: 155vh;
-        gap: 24px;
-    }
-
-    .container-both-sides {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        width: 60%;
-        height: 424px;
-        top: 250px;
-        left: 0px;
-        border-width: 1px;
-        margin-left: 30px;
-    }
-
-    .line-middle-of-both-container {
-        display: none;
-    }
-
-    .inputfield-box-right-side {
-        display: flex;
-        flex-direction: column;
-        margin-top: 120px;
-        gap: 24px;
-        width: 100%;
-        height: 400px;
-        top: 327px;
-        left: 864.25px;
-    }
-
-    .main-box-inputfield {
-        display: flex;
-        justify-content: space-around;
-        gap: 16px;
-        width: 100%;
-    }
-
-    .arrow-container-main-red {
-        width: 30vw;
-    }
-
-    .arrow-container-main-green {
-        width: 30vw;
-    }
-
-    .arrow-container-red {
-        width: 30vw;
-    }
-
-    .arrow-container-orange {
-        width: 30vw;
-    }
-
-    .arrow-container-green {
-        width: 30vw;
-    }
-
     .field-required {
         position: absolute;
         width: 230px;
         height: 27px;
-        top: 870px;
+        top: 600px;
         left: 0px;
+        display: none;
+
     }
 
-    .clear-create-container {
+    .field-required:before {
+        content: "*";
+        color: red;
         display: none;
     }
-
-    .title-inputfield-enter-title {
-        width: 95vw;
-    }
-
-    .inputfield-description {
-        width: 95vw;
-    }
-
-    .due-date-text-field {
-        width: 95vw;
-    }
-
-    .calendar-clock {
-        position: relative;
-        width: 18px;
-        height: 20px;
-        top: 14px;
-        left: 92.8vw;
-        top: 72px;
-        cursor: pointer;
-        color: #2A3647;
-        transform: translateX(-50%);
-    }
-
-    .inputfield-text-assign {
-        padding: 8px;
-        width: 95vw;
-    }
-
-    .assigned-arrow-icon {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        margin-top: 4px;
-        align-self: flex-start;
-        left: 91.9vw;
-        bottom: 50px;
-    }
-
-
-
-    .inputfield-category-assign {
-        width: 95vw;
-    }
-
-    .contacts-dropdown {
-        width: 95vw;
-        margin-top: 0px;
-    }
-
-    .assigned-arrow-icon-down {
-        left: 93vw;
-        transform: translateX(-50%);
-    }
-
-    .inputfield-subtask-assign {
-        width: 95vw;
-    }
-
-    .add-icon-container {
-        left: 93vw;
-        transform: translateX(-50%);
-    }
-
-    .dropdown-open {
-        max-height: 200px;
-        opacity: 1;
-        width: 95vw;
-    }
-
-}
-
-.title-inputfield-enter-title {
-    width: 90vw;
-}
-
-.inputfield-description {
-    width: 90vw;
-}
-
-.due-date-text-field {
-    width: 90vw;
-}
-
-.calendar-clock {
-    position: relative;
-    width: 18px;
-    height: 20px;
-    top: 14px;
-    left: 86.0vw;
-    top: 72px;
-    cursor: pointer;
-    color: #2A3647;
-    transform: translateX(-50%);
-}
-
-.arrow-container-main-red {
-    width: 23.4vw;
-}
-
-.arrow-container-main-green {
-    width: 23.4vw;
-}
-
-.arrow-container-red {
-    width: 26.4vw;
-}
-
-.arrow-container-orange {
-    width: 30.4vw;
-}
-
-.arrow-container-green {
-    width: 23.4vw;
-}
-
-.inputfield-text-assign {
-    padding: 8px;
-    width: 90vw;
-}
-
-.assigned-arrow-icon {
-    left: 84.4vw;
-}
-
-.inputfield-category-assign {
-    width: 90vw;
-}
-
-.assigned-arrow-icon-down {
-    left: 86.3vw;
-}
-
-.inputfield-subtask-assign {
-    width: 90vw;
-}
-
-.add-icon-container {
-    left: 86.1vw;
-    transform: translateX(-50%);
-}
-
-.dropdown-open {
-    max-height: 200px;
-    opacity: 1;
-    width: 90vw;
-}
-
-.contacts-dropdown {
-    width: 90vw;
-    margin-top: 0px;
-}
-
-
-@media (max-width: 500px) {
-
-
-    .main-container-for-two-inputfield-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        height: 155vh;
-        gap: 24px;
-    }
-
-    .container-both-sides {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        width: 40%;
-        height: 424px;
-        top: 250px;
-        left: 0px;
-        border-width: 1px;
-        margin-left: 30px;
-    }
-
-    .line-middle-of-both-container {
-        display: none;
-    }
-
-    .inputfield-box-right-side {
-        display: flex;
-        flex-direction: column;
-        margin-top: 120px;
-        gap: 24px;
-        width: 100%;
-        height: 400px;
-        top: 327px;
-        left: 864.25px;
-    }
-
-    .main-box-inputfield {
-        display: flex;
-        justify-content: space-around;
-        gap: 16px;
-        width: 100%;
-    }
-
-    .arrow-container-main-red {
-        width: 30vw;
-    }
-
-    .arrow-container-main-green {
-        width: 30vw;
-    }
-
-    .arrow-container-red {
-        width: 30vw;
-    }
-
-    .arrow-container-orange {
-        width: 30vw;
-    }
-
-    .arrow-container-green {
-        width: 30vw;
-    }
-
-    .field-required {
-        position: absolute;
-        width: 230px;
-        height: 27px;
-        top: 870px;
-        left: 0px;
-    }
-
-    .clear-create-container {
-        display: none;
-    }
-
-    .title-inputfield-enter-title {
-        width: 95vw;
-    }
-
-    .inputfield-description {
-        width: 95vw;
-    }
-
-    .due-date-text-field {
-        width: 95vw;
-    }
-
-    .calendar-clock {
-        position: relative;
-        width: 18px;
-        height: 20px;
-        top: 14px;
-        left: 92.8vw;
-        top: 72px;
-        cursor: pointer;
-        color: #2A3647;
-        transform: translateX(-50%);
-    }
-
-    .inputfield-text-assign {
-        padding: 8px;
-        width: 95vw;
-    }
-
-    .assigned-arrow-icon {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        margin-top: 4px;
-        align-self: flex-start;
-        left: 91.9vw;
-        bottom: 50px;
-    }
-
-
-    .inputfield-category-assign {
-        width: 95vw;
-    }
-
-    .contacts-dropdown {
-        width: 95vw;
-        margin-top: 0px;
-    }
-
-    .assigned-arrow-icon-down {
-        left: 93vw;
-        transform: translateX(-50%);
-    }
-
-    .inputfield-subtask-assign {
-        width: 95vw;
-    }
-
-    .add-icon-container {
-        left: 93vw;
-        transform: translateX(-50%);
-    }
-
-    .dropdown-open {
-        max-height: 200px;
-        opacity: 1;
-        width: 95vw;
-    }
-
-}
-
-.title-inputfield-enter-title {
-    width: 87vw;
-}
-
-.inputfield-description {
-    width: 87vw;
-}
-
-.due-date-text-field {
-    width: 87vw;
-}
-
-.calendar-clock {
-    position: relative;
-    width: 18px;
-    height: 20px;
-    top: 14px;
-    left: 83.0vw;
-    top: 72px;
-    cursor: pointer;
-    color: #2A3647;
-    transform: translateX(-50%);
-}
-
-.main-box-inputfield {
-    display: flex;
-    justify-content: space-around;
-    gap: 16px;
-    width: 91.7%;
-}
-
-.arrow-container-main-red {
-    width: 23.4vw;
-}
-
-.arrow-container-main-green {
-    width: 23.4vw;
-}
-
-.arrow-container-red {
-    width: 26.4vw;
-}
-
-.arrow-container-orange {
-    width: 28.4vw;
-}
-
-.arrow-container-green {
-    width: 26.4vw;
-}
-
-.inputfield-text-assign {
-    padding: 8px;
-    width: 87vw;
-}
-
-.assigned-arrow-icon {
-    left: 80.4vw;
-}
-
-.inputfield-category-assign {
-    width: 87vw;
-    min-height: 48px;
-}
-
-.assigned-arrow-icon-down {
-    position: relative !important;
-    width: 24px !important;
-    height: 24px !important;
-    left: 82.8vw !important;
-    transform: translateX(-50%) !important;
-    bottom: 45px !important;
-    cursor: pointer !important;
-}
-
-.task-inputfield-box {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 440px;
-    height: 80px;
-    color: #2A3647;
-}
-
-.inputfield-subtask-assign {
-    width: 87vw;
-}
-
-.add-icon-container {
-    left: 82.8vw;
-    transform: translateX(-50%);
-}
-
-.dropdown-open {
-    max-height: 200px;
-    opacity: 1;
-    width: 87vw;
-}
-
-.contacts-dropdown {
-    width: 87vw;
-    margin-top: 0px;
-}
-
-
-@media (max-width: 400px) {
-
-    .main-box-inputfield {
-        display: flex;
-        justify-content: space-around;
-        gap: 22px;
-        width: 120%;
-    }
-
-    .arrow-container-main-red {
-        width: 50vw;
-    }
-
-    .arrow-container-main-green {
-        width: 20vw;
-    }
-
-    .arrow-container-red {
-        width: 20vw;
-    }
-
-    .arrow-container-orange {
-        width: 20vw;
-        font-size: 12px;
-        font-weight: 100;
-    }
-
-    .arrow-container-green {
-        width: 20vw;
-    }
-
 }
