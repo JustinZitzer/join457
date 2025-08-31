@@ -711,7 +711,7 @@ function priorityStyle(taskKey) {
   } else if(priorityBoxText.innerHTML == "Medium") {
     priorityBoxLogo.src = "./assets/icons/medium-priority-icon.png";
   } else if(priorityBoxText.innerHTML == "Low") {
-    priorityBoxLogo.innerHTML = "./assets/icons/double-arrow-down-14228.png";
+    priorityBoxLogo.src = "./assets/icons/double-arrow-down-14228.png";
   }
 }
 
