@@ -610,6 +610,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -619,6 +620,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -628,6 +630,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -637,6 +640,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 }
 
@@ -729,6 +733,21 @@ function renderAssignedContacts(taskKey, assignedTo) {
   }
 }
 
+function renderSubtasksInBigTask(taskKey, subtasks) {
+  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  subtaksContainer.innerHTML = "";
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    if(!subtask) return;
+    subtaksContainer.innerHTML += `
+      <div class="subtasks-board-first-task">
+        <input class="checkbox-board-subtasks" type="checkbox">
+        <span>${subtask}</span>
+      </div>
+    `;
+  }
+}
+
 async function loadDataBoard(path="") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
@@ -776,4 +795,20 @@ function initBigTaskInfoOverlay() {
   taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
+}
+
+async function deleteTask(category, taskKey) {
+  const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE'
+    });
+    if (response.ok) {
+      console.log(`Task ${taskKey} aus Kategorie "${category}" gelöscht.`);
+      await loadAllTasksFromFirebase();
+    }
+  } catch (error) {
+    error = console.error('Error deleting task:', error);
+  }
 }

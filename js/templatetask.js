@@ -170,7 +170,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
       <div class="task-board-big-delete-edit-div">
         <div class="task-board-big-delete-edit-div-first">
           <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
-          <p class="delete-text-board">Delete</p>
+          <p onclick="deleteTask('${task.category}', '${taskKey}')" class="delete-text-board">Delete</p>
           <div class="seperator-big-subtask"></div>
           <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
           <p class="edit-text-board">Edit</p>
