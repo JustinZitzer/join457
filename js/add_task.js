@@ -736,71 +736,78 @@ async function loadDataBoard(path="") {
   console.log(fullTaskInfoArray);
 }
 
+
+
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
 
-  // Panels ausblenden (wie bei dir)
+  // Alle Panels ausblenden (falls vorhanden)
   const panels = wrapper.getElementsByClassName('big-task-panel');
   for (let i = 0; i < panels.length; i++) {
-    panels[i].classList.add('display-none');
+      panels[i].classList.add('display-none');
   }
 
   const task = document.getElementById(`big-task-${taskKey}`);
-  if (!task) return;
+  if (task) task.classList.remove('display-none');
 
-  // sichtbar machen
   overlay.classList.remove("display-none");
   wrapper.classList.remove("display-none");
 
-  // FORCIEREN: Reflow damit die nachfolgende Klasse die Transition auslöst
-  void overlay.offsetWidth;
-
-  // Animation starten
+  // Slide + Fade aktivieren
   overlay.classList.add("active");
   wrapper.classList.add("active");
-
-  task.classList.remove("display-none");
 }
 
 function hideBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
 
-  // Rückwärtsanimation starten
   overlay.classList.remove("active");
   wrapper.classList.remove("active");
 
-  // nach Ende der transform-Transition wirklich ausblenden
-  const onEnd = (e) => {
-    if (e.target !== wrapper || e.propertyName !== 'transform') return;
-    overlay.classList.add("display-none");
-    wrapper.classList.add("display-none");
+  setTimeout(() => {
+      overlay.classList.add("display-none");
+      wrapper.classList.add("display-none");
 
-    if (taskKey) {
-      const task = document.getElementById(`big-task-${taskKey}`);
-      if (task) task.classList.add("display-none");
-    }
-    wrapper.removeEventListener('transitionend', onEnd);
-  };
-  wrapper.addEventListener('transitionend', onEnd);
+      if (taskKey) {
+          const task = document.getElementById(`big-task-${taskKey}`);
+          if (task) task.classList.add("display-none");
+      }
+  }, 500); // entspricht Transition Dauer
 }
 
+// Overlay Klick zum Schließen
+const overlay = document.getElementById("task-big-container-absolute");
+overlay.addEventListener("click", function(e) {
+  if (e.target === overlay) { // nur bei Klick auf Overlay selbst
+      hideBigTaskInfo();
+  }
+});
+function initBigTaskInfoOverlay() {
+  const overlay = document.getElementById("task-big-container-absolute");
+  overlay.addEventListener("click", function(e) {
+      if (e.target === overlay) { // Nur schließen, wenn auf Overlay selbst
+          hideBigTaskInfo();
+      }
+  });
+}
+
+// Init
+initBigTaskInfoOverlay();
+// Init
+initBigTaskInfoOverlay();
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
 
-  // Klick auf Overlay schließt
   overlay.addEventListener("click", function () {
     hideBigTaskInfo();
   });
 
-  // Klick IN das Fenster nicht durchreichen
-  taskWindow.addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
-}
+  
+
   taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
-
+}
