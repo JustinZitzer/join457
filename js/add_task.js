@@ -597,6 +597,7 @@ function filterTasksByCategory() {
   return {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks};
 }
 
+const loadedTasks = {};
 
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
@@ -605,6 +606,7 @@ function updateTasksHtml() {
 
   for (let i = 0; i < toDoTasks.length; i++) {
     const task = toDoTasks[i];
+    loadedTasks[task.id] = task;
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
@@ -614,6 +616,7 @@ function updateTasksHtml() {
 
   for (let i = 0; i < inProgressTasks.length; i++) {
     const task = inProgressTasks[i];
+    loadedTasks[task.id] = task;
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
@@ -623,6 +626,7 @@ function updateTasksHtml() {
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
     const task = awaitFeedbackTasks[i];
+    loadedTasks[task.id] = task;
     awaitFeedbackContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
@@ -632,6 +636,7 @@ function updateTasksHtml() {
 
   for (let i = 0; i < doneTasks.length; i++) {
     const task = doneTasks[i];
+    loadedTasks[task.id] = task;
     doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML +=  getTaskFromFirebaseBigTaskTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
@@ -810,4 +815,12 @@ function initBigTaskInfoOverlay() {
   taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
+}
+
+function editTask(taskKey) {
+  const editBigTaskDiv = document.getElementById(`big-task-${taskKey}`);
+  const task = loadedTasks[taskKey];
+  if (!task) return;
+  editBigTaskDiv.innerHTML = getTaskEditTemplate(task, taskKey);
+  //normale task ausblenden und das bearbeiten template einblenden und beim schließen andersrum
 }
