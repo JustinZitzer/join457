@@ -812,3 +812,72 @@ async function deleteTask(category, taskKey) {
     error = console.error('Error deleting task:', error);
   }
 }
+
+function editTask(task, taskKey) {
+  const editBigTaskDiv = document.getElementById(`big-task-${taskKey}`);
+  editBigTaskDiv.innerHTML += `
+    <div id="big-task-edit${taskKey}" class="big-task-panel  display-none">
+      <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+      </div>
+
+      <div class="titel-edit-div">
+        <h2 class="big-task-title-edit" id="big-task-title-edit">Title</h2>
+        <input class="titel-edit-task-big" id="titel-edit-task-big${taskKey}" type="text" value="${task.titel}" >
+      </div>
+
+      <div class="description-edit-div">
+        <h2>Description</h2>
+        <input class="description-edit-task-big" id="description-edit-task-big${taskKey}" type="text" value="${task.description}">
+      </div>
+
+      <div class="due-date-edit-div">
+        <h2>Due Date</h2>
+        <div class="img-input-date-edit-div">
+          <input class="due-date-edit-task-big" id="due-date-edit-task-big${taskKey}" type="text" value="${task.dueDate}">
+          <img class="calendar-icon-edit-task-big" src="./assets/icons/calendar-icon.svg" alt="">
+        <div>
+      </div>
+
+      <div class="priority-edit-div">
+        <h2 class="priority-bold-edit-headline">Priority</h2>
+        <div class="urgent-edit-button-div">
+          <button>
+            <h4>Urgent</h4>
+            <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
+          </button>
+          <button class="medium-edit-button-div">
+            <h4>Medium</h4>
+            <h4>=</h4>
+          </button>
+          <button class="low-edit-button-div">
+            <h4>Low</h4>
+            <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
+          </button>
+        </div>
+      </div>
+
+      <div class="assigned-inputfield-box-edit-div">
+        <span>Assigned to</span>
+        <div class="assigned-inputfield-edit-div">
+          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit" class="inputfield-text-assign-edit">
+          <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdown(),changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+        </div>
+      </div>
+
+      <div id="contacts-dropdown-edit${taskKey}" class="contacts-dropdown hidden"></div>
+
+      <div id="three-circle-todo-edit${taskKey}" class="three-circle-todo-edit display-none">
+        <div id="three-circle-container-edit${taskKey}" class="three-circle-container">
+      </div>
+
+      <div class="subtask-headline-edit-div">
+        <h2>Subtasks</h2>
+        <input type="text" class="inputfield-subtask-edit-div" placeholer="Add new subtask" id="inputfield-subtask-edit-div${taskKey}">
+      </div>
+
+      <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
+
+    </div>
+  `;
+}
