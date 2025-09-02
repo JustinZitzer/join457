@@ -1832,7 +1832,8 @@ h2 {
     .header-content-board {
         width: 99vw;
         margin-left: 1vw;
-        padding-left:30px;
+        padding-left: 16px;
+        gap: 20px;
         display: flex;
         flex-direction: column;
     }
@@ -1849,6 +1850,10 @@ h2 {
     .find-task-add-task-container {
         padding-left: 0px;
         width: 97vw;
+        top: 8px;
+        bottom: 8px;
+        right: 16px;
+        left: 16px;
     }
 
     .inputfield-task {
@@ -1887,24 +1892,26 @@ h2 {
         display: flex;
         flex-direction: column;
         margin-top: 70px;
-        padding: 12px;
+        padding-left: 10px;
 
     }
 
     .todo-container {
-        left: 0px;
-        margin-left: 20px;
+        margin-left: 12px;
+        width: 396px;
     }
 
     .inprogress-container {
         margin-top: 270px;
-        margin-left: 20px;
+        margin-left: 12px;
+        width: 396px;
 
     }
 
     .await-feedback-task-container {
         margin-top: 260px;
-        margin-left: 22px;
+        margin-left: 12px;
+        width: 396px;
 
     }
 
@@ -1912,11 +1919,11 @@ h2 {
     .done-task-container {
         display: flex;
         justify-content: space-between;
-        margin-left: 20px;
-        width: 244px;
+        margin-left: 12px;
         height: 24px;
         gap: 10px;
         margin-top: 270px;
+        width: 396px;
     }
 
     .todo-container-content-mobile-version {
@@ -1949,6 +1956,18 @@ h2 {
 
 .responsive-btn {
     display: none;
+    /* Standard: unsichtbar */
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 22px;
+    ;
+    border-radius: 10px;
+    padding: 3px;
+    background: #2A3647;
+    opacity: 1;
+    z-index: 1000;
+    /* sicherstellen, dass es über anderen Elementen liegt */
 }
 
 @media (max-width: 1400px) {
@@ -2192,8 +2211,6 @@ h2 {
         transform: translateX(-50%);
     }
 
-    body {}
-
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
@@ -2216,6 +2233,20 @@ h2 {
         width: 100%;
         height: 155vh;
         gap: 24px;
+    }
+
+    .responsive-btn {
+        display: block !important;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+        top: 160px;
+        left: 382px;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 3px;
+
     }
 
     .container-both-sides {
