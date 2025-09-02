@@ -25,40 +25,42 @@ let subtaskSavedCounter = 1;
 let todosArray = [];
 let fullTaskInfoArray = [];
 
+
 function openOverlay() {
-    const overlay = document.getElementById("overlay");
-    overlay.classList.add("overlay-visible");
-    overlay.classList.remove("overlay-hidden"); // Overlay hidden wurde in dieser function nicht entfernt. 
-  
-    overlay.onclick = function (event) {
-      if (event.target === overlay) {
-        closeOverlay();
-      }
-    };
-    
-    if (window.innerWidth > 1400) {
-    const overlayContent = document.getElementById("content-add-task-overlay");
-    overlayContent.innerHTML = getTaskOverlayTemplate();
-  
-      const content = document.getElementById("overlay-content");
-      if (content) {
-        content.style.animation = "none";
-        void content.offsetWidth;
-        content.style.animation = "";
-        content.classList.add("slide-in");
-      }
-    } else {
-      window.location.href='./add_task.html'
+  const overlay = document.getElementById("overlay");
+  overlay.classList.add("overlay-visible");
+  overlay.classList.remove("overlay-hidden"); // Overlay hidden wurde in dieser function nicht entfernt. 
+
+  overlay.onclick = function (event) {
+    if (event.target === overlay) {
+      closeOverlay();
     }
-}
+  };
   
+  if (window.innerWidth > 1400) {
+  const overlayContent = document.getElementById("content-add-task-overlay");
+  overlayContent.innerHTML = getTaskOverlayTemplate();
+
+    const content = document.getElementById("overlay-content");
+    if (content) {
+      content.style.animation = "none";
+      void content.offsetWidth;
+      content.style.animation = "";
+      content.classList.add("slide-in");
+    }
+  } else {
+    window.location.href='./add_task.html'
+  }
+}
+
 function closeOverlay() {
-    const overlay = document.getElementById("overlay");
-    if (overlay) {
-      overlay.classList.add("overlay-hidden");
-    }
+  const overlay = document.getElementById("overlay");
+  if (overlay) {
+    overlay.classList.add("overlay-hidden");
+  }
 }
-  
+
+
 function overlayToDo() {
     const overlayToDoContainer = document.getElementById("overlay-todo");
     overlayToDoContainer.classList.remove("overlay-hidden");

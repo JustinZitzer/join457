@@ -1150,7 +1150,6 @@ h5 {
 }
 
 
-
 .clear-create-container-board {
     display: flex;
     position: relative;
@@ -1564,7 +1563,8 @@ h2 {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    background-color: rgba(0,0,0,0.3) !important; /* leichter grauer Hintergrund */
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    /* leichter grauer Hintergrund */
     opacity: 0 !important;
     transition: opacity 0.3s ease !important;
 }
@@ -1585,12 +1585,14 @@ h2 {
     position: relative !important;
     z-index: 112 !important;
 
-    transform: translateX(100vw) !important; /* Start rechts außerhalb */
+    transform: translateX(100vw) !important;
+    /* Start rechts außerhalb */
     transition: transform 0.5s ease !important;
 }
 
 .task-big-container.active {
-    transform: translateX(0) !important; /* In die Mitte */
+    transform: translateX(0) !important;
+    /* In die Mitte */
 }
 
 /* Optional: verstecken */
@@ -1830,7 +1832,7 @@ h2 {
     .header-content-board {
         width: 99vw;
         margin-left: 1vw;
-        padding-left: 0px;
+        padding-left:30px;
         display: flex;
         flex-direction: column;
     }
@@ -1891,16 +1893,18 @@ h2 {
 
     .todo-container {
         left: 0px;
-        margin-left: 32px;
+        margin-left: 20px;
     }
 
     .inprogress-container {
         margin-top: 270px;
+        margin-left: 20px;
 
     }
 
     .await-feedback-task-container {
-        margin-top: 540px;
+        margin-top: 260px;
+        margin-left: 22px;
 
     }
 
@@ -1908,7 +1912,7 @@ h2 {
     .done-task-container {
         display: flex;
         justify-content: space-between;
-        margin-left: 32px;
+        margin-left: 20px;
         width: 244px;
         height: 24px;
         gap: 10px;
