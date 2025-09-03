@@ -1799,6 +1799,187 @@ h2 {
     width: 100%;
 }
 
+.task-category-and-cross-icon-div-edit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.titel-edit-div {
+    width: 100%;
+}
+
+.big-task-title-edit {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.titel-edit-task-big {
+    margin-left: 20px;
+    border-radius: 5px;
+    border-width: 0.5px;
+    border-color: #42526e70;
+    width: 90%;
+    height: 35px;
+    font-weight: 500;
+    
+}
+
+.description-edit-div {
+    width: 100%;
+}
+
+.description-headline-edit {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.description-edit-task-big {
+    margin-left: 20px;
+    border-radius: 5px;
+    border-width: 0.5px;
+    border-color: #42526e70;
+    width: 90%;
+    height: 100px;
+    font-weight: 500;
+}
+
+.due-date-edit-div {
+    width: 100%;
+}
+
+.inputfield-due-date-container-edit-div {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.due-date-headline-edit {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.due-date-edit-task-big {
+    margin-left: 20px;
+    border-radius: 5px;
+    border-width: 0.5px;
+    border-color: #42526e70;
+    width: 90%;
+    height: 35px;
+    font-weight: 500;
+}
+
+.calendar-icon-edit-task-big {
+    position: absolute;
+    right: 50px;
+}
+
+.priority-edit-div {
+    width: 100%;
+}
+
+.priority-bold-edit-headline {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.edit-button-div {
+    display: flex;
+    align-items: center;
+    width: 94%;
+}
+
+.urgent-edit-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border-width: 0.5px;
+    height: 40px;
+    width: 33%;
+}
+
+.medium-edit-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border-width: 0.5px;
+    height: 40px;
+    width: 33%;
+}
+
+.low-edit-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border-width: 0.5px;
+    height: 40px;
+    width: 33%;
+}
+
+.assigned-inputfield-box-edit-div {
+    width: 100%;
+}
+
+.assigned-to-edit-headline {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.inputfield-text-assign-edit {
+    margin-left: 20px;
+    border-radius: 5px;
+    border-width: 0.5px;
+    border-color: #42526e70;
+    width: 90%;
+    height: 35px;
+    font-weight: 500;
+}
+
+.subtask-headline-edit-div {
+    width: 100%;
+}
+
+.subtasks-headline-edited {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #42526E;
+}
+
+.inputfield-subtask-edit-div {
+    margin-left: 20px;
+    border-radius: 5px;
+    border-width: 0.5px;
+    border-color: #42526e70;
+    width: 90%;
+    height: 35px;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
