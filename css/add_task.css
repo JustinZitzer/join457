@@ -60,8 +60,7 @@ h3 {
     flex-direction: column;
     gap: 8px;
     width: 440px;
-    height: 376px;
-    top: 327px;
+    height: 400px;
     left: 328px;
     gap: 24px;
 
@@ -413,6 +412,7 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    top: 8px;
     width: 440px;
     height: 35px;
     color: #2A3647;
@@ -425,6 +425,7 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    top:8px;
     width: 440px;
     height: 80px;
     color: #2A3647;
@@ -438,6 +439,7 @@ h6 {
     height: 80px;
     color: #2A3647;
     gap: 8px;
+    top:8px;
 }
 
 .inputfield-text-assign {
@@ -627,7 +629,8 @@ h6 {
 }
 
 .subtask-inputfield-container {
-    position: absolute;
+    position: relative;
+    top: 8px;
 }
 
 .field-required {
@@ -1067,6 +1070,7 @@ h6 {
     position: relative;
     display: inline-block;
     width: 440px;
+    top:12px;
 }
 
 .inputfield-category-assign {
