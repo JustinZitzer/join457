@@ -412,7 +412,7 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    top: 8px;
+    top: 16px;
     width: 440px;
     height: 35px;
     color: #2A3647;
@@ -424,8 +424,9 @@ h6 {
 .task-inputfield-box {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    top:8px;
+    top:12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     width: 440px;
     height: 80px;
     color: #2A3647;
@@ -438,8 +439,7 @@ h6 {
     width: 440px;
     height: 80px;
     color: #2A3647;
-    gap: 8px;
-    top:8px;
+    top:12px;
 }
 
 .inputfield-text-assign {
@@ -1070,7 +1070,7 @@ h6 {
     position: relative;
     display: inline-block;
     width: 440px;
-    top:12px;
+    top:16px;
 }
 
 .inputfield-category-assign {

@@ -1067,14 +1067,6 @@ h5 {
 
 }
 
-.subtask-inputfield-box-board {
-    display: flex;
-    flex-direction: column;
-    width: 440px;
-    height: 80px;
-    color: #2A3647;
-    gap: 8px;
-}
 
 .inputfield-text-assign-board {
     width: 440px;
