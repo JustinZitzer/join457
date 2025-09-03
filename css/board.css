@@ -1,3 +1,4 @@
+
 main {
     display: flex;
     margin-left: 232px;
@@ -831,6 +832,7 @@ h5 {
 
 }
 
+
 .arrow-container-main-red-board {
     width: 136px;
 }
@@ -858,6 +860,7 @@ h5 {
     background-color: red;
     color: white;
 }
+
 
 
 h4 {
@@ -1422,7 +1425,6 @@ h5 {
     letter-spacing: 0%;
     color: #000000;
 }
-
 
 .overlay {
     position: fixed;

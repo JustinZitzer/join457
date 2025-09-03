@@ -48,15 +48,16 @@
                             <button onclick="openOverlay()" class="image-x">
                                 <img src="./assets/icons/add.png" alt="add-icon">
                             </button>
-
+                        
                             <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
-                                <!-- Seitlich hereinslidenes Overlay -->
-                                <div id="content-add-task-overlay"></div>
-                                <div>
-                                    <!-- Hier kannst du dein Formular platzieren -->
+                                <div id="content-add-task-overlay" class="overlay-content">
+                                    <!-- Hier kommt dein Formular hin -->
+                                    <h2>Neues Task</h2>
+                                    <p>Formular oder Inhalt hier</p>
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
                 </div>
 
@@ -149,7 +150,7 @@
                             <div ondrop="moveTo('done')" ondragover="allowDrop(event)" class="done-content-task"
                                 id="done-content-task"></div>
                         </div>
-                   
+                
                     <div class="add-button-container">
                         <button onclick="openOverlayFeedback()" class="add-button">
                             <img src="./assets/icons/plus button.png" alt="Plus" />
