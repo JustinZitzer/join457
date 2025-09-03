@@ -719,20 +719,16 @@ function priorityStyle(taskKey) {
 }
 
 function renderAssignedContacts(taskKey, assignedTo) {
-  const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerBig = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerSmall = document.getElementById(`three-circle-container${taskKey}`);
   const circleClasses = ["single-circle-first","single-circle-second","single-circle-third"];
-  container.innerHTML = "";
+  containerBig.innerHTML = "";
 
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map(word => word.charAt(0).toUpperCase()).join("").substring(0, 2);
     if(name == "undefined") return;
-    container.innerHTML += `
-      <div class="task-board-big-first-contact">
-        <span class="${circleClasses[i]}">${initials}</span>
-        <p class="task-board-big-first-contact-name">${name}</p>
-      </div>
-    `;
+    containerBig.innerHTML += circleAssignedToTemplate(i, circleClasses, initials, name);
   }
 }
 

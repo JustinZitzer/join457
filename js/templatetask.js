@@ -104,7 +104,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
         <div class="subtask-text">0/2 subtasks</div>
       </div>
       <div class="three-circle-todo">
-        <div class="three-circle-container">
+        <div id="three-circle-container${taskKey}" class="three-circle-container">
           <div class="single-circle-first"><h5>AS</h5></div>
           <div class="single-circle-second"><h5>DE</h5></div>
           <div class="single-circle-third"><h5>EF</h5></div>
@@ -183,7 +183,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
 function getTaskEditTemplate(task, taskKey) {
   return `
     <div id="big-task-edit${taskKey}" class="big-task-panel">
-      <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+      <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div-edit">
         <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
       </div>
 
@@ -193,22 +193,24 @@ function getTaskEditTemplate(task, taskKey) {
       </div>
 
       <div class="description-edit-div">
-        <h2>Description</h2>
+        <h2 class="description-headline-edit">Description</h2>
         <input class="description-edit-task-big" id="description-edit-task-big${taskKey}" type="text" value="${task.description}">
       </div>
 
       <div class="due-date-edit-div">
-        <h2>Due Date</h2>
+        <h2 class="due-date-headline-edit">Due Date</h2>
         <div class="img-input-date-edit-div">
-          <input class="due-date-edit-task-big" id="due-date-edit-task-big${taskKey}" type="text" value="${task.dueDate}">
-          <img class="calendar-icon-edit-task-big" src="" alt="calendar-icon">
+          <div class="inputfield-due-date-container-edit-div">
+            <input class="due-date-edit-task-big" id="due-date-edit-task-big${taskKey}" type="text" value="${task.dueDate}">
+            <img class="calendar-icon-edit-task-big" src="" alt="calendar-icon">
+          </div>
         <div>
       </div>
 
       <div class="priority-edit-div">
         <h2 class="priority-bold-edit-headline">Priority</h2>
-        <div class="urgent-edit-button-div">
-          <button>
+        <div class="edit-button-div">
+          <button class="urgent-edit-button-div">
             <h4>Urgent</h4>
             <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
           </button>
@@ -224,7 +226,7 @@ function getTaskEditTemplate(task, taskKey) {
       </div>
 
       <div class="assigned-inputfield-box-edit-div">
-        <span>Assigned to</span>
+        <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
           <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit" class="inputfield-text-assign-edit">
           <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdown(),changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
@@ -238,7 +240,7 @@ function getTaskEditTemplate(task, taskKey) {
       </div>
 
       <div class="subtask-headline-edit-div">
-        <h2>Subtasks</h2>
+        <h2 class="subtasks-headline-edited">Subtasks</h2>
         <input type="text" class="inputfield-subtask-edit-div" placeholer="Add new subtask" id="inputfield-subtask-edit-div${taskKey}">
       </div>
 
@@ -306,5 +308,14 @@ function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
         </svg>
       </span>
     </div>
+  `;
+}
+
+function circleAssignedToTemplate(i, circleClasses, initials, name) {
+  return `
+  <div class="task-board-big-first-contact">
+    <span class="${circleClasses[i]}">${initials}</span>
+    <p class="task-board-big-first-contact-name">${name}</p>
+  </div>
   `;
 }
