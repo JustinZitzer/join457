@@ -25,7 +25,6 @@ let subtaskSavedCounter = 1;
 let todosArray = [];
 let fullTaskInfoArray = [];
 
-
 function openOverlay() {
   const overlay = document.getElementById("overlay");
   overlay.classList.add("overlay-visible");
@@ -59,6 +58,7 @@ function closeOverlay() {
     overlay.classList.add("overlay-hidden");
   }
 }
+
 
 function overlayToDo() {
     const overlayToDoContainer = document.getElementById("overlay-todo");

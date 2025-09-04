@@ -9,13 +9,11 @@ main {
     display: flex;
     justify-content: space-between;
     width: 1056px;
-    height: 73px;
     padding-left: 64px;
 }
 
 .header-main-container {
     width: 1208px;
-    height: 176px;
     top: 96px;
     left: 232px;
 
@@ -233,7 +231,6 @@ h3 {
 
 .todo-content-task {
     width: 244px;
-    min-height: 400px;
     display: block;
 }
 
@@ -262,7 +259,6 @@ h3 {
 
 .inprogress-content-task {
     width: 244px;
-    min-height: 400px;
     display: block;
 }
 
@@ -294,7 +290,6 @@ h3 {
 
 .await-feedback-content-box {
     width: 252px;
-    height: 215px;
     gap: 10px;
     border-radius: 24px;
     padding: 16px;
@@ -316,7 +311,6 @@ h3 {
 
 .await-feedback-content-task {
     width: 244px;
-    min-height: 400px;
     display: block;
 }
 
@@ -345,7 +339,6 @@ h3 {
 
 .done-content-task {
     width: 244px;
-    min-height: 400px;
     display: block;
 }
 
@@ -2066,25 +2059,27 @@ h2 {
     .todos-bar-container {
         display: flex;
         flex-direction: column;
-        margin-top: 70px;
         padding-left: 10px;
 
     }
 
+
     .todo-container {
         margin-left: 12px;
         width: 396px;
+
     }
 
+
     .inprogress-container {
-        margin-top: 270px;
+        margin-top: 500px;
         margin-left: 12px;
         width: 396px;
 
     }
 
     .await-feedback-task-container {
-        margin-top: 260px;
+        margin-top: 440px;
         margin-left: 12px;
         width: 396px;
 
@@ -2094,10 +2089,10 @@ h2 {
     .done-task-container {
         display: flex;
         justify-content: space-between;
+        margin-top: 270px;
         margin-left: 12px;
         height: 24px;
         gap: 10px;
-        margin-top: 270px;
         width: 396px;
     }
 
