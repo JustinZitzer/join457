@@ -613,6 +613,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -623,6 +624,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -633,6 +635,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -643,6 +646,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+    renderSubtasksInBigTask(task.id, task.subtasks);
   }
 }
 
@@ -839,5 +843,21 @@ async function deleteTask(category, taskKey) {
     }
   } catch (error) {
     error = console.error('Error deleting task:', error);
+  }
+}
+
+function renderSubtasksInBigTask(taskKey, subtasks) {
+  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  subtaksContainer.innerHTML = "";
+  if(!subtasks) return;
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    if(!subtask) return;
+    subtaksContainer.innerHTML += `
+      <div class="subtasks-board-first-task">
+        <input class="checkbox-board-subtasks" type="checkbox">
+        <span>${subtask}</span>
+      </div>
+    `;
   }
 }
