@@ -723,8 +723,11 @@ function priorityStyle(taskKey) {
 
 function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerTask = document.getElementById(`three-circle-container${taskKey}`);
   const circleClasses = ["single-circle-first-big","single-circle-second-big","single-circle-third-big"];
+  const circleClassesTask = ["single-circle-first-little","single-circle-second-little","single-circle-third-little"];
   container.innerHTML = "";
+  containerTask.innerHTML = "";
 
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
@@ -735,6 +738,11 @@ function renderAssignedContacts(taskKey, assignedTo) {
         <span class="${circleClasses[i]}">${initials}</span>
         <p class="task-board-big-first-contact-name-big">${name}</p>
       </div>
+    `;
+    containerTask.innerHTML += `
+    <div class="task-board-big-first-contact-big">
+      <span class="${circleClassesTask[i]}">${initials}</span>
+    </div>
     `;
   }
 }

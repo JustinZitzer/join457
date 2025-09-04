@@ -568,6 +568,25 @@ h3 {
     color: white;
 }
 
+.single-circle-first-little {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+}
+
 
 .single-circle-second {
     width: 50px;
@@ -598,6 +617,26 @@ h3 {
     justify-content: center;
     align-items: center;
     background-color: deeppink;
+    color: white;
+}
+
+.single-circle-second-little {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    color: white;
+    margin-left: -14px;
+    border-width: 1px;
     color: white;
 }
 
@@ -672,6 +711,26 @@ h5 {
     letter-spacing: 0%;
     background-color: orange;
     color: white;
+}
+
+.single-circle-third-little {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: orange;
+    color: white;
+    margin-left: -14px;
+    border-color: white;
+    border-width: 1px;
 }
 
 .single-circle-turkis {
@@ -2126,14 +2185,14 @@ h2 {
 
 
     .inprogress-container {
-        margin-top: 500px;
+        margin-top: 280px;
         margin-left: 12px;
         width: 396px;
 
     }
 
     .await-feedback-task-container {
-        margin-top: 440px;
+        margin-top: 280px;
         margin-left: 12px;
         width: 396px;
 
