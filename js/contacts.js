@@ -58,9 +58,6 @@ function toggleContactCardColor(contactId) {
     activeCard = isNowActive ? contactCard : null;
 }
 
-
-/*funktionen der card ergänzen*/
-
 function openAddNewContactOverlay() {
     const main = document.getElementById('main_contacts');
     const containerGreyBackground = document.getElementById('contacts-sidebar-container');
