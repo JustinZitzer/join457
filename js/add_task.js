@@ -825,3 +825,19 @@ function editTask(taskKey) {
   editBigTaskDiv.innerHTML = getTaskEditTemplate(task, taskKey);
   //normale task ausblenden und das bearbeiten template einblenden und beim schließen andersrum
 }
+
+async function deleteTask(category, taskKey) {
+  const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE'
+    });
+    if (response.ok) {
+      console.log(`Task ${taskKey} aus Kategorie "${category}" gelöscht.`);
+      await loadAllTasksFromFirebase();
+    }
+  } catch (error) {
+    error = console.error('Error deleting task:', error);
+  }
+}
