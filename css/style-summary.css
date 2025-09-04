@@ -53,6 +53,8 @@ body {
 }
 
 .To-Do-Box {
+    text-decoration: none;
+    color: black;
     height: 168px;
     width: 264px;
     border-radius: 30px;
@@ -77,6 +79,8 @@ body {
 }
 
 .Done-Box {
+    text-decoration: none;
+    color: black;
     height: 168px;
     width: 264px;
     border-radius: 30px;
@@ -196,6 +200,8 @@ body {
 }
 
 .Second-One-Box-Container {
+    text-decoration: none;
+    color: black;
     display: flex;
     border-radius: 30px;
     height: 168px;
@@ -330,6 +336,8 @@ body {
 }
 
 .tiny-box-div {
+    text-decoration: none;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -342,6 +350,8 @@ body {
 }
 
 .tiny-box2-div {
+    text-decoration: none;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -355,6 +365,8 @@ body {
 }
 
 .tiny-box3-div {
+    text-decoration: none;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
