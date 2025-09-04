@@ -562,6 +562,23 @@ h3 {
 
 }
 
+.single-circle-first-big {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+}
+
 
 .single-circle-second {
     width: 50px;
@@ -576,6 +593,23 @@ h3 {
     text-align: center;
     vertical-align: middle;
     background-color: deeppink;
+}
+
+.single-circle-second-big {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    color: white;
 }
 
 
@@ -632,6 +666,23 @@ h5 {
     vertical-align: middle;
     background-color: orange;
 
+}
+
+.single-circle-third-big {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: orange;
+    color: white;
 }
 
 .single-circle-turkis {
@@ -1690,6 +1741,16 @@ h2 {
 .task-board-big-first-contact {
     display: flex;
     margin-top: 15px;
+}
+
+.task-board-big-first-contact-big {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.task-board-big-first-contact-name-big {
+    margin-left: 15px;
 }
 
 .task-board-big-second-contact {
