@@ -869,3 +869,14 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
     `;
   }
 }
+
+function progressBarStyle(taskKey, subtasks) {
+  const progressBar = document.getElementById(`progressbar-content${taskKey}`);
+  const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
+  if(!subtasks) return;
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    if(!subtask) return;
+    progressBarCounter.innerHTML = `${i+1}/${subtasks.length} subtasks`;
+  }
+}
