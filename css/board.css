@@ -226,7 +226,6 @@ h3 {
 }
 
 
-
 .inprogress-container {
     display: flex;
     width: 100%;
@@ -504,17 +503,6 @@ h3 {
 
 }
 
-.three-circle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 22px;
-    width: 110px;
-    height: 32px;
-    gap: 8px;
-
-}
-
 .single-circle-first {
     width: 50px;
     height: 32px;
@@ -532,6 +520,42 @@ h3 {
 
 }
 
+.single-circle-first-big {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+}
+
+.single-circle-first-little {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+}
+
 
 .single-circle-second {
     width: 50px;
@@ -546,6 +570,43 @@ h3 {
     text-align: center;
     vertical-align: middle;
     background-color: deeppink;
+}
+
+.single-circle-second-big {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    color: white;
+}
+
+.single-circle-second-little {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    color: white;
+    margin-left: -14px;
+    border-width: 1px;
+    color: white;
 }
 
 
@@ -602,6 +663,43 @@ h5 {
     vertical-align: middle;
     background-color: orange;
 
+}
+
+.single-circle-third-big {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: orange;
+    color: white;
+}
+
+.single-circle-third-little {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: orange;
+    color: white;
+    margin-left: -14px;
+    border-color: white;
+    border-width: 1px;
 }
 
 .single-circle-turkis {
@@ -1670,6 +1768,16 @@ h2 {
     margin-top: 15px;
 }
 
+.task-board-big-first-contact-big {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.task-board-big-first-contact-name-big {
+    margin-left: 15px;
+}
+
 .task-board-big-second-contact {
     display: flex;
     margin-top: 25px;
@@ -1793,7 +1901,7 @@ h2 {
     width: 90%;
     height: 35px;
     font-weight: 500;
-    
+
 }
 
 .description-edit-div {
@@ -1927,6 +2035,26 @@ h2 {
     font-weight: 500;
 }
 
+.todo-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inprogress-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.await-feedback-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.done-box {
+    display: flex;
+    justify-content: space-between;
+}
+
 .subtask-headline-edit-div {
     width: 100%;
 }
@@ -2042,38 +2170,41 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-left: 10px;
+        gap: 12px;
 
     }
 
     .todo-container {
         margin-left: 12px;
-        width: 396px;
     }
 
     .inprogress-container {
         margin-left: 12px;
-        width: 396px;
 
     }
 
     .await-feedback-task-container {
         margin-left: 12px;
-        width: 396px;
+        ;
     }
 
 
     .done-task-container {
+        margin-left: 12px;
+        ;
         display: flex;
         justify-content: space-between;
-        margin-left: 12px;
         gap: 10px;
-        width: 396px;
     }
 
     .todo-container-content-mobile-version {
         display: none;
     }
 
+    .add-button {
+        position: absolute;
+        left: 400px;
+    }
 
     .title-findtask {
         padding-left: 16px;

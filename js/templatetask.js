@@ -99,9 +99,9 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
           <span>${task.description}</span>
         </div>
       </div>
-      <div class="progressbar-box">
-        <div class="progressbar-content"></div>
-        <div class="subtask-text">0/2 subtasks</div>
+      <div id="progressbar-box${taskKey}" class="progressbar-box">
+        <div id="progressbar-content${taskKey}" class="progressbar-content"></div>
+        <div id="subtask-text${taskKey}" class="subtask-text">0/2 subtasks</div>
       </div>
       <div class="three-circle-todo">
         <div id="three-circle-container${taskKey}" class="three-circle-container">

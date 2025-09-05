@@ -41,38 +41,44 @@
                                 </div>
                             </div>
                         </div>
+
+                        <button class="add-task-box" onclick="openOverlay()">
+                            <p>Add Task</p>
+                            <img src="./assets/icons/add.png" alt="add-icon">
+                        </button>
                         
-                            <button class="add-task-box" onclick="openOverlay()" class="image-x">
-                                <p>Add Task</p>
-                                <img src="./assets/icons/add.png" alt="add-icon">
-                            </button>
-        
-                        
-                            <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
-                                <div id="content-add-task-overlay" class="overlay-content">
-                                    <!-- Hier kommt dein Formular hin -->
-                                    <h2>Neues Task</h2>
-                                    <p>Formular oder Inhalt hier</p>
-                                </div>
+                        <div id="overlay" class="overlay-hidden">
+                            <div id="content-add-task-overlay" class="overlay-content" onclick="event.stopPropagation()">
+                                <!-- Hier kommt dein Formular hin -->
+                                <h2>Neues Task</h2>
+                                <p>Formular oder Inhalt hier</p>
                             </div>
                         </div>
-                    
-    
+
+
+                    </div>
+
+
                 </div>
 
                 <div class="todos-bar-container">
                     <div class="todo-container">
                         <div id="todo-content" class="todo-content">
-                            <p>To do</p>
+
+                            <div class="todo-box">
+                                <p>To do</p>
+                                <button onclick="overlayToDo()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                            </div>
+
                             <div ondrop="moveTo('toDo')" ondragover="allowDrop(event)" class="todo-content-task"
                                 id="todo-content-task"></div>
                         </div>
 
 
                         <div class="add-button-container">
-                            <button onclick="overlayToDo()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus" />
-                            </button>
+
                             <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
                                 <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-todo"></div>
@@ -90,16 +96,20 @@
 
                     <div class="inprogress-container">
                         <div id="inprogress-content" class="inprogress-content">
-                            <p>In progress</p>
+                            <div class="inprogress-box">
+                                <p>In progress</p>
+                                <button onclick="openOverlayInProgress()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                            </div>
+
                             <div ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"
                                 class="inprogress-content-task" id="inprogress-content-task"></div>
                         </div>
 
 
                         <div class="add-button-container">
-                            <button onclick="openOverlayInProgress()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus" />
-                            </button>
+
                             <div id="overlay-in-progress" class="overlay-hidden"
                                 onclick="closeOverlayInProgress(event)">
                                 <!-- Seitlich hereinslidenes Overlay -->
@@ -118,14 +128,17 @@
 
                     <div class="await-feedback-task-container">
                         <div id="await-feedback-content" class="await-feedback-content">
-                            <p>Await feedback</p>
+                            <div class="await-feedback-box">
+                                <p>Await feedback</p>
+                                <button onclick="openOverlayFeedback()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                            </div>
                             <div ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)"
                                 class="await-feedback-content-task" id="await-feedback-content-task"></div>
                         </div>
                         <div class="add-button-container">
-                            <button onclick="openOverlayFeedback()" class="add-button">
-                                <img src="./assets/icons/plus button.png" alt="Plus" />
-                            </button>
+
                             <div id="overlay-await-feedback" class="overlay-hidden"
                                 onclick="closeOverlayFeedback(event)">
 
@@ -135,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="await-feedback-container-content-mobile-version">
                         <div class="await-feedback-container-content-mobile-version-task"
@@ -145,26 +158,30 @@
 
                     <div class="done-task-container">
                         <div id="done-content" class="done-content">
-                            <p>Done</p>
+                            <div class="done-box">
+                                <p>Done</p>
+                                <button onclick="openOverlayFeedback()" class="add-button">
+                                    <img src="./assets/icons/plus button.png" alt="Plus" />
+                                </button>
+                            </div>
                             <div ondrop="moveTo('done')" ondragover="allowDrop(event)" class="done-content-task"
                                 id="done-content-task"></div>
                         </div>
-                
-                    <div class="add-button-container">
-                        <button onclick="openOverlayFeedback()" class="add-button">
-                            <img src="./assets/icons/plus button.png" alt="Plus" />
-                        </button>
 
-                        <div class="done-container-content-mobile-version" id="done-container-content-mobile-version">
+                        <div class="add-button-container">
+
+
+                            <div class="done-container-content-mobile-version"
+                                id="done-container-content-mobile-version">
+                            </div>
+
                         </div>
-
                     </div>
                 </div>
-            </div>
 
-            <div id="task-big-container-absolute" class="task-big-container-absolute display-none">
-                <div id="task-big-container" class="task-big-container display-none"></div>
-            </div>
+                <div id="task-big-container-absolute" class="task-big-container-absolute display-none">
+                    <div id="task-big-container" class="task-big-container display-none"></div>
+                </div>
 
     </main>
 
