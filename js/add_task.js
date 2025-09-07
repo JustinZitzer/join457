@@ -791,19 +791,19 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
 }
 
 function priorityStyle(taskKey) {
-  const priorityBoxText = document.getElementById(
-    `task-board-big-priority${taskKey}`
-  );
-  const priorityBoxLogo = document.getElementById(
-    `task-board-big-priority-icon${taskKey}`
-  );
+  const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
+  const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
+  const priorityBoxPicture = document.getElementById(`priority-icon-task-little${taskKey}`);
 
   if (priorityBoxText.innerHTML == "Urgent") {
     priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
+    priorityBoxPicture.src = "./assets/icons/double-arrow-up-14221.png";
   } else if (priorityBoxText.innerHTML == "Medium") {
     priorityBoxLogo.src = "./assets/icons/medium-priority-icon.png";
+    priorityBoxPicture.src = "./assets/icons/medium-priority-icon.png";
   } else if (priorityBoxText.innerHTML == "Low") {
     priorityBoxLogo.src = "./assets/icons/double-arrow-down-14228.png";
+    priorityBoxPicture.src = "./assets/icons/double-arrow-down-14228.png";
   }
 }
 

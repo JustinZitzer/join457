@@ -109,6 +109,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
           <div class="single-circle-second"><h5>DE</h5></div>
           <div class="single-circle-third"><h5>EF</h5></div>
         </div>
+        <img class="priority-icon-task-little" src="" alt="bild" id="priority-icon-task-little${taskKey}">
       </div>
     </div>
   `;
