@@ -386,13 +386,16 @@ function updateSubtasksArray() {
 
   for (let index = 0; index < subtaskSavedCounter; index++) {
     const subtaskElement = document.getElementById(`subtask-${index}`);
-    const subtaskTextElement = document.getElementById(
-      `subtask-list-element-div${index}`
-    );
+    const subtaskTextElement = document.getElementById(`subtask-list-element-div${index}`);
+    const checkboxElement = document.getElementById(`subtask-checkbox${index}`);
 
-    if (subtaskElement && subtaskTextElement) {
+    if (subtaskElement && subtaskTextElement && checkboxElement) {
       const subtask = subtaskTextElement.textContent.trim().replace("• ", "");
-      subtasksArray.push(subtask);
+      const notChecked = false;
+      subtasksArray.push({
+        subtaskText: subtask,
+        statusCheckbox: notChecked
+      });
     }
   }
   return subtasksArray;
@@ -961,8 +964,8 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
     const subtask = subtasks[i];
     if (!subtask) return;
     subtaksContainer.innerHTML += `
-      <div class="subtasks-board-first-task">
-        <input class="checkbox-board-subtasks" type="checkbox">
+      <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+        <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
         <span>${subtask}</span>
       </div>
     `;
