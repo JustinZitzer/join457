@@ -223,6 +223,7 @@ h3 {
 
 .todo-content-task {
     display: block;
+    min-height: 500px;
 }
 
 
@@ -246,6 +247,7 @@ h3 {
 
 .inprogress-content-task {
     display: block;
+    min-height: 500px;
 }
 
 .generate-task {
@@ -289,6 +291,7 @@ h3 {
 
 .await-feedback-content-task {
     display: block;
+    min-height: 500px;
 }
 
 .done-task-container {
@@ -313,6 +316,7 @@ h3 {
 
 .done-content-task {
     display: block;
+    min-height: 500px;
 }
 
 
