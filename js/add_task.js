@@ -955,20 +955,27 @@ async function deleteTask(category, taskKey) {
 }
 
 function renderSubtasksInBigTask(taskKey, subtasks) {
-  const subtaksContainer = document.getElementById(
-    `subtasks-board-tasks-div${taskKey}`
-  );
+  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
     if (!subtask) return;
-    subtaksContainer.innerHTML += `
-      <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-        <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
-        <span>${subtask}</span>
-      </div>
-    `;
+    if(subtask.statusCheckbox == false) {
+      subtaksContainer.innerHTML += `
+        <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+          <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <span>${subtask.subtaskText}</span>
+        </div>
+      `;
+    } else {
+      subtaksContainer.innerHTML += `
+        <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+          <input checked class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <span>${subtask.subtaskText}</span>
+        </div>
+      `;
+    }
   }
 }
 
