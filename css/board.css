@@ -228,7 +228,6 @@ h3 {
 
 
 .inprogress-container {
-    display: flex;
     width: 100%;
     margin-left: 32px;
     justify-content: space-between;
@@ -263,7 +262,6 @@ h3 {
 }
 
 .await-feedback-task-container {
-    display: flex;
     width: 100%;
     margin-left: 32px;
     justify-content: space-between;
@@ -295,7 +293,6 @@ h3 {
 }
 
 .done-task-container {
-    display: flex;
     justify-content: space-between;
     margin-left: 32px;
     width: 100%;
@@ -488,7 +485,8 @@ h3 {
 }
 
 .three-circle-todo {
-    width: 220px;;
+    width: 220px;
+    ;
     height: 32px;
     justify-content: space-between;
     padding-top: 20px;
@@ -2189,6 +2187,7 @@ h2 {
     }
 
     .inprogress-container {
+        display: flex;
         margin-left: 12px;
 
     }
