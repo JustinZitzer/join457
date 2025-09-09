@@ -882,15 +882,6 @@ function hideBigTaskInfo(taskKey) {
   }, 500); // entspricht Transition Dauer
 }
 
-// Overlay Klick zum Schließen
-const overlay = document.getElementById("task-big-container-absolute");
-overlay.addEventListener("click", function (e) {
-  if (e.target === overlay) {
-    // nur bei Klick auf Overlay selbst
-    hideBigTaskInfo();
-  }
-});
-
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   overlay.addEventListener("click", function (e) {
