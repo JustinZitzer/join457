@@ -2,9 +2,7 @@ const toDoContent = document.getElementById("todo-content-box");
 const toDoContentFinalDiv = document.getElementById("todo-content-task");
 const bigTaskDiv = document.getElementById("task-big-container");
 const inProgressContent = document.getElementById("inprogress-content-task");
-const awaitFeedbackContent = document.getElementById(
-  "await-feedback-content-task"
-);
+const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
 const doneContent = document.getElementById("done-content-task");
 const arrowContainerRed = document.getElementById("arrow-container-red");
 const arrowContainerOrange = document.getElementById("arrow-container-orange");
@@ -18,9 +16,7 @@ const taskPriorityLow = document.getElementById("arrow-container-green");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
-const subtaskInputFieldContainer = document.getElementById(
-  "subtask-inputfield-container"
-);
+const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
 const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
