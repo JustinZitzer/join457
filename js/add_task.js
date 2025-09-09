@@ -906,8 +906,7 @@ function initBigTaskInfoOverlay() {
 
 // Init
 initBigTaskInfoOverlay();
-// Init
-initBigTaskInfoOverlay();
+
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
