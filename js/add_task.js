@@ -680,6 +680,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -691,6 +692,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -705,6 +707,7 @@ function updateTasksHtml() {
       task.id
     );
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -716,6 +719,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -918,15 +922,14 @@ function initBigTaskInfoOverlay() {
 }
 
 function editTask(taskKey) {
-  const BigTaskDiv = document.getElementById(`big-task-${taskKey}`);
-  const showBigTaskContentDiv = document.getElementById(`big-task-show-hide-div${taskKey}`);
-  const editContentDiv = document.getElementById(`big-task-edit${taskKey}`);
-  const task = loadedTasks[taskKey];
-  if (!task) return;
-  showBigTaskContentDiv.classList.add("display-none");
-  BigTaskDiv.innerHTML += getTaskEditTemplate(task, taskKey);
-  
-  //normale task ausblenden und das bearbeiten template einblenden und beim schließen andersrum
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const task = document.getElementById(`big-task-${taskKey}`);
+  if (showTaskPanel) {
+    showTaskPanel.classList.add("display-none");
+    task.classList.add("height-zero");
+  }
+  if (editTaskPanel) editTaskPanel.classList.remove("display-none");
 }
 
 async function deleteTask(category, taskKey) {

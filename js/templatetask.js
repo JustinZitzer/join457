@@ -231,7 +231,7 @@ function getTaskEditTemplate(task, taskKey) {
       <div class="assigned-inputfield-box-edit-div">
         <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
-          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit" class="inputfield-text-assign-edit">
+          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit ${taskKey}" class="inputfield-text-assign-edit">
           <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdown(),changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
         </div>
       </div>
