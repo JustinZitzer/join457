@@ -671,7 +671,7 @@ const loadedTasks = {};
 
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } =
-    filterTasksByCategory();
+  filterTasksByCategory();
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
@@ -794,8 +794,9 @@ function priorityStyle(taskKey) {
   const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
   const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
   const priorityBoxPicture = document.getElementById(`priority-icon-task-little${taskKey}`);
-
-  if (priorityBoxText.innerHTML == "Urgent") {
+  if (priorityBoxText.innerHTML == "No priority selected") {
+    priorityBoxPicture.classList.add("display-none");
+  } else if (priorityBoxText.innerHTML == "Urgent") {
     priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
     priorityBoxPicture.src = "./assets/icons/double-arrow-up-14221.png";
   } else if (priorityBoxText.innerHTML == "Medium") {
@@ -808,32 +809,18 @@ function priorityStyle(taskKey) {
 }
 
 function renderAssignedContacts(taskKey, assignedTo) {
-  const container = document.getElementById(
-    `task-board-big-assigned-to-contacts-div${taskKey}`
-  );
-  const containerTask = document.getElementById(
-    `three-circle-container${taskKey}`
-  );
-  const circleClasses = [
-    "single-circle-first-big",
-    "single-circle-second-big",
-    "single-circle-third-big",
-  ];
-  const circleClassesTask = [
-    "single-circle-first-little",
-    "single-circle-second-little",
-    "single-circle-third-little",
-  ];
+  const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerTask = document.getElementById(`three-circle-container${taskKey}`);
+  const containerTaskEdit = document.getElementById(`three-circle-todo-edit${taskKey}`);
+  const circleClasses = ["single-circle-first-big","single-circle-second-big","single-circle-third-big",];
+  const circleClassesTask = ["single-circle-first-little","single-circle-second-little","single-circle-third-little",];
   container.innerHTML = "";
   containerTask.innerHTML = "";
 
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
-    const initials = name
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase())
-      .join("")
-      .substring(0, 2);
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase())
+    .join("").substring(0, 2);
     if (name == "undefined") return;
     container.innerHTML += `
       <div class="task-board-big-first-contact-big">
@@ -931,10 +918,14 @@ function initBigTaskInfoOverlay() {
 }
 
 function editTask(taskKey) {
-  const editBigTaskDiv = document.getElementById(`big-task-${taskKey}`);
+  const BigTaskDiv = document.getElementById(`big-task-${taskKey}`);
+  const showBigTaskContentDiv = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const editContentDiv = document.getElementById(`big-task-edit${taskKey}`);
   const task = loadedTasks[taskKey];
   if (!task) return;
-  editBigTaskDiv.innerHTML = getTaskEditTemplate(task, taskKey);
+  showBigTaskContentDiv.classList.add("display-none");
+  BigTaskDiv.innerHTML += getTaskEditTemplate(task, taskKey);
+  
   //normale task ausblenden und das bearbeiten template einblenden und beim schließen andersrum
 }
 
