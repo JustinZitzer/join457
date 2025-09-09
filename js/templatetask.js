@@ -187,7 +187,7 @@ function getTaskEditTemplate(task, taskKey) {
   return `
     <div id="big-task-edit${taskKey}" class="big-task-panel">
       <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div-edit">
-        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="cancelEditTask('${taskKey}')">
       </div>
 
       <div class="titel-edit-div">
