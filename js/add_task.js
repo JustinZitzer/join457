@@ -894,6 +894,7 @@ overlay.addEventListener("click", function (e) {
     hideBigTaskInfo();
   }
 });
+
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   overlay.addEventListener("click", function (e) {
@@ -924,11 +925,28 @@ function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
+
   if (showTaskPanel) {
     showTaskPanel.classList.add("display-none");
     task.classList.add("height-zero");
   }
-  if (editTaskPanel) editTaskPanel.classList.remove("display-none");
+  if (editTaskPanel) {
+    editTaskPanel.classList.remove("display-none");
+  }
+}
+
+function cancelEditTask(taskKey) {
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const task = document.getElementById(`big-task-${taskKey}`);
+
+  if (showTaskPanel) {
+    showTaskPanel.classList.remove("display-none");
+    task.classList.remove("height-zero");
+  }
+  if (editTaskPanel) {
+    editTaskPanel.classList.add("display-none");
+  }
 }
 
 async function deleteTask(category, taskKey) {
