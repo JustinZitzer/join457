@@ -843,14 +843,20 @@ async function loadDataBoard(path = "") {
   console.log(fullTaskInfoArray);
 }
 
+let currentTaskKey = null;
+
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
 
-  // Alle Panels ausblenden (falls vorhanden)
   const panels = wrapper.getElementsByClassName("big-task-panel");
   for (let i = 0; i < panels.length; i++) {
     panels[i].classList.add("display-none");
+  }
+
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
+    cancelEditTask(taskKey);
   }
 
   const task = document.getElementById(`big-task-${taskKey}`);
@@ -858,15 +864,24 @@ function showBigTaskInfo(taskKey) {
 
   overlay.classList.remove("display-none");
   wrapper.classList.remove("display-none");
-
-  // Slide + Fade aktivieren
   overlay.classList.add("active");
   wrapper.classList.add("active");
+
+  currentTaskKey = taskKey;
 }
 
 function hideBigTaskInfo(taskKey) {
+  if (!taskKey) {
+    taskKey = currentTaskKey;
+  }
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  setTimeout(() => {
+    if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
+    cancelEditTask(taskKey);
+    return;
+  }}, 500);
 
   overlay.classList.remove("active");
   wrapper.classList.remove("active");
@@ -879,34 +894,25 @@ function hideBigTaskInfo(taskKey) {
       const task = document.getElementById(`big-task-${taskKey}`);
       if (task) task.classList.add("display-none");
     }
-  }, 500); // entspricht Transition Dauer
+    currentTaskKey = null;
+  }, 500);
 }
-
-function initBigTaskInfoOverlay() {
-  const overlay = document.getElementById("task-big-container-absolute");
-  overlay.addEventListener("click", function (e) {
-    if (e.target === overlay) {
-      // Nur schließen, wenn auf Overlay selbst
-      hideBigTaskInfo();
-    }
-  });
-}
-
-// Init
-initBigTaskInfoOverlay();
 
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
 
-  overlay.addEventListener("click", function () {
-    hideBigTaskInfo();
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      hideBigTaskInfo();
+    }
   });
 
   taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
 }
+initBigTaskInfoOverlay();
 
 function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
