@@ -2,9 +2,7 @@ const toDoContent = document.getElementById("todo-content-box");
 const toDoContentFinalDiv = document.getElementById("todo-content-task");
 const bigTaskDiv = document.getElementById("task-big-container");
 const inProgressContent = document.getElementById("inprogress-content-task");
-const awaitFeedbackContent = document.getElementById(
-  "await-feedback-content-task"
-);
+const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
 const doneContent = document.getElementById("done-content-task");
 const arrowContainerRed = document.getElementById("arrow-container-red");
 const arrowContainerOrange = document.getElementById("arrow-container-orange");
@@ -18,9 +16,7 @@ const taskPriorityLow = document.getElementById("arrow-container-green");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
-const subtaskInputFieldContainer = document.getElementById(
-  "subtask-inputfield-container"
-);
+const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
 const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
@@ -671,7 +667,7 @@ const loadedTasks = {};
 
 function updateTasksHtml() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } =
-    filterTasksByCategory();
+  filterTasksByCategory();
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
@@ -680,6 +676,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -691,6 +688,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     inProgressContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -705,6 +703,7 @@ function updateTasksHtml() {
       task.id
     );
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -716,6 +715,7 @@ function updateTasksHtml() {
     loadedTasks[task.id] = task;
     doneContent.innerHTML += getTaskFromFirebaseTemplate(task, task.id);
     bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
+    bigTaskDiv.innerHTML += getTaskEditTemplate(task, task.id);
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
@@ -794,8 +794,9 @@ function priorityStyle(taskKey) {
   const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
   const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
   const priorityBoxPicture = document.getElementById(`priority-icon-task-little${taskKey}`);
-
-  if (priorityBoxText.innerHTML == "Urgent") {
+  if (priorityBoxText.innerHTML == "No priority selected") {
+    priorityBoxPicture.classList.add("display-none");
+  } else if (priorityBoxText.innerHTML == "Urgent") {
     priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
     priorityBoxPicture.src = "./assets/icons/double-arrow-up-14221.png";
   } else if (priorityBoxText.innerHTML == "Medium") {
@@ -808,32 +809,18 @@ function priorityStyle(taskKey) {
 }
 
 function renderAssignedContacts(taskKey, assignedTo) {
-  const container = document.getElementById(
-    `task-board-big-assigned-to-contacts-div${taskKey}`
-  );
-  const containerTask = document.getElementById(
-    `three-circle-container${taskKey}`
-  );
-  const circleClasses = [
-    "single-circle-first-big",
-    "single-circle-second-big",
-    "single-circle-third-big",
-  ];
-  const circleClassesTask = [
-    "single-circle-first-little",
-    "single-circle-second-little",
-    "single-circle-third-little",
-  ];
+  const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerTask = document.getElementById(`three-circle-container${taskKey}`);
+  const containerTaskEdit = document.getElementById(`three-circle-todo-edit${taskKey}`);
+  const circleClasses = ["single-circle-first-big","single-circle-second-big","single-circle-third-big",];
+  const circleClassesTask = ["single-circle-first-little","single-circle-second-little","single-circle-third-little",];
   container.innerHTML = "";
   containerTask.innerHTML = "";
 
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
-    const initials = name
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase())
-      .join("")
-      .substring(0, 2);
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase())
+    .join("").substring(0, 2);
     if (name == "undefined") return;
     container.innerHTML += `
       <div class="task-board-big-first-contact-big">
@@ -856,14 +843,20 @@ async function loadDataBoard(path = "") {
   console.log(fullTaskInfoArray);
 }
 
+let currentTaskKey = null;
+
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
 
-  // Alle Panels ausblenden (falls vorhanden)
   const panels = wrapper.getElementsByClassName("big-task-panel");
   for (let i = 0; i < panels.length; i++) {
     panels[i].classList.add("display-none");
+  }
+
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
+    cancelEditTask(taskKey);
   }
 
   const task = document.getElementById(`big-task-${taskKey}`);
@@ -871,15 +864,24 @@ function showBigTaskInfo(taskKey) {
 
   overlay.classList.remove("display-none");
   wrapper.classList.remove("display-none");
-
-  // Slide + Fade aktivieren
   overlay.classList.add("active");
   wrapper.classList.add("active");
+
+  currentTaskKey = taskKey;
 }
 
 function hideBigTaskInfo(taskKey) {
+  if (!taskKey) {
+    taskKey = currentTaskKey;
+  }
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  setTimeout(() => {
+    if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
+    cancelEditTask(taskKey);
+    return;
+  }}, 500);
 
   overlay.classList.remove("active");
   wrapper.classList.remove("active");
@@ -892,50 +894,52 @@ function hideBigTaskInfo(taskKey) {
       const task = document.getElementById(`big-task-${taskKey}`);
       if (task) task.classList.add("display-none");
     }
-  }, 500); // entspricht Transition Dauer
+    currentTaskKey = null;
+  }, 500);
 }
 
-// Overlay Klick zum Schließen
-const overlay = document.getElementById("task-big-container-absolute");
-overlay.addEventListener("click", function (e) {
-  if (e.target === overlay) {
-    // nur bei Klick auf Overlay selbst
-    hideBigTaskInfo();
-  }
-});
-function initBigTaskInfoOverlay() {
-  const overlay = document.getElementById("task-big-container-absolute");
-  overlay.addEventListener("click", function (e) {
-    if (e.target === overlay) {
-      // Nur schließen, wenn auf Overlay selbst
-      hideBigTaskInfo();
-    }
-  });
-}
-
-// Init
-initBigTaskInfoOverlay();
-// Init
-initBigTaskInfoOverlay();
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
 
-  overlay.addEventListener("click", function () {
-    hideBigTaskInfo();
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      hideBigTaskInfo();
+    }
   });
 
   taskWindow.addEventListener("click", function (event) {
     event.stopPropagation();
   });
 }
+initBigTaskInfoOverlay();
 
 function editTask(taskKey) {
-  const editBigTaskDiv = document.getElementById(`big-task-${taskKey}`);
-  const task = loadedTasks[taskKey];
-  if (!task) return;
-  editBigTaskDiv.innerHTML = getTaskEditTemplate(task, taskKey);
-  //normale task ausblenden und das bearbeiten template einblenden und beim schließen andersrum
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const task = document.getElementById(`big-task-${taskKey}`);
+
+  if (showTaskPanel) {
+    showTaskPanel.classList.add("display-none");
+    task.classList.add("height-zero");
+  }
+  if (editTaskPanel) {
+    editTaskPanel.classList.remove("display-none");
+  }
+}
+
+function cancelEditTask(taskKey) {
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const task = document.getElementById(`big-task-${taskKey}`);
+
+  if (showTaskPanel) {
+    showTaskPanel.classList.remove("display-none");
+    task.classList.remove("height-zero");
+  }
+  if (editTaskPanel) {
+    editTaskPanel.classList.add("display-none");
+  }
 }
 
 async function deleteTask(category, taskKey) {

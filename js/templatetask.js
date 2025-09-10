@@ -119,62 +119,64 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
 function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
     <div id="big-task-${taskKey}" class="big-task-panel  display-none">
-      <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
-        <span class="big-board-user-or-technical" id="big-board-user-or-technical${taskKey}">${task.categoryUserOrTechnicalTask}</span>
-        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
-      </div>
+      <div id="big-task-show-hide-div${taskKey}" class="big-task-show-hide-div">
+        <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div">
+          <span class="big-board-user-or-technical" id="big-board-user-or-technical${taskKey}">${task.categoryUserOrTechnicalTask}</span>
+          <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+        </div>
 
-      <h1 id="task-board-big-headline" class="task-board-big-headline">${task.titel}</h1>
-      <span id="task-board-big-description" class="task-board-big-description">${task.description}</span>
+        <h1 id="task-board-big-headline" class="task-board-big-headline">${task.titel}</h1>
+        <span id="task-board-big-description" class="task-board-big-description">${task.description}</span>
 
-      <div class="task-board-big-date-div">
-        <p class="task-board-big-date-text">Due Date:</p>
-        <span id="task-board-big-date-number" class="task-board-big-date-number">${task.dueDate}</span>
-      </div>
+        <div class="task-board-big-date-div">
+          <p class="task-board-big-date-text">Due Date:</p>
+          <span id="task-board-big-date-number" class="task-board-big-date-number">${task.dueDate}</span>
+        </div>
 
-      <div id="task-board-big-priority-div" class="task-board-big-priority-div">
-        <p class="task-board-big-priority-text">Priority:</p>
-        <span id="task-board-big-priority${taskKey}" class="task-board-big-priority">${task.priority}</span>
-        <img id="task-board-big-priority-icon${taskKey}" class="task-board-big-priority-icon" src="" alt="">
-      </div>
+        <div id="task-board-big-priority-div" class="task-board-big-priority-div">
+          <p class="task-board-big-priority-text">Priority:</p>
+          <span id="task-board-big-priority${taskKey}" class="task-board-big-priority">${task.priority}</span>
+          <img id="task-board-big-priority-icon${taskKey}" class="task-board-big-priority-icon" src="" alt="">
+        </div>
 
-      <div class="task-board-big-assigned-to-div">
-        <p class="assigned-to-big-task-headline">Assigned to:</p>
-        <div id="task-board-big-assigned-to-contacts-div${taskKey}" class="task-board-big-assigned-to-contacts-div">
-          <div class="task-board-big-first-contact">
-            <span class="task-board-big-first-circle">EM</span>
-            <p class="task-board-big-first-contact-name">${task.assignedTo[0]}</p>
-          </div>
-          <div class="task-board-big-second-contact">
-            <span class="task-board-big-second-circle">MB</span>
-            <p class="task-board-big-second-contact-name">${task.assignedTo[1]}</p>
-          </div>
-          <div class="task-board-big-third-contact">
-            <span class="task-board-big-third-circle">AM</span>
-            <p class="task-board-big-third-contact-name">${task.assignedTo[2]}</p>
+        <div class="task-board-big-assigned-to-div">
+          <p class="assigned-to-big-task-headline">Assigned to:</p>
+          <div id="task-board-big-assigned-to-contacts-div${taskKey}" class="task-board-big-assigned-to-contacts-div">
+            <div class="task-board-big-first-contact">
+              <span class="task-board-big-first-circle">EM</span>
+              <p class="task-board-big-first-contact-name">${task.assignedTo[0]}</p>
+            </div>
+            <div class="task-board-big-second-contact">
+              <span class="task-board-big-second-circle">MB</span>
+              <p class="task-board-big-second-contact-name">${task.assignedTo[1]}</p>
+            </div>
+            <div class="task-board-big-third-contact">
+              <span class="task-board-big-third-circle">AM</span>
+              <p class="task-board-big-third-contact-name">${task.assignedTo[2]}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <h2 class="subtasks-board-big-headline">Subtasks</h2>
-      <div id="subtasks-board-tasks-div${taskKey}" class="subtasks-board-tasks-div">
-        <div class="subtasks-board-first-task">
-          <input class="checkbox-board-subtasks" type="checkbox">
-          <span>Implement Recipe Recommendation</span>
+        <h2 class="subtasks-board-big-headline">Subtasks</h2>
+        <div id="subtasks-board-tasks-div${taskKey}" class="subtasks-board-tasks-div">
+          <div class="subtasks-board-first-task">
+            <input class="checkbox-board-subtasks" type="checkbox">
+            <span>Implement Recipe Recommendation</span>
+          </div>
+          <div class="subtasks-board-second-task">
+            <input class="checkbox-board-subtasks" type="checkbox">
+            <span>Start Page Layout</span>
+          </div>
         </div>
-        <div class="subtasks-board-second-task">
-          <input class="checkbox-board-subtasks" type="checkbox">
-          <span>Start Page Layout</span>
-        </div>
-      </div>
 
-      <div class="task-board-big-delete-edit-div">
-        <div class="task-board-big-delete-edit-div-first">
-          <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
-          <p onclick="deleteTask('${task.category}', '${taskKey}')" class="delete-text-board">Delete</p>
-          <div class="seperator-big-subtask"></div>
-          <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
-          <p onclick="editTask('${taskKey}')" class="edit-text-board">Edit</p>
+        <div class="task-board-big-delete-edit-div">
+          <div class="task-board-big-delete-edit-div-first">
+            <img class="delete-icon-board" src="./assets/icons/delete-icon.svg" alt="">
+            <p onclick="deleteTask('${task.category}', '${taskKey}')" class="delete-text-board">Delete</p>
+            <div class="seperator-big-subtask"></div>
+            <img class="edit-icon-board" src="./assets/icons/edit-icon.svg" alt="">
+            <p onclick="editTask('${taskKey}')" class="edit-text-board">Edit</p>
+          </div>
         </div>
       </div>
     </div>
@@ -185,7 +187,7 @@ function getTaskEditTemplate(task, taskKey) {
   return `
     <div id="big-task-edit${taskKey}" class="big-task-panel">
       <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div-edit">
-        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
+        <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="cancelEditTask('${taskKey}')">
       </div>
 
       <div class="titel-edit-div">
@@ -229,7 +231,7 @@ function getTaskEditTemplate(task, taskKey) {
       <div class="assigned-inputfield-box-edit-div">
         <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
-          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit" class="inputfield-text-assign-edit">
+          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit ${taskKey}" class="inputfield-text-assign-edit">
           <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdown(),changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
         </div>
       </div>
