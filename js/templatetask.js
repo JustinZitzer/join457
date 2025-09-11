@@ -232,11 +232,11 @@ function getTaskEditTemplate(task, taskKey) {
         <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
           <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit ${taskKey}" class="inputfield-text-assign-edit">
-          <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdown(),changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+          <img id="contact-list-edit-div${taskKey}" onclick="assignedContactsEdit()" class="assigned-arrow-icon-edit" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
         </div>
       </div>
 
-      <div id="contacts-dropdown-edit${taskKey}" class="contacts-dropdown hidden"></div>
+      <div id="contacts-dropdown-edit${taskKey}" class="contacts-dropdown-edit">hallo</div>
 
       <div id="three-circle-todo-edit${taskKey}" class="three-circle-todo-edit">
         <div id="three-circle-container-edit${taskKey}" class="three-circle-container">

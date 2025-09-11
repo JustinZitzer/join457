@@ -681,6 +681,7 @@ function updateTasksHtml() {
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
+    assignedContactsEdit (task.id, task.assignedTo);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -991,5 +992,25 @@ function progressBarStyle(taskKey, subtasks) {
     const subtask = subtasks[i];
     if (!subtask) return;
     progressBarCounter.innerHTML = `${i + 1}/${subtasks.length} subtasks`;
+  }
+}
+
+function assignedContactsEdit (taskKey, assignedTo) {
+  const containerTaskEdit = document.getElementById(`three-circle-todo-edit${taskKey}`);
+  const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
+  
+  dropdownEdit.innerHTML = "";
+  for (let i = 0; i < assignedTo.length; i++) {
+    const name = assignedTo[i];
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
+    if (name == "undefined") return;
+    dropdownEdit.innerHTML += `
+      <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
+        <span class="${circleClassesTask[i]}">${initials}</span>
+        <p class="task-board-big-first-contact-name-big">${name}</p>
+        <input id="check-box-edit${i}" type="checkbox" class="check-box-edit">
+      </div>
+    `;
   }
 }
