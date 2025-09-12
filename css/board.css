@@ -1884,12 +1884,14 @@ h2 {
 .big-task-panel {
     height: 100%;
     width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .task-category-and-cross-icon-div-edit {
     display: flex;
     justify-content: flex-end;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .titel-edit-div {
@@ -1900,6 +1902,7 @@ h2 {
     font-size: 20px;
     margin-left: 20px;
     margin-bottom: 5px;
+    margin-top: 30px;
     color: #42526E;
 }
 
@@ -2089,6 +2092,142 @@ h2 {
 
 .height-zero {
     height: 0px;
+}
+
+.assigned-inputfield-edit-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.assigned-arrow-icon-edit {
+    position: absolute;
+    right: 40px;
+    top: 4px;
+    cursor: pointer;
+}
+
+.contacts-dropdown-edit {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    border-radius: 5px;
+    border-bottom: 0.5px;
+    border-right: 0.5px;
+    height: 200px;
+    width: 90%;
+    box-shadow: 2px 2px 8px #42526e70;
+    overflow-y: auto;
+}
+
+.contact-option-edit {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contact-in-edit-template {
+    display: flex;
+}
+
+.single-circle-first-edit {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(98, 214, 156);
+    color: white;
+    border-color: white;
+    border-width: 1px;
+}
+
+
+.single-circle-second-edit {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+    margin-left: 5px;
+}
+
+.single-circle-third-edit {
+    width: 32px;
+    height: 32px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(65, 77, 248);
+    color: white;
+    margin-left: 5px;
+}
+
+.three-circle-container-edit {
+    display: flex;
+    margin-left: 20px;
+    width: 90%;
+    margin-top: 10px;
+}
+
+.circles-edit {
+    width: 32px;
+    height: 28px;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(98, 214, 156);
+    color: white;
+    border-color: white;
+    border-width: 1px;
+    margin-left: 15px;
+}
+
+.contact-name-edit {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.name-checkbox-flexbox {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-checkbox-edit {
+    margin-right: 15px;
 }
 
 @media screen and (max-width: 800px) {

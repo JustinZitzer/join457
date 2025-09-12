@@ -692,6 +692,7 @@ function updateTasksHtml() {
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
+    assignedContactsEdit (task.id, task.assignedTo);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -704,6 +705,7 @@ function updateTasksHtml() {
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
+    assignedContactsEdit (task.id, task.assignedTo);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -719,6 +721,7 @@ function updateTasksHtml() {
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
+    assignedContactsEdit (task.id, task.assignedTo);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -731,6 +734,7 @@ function updateTasksHtml() {
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
+    assignedContactsEdit (task.id, task.assignedTo);
   }
 }
 
@@ -1003,4 +1007,65 @@ function progressBarStyle(taskKey, subtasks) {
     if (!subtask) return;
     progressBarCounter.innerHTML = `${i + 1}/${subtasks.length} subtasks`;
   }
+}
+
+function assignedContactsEdit (taskKey, assignedTo) {
+  const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
+  const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
+  
+  for (let i = 0; i < assignedTo.length; i++) {
+    const name = assignedTo[i];
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
+    if (name == "undefined") return;
+    containerTaskEdit.innerHTML += `
+      <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
+        <span class="${circleClassesTask[i]}">${initials}</span>
+      </div>
+    `;
+  }
+}
+
+async function loadContactsForDropdownInEdit(taskKey) {
+  const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
+  if (container.innerHTML == "") {
+    try {
+      const contactsUnsorted = await fetchContacts();
+      const contacts = Object.values(contactsUnsorted);
+      contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+      allContacts = contacts;
+      for (let i = 0; i < contacts.length; i++) {
+        container.innerHTML += getContactCardForDropdownInEdit(contacts[i],taskKey);
+      }
+    } catch (error) {
+      console.error("Error loading contacts in Editing Dropdown:", error);
+    }
+  }
+  container.classList.toggle("hidden");
+  threeCircleDivEdit.classList.toggle("hidden");
+}
+
+
+function getContactCardForDropdownInEdit(contact,taskKey) {
+  const name = contact.lastName
+    ? `${contact.firstName} ${contact.lastName}`
+    : contact.firstName;
+    const initials = getInitials(contact.firstName, contact.lastName);
+  return `
+    <label class="contact-option-edit">
+      <span id="circles-edit${contact.id}${taskKey}" class="circles-edit">${initials}</span>
+      <div class="name-checkbox-flexbox">
+        <span class="contact-name-edit" id="contact-name-edit${contact.id}${taskKey}">${name}</span>
+        <input id="contact-checkbox-${contact.id}${taskKey}" type="checkbox" class="contact-checkbox-edit" data-contact-id="${contact.id || ""}">
+      </div>
+    </label>
+  `;
+}
+
+function getInitials(firstName, lastName) {
+  let initials = "";
+  if (firstName && firstName.length > 0) initials += firstName[0].toUpperCase();
+  if (lastName && lastName.length > 0) initials += lastName[0].toUpperCase();
+  return initials;
 }
