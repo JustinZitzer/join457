@@ -35,6 +35,9 @@ function openOverlay() {
     const overlayContent = document.getElementById("content-add-task-overlay");
     overlayContent.innerHTML = getTaskOverlayTemplate();
 
+
+    overlayForAllTasks();
+
     // Animation (falls definiert)
     const content = document.getElementById("content-add-task-overlay");
     if (content) {
@@ -47,6 +50,14 @@ function openOverlay() {
     window.location.href = "./add_task.html";
   }
 }
+
+function overlayForAllTasks(){
+  validateDueDateInput() 
+  showError() 
+  clearError() 
+
+}
+
 
 function closeOverlay() {
   const overlay = document.getElementById("overlay");
