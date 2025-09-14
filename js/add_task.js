@@ -1069,3 +1069,28 @@ function getInitials(firstName, lastName) {
   if (lastName && lastName.length > 0) initials += lastName[0].toUpperCase();
   return initials;
 }
+
+function showInputFieldEditSubtasksIcons(taskKey) {
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+
+  clearIcon.classList.remove("hidden");
+  seperatorIcon.classList.remove("hidden");
+  addIcon.classList.remove("hidden");
+  inputfield.classList.add('input-border-left-bottom');
+}
+
+function clearInputHideIconsSubtasksInput(taskKey) {
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+
+  clearIcon.classList.add("hidden");
+  seperatorIcon.classList.add("hidden");
+  addIcon.classList.add("hidden");
+  inputfield.classList.remove('input-border-left-bottom');
+  inputfield.value = "";
+}
