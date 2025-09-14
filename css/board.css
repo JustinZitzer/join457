@@ -2272,6 +2272,33 @@ h2 {
   border-right: none;
 }
 
+.subtasks-board-first-task-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    height: 30px;
+    width: 90%;
+    margin-left: 22px;
+}
+
+.subtasks-board-first-task-edit:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.subtask-bullet-margin-right {
+    margin-right: 10px;
+}
+
+.bullet-subtask-flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 20px;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

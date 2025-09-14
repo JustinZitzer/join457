@@ -975,6 +975,7 @@ async function deleteTask(category, taskKey) {
 
 function renderSubtasksInBigTask(taskKey, subtasks) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
@@ -995,6 +996,14 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
         </div>
       `;
     }
+    subtasksEditDiv.innerHTML += `
+      <div onmouseenter="" onmouseleave="" class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
+        <div class="bullet-subtask-flexbox">
+          <div class="subtask-bullet-margin-right">•</div>
+          <span id="subtask-task-text-edit${taskKey}${i}">${subtask.subtaskText}</span>
+        </div>
+      </div>
+    `;
   }
 }
 
@@ -1093,4 +1102,8 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   addIcon.classList.add("hidden");
   inputfield.classList.remove('input-border-left-bottom');
   inputfield.value = "";
+}
+
+function showIconsInEditSubtasks(taskKey, i) {
+  
 }
