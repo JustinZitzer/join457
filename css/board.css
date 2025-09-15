@@ -2278,7 +2278,7 @@ h2 {
     justify-content: center;
     margin-top: 5px;
     height: 30px;
-    width: 90%;
+    width: 89%;
     margin-left: 22px;
 }
 
@@ -2297,6 +2297,27 @@ h2 {
     justify-content: flex-start;
     width: 100%;
     margin-left: 20px;
+    position: relative;
+}
+
+.seperator-for-subtasks {
+    width: 1px;
+    height: 20px;
+    background-color: #b4b4b4;
+    position: absolute;
+    right: 58px;
+}
+
+.edit-pencil-icon {
+    position: absolute;
+    right: 62px;
+    cursor: pointer;
+}
+
+.waste-icon {
+    position: absolute;
+    right: 31px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
