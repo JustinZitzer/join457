@@ -997,7 +997,7 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
       `;
     }
     subtasksEditDiv.innerHTML += `
-      <div onmouseenter="" onmouseleave="" class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
+      <div onmouseenter="showIconsInEditSubtasks('${taskKey}', '${i}')" onmouseleave="hideIconsInEditSubtasks('${taskKey}', '${i}')" class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
         <div class="bullet-subtask-flexbox">
           <div class="subtask-bullet-margin-right">•</div>
           <span id="subtask-task-text-edit${taskKey}${i}">${subtask.subtaskText}</span>
@@ -1121,7 +1121,22 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   inputfield.value = "";
 }
 
-function showIconsInEditSubtasks(taskKey, i) {
-  const subtask = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
+function hideIconsInEditSubtasks(taskKey, i) {
+  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
+  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
 
+  penIcon.classList.add("hidden");
+  seperator.classList.add("hidden");
+  wasteIcon.classList.add("hidden");
+}
+
+function showIconsInEditSubtasks(taskKey, i) {
+  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
+  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
+
+  penIcon.classList.remove("hidden");
+  seperator.classList.remove("hidden");
+  wasteIcon.classList.remove("hidden");
 }
