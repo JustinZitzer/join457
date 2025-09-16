@@ -212,16 +212,17 @@ function getTaskEditTemplate(task, taskKey) {
 
       <div class="priority-edit-div">
         <h2 class="priority-bold-edit-headline">Priority</h2>
+        <div id="task-priority-value-div${taskKey}" class="hidden height-zero">${task.priority}</div>
         <div class="edit-button-div">
-          <button class="urgent-edit-button-div">
+          <button onclick="" id="urgent-edit-button-div${taskKey}" class="urgent-edit-button-div">
             <h4>Urgent</h4>
             <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
           </button>
-          <button class="medium-edit-button-div">
+          <button id="medium-edit-button-div${taskKey}" class="medium-edit-button-div">
             <h4>Medium</h4>
             <h4>=</h4>
           </button>
-          <button class="low-edit-button-div">
+          <button id="low-edit-button-div${taskKey}" class="low-edit-button-div">
             <h4>Low</h4>
             <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
           </button>
@@ -244,7 +245,21 @@ function getTaskEditTemplate(task, taskKey) {
 
       <div class="subtask-headline-edit-div">
         <h2 class="subtasks-headline-edited">Subtasks</h2>
-        <input type="text" class="inputfield-subtask-edit-div" placeholer="Add new subtask" id="inputfield-subtask-edit-div${taskKey}">
+        <div class="subtask-inputfield-icon-edit-div">
+          <input onclick="showInputFieldEditSubtasksIcons('${taskKey}')" type="text" class="inputfield-subtask-edit-div" placeholer="Add new subtask" id="inputfield-subtask-edit-div${taskKey}">
+          <svg onclick="clearInputHideIconsSubtasksInput('${taskKey}')" class="delete-subtask-edit-check-icon hidden" id="delete-subtask-edit-check-icon${taskKey}" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z" fill="#2A3647"/>
+          </svg>
+          <div class="seperator-subtasks-edit hidden" id="seperator-subtasks-edit${taskKey}"></div>
+          <svg class="add-new-subtask-edit-icon hidden" id="add-new-subtask-edit-icon${taskKey}" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+              <rect y="0.5" width="24" height="24" fill="white"/>
+            </mask>
+            <g mask="url(#mask0_314253_4333)">
+              <path d="M9.55057 15.65L18.0256 7.175C18.2256 6.975 18.4631 6.875 18.7381 6.875C19.0131 6.875 19.2506 6.975 19.4506 7.175C19.6506 7.375 19.7506 7.6125 19.7506 7.8875C19.7506 8.1625 19.6506 8.4 19.4506 8.6L10.2506 17.8C10.0506 18 9.81724 18.1 9.55057 18.1C9.28391 18.1 9.05057 18 8.85057 17.8L4.55057 13.5C4.35057 13.3 4.25474 13.0625 4.26307 12.7875C4.27141 12.5125 4.37557 12.275 4.57557 12.075C4.77557 11.875 5.01307 11.775 5.28807 11.775C5.56307 11.775 5.80057 11.875 6.00057 12.075L9.55057 15.65Z" fill="rgb(42, 54, 71)"/>
+            </g>
+          </svg>
+        </div>
       </div>
 
       <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>

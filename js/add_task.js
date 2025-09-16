@@ -839,6 +839,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -852,6 +853,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -868,6 +870,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -881,6 +884,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 }
 
@@ -1121,6 +1125,7 @@ async function deleteTask(category, taskKey) {
 
 function renderSubtasksInBigTask(taskKey, subtasks) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
@@ -1141,6 +1146,31 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
         </div>
       `;
     }
+    subtasksEditDiv.innerHTML += `
+      <div onmouseenter="showIconsInEditSubtasks('${taskKey}', '${i}')" onmouseleave="hideIconsInEditSubtasks('${taskKey}', '${i}')" class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
+        <div class="bullet-subtask-flexbox">
+          <div class="subtask-bullet-margin-right">•</div>
+          <span id="subtask-task-text-edit${taskKey}${i}">${subtask.subtaskText}</span>
+          <svg id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon" width="25" height="25" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
+              <rect x="0.5" width="32" height="32" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_313493_6285)">
+              <path d="M7.16667 25.3332H9.03333L20.5333 13.8332L18.6667 11.9665L7.16667 23.4665V25.3332ZM26.2333 11.8998L20.5667 6.29984L22.4333 4.43317C22.9444 3.92206 23.5722 3.6665 24.3167 3.6665C25.0611 3.6665 25.6889 3.92206 26.2 4.43317L28.0667 6.29984C28.5778 6.81095 28.8444 7.42761 28.8667 8.14984C28.8889 8.87206 28.6444 9.48873 28.1333 9.99984L26.2333 11.8998ZM24.3 13.8665L10.1667 27.9998H4.5V22.3332L18.6333 8.19984L24.3 13.8665Z" fill="#2A3647"/>
+            </g>
+          </svg>
+          <div id="seperator-for-subtasks${taskKey}${i}" class="seperator-for-subtasks"></div>
+          <svg id="waste-icon${taskKey}${i}" class="waste-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <rect width="24" height="24" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_314135_4497)">
+            <path d="M7 21C6.45 21 5.97917 20.8042 5.5875 20.4125C5.19583 20.0208 5 19.55 5 19V6C4.71667 6 4.47917 5.90417 4.2875 5.7125C4.09583 5.52083 4 5.28333 4 5C4 4.71667 4.09583 4.47917 4.2875 4.2875C4.47917 4.09583 4.71667 4 5 4H9C9 3.71667 9.09583 3.47917 9.2875 3.2875C9.47917 3.09583 9.71667 3 10 3H14C14.2833 3 14.5208 3.09583 14.7125 3.2875C14.9042 3.47917 15 3.71667 15 4H19C19.2833 4 19.5208 4.09583 19.7125 4.2875C19.9042 4.47917 20 4.71667 20 5C20 5.28333 19.9042 5.52083 19.7125 5.7125C19.5208 5.90417 19.2833 6 19 6V19C19 19.55 18.8042 20.0208 18.4125 20.4125C18.0208 20.8042 17.55 21 17 21H7ZM7 6V19H17V6H7ZM9 16C9 16.2833 9.09583 16.5208 9.2875 16.7125C9.47917 16.9042 9.71667 17 10 17C10.2833 17 10.5208 16.9042 10.7125 16.7125C10.9042 16.5208 11 16.2833 11 16V9C11 8.71667 10.9042 8.47917 10.7125 8.2875C10.5208 8.09583 10.2833 8 10 8C9.71667 8 9.47917 8.09583 9.2875 8.2875C9.09583 8.47917 9 8.71667 9 9V16ZM13 16C13 16.2833 13.0958 16.5208 13.2875 16.7125C13.4792 16.9042 13.7167 17 14 17C14.2833 17 14.5208 16.9042 14.7125 16.7125C14.9042 16.5208 15 16.2833 15 16V9C15 8.71667 14.9042 8.47917 14.7125 8.2875C14.5208 8.09583 14.2833 8 14 8C13.7167 8 13.4792 8.09583 13.2875 8.2875C13.0958 8.47917 13 8.71667 13 9V16Z" fill="#2A3647"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    `;
   }
 }
 
@@ -1214,4 +1244,75 @@ function getInitials(firstName, lastName) {
   if (firstName && firstName.length > 0) initials += firstName[0].toUpperCase();
   if (lastName && lastName.length > 0) initials += lastName[0].toUpperCase();
   return initials;
+}
+
+function showInputFieldEditSubtasksIcons(taskKey) {
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+
+  clearIcon.classList.remove("hidden");
+  seperatorIcon.classList.remove("hidden");
+  addIcon.classList.remove("hidden");
+  inputfield.classList.add('input-border-left-bottom');
+}
+
+function clearInputHideIconsSubtasksInput(taskKey) {
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+
+  clearIcon.classList.add("hidden");
+  seperatorIcon.classList.add("hidden");
+  addIcon.classList.add("hidden");
+  inputfield.classList.remove('input-border-left-bottom');
+  inputfield.value = "";
+}
+
+function hideIconsInEditSubtasks(taskKey, i) {
+  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
+  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
+
+  penIcon.classList.add("hidden");
+  seperator.classList.add("hidden");
+  wasteIcon.classList.add("hidden");
+}
+
+function showIconsInEditSubtasks(taskKey, i) {
+  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
+  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
+
+  penIcon.classList.remove("hidden");
+  seperator.classList.remove("hidden");
+  wasteIcon.classList.remove("hidden");
+}
+
+function buttonPriorityStyle(taskKey, priority) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (priority == "Urgent") {
+    buttonUrgent.classList.add("active-red");
+  } else if (priority == "Medium") {
+    buttonMedium.classList.add("active-yellow");
+  } else if (priority == "Low") {
+    buttonLow.classList.add("active-green");
+  }
+}
+
+function changePriorityInEdit(taskKey, priority) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (buttonUrgent || buttonMedium || buttonLow == "active-red" || "active-yellow" || "active-green") {
+    buttonUrgent.classList.remove("active-red");
+    buttonMedium.classList.remove("active-yellow");
+    buttonLow.classList.remove("active-green");
+  }
 }
