@@ -2320,6 +2320,21 @@ h2 {
     cursor: pointer;
 }
 
+.active-red {
+    background-color: rgb(247, 67, 67);
+    color: white;
+}
+
+.active-yellow {
+    background-color: orange;
+    color: white;
+}
+
+.active-green {
+    background-color: lightgreen;
+    color: white;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

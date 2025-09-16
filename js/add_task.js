@@ -693,6 +693,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -706,6 +707,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -722,6 +724,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -735,6 +738,7 @@ function updateTasksHtml() {
     renderAssignedContacts(task.id, task.assignedTo);
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit (task.id, task.assignedTo);
+    buttonPriorityStyle(task.id, task.priority);
   }
 }
 
@@ -1139,4 +1143,30 @@ function showIconsInEditSubtasks(taskKey, i) {
   penIcon.classList.remove("hidden");
   seperator.classList.remove("hidden");
   wasteIcon.classList.remove("hidden");
+}
+
+function buttonPriorityStyle(taskKey, priority) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (priority == "Urgent") {
+    buttonUrgent.classList.add("active-red");
+  } else if (priority == "Medium") {
+    buttonMedium.classList.add("active-yellow");
+  } else if (priority == "Low") {
+    buttonLow.classList.add("active-green");
+  }
+}
+
+function changePriorityInEdit(taskKey, priority) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (buttonUrgent || buttonMedium || buttonLow == "active-red" || "active-yellow" || "active-green") {
+    buttonUrgent.classList.remove("active-red");
+    buttonMedium.classList.remove("active-yellow");
+    buttonLow.classList.remove("active-green");
+  }
 }

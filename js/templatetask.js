@@ -212,16 +212,17 @@ function getTaskEditTemplate(task, taskKey) {
 
       <div class="priority-edit-div">
         <h2 class="priority-bold-edit-headline">Priority</h2>
+        <div id="task-priority-value-div${taskKey}" class="hidden height-zero">${task.priority}</div>
         <div class="edit-button-div">
-          <button class="urgent-edit-button-div">
+          <button onclick="" id="urgent-edit-button-div${taskKey}" class="urgent-edit-button-div">
             <h4>Urgent</h4>
             <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
           </button>
-          <button class="medium-edit-button-div">
+          <button id="medium-edit-button-div${taskKey}" class="medium-edit-button-div">
             <h4>Medium</h4>
             <h4>=</h4>
           </button>
-          <button class="low-edit-button-div">
+          <button id="low-edit-button-div${taskKey}" class="low-edit-button-div">
             <h4>Low</h4>
             <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
           </button>
