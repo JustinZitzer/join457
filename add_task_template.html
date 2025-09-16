@@ -31,7 +31,7 @@
                         <span>Title</span>
                     </div>
                     <input type="text" id="titleInput1"  placeholder="Enter a title" class="title-inputfield-enter-title"
-                        onblur="validateInput()">
+                        onblur="validateInputOverlay()">
                     <div id="error-message" class="error-message"></div>
                 </div>
 
@@ -51,7 +51,7 @@
                         </div>
 
                         <input type="text" id="dueDateInput1" placeholder="dd/mm/yyyy" class="due-date-text-field"
-                            onblur="validateDueDateInput()">
+                            onblur="validateDueDateInputOverlay()">
                         <div id="due-date-error" class="error-message"></div>
                     </div>
 
@@ -127,12 +127,12 @@
                                 class="inputfield-category-assign" readonly>
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
-                                onclick="toggleDropdown()">
+                                onclick="toggleDropdownOverlay()">
                         </div>
 
                         <div id="category-dropdown1" class="category-dropdown dropdown-closed">
-                                <div onclick="selectCategory('Technical Task')">Technical Task</div>
-                                <div onclick="selectCategory('User Story')">User Story</div>
+                                <div onclick="selectCategoryOverlay('Technical Task')">Technical Task</div>
+                                <div onclick="selectCategoryOverlay('User Story')">User Story</div>
                         </div>
 
                         <div id="error-field-category" class="error-field-category display-none">This field is required</div>

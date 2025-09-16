@@ -241,7 +241,7 @@ function toggleDropdown() {
   }
 }
 
-function toggleDropdown() {
+function toggleDropdownOverlay() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign1");
   var dropdown = document.getElementById("category-dropdown");
   if (dropdown.classList.contains("dropdown-open")) {
@@ -291,7 +291,7 @@ function validateInput() {
 }
 
 
-function selectCategory(category) {
+function selectCategoryOverlay(category) {
   var input = document.getElementById("category-input1");
   input.value = category;
 
@@ -314,7 +314,7 @@ function validateInput() {
   }
 }
 
-function validateInput() {
+function validateInputOverlay() {
   const input = document.getElementById("titleInput1");
   const errorMsg = document.getElementById("error-message");
 
@@ -359,7 +359,7 @@ function validateDueDateInput() {
   }
 }
 
-function validateDueDateInput() {
+function validateDueDateInputOverlay() {
   const input = document.getElementById("dueDateInput1");
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
