@@ -264,6 +264,7 @@ h3 {
 .await-feedback-task-container {
     margin-left: 32px;
     justify-content: space-between;
+    width: 100%;
 
 }
 

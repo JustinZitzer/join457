@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="./css/add_task.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
-    <script src="./add_task_template.html"></script>
-
+  
     <link
         href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -31,7 +30,7 @@
                     <div class="text-title-mark">
                         <span>Title</span>
                     </div>
-                    <input type="text" id="titleInput"  placeholder="Enter a title" class="title-inputfield-enter-title"
+                    <input type="text" id="titleInput1"  placeholder="Enter a title" class="title-inputfield-enter-title"
                         onblur="validateInput()">
                     <div id="error-message" class="error-message"></div>
                 </div>
@@ -40,7 +39,7 @@
                 <div class="description-main-box">
                     <div class="description-text">
                         <span>Description</span>
-                        <input type="text" id="inputfield-description" placeholder="Enter Description" class="inputfield-description">
+                        <input type="text" id="inputfield-description1" placeholder="Enter Description" class="inputfield-description">
                     </div>
 
 
@@ -51,7 +50,7 @@
                             <span>Due date</span>
                         </div>
 
-                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                        <input type="text" id="dueDateInput1" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()">
                         <div id="due-date-error" class="error-message"></div>
                     </div>
@@ -97,7 +96,7 @@
 
                         <div class="assigned-inputfield-box">
                             <span>Assigned to</span>
-                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign" class="inputfield-text-assign">
+                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign1" class="inputfield-text-assign">
                         </div>
 
                         <img id="contact-list" onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon"
@@ -124,14 +123,14 @@
                             <div class="category-mark">
                                 <span>Category</span>
                             </div>
-                            <input id="category-input" type="text" placeholder="Select task category"
+                            <input id="category-input1" type="text" placeholder="Select task category"
                                 class="inputfield-category-assign" readonly>
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
                                 onclick="toggleDropdown()">
                         </div>
 
-                        <div id="category-dropdown" class="category-dropdown dropdown-closed">
+                        <div id="category-dropdown1" class="category-dropdown dropdown-closed">
                                 <div onclick="selectCategory('Technical Task')">Technical Task</div>
                                 <div onclick="selectCategory('User Story')">User Story</div>
                         </div>
@@ -140,12 +139,12 @@
 
 
                         <div class="subtask-inputfield-box">
-                            <div id="subtask-inputfield-container" class="subtask-inputfield-container">
+                            <div id="subtask-inputfield-container1" class="subtask-inputfield-container">
                                 <div onclick="hidePlusIconShowCheckAndCrossIcon()" id="changed-subtask-inputfield-id">
                                     <span class="subtasks-headline">Subtasks</span>
                                     <div class="subtask-input-icon-flexbox">
                                         <img class="add-icon-container" id="add-icon-container" src="./assets/icons/subtask-plus-icon.svg">
-                                        <input type="text" id="inputfield-subtask-assign" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                                        <input type="text" id="inputfield-subtask-assign1" placeholder="Add new subtask" class="inputfield-subtask-assign">
                                         <span class="input-icon-container">
                                             <svg id="subtask-icon-cross" onclick="clearSubtaskInputField(event)" class="subtask-icon-cross display-none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5 5L15 15M15 5L5 15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>

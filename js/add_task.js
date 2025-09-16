@@ -25,6 +25,14 @@ let subtaskSavedCounter = 1;
 let todosArray = [];
 let fullTaskInfoArray = [];
 
+const taskTitel1 = document.getElementById("titleInput1");
+const taskDescription1 = document.getElementById("inputfield-description1");
+const taskDueDate1 = document.getElementById("dueDateInput1");
+const inputFieldAssignTo1 = document.getElementById("inputfield-text-assign1");
+const taskCategory1 = document.getElementById("category-input1");
+const subtaskInputFieldContainer1 = document.getElementById("subtask-inputfield-container1");
+const taskSubtask1 = document.getElementById("inputfield-subtask-assign1");
+
 function openOverlay() {
   const overlay = document.getElementById("overlay");
   overlay.classList.remove("overlay-hidden");
@@ -35,8 +43,6 @@ function openOverlay() {
     const overlayContent = document.getElementById("content-add-task-overlay");
     overlayContent.innerHTML = getTaskOverlayTemplate();
 
-
-    overlayForAllTasks();
 
     // Animation (falls definiert)
     const content = document.getElementById("content-add-task-overlay");
@@ -49,13 +55,6 @@ function openOverlay() {
   } else {
     window.location.href = "./add_task.html";
   }
-}
-
-function overlayForAllTasks(){
-  validateDueDateInput() 
-  showError() 
-  clearError() 
-
 }
 
 
@@ -242,6 +241,32 @@ function toggleDropdown() {
   }
 }
 
+function toggleDropdown() {
+  const taskSubtask = document.getElementById("inputfield-subtask-assign1");
+  var dropdown = document.getElementById("category-dropdown");
+  if (dropdown.classList.contains("dropdown-open")) {
+    dropdown.classList.remove("dropdown-open");
+    setTimeout(() => {
+      dropdown.classList.add("display-none");
+    }, 300);
+    taskSubtask.style.borderBottom = "1px solid #29ABE2";
+    taskSubtask.style.borderRight = "1px solid #29ABE2";
+    taskSubtask.style.borderTop = "none";
+    validateGetCategoryForNewTask();
+  } else {
+    dropdown.classList.remove("display-none");
+    setTimeout(() => {
+      dropdown.classList.add("dropdown-open");
+    }, 1);
+    if (taskSubtask.value.trim() !== "") {
+      taskSubtask.style.borderTop = "1px solid #29ABE2";
+      taskSubtask.style.borderRight = "1px solid #29ABE2";
+      taskSubtask.style.borderBottom = "none";
+    }
+  }
+}
+
+
 function selectCategory(category) {
   var input = document.getElementById("category-input");
   input.value = category;
@@ -265,8 +290,77 @@ function validateInput() {
   }
 }
 
+
+function selectCategory(category) {
+  var input = document.getElementById("category-input1");
+  input.value = category;
+
+  var dropdown = document.getElementById("category-dropdown");
+  dropdown.classList.remove("dropdown-open");
+}
+
+function validateInput() {
+  const input = document.getElementById("titleInput");
+  const errorMsg = document.getElementById("error-message");
+
+  if (input.value.trim() === "") {
+    errorMsg.textContent = "This field is required.";
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  } else {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
+}
+
+function validateInput() {
+  const input = document.getElementById("titleInput1");
+  const errorMsg = document.getElementById("error-message");
+
+  if (input.value.trim() === "") {
+    errorMsg.textContent = "This field is required.";
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  } else {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
+}
+
+
 function validateDueDateInput() {
   const input = document.getElementById("dueDateInput");
+  const errorMsg = document.getElementById("due-date-error");
+  const value = input.value.trim();
+
+  const dateCheckSlash =
+    /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+
+  if (!value) {
+    showError("This field is required.");
+  } else if (!dateCheckSlash.test(value)) {
+    showError("Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
+  } else {
+    clearError();
+  }
+
+  function showError(message) {
+    errorMsg.textContent = message;
+    errorMsg.style.display = "block";
+    input.classList.add("input-error");
+  }
+
+  function clearError() {
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
+    input.classList.remove("input-error");
+  }
+}
+
+function validateDueDateInput() {
+  const input = document.getElementById("dueDateInput1");
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
 
@@ -344,6 +438,7 @@ function changeinputFieldAssignToStyle() {
 }
 
 function getInfoForNewTask() {
+  
   let titel = taskTitel.value || "New Task";
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
@@ -354,7 +449,7 @@ function getInfoForNewTask() {
   return {
     titel,
     description,
-    dueDate,
+    dueDate,  
     priority,
     assignedTo,
     categoryUserOrTechnicalTask,
@@ -374,6 +469,26 @@ function getCategoryForNewTask() {
 
 function validateGetCategoryForNewTask() {
   const taskCategory = document.getElementById("category-input");
+  const fieldRequired = document.getElementById("error-field-category");
+  if (taskCategory == "Technical Task" || taskCategory == "User Story") {
+    return taskCategory.value;
+  } else {
+    fieldRequired.classList.remove("display-none");
+  }
+}
+
+function getCategoryForNewTask() {
+  const taskCategory = document.getElementById("category-input1");
+
+  if (!taskCategory.value == "") {
+    return taskCategory.value;
+  } else {
+    alert("Please select a valid category: 'Technical Task' or 'User Story'");
+  }
+}
+
+function validateGetCategoryForNewTask() {
+  const taskCategory = document.getElementById("category-input1");
   const fieldRequired = document.getElementById("error-field-category");
   if (taskCategory == "Technical Task" || taskCategory == "User Story") {
     return taskCategory.value;
@@ -425,6 +540,24 @@ function addSubtaskInContainer() {
   }
 }
 
+
+function addSubtaskInContainer() {
+  const taskSubtask = document.getElementById("inputfield-subtask-assign1");
+  const savedSubtasks = document.getElementById("subtask-added-tasks");
+  let subtask = taskSubtask.value.trim();
+
+  if (subtask) {
+    savedSubtasks.innerHTML += getSubtaskListElementTemplate(
+      subtask,
+      subtaskSavedCounter
+    );
+    subtaskSavedCounter++;
+    taskSubtask.value = "";
+
+    updateSubtasksArray();
+  }
+}
+
 function hidePlusIconShowCheckAndCrossIcon() {
   const plusIcon = document.getElementById("add-icon-container");
   const checkIcon = document.getElementById("subtask-icon-cross");
@@ -450,6 +583,19 @@ function clearSubtaskInputField(event) {
   checkIconCheck.classList.add("display-none");
 }
 
+function clearSubtaskInputField(event) {
+  if (event) event.stopPropagation();
+  const plusIcon = document.getElementById("add-icon-container");
+  const checkIcon = document.getElementById("subtask-icon-cross");
+  const separatorIcon = document.getElementById("subtask-icon-separator");
+  const checkIconCheck = document.getElementById("subtask-icon-check");
+  const taskSubtask = document.getElementById("inputfield-subtask-assign1");
+  taskSubtask.value = "";
+  plusIcon.classList.remove("display-none");
+  checkIcon.classList.add("display-none");
+  separatorIcon.classList.add("display-none");
+  checkIconCheck.classList.add("display-none");
+}
 function editSavedSubtask(subtaskSavedCounter, subtask) {
   const subTaskElement = document.getElementById(
     `subtask-list-element-div${subtaskSavedCounter}`
