@@ -1243,6 +1243,55 @@ function getContactCardForDropdownInEdit(contact,taskKey) {
   `;
 }
 
+function changeContactCircleInEditTemplate(taskKey) {
+  let initialsArray = [];
+
+  for (let i = 0; i < allContacts.length; i++) {
+    const contact = allContacts[i];
+    const checkboxId = `contact-checkbox-${contact.id}${taskKey}`;
+    const nameId = `contact-name-edit${contact.id}${taskKey}`;
+
+    const checkbox = document.getElementById(checkboxId);
+    const nameElem = document.getElementById(nameId);
+
+    if (checkbox && checkbox.checked && nameElem) {
+      const fullName = nameElem.textContent.trim();
+      const names = fullName.split(" ");
+      let initials = "";
+      if (names[0]) initials += names[0][0].toUpperCase();
+      if (names[1]) initials += names[1][0].toUpperCase();
+      initialsArray.push(initials);
+    }
+  }
+
+  renderCirclesInEditTemplate(taskKey, initialsArray);
+}
+
+function renderCirclesInEditTemplate(taskKey, initialsArray) {
+  const container = document.getElementById(`three-circle-container-edit${taskKey}`);
+  const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  container.innerHTML = "";
+  const circleClasses = ["single-circle-first-edit", "single-circle-second-edit", "single-circle-third-edit"];
+
+  for (let i = 0; i < Math.min(initialsArray.length, 3); i++) {
+    const initials = initialsArray[i];
+    container.innerHTML += `
+      <div class="${circleClasses[i]}">${initials}</div>
+    `;
+  }
+  showAndHideCirclesInEditTemplate(container, initialsArray);
+}
+
+function showAndHideCirclesInEditTemplate (container, initialsArray) {
+   if (initialsArray.length === 0) {
+    container.classList.add("hidden");
+    container.classList.add("height-zero");
+  } else {
+    container.classList.remove("hidden");
+    container.classList.remove("height-zero");
+  }
+}
+
 function getInitials(firstName, lastName) {
   let initials = "";
   if (firstName && firstName.length > 0) initials += firstName[0].toUpperCase();
@@ -1342,4 +1391,5 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   }
   return "No priority selected";
 }
+
 
