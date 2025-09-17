@@ -65,14 +65,18 @@ function closeOverlay() {
 }
 
 // Klick auf das Overlay-Hintergrund
-document.getElementById("overlay").addEventListener("click", closeOverlay);
+if (window.location.pathname.endsWith("board.html")) {
+  document.getElementById("overlay").addEventListener("click", closeOverlay);
+}
 
 // Klick auf das Inhaltselement wird gestoppt (wichtig!)
+if (window.location.pathname.endsWith("board.html")) {
 document
   .getElementById("content-add-task-overlay")
   .addEventListener("click", function (event) {
     event.stopPropagation();
   });
+}
 
 function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
@@ -1066,16 +1070,17 @@ function hideBigTaskInfo(taskKey) {
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
+  if (window.location.pathname.endsWith("board.html")) {
+    overlay.addEventListener("click", function (event) {
+      if (event.target === overlay) {
+        hideBigTaskInfo();
+      }
+    });
 
-  overlay.addEventListener("click", function (event) {
-    if (event.target === overlay) {
-      hideBigTaskInfo();
-    }
-  });
-
-  taskWindow.addEventListener("click", function (event) {
-    event.stopPropagation();
-  });
+    taskWindow.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  }
 }
 initBigTaskInfoOverlay();
 
@@ -1309,10 +1314,30 @@ function changePriorityInEdit(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
   const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+  const isUrgentActive = buttonUrgent.classList.contains("active-red");
+  const isMediumActive = buttonMedium.classList.contains("active-yellow");
+  const isLowActive = buttonLow.classList.contains("active-green");
 
-  if (buttonUrgent || buttonMedium || buttonLow == "active-red" || "active-yellow" || "active-green") {
-    buttonUrgent.classList.remove("active-red");
-    buttonMedium.classList.remove("active-yellow");
-    buttonLow.classList.remove("active-green");
+  removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow);
+  addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive);
+
+}
+
+function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
+  buttonUrgent.classList.remove("active-red");
+  buttonMedium.classList.remove("active-yellow");
+  buttonLow.classList.remove("active-green");
+}
+
+function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
+  if (priority === "Urgent" && !isUrgentActive) {
+    buttonUrgent.classList.add("active-red");
+  }
+  if (priority === "Medium" && !isMediumActive) {
+    buttonMedium.classList.add("active-yellow");
+  }
+  if (priority === "Low" && !isLowActive) {
+    buttonLow.classList.add("active-green");
   }
 }
+
