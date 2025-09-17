@@ -1279,14 +1279,19 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
       <div class="${circleClasses[i]}">${initials}</div>
     `;
   }
-  showAndHideCirclesInEditTemplate(container, initialsArray);
+  showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
-function showAndHideCirclesInEditTemplate (container, initialsArray) {
+function showAndHideCirclesInEditTemplate (container, initialsArray, taskKey) {
+  const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
    if (initialsArray.length === 0) {
     container.classList.add("hidden");
     container.classList.add("height-zero");
-  } else {
+  } else if(!dropdown.classList.contains("hidden")){
+    container.classList.add("hidden");
+    container.classList.add("height-zero");
+  }
+    else {
     container.classList.remove("hidden");
     container.classList.remove("height-zero");
   }
