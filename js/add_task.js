@@ -827,8 +827,7 @@ function filterTasksByCategory() {
 const loadedTasks = {};
 
 function updateTasksHtml() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } =
-  filterTasksByCategory();
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
@@ -1320,7 +1319,6 @@ function changePriorityInEdit(taskKey, priority) {
 
   removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow);
   addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive);
-
 }
 
 function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
@@ -1332,12 +1330,16 @@ function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
 function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
   if (priority === "Urgent" && !isUrgentActive) {
     buttonUrgent.classList.add("active-red");
+    return "Urgent";
   }
   if (priority === "Medium" && !isMediumActive) {
     buttonMedium.classList.add("active-yellow");
+    return "Medium";
   }
   if (priority === "Low" && !isLowActive) {
     buttonLow.classList.add("active-green");
+    return "Low";
   }
+  return "No priority selected";
 }
 
