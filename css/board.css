@@ -2336,6 +2336,21 @@ h2 {
     color: white;
 }
 
+.subtask-edit-inputfield {
+    border-bottom: 1px solid #29ABE2;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #1a9fff;
+    width: 100%;
+    height: 30px;
+    font-weight: 500;
+}
+
+.subtask-edit-inputfield:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

@@ -1155,7 +1155,7 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
         <div class="bullet-subtask-flexbox">
           <div class="subtask-bullet-margin-right">•</div>
           <span id="subtask-task-text-edit${taskKey}${i}">${subtask.subtaskText}</span>
-          <svg id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon" width="25" height="25" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg onclick="changeSubtaskContent('${taskKey}', '${i}')" id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon" width="25" height="25" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
               <rect x="0.5" width="32" height="32" fill="#D9D9D9"/>
             </mask>
@@ -1397,4 +1397,12 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   return "No priority selected";
 }
 
+function changeSubtaskContent(taskKey, i) {
+  const subtaskText = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
+  const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
 
+  subtaskContainer.innerHTML = `
+    <input class="subtask-edit-inputfield" id="subtask-edit-inputfield${taskKey}${i}" type="text">
+  `;
+}
