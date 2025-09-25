@@ -2351,6 +2351,34 @@ h2 {
     outline: none;
 }
 
+.flexbox-inputfield-subtask-edit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.subtask-delete-icon-edit {
+    position: absolute;
+    right: 35px;
+    cursor: pointer;
+}
+
+.subtask-inputfield-edit-seperator {
+    position: absolute;
+    right: 32px;
+    cursor: pointer;
+    height: 18px;
+    width: 1px;
+    background-color: #b4b4b4
+}
+
+.subtask-confirm-icon-edit {
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
