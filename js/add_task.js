@@ -544,24 +544,6 @@ function addSubtaskInContainer() {
   }
 }
 
-
-function addSubtaskInContainer() {
-  const taskSubtask = document.getElementById("inputfield-subtask-assign1");
-  const savedSubtasks = document.getElementById("subtask-added-tasks");
-  let subtask = taskSubtask.value.trim();
-
-  if (subtask) {
-    savedSubtasks.innerHTML += getSubtaskListElementTemplate(
-      subtask,
-      subtaskSavedCounter
-    );
-    subtaskSavedCounter++;
-    taskSubtask.value = "";
-
-    updateSubtasksArray();
-  }
-}
-
 function hidePlusIconShowCheckAndCrossIcon() {
   const plusIcon = document.getElementById("add-icon-container");
   const checkIcon = document.getElementById("subtask-icon-cross");
@@ -587,19 +569,6 @@ function clearSubtaskInputField(event) {
   checkIconCheck.classList.add("display-none");
 }
 
-function clearSubtaskInputField(event) {
-  if (event) event.stopPropagation();
-  const plusIcon = document.getElementById("add-icon-container");
-  const checkIcon = document.getElementById("subtask-icon-cross");
-  const separatorIcon = document.getElementById("subtask-icon-separator");
-  const checkIconCheck = document.getElementById("subtask-icon-check");
-  const taskSubtask = document.getElementById("inputfield-subtask-assign1");
-  taskSubtask.value = "";
-  plusIcon.classList.remove("display-none");
-  checkIcon.classList.add("display-none");
-  separatorIcon.classList.add("display-none");
-  checkIconCheck.classList.add("display-none");
-}
 function editSavedSubtask(subtaskSavedCounter, subtask) {
   const subTaskElement = document.getElementById(
     `subtask-list-element-div${subtaskSavedCounter}`
@@ -1333,20 +1302,25 @@ function hideIconsInEditSubtasks(taskKey, i) {
   const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
   const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
   const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
+  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
 
-  penIcon.classList.add("hidden");
-  seperator.classList.add("hidden");
-  wasteIcon.classList.add("hidden");
+  if (!inputfield) {
+    penIcon.classList.add("hidden");
+    seperator.classList.add("hidden");
+    wasteIcon.classList.add("hidden");
+  }
 }
 
 function showIconsInEditSubtasks(taskKey, i) {
   const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
   const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
   const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-
-  penIcon.classList.remove("hidden");
-  seperator.classList.remove("hidden");
-  wasteIcon.classList.remove("hidden");
+  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
+  if (!inputfield) {
+    penIcon.classList.remove("hidden");
+    seperator.classList.remove("hidden");
+    wasteIcon.classList.remove("hidden");
+  }
 }
 
 function buttonPriorityStyle(taskKey, priority) {
@@ -1405,4 +1379,7 @@ function changeSubtaskContent(taskKey, i) {
   subtaskContainer.innerHTML = `
     <input class="subtask-edit-inputfield" id="subtask-edit-inputfield${taskKey}${i}" type="text">
   `;
+
+  const subtaskChangedValue = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`).value;
+  subtaskContainer.innerHTML = `${subtaskChangedValue}`;
 }
