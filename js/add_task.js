@@ -1347,10 +1347,11 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   return "No priority selected";
 }
 
-function changeSubtaskContent(taskKey, i) {
-  const subtaskText = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
+function changeSubtaskContent(taskKey, i, subtaskText) {
+  const subtaskTextDiv = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
+  subtaskContainer.innerHTML = "";
 
   subtaskContainer.innerHTML = `
   <div class="flexbox-inputfield-subtask-edit">
@@ -1363,7 +1364,7 @@ function changeSubtaskContent(taskKey, i) {
       </g>
     </svg>
     <div id="subtask-inputfield-edit-seperator${taskKey}${i}" class="subtask-inputfield-edit-seperator"></div>
-    <svg onclick="confirmChangeForEditSubtask('${taskKey}', '${i}')" id="subtask-confirm-icon-edit${taskKey}${i}" class="subtask-confirm-icon-edit" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg onclick="confirmChangeForEditSubtask('${taskKey}', '${i}', '${subtaskText}')" id="subtask-confirm-icon-edit${taskKey}${i}" class="subtask-confirm-icon-edit" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
       <rect y="0.5" width="25" height="25" fill="#D9D9D9"/>
       </mask>
@@ -1372,7 +1373,7 @@ function changeSubtaskContent(taskKey, i) {
       </g>
     </svg>
 
-    <input class="subtask-edit-inputfield" id="subtask-edit-inputfield${taskKey}${i}" type="text">
+    <input class="subtask-edit-inputfield" id="subtask-edit-inputfield${taskKey}${i}" type="text" value="${subtaskText}">
   </div>
   `;
 }
@@ -1387,5 +1388,7 @@ function cancelEditSubtask(taskKey, i) {
 function confirmChangeForEditSubtask(taskKey, i) {
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   const inputfieldSubtask = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
-  
+  let newSubtaskText = inputfieldSubtask.value;
+  subtaskContainer.innerHTML = "";
+  subtaskContainer.innerHTML = getEditSubtaskTemplate(taskKey, i, newSubtaskText);
 }
