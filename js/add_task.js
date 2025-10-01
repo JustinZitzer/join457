@@ -1401,5 +1401,20 @@ function confirmChangeForEditSubtask(taskKey, i) {
 
 function addNewSubtaskInEdit(taskKey) {
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
-  
+  const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const value = input.value.trim();
+
+  // Wenn kein Text drin ist, abbrechen
+  if (!value) return;
+
+  const currentSubtasks = subtasksEditDiv.getElementsByClassName("subtasks-board-first-task-edit");
+  const newIndex = currentSubtasks.length;
+
+  subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, newIndex, value);
+
+  input.value = "";
+
+  document.getElementById(`delete-subtask-edit-check-icon${taskKey}`).classList.add("hidden");
+  document.getElementById(`seperator-subtasks-edit${taskKey}`).classList.add("hidden");
+  document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
