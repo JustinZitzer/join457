@@ -1402,15 +1402,15 @@ function confirmChangeForEditSubtask(taskKey, i) {
 function addNewSubtaskInEdit(taskKey) {
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
-  const value = input.value.trim();
+  const subtaskText = input.value.trim();
 
   // Wenn kein Text drin ist, abbrechen
-  if (!value) return;
+  if (!subtaskText) return;
 
   const currentSubtasks = subtasksEditDiv.getElementsByClassName("subtasks-board-first-task-edit");
   const newIndex = currentSubtasks.length;
 
-  subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, newIndex, value);
+  subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, newIndex, subtaskText);
 
   input.value = "";
 

@@ -358,7 +358,7 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
           </g>
         </svg>
         <div id="seperator-for-subtasks${taskKey}${i}" class="seperator-for-subtasks"></div>
-        <svg id="waste-icon${taskKey}${i}" class="waste-icon"
+        <svg onclick="cancelEditSubtask('${taskKey}', '${i}')" id="waste-icon${taskKey}${i}" class="waste-icon"
              width="23" height="23" viewBox="0 0 24 24" fill="none"
              xmlns="http://www.w3.org/2000/svg">
           <mask id="mask0_314135_4497" style="mask-type:alpha"
