@@ -482,7 +482,7 @@ function validateGetCategoryForNewTask() {
 }
 
 function getCategoryForNewTask() {
-  const taskCategory = document.getElementById("category-input1");
+  const taskCategory = document.getElementById("category-input");
 
   if (!taskCategory.value == "") {
     return taskCategory.value;
@@ -492,7 +492,7 @@ function getCategoryForNewTask() {
 }
 
 function validateGetCategoryForNewTask() {
-  const taskCategory = document.getElementById("category-input1");
+  const taskCategory = document.getElementById("category-input");
   const fieldRequired = document.getElementById("error-field-category");
   if (taskCategory == "Technical Task" || taskCategory == "User Story") {
     return taskCategory.value;
