@@ -1376,6 +1376,7 @@ function changeSubtaskContent(taskKey, i, subtaskText) {
     <input class="subtask-edit-inputfield" id="subtask-edit-inputfield${taskKey}${i}" type="text" value="${subtaskText}">
   </div>
   `;
+  return i;
 }
 
 function cancelEditSubtask(taskKey, i) {
@@ -1386,9 +1387,19 @@ function cancelEditSubtask(taskKey, i) {
 }
 
 function confirmChangeForEditSubtask(taskKey, i) {
-  const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
+  const oldSubtaskDiv = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   const inputfieldSubtask = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
   let newSubtaskText = inputfieldSubtask.value;
-  subtaskContainer.innerHTML = "";
-  subtaskContainer.innerHTML = getEditSubtaskTemplate(taskKey, i, newSubtaskText);
+
+  const newSubtaskDiv = document.createElement('div');
+  newSubtaskDiv.innerHTML = getEditSubtaskTemplate(taskKey, i, newSubtaskText);
+
+  const newSubtaskDivFirstElementChild = newSubtaskDiv.firstElementChild;
+
+  oldSubtaskDiv.parentNode.replaceChild(newSubtaskDivFirstElementChild, oldSubtaskDiv);
+}
+
+function addNewSubtaskInEdit(taskKey) {
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
+  
 }
