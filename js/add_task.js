@@ -1210,6 +1210,7 @@ function changeContactCircleInEditTemplate(taskKey) {
   }
 
   renderCirclesInEditTemplate(taskKey, initialsArray);
+  return nameElem;
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
@@ -1417,4 +1418,39 @@ function addNewSubtaskInEdit(taskKey) {
   document.getElementById(`delete-subtask-edit-check-icon${taskKey}`).classList.add("hidden");
   document.getElementById(`seperator-subtasks-edit${taskKey}`).classList.add("hidden");
   document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
+}
+
+function getInformationForEditTask(taskKey) {
+  const title = document.getElementById(`titel-edit-task-big${taskKey}`).value;
+  const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
+  const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
+  const priority = addPriorityAndActive(taskKey);
+  const assignedTo = changeContactCircleInEditTemplate(taskKey);
+  const subtasks = getEditedSubtasksForFirebase(taskKey);
+  const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
+  const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
+  return { title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category };
+}
+
+function getEditedSubtasksForFirebase(taskKey) {
+  const subtasks = [];
+  const container = document.getElementById(`subtasks-edit-div${taskKey}`);
+  if (!container) return subtasks;
+
+  const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
+
+  for (let i = 0; i < allSubtasks.length; i++) {
+    const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
+    if (span) {
+      const text = span.textContent.trim();
+      if (text) {
+        subtasks.push({
+          subtaskText: text,
+          statusCheckbox: false
+        });
+      }
+    }
+  }
+
+  return subtasks;
 }
