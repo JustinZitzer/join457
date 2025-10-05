@@ -1595,7 +1595,6 @@ h2 {
 }
 
 
-
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
@@ -1605,6 +1604,23 @@ h2 {
         transform: translateX(0%);
     }
 }
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.3s forwards;
+}
+
 
 .add-task-overlay-todo {
     position: relative;

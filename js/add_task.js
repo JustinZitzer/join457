@@ -76,7 +76,41 @@ document
   .addEventListener("click", function (event) {
     event.stopPropagation();
   });
+  
 }
+
+function openOverlay() {
+  const overlay = document.getElementById("overlay");
+  overlay.classList.remove("overlay-hidden");
+  overlay.classList.add("overlay-visible");
+
+  if (window.innerWidth > 1400) {
+    const overlayContent = document.getElementById("content-add-task-overlay");
+    overlayContent.innerHTML = getTaskOverlayTemplate();
+
+    // Slide-in starten
+    overlayContent.classList.add("slide-in");
+
+    // ❗️ Jetzt existiert das X-Button-Element – Listener hier hinzufügen:
+    const closeButton = document.querySelector(".x-close-button-add-task-overlay");
+    if (closeButton) {
+      closeButton.addEventListener("click", function () {
+        overlayContent.classList.remove("slide-in");
+        overlayContent.classList.add("slide-out");
+
+        setTimeout(function () {
+          overlay.classList.remove("overlay-visible");
+          overlay.classList.add("overlay-hidden");
+          overlayContent.classList.remove("slide-out");
+        }, 300);
+      });
+    }
+  } else {
+    window.location.href = "./add_task.html";
+  }
+}
+
+
 
 function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
