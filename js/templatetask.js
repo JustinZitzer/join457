@@ -4,6 +4,8 @@ function getTaskOverlayTemplate() {
     <div class="container-both-sides-board">
       <div class="add-task-text-box-board">
         <h2>Add Task</h2>
+
+         <img class="x-close-button-add-task-overlay" src="./assets/icons/window-close-symbolic-svgrepo-com.svg" alt="">
       </div>
       <div class="inputfield-box-left-side-board">
         <div class="text-title-board">

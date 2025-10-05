@@ -1558,6 +1558,11 @@ h5 {
     bottom: 650px;
 }
 
+.x-close-button-add-task-overlay{
+    width: 24px;
+    height: 24px;
+}
+
 
 h2 {
     font-size: 64px;
