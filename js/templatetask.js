@@ -3,9 +3,10 @@ function getTaskOverlayTemplate() {
   <div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
     <div class="container-both-sides-board">
       <div class="add-task-text-box-board">
+      <div class="container-add-task">
         <h2>Add Task</h2>
-
-         <img class="x-close-button-add-task-overlay" src="./assets/icons/window-close-symbolic-svgrepo-com.svg" alt="">
+        <img class="x-close-button-add-task-overlay" src="./assets/icons/system-single-close-line-svgrepo-com.svg" alt="">
+        </div>
       </div>
       <div class="inputfield-box-left-side-board">
         <div class="text-title-board">

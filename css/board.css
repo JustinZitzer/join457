@@ -1558,11 +1558,18 @@ h5 {
     bottom: 650px;
 }
 
-.x-close-button-add-task-overlay{
-    width: 24px;
-    height: 24px;
+.container-add-task {
+    display: flex;
 }
 
+.x-close-button-add-task-overlay {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    left: 670px;
+    position: relative;
+    radius: 56px;
+}
 
 h2 {
     font-size: 64px;
@@ -2272,10 +2279,10 @@ h2 {
 }
 
 .input-border-left-bottom {
-  border-left: 2px solid #29ABE2;
-  border-bottom: 2px solid #29ABE2;
-  border-top: none;
-  border-right: none;
+    border-left: 2px solid #29ABE2;
+    border-bottom: 2px solid #29ABE2;
+    border-top: none;
+    border-right: none;
 }
 
 .subtasks-board-first-task-edit {
