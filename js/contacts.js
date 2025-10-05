@@ -69,6 +69,7 @@ function openAddNewContactOverlay() {
         addContactButton.style.display = 'none';
     }
 }
+
 function removeAddNewContactOverlay() {
     const overlay = document.getElementById('add_contact_overlay');
     const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
