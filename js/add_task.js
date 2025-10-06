@@ -110,117 +110,197 @@ function openOverlay() {
   }
 }
 
-
-
 function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
+  const overlayContentToDo = document.getElementById("content-add-task-overlay-todo");
+
+  // Zeige das Overlay an
   overlayToDoContainer.classList.remove("overlay-hidden");
   overlayToDoContainer.classList.add("overlay-visible");
 
-  overlayToDoContainer.onclick = function (event) {
-    if (event.target === overlayToDoContainer) {
-      closeOverlayToDo();
-    }
-  };
-
-  const overlayContentToDo = document.getElementById(
-    "content-add-task-overlay-todo"
-  );
+  // Für große Bildschirme Overlay anzeigen
   if (window.innerWidth > 1400) {
     overlayContentToDo.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-todo");
     if (content) {
-      content.style.animation = "none";
-      void content.offsetWidth;
-      content.style.animation = "";
+      // Entferne alte Animationen
+      content.classList.remove("slide-out");
+      void content.offsetWidth; // Force reflow
       content.classList.add("slide-in");
     }
+
+    // Schließen durch Klick außerhalb des Inhalts
+    overlayToDoContainer.onclick = function (event) {
+      if (event.target === overlayToDoContainer) {
+        closeOverlayToDo();
+      }
+    };
+
+    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    setTimeout(() => {
+      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = closeOverlayToDo;
+      }
+    }, 0);
   } else {
     window.location.href = "./add_task.html";
   }
 }
 
 function closeOverlayToDo() {
-  const overlayToDo = document.getElementById("overlay-todo");
-  if (overlayToDo) {
-    overlayToDo.classList.remove("overlay-visible");
-    overlayToDo.classList.add("overlay-hidden");
+  const overlayToDoContainer = document.getElementById("overlay-todo");
+  const content = document.getElementById("overlay-content-todo");
+
+  if (content) {
+    content.classList.remove("slide-in");
+    content.classList.add("slide-out");
+
+    // Nach Animation Overlay verstecken
+    content.addEventListener(
+      "animationend",
+      () => {
+        overlayToDoContainer.classList.add("overlay-hidden");
+        overlayToDoContainer.classList.remove("overlay-visible");
+        content.classList.remove("slide-out");
+      },
+      { once: true }
+    );
+  } else {
+    // Fallback
+    overlayToDoContainer.classList.add("overlay-hidden");
+    overlayToDoContainer.classList.remove("overlay-visible");
   }
 }
 
 function openOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
-  overlayInProgress.classList.add("overlay-visible");
+  const overlayContentWrapper = document.getElementById("content-add-task-overlay-in-progress");
+
+  // Zeige das Overlay an
   overlayInProgress.classList.remove("overlay-hidden");
+  overlayInProgress.classList.add("overlay-visible");
 
-  overlayInProgress.onclick = function (event) {
-    if (event.target === overlayInProgress) {
-      closeOverlayInProgress();
-    }
-  };
-
-  const overlayContentProgress = document.getElementById(
-    "content-add-task-overlay-in-progress"
-  );
+  // Für große Bildschirme Overlay anzeigen
   if (window.innerWidth > 1400) {
-    overlayContentProgress.innerHTML = getTaskOverlayTemplate();
+    overlayContentWrapper.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-progress");
     if (content) {
-      content.style.animation = "none";
-      void content.offsetWidth;
-      content.style.animation = "";
+      // Entferne alte Animationen
+      content.classList.remove("slide-out-right");
+      void content.offsetWidth; // Force reflow
       content.classList.add("slide-in");
     }
+
+    // Schließen durch Klick außerhalb des Inhalts
+    overlayInProgress.onclick = function (event) {
+      if (event.target === overlayInProgress) {
+        closeOverlayInProgress();
+      }
+    };
+
+    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    setTimeout(() => {
+      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = closeOverlayInProgress;
+      }
+    }, 0);
   } else {
     window.location.href = "./add_task.html";
   }
 }
 
-function closeOverlayInProgress(event) {
-  document
-    .getElementById("overlay-in-progress")
-    .classList.remove("overlay-visible");
-  document
-    .getElementById("overlay-in-progress")
-    .classList.add("overlay-hidden");
+function closeOverlayInProgress() {
+  const overlayInProgress = document.getElementById("overlay-in-progress");
+  const content = document.getElementById("overlay-content-progress");
+
+  if (content) {
+    content.classList.remove("slide-in");
+    content.classList.add("slide-out-right");
+
+    // Nach Animation Overlay verstecken
+    content.addEventListener(
+      "animationend",
+      () => {
+        overlayInProgress.classList.add("overlay-hidden");
+        overlayInProgress.classList.remove("overlay-visible");
+        content.classList.remove("slide-out-right");
+      },
+      { once: true }
+    );
+  } else {
+    // Fallback
+    overlayInProgress.classList.add("overlay-hidden");
+    overlayInProgress.classList.remove("overlay-visible");
+  }
 }
 
 function openOverlayFeedback() {
-  const openOverlayAwaitFeedback = document.getElementById(
-    "overlay-await-feedback"
-  );
-  openOverlayAwaitFeedback.classList.add("overlay-visible");
-  openOverlayAwaitFeedback.classList.remove("overlay-hidden");
-  let overlayAwaitFeedback = document.getElementById(
-    "content-add-task-overlay-await-feedback"
-  );
-  if (window.innerWidth > 1400) {
-    overlayAwaitFeedback.innerHTML = getTaskOverlayTemplate();
+  const overlayFeedback = document.getElementById("overlay-await-feedback");
+  const overlayContentWrapper = document.getElementById("content-add-task-overlay-await-feedback");
 
-    // Animation erneut triggern (falls mehrfach geöffnet)
-    const contentAwait = openOverlayAwaitFeedback.querySelector(
-      ".overlay-await-feedback-contentAwait"
-    );
-    overlayAwaitFeedback.style.animation = "none";
-    void overlayAwaitFeedback.offsetWidth; // Reflow erzwingen
-    overlayAwaitFeedback.style.animation = "";
-    overlayAwaitFeedback.classList.add("slide-in");
+  // Zeige das Overlay an
+  overlayFeedback.classList.remove("overlay-hidden");
+  overlayFeedback.classList.add("overlay-visible");
+
+  if (window.innerWidth > 1400) {
+    // Template einfügen
+    overlayContentWrapper.innerHTML = getTaskOverlayTemplate();
+
+    const content = document.getElementById("overlay-content-feedback");
+    if (content) {
+      // Entferne alte Animationen
+      content.classList.remove("slide-out-right");
+      void content.offsetWidth; // Force reflow
+      content.classList.add("slide-in");
+    }
+
+    // Schließen durch Klick außerhalb des Inhalts
+    overlayFeedback.onclick = function (event) {
+      if (event.target === overlayFeedback) {
+        closeOverlayFeedback();
+      }
+    };
+
+    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    setTimeout(() => {
+      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = closeOverlayFeedback;
+      }
+    }, 0);
   } else {
     window.location.href = "./add_task.html";
   }
 }
 
-function closeOverlayFeedback(event) {
-  document
-    .getElementById("overlay-await-feedback")
-    .classList.remove("overlay-visible");
-  document
-    .getElementById("overlay-await-feedback")
-    .classList.add("overlay-hidden");
-}
+function closeOverlayFeedback() {
+  const overlayFeedback = document.getElementById("overlay-await-feedback");
+  const content = document.getElementById("overlay-content-feedback");
 
+  if (content) {
+    content.classList.remove("slide-in");
+    content.classList.add("slide-out-right");
+
+    // Nach Animation Overlay verstecken
+    content.addEventListener(
+      "animationend",
+      () => {
+        overlayFeedback.classList.add("overlay-hidden");
+        overlayFeedback.classList.remove("overlay-visible");
+        content.classList.remove("slide-out-right");
+      },
+      { once: true }
+    );
+  } else {
+    // Fallback
+    overlayFeedback.classList.add("overlay-hidden");
+    overlayFeedback.classList.remove("overlay-visible");
+  }
+}
 function selectContacts() {
   const fieldRequiered = document.getElementById("field-required");
   const windowWidth = window.innerWidth;

@@ -1,5 +1,5 @@
 function getTaskOverlayTemplate() {
-    return `
+  return `
   <div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
     <div class="container-both-sides-board">
       <div class="add-task-text-box-board">
@@ -92,7 +92,7 @@ function getTaskOverlayTemplate() {
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
     <div onclick="showBigTaskInfo('${taskKey}')" id="todo-content-box${taskKey}" class="todo-content-box"
-         draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
+        draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
       <div id="user-story-box${taskKey}">
         <span id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
       </div>
@@ -117,7 +117,6 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
     </div>
   `;
 }
-
 
 function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
@@ -271,16 +270,16 @@ function getTaskEditTemplate(task, taskKey) {
   `;
 }
 
-
-
-
 function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
   return `
     <li class="subtask-list-element" id="subtask-${subtaskSavedCounter}">
       <div class="subtask-list-element-div" id="subtask-list-element-div${subtaskSavedCounter}">
         • ${subtask} <input type="checkbox" id="subtask-checkbox${subtaskSavedCounter}" class="subtask-checkbox hidden">
         <div class="pen-and-bin-container">
-          <svg class="pen-icon-before-edit" onclick="editSavedSubtask(${subtaskSavedCounter}, '${subtask.replace(/'/g, "\\'")}')" width="25" height="25" viewBox="0 0 33 32" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
+          <svg class="pen-icon-before-edit" onclick="editSavedSubtask(${subtaskSavedCounter}, '${subtask.replace(
+    /'/g,
+    "\\'"
+  )}')" width="25" height="25" viewBox="0 0 33 32" fill="#2A3647" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
               <rect x="0.5" width="32" height="32"/>
             </mask>

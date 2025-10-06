@@ -1614,11 +1614,7 @@ h2 {
     to {
         transform: translateX(100%);
         opacity: 0;
-    }
-}
-
-.slide-out-right {
-    animation: slideOutRight 0.3s forwards;
+    }   
 }
 
 
