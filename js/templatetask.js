@@ -127,7 +127,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
           <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="hideBigTaskInfo('${taskKey}')">
         </div>
 
-        <h1 id="task-board-big-headline" class="task-board-big-headline">${task.titel}</h1>
+        <h1 id="task-board-big-headline${taskKey}" class="task-board-big-headline">${task.titel}</h1>
         <span id="task-board-big-description" class="task-board-big-description">${task.description}</span>
 
         <div class="task-board-big-date-div">
@@ -267,7 +267,7 @@ function getTaskEditTemplate(task, taskKey) {
       <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
 
       <div id="add-changes-div${taskKey}" class="add-changes-div">
-        <button id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
+        <button onclick="saveEditedTaskToFirebase('${task.category}', '${taskKey}')" id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
       </div>
 
     </div>
