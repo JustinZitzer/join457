@@ -1535,6 +1535,7 @@ function addNewSubtaskInEdit(taskKey) {
 }
 
 function getInformationForEditTask(taskKey) {
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).innerHTML;
   const title = document.getElementById(`titel-edit-task-big${taskKey}`).value;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
@@ -1543,7 +1544,7 @@ function getInformationForEditTask(taskKey) {
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
   const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
-  return { title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category };
+  return {oldTitle, title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category };
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1567,4 +1568,21 @@ function getEditedSubtasksForFirebase(taskKey) {
   }
 
   return subtasks;
+}
+
+async function saveEditedTaskToFirebase(taskKey) {
+  const inputsForTask = getInformationForEditTask(taskKey);
+  const newTitle = inputsForTask.title;
+  const oldTitle = inputsForTask.oldTitle;
+  const category = inputsForTask.category;
+
+  if (newTitle !== oldTitle) {
+    await deleteRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`);
+    await putRegistryDataBaseFunction(`tasks/${category}/${newTitle}`, inputsForTask);
+  } else {
+    await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
+  }
+
+  alert("Task erfolgreich gespeichert!");
+  
 }

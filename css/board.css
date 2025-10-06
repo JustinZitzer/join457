@@ -2403,6 +2403,33 @@ h2 {
     cursor: pointer;
 }
 
+.add-changes-div {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.add-changes-button {
+    height: 48px;
+    width: 80px;
+    border-radius: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-color: #2A3647;
+    font-weight: bold;
+    color: white;
+}
+
+.add-changes-button:hover {
+    background-color: #1a9fff;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
