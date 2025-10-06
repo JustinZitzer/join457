@@ -1304,6 +1304,7 @@ function getContactCardForDropdownInEdit(contact,taskKey) {
 
 function changeContactCircleInEditTemplate(taskKey) {
   let initialsArray = [];
+  let fullNamesArray = [];
 
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -1312,19 +1313,19 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
+    const fullName = nameElem.textContent.trim();
 
     if (checkbox && checkbox.checked && nameElem) {
-      const fullName = nameElem.textContent.trim();
       const names = fullName.split(" ");
       let initials = "";
       if (names[0]) initials += names[0][0].toUpperCase();
       if (names[1]) initials += names[1][0].toUpperCase();
       initialsArray.push(initials);
     }
-    return nameElem;
   }
 
   renderCirclesInEditTemplate(taskKey, initialsArray);
+  return fullNamesArray;
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
@@ -1544,7 +1545,8 @@ function getInformationForEditTask(taskKey) {
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
   const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
-  return {oldTitle, title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category};
+  const id = title;
+  return {title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category, id};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1573,7 +1575,7 @@ function getEditedSubtasksForFirebase(taskKey) {
 async function saveEditedTaskToFirebase(category, taskKey) {
   const inputsForTask = getInformationForEditTask(taskKey);
   const newTitle = inputsForTask.title;
-  const oldTitle = inputsForTask.oldTitle;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
 
   if (newTitle !== oldTitle) {
     await deleteTask(category, oldTitle);
