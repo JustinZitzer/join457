@@ -1594,7 +1594,7 @@ h2 {
 
 }
 
-
+/* Animationen */
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
@@ -1607,14 +1607,14 @@ h2 {
 
 @keyframes slideOutRight {
     from {
-        transform: translateX(0);
+        transform: translateX(0%);
         opacity: 1;
     }
 
     to {
         transform: translateX(100%);
         opacity: 0;
-    }   
+    }
 }
 
 

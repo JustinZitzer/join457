@@ -81,29 +81,36 @@ document
 
 function openOverlay() {
   const overlay = document.getElementById("overlay");
+  const overlayContent = document.getElementById("content-add-task-overlay");
+
+  // Overlay sichtbar machen
   overlay.classList.remove("overlay-hidden");
   overlay.classList.add("overlay-visible");
 
   if (window.innerWidth > 1400) {
-    const overlayContent = document.getElementById("content-add-task-overlay");
+    // Inhalt setzen
     overlayContent.innerHTML = getTaskOverlayTemplate();
 
-    // Slide-in starten
+    // Slide-in Animation starten
     overlayContent.classList.add("slide-in");
 
-    // ❗️ Jetzt existiert das X-Button-Element – Listener hier hinzufügen:
-    const closeButton = document.querySelector(".x-close-button-add-task-overlay");
+    // Close Button innerhalb des neuen Inhalts suchen
+    const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
     if (closeButton) {
-      closeButton.addEventListener("click", function () {
+      closeButton.addEventListener("click", () => {
+        // Slide-in entfernen, slide-out hinzufügen
         overlayContent.classList.remove("slide-in");
         overlayContent.classList.add("slide-out");
 
-        setTimeout(function () {
+        // Nach Animation Overlay schließen
+        setTimeout(() => {
           overlay.classList.remove("overlay-visible");
           overlay.classList.add("overlay-hidden");
           overlayContent.classList.remove("slide-out");
-        }, 300);
+        }, 300); // Dauer der Animation in ms
       });
+    } else {
+      console.warn("Close Button nicht gefunden!");
     }
   } else {
     window.location.href = "./add_task.html";
@@ -114,34 +121,52 @@ function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
   const overlayContentToDo = document.getElementById("content-add-task-overlay-todo");
 
-  // Zeige das Overlay an
+  // Overlay anzeigen
   overlayToDoContainer.classList.remove("overlay-hidden");
   overlayToDoContainer.classList.add("overlay-visible");
 
-  // Für große Bildschirme Overlay anzeigen
   if (window.innerWidth > 1400) {
     overlayContentToDo.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-todo");
     if (content) {
-      // Entferne alte Animationen
       content.classList.remove("slide-out");
       void content.offsetWidth; // Force reflow
       content.classList.add("slide-in");
     }
 
-    // Schließen durch Klick außerhalb des Inhalts
+    // Klick auf Overlay-Hintergrund schließt Overlay
     overlayToDoContainer.onclick = function (event) {
       if (event.target === overlayToDoContainer) {
         closeOverlayToDo();
       }
     };
 
-    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
-      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      const closeBtn = overlayContentToDo.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
-        closeBtn.onclick = closeOverlayToDo;
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          // Slide-in entfernen, slide-out hinzufügen
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth; // Force reflow
+            content.classList.add("slide-out");
+
+            // Nach Animation Overlay schließen
+            content.addEventListener("animationend", function handler() {
+              overlayToDoContainer.classList.remove("overlay-visible");
+              overlayToDoContainer.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            });
+          } else {
+            // Fallback falls content nicht gefunden
+            closeOverlayToDo();
+          }
+        };
       }
     }, 0);
   } else {
@@ -149,63 +174,62 @@ function overlayToDo() {
   }
 }
 
+// Hilfsfunktion zum Schließen (ohne Animation)
 function closeOverlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
-  const content = document.getElementById("overlay-content-todo");
-
-  if (content) {
-    content.classList.remove("slide-in");
-    content.classList.add("slide-out");
-
-    // Nach Animation Overlay verstecken
-    content.addEventListener(
-      "animationend",
-      () => {
-        overlayToDoContainer.classList.add("overlay-hidden");
-        overlayToDoContainer.classList.remove("overlay-visible");
-        content.classList.remove("slide-out");
-      },
-      { once: true }
-    );
-  } else {
-    // Fallback
-    overlayToDoContainer.classList.add("overlay-hidden");
-    overlayToDoContainer.classList.remove("overlay-visible");
-  }
+  overlayToDoContainer.classList.remove("overlay-visible");
+  overlayToDoContainer.classList.add("overlay-hidden");
 }
 
 function openOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
-  const overlayContentWrapper = document.getElementById("content-add-task-overlay-in-progress");
+  const overlayContentProgress = document.getElementById("content-add-task-overlay-in-progress");
 
-  // Zeige das Overlay an
-  overlayInProgress.classList.remove("overlay-hidden");
+  // Overlay anzeigen
   overlayInProgress.classList.add("overlay-visible");
+  overlayInProgress.classList.remove("overlay-hidden");
 
-  // Für große Bildschirme Overlay anzeigen
+  // Klick auf Hintergrund schließt Overlay
+  overlayInProgress.onclick = function (event) {
+    if (event.target === overlayInProgress) {
+      closeOverlayInProgress();
+    }
+  };
+
   if (window.innerWidth > 1400) {
-    overlayContentWrapper.innerHTML = getTaskOverlayTemplate();
+    overlayContentProgress.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-progress");
     if (content) {
-      // Entferne alte Animationen
-      content.classList.remove("slide-out-right");
+      // Animation zurücksetzen und slide-in starten
+      content.style.animation = "none";
       void content.offsetWidth; // Force reflow
+      content.style.animation = "";
       content.classList.add("slide-in");
     }
 
-    // Schließen durch Klick außerhalb des Inhalts
-    overlayInProgress.onclick = function (event) {
-      if (event.target === overlayInProgress) {
-        closeOverlayInProgress();
-      }
-    };
-
-    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
-      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      const closeBtn = overlayContentProgress.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
-        closeBtn.onclick = closeOverlayInProgress;
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth; // Force reflow
+            content.classList.add("slide-out");
+
+            content.addEventListener("animationend", function handler() {
+              overlayInProgress.classList.remove("overlay-visible");
+              overlayInProgress.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            });
+          } else {
+            closeOverlayInProgress();
+          }
+        };
       }
     }, 0);
   } else {
@@ -213,94 +237,74 @@ function openOverlayInProgress() {
   }
 }
 
+// Hilfsfunktion ohne Animation
 function closeOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
-  const content = document.getElementById("overlay-content-progress");
-
-  if (content) {
-    content.classList.remove("slide-in");
-    content.classList.add("slide-out-right");
-
-    // Nach Animation Overlay verstecken
-    content.addEventListener(
-      "animationend",
-      () => {
-        overlayInProgress.classList.add("overlay-hidden");
-        overlayInProgress.classList.remove("overlay-visible");
-        content.classList.remove("slide-out-right");
-      },
-      { once: true }
-    );
-  } else {
-    // Fallback
-    overlayInProgress.classList.add("overlay-hidden");
-    overlayInProgress.classList.remove("overlay-visible");
-  }
+  overlayInProgress.classList.remove("overlay-visible");
+  overlayInProgress.classList.add("overlay-hidden");
 }
 
 function openOverlayFeedback() {
-  const overlayFeedback = document.getElementById("overlay-await-feedback");
-  const overlayContentWrapper = document.getElementById("content-add-task-overlay-await-feedback");
+  const overlay = document.getElementById("overlay-await-feedback");
+  const overlayContent = document.getElementById("content-add-task-overlay-await-feedback");
 
-  // Zeige das Overlay an
-  overlayFeedback.classList.remove("overlay-hidden");
-  overlayFeedback.classList.add("overlay-visible");
+  // Overlay sichtbar machen
+  overlay.classList.remove("overlay-hidden");
+  overlay.classList.add("overlay-visible");
 
   if (window.innerWidth > 1400) {
-    // Template einfügen
-    overlayContentWrapper.innerHTML = getTaskOverlayTemplate();
+    overlayContent.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-feedback");
     if (content) {
-      // Entferne alte Animationen
-      content.classList.remove("slide-out-right");
-      void content.offsetWidth; // Force reflow
+      content.classList.remove("slide-out");
+      void content.offsetWidth; // Reflow erzwingen
       content.classList.add("slide-in");
     }
 
-    // Schließen durch Klick außerhalb des Inhalts
-    overlayFeedback.onclick = function (event) {
-      if (event.target === overlayFeedback) {
+    // Klick auf Hintergrund schließt Overlay
+    overlay.onclick = function (event) {
+      if (event.target === overlay) {
         closeOverlayFeedback();
       }
     };
 
-    // Warten bis HTML-Inhalt geladen ist, dann Close-Button zuweisen
+    // X-Button mit Slide-Out zuweisen
     setTimeout(() => {
-      const closeBtn = document.querySelector(".x-close-button-add-task-overlay");
+      const closeBtn = overlayContent.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
-        closeBtn.onclick = closeOverlayFeedback;
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth;
+            content.classList.add("slide-out");
+
+            content.addEventListener("animationend", function handler() {
+              overlay.classList.remove("overlay-visible");
+              overlay.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            }, { once: true });
+          } else {
+            closeOverlayFeedback();
+          }
+        };
       }
     }, 0);
   } else {
+    // Mobile redirect
     window.location.href = "./add_task.html";
   }
 }
 
 function closeOverlayFeedback() {
-  const overlayFeedback = document.getElementById("overlay-await-feedback");
-  const content = document.getElementById("overlay-content-feedback");
-
-  if (content) {
-    content.classList.remove("slide-in");
-    content.classList.add("slide-out-right");
-
-    // Nach Animation Overlay verstecken
-    content.addEventListener(
-      "animationend",
-      () => {
-        overlayFeedback.classList.add("overlay-hidden");
-        overlayFeedback.classList.remove("overlay-visible");
-        content.classList.remove("slide-out-right");
-      },
-      { once: true }
-    );
-  } else {
-    // Fallback
-    overlayFeedback.classList.add("overlay-hidden");
-    overlayFeedback.classList.remove("overlay-visible");
-  }
+  const overlay = document.getElementById("overlay-await-feedback");
+  overlay.classList.remove("overlay-visible");
+  overlay.classList.add("overlay-hidden");
 }
+
 function selectContacts() {
   const fieldRequiered = document.getElementById("field-required");
   const windowWidth = window.innerWidth;
