@@ -76,115 +76,233 @@ document
   .addEventListener("click", function (event) {
     event.stopPropagation();
   });
+  
 }
 
-function overlayToDo() {
-  const overlayToDoContainer = document.getElementById("overlay-todo");
-  overlayToDoContainer.classList.remove("overlay-hidden");
-  overlayToDoContainer.classList.add("overlay-visible");
+function openOverlay() {
+  const overlay = document.getElementById("overlay");
+  const overlayContent = document.getElementById("content-add-task-overlay");
 
-  overlayToDoContainer.onclick = function (event) {
-    if (event.target === overlayToDoContainer) {
-      closeOverlayToDo();
-    }
-  };
+  // Overlay sichtbar machen
+  overlay.classList.remove("overlay-hidden");
+  overlay.classList.add("overlay-visible");
 
-  const overlayContentToDo = document.getElementById(
-    "content-add-task-overlay-todo"
-  );
   if (window.innerWidth > 1400) {
-    overlayContentToDo.innerHTML = getTaskOverlayTemplate();
+    // Inhalt setzen
+    overlayContent.innerHTML = getTaskOverlayTemplate();
 
-    const content = document.getElementById("overlay-content-todo");
-    if (content) {
-      content.style.animation = "none";
-      void content.offsetWidth;
-      content.style.animation = "";
-      content.classList.add("slide-in");
+    // Slide-in Animation starten
+    overlayContent.classList.add("slide-in");
+
+    // Close Button innerhalb des neuen Inhalts suchen
+    const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        // Slide-in entfernen, slide-out hinzufügen
+        overlayContent.classList.remove("slide-in");
+        overlayContent.classList.add("slide-out");
+
+        // Nach Animation Overlay schließen
+        setTimeout(() => {
+          overlay.classList.remove("overlay-visible");
+          overlay.classList.add("overlay-hidden");
+          overlayContent.classList.remove("slide-out");
+        }, 300); // Dauer der Animation in ms
+      });
+    } else {
+      console.warn("Close Button nicht gefunden!");
     }
   } else {
     window.location.href = "./add_task.html";
   }
 }
 
-function closeOverlayToDo() {
-  const overlayToDo = document.getElementById("overlay-todo");
-  if (overlayToDo) {
-    overlayToDo.classList.remove("overlay-visible");
-    overlayToDo.classList.add("overlay-hidden");
+function overlayToDo() {
+  const overlayToDoContainer = document.getElementById("overlay-todo");
+  const overlayContentToDo = document.getElementById("content-add-task-overlay-todo");
+
+  // Overlay anzeigen
+  overlayToDoContainer.classList.remove("overlay-hidden");
+  overlayToDoContainer.classList.add("overlay-visible");
+
+  if (window.innerWidth > 1400) {
+    overlayContentToDo.innerHTML = getTaskOverlayTemplate();
+
+    const content = document.getElementById("overlay-content-todo");
+    if (content) {
+      content.classList.remove("slide-out");
+      void content.offsetWidth; // Force reflow
+      content.classList.add("slide-in");
+    }
+
+    // Klick auf Overlay-Hintergrund schließt Overlay
+    overlayToDoContainer.onclick = function (event) {
+      if (event.target === overlayToDoContainer) {
+        closeOverlayToDo();
+      }
+    };
+
+    // Close-Button zuweisen mit Slide-Out Animation
+    setTimeout(() => {
+      const closeBtn = overlayContentToDo.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          // Slide-in entfernen, slide-out hinzufügen
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth; // Force reflow
+            content.classList.add("slide-out");
+
+            // Nach Animation Overlay schließen
+            content.addEventListener("animationend", function handler() {
+              overlayToDoContainer.classList.remove("overlay-visible");
+              overlayToDoContainer.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            });
+          } else {
+            // Fallback falls content nicht gefunden
+            closeOverlayToDo();
+          }
+        };
+      }
+    }, 0);
+  } else {
+    window.location.href = "./add_task.html";
   }
+}
+
+// Hilfsfunktion zum Schließen (ohne Animation)
+function closeOverlayToDo() {
+  const overlayToDoContainer = document.getElementById("overlay-todo");
+  overlayToDoContainer.classList.remove("overlay-visible");
+  overlayToDoContainer.classList.add("overlay-hidden");
 }
 
 function openOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
+  const overlayContentProgress = document.getElementById("content-add-task-overlay-in-progress");
+
+  // Overlay anzeigen
   overlayInProgress.classList.add("overlay-visible");
   overlayInProgress.classList.remove("overlay-hidden");
 
+  // Klick auf Hintergrund schließt Overlay
   overlayInProgress.onclick = function (event) {
     if (event.target === overlayInProgress) {
       closeOverlayInProgress();
     }
   };
 
-  const overlayContentProgress = document.getElementById(
-    "content-add-task-overlay-in-progress"
-  );
   if (window.innerWidth > 1400) {
     overlayContentProgress.innerHTML = getTaskOverlayTemplate();
 
     const content = document.getElementById("overlay-content-progress");
     if (content) {
+      // Animation zurücksetzen und slide-in starten
       content.style.animation = "none";
-      void content.offsetWidth;
+      void content.offsetWidth; // Force reflow
       content.style.animation = "";
       content.classList.add("slide-in");
     }
+
+    // Close-Button zuweisen mit Slide-Out Animation
+    setTimeout(() => {
+      const closeBtn = overlayContentProgress.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth; // Force reflow
+            content.classList.add("slide-out");
+
+            content.addEventListener("animationend", function handler() {
+              overlayInProgress.classList.remove("overlay-visible");
+              overlayInProgress.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            });
+          } else {
+            closeOverlayInProgress();
+          }
+        };
+      }
+    }, 0);
   } else {
     window.location.href = "./add_task.html";
   }
 }
 
-function closeOverlayInProgress(event) {
-  document
-    .getElementById("overlay-in-progress")
-    .classList.remove("overlay-visible");
-  document
-    .getElementById("overlay-in-progress")
-    .classList.add("overlay-hidden");
+// Hilfsfunktion ohne Animation
+function closeOverlayInProgress() {
+  const overlayInProgress = document.getElementById("overlay-in-progress");
+  overlayInProgress.classList.remove("overlay-visible");
+  overlayInProgress.classList.add("overlay-hidden");
 }
 
 function openOverlayFeedback() {
-  const openOverlayAwaitFeedback = document.getElementById(
-    "overlay-await-feedback"
-  );
-  openOverlayAwaitFeedback.classList.add("overlay-visible");
-  openOverlayAwaitFeedback.classList.remove("overlay-hidden");
-  let overlayAwaitFeedback = document.getElementById(
-    "content-add-task-overlay-await-feedback"
-  );
-  if (window.innerWidth > 1400) {
-    overlayAwaitFeedback.innerHTML = getTaskOverlayTemplate();
+  const overlay = document.getElementById("overlay-await-feedback");
+  const overlayContent = document.getElementById("content-add-task-overlay-await-feedback");
 
-    // Animation erneut triggern (falls mehrfach geöffnet)
-    const contentAwait = openOverlayAwaitFeedback.querySelector(
-      ".overlay-await-feedback-contentAwait"
-    );
-    overlayAwaitFeedback.style.animation = "none";
-    void overlayAwaitFeedback.offsetWidth; // Reflow erzwingen
-    overlayAwaitFeedback.style.animation = "";
-    overlayAwaitFeedback.classList.add("slide-in");
+  // Overlay sichtbar machen
+  overlay.classList.remove("overlay-hidden");
+  overlay.classList.add("overlay-visible");
+
+  if (window.innerWidth > 1400) {
+    overlayContent.innerHTML = getTaskOverlayTemplate();
+
+    const content = document.getElementById("overlay-content-feedback");
+    if (content) {
+      content.classList.remove("slide-out");
+      void content.offsetWidth; // Reflow erzwingen
+      content.classList.add("slide-in");
+    }
+
+    // Klick auf Hintergrund schließt Overlay
+    overlay.onclick = function (event) {
+      if (event.target === overlay) {
+        closeOverlayFeedback();
+      }
+    };
+
+    // X-Button mit Slide-Out zuweisen
+    setTimeout(() => {
+      const closeBtn = overlayContent.querySelector(".x-close-button-add-task-overlay");
+      if (closeBtn) {
+        closeBtn.onclick = function (e) {
+          e.stopPropagation();
+
+          if (content) {
+            content.classList.remove("slide-in");
+            void content.offsetWidth;
+            content.classList.add("slide-out");
+
+            content.addEventListener("animationend", function handler() {
+              overlay.classList.remove("overlay-visible");
+              overlay.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            }, { once: true });
+          } else {
+            closeOverlayFeedback();
+          }
+        };
+      }
+    }, 0);
   } else {
+    // Mobile redirect
     window.location.href = "./add_task.html";
   }
 }
 
-function closeOverlayFeedback(event) {
-  document
-    .getElementById("overlay-await-feedback")
-    .classList.remove("overlay-visible");
-  document
-    .getElementById("overlay-await-feedback")
-    .classList.add("overlay-hidden");
+function closeOverlayFeedback() {
+  const overlay = document.getElementById("overlay-await-feedback");
+  overlay.classList.remove("overlay-visible");
+  overlay.classList.add("overlay-hidden");
 }
 
 function selectContacts() {
@@ -1190,6 +1308,7 @@ function getContactCardForDropdownInEdit(contact,taskKey) {
 
 function changeContactCircleInEditTemplate(taskKey) {
   let initialsArray = [];
+  let fullNamesArray = [];
 
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -1198,9 +1317,9 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
+    const fullName = nameElem.textContent.trim();
 
     if (checkbox && checkbox.checked && nameElem) {
-      const fullName = nameElem.textContent.trim();
       const names = fullName.split(" ");
       let initials = "";
       if (names[0]) initials += names[0][0].toUpperCase();
@@ -1210,7 +1329,7 @@ function changeContactCircleInEditTemplate(taskKey) {
   }
 
   renderCirclesInEditTemplate(taskKey, initialsArray);
-  return nameElem;
+  return fullNamesArray;
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
@@ -1422,6 +1541,7 @@ function addNewSubtaskInEdit(taskKey) {
 
 function getInformationForEditTask(taskKey) {
   const title = document.getElementById(`titel-edit-task-big${taskKey}`).value;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
   const priority = addPriorityAndActive(taskKey);
@@ -1429,7 +1549,8 @@ function getInformationForEditTask(taskKey) {
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
   const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
-  return { title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category };
+  const id = title;
+  return {title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category, id};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1454,3 +1575,23 @@ function getEditedSubtasksForFirebase(taskKey) {
 
   return subtasks;
 }
+
+async function saveEditedTaskToFirebase(category, taskKey) {
+  const inputsForTask = getInformationForEditTask(taskKey);
+  const newTitle = inputsForTask.title;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
+
+  if (newTitle !== oldTitle) {
+    await deleteTask(category, oldTitle);
+    await putRegistryDataBaseFunction(`tasks/${category}/${newTitle}`, inputsForTask);
+  } else {
+    await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
+  }
+
+  alert("Task erfolgreich gespeichert!");
+  hideBigTaskInfo(taskKey);
+  loadAllTasksFromFirebase();
+}
+
+// Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
+//damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!

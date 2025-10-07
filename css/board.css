@@ -840,7 +840,7 @@ h5 {
     flex-direction: column;
     gap: 24px;
     width: 440px;
-    height: 400px;
+    height: 380px;
     top: 327px;
     left: 864.25px;
 }
@@ -1558,6 +1558,18 @@ h5 {
     bottom: 650px;
 }
 
+.container-add-task {
+    display: flex;
+}
+
+.x-close-button-add-task-overlay {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    left: 670px;
+    position: relative;
+    border-radius: 56px;
+}
 
 h2 {
     font-size: 64px;
@@ -1582,8 +1594,7 @@ h2 {
 
 }
 
-
-
+/* Animationen */
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
@@ -1593,6 +1604,19 @@ h2 {
         transform: translateX(0%);
     }
 }
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
 
 .add-task-overlay-todo {
     position: relative;
@@ -2267,10 +2291,10 @@ h2 {
 }
 
 .input-border-left-bottom {
-  border-left: 2px solid #29ABE2;
-  border-bottom: 2px solid #29ABE2;
-  border-top: none;
-  border-right: none;
+    border-left: 2px solid #29ABE2;
+    border-bottom: 2px solid #29ABE2;
+    border-top: none;
+    border-right: none;
 }
 
 .subtasks-board-first-task-edit {
@@ -2377,6 +2401,33 @@ h2 {
     position: absolute;
     right: 8px;
     cursor: pointer;
+}
+
+.add-changes-div {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.add-changes-button {
+    height: 48px;
+    width: 80px;
+    border-radius: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-color: #2A3647;
+    font-weight: bold;
+    color: white;
+}
+
+.add-changes-button:hover {
+    background-color: #1a9fff;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 800px) {
