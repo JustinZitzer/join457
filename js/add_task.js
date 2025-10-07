@@ -1308,6 +1308,7 @@ function getContactCardForDropdownInEdit(contact,taskKey) {
 
 function changeContactCircleInEditTemplate(taskKey) {
   let initialsArray = [];
+  let fullNamesArray = [];
 
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -1316,9 +1317,9 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
+    const fullName = nameElem.textContent.trim();
 
     if (checkbox && checkbox.checked && nameElem) {
-      const fullName = nameElem.textContent.trim();
       const names = fullName.split(" ");
       let initials = "";
       if (names[0]) initials += names[0][0].toUpperCase();
@@ -1328,7 +1329,7 @@ function changeContactCircleInEditTemplate(taskKey) {
   }
 
   renderCirclesInEditTemplate(taskKey, initialsArray);
-  return nameElem;
+  return fullNamesArray;
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
@@ -1540,6 +1541,7 @@ function addNewSubtaskInEdit(taskKey) {
 
 function getInformationForEditTask(taskKey) {
   const title = document.getElementById(`titel-edit-task-big${taskKey}`).value;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
   const priority = addPriorityAndActive(taskKey);
@@ -1547,7 +1549,8 @@ function getInformationForEditTask(taskKey) {
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
   const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
-  return { title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category };
+  const id = title;
+  return {title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category, id};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1572,3 +1575,23 @@ function getEditedSubtasksForFirebase(taskKey) {
 
   return subtasks;
 }
+
+async function saveEditedTaskToFirebase(category, taskKey) {
+  const inputsForTask = getInformationForEditTask(taskKey);
+  const newTitle = inputsForTask.title;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
+
+  if (newTitle !== oldTitle) {
+    await deleteTask(category, oldTitle);
+    await putRegistryDataBaseFunction(`tasks/${category}/${newTitle}`, inputsForTask);
+  } else {
+    await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
+  }
+
+  alert("Task erfolgreich gespeichert!");
+  hideBigTaskInfo(taskKey);
+  loadAllTasksFromFirebase();
+}
+
+// Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
+//damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
