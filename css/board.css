@@ -1544,7 +1544,7 @@ h5 {
     transform: translateX(100%);
     animation: slideInRight 0.2s ease forwards;
     padding: 16px;
-    border-radius: 16px 16px;
+    border-radius: 30px;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
     background-color: white;
 }

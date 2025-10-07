@@ -42,7 +42,6 @@ h3 {
     top: 327px;
     left: 328px;
     border-width: 1px;
-
 }
 
 .line-middle-of-both-container {
@@ -1539,8 +1538,6 @@ h6 {
         left: 89.3vw;
         transform: translateX(-50%);
     }
-
-    body {}
 
     .dropdown-open {
         max-height: 200px;
