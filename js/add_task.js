@@ -1072,6 +1072,9 @@ function renderAssignedContacts(taskKey, assignedTo) {
   container.innerHTML = "";
   containerTask.innerHTML = "";
 
+  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
+    return;
+  }
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase())
@@ -1257,6 +1260,9 @@ function assignedContactsEdit (taskKey, assignedTo) {
   const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
   
+  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
+    return;
+  }
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
@@ -1317,15 +1323,16 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
-    const fullName = nameElem.textContent.trim();
-
-    if (checkbox && checkbox.checked && nameElem) {
-      const names = fullName.split(" ");
-      let initials = "";
-      if (names[0]) initials += names[0][0].toUpperCase();
-      if (names[1]) initials += names[1][0].toUpperCase();
-      initialsArray.push(initials);
-      fullNamesArray.push(fullName);
+    if(nameElem) {
+      const fullName = nameElem.textContent.trim();
+      if (checkbox && checkbox.checked && nameElem) {
+        const names = fullName.split(" ");
+        let initials = "";
+        if (names[0]) initials += names[0][0].toUpperCase();
+        if (names[1]) initials += names[1][0].toUpperCase();
+        initialsArray.push(initials);
+        fullNamesArray.push(fullName);
+      }
     }
   }
 
@@ -1468,6 +1475,22 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   return "No priority selected";
 }
 
+function saveEditTaskPriority(taskKey) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (buttonUrgent.classList.contains("active-red")) { 
+    return "Urgent";
+  } else if (buttonMedium.classList.contains("active-yellow")) {
+    return "Medium";
+  } else if (buttonLow.classList.contains("active-green")) {
+    return "Low";
+  } else {
+    return "No priority selected";
+  }
+}
+
 function changeSubtaskContent(taskKey, i, subtaskText) {
   const subtaskTextDiv = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
@@ -1545,7 +1568,7 @@ function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
-  const priority = addPriorityAndActive(taskKey);
+  const priority = saveEditTaskPriority(taskKey);
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
