@@ -437,7 +437,6 @@ h6 {
 .subtask-inputfield-box {
     display: flex;
     flex-direction: column;
-    width: 440px;
     height: 80px;
     color: #2A3647;
     top:12px;
