@@ -267,7 +267,7 @@ function getTaskEditTemplate(task, taskKey) {
       <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
 
       <div id="add-changes-div${taskKey}" class="add-changes-div">
-        <button onclick="saveEditedTaskToFirebase('${task.category}', '${taskKey}')" id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
+        <button onclick="saveEditedTaskToFirebase('${taskKey}', '${task.category}', '${task.categoryUserOrTechnicalTask}')" id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
       </div>
 
     </div>

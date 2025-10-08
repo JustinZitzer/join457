@@ -1325,11 +1325,12 @@ function changeContactCircleInEditTemplate(taskKey) {
       if (names[0]) initials += names[0][0].toUpperCase();
       if (names[1]) initials += names[1][0].toUpperCase();
       initialsArray.push(initials);
+      fullNamesArray.push(fullName);
     }
   }
 
   renderCirclesInEditTemplate(taskKey, initialsArray);
-  return fullNamesArray;
+  return fullNamesArray || ["Not Assigned to anyone"];
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
@@ -1539,18 +1540,16 @@ function addNewSubtaskInEdit(taskKey) {
   document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
 
-function getInformationForEditTask(taskKey) {
-  const title = document.getElementById(`titel-edit-task-big${taskKey}`).value;
+function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask) {
+  const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
   const priority = addPriorityAndActive(taskKey);
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
-  const userStoryOrTechnicalTask = document.getElementById(`big-board-user-or-technical${taskKey}`).innerHTML;
-  const category = document.getElementById(`todo-content-box${taskKey}`).dataset.category;
-  const id = title;
-  return {title, description, dueDate, priority, assignedTo, subtasks, userStoryOrTechnicalTask, category, id};
+  const id = titel;
+  return {titel, description, dueDate, priority, assignedTo, subtasks, categoryUserOrTechnicalTask, id, category};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1576,14 +1575,14 @@ function getEditedSubtasksForFirebase(taskKey) {
   return subtasks;
 }
 
-async function saveEditedTaskToFirebase(category, taskKey) {
-  const inputsForTask = getInformationForEditTask(taskKey);
-  const newTitle = inputsForTask.title;
+async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
+  const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
+  const newTitle = inputsForTask.titel;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
 
   if (newTitle !== oldTitle) {
-    await deleteTask(category, oldTitle);
     await putRegistryDataBaseFunction(`tasks/${category}/${newTitle}`, inputsForTask);
+    await deleteTask(category, oldTitle);
   } else {
     await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
   }
