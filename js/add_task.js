@@ -922,8 +922,13 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit(task.id, task.assignedTo);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+    assignedContactsEdit (task.id, task.assignedTo);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -936,8 +941,13 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit(task.id, task.assignedTo);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+    assignedContactsEdit (task.id, task.assignedTo);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -953,8 +963,13 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit(task.id, task.assignedTo);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+    assignedContactsEdit (task.id, task.assignedTo);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -967,8 +982,13 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
     assignedContactsEdit(task.id, task.assignedTo);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
+    assignedContactsEdit (task.id, task.assignedTo);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 }
@@ -1087,6 +1107,9 @@ function renderAssignedContacts(taskKey, assignedTo) {
   container.innerHTML = "";
   containerTask.innerHTML = "";
 
+  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
+    return;
+  }
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name
@@ -1237,6 +1260,7 @@ async function deleteTask(category, taskKey) {
   }
 }
 
+<<<<<<< HEAD
 function renderSubtasksInBigTask(taskKey, subtasks) {
   const subtaksContainer = document.getElementById(
     `subtasks-board-tasks-div${taskKey}`
@@ -1244,6 +1268,11 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
   const subtasksEditDiv = document.getElementById(
     `subtasks-edit-div${taskKey}`
   );
+=======
+function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
+  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
@@ -1252,7 +1281,7 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
     if (subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}')" class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
@@ -1283,6 +1312,7 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
+<<<<<<< HEAD
 function assignedContactsEdit(taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(
     `three-circle-container-edit${taskKey}`
@@ -1296,6 +1326,16 @@ function assignedContactsEdit(taskKey, assignedTo) {
     "single-circle-third-edit",
   ];
 
+=======
+function assignedContactsEdit (taskKey, assignedTo) {
+  const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
+  const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
+  
+  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
+    return;
+  }
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name
@@ -1372,15 +1412,16 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
-    const fullName = nameElem.textContent.trim();
-
-    if (checkbox && checkbox.checked && nameElem) {
-      const names = fullName.split(" ");
-      let initials = "";
-      if (names[0]) initials += names[0][0].toUpperCase();
-      if (names[1]) initials += names[1][0].toUpperCase();
-      initialsArray.push(initials);
-      fullNamesArray.push(fullName);
+    if(nameElem) {
+      const fullName = nameElem.textContent.trim();
+      if (checkbox && checkbox.checked && nameElem) {
+        const names = fullName.split(" ");
+        let initials = "";
+        if (names[0]) initials += names[0][0].toUpperCase();
+        if (names[1]) initials += names[1][0].toUpperCase();
+        initialsArray.push(initials);
+        fullNamesArray.push(fullName);
+      }
     }
   }
 
@@ -1576,6 +1617,22 @@ function addPriorityAndActive(
   return "No priority selected";
 }
 
+function saveEditTaskPriority(taskKey) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (buttonUrgent.classList.contains("active-red")) { 
+    return "Urgent";
+  } else if (buttonMedium.classList.contains("active-yellow")) {
+    return "Medium";
+  } else if (buttonLow.classList.contains("active-green")) {
+    return "Low";
+  } else {
+    return "No priority selected";
+  }
+}
+
 function changeSubtaskContent(taskKey, i, subtaskText) {
   const subtaskTextDiv = document.getElementById(
     `subtask-task-text-edit${taskKey}${i}`
@@ -1685,6 +1742,7 @@ function getInformationForEditTask(
   categoryUserOrTechnicalTask
 ) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
+<<<<<<< HEAD
   const oldTitle = document.getElementById(
     `task-board-big-headline${taskKey}`
   ).textContent;
@@ -1695,6 +1753,12 @@ function getInformationForEditTask(
     `due-date-edit-task-big${taskKey}`
   ).value;
   const priority = addPriorityAndActive(taskKey);
+=======
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
+  const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
+  const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
+  const priority = saveEditTaskPriority(taskKey);
+>>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
@@ -1769,6 +1833,26 @@ async function saveEditedTaskToFirebase(
   alert("Task erfolgreich gespeichert!");
   hideBigTaskInfo(taskKey);
   loadAllTasksFromFirebase();
+}
+
+async function saveSubtaskStatus(taskKey, category, titel, i) {
+  try {
+    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+    if (!checkbox) return;
+    const isChecked = checkbox.checked;
+    await patchRegistryDataBaseFunction(`tasks/${category}/${encodeURIComponent(titel)}/subtasks/${i}/statusCheckbox`,
+  isChecked);
+  } catch (error) {
+    console.error("Error saving subtask status:", error);
+  }
+}
+
+async function patchRegistryDataBaseFunction(path, data) {
+  const url = `${FireBaseUrl}${path}.json`;
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(data)
+  });
 }
 
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,

@@ -1582,33 +1582,32 @@ h2 {
     z-index: 111 !important;
 
 }
-
 @keyframes slideInRight {
     from {
-        transform: translateX(100%);
+      transform: translateX(100%);
     }
-
     to {
-        transform: translateX(0%);
+      transform: translateX(0%);
     }
-}
-
-@keyframes slideOutRight {
+  }
+  
+  @keyframes slideOutRight {
     from {
-        transform: translateX(0%);
-        opacity: 1;
+      transform: translateX(0%);
+      opacity: 1;
     }
-
     to {
-        transform: translateX(100%);
-        opacity: 0;
+      transform: translateX(100%);
+      opacity: 0;
     }
-}
+  }
 
-.content-add-task-overlay {
+  .content-add-task-overlay{
     width: 100%;
-}
+  }
+  
 
+  
 .add-task-overlay-todo {
     position: relative;
     width: 278px;

@@ -829,7 +829,7 @@ h6 {
 .add-icon-container {
     position: absolute;
     right: 15px;
-    top: 35%;
+    top: 30px;
     transform: translateY(-50%);
     height: 24px;
     width: 24px;
@@ -1278,6 +1278,20 @@ h6 {
         scroll-behavior: smooth;
     }
 
+
+    .add-icon-container {
+        position: absolute;
+        right: 55px;
+        top: 50px;
+        transform: translateY(-50%);
+        height: 24px;
+        width: 24px;
+        color: #2A3647;
+        cursor: pointer;
+        z-index: 2;
+        background: #fff;
+    }
+
     .clear-create-container {
         position: absolute;
         top: 1100px;
@@ -1431,6 +1445,20 @@ h6 {
     .add-icon-container {
         left: 93vw;
         transform: translateX(-50%);
+    }
+
+
+    .add-icon-container {
+        position: absolute;
+        right: 55px;
+        top: 20px;
+        transform: translateY(-50%);
+        height: 24px;
+        width: 24px;
+        color: #2A3647;
+        cursor: pointer;
+        z-index: 2;
+        background: #fff;
     }
 
     .dropdown-open {

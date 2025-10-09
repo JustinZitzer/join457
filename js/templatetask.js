@@ -146,15 +146,15 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
           <div id="task-board-big-assigned-to-contacts-div${taskKey}" class="task-board-big-assigned-to-contacts-div">
             <div class="task-board-big-first-contact">
               <span class="task-board-big-first-circle">EM</span>
-              <p class="task-board-big-first-contact-name">${task.assignedTo[0]}</p>
+              <p class="task-board-big-first-contact-name"></p>
             </div>
             <div class="task-board-big-second-contact">
               <span class="task-board-big-second-circle">MB</span>
-              <p class="task-board-big-second-contact-name">${task.assignedTo[1]}</p>
+              <p class="task-board-big-second-contact-name"></p>
             </div>
             <div class="task-board-big-third-contact">
               <span class="task-board-big-third-circle">AM</span>
-              <p class="task-board-big-third-contact-name">${task.assignedTo[2]}</p>
+              <p class="task-board-big-third-contact-name"></p>
             </div>
           </div>
         </div>
