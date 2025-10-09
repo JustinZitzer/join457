@@ -208,7 +208,8 @@ h6 {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* grauer Hintergrund mit Opazität */
+    background: rgba(0, 0, 0, 0.5);
+    /* grauer Hintergrund mit Opazität */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,11 +232,13 @@ h6 {
     border-radius: 8px;
     min-width: 300px;
 }
+
 /* Wenn sichtbar, hereinsliden */
 .overlay-visible {
     transform: translateX(0);
 }
-.content-add-task-overlay{
+
+.content-add-task-overlay {
     display: none;
 }
 
@@ -425,7 +428,7 @@ h6 {
 .task-inputfield-box {
     display: flex;
     flex-direction: column;
-    top:12px;
+    top: 12px;
     margin-top: 12px;
     margin-bottom: 12px;
     width: 440px;
@@ -439,7 +442,7 @@ h6 {
     flex-direction: column;
     height: 80px;
     color: #2A3647;
-    top:12px;
+    top: 12px;
 }
 
 .inputfield-text-assign {
@@ -655,7 +658,7 @@ h6 {
     left: 950px;
     gap: 16px;
     top: 889px;
-
+    overflow-y: auto;
 }
 
 .clear-field {
@@ -826,7 +829,7 @@ h6 {
 .add-icon-container {
     position: absolute;
     right: 15px;
-    top: 50%;
+    top: 35%;
     transform: translateY(-50%);
     height: 24px;
     width: 24px;
@@ -1070,7 +1073,7 @@ h6 {
     position: relative;
     display: inline-block;
     width: 440px;
-    top:16px;
+    top: 16px;
 }
 
 .inputfield-category-assign {
@@ -1272,7 +1275,20 @@ h6 {
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
+        scroll-behavior: smooth;
     }
+
+    .clear-create-container {
+        position: absolute;
+        top: 1100px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 56px;
+        display: flex;
+        gap: 16px;
+        overflow-y: auto;
+    }
+
 
     #header-index-html {
         z-index: 2;
@@ -1423,13 +1439,6 @@ h6 {
         width: 95vw;
     }
 
-    .clear-create-container {
-        position: absolute;
-        top: 1100px;
-        left: 300px;
-
-    }
-
     .field-required {
         position: absolute;
         width: 230px;
@@ -1444,26 +1453,6 @@ h6 {
         content: "*";
         color: red;
         display: none;
-    }
-}
-
-@media (max-width: 660px) {
-
-    .clear-create-container {
-        position: absolute;
-        top: 1100px;
-        left: 140px;
-
-    }
-}
-
-@media (max-width: 488px) {
-
-    .clear-create-container {
-        position: absolute;
-        top: 1100px;
-        left: 50px;
-
     }
 }
 

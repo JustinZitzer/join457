@@ -1583,7 +1583,6 @@ h2 {
 
 }
 
-/* Animationen */
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
@@ -1606,6 +1605,9 @@ h2 {
     }
 }
 
+.content-add-task-overlay {
+    width: 100%;
+}
 
 .add-task-overlay-todo {
     position: relative;
