@@ -927,7 +927,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-    renderSubtasksInBigTask(task.id, task.subtasks);
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
   }
@@ -941,7 +941,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-    renderSubtasksInBigTask(task.id, task.subtasks);
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
   }
@@ -958,7 +958,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-    renderSubtasksInBigTask(task.id, task.subtasks);
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
   }
@@ -972,7 +972,7 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-    renderSubtasksInBigTask(task.id, task.subtasks);
+    renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
   }
@@ -1217,7 +1217,7 @@ async function deleteTask(category, taskKey) {
   }
 }
 
-function renderSubtasksInBigTask(taskKey, subtasks) {
+function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   subtaksContainer.innerHTML = "";
@@ -1228,7 +1228,7 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
     if(subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}')" class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
@@ -1613,6 +1613,26 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   alert("Task erfolgreich gespeichert!");
   hideBigTaskInfo(taskKey);
   loadAllTasksFromFirebase();
+}
+
+async function saveSubtaskStatus(taskKey, category, titel, i) {
+  try {
+    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+    if (!checkbox) return;
+    const isChecked = checkbox.checked;
+    await patchRegistryDataBaseFunction(`tasks/${category}/${encodeURIComponent(titel)}/subtasks/${i}/statusCheckbox`,
+  isChecked);
+  } catch (error) {
+    console.error("Error saving subtask status:", error);
+  }
+}
+
+async function patchRegistryDataBaseFunction(path, data) {
+  const url = `${FireBaseUrl}${path}.json`;
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(data)
+  });
 }
 
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
