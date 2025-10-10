@@ -925,6 +925,7 @@ function updateTasksHtml() {
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -939,6 +940,7 @@ function updateTasksHtml() {
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -956,6 +958,7 @@ function updateTasksHtml() {
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -970,6 +973,7 @@ function updateTasksHtml() {
     renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 }
 
