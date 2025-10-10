@@ -922,13 +922,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
-    renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -941,13 +936,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
-    renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -963,13 +953,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
-    renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
     renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -982,13 +967,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
-    renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
     renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 }
@@ -1260,19 +1240,9 @@ async function deleteTask(category, taskKey) {
   }
 }
 
-<<<<<<< HEAD
-function renderSubtasksInBigTask(taskKey, subtasks) {
-  const subtaksContainer = document.getElementById(
-    `subtasks-board-tasks-div${taskKey}`
-  );
-  const subtasksEditDiv = document.getElementById(
-    `subtasks-edit-div${taskKey}`
-  );
-=======
 function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
@@ -1312,21 +1282,6 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
-<<<<<<< HEAD
-function assignedContactsEdit(taskKey, assignedTo) {
-  const containerTaskEdit = document.getElementById(
-    `three-circle-container-edit${taskKey}`
-  );
-  const dropdownEdit = document.getElementById(
-    `contacts-dropdown-edit${taskKey}`
-  );
-  const circleClassesTask = [
-    "single-circle-first-edit",
-    "single-circle-second-edit",
-    "single-circle-third-edit",
-  ];
-
-=======
 function assignedContactsEdit (taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
   const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
@@ -1335,7 +1290,6 @@ function assignedContactsEdit (taskKey, assignedTo) {
   if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
     return;
   }
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name
@@ -1742,23 +1696,10 @@ function getInformationForEditTask(
   categoryUserOrTechnicalTask
 ) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
-<<<<<<< HEAD
-  const oldTitle = document.getElementById(
-    `task-board-big-headline${taskKey}`
-  ).textContent;
-  const description = document.getElementById(
-    `description-edit-task-big${taskKey}`
-  ).value;
-  const dueDate = document.getElementById(
-    `due-date-edit-task-big${taskKey}`
-  ).value;
-  const priority = addPriorityAndActive(taskKey);
-=======
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
   const priority = saveEditTaskPriority(taskKey);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
