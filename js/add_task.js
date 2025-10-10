@@ -1251,14 +1251,14 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
     if (subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}')" class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" class="checkbox-board-subtasks${taskKey}" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
     } else {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input checked class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" checked class="checkbox-board-subtasks${taskKey}" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
@@ -1777,12 +1777,14 @@ async function saveEditedTaskToFirebase(
 }
 
 async function saveSubtaskStatus(taskKey, category, titel, i) {
+  const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+  if (!checkbox) return;
+  const isChecked = checkbox.checked;
   try {
-    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
-    if (!checkbox) return;
-    const isChecked = checkbox.checked;
-    await patchRegistryDataBaseFunction(`tasks/${category}/${encodeURIComponent(titel)}/subtasks/${i}/statusCheckbox`,
-  isChecked);
+    await patchRegistryDataBaseFunction(
+      `tasks/${category}/${titel}/subtasks/${i}`,
+      { statusCheckbox: isChecked }
+    );
   } catch (error) {
     console.error("Error saving subtask status:", error);
   }
@@ -1794,6 +1796,21 @@ async function patchRegistryDataBaseFunction(path, data) {
     method: "PATCH",
     body: JSON.stringify(data)
   });
+}
+
+function subtaskCounter(taskKey) {
+  const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
+  const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
+  let counter = 0;
+
+  for (let i = 0; i < subtasksCheckboxes.length; i++) {
+    const checkbox = subtasksCheckboxes[i];
+    if (checkbox.checked) {
+      counter++;
+    }
+  }
+
+  subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
 }
 
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
