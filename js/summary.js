@@ -16,7 +16,8 @@ let allTasksCounter = 0;
 async function initSummaryAndHTML() {
     await loadHTML();
     await initSummaryBoard();
-    await loadTasksFromFirebase();
+    await loadTasksFromFirebaseSummary();
+    counterTasksSummary();
 }
 
 window.addEventListener("load", () => {
@@ -63,7 +64,7 @@ function showSummaryBoardMobile() {
     }
 }
 
-async function loadTasksFromFirebase() {
+async function loadTasksFromFirebaseSummary() {
   taskArray = []; // Leeren!
   const response = await fetch(fireBaseUrlSummary + "tasks.json");
   const data = await response.json();
@@ -84,20 +85,41 @@ async function loadTasksFromFirebase() {
   }
 }
 
-function filterTasksByCategory() {
-  let toDoTasks = todosArray.filter((task) => task.category === "toDo");
-  let inProgressTasks = todosArray.filter(
-    (task) => task.category === "inProgress"
+function isRealTask(task) {
+  return (
+    task &&
+    typeof task === 'object' &&
+    task.title !== 'Workaround' &&
+    task.title !== ''
   );
-  let awaitFeedbackTasks = todosArray.filter(
-    (task) => task.category === "awaitFeedback"
-  );
-  let doneTasks = todosArray.filter((task) => task.category === "done");
-  return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks };
 }
 
-function counterTasks() {
-    const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+function filterTasksByCategorySummary() {
+  const realTasks = taskArray.filter(isRealTask);
 
+  const toDoTasks = realTasks.filter((task) => task.category === 'toDo');
+  const inProgressTasks = realTasks.filter((task) => task.category === 'inProgress');
+  const awaitFeedbackTasks = realTasks.filter((task) => task.category === 'awaitFeedback');
+  const doneTasks = realTasks.filter((task) => task.category === 'done');
 
+  return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks };
+}
+
+function counterTasksSummary() {
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } =
+    filterTasksByCategorySummary();
+
+  toDoCounter = toDoTasks.length;
+  inProgressCounter = inProgressTasks.length;
+  awaitFeedbackCounter = awaitFeedbackTasks.length;
+  doneCounter = doneTasks.length;
+  urgentCounter = realTasks.filter((task) => task.priority === 'Urgent').length;
+  allTasksCounter = realTasks.length;
+
+  toDoCounterElement.innerHTML = toDoCounter;
+  inProgressCounterElement.innerHTML = inProgressCounter;
+  awaitFeedbackCounterElement.innerHTML = awaitFeedbackCounter;
+  doneCounterElement.innerHTML = doneCounter;
+  urgenCounterElement.innerHTML = urgentCounter;
+  taskInBoardElement.innerHTML = allTasksCounter;
 }
