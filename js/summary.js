@@ -6,6 +6,7 @@ const urgenCounterElement = document.getElementById("Counter-Urgent");
 const taskInBoardElement = document.getElementById("Counter-All-Tasks");
 const inProgressCounterElement = document.getElementById("Counter-Tasks-In-Progress");
 const awaitFeedbackCounterElement = document.getElementById("Counter-Await-Feedback");
+const dueDateUrgentDiv = document.getElementById("Date-Of-The-Deadline");
 let toDoCounter = 0;
 let inProgressCounter = 0;
 let awaitFeedbackCounter = 0;
@@ -106,8 +107,7 @@ function filterTasksByCategorySummary() {
 }
 
 function counterTasksSummary() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } =
-    filterTasksByCategorySummary();
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } = filterTasksByCategorySummary();
 
   toDoCounter = toDoTasks.length;
   inProgressCounter = inProgressTasks.length;
