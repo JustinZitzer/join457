@@ -2420,6 +2420,14 @@ h2 {
     box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
+.progressbar-fill {
+    height: 100%;
+    background-color: #4589FF;
+    width: 0%;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

@@ -1805,6 +1805,7 @@ async function patchRegistryDataBaseFunction(path, data) {
 function subtaskCounter(taskKey) {
   const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
+  const progressBarDiv = document.getElementById(`progressbar-box${taskKey}`);
   let counter = 0;
 
   for (let i = 0; i < subtasksCheckboxes.length; i++) {
@@ -1814,8 +1815,19 @@ function subtaskCounter(taskKey) {
     }
   }
 
-  subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
+  if(subtasksCheckboxes.length > 0) {
+    subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
+
+    const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
+    const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
+    
+    progressBarFillDiv.style.width = `${progressPercentage}%`;
+  } else {
+    progressBarDiv.classList.add("display-none");
+  }
 }
+
+
 
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
