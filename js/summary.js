@@ -1,8 +1,22 @@
+let taskArray = [];
 const fireBaseUrlSummary = "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
+const toDoCounterElement = document.getElementById("Counter-To-Do");
+const doneCounterElement = document.getElementById("Counter-Done");
+const urgenCounterElement = document.getElementById("Counter-Urgent");
+const taskInBoardElement = document.getElementById("Counter-All-Tasks");
+const inProgressCounterElement = document.getElementById("Counter-Tasks-In-Progress");
+const awaitFeedbackCounterElement = document.getElementById("Counter-Await-Feedback");
+let toDoCounter = 0;
+let inProgressCounter = 0;
+let awaitFeedbackCounter = 0;
+let doneCounter = 0;
+let urgentCounter = 0;
+let allTasksCounter = 0;
 
 async function initSummaryAndHTML() {
     await loadHTML();
     await initSummaryBoard();
+    await loadTasksFromFirebase();
 }
 
 window.addEventListener("load", () => {
@@ -26,7 +40,6 @@ window.addEventListener("load", () => {
 async function getInfoForSummaryBoardBaseFunction (path) {
     let response = await fetch(fireBaseUrlSummary + path + ".json");
     return await response.json();
-
 }
 
 async function getInformationSummaryBoard(path) {
@@ -48,4 +61,43 @@ function showSummaryBoardMobile() {
 
     if (resolutionWidth < 1400) {
     }
+}
+
+async function loadTasksFromFirebase() {
+  taskArray = []; // Leeren!
+  const response = await fetch(fireBaseUrlSummary + "tasks.json");
+  const data = await response.json();
+  console.log(data);
+
+  if (data) {
+    for (const categoryKey in data) {
+      // z.B. "toDo", "done", ...
+      const categoryTasks = data[categoryKey];
+      for (const taskKey in categoryTasks) {
+        const task = categoryTasks[taskKey];
+        // Schreibe Info dazu (für Filter, Drag&Drop usw.)
+        task.id = taskKey; // z.B. "task1"
+        task.category = categoryKey; // z.B. "toDo"
+        taskArray.push(task);
+      }
+    }
+  }
+}
+
+function filterTasksByCategory() {
+  let toDoTasks = todosArray.filter((task) => task.category === "toDo");
+  let inProgressTasks = todosArray.filter(
+    (task) => task.category === "inProgress"
+  );
+  let awaitFeedbackTasks = todosArray.filter(
+    (task) => task.category === "awaitFeedback"
+  );
+  let doneTasks = todosArray.filter((task) => task.category === "done");
+  return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks };
+}
+
+function counterTasks() {
+    const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+
+
 }
