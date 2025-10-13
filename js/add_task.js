@@ -1826,8 +1826,5 @@ function subtaskCounter(taskKey) {
     progressBarDiv.classList.add("display-none");
   }
 }
-
-
-
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
