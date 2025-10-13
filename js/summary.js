@@ -19,6 +19,7 @@ async function initSummaryAndHTML() {
     await initSummaryBoard();
     await loadTasksFromFirebaseSummary();
     counterTasksSummary();
+    showOldestUrgentDueDate();
 }
 
 window.addEventListener("load", () => {
@@ -122,4 +123,26 @@ function counterTasksSummary() {
   doneCounterElement.innerHTML = doneCounter;
   urgenCounterElement.innerHTML = urgentCounter;
   taskInBoardElement.innerHTML = allTasksCounter;
+
+  const urgentTasks = realTasks.filter((task) => task.priority === 'Urgent');
+  return urgentTasks;
+}
+
+function showOldestUrgentDueDate() {
+  const urgentTasks = counterTasksSummary();
+  const dueDateArray = urgentTasks.map(task => task.dueDate);
+  console.log('Closest Urgent Task', dueDateArray);
+
+  const parseDate = (value) => {
+    const match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    return match ? new Date(match[3], match[2] - 1, match[1]) : new Date(value);
+  };
+
+  if (!dueDateArray.length) return dueDateUrgentDiv.innerHTML = 'No upcoming Deadline';
+
+  const sortedDates = dueDateArray.map(parseDate).filter(date => !isNaN(date)).sort((a, b) => a - b);
+  if (!sortedDates.length) return dueDateUrgentDiv.innerHTML = 'No valid dates';
+
+  const oldestDate = sortedDates[0];
+  dueDateUrgentDiv.innerHTML = oldestDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
