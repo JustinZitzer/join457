@@ -2,9 +2,7 @@ const toDoContent = document.getElementById("todo-content-box");
 const toDoContentFinalDiv = document.getElementById("todo-content-task");
 const bigTaskDiv = document.getElementById("task-big-container");
 const inProgressContent = document.getElementById("inprogress-content-task");
-const awaitFeedbackContent = document.getElementById(
-  "await-feedback-content-task"
-);
+const awaitFeedbackContent = document.getElementById("await-feedback-content-task");
 const doneContent = document.getElementById("done-content-task");
 const arrowContainerRed = document.getElementById("arrow-container-red");
 const arrowContainerOrange = document.getElementById("arrow-container-orange");
@@ -18,9 +16,7 @@ const taskPriorityLow = document.getElementById("arrow-container-green");
 const taskCategory = document.getElementById("category-input");
 const taskSubtask = document.getElementById("inputfield-subtask-assign");
 const savedSubtasks = document.getElementById("subtask-added-tasks");
-const subtaskInputFieldContainer = document.getElementById(
-  "subtask-inputfield-container"
-);
+const subtaskInputFieldContainer = document.getElementById("subtask-inputfield-container");
 const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
@@ -34,9 +30,7 @@ const taskDescription1 = document.getElementById("inputfield-description1");
 const taskDueDate1 = document.getElementById("dueDateInput1");
 const inputFieldAssignTo1 = document.getElementById("inputfield-text-assign1");
 const taskCategory1 = document.getElementById("category-input1");
-const subtaskInputFieldContainer1 = document.getElementById(
-  "subtask-inputfield-container1"
-);
+const subtaskInputFieldContainer1 = document.getElementById("subtask-inputfield-container1");
 const taskSubtask1 = document.getElementById("inputfield-subtask-assign1");
 
 function openOverlay() {
@@ -55,9 +49,7 @@ function openOverlay() {
     overlayContent.classList.add("slide-in");
 
     // Close Button innerhalb des neuen Inhalts suchen
-    const closeButton = overlayContent.querySelector(
-      ".x-close-button-add-task-overlay"
-    );
+    const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
     if (closeButton) {
       closeButton.addEventListener("click", () => {
         // Slide-in entfernen, slide-out hinzufügen
@@ -79,6 +71,7 @@ function openOverlay() {
   }
 }
 
+
 function closeOverlay() {
   const overlay = document.getElementById("overlay");
   overlay.classList.remove("overlay-visible");
@@ -91,17 +84,16 @@ if (window.location.pathname.endsWith("board.html")) {
 
 // Klick auf das Inhaltselement wird gestoppt (wichtig!)
 if (window.location.pathname.endsWith("board.html")) {
-  document
-    .getElementById("content-add-task-overlay")
-    .addEventListener("click", function (event) {
-      event.stopPropagation();
-    });
+document
+  .getElementById("content-add-task-overlay")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+  
 }
 function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
-  const overlayContentToDo = document.getElementById(
-    "content-add-task-overlay-todo"
-  );
+  const overlayContentToDo = document.getElementById("content-add-task-overlay-todo");
 
   // Overlay anzeigen
   overlayToDoContainer.classList.remove("overlay-hidden");
@@ -126,9 +118,7 @@ function overlayToDo() {
 
     // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
-      const closeBtn = overlayContentToDo.querySelector(
-        ".x-close-button-add-task-overlay"
-      );
+      const closeBtn = overlayContentToDo.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
         closeBtn.onclick = function (e) {
           e.stopPropagation();
@@ -167,9 +157,7 @@ function closeOverlayToDo() {
 
 function openOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
-  const overlayContentProgress = document.getElementById(
-    "content-add-task-overlay-in-progress"
-  );
+  const overlayContentProgress = document.getElementById("content-add-task-overlay-in-progress");
 
   // Overlay anzeigen
   overlayInProgress.classList.add("overlay-visible");
@@ -196,9 +184,7 @@ function openOverlayInProgress() {
 
     // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
-      const closeBtn = overlayContentProgress.querySelector(
-        ".x-close-button-add-task-overlay"
-      );
+      const closeBtn = overlayContentProgress.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
         closeBtn.onclick = function (e) {
           e.stopPropagation();
@@ -234,9 +220,7 @@ function closeOverlayInProgress() {
 
 function openOverlayFeedback() {
   const overlay = document.getElementById("overlay-await-feedback");
-  const overlayContent = document.getElementById(
-    "content-add-task-overlay-await-feedback"
-  );
+  const overlayContent = document.getElementById("content-add-task-overlay-await-feedback");
 
   // Overlay sichtbar machen
   overlay.classList.remove("overlay-hidden");
@@ -261,9 +245,7 @@ function openOverlayFeedback() {
 
     // X-Button mit Slide-Out zuweisen
     setTimeout(() => {
-      const closeBtn = overlayContent.querySelector(
-        ".x-close-button-add-task-overlay"
-      );
+      const closeBtn = overlayContent.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
         closeBtn.onclick = function (e) {
           e.stopPropagation();
@@ -273,16 +255,12 @@ function openOverlayFeedback() {
             void content.offsetWidth;
             content.classList.add("slide-out");
 
-            content.addEventListener(
-              "animationend",
-              function handler() {
-                overlay.classList.remove("overlay-visible");
-                overlay.classList.add("overlay-hidden");
-                content.classList.remove("slide-out");
-                content.removeEventListener("animationend", handler);
-              },
-              { once: true }
-            );
+            content.addEventListener("animationend", function handler() {
+              overlay.classList.remove("overlay-visible");
+              overlay.classList.add("overlay-hidden");
+              content.classList.remove("slide-out");
+              content.removeEventListener("animationend", handler);
+            }, { once: true });
           } else {
             closeOverlayFeedback();
           }
@@ -384,6 +362,7 @@ function toggleDropdownOverlay() {
   }
 }
 
+
 function selectCategory(category) {
   var input = document.getElementById("category-input");
   input.value = category;
@@ -406,6 +385,7 @@ function validateInput() {
     input.classList.remove("input-error");
   }
 }
+
 
 function selectCategoryOverlay(category) {
   var input = document.getElementById("category-input1");
@@ -444,6 +424,7 @@ function validateInputOverlay() {
     input.classList.remove("input-error");
   }
 }
+
 
 function validateDueDateInput() {
   const input = document.getElementById("dueDateInput");
@@ -553,6 +534,7 @@ function changeinputFieldAssignToStyle() {
 }
 
 function getInfoForNewTask() {
+  
   let titel = taskTitel.value || "New Task";
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
@@ -563,7 +545,7 @@ function getInfoForNewTask() {
   return {
     titel,
     description,
-    dueDate,
+    dueDate,  
     priority,
     assignedTo,
     categoryUserOrTechnicalTask,
@@ -622,9 +604,7 @@ function updateSubtasksArray() {
 
   for (let index = 0; index < subtaskSavedCounter; index++) {
     const subtaskElement = document.getElementById(`subtask-${index}`);
-    const subtaskTextElement = document.getElementById(
-      `subtask-list-element-div${index}`
-    );
+    const subtaskTextElement = document.getElementById(`subtask-list-element-div${index}`);
     const checkboxElement = document.getElementById(`subtask-checkbox${index}`);
 
     if (subtaskElement && subtaskTextElement && checkboxElement) {
@@ -632,7 +612,7 @@ function updateSubtasksArray() {
       const notChecked = false;
       subtasksArray.push({
         subtaskText: subtask,
-        statusCheckbox: notChecked,
+        statusCheckbox: notChecked
       });
     }
   }
@@ -908,8 +888,7 @@ function filterTasksByCategory() {
 const loadedTasks = {};
 
 function updateTasksHtml() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } =
-    filterTasksByCategory();
+  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
@@ -922,13 +901,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
-    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -941,13 +915,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
-    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -963,13 +932,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
-    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 
@@ -982,13 +946,8 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
-<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
-    assignedContactsEdit(task.id, task.assignedTo);
-=======
-    renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
     assignedContactsEdit (task.id, task.assignedTo);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
     buttonPriorityStyle(task.id, task.priority);
   }
 }
@@ -1061,15 +1020,9 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
 }
 
 function priorityStyle(taskKey) {
-  const priorityBoxText = document.getElementById(
-    `task-board-big-priority${taskKey}`
-  );
-  const priorityBoxLogo = document.getElementById(
-    `task-board-big-priority-icon${taskKey}`
-  );
-  const priorityBoxPicture = document.getElementById(
-    `priority-icon-task-little${taskKey}`
-  );
+  const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
+  const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
+  const priorityBoxPicture = document.getElementById(`priority-icon-task-little${taskKey}`);
   if (priorityBoxText.innerHTML == "No priority selected") {
     priorityBoxPicture.classList.add("display-none");
   } else if (priorityBoxText.innerHTML == "Urgent") {
@@ -1085,38 +1038,18 @@ function priorityStyle(taskKey) {
 }
 
 function renderAssignedContacts(taskKey, assignedTo) {
-  const container = document.getElementById(
-    `task-board-big-assigned-to-contacts-div${taskKey}`
-  );
-  const containerTask = document.getElementById(
-    `three-circle-container${taskKey}`
-  );
-  const containerTaskEdit = document.getElementById(
-    `three-circle-todo-edit${taskKey}`
-  );
-  const circleClasses = [
-    "single-circle-first-big",
-    "single-circle-second-big",
-    "single-circle-third-big",
-  ];
-  const circleClassesTask = [
-    "single-circle-first-little",
-    "single-circle-second-little",
-    "single-circle-third-little",
-  ];
+  const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
+  const containerTask = document.getElementById(`three-circle-container${taskKey}`);
+  const containerTaskEdit = document.getElementById(`three-circle-todo-edit${taskKey}`);
+  const circleClasses = ["single-circle-first-big","single-circle-second-big","single-circle-third-big",];
+  const circleClassesTask = ["single-circle-first-little","single-circle-second-little","single-circle-third-little",];
   container.innerHTML = "";
   containerTask.innerHTML = "";
 
-  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
-    return;
-  }
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
-    const initials = name
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase())
-      .join("")
-      .substring(0, 2);
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase())
+    .join("").substring(0, 2);
     if (name == "undefined") return;
     container.innerHTML += `
       <div class="task-board-big-first-contact-big">
@@ -1175,10 +1108,9 @@ function hideBigTaskInfo(taskKey) {
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   setTimeout(() => {
     if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
-      cancelEditTask(taskKey);
-      return;
-    }
-  }, 500);
+    cancelEditTask(taskKey);
+    return;
+  }}, 500);
 
   overlay.classList.remove("active");
   wrapper.classList.remove("active");
@@ -1213,9 +1145,7 @@ function initBigTaskInfoOverlay() {
 initBigTaskInfoOverlay();
 
 function editTask(taskKey) {
-  const showTaskPanel = document.getElementById(
-    `big-task-show-hide-div${taskKey}`
-  );
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
 
@@ -1229,9 +1159,7 @@ function editTask(taskKey) {
 }
 
 function cancelEditTask(taskKey) {
-  const showTaskPanel = document.getElementById(
-    `big-task-show-hide-div${taskKey}`
-  );
+  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
 
@@ -1260,28 +1188,18 @@ async function deleteTask(category, taskKey) {
   }
 }
 
-<<<<<<< HEAD
 function renderSubtasksInBigTask(taskKey, subtasks) {
-  const subtaksContainer = document.getElementById(
-    `subtasks-board-tasks-div${taskKey}`
-  );
-  const subtasksEditDiv = document.getElementById(
-    `subtasks-edit-div${taskKey}`
-  );
-=======
-function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   subtaksContainer.innerHTML = "";
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
     if (!subtask) return;
-    if (subtask.statusCheckbox == false) {
+    if(subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}')" class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
@@ -1293,11 +1211,7 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
         </div>
       `;
     }
-    subtasksEditDiv.innerHTML += getEditSubtaskTemplate(
-      taskKey,
-      i,
-      subtask.subtaskText
-    );
+    subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, i, subtask.subtaskText);
   }
 }
 
@@ -1312,37 +1226,14 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
-<<<<<<< HEAD
-function assignedContactsEdit(taskKey, assignedTo) {
-  const containerTaskEdit = document.getElementById(
-    `three-circle-container-edit${taskKey}`
-  );
-  const dropdownEdit = document.getElementById(
-    `contacts-dropdown-edit${taskKey}`
-  );
-  const circleClassesTask = [
-    "single-circle-first-edit",
-    "single-circle-second-edit",
-    "single-circle-third-edit",
-  ];
-
-=======
 function assignedContactsEdit (taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
   const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
   
-  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
-    return;
-  }
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
-    const initials = name
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase())
-      .join("")
-      .substring(0, 2);
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
     if (name == "undefined") return;
     containerTaskEdit.innerHTML += `
       <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
@@ -1354,9 +1245,7 @@ function assignedContactsEdit (taskKey, assignedTo) {
 
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-  const threeCircleDivEdit = document.getElementById(
-    `three-circle-container-edit${taskKey}`
-  );
+  const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
   if (container.innerHTML == "") {
     try {
       const contactsUnsorted = await fetchContacts();
@@ -1364,10 +1253,7 @@ async function loadContactsForDropdownInEdit(taskKey) {
       contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
       allContacts = contacts;
       for (let i = 0; i < contacts.length; i++) {
-        container.innerHTML += getContactCardForDropdownInEdit(
-          contacts[i],
-          taskKey
-        );
+        container.innerHTML += getContactCardForDropdownInEdit(contacts[i],taskKey);
       }
     } catch (error) {
       console.error("Error loading contacts in Editing Dropdown:", error);
@@ -1377,25 +1263,18 @@ async function loadContactsForDropdownInEdit(taskKey) {
   threeCircleDivEdit.classList.toggle("hidden");
 }
 
-function getContactCardForDropdownInEdit(contact, taskKey) {
+
+function getContactCardForDropdownInEdit(contact,taskKey) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
     : contact.firstName;
-  const initials = getInitials(contact.firstName, contact.lastName);
+    const initials = getInitials(contact.firstName, contact.lastName);
   return `
     <label class="contact-option-edit">
-      <span id="circles-edit${
-        contact.id
-      }${taskKey}" class="circles-edit">${initials}</span>
+      <span id="circles-edit${contact.id}${taskKey}" class="circles-edit">${initials}</span>
       <div class="name-checkbox-flexbox">
-        <span class="contact-name-edit" id="contact-name-edit${
-          contact.id
-        }${taskKey}">${name}</span>
-        <input id="contact-checkbox-${
-          contact.id
-        }${taskKey}" type="checkbox" class="contact-checkbox-edit" data-contact-id="${
-    contact.id || ""
-  }">
+        <span class="contact-name-edit" id="contact-name-edit${contact.id}${taskKey}">${name}</span>
+        <input id="contact-checkbox-${contact.id}${taskKey}" type="checkbox" class="contact-checkbox-edit" data-contact-id="${contact.id || ""}">
       </div>
     </label>
   `;
@@ -1412,16 +1291,15 @@ function changeContactCircleInEditTemplate(taskKey) {
 
     const checkbox = document.getElementById(checkboxId);
     const nameElem = document.getElementById(nameId);
-    if(nameElem) {
-      const fullName = nameElem.textContent.trim();
-      if (checkbox && checkbox.checked && nameElem) {
-        const names = fullName.split(" ");
-        let initials = "";
-        if (names[0]) initials += names[0][0].toUpperCase();
-        if (names[1]) initials += names[1][0].toUpperCase();
-        initialsArray.push(initials);
-        fullNamesArray.push(fullName);
-      }
+    const fullName = nameElem.textContent.trim();
+
+    if (checkbox && checkbox.checked && nameElem) {
+      const names = fullName.split(" ");
+      let initials = "";
+      if (names[0]) initials += names[0][0].toUpperCase();
+      if (names[1]) initials += names[1][0].toUpperCase();
+      initialsArray.push(initials);
+      fullNamesArray.push(fullName);
     }
   }
 
@@ -1430,16 +1308,10 @@ function changeContactCircleInEditTemplate(taskKey) {
 }
 
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
-  const container = document.getElementById(
-    `three-circle-container-edit${taskKey}`
-  );
+  const container = document.getElementById(`three-circle-container-edit${taskKey}`);
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   container.innerHTML = "";
-  const circleClasses = [
-    "single-circle-first-edit",
-    "single-circle-second-edit",
-    "single-circle-third-edit",
-  ];
+  const circleClasses = ["single-circle-first-edit", "single-circle-second-edit", "single-circle-third-edit"];
 
   for (let i = 0; i < Math.min(initialsArray.length, 3); i++) {
     const initials = initialsArray[i];
@@ -1450,15 +1322,16 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
-function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
+function showAndHideCirclesInEditTemplate (container, initialsArray, taskKey) {
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-  if (initialsArray.length === 0) {
+   if (initialsArray.length === 0) {
     container.classList.add("hidden");
     container.classList.add("height-zero");
-  } else if (!dropdown.classList.contains("hidden")) {
+  } else if(!dropdown.classList.contains("hidden")){
     container.classList.add("hidden");
     container.classList.add("height-zero");
-  } else {
+  }
+    else {
     container.classList.remove("hidden");
     container.classList.remove("height-zero");
   }
@@ -1472,55 +1345,35 @@ function getInitials(firstName, lastName) {
 }
 
 function showInputFieldEditSubtasksIcons(taskKey) {
-  const inputfield = document.getElementById(
-    `inputfield-subtask-edit-div${taskKey}`
-  );
-  const clearIcon = document.getElementById(
-    `delete-subtask-edit-check-icon${taskKey}`
-  );
-  const seperatorIcon = document.getElementById(
-    `seperator-subtasks-edit${taskKey}`
-  );
-  const addIcon = document.getElementById(
-    `add-new-subtask-edit-icon${taskKey}`
-  );
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
 
   clearIcon.classList.remove("hidden");
   seperatorIcon.classList.remove("hidden");
   addIcon.classList.remove("hidden");
-  inputfield.classList.add("input-border-left-bottom");
+  inputfield.classList.add('input-border-left-bottom');
 }
 
 function clearInputHideIconsSubtasksInput(taskKey) {
-  const inputfield = document.getElementById(
-    `inputfield-subtask-edit-div${taskKey}`
-  );
-  const clearIcon = document.getElementById(
-    `delete-subtask-edit-check-icon${taskKey}`
-  );
-  const seperatorIcon = document.getElementById(
-    `seperator-subtasks-edit${taskKey}`
-  );
-  const addIcon = document.getElementById(
-    `add-new-subtask-edit-icon${taskKey}`
-  );
+  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
 
   clearIcon.classList.add("hidden");
   seperatorIcon.classList.add("hidden");
   addIcon.classList.add("hidden");
-  inputfield.classList.remove("input-border-left-bottom");
+  inputfield.classList.remove('input-border-left-bottom');
   inputfield.value = "";
 }
 
 function hideIconsInEditSubtasks(taskKey, i) {
   const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(
-    `seperator-for-subtasks${taskKey}${i}`
-  );
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
   const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(
-    `subtask-edit-inputfield${taskKey}${i}`
-  );
+  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
 
   if (!inputfield) {
     penIcon.classList.add("hidden");
@@ -1531,13 +1384,9 @@ function hideIconsInEditSubtasks(taskKey, i) {
 
 function showIconsInEditSubtasks(taskKey, i) {
   const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(
-    `seperator-for-subtasks${taskKey}${i}`
-  );
+  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
   const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(
-    `subtask-edit-inputfield${taskKey}${i}`
-  );
+  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
   if (!inputfield) {
     penIcon.classList.remove("hidden");
     seperator.classList.remove("hidden");
@@ -1546,12 +1395,8 @@ function showIconsInEditSubtasks(taskKey, i) {
 }
 
 function buttonPriorityStyle(taskKey, priority) {
-  const buttonUrgent = document.getElementById(
-    `urgent-edit-button-div${taskKey}`
-  );
-  const buttonMedium = document.getElementById(
-    `medium-edit-button-div${taskKey}`
-  );
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
   const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
 
   if (priority == "Urgent") {
@@ -1564,27 +1409,15 @@ function buttonPriorityStyle(taskKey, priority) {
 }
 
 function changePriorityInEdit(taskKey, priority) {
-  const buttonUrgent = document.getElementById(
-    `urgent-edit-button-div${taskKey}`
-  );
-  const buttonMedium = document.getElementById(
-    `medium-edit-button-div${taskKey}`
-  );
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
   const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
   const isUrgentActive = buttonUrgent.classList.contains("active-red");
   const isMediumActive = buttonMedium.classList.contains("active-yellow");
   const isLowActive = buttonLow.classList.contains("active-green");
 
   removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow);
-  addPriorityAndActive(
-    buttonUrgent,
-    buttonMedium,
-    buttonLow,
-    priority,
-    isUrgentActive,
-    isMediumActive,
-    isLowActive
-  );
+  addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive);
 }
 
 function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
@@ -1593,15 +1426,7 @@ function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
   buttonLow.classList.remove("active-green");
 }
 
-function addPriorityAndActive(
-  buttonUrgent,
-  buttonMedium,
-  buttonLow,
-  priority,
-  isUrgentActive,
-  isMediumActive,
-  isLowActive
-) {
+function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
   if (priority === "Urgent" && !isUrgentActive) {
     buttonUrgent.classList.add("active-red");
     return "Urgent";
@@ -1617,32 +1442,10 @@ function addPriorityAndActive(
   return "No priority selected";
 }
 
-function saveEditTaskPriority(taskKey) {
-  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
-  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
-  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
-
-  if (buttonUrgent.classList.contains("active-red")) { 
-    return "Urgent";
-  } else if (buttonMedium.classList.contains("active-yellow")) {
-    return "Medium";
-  } else if (buttonLow.classList.contains("active-green")) {
-    return "Low";
-  } else {
-    return "No priority selected";
-  }
-}
-
 function changeSubtaskContent(taskKey, i, subtaskText) {
-  const subtaskTextDiv = document.getElementById(
-    `subtask-task-text-edit${taskKey}${i}`
-  );
-  const subtaskContainer = document.getElementById(
-    `subtasks-board-first-task-edit${taskKey}${i}`
-  );
-  const subtasksEditDiv = document.getElementById(
-    `subtasks-edit-div${taskKey}`
-  );
+  const subtaskTextDiv = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
+  const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   subtaskContainer.innerHTML = "";
 
   subtaskContainer.innerHTML = `
@@ -1672,107 +1475,55 @@ function changeSubtaskContent(taskKey, i, subtaskText) {
 }
 
 function cancelEditSubtask(taskKey, i) {
-  const subtaskContainer = document.getElementById(
-    `subtasks-board-first-task-edit${taskKey}${i}`
-  );
+  const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   if (subtaskContainer) {
     subtaskContainer.remove();
   }
 }
 
 function confirmChangeForEditSubtask(taskKey, i) {
-  const oldSubtaskDiv = document.getElementById(
-    `subtasks-board-first-task-edit${taskKey}${i}`
-  );
-  const inputfieldSubtask = document.getElementById(
-    `subtask-edit-inputfield${taskKey}${i}`
-  );
+  const oldSubtaskDiv = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
+  const inputfieldSubtask = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
   let newSubtaskText = inputfieldSubtask.value;
 
-  const newSubtaskDiv = document.createElement("div");
+  const newSubtaskDiv = document.createElement('div');
   newSubtaskDiv.innerHTML = getEditSubtaskTemplate(taskKey, i, newSubtaskText);
 
   const newSubtaskDivFirstElementChild = newSubtaskDiv.firstElementChild;
 
-  oldSubtaskDiv.parentNode.replaceChild(
-    newSubtaskDivFirstElementChild,
-    oldSubtaskDiv
-  );
+  oldSubtaskDiv.parentNode.replaceChild(newSubtaskDivFirstElementChild, oldSubtaskDiv);
 }
 
 function addNewSubtaskInEdit(taskKey) {
-  const subtasksEditDiv = document.getElementById(
-    `subtasks-edit-div${taskKey}`
-  );
-  const input = document.getElementById(
-    `inputfield-subtask-edit-div${taskKey}`
-  );
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
+  const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const subtaskText = input.value.trim();
 
   // Wenn kein Text drin ist, abbrechen
   if (!subtaskText) return;
 
-  const currentSubtasks = subtasksEditDiv.getElementsByClassName(
-    "subtasks-board-first-task-edit"
-  );
+  const currentSubtasks = subtasksEditDiv.getElementsByClassName("subtasks-board-first-task-edit");
   const newIndex = currentSubtasks.length;
 
-  subtasksEditDiv.innerHTML += getEditSubtaskTemplate(
-    taskKey,
-    newIndex,
-    subtaskText
-  );
+  subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, newIndex, subtaskText);
 
   input.value = "";
 
-  document
-    .getElementById(`delete-subtask-edit-check-icon${taskKey}`)
-    .classList.add("hidden");
-  document
-    .getElementById(`seperator-subtasks-edit${taskKey}`)
-    .classList.add("hidden");
-  document
-    .getElementById(`add-new-subtask-edit-icon${taskKey}`)
-    .classList.add("hidden");
+  document.getElementById(`delete-subtask-edit-check-icon${taskKey}`).classList.add("hidden");
+  document.getElementById(`seperator-subtasks-edit${taskKey}`).classList.add("hidden");
+  document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
 
-function getInformationForEditTask(
-  taskKey,
-  category,
-  categoryUserOrTechnicalTask
-) {
+function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
-<<<<<<< HEAD
-  const oldTitle = document.getElementById(
-    `task-board-big-headline${taskKey}`
-  ).textContent;
-  const description = document.getElementById(
-    `description-edit-task-big${taskKey}`
-  ).value;
-  const dueDate = document.getElementById(
-    `due-date-edit-task-big${taskKey}`
-  ).value;
-  const priority = addPriorityAndActive(taskKey);
-=======
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
-  const priority = saveEditTaskPriority(taskKey);
->>>>>>> 05f124b5e7726547031aec9e44cc7773520c47e2
+  const priority = addPriorityAndActive(taskKey);
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
-  return {
-    titel,
-    description,
-    dueDate,
-    priority,
-    assignedTo,
-    subtasks,
-    categoryUserOrTechnicalTask,
-    id,
-    category,
-  };
+  return {titel, description, dueDate, priority, assignedTo, subtasks, categoryUserOrTechnicalTask, id, category};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1780,20 +1531,16 @@ function getEditedSubtasksForFirebase(taskKey) {
   const container = document.getElementById(`subtasks-edit-div${taskKey}`);
   if (!container) return subtasks;
 
-  const allSubtasks = container.getElementsByClassName(
-    "subtasks-board-first-task-edit"
-  );
+  const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
 
   for (let i = 0; i < allSubtasks.length; i++) {
-    const span = document.getElementById(
-      `subtask-task-text-edit${taskKey}${i}`
-    );
+    const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
     if (span) {
       const text = span.textContent.trim();
       if (text) {
         subtasks.push({
           subtaskText: text,
-          statusCheckbox: false,
+          statusCheckbox: false
         });
       }
     }
@@ -1802,57 +1549,21 @@ function getEditedSubtasksForFirebase(taskKey) {
   return subtasks;
 }
 
-async function saveEditedTaskToFirebase(
-  taskKey,
-  category,
-  categoryUserOrTechnicalTask
-) {
-  const inputsForTask = getInformationForEditTask(
-    taskKey,
-    category,
-    categoryUserOrTechnicalTask
-  );
+async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
+  const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
   const newTitle = inputsForTask.titel;
-  const oldTitle = document.getElementById(
-    `task-board-big-headline${taskKey}`
-  ).textContent;
+  const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
 
   if (newTitle !== oldTitle) {
-    await putRegistryDataBaseFunction(
-      `tasks/${category}/${newTitle}`,
-      inputsForTask
-    );
+    await putRegistryDataBaseFunction(`tasks/${category}/${newTitle}`, inputsForTask);
     await deleteTask(category, oldTitle);
   } else {
-    await putRegistryDataBaseFunction(
-      `tasks/${category}/${oldTitle}`,
-      inputsForTask
-    );
+    await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
   }
 
   alert("Task erfolgreich gespeichert!");
   hideBigTaskInfo(taskKey);
   loadAllTasksFromFirebase();
-}
-
-async function saveSubtaskStatus(taskKey, category, titel, i) {
-  try {
-    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
-    if (!checkbox) return;
-    const isChecked = checkbox.checked;
-    await patchRegistryDataBaseFunction(`tasks/${category}/${encodeURIComponent(titel)}/subtasks/${i}/statusCheckbox`,
-  isChecked);
-  } catch (error) {
-    console.error("Error saving subtask status:", error);
-  }
-}
-
-async function patchRegistryDataBaseFunction(path, data) {
-  const url = `${FireBaseUrl}${path}.json`;
-  return fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(data)
-  });
 }
 
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
