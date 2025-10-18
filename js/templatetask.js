@@ -13,19 +13,19 @@ function getTaskOverlayTemplate() {
           <div class="text-title-mark-board">
             <span>Title</span>
           </div>
-          <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board">
+          <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board" id="titleInputBoard">
         </div>
         <div class="description-main-box-board">
           <div class="description-text-board">
             <span>Description</span>
-            <input type="text" placeholder="Enter Description" class="inputfield-description-board">
+            <input type="text" placeholder="Enter Description" class="inputfield-description-board" id="inputfield-description-board">
           </div>
           <div class="inputfield-due-date-container-board">
             <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
             <div class="due-date-mark-board">
               <span>Due date</span>
             </div>
-            <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board">
+            <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
           </div>
         </div>
       </div>
@@ -36,14 +36,14 @@ function getTaskOverlayTemplate() {
             <span>Priority</span>
             <div class="main-box-inputfield-board">
               <div class="arrow-container-main-red-board">
-                <button onclick="toggleRed(this)" class="arrow-container-red-board">
+                <button onclick="toggleRed(this)" class="arrow-container-red-board" id="arrow-container-red-board">
                   <h4>Urgent</h4>
                   <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
                 </button>
               </div>
-              <input type="text" placeholder="Medium =" class="text-inputfield-medium-board">
+              <input type="text" placeholder="Medium =" class="text-inputfield-medium-board" id="arrow-container-orange-board">
               <div class="arrow-container-main-green-board">
-                <button onclick="toggleGreen(this)" class="arrow-container-green-board">
+                <button onclick="toggleGreen(this)" class="arrow-container-green-board" id="arrow-container-green-board">
                   <h5>Low</h5>
                   <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
                 </button>
@@ -52,21 +52,21 @@ function getTaskOverlayTemplate() {
           </div>
           <div class="assigned-inputfield-box-board">
             <span>Assigned to</span>
-            <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board">
-            <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+            <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
+            <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
           </div>
           <div class="task-inputfield-box-board">
             <div class="category-mark-board">
               <span>Category</span>
             </div>
-            <input type="text" placeholder="Select task category" class="inputfield-category-assign-board">
-            <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+            <input type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
+            <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="dropdown-toogle-btn-board">
           </div>
           <div class="subtask-inputfield-box-board">
             <span>Subtasks</span>
             <div class="subtask-inputfield-container-board">
-              <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon">
-              <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board">
+              <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon" id="add-icon-container-board">
+              <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board" id="inputfield-subtask-assign-board">
             </div>
           </div>
         </div>
