@@ -901,9 +901,14 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < inProgressTasks.length; i++) {
@@ -915,9 +920,14 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < awaitFeedbackTasks.length; i++) {
@@ -932,9 +942,14 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks, task.titel, task.category);
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 
   for (let i = 0; i < doneTasks.length; i++) {
@@ -946,9 +961,14 @@ function updateTasksHtml() {
     userStoryOrTechnicalTaskStyle(task.id);
     priorityStyle(task.id);
     renderAssignedContacts(task.id, task.assignedTo);
+<<<<<<< HEAD
     renderSubtasksInBigTask(task.id, task.subtasks);
+=======
+    renderSubtasksInBigTask(task.id, task.subtasks , task.titel, task.category);
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
     assignedContactsEdit (task.id, task.assignedTo);
     buttonPriorityStyle(task.id, task.priority);
+    subtaskCounter(task.id);
   }
 }
 
@@ -1188,7 +1208,11 @@ async function deleteTask(category, taskKey) {
   }
 }
 
+<<<<<<< HEAD
 function renderSubtasksInBigTask(taskKey, subtasks) {
+=======
+function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   subtaksContainer.innerHTML = "";
@@ -1199,14 +1223,18 @@ function renderSubtasksInBigTask(taskKey, subtasks) {
     if(subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+<<<<<<< HEAD
           <input class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+=======
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" class="checkbox-board-subtasks${taskKey}" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
           <span>${subtask.subtaskText}</span>
         </div>
       `;
     } else {
       subtaksContainer.innerHTML += `
         <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
-          <input checked class="checkbox-board-subtasks" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
+          <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" checked class="checkbox-board-subtasks${taskKey}" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
           <span>${subtask.subtaskText}</span>
         </div>
       `;
@@ -1231,6 +1259,12 @@ function assignedContactsEdit (taskKey, assignedTo) {
   const dropdownEdit = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
   
+<<<<<<< HEAD
+=======
+  if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
+    return;
+  }
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
@@ -1519,7 +1553,11 @@ function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
   const dueDate = document.getElementById(`due-date-edit-task-big${taskKey}`).value;
+<<<<<<< HEAD
   const priority = addPriorityAndActive(taskKey);
+=======
+  const priority = saveEditTaskPriority(taskKey);
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
@@ -1566,5 +1604,54 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   loadAllTasksFromFirebase();
 }
 
+<<<<<<< HEAD
+=======
+async function saveSubtaskStatus(taskKey, category, titel, i) {
+  const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+  if (!checkbox) return;
+  const isChecked = checkbox.checked;
+  try {
+    await patchRegistryDataBaseFunction(
+      `tasks/${category}/${titel}/subtasks/${i}`,
+      { statusCheckbox: isChecked }
+    );
+  } catch (error) {
+    console.error("Error saving subtask status:", error);
+  }
+}
+
+async function patchRegistryDataBaseFunction(path, data) {
+  const url = `${FireBaseUrl}${path}.json`;
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(data)
+  });
+}
+
+function subtaskCounter(taskKey) {
+  const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
+  const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
+  const progressBarDiv = document.getElementById(`progressbar-box${taskKey}`);
+  let counter = 0;
+
+  for (let i = 0; i < subtasksCheckboxes.length; i++) {
+    const checkbox = subtasksCheckboxes[i];
+    if (checkbox.checked) {
+      counter++;
+    }
+  }
+
+  if(subtasksCheckboxes.length > 0) {
+    subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
+
+    const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
+    const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
+    
+    progressBarFillDiv.style.width = `${progressPercentage}%`;
+  } else {
+    progressBarDiv.classList.add("display-none");
+  }
+}
+>>>>>>> c0a28dc3bdc61c9d35c9cdb8d56a692727c9c301
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
