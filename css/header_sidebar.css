@@ -330,6 +330,7 @@ footer a:hover {
         height: 80px;
         width: 100%;
         overflow: hidden;
+        margin-right: 15px;
     }
 
 
@@ -342,6 +343,11 @@ footer a:hover {
         justify-content: center;
         align-items: center;
         border-radius: 16px;
+    }
+
+    .nav-links li:hover {
+        width: 80px;
+        height: 76px;
     }
 
     .nav-links a {
@@ -358,12 +364,21 @@ footer a:hover {
         gap: 4px;
     }
 
+    .nav-links a:hover {
+    background-color: transparent;
+    color: inherit;
+  }
+
     .nav-links img {
         width: 24px;
         height: 24px;
         margin: 0;
         padding: 0;
     }
+
+    .nav-links span {
+    font-size: 10px;
+  }
 
     .user-profile {
         width: 40px;
