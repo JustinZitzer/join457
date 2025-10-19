@@ -308,6 +308,40 @@ footer a:hover {
     }
 }
 
+
+@media screen and (max-width: 800px) {
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 80px;
+        height: 76px;
+    }
+
+    .nav-links a {
+        display: flex;
+        gap: 6px;
+    }
+
+    .nav-links a:hover {
+        background-color: transparent;
+        color: inherit;
+    }
+
+    .nav-links img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-links span {
+        font-size: 16px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     header {
         padding: 20px 16px;
@@ -365,9 +399,9 @@ footer a:hover {
     }
 
     .nav-links a:hover {
-    background-color: transparent;
-    color: inherit;
-  }
+        background-color: transparent;
+        color: inherit;
+    }
 
     .nav-links img {
         width: 24px;
@@ -377,8 +411,8 @@ footer a:hover {
     }
 
     .nav-links span {
-    font-size: 10px;
-  }
+        font-size: 10px;
+    }
 
     .user-profile {
         width: 40px;
