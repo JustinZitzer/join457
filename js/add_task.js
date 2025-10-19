@@ -1647,15 +1647,91 @@ function validateDueDateInputBoard() {
   const errorMsg = document.getElementById("due-date-required-board-error");
   const value = input.value.trim();
 
+  const result = isValidDDMMYYYYRealDate(value);
+
+  if (!result.valid) {
+    errorMsg.innerHTML = result.message;
+    errorMsg.classList.remove("display-none");
+    return false;
+  }
+
+  errorMsg.classList.add("display-none");
+  return value;
+}
+
+function isValidDDMMYYYYRealDate(value) {
   const dateCheckSlash =
     /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
-    errorMsg.classList.remove("display-none");
-  } else if (!dateCheckSlash.test(value)) {
-    errorMsg.innerHTML = "Please enter a valid date in DD/MM/YYYY format.";
+    return { valid: false, message: "This field is required." };
   }
-  return value;
+
+  if (!dateCheckSlash.test(value)) {
+    return { valid: false, message: "Please enter a valid date in DD/MM/YYYY format." };
+  }
+
+  const [, day, month, year] = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  const parsedDate = new Date(Number(year), Number(month) - 1, Number(day));
+
+  const isRealDate =
+    parsedDate.getFullYear() === Number(year) &&
+    parsedDate.getMonth() === Number(month) - 1 &&
+    parsedDate.getDate() === Number(day);
+
+  if (!isRealDate) {
+    return { valid: false, message: "Please enter a real, valid date." };
+  }
+
+  return { valid: true, message: "" };
+}
+
+function togglePriorityBoard(priority) {
+  const urgentButton = document.getElementById("arrow-container-red-board");
+  const mediumButton = document.getElementById("arrow-container-orange-board");
+  const lowButton = document.getElementById("arrow-container-green-board");
+
+  const isUrgentActive = urgentButton.classList.contains("active");
+  const isMediumActive = mediumButton.classList.contains("active");
+  const isLowActive = lowButton.classList.contains("active");
+
+  urgentButton.classList.remove("active");
+  mediumButton.classList.remove("active");
+  lowButton.classList.remove("active");
+
+  return getSelectedPriority(priority, isUrgentActive, isMediumActive, isLowActive,
+  urgentButton, mediumButton, lowButton);
+}
+
+function getSelectedPriority(priority, isUrgentActive, isMediumActive, isLowActive, urgentButton, mediumButton, lowButton) {
+  if (priority === "Urgent" && !isUrgentActive) urgentButton.classList.add("active");
+  if (priority === "Medium" && !isMediumActive) mediumButton.classList.add("active");
+  if (priority === "Low" && !isLowActive) lowButton.classList.add("active");
+
+  if (urgentButton.classList.contains("active")) return "Urgent";
+  if (mediumButton.classList.contains("active")) return "Medium";
+  if (lowButton.classList.contains("active")) return "Low";
+  return "No priority selected";
+}
+
+async function loadContactsForDropdownInBoard() {
+  const container = document.getElementById("contacts-dropdown-board");
+  const threeCircleDivEdit = document.getElementById(`three-circle-container-edit`);
+  if (container.innerHTML == "") {
+    try {
+      const contactsUnsorted = await fetchContacts();
+      const contacts = Object.values(contactsUnsorted);
+      contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+      allContacts = contacts;
+      for (let i = 0; i < contacts.length; i++) {
+        container.innerHTML += getContactCardForDropdown(contacts[i]);
+      }
+    } catch (error) {
+      console.error("Error loading contacts in Editing Dropdown:", error);
+    }
+  }
+  container.classList.toggle("hidden");
+  threeCircleDivEdit.classList.toggle("hidden");
 }
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!

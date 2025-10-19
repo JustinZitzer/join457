@@ -42,14 +42,17 @@ function getTaskOverlayTemplate() {
             <span>Priority</span>
             <div class="main-box-inputfield-board">
               <div class="arrow-container-main-red-board">
-                <button onclick="toggleRed(this)" class="arrow-container-red-board" id="arrow-container-red-board">
+                <button onclick="togglePriorityBoard('Urgent')" class="arrow-container-red-board" id="arrow-container-red-board">
                   <h4>Urgent</h4>
                   <img class="arrow-red-board" src="./assets/icons/double-arrow-up-14221.png" alt="red-arrow">
                 </button>
               </div>
-              <input type="text" placeholder="Medium =" class="text-inputfield-medium-board" id="arrow-container-orange-board">
+              <button onclick="togglePriorityBoard('Medium')" class="arrow-container-orange-board" id="arrow-container-orange-board">
+                <h4>Medium</h4>
+                <h4>=</h4>
+              </button>
               <div class="arrow-container-main-green-board">
-                <button onclick="toggleGreen(this)" class="arrow-container-green-board" id="arrow-container-green-board">
+                <button onclick="togglePriorityBoard('Low')" class="arrow-container-green-board" id="arrow-container-green-board">
                   <h5>Low</h5>
                   <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
                 </button>
@@ -61,6 +64,7 @@ function getTaskOverlayTemplate() {
             <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
             <img class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
           </div>
+            <div class="contacts-dropdown-board" id="contacts-dropdown-board></div>
           <div class="task-inputfield-box-board">
             <div class="category-mark-board">
               <span>Category</span>

@@ -991,9 +991,8 @@ h5 {
     color: #000000;
 }
 
-.text-inputfield-medium-board {
-    background-color: #FFA800;
-    color: white;
+.arrow-container-orange-board {
+    color: black;
     width: 136px;
     height: 56px;
     gap: 8px;
@@ -1005,6 +1004,14 @@ h5 {
     font-size: 21px;
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-container-orange-board.active {
+    background-color: orange;
+    color: white;
 }
 
 .text-inputfield-medium-board::placeholder {
