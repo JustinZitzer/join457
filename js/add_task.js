@@ -1621,5 +1621,41 @@ function subtaskCounter(taskKey) {
     progressBarDiv.classList.add("display-none");
   }
 }
+
+function taskInfosForFirebaseBoard() {
+  let titel = validateInputBoard();
+  let description = document.getElementById(".inputfield-description-board").value || "No description";
+  let dueDate = validateDueDateInputBoard() || "No due date";
+}
+
+function validateInputBoard() {
+  const input = document.getElementById("titleInputBoard").value;
+  const errorMsg = document.getElementById("field-required-in-board");
+
+  if (input.trim() == "") {
+    errorMsg.classList.remove("display-none");
+  } else {
+    if (!errorMsg.classList.contains("display-none"))
+    errorMsg.classList.add("display-none");
+  }
+  return input;
+  //let titel nachher für firebase nutzen
+}
+
+function validateDueDateInputBoard() {
+  const input = document.getElementById("dueDateInputBoard");
+  const errorMsg = document.getElementById("due-date-required-board-error");
+  const value = input.value.trim();
+
+  const dateCheckSlash =
+    /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+
+  if (!value) {
+    errorMsg.classList.remove("display-none");
+  } else if (!dateCheckSlash.test(value)) {
+    errorMsg.innerHTML = "Please enter a valid date in DD/MM/YYYY format.";
+  }
+  return value;
+}
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!

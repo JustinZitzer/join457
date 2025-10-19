@@ -13,7 +13,10 @@ function getTaskOverlayTemplate() {
           <div class="text-title-mark-board">
             <span>Title</span>
           </div>
-          <input type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board" id="titleInputBoard">
+          <input onblur="validateInputBoard()" type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board" id="titleInputBoard">
+          <div>
+            <p class="field-required-in-board display-none" id="field-required-in-board">This field is required</p>
+          </div>
         </div>
         <div class="description-main-box-board">
           <div class="description-text-board">
@@ -25,8 +28,11 @@ function getTaskOverlayTemplate() {
             <div class="due-date-mark-board">
               <span>Due date</span>
             </div>
-            <input type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
+            <input onblur="validateDueDateInputBoard()" type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
           </div>
+            <div>
+              <p class="field-required-in-board display-none" id="due-date-required-board-error">This field is required</p>
+            </div>
         </div>
       </div>
       <img class="line-middle-of-both-container-board" src="./assets/icons/Vector 4.png" alt="line between bothcontainers">

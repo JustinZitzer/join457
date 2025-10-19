@@ -2428,6 +2428,11 @@ h2 {
     transition: width 0.3s ease;
 }
 
+.field-required-in-board {
+    font-size: 15px;
+    color: #000;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
