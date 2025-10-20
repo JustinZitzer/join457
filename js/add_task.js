@@ -1716,22 +1716,71 @@ function getSelectedPriority(priority, isUrgentActive, isMediumActive, isLowActi
 
 async function loadContactsForDropdownInBoard() {
   const container = document.getElementById("contacts-dropdown-board");
-  const threeCircleDivEdit = document.getElementById(`three-circle-container-edit`);
-  if (container.innerHTML == "") {
+  if (!container) return;
+  if (container.innerHTML === "") {
     try {
       const contactsUnsorted = await fetchContacts();
       const contacts = Object.values(contactsUnsorted);
       contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
       allContacts = contacts;
-      for (let i = 0; i < contacts.length; i++) {
-        container.innerHTML += getContactCardForDropdown(contacts[i]);
+      for (const key in contacts) {
+        container.innerHTML += getContactCardForDropdown(contacts[key]);
       }
     } catch (error) {
-      console.error("Error loading contacts in Editing Dropdown:", error);
+      console.error("Error loading contacts:", error);
     }
   }
-  container.classList.toggle("hidden");
-  threeCircleDivEdit.classList.toggle("hidden");
+  container.classList.toggle("display-none");
+}
+
+function getContactForCircleBoard() {
+  let assignedContacts = getAssignedToValue();
+  assignedContacts = assignedContacts.filter(
+    (contact) => contact !== "Not Assigned to anyone"
+  );
+  let nameInitialesArray = [];
+
+  for (let i = 0; i < assignedContacts.length; i++) {
+    const fullNames = assignedContacts[i].trim();
+    const names = fullNames.split(" ");
+    let initials = "";
+    if (names[0]) initials += names[0][0].toUpperCase();
+    if (names[1]) initials += names[1][0].toUpperCase();
+    nameInitialesArray.push(initials);
+  }
+  renderCirclesForAssignedContactsBoard(nameInitialesArray);
+  return nameInitialesArray;
+}
+
+function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
+  const circleRenderContainer = document.getElementById("three-circle-container-board");
+  const contactsDropdown = document.getElementById("contacts-dropdown-board");
+  circleRenderContainer.innerHTML = "";
+  if (
+    nameInitialesArray.length == 0 ||
+    nameInitialesArray.includes("Not Assigned to anyone")
+  ) {
+    contactsDropdown.classList.add("display-none");
+    return;
+  } else if (!contactsDropdown.classList.contains("display-none")) {
+    contactsDropdown.classList.add("display-none");
+    return;
+  }
+
+  const circleClasses = [
+    "single-circle-first",
+    "single-circle-second",
+    "single-circle-third",
+  ];
+  for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
+    const initials = nameInitialesArray[i];
+    circleRenderContainer.innerHTML += `
+      <div class="${circleClasses[i]}">
+        <h6>${initials}</h6>
+      </div>
+    `;
+  }
+  contactsDropdown.classList.remove("display-none");
 }
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
