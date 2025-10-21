@@ -717,6 +717,7 @@
         border: none;
         box-shadow: none;
         outline: none;
+        margin-bottom: 70px;
     }
 
     .add-contact-overlay {
@@ -908,7 +909,14 @@
 
 @media screen and (max-width: 500px) {
      .add-new-contact-btn-mobile-version {
-        right: 0px;
+        width: 56px;
+        height: 56px;
+        right: 12px;
+    }
+
+    .add-new-contact-btn-mobile-version img {
+        width: 32px;
+        height: 32px;
     }
 
     .add-contact-overlay {
