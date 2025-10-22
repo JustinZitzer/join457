@@ -2469,7 +2469,7 @@ h2 {
 .three-circle-container-board {
     display: flex;
     align-items: center;
-    margin-top: 22px;
+    margin-top: 0px;
     width: 110px;
     height: 40px;
     gap: 8px;
