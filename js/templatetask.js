@@ -71,7 +71,11 @@ function getTaskOverlayTemplate() {
               <span>Category</span>
             </div>
             <input type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
-            <img class="assigned-arrow-icon-down-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="dropdown-toogle-btn-board">
+            <img onclick="categoryUserOrTechnicalTaskBoard()" class="arrow-icon-board-category" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="arrow-icon-board-category">
+          </div>
+          <div class="category-dropdown-board" id="category-dropdown-board">
+          <div onclick="selectUserCategoryBoard()" id="user-technical-task-board-user" class="user-technical-task-board-user">User Story</div>
+          <div onclick="selectTechnicalCategoryBoard()" id="user-technical-task-board-technical" class="user-technical-task-board-technical">Technical Task</div>
           </div>
           <div class="subtask-inputfield-box-board">
             <span>Subtasks</span>

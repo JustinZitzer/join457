@@ -2476,6 +2476,85 @@ h2 {
     padding-bottom: 20px;
 }
 
+.category-dropdown-board {
+    font-size: 20px;
+    margin-top: -57px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-top: none;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.category-dropdown-board.open {
+  max-height: 150px;
+  opacity: 1;
+}
+
+.user-technical-task-board-user {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.user-technical-task-board-user:hover {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.user-technical-task-board-technical:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-technical-task-board-technical {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.arrow-icon-down-board {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 37px;
+    cursor: pointer;
+}
+
+.inputfield-category-assign-board {
+    height: 48px;
+    width: 440px;
+    border-width: 1px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+.arrow-icon-board-category {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    left: 400px;
+    bottom: 37px;
+    cursor: pointer;
+    z-index: 2;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

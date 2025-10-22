@@ -1780,5 +1780,22 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   circleRenderContainer.classList.remove("display-none");
   circleRenderContainer.classList.remove("hidden");
 }
+
+function categoryUserOrTechnicalTaskBoard() {
+  const dropdown = document.getElementById("category-dropdown-board");
+  dropdown.classList.toggle("open");
+}
+
+function selectUserCategoryBoard() {
+  const inputfield = document.getElementById("inputfield-category-assign-board");
+  inputfield.value = "User Task";
+  categoryUserOrTechnicalTaskBoard();
+}
+
+function selectTechnicalCategoryBoard() {
+  const inputfield = document.getElementById("inputfield-category-assign-board");
+  inputfield.value = "Technical Task";
+  categoryUserOrTechnicalTaskBoard();
+}
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
