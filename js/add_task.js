@@ -1762,6 +1762,12 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
     "single-circle-second",
     "single-circle-third",
   ];
+  
+  if(nameInitialesArray.length === 0) {
+    circleRenderContainer.classList.add("display-none");
+    circleRenderContainer.classList.add("hidden");
+    return;
+  }
 
   for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
@@ -1772,6 +1778,7 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
     `;
   }
   circleRenderContainer.classList.remove("display-none");
+  circleRenderContainer.classList.remove("hidden");
 }
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
