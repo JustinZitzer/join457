@@ -2555,6 +2555,49 @@ h2 {
     z-index: 2;
 }
 
+.subtasks-in-board {
+    margin-top: -18px;
+    height: 30px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.subtask-board-dot-and-text-div:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.subtask-board-dot-and-text-div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.subtasks-in-container {
+    margin-left: 5px;
+}
+
+.pen-and-bin-icons-board-div {
+    display: flex;
+    align-items: center;
+    right: 16px;
+    bottom: 5px;
+}
+
+.seperator-board {
+    width: 1px;
+    height: 20px;
+    background-color: #b4b4b4;
+}
+
+.flexbox-for-dot-subtask-text-board {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;

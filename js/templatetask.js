@@ -80,10 +80,11 @@ function getTaskOverlayTemplate() {
           <div class="subtask-inputfield-box-board">
             <span>Subtasks</span>
             <div class="subtask-inputfield-container-board">
-              <img class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon" id="add-icon-container-board">
-              <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board" id="inputfield-subtask-assign-board">
+              <img onclick="subtaskIntoBoard()" class="add-icon-container-board" src="./assets/icons/subtask-plus-icon.svg" alt="subtask-plus-icon" id="add-icon-container-board">
+              <input type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board" id="inputfield-subtask-assign-in-board">
             </div>
           </div>
+          <div class="subtasks-in-board display-none" id="subtasks-in-board"></div>
         </div>
         <div class="field-required-board">
           <span>This field is required</span>
