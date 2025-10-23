@@ -1,10 +1,12 @@
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .Summary-Box-Z-Index-Container {
+    margin-top: 100px;
     margin-left: 350px;
     display: flex;
     justify-content: center;
@@ -69,7 +71,7 @@ body {
 }
 
 .To-Do-Box:hover .Circle-Logo-Svg-Summary circle {
-  fill: #FFFFFF;
+    fill: #FFFFFF;
 }
 
 .To-Do-Box:hover {
@@ -109,12 +111,12 @@ body {
 }
 
 .Pencil-Icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
 }
 
 .Pencil-Icon path {
@@ -123,7 +125,7 @@ body {
 }
 
 .To-Do-Box:hover .Pencil-Icon path {
-  fill: #2A3647;
+    fill: #2A3647;
 }
 
 .Checked-Icon {
@@ -132,11 +134,11 @@ body {
 }
 
 .Checked-Icon path {
-  stroke: white;
+    stroke: white;
 }
 
 .Done-Box:hover .Checked-Icon path {
-  stroke: #2A3647;
+    stroke: #2A3647;
 }
 
 .Counter-To-Do {
@@ -318,7 +320,8 @@ body {
     margin-left: 50px;
     display: flex;
     flex-direction: column;
-    align-items: center;;
+    align-items: center;
+    ;
 }
 
 .Date-Of-The-Deadline {
@@ -379,7 +382,7 @@ body {
     margin-left: 50px;
 }
 
-.Counter-Tiny-Div{
+.Counter-Tiny-Div {
     font-weight: 600;
     font-size: 64px;
     line-height: 120%;
