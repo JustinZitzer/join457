@@ -255,6 +255,14 @@ footer a:hover {
         width: 70%;
     }
 
+    .nav-links a:hover {
+        background-color: rgba(9, 25, 49, 1);
+        color: white;
+        width: 90px;
+        height: 90px;
+        border-radius: 16px;
+    }
+
     .nav-links img {
         margin-right: 0px;
     }
