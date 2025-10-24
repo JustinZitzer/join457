@@ -2598,6 +2598,42 @@ h2 {
     align-items: center;
 }
 
+.new-subtask-inputfield-div {
+    width: 100%;
+    position: relative;
+}
+
+.new-subtask-text-field {
+    width: 100%;
+    height: 25px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 60px;
+    border-bottom: 1px solid #29ABE2;
+}
+.new-subtask-text-field:focus {
+    outline: none;
+}
+
+.icons-board-subtask-flexbox {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+}
+
+.seperator-board {
+    width: 1px;
+    height: 18px;
+    background-color: #b4b4b4;
+}
+
+.seperator-board {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 800px) {
     main {
         width: 99vw;
