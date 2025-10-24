@@ -1,6 +1,7 @@
-
 body {
   background-color: #F6F7F8;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 .blue-arrow-left {
@@ -24,7 +25,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 1400px)  {
+@media screen and (max-width: 1400px) {
 
   .info-pages {
     margin-left: 20px;

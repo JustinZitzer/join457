@@ -1,5 +1,4 @@
 body {
-    min-height: 100vh;
     width: 100vw;
     overflow-y: auto;
     overflow-x: hidden;
@@ -656,6 +655,21 @@ body {
         background-color: #FFFFFF;
         border-radius: 30px;
         margin-right: 3%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .Headline-Join-360 {
+        margin-top: 20px;
+        font-size: 42px;
+    }
+
+    .Headline-Join-360-Text {
+        font-size: 16px;
+    }
+
+    .Summary-Box-Container {
+        margin-top: 0px;
     }
 }
 
