@@ -2493,8 +2493,8 @@ h2 {
 }
 
 .category-dropdown-board.open {
-  max-height: 150px;
-  opacity: 1;
+    max-height: 150px;
+    opacity: 1;
 }
 
 .user-technical-task-board-user {
@@ -2612,6 +2612,7 @@ h2 {
     padding-right: 60px;
     border-bottom: 1px solid #29ABE2;
 }
+
 .new-subtask-text-field:focus {
     outline: none;
 }
@@ -2632,6 +2633,20 @@ h2 {
 .seperator-board {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+    .header-main-container {
+        width: 100%;
+    }
+
+    main {
+        margin-left: 0px
+    }
+
+    .todos-bar-container {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 800px) {
