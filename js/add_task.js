@@ -534,7 +534,6 @@ function changeinputFieldAssignToStyle() {
 }
 
 function getInfoForNewTask() {
-  
   let titel = taskTitel.value || "New Task";
   let description = taskDescription.value || "No description";
   let dueDate = taskDueDate.value;
@@ -1626,6 +1625,20 @@ function taskInfosForFirebaseBoard() {
   let titel = validateInputBoard();
   let description = document.getElementById(".inputfield-description-board").value || "No description";
   let dueDate = validateDueDateInputBoard() || "No due date";
+  let priority = getSelectedPriority();
+  let assignedTo = getAssignedToValue() || "Not Assigned to anyone";
+  let categoryUserOrTechnicalTask = document.getElementById("inputfield-category-assign-board").value;
+  let subtasks = subtasksInfoForFirebase();
+  return {
+    titel,
+    description,
+    dueDate,  
+    priority,
+    assignedTo,
+    categoryUserOrTechnicalTask,
+    subtasks,
+  };
+  //getInfoForNewTask() Fallbacks abgleichen Werte richtig in Firebase zu speichern.
 }
 
 function validateInputBoard() {
@@ -1830,6 +1843,17 @@ function changedSubtasksBoard(i) {
 
   const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
   subtaskDiv.innerHTML = subtasksInBoard(i, newSubtaskText);
+}
+
+function subtasksInfoForFirebase() {
+  let subtasks = [];
+  const subtasksText = document.getElementsByClassName("subtasks-in-container");
+  for (let i = 0; i < subtasksText.length; i++) {
+    const subtaskText = subtasksText[i];
+    subtasks.push(subtaskText);
+  }
+  console.log(subtasks);
+  return subtasks;
 }
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
