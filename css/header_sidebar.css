@@ -446,6 +446,10 @@ footer a:hover {
         font-weight: 600;
         font-size: 14px;
     }
+
+    .user-profile-menu {
+        right: 50px;
+    }
 }
 
 @media screen and (max-width: 400px) {

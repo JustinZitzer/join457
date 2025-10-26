@@ -2,15 +2,15 @@
     margin-left: 328px;
     margin-right: 80px;
     margin-top: 190px;
-    margin-bottom: 100px; /*bitte noch anpassen*/
+    margin-bottom: 100px;
 }
 
 .info-pages a {
-    color: rgba(75,183,232);
+    color: rgba(75, 183, 232);
 }
 
 .info-pages p {
-    margin-left: 20px; /*bitte noch anpassen*/
+    margin-left: 20px;
 }
 
 .headline-arrow-container {
@@ -20,4 +20,16 @@
 
 .font-size-35px {
     font-size: 35px;
+}
+
+@media screen and (max-width: 1500px) {
+    .info-pages {
+        padding-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .info-pages {
+        padding-bottom: 120px;
+    }
 }
