@@ -2647,6 +2647,21 @@ h2 {
     .todos-bar-container {
         width: 100%;
     }
+
+    .done-task-container {
+        justify-content: space-between;
+        margin-left: 32px;
+        width: 40%;
+        gap: 10px;
+
+    }
+
+    .await-feedback-task-container {
+        margin-left: 32px;
+        justify-content: space-between;
+    
+    }
+    
 }
 
 @media screen and (max-width: 800px) {
@@ -2660,6 +2675,14 @@ h2 {
         width: 99vw;
     }
 
+
+    .done-task-container {
+        justify-content: space-between;
+        margin-left: 12px;
+        width: 40%;
+        gap: 10px;
+
+    }
 
     .progressbar-box {
         display: flex;
@@ -2775,7 +2798,7 @@ h2 {
     }
 
     .await-feedback-content {
-        width: 22.5%;
+        width: 40%;
     }
 
     .done-content-box {
