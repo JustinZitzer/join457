@@ -1623,7 +1623,7 @@ function subtaskCounter(taskKey) {
 
 function taskInfosForFirebaseBoard() {
   let titel = validateInputBoard() || "New Task";
-  let description = document.getElementById(".inputfield-description-board").value || "No description";
+  let description = document.getElementById("inputfield-description-board").value || "No description";
   let dueDate = validateDueDateInputBoard();
   let priority = getSelectedPriority();
   let assignedTo = getAssignedToValue() || "Not Assigned to anyone";
