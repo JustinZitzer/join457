@@ -1622,13 +1622,13 @@ function subtaskCounter(taskKey) {
 }
 
 function taskInfosForFirebaseBoard() {
-  let titel = validateInputBoard();
+  let titel = validateInputBoard() || "New Task";
   let description = document.getElementById(".inputfield-description-board").value || "No description";
-  let dueDate = validateDueDateInputBoard() || "No due date";
+  let dueDate = validateDueDateInputBoard();
   let priority = getSelectedPriority();
   let assignedTo = getAssignedToValue() || "Not Assigned to anyone";
   let categoryUserOrTechnicalTask = document.getElementById("inputfield-category-assign-board").value;
-  let subtasks = subtasksInfoForFirebase();
+  let subtasks = subtasksInfoForFirebase() || "No subtasks";
   return {
     titel,
     description,
