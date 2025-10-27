@@ -21,6 +21,7 @@ const inputFieldAssignTo = document.getElementById("inputfield-text-assign");
 const circleFlexContainer = document.getElementById("three-circle-todo");
 const circleRenderContainer = document.getElementById("three-circle-container");
 const contactsDropdown = document.getElementById("contacts-dropdown");
+let currentStatusForNewTask = "toDo";
 let subtaskSavedCounter = 1;
 let todosArray = [];
 let fullTaskInfoArray = [];
@@ -33,7 +34,7 @@ const taskCategory1 = document.getElementById("category-input1");
 const subtaskInputFieldContainer1 = document.getElementById("subtask-inputfield-container1");
 const taskSubtask1 = document.getElementById("inputfield-subtask-assign1");
 
-function openOverlay() {
+function openOverlay(status) {
   const overlay = document.getElementById("overlay");
   const overlayContent = document.getElementById("content-add-task-overlay");
 
@@ -43,7 +44,7 @@ function openOverlay() {
 
   if (window.innerWidth > 1400) {
     // Inhalt setzen
-    overlayContent.innerHTML = getTaskOverlayTemplate();
+    overlayContent.innerHTML = getTaskOverlayTemplate(status);
 
     // Slide-in Animation starten
     overlayContent.classList.add("slide-in");
@@ -1861,7 +1862,7 @@ function subtasksInfoForFirebase() {
   return subtasksArray;
 }
 
-async function postTaskIntoFirebaseBoard() {
+async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
   const taskCategory = document.getElementById("inputfield-category-assign-board");
@@ -1869,7 +1870,7 @@ async function postTaskIntoFirebaseBoard() {
     const inputsForTask = taskInfosForFirebaseBoard();
     const newTaskKey = taskTitel.value;
     const dataPost = await putRegistryDataBaseFunction(
-      "tasks/toDo/" + newTaskKey,
+      `tasks/${status}/` + newTaskKey,
       inputsForTask
     );
     clearInputFieldsForNewTaskBoard();
