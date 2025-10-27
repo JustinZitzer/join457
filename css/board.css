@@ -2471,9 +2471,9 @@ h2 {
     align-items: center;
     margin-top: 0px;
     width: 110px;
-    height: 40px;
+    height: 0px;
     gap: 8px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 .category-dropdown-board {

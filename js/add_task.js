@@ -1638,7 +1638,6 @@ function taskInfosForFirebaseBoard() {
     categoryUserOrTechnicalTask,
     subtasks,
   };
-  //getInfoForNewTask() Fallbacks abgleichen Werte richtig in Firebase zu speichern.
 }
 
 function validateInputBoard() {
@@ -1846,14 +1845,69 @@ function changedSubtasksBoard(i) {
 }
 
 function subtasksInfoForFirebase() {
-  let subtasks = [];
+  let subtasksArray = [];
+  subtasksArray = [];
   const subtasksText = document.getElementsByClassName("subtasks-in-container");
   for (let i = 0; i < subtasksText.length; i++) {
-    const subtaskText = subtasksText[i];
-    subtasks.push(subtaskText);
+    const subtask = subtasksText[i].textContent.trim();
+    const notChecked = false;
+    subtasksArray.push({
+      subtaskText: subtask,
+      statusCheckbox: notChecked
+    });
   }
   console.log(subtasks);
-  return subtasks;
+  return subtasksArray;
+}
+
+async function postTaskIntoFirebaseBoard() {
+  const taskTitel = document.getElementById("titleInputBoard");
+  const taskDueDate = document.getElementById("dueDateInputBoard");
+  const taskCategory = document.getElementById("inputfield-category-assign-board");
+  if (taskTitel.value && taskDueDate.value && taskCategory.value) {
+    const inputsForTask = taskInfosForFirebaseBoard();
+    const newTaskKey = taskTitel.value;
+    const dataPost = await putRegistryDataBaseFunction(
+      "tasks/toDo/" + newTaskKey,
+      inputsForTask
+    );
+    clearInputFieldsForNewTaskBoard();
+    console.log(dataPost);
+  } else if (!taskTitel.value) {
+    alert("Please enter a title for the task.");
+  } else if (!taskDueDate.value) {
+    alert("Please enter a due date for the task.");
+  } else if (!taskCategory.value) {
+    alert("Please select a category for the task.");
+  }
+}
+
+function clearInputFieldsForNewTaskBoard() {
+  const taskTitel = document.getElementById("titleInputBoard");
+  const taskDescription = document.getElementById("inputfield-description-board");
+  const taskDueDate = document.getElementById("dueDateInputBoard");
+  const taskPriorityUrgent = document.getElementById("arrow-container-red-board");
+  const taskPriorityMedium = document.getElementById("arrow-container-orange-board");
+  const taskPriorityLow = document.getElementById("arrow-container-green-board");
+  const contacts = document.getElementsByClassName("contact-checkbox");
+  const taskCategory = document.getElementById("inputfield-category-assign-board");
+  const taskSubtask = document.getElementById("inputfield-subtask-assign-in-board");
+  const savedSubtasks = document.getElementById("subtasks-in-board");
+  const circleContainer = document.getElementById("three-circle-container-board");
+  taskTitel.value = "";
+  taskDescription.value = "";
+  taskDueDate.value = "";
+  taskPriorityUrgent.classList.remove("active");
+  taskPriorityMedium.classList.remove("active");
+  taskPriorityLow.classList.remove("active");
+  taskCategory.value = "";
+  taskSubtask.value = "";
+  savedSubtasks.innerHTML = "";
+  circleContainer.innerHTML = "";
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contact.checked = false;
+  }
 }
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!

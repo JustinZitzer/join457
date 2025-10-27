@@ -92,11 +92,11 @@ function getTaskOverlayTemplate() {
       </div>
     </div>
     <div class="clear-create-container-board">
-      <div class="clear-field-board">
+      <div onclick="clearInputFieldsForNewTaskBoard()" class="clear-field-board">
         <div class="clear-text-board">Cancel</div>
         <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
       </div>
-      <div class="create-field-board">
+      <div onclick="postTaskIntoFirebaseBoard()" class="create-field-board">
         <div class="text-create-field-board">Create Task</div>
         <img class="check-button-board" src="./assets/icons/check.png" alt="check-button">
       </div>
