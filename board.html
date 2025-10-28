@@ -26,7 +26,7 @@
             <div class="header-main-container">
                 <div class="header-content-board">
                     <h3 class="board-headline-board">Board</h3>
-                    <img class="responsive-btn" src="./assets/icons/add.png" alt="Add Icon">
+                    <img class="responsive-btn" src="./assets/icons/add.svg" alt="Add Icon">
 
                     <div class="find-task-add-task-container">
 
@@ -46,9 +46,10 @@
                             <p>Add Task</p>
                             <img src="./assets/icons/add.png" alt="add-icon">
                         </button>
-                        
+
                         <div id="overlay" class="overlay-hidden">
-                            <div id="content-add-task-overlay" class="overlay-content" onclick="event.stopPropagation()">
+                            <div id="content-add-task-overlay" class="overlay-content"
+                                onclick="event.stopPropagation()">
                                 <!-- Hier kommt dein Formular hin -->
                                 <h2>Neues Task</h2>
                                 <p>Formular oder Inhalt hier</p>
@@ -66,7 +67,7 @@
                                 <button onclick="openOverlay('toDo')" class="add-button">
                                     <img src="./assets/icons/plus button.png" alt="Plus" />
                                 </button>
-                    
+
                             </div>
 
                             <div ondrop="moveTo('toDo')" ondragover="allowDrop(event)" class="todo-content-task"
@@ -108,8 +109,7 @@
 
                         <div class="add-button-container">
 
-                            <div id="overlay-in-progress" class="overlay-hidden"
-                                onclick="event.stopPropagation()">
+                            <div id="overlay-in-progress" class="overlay-hidden" onclick="event.stopPropagation()">
                                 <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-in-progress"></div>
                                 <!-- Hier kannst du dein Formular platzieren -->
@@ -137,8 +137,7 @@
                         </div>
                         <div class="add-button-container">
 
-                            <div id="overlay-await-feedback" class="overlay-hidden"
-                                onclick="event.stopPropagation()">
+                            <div id="overlay-await-feedback" class="overlay-hidden" onclick="event.stopPropagation()">
 
                                 <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-await-feedback"></div>
