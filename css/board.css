@@ -314,6 +314,8 @@ h3 {
 .done-content-task {
     display: block;
     min-height: 500px;
+    min-width: 252px;
+
 }
 
 
@@ -2650,6 +2652,7 @@ h2 {
 
     .await-feedback-content-task {
         min-height: 100px;
+        min-width: 252px;
     }
 }
 
@@ -2689,10 +2692,12 @@ h2 {
 
     .await-feedback-content-task {
         min-height: 100px;
+        min-width: 252px;
     }
 
     .done-content-task {
-        width: 60%;
+        min-width: 252px;
+        width: 50%;
     }
 
     .done-task-container {
@@ -2781,6 +2786,8 @@ h2 {
     .await-feedback-task-container {
         margin-left: 12px;
         padding-top: 4px;
+        width: 50%;
+
     }
 
 
@@ -3085,12 +3092,8 @@ h2 {
 
     .await-feedback-content-task {
         min-height: 100px;
+        min-width: 252px;
     }
-
-    .done-content-task {
-        width: 60%;
-    }
-
 
 }
 
@@ -3257,18 +3260,16 @@ h2 {
 
     .await-feedback-content-task {
         min-height: 100px;
-        width: 45%;
+        min-width: 252px;
     }
 
     .done-content-task {
-        width: 45%;
+        min-width: 252px;
     }
 
     .done-task-container {
         margin-left: 12px;
     }
-
-
 }
 
 .title-inputfield-enter-title {
@@ -3355,11 +3356,6 @@ h2 {
 
 
 @media (max-width: 500px) {
-
-    .todo-content-box {
-        width: 40%;
-    }
-
 
     .main-container-for-two-inputfield-container {
         display: flex;
