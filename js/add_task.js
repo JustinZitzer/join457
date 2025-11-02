@@ -1704,28 +1704,44 @@ function togglePriorityBoard(priority) {
   const mediumButton = document.getElementById("arrow-container-orange-board");
   const lowButton = document.getElementById("arrow-container-green-board");
 
+  if (toggleIfActive(priority, urgentButton, mediumButton, lowButton)) {
+    return;
+  }
+
   urgentButton.classList.remove("active");
   mediumButton.classList.remove("active");
   lowButton.classList.remove("active");
 
-  return getSelectedPriority(priority);
-}
-
-function getSelectedPriority(priority) {
-  const urgentButton = document.getElementById("arrow-container-red-board");
-  const mediumButton = document.getElementById("arrow-container-orange-board");
-  const lowButton = document.getElementById("arrow-container-green-board");
-
-  if (!urgentButton || !mediumButton || !lowButton) return "No priority selected";
-
   if (priority === "Urgent") urgentButton.classList.add("active");
   if (priority === "Medium") mediumButton.classList.add("active");
   if (priority === "Low") lowButton.classList.add("active");
+}
+
+function getSelectedPriority() {
+  const urgentButton = document.getElementById("arrow-container-red-board");
+  const mediumButton = document.getElementById("arrow-container-orange-board");
+  const lowButton = document.getElementById("arrow-container-green-board");
 
   if (urgentButton.classList.contains("active")) return "Urgent";
   if (mediumButton.classList.contains("active")) return "Medium";
   if (lowButton.classList.contains("active")) return "Low";
   return "No priority selected";
+}
+
+function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
+  if (priority === "Urgent" && urgentButton.classList.contains("active")) {
+    urgentButton.classList.remove("active");
+    return true;
+  }
+  if (priority === "Medium" && mediumButton.classList.contains("active")) {
+    mediumButton.classList.remove("active");
+    return true;
+  }
+  if (priority === "Low" && lowButton.classList.contains("active")) {
+    lowButton.classList.remove("active");
+    return true;
+  }
+  return false;
 }
 
 async function loadContactsForDropdownInBoard() {
