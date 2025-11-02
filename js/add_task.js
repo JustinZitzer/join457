@@ -1705,7 +1705,7 @@ function togglePriorityBoard(priority) {
   const lowButton = document.getElementById("arrow-container-green-board");
 
   if (toggleIfActive(priority, urgentButton, mediumButton, lowButton)) {
-    return;
+    return getSelectedPriority();
   }
 
   urgentButton.classList.remove("active");
@@ -1715,6 +1715,8 @@ function togglePriorityBoard(priority) {
   if (priority === "Urgent") urgentButton.classList.add("active");
   if (priority === "Medium") mediumButton.classList.add("active");
   if (priority === "Low") lowButton.classList.add("active");
+  
+  return getSelectedPriority();
 }
 
 function getSelectedPriority() {
