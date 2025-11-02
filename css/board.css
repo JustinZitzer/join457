@@ -894,17 +894,21 @@ h5 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
-    color: #D1D1D1;
     width: 440px;
     height: 48;
     gap: 10px;
     border-radius: 10px;
-    border-width: 1px;
+    border: 1px solid #D1D1D1;
     padding-top: 12px;
     padding-right: 21px;
     padding-bottom: 12px;
     padding-left: 21px;
+    cursor: pointer;
+}
 
+.title-inputfield-enter-title-board:focus {
+    outline: none;
+    border: 1px solid #29ABE2;
 }
 
 .arrow-container-main-red-board {
@@ -928,10 +932,11 @@ h5 {
     padding-bottom: 16px;
     padding-left: 10px;
     cursor: pointer;
+    border: 1px solid #ccc;
 }
 
 .arrow-container-red-board.active {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.699);
     color: white;
 }
 
@@ -981,6 +986,7 @@ h5 {
     padding-right: 10px;
     padding-bottom: 16px;
     padding-left: 10px;
+    border: 1px solid #ccc;
 }
 
 
@@ -1009,6 +1015,7 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #ccc;
 }
 
 .arrow-container-orange-board.active {
@@ -1066,7 +1073,13 @@ h5 {
     padding-right: 16px;
     padding-bottom: 18px;
     padding-left: 16px;
-    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    cursor: pointer;
+}
+
+.inputfield-description-board:focus {
+    outline: none;
+    border: 1px solid #29ABE2;
 }
 
 .inputfield-description-board::placeholder {
@@ -1118,7 +1131,7 @@ h5 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
-    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
     width: 440px;
     height: 48px;
     border-width: 1px;
@@ -1128,6 +1141,12 @@ h5 {
     padding-right: 16px;
     padding-bottom: 12px;
     padding-left: 16px;
+    cursor: pointer;
+}
+
+.due-date-text-field-board:focus {
+    outline: none;
+    border: 1px solid #29ABE2;
 }
 
 .assigned-inputfield-box-board {
@@ -1160,6 +1179,18 @@ h5 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    border: 1px solid #ccc;
+}
+
+.inputfield-text-assign-board:focus {
+    outline: none;
+    border: 1px solid #29ABE2;
+}
+
+.inputfield-text-assign-board:hover {
+    outline: none;
+    border-bottom: 2.5px solid #b1b0b0;
+    border-right: 2px solid #b1b0b0;
 }
 
 .inputfield-text-assign-board::placeholder {
@@ -1178,8 +1209,17 @@ h5 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    border: 1px solid #ccc;
 }
 
+.inputfield-category-assign-board:hover {
+    border-bottom: 2.5px solid #b1b0b0;
+    border-right: 2px solid #b1b0b0;
+}
+
+.inputfield-category-assign-board:focus {
+    outline: none;
+}
 
 .inputfield-category-assign-board::placeholder {
     color: #000000;
@@ -1203,6 +1243,13 @@ h5 {
     padding-left: 16px;
     font-size: 20px;
     font-weight: 400;
+    border: 1px solid #ccc;
+}
+
+.inputfield-subtask-assign-board:focus {
+    outline: none;
+    border-bottom: 1px solid #29ABE2;
+    border-right: 1px solid #29ABE2;
 }
 
 .subtask-inputfield-container-board {
