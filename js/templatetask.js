@@ -113,7 +113,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
         <span id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
       </div>
       <div class="text-contact-box">
-        <span id="task-titel-mini-task">${task.titel}</span>
+        <span class="task-titel-mini-task" id="task-titel-mini-task">${task.titel}</span>
         <div class="text-create-box">
           <span>${task.description}</span>
         </div>

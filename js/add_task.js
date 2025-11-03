@@ -1944,19 +1944,25 @@ function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
   const toDos = document.getElementsByClassName("todo-content-box");
+  const inputStart = inputValue.substring(0, 3);
 
-  if(inputValue.substring(0, 3)) {
-    for (let i = 0; i < taskTitles.length; i++) {
-      const titleElement = taskTitles[i];
-      const title = titleElement.textContent.trim().toLowerCase();
-      const inputStart = inputValue.substring(0, 3);
-      const titleStart = title.substring(0, 3);
 
-      if (inputStart === titleStart) {
-        toDos[i].classList.remove("display-none");
-      } else {
-        toDos[i].classList.add("display-none");
-      }
+  if (inputValue.length < 1) {
+    for (let i = 0; i < toDos.length; i++) {
+      toDos[i].classList.remove("display-none");
+    }
+    return;
+  }
+
+  for (let i = 0; i < taskTitles.length; i++) {
+    const titleElement = taskTitles[i];
+    const title = titleElement.textContent.trim().toLowerCase();
+    const titleStart = title.substring(0, 3);
+
+    if (inputStart === titleStart) {
+      toDos[i].classList.remove("display-none");
+    } else {
+      toDos[i].classList.add("display-none");
     }
   }
 }
