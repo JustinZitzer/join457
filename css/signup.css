@@ -418,9 +418,9 @@ h1 {
 
     .arrow-box {
         position: absolute;
-        transform: translateY(-50%);
-        top: 250px;
-        left: 300px;
+        transform: translateY(-100%);
+        top: 29%;
+        left: 23%;
         width: 32px;
         height: 32px;
         background-color: #FFFFFF;
@@ -625,6 +625,10 @@ h1 {
         width: 15%;
     }
 
+    .arrow-box {
+        left: 14%;
+    }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -646,6 +650,10 @@ h1 {
     .inputfield-confirm {
         font-size: 18px;
         width: 94%;
+    }
+
+    .arrow-box {
+        left: 10%;
     }
 
 }
@@ -670,6 +678,9 @@ h1 {
     .hr-line-signup {
         width: 25%;
     }
+    .arrow-box {
+        left: 9%;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -691,6 +702,10 @@ h1 {
     .inputfield-confirm {
         font-size: 18px;
         width: 90%;
+    }
+
+    .arrow-box {
+        left: 7%;
     }
 
 }
@@ -718,6 +733,10 @@ h1 {
 
     .signup-main-container {
         width: 95%;
+    }
+
+    .arrow-box {
+        left: 5%;
     }
 
 }
