@@ -129,6 +129,12 @@ h3 {
     border-radius: 10px;
     font-weight: 400;
     color: #D1D1D1;
+    cursor: pointer;
+}
+
+.title-findtask:focus {
+    outline: none;
+    border: 3px solid #29ABE2;
 }
 
 .inputfield-task-content {
@@ -162,6 +168,11 @@ h3 {
     justify-content: center;
     box-sizing: border-box;
     min-width: 100px;
+}
+
+.add-task-box:hover {
+    background-color: #29ABE2;
+    border-color: #29ABE2;
 }
 
 .image-x {
@@ -364,7 +375,7 @@ h3 {
     border-radius: 24px;
     padding: 16px;
     background-color: #FFFFFF;
-
+    cursor: pointer;
 }
 
 
