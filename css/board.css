@@ -1184,7 +1184,6 @@ h5 {
 
 .inputfield-text-assign-board:focus {
     outline: none;
-    border: 1px solid #29ABE2;
 }
 
 .inputfield-text-assign-board:hover {
@@ -2486,7 +2485,7 @@ h2 {
 
 .field-required-in-board {
     font-size: 15px;
-    color: #000;
+    color: red;
 }
 
 .contacts-dropdown-board {

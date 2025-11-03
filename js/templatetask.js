@@ -62,7 +62,7 @@ function getTaskOverlayTemplate(status) {
           <div class="assigned-inputfield-box-board">
             <span>Assigned to</span>
             <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
-            <img onclick="loadContactsForDropdownInBoard(); getContactForCircleBoard()" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
+            <img onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
           </div>
             <div class="contacts-dropdown-board display-none" id="contacts-dropdown-board"></div>
             <div class="three-circle-container-board display-none" id="three-circle-container-board"></div>

@@ -1643,10 +1643,12 @@ function taskInfosForFirebaseBoard() {
 
 function validateInputBoard() {
   const input = document.getElementById("titleInputBoard").value;
+  const inputfield = document.getElementById("titleInputBoard");
   const errorMsg = document.getElementById("field-required-in-board");
 
   if (input.trim() == "") {
     errorMsg.classList.remove("display-none");
+    inputfield.style.border = "1px solid red";
   } else {
     if (!errorMsg.classList.contains("display-none"))
     errorMsg.classList.add("display-none");
@@ -1665,6 +1667,7 @@ function validateDueDateInputBoard() {
   if (!result.valid) {
     errorMsg.innerHTML = result.message;
     errorMsg.classList.remove("display-none");
+    input.style.border = "1px solid red";
     return false;
   }
 
@@ -1782,6 +1785,14 @@ function getContactForCircleBoard() {
   }
   renderCirclesForAssignedContactsBoard(nameInitialesArray);
   return nameInitialesArray;
+}
+
+function changeAssignedToBoardInputStyle() {
+  const inputfield = document.getElementById("inputfield-text-assign-board");
+  const dropdown = document.getElementById("contacts-dropdown-board");
+
+  inputfield.style.borderTop = "1px solid #29ABE2";
+  inputfield.style.borderRight = "1px solid #29ABE2";
 }
 
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
