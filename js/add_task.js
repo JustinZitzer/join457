@@ -1789,10 +1789,7 @@ function getContactForCircleBoard() {
 
 function changeAssignedToBoardInputStyle() {
   const inputfield = document.getElementById("inputfield-text-assign-board");
-  const dropdown = document.getElementById("contacts-dropdown-board");
-
-  inputfield.style.borderTop = "1px solid #29ABE2";
-  inputfield.style.borderRight = "1px solid #29ABE2";
+  inputfield.classList.toggle("inputfield-blue-border-top-right");
 }
 
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
@@ -1825,8 +1822,10 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
 }
 
 function categoryUserOrTechnicalTaskBoard() {
+  const input = document.getElementById("inputfield-category-assign-board");
   const dropdown = document.getElementById("category-dropdown-board");
   dropdown.classList.toggle("open");
+  input.classList.toggle("inputfield-blue-border-top-right");
 }
 
 function selectUserCategoryBoard() {
