@@ -1939,5 +1939,26 @@ function clearInputFieldsForNewTaskBoard() {
     contact.checked = false;
   }
 }
+
+function searchTask() {
+  const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
+  const taskTitles = document.getElementsByClassName("task-titel-mini-task");
+  const toDos = document.getElementsByClassName("todo-content-box");
+
+  if(inputValue.substring(0, 3)) {
+    for (let i = 0; i < taskTitles.length; i++) {
+      const titleElement = taskTitles[i];
+      const title = titleElement.textContent.trim().toLowerCase();
+      const inputStart = inputValue.substring(0, 3);
+      const titleStart = title.substring(0, 3);
+
+      if (inputStart === titleStart) {
+        toDos[i].classList.remove("display-none");
+      } else {
+        toDos[i].classList.add("display-none");
+      }
+    }
+  }
+}
 // Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
 //damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
