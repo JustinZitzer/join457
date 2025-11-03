@@ -176,7 +176,7 @@
     width: 16px;
     height: 16px;
     bottom: 37px;
-    left: 380px;
+    left: 420px;
 }
 
 .name-icon-size {
@@ -184,14 +184,14 @@
     width: 16px;
     height: 16px;
     bottom: 40px;
-    left: 380px;
+    left: 420px;
 }
 
 .lock-icon-size-first {
     position: relative;
     width: 16px;
     height: 16px;
-    left: 380px;
+    left: 420px;
     bottom: 37px;
 }
 
@@ -199,7 +199,7 @@
     position: relative;
     width: 16px;
     height: 16px;
-    left: 380px;
+    left: 420px;
     bottom: 37px;
 }
 
@@ -385,11 +385,12 @@ h1 {
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        width: 97%;
+        width: 95%;
         height: 700px;
         border-radius: 30px;
         background-color: #FFFFFF;
         margin-top: 190px;
+        margin-right: 15px;
     }
 
     .title {
@@ -417,8 +418,8 @@ h1 {
 
     .arrow-box {
         position: absolute;
-        transform: translateX(-50%);
-        top: 200px;
+        transform: translateY(-50%);
+        top: 250px;
         left: 300px;
         width: 32px;
         height: 32px;
@@ -447,9 +448,10 @@ h1 {
     .signup-inputfield-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 95%;
         height: 326px;
         margin-top: 32px;
+        margin-right: 15px;
         gap: 34px;
         background-color: #FFFFFF;
     }
@@ -483,7 +485,7 @@ h1 {
         width: 20px;
         height: 20px;
         bottom: 42px;
-        left: 93.5%;
+        left: 96.5%;
     }
 
     .email-box {
@@ -515,7 +517,7 @@ h1 {
         width: 23px;
         height: 23px;
         bottom: 42px;
-        left: 93.5%;
+        left: 96.5%;
     }
 
     .password-box {
@@ -546,7 +548,7 @@ h1 {
         position: relative;
         width: 20px;
         height: 20px;
-        left: 93.5%;
+        left: 96.5%;
         bottom: 42px;
     }
 
@@ -554,7 +556,7 @@ h1 {
         position: relative;
         width: 20px;
         height: 20px;
-        left: 93.5%;
+        left: 96.5%;
         bottom: 42px;
     }
 
@@ -616,7 +618,7 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 91%;
+        left: 95%;
     }
 
     .hr-line-signup {
@@ -631,7 +633,7 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 86%;
+        left: 93%;
     }
 
     .hr-line-signup {
@@ -654,7 +656,7 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 83%;
+        left: 91%;
     }
 
     .inputfield-name,
@@ -676,7 +678,7 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 78%;
+        left: 89%;
     }
 
     .hr-line-signup {
@@ -699,7 +701,7 @@ h1 {
     .email-icon-size,
     .lock-icon-size-first,
     .lock-icon-size-second {
-        left: 76%;
+        left: 88%;
     }
 
     .inputfield-confirm,
