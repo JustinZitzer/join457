@@ -1949,7 +1949,7 @@ h2 {
 
 .delete-icon-board {
     margin-right: 5px;
-    color: #29ABE2;
+    color: #2A3647;
     cursor: pointer;
 }
 
@@ -1957,12 +1957,19 @@ h2 {
     margin-right: 10px;
 }
 
-.delete-text-board:hover {
+.bin-hover-effect-div:hover .delete-text-board, 
+.bin-hover-effect-div:hover .delete-icon-board {
     color: #29ABE2;
     cursor: pointer;
 }
 
-.edit-text-board:hover {
+.bin-hover-effect-div {
+    display: flex;
+    align-items: center;
+}
+
+.pen-hover-effect-div:hover .edit-text-board,
+.pen-hover-effect-div:hover .edit-icon-board {
     color: #29ABE2;
     cursor: pointer;
 }
@@ -1973,6 +1980,12 @@ h2 {
 
 .edit-icon-board {
     margin-right: 5px;
+    color: #2A3647;
+}
+
+.pen-hover-effect-div {
+    display: flex;
+    align-items: center;
 }
 
 .big-task-panel {
