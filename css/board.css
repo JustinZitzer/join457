@@ -1949,10 +1949,22 @@ h2 {
 
 .delete-icon-board {
     margin-right: 5px;
+    color: #29ABE2;
+    cursor: pointer;
 }
 
 .delete-text-board {
     margin-right: 10px;
+}
+
+.delete-text-board:hover {
+    color: #29ABE2;
+    cursor: pointer;
+}
+
+.edit-text-board:hover {
+    color: #29ABE2;
+    cursor: pointer;
 }
 
 .seperator-big-subtask {
@@ -1996,7 +2008,14 @@ h2 {
     width: 90%;
     height: 35px;
     font-weight: 500;
+}
 
+.titel-edit-task-big:focus {
+    outline: none;
+}
+
+.titel-edit-task-big::placeholder {
+    margin-left: 10px;
 }
 
 .description-edit-div {
