@@ -1204,16 +1204,16 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
     if (!subtask) return;
     if(subtask.statusCheckbox == false) {
       subtaksContainer.innerHTML += `
-        <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+        <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
           <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" class="checkbox-board-subtasks${taskKey} checkbox-style-big-task" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
-          <span>${subtask.subtaskText}</span>
+          <span class="checkbox-subtask-text">${subtask.subtaskText}</span>
         </div>
       `;
     } else {
       subtaksContainer.innerHTML += `
-        <div class="subtasks-board-first-task" id="subtasks-board-first-task${taskKey}${i}">
+        <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
           <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')" checked class="checkbox-board-subtasks${taskKey} checkbox-style-big-task" id="checkbox-board-subtasks${taskKey}${i}" type="checkbox">
-          <span>${subtask.subtaskText}</span>
+          <span class="checkbox-subtask-text">${subtask.subtaskText}</span>
         </div>
       `;
     }

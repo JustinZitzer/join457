@@ -2762,13 +2762,20 @@ h2 {
 .checkbox-style-big-task:checked::before {
   content: "";
   position: absolute;
-  right: -3px;
-  top: -3px;
-  width: 5px;
-  height: 14px;
+  right: -2px;
+  top: -2px;
+  width: 2px;
+  height: 8px;
   background: #fff;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
   z-index: 2;
+}
+
+.checkbox-subtask-text {
+    margin-left: 15px;
+}
+
+.task-margin-bottom-subtask {
+    margin-bottom: 12px;
 }
 
 @media screen and (max-width: 1200px) {
