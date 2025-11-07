@@ -2732,6 +2732,45 @@ h2 {
     border-right: 1px solid #29ABE2;
 }
 
+.checkbox-style-big-task {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #2A3647;
+  border-radius: 3px;
+  background: none;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.checkbox-style-big-task:checked::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 16px;
+  left: 7px;
+  top: -6px;
+  border: solid #2A3647;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  border-radius: 2.5px;
+  z-index: 3;
+}
+
+.checkbox-style-big-task:checked::before {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 5px;
+  height: 14px;
+  background: #fff;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 2;
+}
+
 @media screen and (max-width: 1200px) {
     .header-main-container {
         width: 100%;
