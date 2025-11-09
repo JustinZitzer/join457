@@ -1558,6 +1558,22 @@ function getEditedSubtasksForFirebase(taskKey) {
   return subtasks;
 }
 
+function saveEditTaskPriority(taskKey) {
+  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
+  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
+  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
+
+  if (buttonUrgent.classList.contains("active-red")) { 
+    return "Urgent";
+  } else if (buttonMedium.classList.contains("active-yellow")) {
+    return "Medium";
+  } else if (buttonLow.classList.contains("active-green")) {
+    return "Low";
+  } else {
+    return "No priority selected";
+  }
+}
+
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
   const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
   const newTitle = inputsForTask.titel;
