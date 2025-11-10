@@ -528,9 +528,8 @@ h6 {
 
 .three-circle-todo {
     width: 220px;
-    height: 32px;
+    height: auto;
     justify-content: space-between;
-
 }
 
 .three-circle-await {
@@ -548,11 +547,8 @@ h6 {
 .three-circle-container {
     display: flex;
     align-items: center;
-    margin-top: 22px;
     width: 110px;
-    height: 40px;
     gap: 8px;
-    padding-bottom: 20px;
 
 }
 
