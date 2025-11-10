@@ -3011,12 +3011,11 @@ h2 {
     height: 40px;
     position: relative;
     top: 22px;
-    ;
     border-radius: 10px;
     padding: 3px;
     background: #2A3647;
     opacity: 1;
-    z-index: 1000;
+    z-index: 1;
     /* sicherstellen, dass es über anderen Elementen liegt */
 }
 
@@ -3300,7 +3299,7 @@ h2 {
         border-radius: 10px;
         gap: 10px;
         padding: 3px;
-
+        z-index: 1;
     }
 
     .container-both-sides {
