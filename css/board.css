@@ -3441,14 +3441,57 @@ h2 {
     .await-feedback-content-task {
         min-height: 100px;
         min-width: 252px;
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .await-feedback-content-task::-webkit-scrollbar {
+        display: none;
     }
 
     .done-content-task {
         min-width: 252px;
+        max-height: 300px;
+        min-height: 200px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        display: flex;
+        margin-bottom: 100px;
     }
 
     .done-task-container {
         margin-left: 12px;
+    }
+
+    .todo-content-task {
+        display: flex;
+        max-height: 300px;
+    }
+
+    .todo-content-box {
+        margin-right: 15px;
+    }
+
+    .todo-content-task {
+        min-height: 200px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .todo-content-task::-webkit-scrollbar {
+        display: none;
+    }
+
+    .inprogress-content-task {
+        display: flex;
+        max-height: 300px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .inprogress-content-task::-webkit-scrollbar {
+        display: none;
     }
 }
 
