@@ -1595,7 +1595,7 @@ h5 {
     gap: 32px;
     top: 50px;
     left: 270px;
-    width: 65%;
+    width: 71%;
     height: 88vh;
     transform: translateX(100%);
     animation: slideInRight 0.2s ease forwards;
@@ -1622,9 +1622,17 @@ h5 {
     width: 32px;
     height: 32px;
     cursor: pointer;
-    left: 670px;
-    position: relative;
+    left: 59vw;
+    top: 0vh;
+    position: absolute;
     border-radius: 56px;
+}
+
+.x-close-button-add-task-overlay:hover {
+    box-shadow: 0 0 0px 1px rgba(88, 85, 85, 0.3);
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 h2 {
@@ -3032,7 +3040,7 @@ h2 {
         width: 50px;
         height: 50px;
         opacity: 1;
-        top: 170px;
+        top: 155px;
         left: 89.5vw;
         border-radius: 10px;
         gap: 10px;
@@ -3077,7 +3085,7 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 88vw;
+        width: 88.0vw;
     }
 
     .to-do-headline-board {
