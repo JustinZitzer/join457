@@ -3021,6 +3021,158 @@ h2 {
 
 @media (max-width: 1400px) {
 
+    main {
+        margin-left: 0px;
+        margin-top: 150px;
+    }
+
+    .responsive-btn {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+        top: 170px;
+        left: 89.5vw;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 3px;
+        z-index: 1;
+    }
+
+    .header-content-board {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .find-task-add-task-container {
+        padding-left: 0px;
+    }
+
+    .inputfield-task {
+        padding-top: 40px;
+        padding-left: 0px;
+    }
+
+    .add-task-box {
+        display: none;
+    }
+
+    .title-findtask {
+        width: 89vw;
+        height: 54px;
+    }
+
+    .search-button-container {
+        left: 84vw;
+        bottom: 42px;
+    }
+
+    .todos-bar-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .todo-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 88vw;
+    }
+
+    .to-do-headline-board {
+        font-size: 34px;
+        width: 200px;
+    }
+
+    .add-button {
+        height: 35px;
+        width: 35px;
+    }
+
+    .add-button-img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .todo-content-task {
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .todo-content-box {
+        margin-right: 15px;
+    }
+
+    .inprogress-box {
+        width: 87.5vw;
+        margin-top: 30px;
+        align-items: center;
+    }
+
+    .in-progress-headline-board {
+        font-size: 34px;
+        width: 200px;
+    }
+
+    .inprogress-content-task {
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .await-feedback-box {
+        width: 87.45vw;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .await-feedback-task-container {
+        margin-left: 10px;
+    }
+
+    .await-feedback-headline-board {
+        font-size: 34px;
+        width: 250px;
+    }
+
+    .await-feedback-content-task {
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .done-task-container {
+        margin-left: 10px;
+    }
+
+    .done-box {
+        width: 87.5vw;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .done-headline-board {
+        font-size: 34px;
+        width: 200px;
+    }
+
+    .done-content-task {
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        margin-bottom: 150px;
+    }
+
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
