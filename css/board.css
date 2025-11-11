@@ -2826,192 +2826,6 @@ h2 {
     margin-bottom: 12px;
 }
 
-@media screen and (max-width: 1200px) {
-    .header-main-container {
-        width: 100%;
-    }
-
-    main {
-        margin-left: 0px
-    }
-
-    .todos-bar-container {
-        width: 100%;
-    }
-
-    .await-feedback-content-task {
-        min-height: 100px;
-        min-width: 252px;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    main {
-        width: 99vw;
-        margin-left: 0px;
-        margin-top: 140px;
-    }
-
-    .header-main-container {
-        width: 99vw;
-    }
-
-
-    .progressbar-box {
-        display: flex;
-        width: 220px;
-        height: 16px;
-        padding-top: 36px;
-
-    }
-
-    .progressbar-content {
-        width: 128px;
-        height: 8px;
-        top: 4px;
-        gap: 10px;
-        border-radius: 8px;
-        background-color: #F4F4F4;
-
-    }
-
-    .inprogress-content-task {
-        min-height: 100px;
-    }
-
-    .await-feedback-content-task {
-        min-height: 100px;
-        min-width: 252px;
-    }
-
-    .done-content-task {
-        min-width: 252px;
-        width: 50%;
-    }
-
-    .done-task-container {
-        margin-left: 12px;
-    }
-
-
-    .header-content-board {
-        width: 99vw;
-        margin-left: 1vw;
-        padding-left: 16px;
-        gap: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .board-headline-board {
-        margin-bottom: 10px;
-    }
-
-    .add-task-container {
-        display: none;
-
-    }
-
-    .find-task-add-task-container {
-        padding-left: 0px;
-        width: 97vw;
-        top: 8px;
-        bottom: 8px;
-        right: 16px;
-        left: 16px;
-    }
-
-    .inputfield-task {
-        padding-left: 0px;
-        width: 97vw;
-    }
-
-    .inputfield-task-content {
-        width: 97vw;
-        justify-content: space-between;
-    }
-
-    .search-button-container {
-        display: flex;
-        align-items: center;
-        position: relative;
-        left: 92.5vw;
-        bottom: 38px;
-        width: 100%;
-        height: 32px;
-        gap: 12px;
-        border: 1px solid #D1D1D1;
-        border-top: none;
-        border-right: none;
-        border-bottom: none;
-        cursor: pointer;
-    }
-
-    .search-button {
-        width: 17.6px;
-        height: 17.6px;
-
-    }
-
-    .todos-bar-container {
-        display: flex;
-        flex-direction: column;
-        padding-left: 10px;
-        gap: 12px;
-
-    }
-
-    .todo-container {
-        margin-left: 12px;
-    }
-
-    .inprogress-container {
-        display: flex;
-        margin-left: 12px;
-        padding-top: 4px;
-
-    }
-
-    .await-feedback-task-container {
-        margin-left: 12px;
-        padding-top: 4px;
-        width: 50%;
-
-    }
-
-
-    .todo-container-content-mobile-version {
-        display: none;
-    }
-
-    .add-button {
-        position: absolute;
-        left: 400px;
-    }
-
-    .title-findtask {
-        padding-left: 16px;
-        font-size: 20px;
-        width: 97vw;
-        height: 48px;
-        border: 10px;
-        border-radius: 10px;
-        font-weight: 400;
-        color: #D1D1D1;
-    }
-
-
-    .main-container-middle-part {
-        width: 1208px;
-        height: 688px;
-        margin-left: 232px;
-        padding-right: 64px;
-        padding-left: 64px;
-
-    }
-}
-
-
 .responsive-btn {
     display: none;
     /* Standard: unsichtbar */
@@ -3041,16 +2855,22 @@ h2 {
         height: 50px;
         opacity: 1;
         top: 155px;
-        left: 89.5vw;
+        left: 93.5vw;
         border-radius: 10px;
         gap: 10px;
         padding: 3px;
         z-index: 1;
+        cursor: pointer;
+    }
+
+    .responsive-btn:hover {
+        
     }
 
     .header-content-board {
         display: flex;
         flex-direction: column;
+        padding-left: 16px;
     }
 
     .find-task-add-task-container {
@@ -3067,25 +2887,26 @@ h2 {
     }
 
     .title-findtask {
-        width: 89vw;
+        width: 96vw;
         height: 54px;
     }
 
     .search-button-container {
-        left: 84vw;
+        left: 90.5vw;
         bottom: 42px;
     }
 
     .todos-bar-container {
         display: flex;
         flex-direction: column;
+        padding-left: 16px;
     }
 
     .todo-box {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 88.0vw;
+        width: 95.5vw;
     }
 
     .to-do-headline-board {
@@ -3116,7 +2937,7 @@ h2 {
     }
 
     .inprogress-box {
-        width: 87.5vw;
+        width: 95.0vw;
         margin-top: 30px;
         align-items: center;
     }
@@ -3135,7 +2956,7 @@ h2 {
     }
 
     .await-feedback-box {
-        width: 87.45vw;
+        width: 95.0vw;
         margin-top: 10px;
         align-items: center;
     }
@@ -3162,7 +2983,7 @@ h2 {
     }
 
     .done-box {
-        width: 87.5vw;
+        width: 95.0vw;
         margin-top: 10px;
         align-items: center;
     }
@@ -3345,8 +3166,48 @@ h2 {
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
+    .search-button-container{
+        left: 90vw;
+    }
 
+    .responsive-btn {
+        left: 92.5vw;
+    }
+
+    .todo-box {
+        width: 95vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 94.5vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .title-findtask {
+        width: 95vw;
+    }
+
+    .responsive-btn {
+        left: 91.0vw;
+    }
+
+    .todo-box {
+        width: 94vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 93.5vw;
+    }
+
+    .search-button-container {
+        left: 87.5vw;
+    }
 
     .title-inputfield-enter-title {
         width: 92vw;
@@ -3435,6 +3296,30 @@ h2 {
         min-width: 252px;
     }
 
+}
+
+@media (max-width: 900px) {
+    .search-button-container{
+        left: 85.5vw;
+    }
+
+    .title-findtask {
+        width: 94vw;
+    }
+
+    .responsive-btn {
+        left: 90.0vw;
+    }
+
+    .todo-box {
+        width: 93vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 92.5vw;
+    }
 }
 
 @media (max-width: 700px) {
@@ -3652,6 +3537,14 @@ h2 {
 
     .inprogress-content-task::-webkit-scrollbar {
         display: none;
+    }
+
+    .title-findtask {
+        width: 84vw;
+    }
+
+    .search-button-container {
+        left: 76vw;
     }
 }
 
