@@ -213,7 +213,7 @@ footer a:hover {
         top: auto;
         left: 0;
         padding: 0;
-        z-index: 1;
+        z-index: 3;
     }
 
     .sidebar-join-logo {

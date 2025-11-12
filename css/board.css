@@ -2835,7 +2835,7 @@ h2 {
     top: 22px;
     border-radius: 10px;
     padding: 3px;
-    background: #2A3647;
+    color: #2A3647;
     opacity: 1;
     z-index: 1;
     /* sicherstellen, dass es über anderen Elementen liegt */
@@ -2864,7 +2864,7 @@ h2 {
     }
 
     .responsive-btn:hover {
-        
+        color: #29ABE2;
     }
 
     .header-content-board {
