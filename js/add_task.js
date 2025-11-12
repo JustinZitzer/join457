@@ -573,26 +573,6 @@ function validateGetCategoryForNewTask() {
   }
 }
 
-function getCategoryForNewTask() {
-  const taskCategory = document.getElementById("category-input");
-
-  if (!taskCategory.value == "") {
-    return taskCategory.value;
-  } else {
-    alert("Please select a valid category: 'Technical Task' or 'User Story'");
-  }
-}
-
-function validateGetCategoryForNewTask() {
-  const taskCategory = document.getElementById("category-input");
-  const fieldRequired = document.getElementById("error-field-category");
-  if (taskCategory == "Technical Task" || taskCategory == "User Story") {
-    return taskCategory.value;
-  } else {
-    fieldRequired.classList.remove("display-none");
-  }
-}
-
 function addStyleForDropdownAnimation() {
   const dropdown = document.getElementById("category-dropdown");
   dropdown.classList.remove("display-none");
