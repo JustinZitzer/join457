@@ -3324,6 +3324,16 @@ h2 {
 
 @media (max-width: 700px) {
 
+    .todo-box {
+        width: 92vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 90.5vw;
+    }
+
     .main-container-for-two-inputfield-container {
         display: flex;
         justify-content: flex-start;
@@ -3340,7 +3350,7 @@ h2 {
         height: 40px;
         opacity: 1;
         top: 160px;
-        left: 382px;
+        left: 88vw;
         border-radius: 10px;
         gap: 10px;
         padding: 3px;
@@ -3540,11 +3550,36 @@ h2 {
     }
 
     .title-findtask {
-        width: 84vw;
+        width: 92.0vw;
     }
 
     .search-button-container {
-        left: 76vw;
+        left: 81vw;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .todo-box {
+        width: 91vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 89.5vw;
+    }
+
+    .title-findtask {
+        width: 91.0vw;
+    }
+
+    .search-button-container {
+        left: 80vw;
+    }
+
+    .responsive-btn {
+        left: 86.5vw;
     }
 }
 
@@ -3632,6 +3667,28 @@ h2 {
 
 
 @media (max-width: 500px) {
+
+    .todo-box {
+        width: 87.5vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 86.5vw;
+    }
+
+    .title-findtask {
+        width: 89.0vw;
+    }
+
+    .search-button-container {
+        left: 75vw;
+    }
+
+    .responsive-btn {
+        left: 82.5vw;
+    }
 
     .main-container-for-two-inputfield-container {
         display: flex;
@@ -3885,6 +3942,28 @@ h2 {
 
 @media (max-width: 400px) {
 
+    .todo-box {
+        width: 87.5vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 85.5vw;
+    }
+
+    .title-findtask {
+        width: 89.0vw;
+    }
+
+    .search-button-container {
+        left: 72vw;
+    }
+
+    .responsive-btn {
+        left: 82.5vw;
+    }
+
     .main-box-inputfield {
         display: flex;
         justify-content: space-around;
@@ -3914,4 +3993,52 @@ h2 {
         width: 20vw;
     }
 
+}
+
+@media (max-width: 400px) {
+    .todo-box {
+        width: 87.5vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 85.5vw;
+    }
+
+    .title-findtask {
+        width: 89.0vw;
+    }
+
+    .search-button-container {
+        left: 72vw;
+    }
+
+    .responsive-btn {
+        left: 82.5vw;
+    }
+}
+
+@media (max-width: 350px) {
+    .todo-box {
+        width: 88vw;
+    }
+
+    .inprogress-box,
+    .await-feedback-box,
+    .done-box {
+        width: 85.5vw;
+    }
+
+    .title-findtask {
+        width: 89.0vw;
+    }
+
+    .search-button-container {
+        left: 70vw;
+    }
+
+    .responsive-btn {
+        left: 81vw;
+    }
 }
