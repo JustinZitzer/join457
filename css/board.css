@@ -2948,8 +2948,6 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
-        scrollbar-width: none;
     }
 
     .await-feedback-box {
@@ -2971,8 +2969,6 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
-        scrollbar-width: none;
     }
 
     .done-task-container {
@@ -2994,8 +2990,6 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
-        scrollbar-width: none;
         margin-bottom: 150px;
     }
 
@@ -3494,20 +3488,12 @@ h2 {
         min-height: 100px;
         min-width: 252px;
         display: flex;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .await-feedback-content-task::-webkit-scrollbar {
-        display: none;
     }
 
     .done-content-task {
         min-width: 252px;
         max-height: 300px;
         min-height: 200px;
-        overflow-x: auto;
-        scrollbar-width: none;
         display: flex;
         margin-bottom: 100px;
     }
@@ -3528,12 +3514,6 @@ h2 {
     .inprogress-content-task {
         display: flex;
         max-height: 300px;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .inprogress-content-task::-webkit-scrollbar {
-        display: none;
     }
 
     .title-findtask {
@@ -3548,7 +3528,7 @@ h2 {
 @media (max-width: 600px) {
 
     .todo-box {
-        width: 91vw;
+        width: 89vw;
     }
 
     .inprogress-box,
@@ -3660,7 +3640,52 @@ h2 {
         min-height: 100px;
         max-height: 300px;
         overflow-y: auto;
-        padding-right: 30px;
+        padding-right: 33px;
+    }
+
+    .inprogress-content-task {
+        max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 33px;
+        margin-left: 0px;
+    }
+
+    .inprogress-container {
+        margin-left: 0px;
+    }
+
+    .await-feedback-content-task {
+        max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 33px;
+        margin-left: 0px;
+    }
+
+    .await-feedback-task-container {
+        margin-left: 0px;
+    }
+
+    .done-task-container {
+        margin-left: 0px;
+    }
+
+    .done-content-task {
+        max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 33px;
+        margin-left: 0px;
     }
 }
 
