@@ -25,6 +25,10 @@ function openContactsSideCardOverlayById(contactId) {
     requestAnimationFrame(flyInOverlay);
 }
 
+function showContactsCardOverlayMobile() {
+    
+}
+
 function handleActiveCard(contactId) {
     const contactCard = document.getElementById(`contact_card_${contactId}`);
     contactCard.classList.remove('contact-card-activated');
