@@ -233,7 +233,6 @@ h3 {
 }
 
 .todo-content-task {
-    display: block;
     min-height: 500px;
 }
 
@@ -2928,8 +2927,6 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
-        scrollbar-width: none;
     }
 
     .todo-content-box {
@@ -3528,16 +3525,6 @@ h2 {
         margin-right: 15px;
     }
 
-    .todo-content-task {
-        min-height: 200px;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .todo-content-task::-webkit-scrollbar {
-        display: none;
-    }
-
     .inprogress-content-task {
         display: flex;
         max-height: 300px;
@@ -3661,15 +3648,27 @@ h2 {
 }
 
 .contacts-dropdown {
-    width: 90vw;
+    width: 98vw;
     margin-top: 0px;
+}
+
+@media (max-width: 560px) {
+    .todo-content-task {
+        max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 30px;
+    }
 }
 
 
 @media (max-width: 500px) {
 
     .todo-box {
-        width: 87.5vw;
+        width: 87.8vw;
     }
 
     .inprogress-box,
@@ -3941,29 +3940,6 @@ h2 {
 
 
 @media (max-width: 400px) {
-
-    .todo-box {
-        width: 87.5vw;
-    }
-
-    .inprogress-box,
-    .await-feedback-box,
-    .done-box {
-        width: 85.5vw;
-    }
-
-    .title-findtask {
-        width: 89.0vw;
-    }
-
-    .search-button-container {
-        left: 72vw;
-    }
-
-    .responsive-btn {
-        left: 82.5vw;
-    }
-
     .main-box-inputfield {
         display: flex;
         justify-content: space-around;
