@@ -620,6 +620,27 @@
 
     .contacts-right-main-container {
         display: none;
+        width: 100%;
+    }
+
+    .contacts-side-headline{
+        margin-top: 150px;
+        margin-left: 60px;
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .contacts-overlay-container {
+        margin-top: 50px;
+    }
+
+    .contacts-headline-seperator {
+        display: none;
     }
 
     .contacts-content {
