@@ -23,10 +23,19 @@ function openContactsSideCardOverlayById(contactId) {
     openContactsSideCardOverlay(contactId);
     toggleContactCardColor(contactId);
     requestAnimationFrame(flyInOverlay);
+    showContactsCardOverlayMobile();
 }
 
 function showContactsCardOverlayMobile() {
-    
+    const contactOverlayActive = document.getElementById('contacts_side_overlay');
+    const contactsRightSection = document.getElementById('contacts_right_section');
+    const contactsLeftSection = document.getElementById('contacts-sidebar-container');
+    const displayResolution = window.innerWidth;
+
+    if (!contactOverlayActive.classList.contains('active-side-overlay') && displayResolution < 1400) {
+        contactsRightSection.style.display = 'block';
+        contactsLeftSection.style.display = 'none';
+    }
 }
 
 function handleActiveCard(contactId) {
