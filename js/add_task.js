@@ -72,7 +72,6 @@ function openOverlay(status) {
   }
 }
 
-
 function closeOverlay() {
   const overlay = document.getElementById("overlay");
   overlay.classList.remove("overlay-visible");

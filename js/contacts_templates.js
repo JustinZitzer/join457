@@ -11,7 +11,7 @@ function getContactOverlay(contact) {
                         <div class="contacts-overlay-action-buttons-container">
                             <div onclick="openEditContactOverlay(${contact.id})" class="contacts-overlay-edit-container">
                                 <img src="./assets/icons/edit-icon.svg" alt="edit-icon">
-                                <p>Edit</p>
+                                  <p>Edit</p>
                             </div>
                             <div onclick="deleteContact('${contact.key}')" class="contacts-overlay-delete-container">
                                 <img src="./assets/icons/delete-icon.svg" alt="delete-icon">
