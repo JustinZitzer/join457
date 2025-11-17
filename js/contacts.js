@@ -4,6 +4,12 @@ let openedEditContactsOverlay = false;
 let activeCard = null;
 const STORAGE_KEY = 'contactColors';
 let show = false;
+let resizeTimeout;
+
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(showContactsCardOverlayMobile, 10);
+});
 
 function openContactsSideCardOverlay(contactId) {
     const contact = allContacts.find(c => c.id === contactId);
@@ -32,9 +38,12 @@ function showContactsCardOverlayMobile() {
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
     const displayResolution = window.innerWidth;
 
-    if (!contactOverlayActive.classList.contains('active-side-overlay') && displayResolution < 1400) {
+    if (!contactOverlayActive.classList.contains('.contacts-overlay-container.active-side-overlay') && displayResolution < 1400) {
         contactsRightSection.style.display = 'block';
         contactsLeftSection.style.display = 'none';
+    } else if (displayResolution > 1400) {
+        contactsRightSection.style.display = 'flex';
+        contactsLeftSection.style.display = 'block';
     }
 }
 
