@@ -30,6 +30,7 @@ function openContactsSideCardOverlayById(contactId) {
     toggleContactCardColor(contactId);
     requestAnimationFrame(flyInOverlay);
     showContactsCardOverlayMobile();
+    showThreeDotsMenu();
 }
 
 function showContactsCardOverlayMobile() {
@@ -37,13 +38,35 @@ function showContactsCardOverlayMobile() {
     const contactsRightSection = document.getElementById('contacts_right_section');
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
     const displayResolution = window.innerWidth;
+    const template = document.getElementById('contacts_side_overlay');
 
+    if (!template) return;
     if (!contactOverlayActive.classList.contains('.contacts-overlay-container.active-side-overlay') && displayResolution < 1400) {
         contactsRightSection.style.display = 'block';
         contactsLeftSection.style.display = 'none';
     } else if (displayResolution > 1400) {
         contactsRightSection.style.display = 'flex';
         contactsLeftSection.style.display = 'block';
+    }
+}
+
+function showThreeDotsMenu() {
+    const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
+    const threeDotsMenu = document.getElementById('edit-delete-contact-button');
+    const contactOverlayActive = document.getElementById('contacts_side_overlay');
+    
+    if (!contactOverlayActive.classList.contains('.contacts-overlay-container.active-side-overlay')) {
+        addContactButton.style.display = 'none';
+        threeDotsMenu.style.display = 'block';
+    }
+}
+
+function showEditContactDropsdownMobile() {
+    const dropdown = document.getElementById("delete-edit-dropdown-contacts");
+    if(dropdown.classList.contains("display-none")){
+        dropdown.classList.remove("display-none");
+    } else {
+        dropdown.classList.add("display-none");
     }
 }
 

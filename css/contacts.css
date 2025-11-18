@@ -3,6 +3,10 @@
     height: 100dvh;
 }
 
+.display-none {
+    display: none;
+}
+
 .contacts-sidebar-container {
     display: flex;
     flex-direction: column;
@@ -187,6 +191,10 @@
     width: 3px;
     border-radius: 3px;
     background-color: rgba(41, 171, 226, 1);
+}
+
+.contacts-headline-seperator-mobile {
+    display: none;
 }
 
 .contacts-overlay-container {
@@ -643,9 +651,77 @@
         display: none;
     }
 
+    .contacts-headline-seperator-mobile {
+        display: block;
+        height: 4px;
+        width: 120px;
+        border-radius: 3px;
+        background-color: rgba(41, 171, 226, 1);
+    }
+
+    .contacts-side-headline h3 {
+        display: flex;
+        font-weight: 400;
+        font-size: 27px;
+        margin-top: 0px;
+        align-items: start;
+        height: auto;
+    }
+
+    .contacts-headline-seperator-mobile {
+        margin-top: 5px;
+    }
+
+    .contacts-overlay-action-buttons-container {
+        display: none;
+    }
+    
+    .contacts-info-container h3 {
+    font-size: 47px;
+    padding-top: 30px;
+    font-weight: bold;
+    }
+
+    .edit-delete-contact-button {
+        display: none;
+        color: rgba(42, 54, 71, 1);
+        position: fixed;
+        z-index: 3;
+        right: 5vw;
+        bottom: 40px;
+        margin-bottom: 80px;
+        border-radius: 50%;
+    }
+
+    .edit-delete-contact-button:hover {
+        color: rgba(41, 171, 226, 1);
+        background-color: rgba(41, 171, 226, 1);
+    }
+
     .contacts-content {
         display: flex;
         justify-content: center;
+    }
+
+    .delete-edit-dropdown-contacts-mobile {
+        width: 116px;
+        height: 100px;
+        background-color: white;
+        opacity: 1;
+        padding: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        position: fixed;
+        z-index: 4;
+        right: 5vw;
+        bottom: 40px;
+        margin-bottom: 80px;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .edit-flexbox-contacts {
+        display: flex;
     }
 
     .contact-card {
