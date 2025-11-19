@@ -19,8 +19,10 @@ function openContactsSideCardOverlay(contactId) {
     }
     const contactsRightSection = document.getElementById('contacts_right_section');
     const existingOverlay = document.getElementById('contacts_side_overlay');
+    const dropdownEditDelete = document.getElementById('delete-edit-dropdown-contacts');
     if (existingOverlay) {
         existingOverlay.remove();
+        dropdownEditDelete.remove();
     }
     contactsRightSection.innerHTML += (getContactOverlay(contact));
 }
@@ -65,7 +67,12 @@ function showEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
     if(dropdown.classList.contains("display-none")){
         dropdown.classList.remove("display-none");
-    } else {
+    }
+}
+
+function closeEditContactDropsdownMobile() {
+    const dropdown = document.getElementById("delete-edit-dropdown-contacts");
+    if(!dropdown.classList.contains("display-none")){
         dropdown.classList.add("display-none");
     }
 }

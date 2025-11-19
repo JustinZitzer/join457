@@ -508,7 +508,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 126px;
+    width: 50%;
     height: 56px;
     background-color: white;
     border: 1px solid rgba(42, 54, 71, 1);
@@ -533,7 +533,7 @@
 
 .add-contact-create-contact-btn {
     cursor: pointer;
-    width: 230px;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -557,6 +557,10 @@
     height: 60px;
     width: 60px;
     border-radius: 100%;
+    display: none;
+}
+
+.delete-edit-dropdown-contacts-mobile {
     display: none;
 }
 
@@ -844,9 +848,9 @@
         flex-direction: column;
         position: fixed;
         left: 2.1vw;
-        top: 11vh;
+        top: 3.5vh;
         width: 95vw;
-        height: 77.5vh;
+        height: 79vh;
         z-index: 4;
         border-radius: 30px;
         background-color: white;
@@ -867,7 +871,7 @@
 
     .add-contact-headline h1 {
         font-weight: 700;
-        font-size: 49px;
+        font-size: 42px;
     }
 
     .add-contact-headline h2 {
@@ -966,7 +970,8 @@
     }
 
     .add-contact-cancel-btn {
-        display: none;
+        width: 120px;
+        margin-right: 2%;
     }
 
     .add-contact-btn-section {
@@ -981,7 +986,7 @@
 
     .add-contact-create-contact-btn {
         cursor: pointer;
-        width: 215px;
+        width: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1046,5 +1051,11 @@
 
     .add-contact-overlay {
         width: 91vw;
+    }
+
+    .add-contact-headline h1 {
+        font-weight: 700;
+        font-size: 35px;
+        white-space: nowrap;
     }
 }
