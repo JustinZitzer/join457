@@ -40,13 +40,20 @@ function showContactsCardOverlayMobile() {
     const contactsRightSection = document.getElementById('contacts_right_section');
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
     const displayResolution = window.innerWidth;
-    const template = document.getElementById('contacts_side_overlay');
 
-    if (!template) return;
-    if (!contactOverlayActive.classList.contains('.contacts-overlay-container.active-side-overlay') && displayResolution < 1400) {
-        contactsRightSection.style.display = 'block';
-        contactsLeftSection.style.display = 'none';
-    } else if (displayResolution > 1400) {
+    if (!contactOverlayActive) return;
+    const isActive = contactOverlayActive.classList.contains('active-side-overlay');
+
+    if (displayResolution < 1400) {
+        if (isActive) {
+            contactsRightSection.style.display = 'block';
+            contactsLeftSection.style.display = 'none';
+        } else {
+            contactsRightSection.style.display = 'none';
+            contactsLeftSection.style.display = 'block';
+        }
+    }
+    else {
         contactsRightSection.style.display = 'flex';
         contactsLeftSection.style.display = 'block';
     }
