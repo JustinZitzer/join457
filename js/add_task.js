@@ -38,31 +38,25 @@ function openOverlay(status) {
   const overlay = document.getElementById("overlay");
   const overlayContent = document.getElementById("content-add-task-overlay");
 
-  // Overlay sichtbar machen
   overlay.classList.remove("overlay-hidden");
   overlay.classList.add("overlay-visible");
 
   if (window.innerWidth > 1400) {
-    // Inhalt setzen
     overlayContent.innerHTML = getTaskOverlayTemplate(status);
 
-    // Slide-in Animation starten
     overlayContent.classList.add("slide-in");
 
-    // Close Button innerhalb des neuen Inhalts suchen
     const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
     if (closeButton) {
       closeButton.addEventListener("click", () => {
-        // Slide-in entfernen, slide-out hinzufügen
         overlayContent.classList.remove("slide-in");
         overlayContent.classList.add("slide-out");
 
-        // Nach Animation Overlay schließen
         setTimeout(() => {
           overlay.classList.remove("overlay-visible");
           overlay.classList.add("overlay-hidden");
           overlayContent.classList.remove("slide-out");
-        }, 0); // Dauer der Animation in ms
+        }, 0);
       });
     } else {
       console.warn("Close Button nicht gefunden!");
@@ -77,12 +71,10 @@ function closeOverlay() {
   overlay.classList.remove("overlay-visible");
 }
 
-// Klick auf das Overlay-Hintergrund
 if (window.location.pathname.endsWith("board.html")) {
   document.getElementById("overlay").addEventListener("click", closeOverlay);
 }
 
-// Klick auf das Inhaltselement wird gestoppt (wichtig!)
 if (window.location.pathname.endsWith("board.html")) {
 document
   .getElementById("content-add-task-overlay")
@@ -95,7 +87,6 @@ function overlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
   const overlayContentToDo = document.getElementById("content-add-task-overlay-todo");
 
-  // Overlay anzeigen
   overlayToDoContainer.classList.remove("overlay-hidden");
   overlayToDoContainer.classList.add("overlay-visible");
 
@@ -105,31 +96,27 @@ function overlayToDo() {
     const content = document.getElementById("overlay-content-todo");
     if (content) {
       content.classList.remove("slide-out");
-      void content.offsetWidth; // Force reflow
+      void content.offsetWidth;
       content.classList.add("slide-in");
     }
 
-    // Klick auf Overlay-Hintergrund schließt Overlay
     overlayToDoContainer.onclick = function (event) {
       if (event.target === overlayToDoContainer) {
         closeOverlayToDo();
       }
     };
 
-    // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
       const closeBtn = overlayContentToDo.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
         closeBtn.onclick = function (e) {
           e.stopPropagation();
 
-          // Slide-in entfernen, slide-out hinzufügen
           if (content) {
             content.classList.remove("slide-in");
-            void content.offsetWidth; // Force reflow
+            void content.offsetWidth;
             content.classList.add("slide-out");
 
-            // Nach Animation Overlay schließen
             content.addEventListener("animationend", function handler() {
               overlayToDoContainer.classList.remove("overlay-visible");
               overlayToDoContainer.classList.add("overlay-hidden");
@@ -137,7 +124,6 @@ function overlayToDo() {
               content.removeEventListener("animationend", handler);
             });
           } else {
-            // Fallback falls content nicht gefunden
             closeOverlayToDo();
           }
         };
@@ -148,7 +134,6 @@ function overlayToDo() {
   }
 }
 
-// Hilfsfunktion zum Schließen (ohne Animation)
 function closeOverlayToDo() {
   const overlayToDoContainer = document.getElementById("overlay-todo");
   overlayToDoContainer.classList.remove("overlay-visible");
@@ -159,11 +144,9 @@ function openOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
   const overlayContentProgress = document.getElementById("content-add-task-overlay-in-progress");
 
-  // Overlay anzeigen
   overlayInProgress.classList.add("overlay-visible");
   overlayInProgress.classList.remove("overlay-hidden");
 
-  // Klick auf Hintergrund schließt Overlay
   overlayInProgress.onclick = function (event) {
     if (event.target === overlayInProgress) {
       closeOverlayInProgress();
@@ -175,14 +158,12 @@ function openOverlayInProgress() {
 
     const content = document.getElementById("overlay-content-progress");
     if (content) {
-      // Animation zurücksetzen und slide-in starten
       content.style.animation = "none";
-      void content.offsetWidth; // Force reflow
+      void content.offsetWidth;
       content.style.animation = "";
       content.classList.add("slide-in");
     }
 
-    // Close-Button zuweisen mit Slide-Out Animation
     setTimeout(() => {
       const closeBtn = overlayContentProgress.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
@@ -211,7 +192,6 @@ function openOverlayInProgress() {
   }
 }
 
-// Hilfsfunktion ohne Animation
 function closeOverlayInProgress() {
   const overlayInProgress = document.getElementById("overlay-in-progress");
   overlayInProgress.classList.remove("overlay-visible");
@@ -222,7 +202,6 @@ function openOverlayFeedback() {
   const overlay = document.getElementById("overlay-await-feedback");
   const overlayContent = document.getElementById("content-add-task-overlay-await-feedback");
 
-  // Overlay sichtbar machen
   overlay.classList.remove("overlay-hidden");
   overlay.classList.add("overlay-visible");
 
@@ -232,18 +211,16 @@ function openOverlayFeedback() {
     const content = document.getElementById("overlay-content-feedback");
     if (content) {
       content.classList.remove("slide-out");
-      void content.offsetWidth; // Reflow erzwingen
+      void content.offsetWidth;
       content.classList.add("slide-in");
     }
 
-    // Klick auf Hintergrund schließt Overlay
     overlay.onclick = function (event) {
       if (event.target === overlay) {
         closeOverlayFeedback();
       }
     };
 
-    // X-Button mit Slide-Out zuweisen
     setTimeout(() => {
       const closeBtn = overlayContent.querySelector(".x-close-button-add-task-overlay");
       if (closeBtn) {
@@ -268,7 +245,6 @@ function openOverlayFeedback() {
       }
     }, 0);
   } else {
-    // Mobile redirect
     window.location.href = "./add_task.html";
   }
 }
@@ -832,24 +808,22 @@ async function initAddTask() {
 }
 
 async function loadAllTasksFromFirebase() {
-  todosArray = []; // Leeren!
+  todosArray = [];
   const response = await fetch(FireBaseUrl + "tasks.json");
   const data = await response.json();
 
   if (data) {
     for (const categoryKey in data) {
-      // z.B. "toDo", "done", ...
       const categoryTasks = data[categoryKey];
       for (const taskKey in categoryTasks) {
         const task = categoryTasks[taskKey];
-        // Schreibe Info dazu (für Filter, Drag&Drop usw.)
-        task.id = taskKey; // z.B. "task1"
-        task.category = categoryKey; // z.B. "toDo"
+        task.id = taskKey;
+        task.category = categoryKey;
         todosArray.push(task);
       }
     }
   }
-  updateTasksHtml(); // Jetzt alles rendern!
+  updateTasksHtml();
 }
 
 function filterTasksByCategory() {
@@ -955,7 +929,6 @@ function allowDrop(ev) {
 }
 
 async function moveTo(newCategory) {
-  // 1. Finde Task im Array
   const taskIndex = todosArray.findIndex(
     (t) =>
       t.id === currentDraggedElement && t.category === currentDraggedCategory
@@ -963,12 +936,10 @@ async function moveTo(newCategory) {
   if (taskIndex === -1) return;
   const task = todosArray[taskIndex];
 
-  // 2. Lösche aus alter Kategorie in Firebase
   await fetch(FireBaseUrl + `tasks/${currentDraggedCategory}/${task.id}.json`, {
     method: "DELETE",
   });
 
-  // 3. Neue Kategorie setzen und speichern
   task.category = newCategory;
   await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {
     method: "PUT",
@@ -976,7 +947,6 @@ async function moveTo(newCategory) {
     body: JSON.stringify(task),
   });
 
-  // 4. Tasks neu laden und rendern
   loadAllTasksFromFirebase();
 }
 
@@ -1487,7 +1457,6 @@ function addNewSubtaskInEdit(taskKey) {
   const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const subtaskText = input.value.trim();
 
-  // Wenn kein Text drin ist, abbrechen
   if (!subtaskText) return;
 
   const currentSubtasks = subtasksEditDiv.getElementsByClassName("subtasks-board-first-task-edit");
@@ -1511,7 +1480,8 @@ function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
-  return {titel, description, dueDate, priority, assignedTo, subtasks, categoryUserOrTechnicalTask, id, category};
+  return {titel, description, dueDate, priority, assignedTo, subtasks,
+  categoryUserOrTechnicalTask, id, category};
 }
 
 function getEditedSubtasksForFirebase(taskKey) {
@@ -1649,7 +1619,6 @@ function validateInputBoard() {
     errorMsg.classList.add("display-none");
   }
   return input;
-  //let titel nachher für firebase nutzen
 }
 
 function validateDueDateInputBoard() {
@@ -1961,5 +1930,3 @@ function searchTask() {
     }
   }
 }
-// Unbedingt die gleichen Fallbacks wie bei der Informations Abfrage von neuem Task erstellen nutzen,
-//damit korrekt gerendert wird und nichts leer bleibt oder das Template nicht geladen wird!
