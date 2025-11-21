@@ -44,6 +44,10 @@ function showContactsCardOverlayMobile() {
     if (!contactOverlayActive) return;
     const isActive = contactOverlayActive.classList.contains('active-side-overlay');
 
+    ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection);
+}
+
+function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
     if (displayResolution < 1400) {
         if (isActive) {
             contactsRightSection.style.display = 'block';
