@@ -393,9 +393,16 @@ function addStyleForDropdownAnimation() {
   dropdown.classList.remove("display-none");
 }
 
+function pushSubtaskToArray(subtasksArray, subtaskTextElement) {
+  const subtask = subtaskTextElement.textContent.trim().replace("• ", "");
+  subtasksArray.push({
+    subtaskText: subtask,
+    statusCheckbox: false
+  });
+}
+
 function updateSubtasksArray() {
   let subtasksArray = [];
-  subtasksArray = [];
 
   for (let index = 0; index < subtaskSavedCounter; index++) {
     const subtaskElement = document.getElementById(`subtask-${index}`);
@@ -403,12 +410,7 @@ function updateSubtasksArray() {
     const checkboxElement = document.getElementById(`subtask-checkbox${index}`);
 
     if (subtaskElement && subtaskTextElement && checkboxElement) {
-      const subtask = subtaskTextElement.textContent.trim().replace("• ", "");
-      const notChecked = false;
-      subtasksArray.push({
-        subtaskText: subtask,
-        statusCheckbox: notChecked
-      });
+      pushSubtaskToArray(subtasksArray, subtaskTextElement);
     }
   }
   return subtasksArray;
@@ -467,30 +469,21 @@ function editSavedSubtask(subtaskSavedCounter, subtask) {
 }
 
 function saveEditedSubtask(subtaskSavedCounter) {
-  const input = document.getElementById(
-    `edit-subtask-inputfield${subtaskSavedCounter}`
-  );
+  const input = document.getElementById(`edit-subtask-inputfield${subtaskSavedCounter}`);
   if (!input) return;
   const newValue = input.value;
 
-  const subTaskElementDiv = document.getElementById(
-    `subtask-list-element-div${subtaskSavedCounter}`
-  );
+  const subTaskElementDiv = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
   if (!subTaskElementDiv) return;
   const liElement = subTaskElementDiv.parentElement;
 
-  liElement.outerHTML = getSubtaskListElementTemplate(
-    newValue,
-    subtaskSavedCounter
-  );
+  liElement.outerHTML = getSubtaskListElementTemplate(newValue, subtaskSavedCounter);
 
   updateSubtasksArray();
 }
 
 function deleteSavedSubTask(subtaskSavedCounter, subtask) {
-  const subTaskElement = document.getElementById(
-    `subtask-${subtaskSavedCounter}`
-  );
+  const subTaskElement = document.getElementById(`subtask-${subtaskSavedCounter}`);
   if (subTaskElement) subTaskElement.remove();
 
   updateSubtasksArray();
@@ -514,9 +507,7 @@ function getAssignedToValue() {
 
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
-  assignedContacts = assignedContacts.filter(
-    (contact) => contact !== "Not Assigned to anyone"
-  );
+  assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");
   let nameInitialesArray = [];
 
   for (let i = 0; i < assignedContacts.length; i++) {
@@ -531,49 +522,52 @@ function getContactForCircle() {
   return nameInitialesArray;
 }
 
+function shouldHideAssignedCircles(nameInitialesArray, contactsDropdown) {
+  return (
+    nameInitialesArray.length === 0 ||
+    nameInitialesArray.includes("Not Assigned to anyone") ||
+    !contactsDropdown.classList.contains("hidden")
+  );
+}
+
 function renderCirclesForAssignedContacts(nameInitialesArray) {
   circleRenderContainer.innerHTML = "";
-  if (
-    nameInitialesArray.length == 0 ||
-    nameInitialesArray.includes("Not Assigned to anyone")
-  ) {
-    circleFlexContainer.classList.add("display-none");
-    return;
-  } else if (!contactsDropdown.classList.contains("hidden")) {
+
+  if (shouldHideAssignedCircles(nameInitialesArray, contactsDropdown)) {
     circleFlexContainer.classList.add("display-none");
     return;
   }
 
-  const circleClasses = [
-    "single-circle-first",
-    "single-circle-second",
-    "single-circle-third",
-  ];
+  const circleClasses = ["single-circle-first", "single-circle-second", "single-circle-third"];
+
   for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
-    circleRenderContainer.innerHTML += `
-      <div class="${circleClasses[i]}">
-        <h6>${initials}</h6>
-      </div>
-    `;
+    circleRenderContainer.innerHTML += getContactCircleTemplate(circleClasses[i], initials);
   }
+
   circleFlexContainer.classList.remove("display-none");
+}
+
+function clearInnerHtmlAndValues() {
+  taskTitel.value = "";
+  taskDescription.value = "";
+  taskDueDate.value = "";
+  taskCategory.value = "";
+  taskSubtask.value = "";
+  savedSubtasks.innerHTML = "";
 }
 
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
-  taskTitel.value = "";
-  taskDescription.value = "";
-  taskDueDate.value = "";
+
+  clearInnerHtmlAndValues();
+
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
   taskPriorityLow.classList.remove("active");
-  taskCategory.value = "";
-  taskSubtask.value = "";
-  savedSubtasks.innerHTML = "";
+
   for (let i = 0; i < contacts.length; i++) {
-    let contact = contacts[i];
-    contact.checked = false;
+    contacts[i].checked = false;
   }
 }
 
@@ -593,10 +587,7 @@ async function postNewTaskToFirebase() {
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
-    const dataPost = await putRegistryDataBaseFunction(
-      "tasks/toDo/" + newTaskKey,
-      inputsForTask
-    );
+    const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
     clearInputFieldsForNewTask();
     console.log(dataPost);
   } else if (!taskTitel.value) {
@@ -619,24 +610,24 @@ async function putRegistryDataBaseFunction(path = "", data = {}) {
   return (responseToJson = await response.json());
 }
 
+function renderTodoTasks(keys, data, container) {
+  for (let i = 0; i < keys.length; i++) {
+    const taskKey = keys[i];
+    const task = data[taskKey];
+    container.innerHTML += getTaskFromFirebaseTemplate(task, taskKey);
+  }
+}
+
 async function loadToDoTasksFromFirebase() {
   const response = await fetch(FireBaseUrl + "tasks/toDo.json");
   const data = await response.json();
 
-  const keys = Object.keys(data);
   try {
     if (data) {
-      for (let i = 0; i < keys.length; i++) {
-        const taskKey = keys[i];
-        const task = data[taskKey];
-        toDoContentFinalDiv.innerHTML += getTaskFromFirebaseTemplate(
-          task,
-          taskKey
-        );
-      }
+      const keys = Object.keys(data);
+      renderTodoTasks(keys, data, toDoContentFinalDiv);
     } else {
-      toDoContentFinalDiv.innerHTML =
-        '<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>';
+      toDoContentFinalDiv.innerHTML = getEmptyTodoTemplate();
     }
   } catch (error) {
     console.error("Error loading can not load tasks data:", error);
@@ -647,22 +638,27 @@ async function initAddTask() {
   await loadDataSignUp();
 }
 
+function pushTasksIntoArray(data, todosArray) {
+  for (const categoryKey in data) {
+    const categoryTasks = data[categoryKey];
+    for (const taskKey in categoryTasks) {
+      const task = categoryTasks[taskKey];
+      task.id = taskKey;
+      task.category = categoryKey;
+      todosArray.push(task);
+    }
+  }
+}
+
 async function loadAllTasksFromFirebase() {
   todosArray = [];
   const response = await fetch(FireBaseUrl + "tasks.json");
   const data = await response.json();
 
   if (data) {
-    for (const categoryKey in data) {
-      const categoryTasks = data[categoryKey];
-      for (const taskKey in categoryTasks) {
-        const task = categoryTasks[taskKey];
-        task.id = taskKey;
-        task.category = categoryKey;
-        todosArray.push(task);
-      }
-    }
+    pushTasksIntoArray(data, todosArray);
   }
+
   updateTasksHtml();
 }
 

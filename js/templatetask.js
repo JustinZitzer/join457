@@ -469,17 +469,23 @@ function changeSubtasksIntoInputfield(i, subtaskText) {
 }
 
 function getContactCardForDropdown(contact) {
-  const name = contact.lastName
-    ? `${contact.firstName} ${contact.lastName}`
-    : contact.firstName;
+  const name = contact.lastName? `${contact.firstName} ${contact.lastName}`: contact.firstName;
   return `
     <label class="contact-option">
       <span id="contact-name-${contact.id}">${name}</span>
-      <input id="contact-checkbox-${
-        contact.id
-      }" type="checkbox" class="contact-checkbox" data-contact-id="${
-    contact.id || ""
-  }">
+      <input id="contact-checkbox-${contact.id}" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ""}">
     </label>
   `;
+}
+
+function getContactCircleTemplate(className, initials) {
+  return `
+    <div class="${className}">
+      <h6>${initials}</h6>
+    </div>
+  `;
+}
+
+function getEmptyTodoTemplate() {
+  return `<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>`;
 }
