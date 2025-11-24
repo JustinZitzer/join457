@@ -489,3 +489,112 @@ function getContactCircleTemplate(className, initials) {
 function getEmptyTodoTemplate() {
   return `<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>`;
 }
+
+function getAssignedContactBigTemplate(circleClass, initials, name) {
+  return `
+    <div class="task-board-big-first-contact-big">
+      <span class="${circleClass}">${initials}</span>
+      <p class="task-board-big-first-contact-name-big">${name}</p>
+    </div>
+  `;
+}
+
+function getAssignedContactLittleTemplate(circleClass, initials) {
+  return `
+    <div class="task-board-big-first-contact-big">
+      <span class="${circleClass}">${initials}</span>
+    </div>
+  `;
+}
+
+function getSubtaskUncheckedTemplate(taskKey, i, category, titel, text) {
+  return `
+    <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
+      <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')"
+        class="checkbox-board-subtasks${taskKey} checkbox-style-big-task"
+        id="checkbox-board-subtasks${taskKey}${i}"
+        type="checkbox">
+      <span class="checkbox-subtask-text">${text}</span>
+    </div>
+  `;
+}
+
+function getSubtaskCheckedTemplate(taskKey, i, category, titel, text) {
+  return `
+    <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
+      <input onclick="saveSubtaskStatus('${taskKey}', '${category}', '${titel}', '${i}'); subtaskCounter('${taskKey}')"
+        checked
+        class="checkbox-board-subtasks${taskKey} checkbox-style-big-task"
+        id="checkbox-board-subtasks${taskKey}${i}"
+        type="checkbox">
+      <span class="checkbox-subtask-text">${text}</span>
+    </div>
+  `;
+}
+
+function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
+  return `
+    <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
+      <span class="${circleClass}">${initials}</span>
+    </div>
+  `;
+}
+
+function contactCardDropdownEditTemplate(contact, taskKey, initials, name) {
+  return `
+    <label class="contact-option-edit">
+      <span id="circles-edit${contact.id}${taskKey}" class="circles-edit">${initials}</span>
+      <div class="name-checkbox-flexbox">
+        <span class="contact-name-edit" id="contact-name-edit${contact.id}${taskKey}">${name}</span>
+        <input id="contact-checkbox-${contact.id}${taskKey}" 
+               type="checkbox" 
+               class="contact-checkbox-edit" 
+               data-contact-id="${contact.id || ""}">
+      </div>
+    </label>
+  `;
+}
+
+function getEditCircleTemplate(circleClass, initials) {
+  return `
+    <div class="${circleClass}">${initials}</div>
+  `;
+}
+
+function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
+  return `
+    <div class="flexbox-inputfield-subtask-edit">
+      <svg onclick="cancelEditSubtask('${taskKey}', '${i}')" 
+           id="subtask-delete-icon-edit${taskKey}${i}" 
+           class="subtask-delete-icon-edit" 
+           width="24" height="24" viewBox="0 0 24 24" fill="none" 
+           xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+          <rect width="22" height="22" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask0_314135_4497)">
+          <path d="M7 21C6.45 21 5.97917 20.8042 5.5875 20.4125C5.19583 20.0208 5 19.55 5 19V6C4.71667 6 4.47917 5.90417 4.2875 5.7125C4.09583 5.52083 4 5.28333 4 5C4 4.71667 4.09583 4.47917 4.2875 4.2875C4.47917 4.09583 4.71667 4 5 4H9C9 3.71667 9.09583 3.47917 9.2875 3.2875C9.47917 3.09583 9.71667 3 10 3H14C14.2833 3 14.5208 3.09583 14.7125 3.2875C14.9042 3.47917 15 3.71667 15 4H19C19.2833 4 19.5208 4.09583 19.7125 4.2875C19.9042 4.47917 20 4.71667 20 5C20 5.28333 19.9042 5.52083 19.7125 5.7125C19.5208 5.90417 19.2833 6 19 6V19C19 19.55 18.8042 20.0208 18.4125 20.4125C18.0208 20.8042 17.55 21 17 21H7ZM7 6V19H17V6H7ZM9 16C9 16.2833 9.09583 16.5208 9.2875 16.7125C9.47917 16.9042 9.71667 17 10 17C10.2833 17 10.5208 16.9042 10.7125 16.7125C10.9042 16.5208 11 16.2833 11 16V9C11 8.71667 10.9042 8.47917 10.7125 8.2875C10.5208 8.09583 10.2833 8 10 8C9.71667 8 9.47917 8.09583 9.2875 8.2875C9.09583 8.47917 9 8.71667 9 9V16ZM13 16C13 16.2833 13.0958 16.5208 13.2875 16.7125C13.4792 16.9042 13.7167 17 14 17C14.2833 17 14.5208 16.9042 14.7125 16.7125C14.9042 16.5208 15 16.2833 15 16V9C15 8.71667 14.9042 8.47917 14.7125 8.2875C14.5208 8.09583 14.2833 8 14 8C13.7167 8 13.4792 8.09583 13.2875 8.2875C13.0958 8.47917 13 8.71667 13 9V16Z" fill="#2A3647"/>
+        </g>
+      </svg>
+
+      <div id="subtask-inputfield-edit-seperator${taskKey}${i}" class="subtask-inputfield-edit-seperator"></div>
+
+      <svg onclick="confirmChangeForEditSubtask('${taskKey}', '${i}', '${subtaskText}')" 
+           id="subtask-confirm-icon-edit${taskKey}${i}" 
+           class="subtask-confirm-icon-edit" 
+           width="24" height="25" viewBox="0 0 24 25" fill="none" 
+           xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+          <rect y="0.5" width="25" height="25" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask0_314253_4333)">
+          <path d="M9.55057 15.65L18.0256 7.175C18.2256 6.975 18.4631 6.875 18.7381 6.875C19.0131 6.875 19.2506 6.975 19.4506 7.175C19.6506 7.375 19.7506 7.6125 19.7506 7.8875C19.7506 8.1625 19.6506 8.4 19.4506 8.6L10.2506 17.8C10.0506 18 9.81724 18.1 9.55057 18.1C9.28391 18.1 9.05057 18 8.85057 17.8L4.55057 13.5C4.35057 13.3 4.25474 13.0625 4.26307 12.7875C4.27141 12.5125 4.37557 12.275 4.57557 12.075C4.77557 11.875 5.01307 11.775 5.28807 11.775C5.56307 11.775 5.80057 11.875 6.00057 12.075L9.55057 15.65Z" fill="#2A3647"/>
+        </g>
+      </svg>
+
+      <input class="subtask-edit-inputfield" 
+             id="subtask-edit-inputfield${taskKey}${i}" 
+             type="text" value="${subtaskText}">
+    </div>
+  `;
+}
