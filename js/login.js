@@ -51,6 +51,18 @@ function showMobileVersion() {
     }
 }
 
+function handleMobileLoadingAnimation(bigLogoLogin, animationLogoDiv, smallLogoLogin, loginBodyDiv) {
+    requestAnimationFrame(() => {
+        bigLogoLogin.src = './assets/img/join-logo-white.svg';
+        animationLogoDiv.style.opacity = '0';
+        smallLogoLogin.classList.remove('Visibility-Hidden');
+        loginBodyDiv.style.opacity = '1';
+    });
+    setTimeout(() => {
+        animationLogoDiv.classList.add('display-none');
+    }, 710);
+}
+
 function hideLoadingScreen() {
     if (browserResulution > 652) {
         setTimeout(() => {
@@ -61,15 +73,7 @@ function hideLoadingScreen() {
             loginBodyDiv.style.opacity = '1';
         });
     } else if (browserResulution < 652) {
-        requestAnimationFrame(() => {
-            bigLogoLogin.src = './assets/img/join-logo-white.svg';
-            animationLogoDiv.style.opacity = '0'; // schwarz wird transparent
-            smallLogoLogin.classList.remove('Visibility-Hidden');
-            loginBodyDiv.style.opacity = '1';
-        });
-        setTimeout(() => {
-            animationLogoDiv.classList.add('display-none');
-        }, 710);
+        handleMobileLoadingAnimation(bigLogoLogin, animationLogoDiv, smallLogoLogin, loginBodyDiv);
     }
 }
 
