@@ -31,9 +31,9 @@ window.addEventListener("load", () => {
         document.addEventListener('click', function(event) {
             let targetLink = event.target.closest('.sidebar .nav-links a');
             if (targetLink) {
-                event.preventDefault(); // Standardverhalten verhindern
+                event.preventDefault();
                 const href = targetLink.getAttribute('href');
-                window.location.href = href; // Manuell zur neuen Seite navigieren
+                window.location.href = href;
             }
         });
     }
@@ -67,20 +67,18 @@ function showSummaryBoardMobile() {
 }
 
 async function loadTasksFromFirebaseSummary() {
-  taskArray = []; // Leeren!
+  taskArray = [];
   const response = await fetch(fireBaseUrlSummary + "tasks.json");
   const data = await response.json();
   console.log(data);
 
   if (data) {
     for (const categoryKey in data) {
-      // z.B. "toDo", "done", ...
       const categoryTasks = data[categoryKey];
       for (const taskKey in categoryTasks) {
         const task = categoryTasks[taskKey];
-        // Schreibe Info dazu (für Filter, Drag&Drop usw.)
-        task.id = taskKey; // z.B. "task1"
-        task.category = categoryKey; // z.B. "toDo"
+        task.id = taskKey;
+        task.category = categoryKey;
         taskArray.push(task);
       }
     }
