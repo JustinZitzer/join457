@@ -1254,13 +1254,7 @@ function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask
   categoryUserOrTechnicalTask, id, category};
 }
 
-function getEditedSubtasksForFirebase(taskKey) {
-  const subtasks = [];
-  const container = document.getElementById(`subtasks-edit-div${taskKey}`);
-  if (!container) return subtasks;
-
-  const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
-
+function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
     const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
     if (span) {
@@ -1273,6 +1267,16 @@ function getEditedSubtasksForFirebase(taskKey) {
       }
     }
   }
+}
+
+function getEditedSubtasksForFirebase(taskKey) {
+  const subtasks = [];
+  const container = document.getElementById(`subtasks-edit-div${taskKey}`);
+  if (!container) return subtasks;
+
+  const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
+
+  getEditedSubtasksLoop(taskKey, allSubtasks, subtasks);
 
   return subtasks;
 }
@@ -1332,6 +1336,19 @@ async function patchRegistryDataBaseFunction(path, data) {
   });
 }
 
+function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
+  if (subtasksCheckboxes.length > 0) {
+    subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
+
+    const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
+    const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
+
+    progressBarFillDiv.style.width = `${progressPercentage}%`;
+  } else {
+    progressBarDiv.classList.add("display-none");
+  }
+}
+
 function subtaskCounter(taskKey) {
   const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
@@ -1345,16 +1362,7 @@ function subtaskCounter(taskKey) {
     }
   }
 
-  if(subtasksCheckboxes.length > 0) {
-    subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
-
-    const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
-    const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
-    
-    progressBarFillDiv.style.width = `${progressPercentage}%`;
-  } else {
-    progressBarDiv.classList.add("display-none");
-  }
+  updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv);
 }
 
 function taskInfosForFirebaseBoard() {
@@ -1365,15 +1373,7 @@ function taskInfosForFirebaseBoard() {
   let assignedTo = getAssignedToValue() || "Not Assigned to anyone";
   let categoryUserOrTechnicalTask = document.getElementById("inputfield-category-assign-board").value;
   let subtasks = subtasksInfoForFirebase() || "No subtasks";
-  return {
-    titel,
-    description,
-    dueDate,  
-    priority,
-    assignedTo,
-    categoryUserOrTechnicalTask,
-    subtasks,
-  };
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks,};
 }
 
 function validateInputBoard() {
@@ -1410,28 +1410,18 @@ function validateDueDateInputBoard() {
 }
 
 function isValidDDMMYYYYRealDate(value) {
-  const dateCheckSlash =
-    /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
-
-  if (!value) {
-    return { valid: false, message: "This field is required." };
-  }
-
-  if (!dateCheckSlash.test(value)) {
-    return { valid: false, message: "Please enter a valid date in DD/MM/YYYY format." };
-  }
+  const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+  if (!value) return { valid: false, message: "This field is required." };
+  if (!dateRegex.test(value)) return { valid: false, message: "Please enter a valid date in DD/MM/YYYY format." };
 
   const [, day, month, year] = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   const parsedDate = new Date(Number(year), Number(month) - 1, Number(day));
 
-  const isRealDate =
-    parsedDate.getFullYear() === Number(year) &&
-    parsedDate.getMonth() === Number(month) - 1 &&
-    parsedDate.getDate() === Number(day);
-
-  if (!isRealDate) {
-    return { valid: false, message: "Please enter a real, valid date." };
-  }
+  if (
+    parsedDate.getFullYear() !== Number(year) ||
+    parsedDate.getMonth() !== Number(month) - 1 ||
+    parsedDate.getDate() !== Number(day)
+  ) return { valid: false, message: "Please enter a real, valid date." };
 
   return { valid: true, message: "" };
 }
@@ -1483,15 +1473,21 @@ function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
   return false;
 }
 
+async function loadAndSortContacts() {
+  const contactsUnsorted = await fetchContacts();
+  const contacts = Object.values(contactsUnsorted);
+  contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+  allContacts = contacts;
+  return contacts;
+}
+
 async function loadContactsForDropdownInBoard() {
   const container = document.getElementById("contacts-dropdown-board");
   if (!container) return;
+
   if (container.innerHTML === "") {
     try {
-      const contactsUnsorted = await fetchContacts();
-      const contacts = Object.values(contactsUnsorted);
-      contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
-      allContacts = contacts;
+      const contacts = await loadAndSortContacts();
       for (const key in contacts) {
         container.innerHTML += getContactCardForDropdown(contacts[key]);
       }
@@ -1499,6 +1495,7 @@ async function loadContactsForDropdownInBoard() {
       console.error("Error loading contacts:", error);
     }
   }
+
   container.classList.toggle("display-none");
 }
 
@@ -1526,31 +1523,27 @@ function changeAssignedToBoardInputStyle() {
   inputfield.classList.toggle("inputfield-blue-border-top-right");
 }
 
+function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray) {
+  for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
+    const initials = nameInitialesArray[i];
+    circleRenderContainer.innerHTML += getAssignedCircleTemplate(circleClasses[i], initials);
+  }
+}
+
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   const circleRenderContainer = document.getElementById("three-circle-container-board");
-  const contactsDropdown = document.getElementById("contacts-dropdown-board");
   circleRenderContainer.innerHTML = "";
 
-  const circleClasses = [
-    "single-circle-first",
-    "single-circle-second",
-    "single-circle-third",
-  ];
-  
-  if(nameInitialesArray.length === 0) {
+  const circleClasses = ["single-circle-first","single-circle-second","single-circle-third"];
+
+  if (nameInitialesArray.length === 0) {
     circleRenderContainer.classList.add("display-none");
     circleRenderContainer.classList.add("hidden");
     return;
   }
 
-  for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
-    const initials = nameInitialesArray[i];
-    circleRenderContainer.innerHTML += `
-      <div class="${circleClasses[i]}">
-        <h6>${initials}</h6>
-      </div>
-    `;
-  }
+  renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray);
+
   circleRenderContainer.classList.remove("display-none");
   circleRenderContainer.classList.remove("hidden");
 }
@@ -1624,25 +1617,50 @@ function subtasksInfoForFirebase() {
   return subtasksArray;
 }
 
+async function handleTaskCreationBoard(status, taskTitel) {
+  const inputsForTask = taskInfosForFirebaseBoard();
+  const newTaskKey = taskTitel.value;
+  const dataPost = await putRegistryDataBaseFunction(`tasks/${status}/` + newTaskKey, inputsForTask);
+  clearInputFieldsForNewTaskBoard();
+  console.log(dataPost);
+}
+
 async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
   const taskCategory = document.getElementById("inputfield-category-assign-board");
+
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
-    const inputsForTask = taskInfosForFirebaseBoard();
-    const newTaskKey = taskTitel.value;
-    const dataPost = await putRegistryDataBaseFunction(
-      `tasks/${status}/` + newTaskKey,
-      inputsForTask
-    );
-    clearInputFieldsForNewTaskBoard();
-    console.log(dataPost);
+    await handleTaskCreationBoard(status, taskTitel);
   } else if (!taskTitel.value) {
     alert("Please enter a title for the task.");
   } else if (!taskDueDate.value) {
     alert("Please enter a due date for the task.");
   } else if (!taskCategory.value) {
     alert("Please select a category for the task.");
+  }
+}
+
+function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer) {
+  taskTitel.value = "";
+  taskDescription.value = "";
+  taskDueDate.value = "";
+  taskCategory.value = "";
+  taskSubtask.value = "";
+  savedSubtasks.innerHTML = "";
+  circleContainer.innerHTML = "";
+}
+
+function resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow) {
+  taskPriorityUrgent.classList.remove("active");
+  taskPriorityMedium.classList.remove("active");
+  taskPriorityLow.classList.remove("active");
+}
+
+function resetBoardContacts(contacts) {
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contact.checked = false;
   }
 }
 
@@ -1658,36 +1676,15 @@ function clearInputFieldsForNewTaskBoard() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign-in-board");
   const savedSubtasks = document.getElementById("subtasks-in-board");
   const circleContainer = document.getElementById("three-circle-container-board");
-  taskTitel.value = "";
-  taskDescription.value = "";
-  taskDueDate.value = "";
-  taskPriorityUrgent.classList.remove("active");
-  taskPriorityMedium.classList.remove("active");
-  taskPriorityLow.classList.remove("active");
-  taskCategory.value = "";
-  taskSubtask.value = "";
-  savedSubtasks.innerHTML = "";
-  circleContainer.innerHTML = "";
-  for (let i = 0; i < contacts.length; i++) {
-    let contact = contacts[i];
-    contact.checked = false;
-  }
+
+  resetBoardInputValues( taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
+
+  resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow);
+
+  resetBoardContacts(contacts);
 }
 
-function searchTask() {
-  const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
-  const taskTitles = document.getElementsByClassName("task-titel-mini-task");
-  const toDos = document.getElementsByClassName("todo-content-box");
-  const inputStart = inputValue.substring(0, 3);
-
-
-  if (inputValue.length < 1) {
-    for (let i = 0; i < toDos.length; i++) {
-      toDos[i].classList.remove("display-none");
-    }
-    return;
-  }
-
+function filterTasksBySearch(taskTitles, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const titleElement = taskTitles[i];
     const title = titleElement.textContent.trim().toLowerCase();
@@ -1699,4 +1696,20 @@ function searchTask() {
       toDos[i].classList.add("display-none");
     }
   }
+}
+
+function searchTask() {
+  const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
+  const taskTitles = document.getElementsByClassName("task-titel-mini-task");
+  const toDos = document.getElementsByClassName("todo-content-box");
+  const inputStart = inputValue.substring(0, 3);
+
+  if (inputValue.length < 1) {
+    for (let i = 0; i < toDos.length; i++) {
+      toDos[i].classList.remove("display-none");
+    }
+    return;
+  }
+
+  filterTasksBySearch(taskTitles, toDos, inputStart);
 }

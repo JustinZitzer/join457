@@ -598,3 +598,11 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
     </div>
   `;
 }
+
+function getAssignedCircleTemplate(circleClass, initials) {
+  return `
+    <div class="${circleClass}">
+      <h6>${initials}</h6>
+    </div>
+  `;
+}
