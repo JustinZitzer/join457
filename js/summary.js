@@ -22,21 +22,27 @@ async function initSummaryAndHTML() {
     showOldestUrgentDueDate();
 }
 
+function handleSidebarNavClick(event) {
+  let targetLink = event.target.closest('.sidebar .nav-links a');
+  if (targetLink) {
+    event.preventDefault();
+    const href = targetLink.getAttribute('href');
+    window.location.href = href;
+  }
+}
+
 window.addEventListener("load", () => {
-    const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
-    if (window.location.pathname === "/summary.html") {
-        setTimeout(() => {
-        loadingScreenMobileDiv.classList.add('hidden');
-        }, 1000);
-        document.addEventListener('click', function(event) {
-            let targetLink = event.target.closest('.sidebar .nav-links a');
-            if (targetLink) {
-                event.preventDefault();
-                const href = targetLink.getAttribute('href');
-                window.location.href = href;
-            }
-        });
-    }
+  const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
+
+  if (window.location.pathname === "/summary.html") {
+    setTimeout(() => {
+      loadingScreenMobileDiv.classList.add('hidden');
+    }, 1000);
+
+    document.addEventListener('click', function(event) {
+      handleSidebarNavClick(event);
+    });
+  }
 });
 
 
@@ -56,14 +62,16 @@ async function initSummaryBoard() {
     await getInformationSummaryBoard("/userData");
 }
 
-function showSummaryBoardMobile() {
-    const resolutionWidth = window.innerWidth;
-    const headerIndexHtml = document.getElementById("header-index-html");
-    const blueLineDesktopVersion = document.getElementById("Headline-Blue-Line");
-    const blueLineMobileContainer = document.getElementById("Headline-Blue-Line-Mobile-Container");
-
-    if (resolutionWidth < 1400) {
+function extractTasksFromFirebaseDataSummary(data, taskArray) {
+  for (const categoryKey in data) {
+    const categoryTasks = data[categoryKey];
+    for (const taskKey in categoryTasks) {
+      const task = categoryTasks[taskKey];
+      task.id = taskKey;
+      task.category = categoryKey;
+      taskArray.push(task);
     }
+  }
 }
 
 async function loadTasksFromFirebaseSummary() {
@@ -73,15 +81,7 @@ async function loadTasksFromFirebaseSummary() {
   console.log(data);
 
   if (data) {
-    for (const categoryKey in data) {
-      const categoryTasks = data[categoryKey];
-      for (const taskKey in categoryTasks) {
-        const task = categoryTasks[taskKey];
-        task.id = taskKey;
-        task.category = categoryKey;
-        taskArray.push(task);
-      }
-    }
+    extractTasksFromFirebaseDataSummary(data, taskArray);
   }
 }
 
@@ -105,6 +105,15 @@ function filterTasksByCategorySummary() {
   return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks };
 }
 
+function renderSummaryCounters( toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter) {
+  toDoCounterElement.innerHTML = toDoCounter;
+  inProgressCounterElement.innerHTML = inProgressCounter;
+  awaitFeedbackCounterElement.innerHTML = awaitFeedbackCounter;
+  doneCounterElement.innerHTML = doneCounter;
+  urgenCounterElement.innerHTML = urgentCounter;
+  taskInBoardElement.innerHTML = allTasksCounter;
+}
+
 function counterTasksSummary() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } = filterTasksByCategorySummary();
 
@@ -115,12 +124,7 @@ function counterTasksSummary() {
   urgentCounter = realTasks.filter((task) => task.priority === 'Urgent').length;
   allTasksCounter = realTasks.length;
 
-  toDoCounterElement.innerHTML = toDoCounter;
-  inProgressCounterElement.innerHTML = inProgressCounter;
-  awaitFeedbackCounterElement.innerHTML = awaitFeedbackCounter;
-  doneCounterElement.innerHTML = doneCounter;
-  urgenCounterElement.innerHTML = urgentCounter;
-  taskInBoardElement.innerHTML = allTasksCounter;
+  renderSummaryCounters( toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter);
 
   const urgentTasks = realTasks.filter((task) => task.priority === 'Urgent');
   return urgentTasks;
