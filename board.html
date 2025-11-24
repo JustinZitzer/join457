@@ -18,7 +18,7 @@
 </head>
 
 <body onload="loadHTML(), loadAllTasksFromFirebase(), loadDataBoard(), initBigTaskInfoOverlay()">
-    <div id="index_html"></div> <!--lädt html (header,sidebar)-->
+    <div id="index_html"></div>
 
     <main id="main-container-board">
         <div class="header-container-board">
@@ -54,7 +54,6 @@
                         <div id="overlay" class="overlay-hidden">
                             <div id="content-add-task-overlay" class="overlay-content"
                                 onclick="event.stopPropagation()">
-                                <!-- Hier kommt dein Formular hin -->
                                 <h2>Neues Task</h2>
                                 <p>Formular oder Inhalt hier</p>
                             </div>
@@ -82,9 +81,7 @@
                         <div class="add-button-container">
 
                             <div id="overlay-todo" class="overlay-hidden" onclick="event.stopPropagation()">
-                                <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-todo"></div>
-                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
                     </div>
@@ -114,9 +111,7 @@
                         <div class="add-button-container">
 
                             <div id="overlay-in-progress" class="overlay-hidden" onclick="event.stopPropagation()">
-                                <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-in-progress"></div>
-                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
                     </div>
@@ -143,9 +138,7 @@
 
                             <div id="overlay-await-feedback" class="overlay-hidden" onclick="event.stopPropagation()">
 
-                                <!-- Seitlich hereinslidenes Overlay -->
                                 <div id="content-add-task-overlay-await-feedback"></div>
-                                <!-- Hier kannst du dein Formular platzieren -->
                             </div>
                         </div>
                     </div>

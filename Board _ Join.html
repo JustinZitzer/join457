@@ -35,7 +35,7 @@
 
 
 
-    <header id="header-index-html"> <!--box-shadow anpassen, nicht 100% umgesetzt-->
+    <header id="header-index-html">
       <div class="header-logo-div-mobile">
         <svg class="header-logo-mobile" width="50" height="71" viewBox="0 0 101 122" fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -111,9 +111,7 @@
     </div>
     <script src="./Board _ Join_files/script.js"></script>
     <script src="./Board _ Join_files/summary.js"></script>
-    <!-- Code injected by live-server -->
     <script>
-      // <![CDATA[  <-- For SVG support
       if ('WebSocket' in window) {
         (function () {
           function refreshCSS() {
@@ -147,11 +145,10 @@
       else {
         console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
       }
-      // ]]>
     </script>
 
 
-  </div> <!--lädt html (header,sidebar)-->
+  </div>
 
   <main id="main-container-board">
     <div class="header-container-board">
@@ -181,12 +178,9 @@
                 <img src="./Board _ Join_files/add.png" alt="add-icon">
               </button>
 
-              <!-- Overlay-Hintergrund -->
               <div id="overlay" class="overlay-hidden" onclick="closeOverlay(event)">
-                <!-- Seitlich hereinslidenes Overlay -->
                 <div id="content-add-task-overlay"></div>
                 <div>
-                  <!-- Hier kannst du dein Formular platzieren -->
                 </div>
               </div>
             </div>
@@ -236,9 +230,7 @@
                 <img src="./Board _ Join_files/plus button.png" alt="Plus">
               </button>
               <div id="overlay-todo" class="overlay-hidden" onclick="closeOverlayToDo(event)">
-                <!-- Seitlich hereinslidenes Overlay -->
                 <div id="content-add-task-overlay-todo"></div>
-                <!-- Hier kannst du dein Formular platzieren -->
               </div>
             </div>
           </div>
@@ -322,9 +314,7 @@
                 <img src="./Board _ Join_files/plus button.png" alt="Plus">
               </button>
               <div id="overlay-in-progress" class="overlay-hidden" onclick="closeOverlayInProgress(event)">
-                <!-- Seitlich hereinslidenes Overlay -->
                 <div id="content-add-task-overlay-in-progress"></div>
-                <!-- Hier kannst du dein Formular platzieren -->
               </div>
             </div>
           </div>
@@ -379,9 +369,7 @@
               </button>
               <div id="overlay-await-feedback" class="overlay-hidden" onclick="closeOverlayFeedback(event)">
 
-                <!-- Seitlich hereinslidenes Overlay -->
                 <div id="content-add-task-overlay-await-feedback"></div>
-                <!-- Hier kannst du dein Formular platzieren -->
               </div>
             </div>
           </div>
@@ -521,9 +509,7 @@
   <script src="./Board _ Join_files/load_html.js"></script>
   <script src="./Board _ Join_files/firebase.js"></script>
   <script src="./Board _ Join_files/signup.js"></script>
-  <!-- Code injected by live-server -->
   <script>
-    // <![CDATA[  <-- For SVG support
     if ('WebSocket' in window) {
       (function () {
         function refreshCSS() {
