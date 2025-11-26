@@ -154,8 +154,6 @@
     color: rgba(41, 171, 226, 1);
 }
 
-/*ab hier rechte seite*/
-
 .contacts-right-main-container {
     display: flex;
     flex-direction: column;
@@ -635,7 +633,7 @@
         width: 100%;
     }
 
-    .contacts-side-headline{
+    .contacts-side-headline {
         margin-top: 150px;
         margin-left: 60px;
         width: auto;
@@ -679,14 +677,15 @@
     .contacts-overlay-action-buttons-container {
         display: none;
     }
-    
+
     .contacts-info-container h3 {
-    font-size: 47px;
-    padding-top: 30px;
-    font-weight: bold;
+        font-size: 47px;
+        padding-top: 30px;
+        font-weight: bold;
     }
 
     .edit-delete-contact-button {
+        cursor: pointer;
         display: none;
         color: rgba(42, 54, 71, 1);
         position: fixed;
