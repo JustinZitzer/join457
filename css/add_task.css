@@ -9,7 +9,7 @@ h3 {
     position: relative;
     width: 278px;
     height: 73px;
-    top: 206px;
+    top: 190px;
     left: 328px;
     gap: 1px;
     font-weight: 700;
@@ -28,7 +28,7 @@ h3 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     gap: 24px;
 }
 
@@ -39,7 +39,7 @@ h3 {
     gap: 24px;
     width: 976.24853515625px;
     height: 424px;
-    top: 327px;
+    top: 290px;
     left: 328px;
     border-width: 1px;
 }
@@ -636,7 +636,7 @@ h6 {
     position: absolute;
     width: 230px;
     height: 27px;
-    top: 600px;
+    top: 510px;
     left: 0px;
 
 }
@@ -653,7 +653,7 @@ h6 {
     height: 56px;
     left: 950px;
     gap: 16px;
-    top: 889px;
+    top: 780px;
     overflow-y: auto;
 }
 
