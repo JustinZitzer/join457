@@ -151,11 +151,17 @@ body {
   text-align: center;
 }
 
+.Headline-Underline-Div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .Login-Box-Line {
   border: 2px solid #29ABE2;
   border-radius: 5px;
   width: 145px;
-  margin-top: 0px;
+  margin-top: 10px;
   padding-top: 0px;
 }
 
