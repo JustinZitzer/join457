@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 h3 {
     width: 278px;
     height: 73px;
