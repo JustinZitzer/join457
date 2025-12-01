@@ -52,11 +52,14 @@
                     </div>
 
                     <div class="Confirm-box">
-                        <input type="inputfield" id="inputfield-confirm" class="inputfield-confirm" placeholder="Confirm Password">
+                        <input onkeyup="checkPasswordMatch()" type="inputfield" id="inputfield-confirm" class="inputfield-confirm" placeholder="Confirm Password">
                         <img class="lock-icon-size-second" src="./assets/icons/lock.png" alt="lock-second"
                             alt="confirm-icon">
-
+                        <div class="failure-signup-div display-none" id="failure-signup-div">
+                            <p id="failure-signup-div-message">*agdagsd</p>
+                        </div>
                     </div>
+
                     <div class="privacy-policy-container">
                         <input type="checkbox" id="privacy-policy-accept-button" class="privacy-policy-accept-button">
                         <div class="text-accept">I accept the</div>
@@ -64,7 +67,7 @@
                     </div>
                 </div>
 
-                <button onclick="postValueDataIntoFirebase()" class="sign-up-button-container">Sign up</button>
+                <button onclick="enterFullInformation()" class="sign-up-button-container">Sign up</button>
 
             </div>
         </div>

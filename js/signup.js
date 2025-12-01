@@ -4,6 +4,8 @@ const emailInputSignUp = document.getElementById('inputfield-email');
 const passwordInputSignUp = document.getElementById('inputfield-password');
 const confirmPasswordInputSignUp = document.getElementById('inputfield-confirm');
 const checkboxSignUp = document.getElementById('privacy-policy-accept-button');
+const failureAllFieldsDiv = document.getElementById('failure-signup-div');
+const failureAllFieldsMessage = document.getElementById('failure-signup-div-message');
 
 
 async function initSignUp() {
@@ -57,3 +59,23 @@ async function postValueDataIntoFirebase() {
   }
 }
 
+function enterFullInformation() {
+  if(nameInputSignUp.value !== "" && emailInputSignUp.value !== "" && 
+  passwordInputSignUp.value !== "" && confirmPasswordInputSignUp.value !== ""
+  && checkboxSignUp.checked) {
+    postValueDataIntoFirebase();
+  } else {
+    failureAllFieldsDiv.classList.remove("display-none");
+    failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
+  }
+}
+
+function checkPasswordMatch() {
+  if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
+    failureAllFieldsDiv.classList.remove("display-none");
+    failureAllFieldsMessage.innerText = "*Passwords do not match";
+  } else {
+    failureAllFieldsDiv.classList.add("display-none");
+    failureAllFieldsMessage.innerText = "";
+  }
+}

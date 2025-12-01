@@ -25,6 +25,19 @@
 
 }
 
+.failure-signup-div {
+    position: relative;
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    height: 10px;
+    top: -50px;
+}
+
+.display-none {
+    display: none;
+}
+
 .signup-main-container {
     display: flex;
     justify-content: center;
