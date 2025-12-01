@@ -73,9 +73,13 @@ function enterFullInformation() {
 function checkPasswordMatch() {
   if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
     failureAllFieldsDiv.classList.remove("display-none");
-    failureAllFieldsMessage.innerText = "*Passwords do not match";
+    failureAllFieldsMessage.innerText = "*Your passwords don't match, please try again";
+    confirmPasswordInputSignUp.classList.remove("grey-border");
+    confirmPasswordInputSignUp.classList.add("red-border");
   } else {
     failureAllFieldsDiv.classList.add("display-none");
     failureAllFieldsMessage.innerText = "";
+    confirmPasswordInputSignUp.classList.remove("red-border");
+    confirmPasswordInputSignUp.classList.add("grey-border");
   }
 }
