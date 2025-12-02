@@ -1330,6 +1330,9 @@ h5 {
 .clear-create-container-board {
     display: flex;
     gap: 16px;
+    position: relative;
+    margin-left: 100px;
+    
 }
 
 /* --------------------- CANCEL BUTTON --------------------- */
@@ -1604,6 +1607,7 @@ h5 {
 
 .container-add-task {
     display: flex;
+    margin-left: 48px;
 }
 
 .x-close-button-add-task-overlay {
