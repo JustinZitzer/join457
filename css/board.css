@@ -214,6 +214,7 @@ h3 {
     padding-right: 64px;
     padding-left: 64px;
     padding-top: 64px;
+    gap: 16px;
 }
 
 .todo-container {
@@ -240,7 +241,6 @@ h3 {
 
 .inprogress-container {
     width: 100%;
-    margin-left: 32px;
     justify-content: space-between;
 
 }
@@ -273,7 +273,6 @@ h3 {
 }
 
 .await-feedback-task-container {
-    margin-left: 32px;
     justify-content: space-between;
     width: 100%;
 
@@ -305,7 +304,6 @@ h3 {
 
 .done-task-container {
     justify-content: space-between;
-    margin-left: 32px;
     width: 100%;
     gap: 10px;
 
@@ -2940,6 +2938,11 @@ h2 {
         align-items: center;
     }
 
+    .inprogress-container {
+        padding-left: 0px;
+    }
+
+
     .in-progress-headline-board {
         font-size: 34px;
         width: 200px;
@@ -3608,7 +3611,7 @@ h2 {
     }
 
     .inprogress-container {
-        margin-left: 0px;
+        padding-left: 0px;
     }
 
     .await-feedback-content-task {
