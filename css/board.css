@@ -240,7 +240,7 @@ h3 {
 
 .inprogress-container {
     width: 100%;
-    margin-left: 8px;
+    margin-left: 32px;
     justify-content: space-between;
 
 }
@@ -798,16 +798,6 @@ h5 {
     text-align: center;
     vertical-align: middle;
     background-color: rgb(184, 79, 23);
-}
-
-.add-button-container {
-    width: 24px;
-    height: 24px;
-    gap: 10px;
-    border-radius: 8px;
-    padding: 3px;
-    border-width: 2px;
-
 }
 
 .add-button {
