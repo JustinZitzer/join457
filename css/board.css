@@ -16,7 +16,6 @@ main {
 }
 
 .header-main-container {
-    width: 1208px;
     height: 176px;
     top: 96px;
     left: 232px;
@@ -211,7 +210,6 @@ h3 {
 
 .todos-bar-container {
     display: flex;
-    width: 1208px;
     top: 200.5px;
     padding-right: 64px;
     padding-left: 64px;
