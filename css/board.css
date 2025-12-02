@@ -2960,10 +2960,6 @@ h2 {
         align-items: center;
     }
 
-    .await-feedback-task-container {
-        margin-left: 10px;
-    }
-
     .await-feedback-headline-board {
         font-size: 34px;
         width: 250px;
@@ -2973,10 +2969,6 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-    }
-
-    .done-task-container {
-        margin-left: 10px;
     }
 
     .done-box {
@@ -3454,10 +3446,6 @@ h2 {
         margin-bottom: 100px;
     }
 
-    .done-task-container {
-        margin-left: 12px;
-    }
-
     .todo-content-task {
         display: flex;
         max-height: 300px;
@@ -3610,10 +3598,6 @@ h2 {
         margin-left: 0px;
     }
 
-    .inprogress-container {
-        padding-left: 0px;
-    }
-
     .await-feedback-content-task {
         max-width: 100vw;
         overflow-x: auto;
@@ -3622,14 +3606,6 @@ h2 {
         max-height: 300px;
         overflow-y: auto;
         padding-right: 33px;
-        margin-left: 0px;
-    }
-
-    .await-feedback-task-container {
-        margin-left: 0px;
-    }
-
-    .done-task-container {
         margin-left: 0px;
     }
 
