@@ -91,17 +91,44 @@ function changeLockIconToEyeIconFirstField() {
   if(!firstLockIcon.classList.contains("display-none")) {
     firstLockIcon.classList.add("display-none");
     eyeIcon.classList.remove("display-none");
-  } else if (firstLockIcon.classList.contains("display-none")) {
-    firstLockIcon.classList.remove("display-none");
-    eyeIcon.classList.add("display-none");
   }
 }
 
 function changeLockIconToEyeIconSecondField() {
   const secondLockIcon = document.getElementById("lock-icon-size-second");
+  const eyeIconConfirm = document.getElementById("closed-eye-icon-confirm")
   if(!secondLockIcon.classList.contains("display-none")) {
     secondLockIcon.classList.add("display-none");
+    eyeIconConfirm.classList.remove("display-none");
+  }
+}
+
+function changeClosedToOpenEye() {
+  const closedEyeIcon = document.getElementById("closed-eye-icon");
+  const openEyeIcon = document.getElementById("open-eye-icon");
+
+  if(!closedEyeIcon.classList.contains("display-none")) {
+    closedEyeIcon.classList.add("display-none");
+    openEyeIcon.classList.remove("display-none");
+    passwordInputSignUp.type = "text";
   } else {
-    secondLockIcon.classList.remove("display-none");
+    closedEyeIcon.classList.remove("display-none");
+    openEyeIcon.classList.add("display-none");
+    passwordInputSignUp.type = "password";
+  }
+}
+
+function changeClosedToOpenEyeConfirm() {
+  const closedEyeIconConfirm = document.getElementById("closed-eye-icon-confirm");
+  const openEyeIconConfirm = document.getElementById("open-eye-icon-confirm");
+
+  if(!closedEyeIconConfirm.classList.contains("display-none")) {
+    closedEyeIconConfirm.classList.add("display-none");
+    openEyeIconConfirm.classList.remove("display-none");
+    confirmPasswordInputSignUp.type = "text";
+  } else {
+    closedEyeIconConfirm.classList.remove("display-none");
+    openEyeIconConfirm.classList.add("display-none");
+    confirmPasswordInputSignUp.type = "password";
   }
 }

@@ -33,7 +33,7 @@
     position: relative;
     color: red;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 30px;
     height: 10px;
     top: -50px;
 }
@@ -85,6 +85,12 @@
 .arrow-left {
     width: 30px;
     height: 30px;
+    border-radius: 50%;
+}
+
+.arrow-left:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
 }
 
 .underline-headline-container {
@@ -153,7 +159,7 @@
 }
 
 .inputfield-name:focus {
-    border: 2px solid #29ABE2;
+    border: 1px solid #29ABE2;
     outline: none;
 }
 
@@ -175,7 +181,7 @@
 }
 
 .inputfield-email:focus {
-    border: 2px solid #29ABE2;
+    border: 1px solid #29ABE2;
     outline: none;
 }
 
@@ -221,7 +227,7 @@
 }
 
 .inputfield-confirm:focus {
-    border: 2px solid #29ABE2;
+    border: 1px solid #29ABE2;
     outline: none;
 }
 
@@ -247,6 +253,26 @@
     height: 16px;
     left: 420px;
     bottom: 37px;
+}
+
+.eye-icon-size-postition {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: -56px;
+  top: 85%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.eye-icon-size-postition-confirm {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: -56px;
+  top: 85%;
+  transform: translateY(-50%);
+  z-index: 5;
 }
 
 .lock-icon-size-second {
@@ -294,6 +320,7 @@
     width: 380px;
     height: 24px;
     justify-content: space-between;
+    position: relative;
 }
 
 .Confirm-box {
@@ -303,6 +330,7 @@
     width: 380px;
     height: 24px;
     justify-content: space-between;
+    position: relative;
 }
 
 .person-icon {
@@ -362,7 +390,7 @@ h1 {
 }
 
 .text-accept {
-    width: 90px;
+    width: 78px;
     height: 19px;
     font-size: 12px;
     font-weight: 400;
@@ -374,7 +402,6 @@ h1 {
 }
 
 .text-privacy-policy {
-    width: 122px;
     height: 19px;
     font-size: 16px;
     color: #29ABE2;
