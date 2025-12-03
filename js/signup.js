@@ -83,3 +83,25 @@ function checkPasswordMatch() {
     confirmPasswordInputSignUp.classList.add("grey-border");
   }
 }
+
+function changeLockIconToEyeIconFirstField() {
+  const firstLockIcon = document.getElementById("lock-icon-size-first");
+  const eyeIcon = document.getElementById("closed-eye-icon");
+
+  if(!firstLockIcon.classList.contains("display-none")) {
+    firstLockIcon.classList.add("display-none");
+    eyeIcon.classList.remove("display-none");
+  } else if (firstLockIcon.classList.contains("display-none")) {
+    firstLockIcon.classList.remove("display-none");
+    eyeIcon.classList.add("display-none");
+  }
+}
+
+function changeLockIconToEyeIconSecondField() {
+  const secondLockIcon = document.getElementById("lock-icon-size-second");
+  if(!secondLockIcon.classList.contains("display-none")) {
+    secondLockIcon.classList.add("display-none");
+  } else {
+    secondLockIcon.classList.remove("display-none");
+  }
+}
