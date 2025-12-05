@@ -106,3 +106,36 @@ function getLoginGuest () {
         summaryNameTextDiv.classList.add('display-none');
     }
 }
+
+function showClosedEyeIconLogin() {
+    const closedEyeIcon = document.getElementById('closed-eye-icon-login');
+    const lockIcon = document.getElementById('input-icon-login');
+    
+    if (!lockIcon.classList.contains('display-none')) {
+        lockIcon.classList.add('display-none');
+        closedEyeIcon.classList.remove('display-none');
+    }
+}
+
+function showOpenEyeIconLogin() {
+    const closedEyeIcon = document.getElementById('closed-eye-icon-login');
+    const openEyeIcon = document.getElementById('open-eye-icon-login');
+    const passwordInput = document.getElementById('Login-Box-Passwort-Input');
+
+    if (!closedEyeIcon.classList.contains('display-none')) {
+        closedEyeIcon.classList.add('display-none');
+        openEyeIcon.classList.remove('display-none');
+        passwordInput.type = 'text';
+    }
+}
+
+function showClosedEyeIconLoginToggle() {
+    const closedEyeIcon = document.getElementById('closed-eye-icon-login');
+    const openEyeIcon = document.getElementById('open-eye-icon-login');
+
+    if (!openEyeIcon.classList.contains('display-none')) {
+        openEyeIcon.classList.add('display-none');
+        closedEyeIcon.classList.remove('display-none');
+        passwordInput.type = 'password';
+    }
+}

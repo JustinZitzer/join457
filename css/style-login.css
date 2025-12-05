@@ -180,6 +180,15 @@ body {
   color: #A8A8A8;
 }
 
+.eye-icon-size-postition-login {
+  position: absolute;
+  left: 380px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #A8A8A8;
+}
+
 .Login-Box-Email-Input,
 .Login-Box-Passwort-Input {
   width: 422px;
@@ -378,6 +387,11 @@ body {
     left: 95%; /* oder z. B. 320px, je nach Design */
     transform: translateX(-100%) translateY(-50%);
   }
+
+  .eye-icon-size-postition-login {
+    left: 95%; /* oder z. B. 320px, je nach Design */
+    transform: translateX(-100%) translateY(-50%);
+}
 
   .Login-Box-Button-Div {
     display: flex;

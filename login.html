@@ -53,8 +53,22 @@
         </div>
 
         <div class="Input-Wrapper-Log-In">
-          <img class="input-icon" src="./assets/icons/lock.svg" alt="Lock Icon">
-          <input id="Login-Box-Passwort-Input" class="Login-Box-Passwort-Input" placeholder="Password" type="password">
+          <img onclick="" id="input-icon-login" class="input-icon" src="./assets/icons/lock.svg" alt="Lock Icon">
+          <input onclick="showClosedEyeIconLogin()" id="Login-Box-Passwort-Input" class="Login-Box-Passwort-Input" placeholder="Password" type="password">
+          <svg onclick="showClosedEyeIconLoginToggle()" id="open-eye-icon-login" class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
+                  stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5"/>
+          </svg>
+          <svg onclick="showOpenEyeIconLogin()" id="closed-eye-icon-login" class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
+                stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5"/>
+              <line x1="4" y1="20" x2="20" y2="4"
+              stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
         </div>
 
         <div class="Login-Box-Button-Div">

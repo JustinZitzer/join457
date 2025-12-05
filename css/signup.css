@@ -710,6 +710,26 @@ h1 {
         font-size: 18px;
     }
 
+    .eye-icon-size-postition {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        left: 96.5%;
+        top: 97%;
+        transform: translateY(-50%);
+        z-index: 5;
+    }
+
+    .eye-icon-size-postition-confirm {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        left: 96.5%;
+        top: 97%;
+        transform: translateY(-50%);
+        z-index: 5;
+    }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -735,6 +755,14 @@ h1 {
 
     .arrow-box {
         left: 14%;
+    }
+
+    .eye-icon-size-postition {
+        left: 95%;
+    }
+
+    .eye-icon-size-postition-confirm {
+        left: 95%;
     }
 
 }
@@ -764,6 +792,13 @@ h1 {
         left: 10%;
     }
 
+    .eye-icon-size-postition {
+        left: 93%;
+    }
+
+    .eye-icon-size-postition-confirm {
+        left: 93%;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -788,6 +823,14 @@ h1 {
     }
     .arrow-box {
         left: 9%;
+    }
+
+    .eye-icon-size-postition {
+        left: 91%;
+    }
+
+    .eye-icon-size-postition-confirm {
+        left: 91%;
     }
 }
 
@@ -814,6 +857,14 @@ h1 {
 
     .arrow-box {
         left: 7%;
+    }
+
+    .eye-icon-size-postition {
+        left: 89%;
+    }
+
+    .eye-icon-size-postition-confirm {
+        left: 89%;
     }
 
 }
@@ -847,4 +898,16 @@ h1 {
         left: 5%;
     }
 
+    .eye-icon-size-postition {
+        left: 88%;
+    }
+
+    .eye-icon-size-postition-confirm {
+        left: 88%;
+    }
+
+    .arrow-left {
+        width: 35px;
+        height: 35px;
+    }
 }
