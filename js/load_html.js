@@ -10,9 +10,40 @@ async function loadIndexHTML() {
       }
       const html = await response.text();
       document.getElementById('index_html').innerHTML = html;
+      shortName();
     } catch (error) {
       console.error(error);
     }
+}
+
+async function loadInfoIndexHTML() {
+    try {
+      const response = await fetch('index_legal_privacy.html');
+      if (!response.ok) {
+        throw new Error(`Fehler beim Laden der Datei: ${response.status}`);
+      }
+      const html = await response.text();
+      document.getElementById('index_html').innerHTML = html;
+      shortName();
+    } catch (error) {
+      console.error(error);
+    }
+}
+
+function shortName() {
+  const storedName = localStorage.getItem("loggedInUserName") || "";
+  const trimmedName = storedName.trim();
+  const cricleText = document.getElementById("user-profile-font");
+
+  const nameParts = trimmedName.split(" ");
+  let initials = "";
+
+  for (let i = 0; i < nameParts.length && i < 2; i++) {
+    if (nameParts[i]) {
+      initials += nameParts[i][0].toUpperCase();
+    }
+  }
+  cricleText.textContent = initials;
 }
 
 function reapplyStylesheets() {
