@@ -12,7 +12,6 @@ const browserResulution = window.innerWidth;
 
 function initSummary() {
     getLoginGuest();
-    getLogin();
 }
 
 function initLogin() {
@@ -98,6 +97,7 @@ async function loginUserForSummary() {
     const email = document.getElementById("Login-Box-Email-Input").value.trim();
     const password = document.getElementById("Login-Box-Passwort-Input").value;
     const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
+    const errorMessageDiv = document.getElementById('error-message-login');
 
     const userData = await fetchUserDataFromFirebaseLogin("userData");
 
@@ -120,7 +120,7 @@ async function loginUserForSummary() {
     window.location.href = "summary.html";
     summaryGreetingTextName.innerHTML = userData.name;
   } else {
-    alert("Invalid email or password. Please try again.");
+    errorMessageDiv.classList.remove('display-none');
   }
 }
 

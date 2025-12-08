@@ -98,6 +98,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: transparent;
 }
 
 .Header-Login-Right-Button:hover {
@@ -133,6 +134,7 @@ body {
   padding-bottom: 48px;
   padding-left: 115px;
   box-shadow: 0px 0px 14px 3px #0000000A;
+  position: relative;
 }
 
 .Login-Box {
@@ -313,6 +315,20 @@ body {
   color: #29ABE2;
   scale: 1.1;
   font-weight: bold;
+}
+
+
+.error-message-login{
+  color: red;
+  font-size: 16px;
+  margin-top: 0px;
+  position: absolute;
+  bottom: 130px;
+  left: 120px;
+}
+
+.Login-Box-Button-Div {
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 651px) {
