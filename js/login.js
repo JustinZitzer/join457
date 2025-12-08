@@ -88,6 +88,39 @@ function login() {
     }
 }
 
+async function fetchUserDataFromFirebaseLogin(path = "") {
+    let response = await fetch(FireBaseUrl + path + ".json",);
+    let responseToJson = await response.json();
+    return responseToJson;
+}
+
+async function loginUserForSummary() {
+    const email = document.getElementById("Login-Box-Email-Input").value.trim();
+    const password = document.getElementById("Login-Box-Passwort-Input").value;
+
+    const userData = await fetchUserDataFromFirebaseLogin("userData");
+
+    let loginSuccessful = false;
+
+    for (let userName in userData) {
+    const userEntries = Object.values(userData[userName]);
+    for (let i = 0; i < userEntries.length; i++) {
+      const user = userEntries[i];
+      if (user.email === email && user.password === password) {
+        loginSuccessful = true;
+        break;
+      }
+    }
+    if (loginSuccessful) break;
+  }
+
+  if (loginSuccessful) {
+    window.location.href = "summary.html";
+  } else {
+    alert("Invalid email or password. Please try again.");
+  }
+}
+
 function getLogin () {
 
 }

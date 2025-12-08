@@ -53,6 +53,7 @@ async function postValueDataIntoFirebase() {
     const dataPost = await postRegistryDataBaseFunction(`userData/${safeName}`, userData);
     clearInputFields();
     console.log(dataPost);
+    window.location.href='./login.html'
   } else if (!checkboxSignUp.checked) {
     alert("Please accept the privacy policy");
   } else if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
@@ -69,6 +70,10 @@ function enterFullInformation() {
     failureAllFieldsDiv.classList.remove("display-none");
     failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
   }
+}
+
+function showSuccessMessage() {
+  
 }
 
 function checkPasswordMatch() {
