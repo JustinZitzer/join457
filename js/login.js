@@ -1,6 +1,6 @@
 const emailInput = document.getElementById('Login-Box-Email-Input');
 const passwordInput = document.getElementById('Login-Box-Passwort-Input');
-const FireBaseUrl = "https://console.firebase.google.com/u/1/project/join-457/database/join-457-default-rtdb/data/~2F";
+const FireBaseUrl = "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
 const bigLogoLogin = document.getElementById('Loading-Screen-Logo-Big');
 const smallLogoLogin = document.getElementById('Loading-Screen-Logo-Mini');
 const animationLogoDiv = document.getElementById('Animation-Logo-Div-Z-Index');
@@ -88,40 +88,47 @@ function login() {
 }
 
 async function fetchUserDataFromFirebaseLogin(path = "") {
-    let response = await fetch(FireBaseUrl + path + ".json",);
-    let responseToJson = await response.json();
-    return responseToJson;
+    try {
+        let response = await fetch(FireBaseUrl + path + ".json",);
+        let responseToJson = await response.json();
+        return responseToJson;
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+    }
 }
 
 async function loginUserForSummary() {
-    const email = document.getElementById("Login-Box-Email-Input").value.trim();
-    const password = document.getElementById("Login-Box-Passwort-Input").value;
-    const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
-    const errorMessageDiv = document.getElementById('error-message-login');
+  const email = document.getElementById("Login-Box-Email-Input").value.trim();
+  const password = document.getElementById("Login-Box-Passwort-Input").value;
+  const errorMessageDiv = document.getElementById("error-message-login");
 
-    const userData = await fetchUserDataFromFirebaseLogin("userData");
+  const userData = await fetchUserDataFromFirebaseLogin("userData");
 
-    let loginSuccessful = false;
+  let loginSuccessful = false;
+  let loggedInUserName = "";
 
-    for (let userName in userData) {
-    const userObject = Object.values(userData[userName]);
-    for (let i = 0; i < userObject.length; i++) {
-      const user = userObject[i];
-      const name = user.name;
-      if (user.email === email && user.password === password) {
-        loginSuccessful = true;
-        break;
-      }
+  for (let userName in userData) {
+    const user = userData[userName];
+
+    if (user.email === email && user.password === password) {
+      loginSuccessful = true;
+      loggedInUserName = user.name;
+      break;
     }
-    if (loginSuccessful) break;
   }
 
   if (loginSuccessful) {
+    localStorage.setItem("loggedInUserName", loggedInUserName);
     window.location.href = "summary.html";
-    summaryGreetingTextName.innerHTML = userData.name;
   } else {
-    errorMessageDiv.classList.remove('display-none');
+    errorMessageDiv.classList.remove("display-none");
   }
+}
+
+function loginAsAGuest() {
+    let loggedInUserName = 'Guest';
+    localStorage.setItem("loggedInUserName", loggedInUserName);
+    window.location.href='./summary.html'
 }
 
 function loginGuest () {

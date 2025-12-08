@@ -47,19 +47,29 @@ window.addEventListener("load", () => {
 
 
 async function getInfoForSummaryBoardBaseFunction (path) {
-    let response = await fetch(fireBaseUrlSummary + path + ".json");
-    return await response.json();
+  let response = await fetch(fireBaseUrlSummary + path + ".json");
+  return await response.json();
 }
 
-async function getInformationSummaryBoard(path) {
-    const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
-    let userDataSummary = await getInfoForSummaryBoardBaseFunction(path);
-    const firstUser = Object.values(userDataSummary)[0];
-    summaryGreetingTextName.innerHTML = firstUser.name;
+function getInformationSummaryBoard(path) {
+  const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
+  const storedName = localStorage.getItem("loggedInUserName");
+  const goodMorningText = document.getElementById("Good-Morning-Text");
+
+  if (storedName === 'Guest') {
+    summaryGreetingTextName.classList.add('display-none');
+    goodMorningText.innerHTML = 'Good morning!';
+    return;
+  }
+
+  if (storedName) {
+    summaryGreetingTextName.innerHTML = storedName;
+    return;
+  }
 }
 
 async function initSummaryBoard() {
-    await getInformationSummaryBoard("/userData");
+  await getInformationSummaryBoard("/userData");
 }
 
 function extractTasksFromFirebaseDataSummary(data, taskArray) {
