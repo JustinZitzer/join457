@@ -124,10 +124,6 @@ async function loginUserForSummary() {
   }
 }
 
-function getLogin () {
-
-}
-
 function loginGuest () {
     const guestName = 'Gast';
     sessionStorage.setItem('guestUsername', guestName);

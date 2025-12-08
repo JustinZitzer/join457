@@ -13,7 +13,8 @@
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
-<body onload="initSignUp()">
+<body id="body-signup" onload="initSignUp()">
+    <div id="gray-background-for-body" class="gray-background-for-body display-none"></div>
 
     <div class="main-container-join">
 
@@ -111,8 +112,8 @@
             </div>
         </div>
 
-        <div class="button-position-success-message">
-            <button class="signed-up-sucess-button display-none">You signed up successfully</button>
+        <div id="button-position-success-message" class="button-position-success-message display-none">
+            <button id="signed-up-sucess-button" class="signed-up-sucess-button">You signed up successfully</button>
         </div>
 
     </div>

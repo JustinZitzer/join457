@@ -1,3 +1,7 @@
+body {
+    margin: 0px;
+}
+
 .main-container-join {
     display: flex;
     justify-content: center;
@@ -30,12 +34,13 @@
 }
 
 .failure-signup-div {
-    position: relative;
+    position: absolute;
     color: red;
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 10px;
     height: 10px;
-    top: -50px;
+    top: 20px;
+    z-index: 2;
 }
 
 .display-none {
@@ -492,21 +497,41 @@ h1 {
     align-items: center;
 }
 
-.button-position-success-message {
+.button-position-success-message{
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
     bottom: -80px;
+    opacity: 0;
+    z-index: 11;
+}
+
+.show-success {
     animation: fly-up 0.6s ease-out forwards;
 }
 
+.gray-background-for-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 101%;
+    height: 104%;
+    z-index: 10;
+}
+
+.gray-background-for-body-effect {
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0.30);
+}
 
 @keyframes fly-up {
     0% {
         bottom: -80px;
+        opacity: 0;
     }
     100% {
         bottom: 50%;
+        opacity: 1;
     }
 }
 
@@ -762,6 +787,16 @@ h1 {
         z-index: 5;
     }
 
+    @keyframes fly-up {
+        0% {
+            bottom: -80px;
+            opacity: 0;
+        }
+        100% {
+            bottom: 25%;
+            opacity: 1;
+        }
+    }
 }
 
 @media screen and (max-width: 1000px) {

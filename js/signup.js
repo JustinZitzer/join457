@@ -53,7 +53,6 @@ async function postValueDataIntoFirebase() {
     const dataPost = await postRegistryDataBaseFunction(`userData/${safeName}`, userData);
     clearInputFields();
     console.log(dataPost);
-    window.location.href='./login.html'
   } else if (!checkboxSignUp.checked) {
     alert("Please accept the privacy policy");
   } else if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
@@ -66,6 +65,8 @@ function enterFullInformation() {
   passwordInputSignUp.value !== "" && confirmPasswordInputSignUp.value !== ""
   && checkboxSignUp.checked) {
     postValueDataIntoFirebase();
+    grayBodyEffect();
+    showSuccessMessage();
   } else {
     failureAllFieldsDiv.classList.remove("display-none");
     failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
@@ -73,7 +74,18 @@ function enterFullInformation() {
 }
 
 function showSuccessMessage() {
-  
+  const successButtonDiv = document.getElementById("button-position-success-message");
+  successButtonDiv.classList.remove("display-none");
+  successButtonDiv.classList.add("show-success");
+  setTimeout(() => {
+    window.location.href='./login.html';
+  }, 1000);
+}
+
+function grayBodyEffect() {
+  const grayBodyDiv = document.getElementById("gray-background-for-body");
+  grayBodyDiv.classList.remove("display-none");
+  grayBodyDiv.classList.add("gray-background-for-body-effect");
 }
 
 function checkPasswordMatch() {
