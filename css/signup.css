@@ -492,10 +492,24 @@ h1 {
     align-items: center;
 }
 
-.button-position-success-message{
-    position: absolute;
-    bottom: 0px;
-    left: 45%;
+.button-position-success-message {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -80px;
+    animation: fly-up 0.6s ease-out forwards;
+}
+
+
+@keyframes fly-up {
+    0% {
+        bottom: -80px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 50%;
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 1400px) {
