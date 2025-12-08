@@ -37,7 +37,7 @@ function clearInputFields() {
 
 async function postRegistryDataBaseFunction(path= "", data= {}) {
   let response = await fetch (FireBaseUrl + path + ".json", {
-    method : "POST",
+    method : "PUT",
     headers : {
       "Content-Type" : "application/json"
     },
@@ -49,7 +49,8 @@ async function postRegistryDataBaseFunction(path= "", data= {}) {
 async function postValueDataIntoFirebase() {
   if (checkboxSignUp.checked && passwordInputSignUp.value === confirmPasswordInputSignUp.value) {
     const userData = valueOfInputFields();
-    const dataPost = await postRegistryDataBaseFunction("userData", userData);
+    const safeName = userData.name.replace(/\s+/g, "_");
+    const dataPost = await postRegistryDataBaseFunction(`userData/${safeName}`, userData);
     clearInputFields();
     console.log(dataPost);
   } else if (!checkboxSignUp.checked) {
