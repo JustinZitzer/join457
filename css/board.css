@@ -2944,6 +2944,7 @@ h2 {
 
     .inprogress-container {
         padding-left: 0px;
+        width: 100vw;
     }
 
 
@@ -3587,8 +3588,14 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-right: 33px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .todo-content-task::-webkit-scrollbar {
+        display: none;
     }
 
     .inprogress-content-task {
@@ -3597,9 +3604,15 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-right: 33px;
         margin-left: 0px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .inprogress-content-task::-webkit-scrollbar {
+        display: none;
     }
 
     .await-feedback-content-task {
@@ -3608,9 +3621,15 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-right: 33px;
         margin-left: 0px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .await-feedback-content-task::-webkit-scrollbar {
+        display: none;
     }
 
     .done-content-task {
@@ -3619,9 +3638,15 @@ h2 {
         display: flex;
         min-height: 100px;
         max-height: 300px;
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-right: 33px;
         margin-left: 0px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .done-content-task::-webkit-scrollbar {
+        display: none;
     }
 }
 
