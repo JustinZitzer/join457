@@ -162,6 +162,10 @@ header h1 {
     margin-bottom: 100px;
 }
 
+.sidebar-join-logo-alternative {
+    margin-bottom: 0px;
+}
+
 footer {
     display: flex;
     flex-direction: column;

@@ -100,8 +100,7 @@ async function fetchUserDataFromFirebaseLogin(path = "") {
 async function loginUserForSummary() {
   const email = document.getElementById("Login-Box-Email-Input").value.trim();
   const password = document.getElementById("Login-Box-Passwort-Input").value;
-  const errorMessageDiv = document.getElementById("error-message-login");
-
+  
   const userData = await fetchUserDataFromFirebaseLogin("userData");
 
   let loginSuccessful = false;
@@ -117,12 +116,26 @@ async function loginUserForSummary() {
     }
   }
 
+  handleLoginResult(loginSuccessful, loggedInUserName);
+}
+
+function handleLoginResult(loginSuccessful, loggedInUserName) {
   if (loginSuccessful) {
     localStorage.setItem("loggedInUserName", loggedInUserName);
     window.location.href = "summary.html";
   } else {
-    errorMessageDiv.classList.remove("display-none");
+    changeColorAndShowErrorMessage();
   }
+}
+
+function changeColorAndShowErrorMessage() {
+    const errorMessageDiv = document.getElementById("error-message-login");
+
+    emailInput.classList.add("border-color-grey");
+    passwordInput.classList.add("border-color-grey");
+    errorMessageDiv.classList.remove("display-none");
+    emailInput.classList.add("border-color-red");
+    passwordInput.classList.add("border-color-red");
 }
 
 function loginAsAGuest() {

@@ -2,6 +2,10 @@ async function loadHTML() {
   await loadIndexHTML();
 }
 
+async function loadAlternativeHTML() {
+  await loadInfoIndexHTML();
+}
+
 async function loadIndexHTML() {
     try {
       const response = await fetch('index.html');
@@ -24,9 +28,8 @@ async function loadInfoIndexHTML() {
       }
       const html = await response.text();
       document.getElementById('index_html').innerHTML = html;
-      shortName();
     } catch (error) {
-      console.error(error);
+      console.error("index wurde nicht geladen");
     }
 }
 
