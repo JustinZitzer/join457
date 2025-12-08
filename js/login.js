@@ -97,15 +97,17 @@ async function fetchUserDataFromFirebaseLogin(path = "") {
 async function loginUserForSummary() {
     const email = document.getElementById("Login-Box-Email-Input").value.trim();
     const password = document.getElementById("Login-Box-Passwort-Input").value;
+    const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
 
     const userData = await fetchUserDataFromFirebaseLogin("userData");
 
     let loginSuccessful = false;
 
     for (let userName in userData) {
-    const userEntries = Object.values(userData[userName]);
-    for (let i = 0; i < userEntries.length; i++) {
-      const user = userEntries[i];
+    const userObject = Object.values(userData[userName]);
+    for (let i = 0; i < userObject.length; i++) {
+      const user = userObject[i];
+      const name = user.name;
       if (user.email === email && user.password === password) {
         loginSuccessful = true;
         break;
@@ -116,6 +118,7 @@ async function loginUserForSummary() {
 
   if (loginSuccessful) {
     window.location.href = "summary.html";
+    summaryGreetingTextName.innerHTML = userData.name;
   } else {
     alert("Invalid email or password. Please try again.");
   }
