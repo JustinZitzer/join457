@@ -979,6 +979,7 @@ h6 {
     background-color: red;
     color: white;
     box-shadow: none !important;
+    border: transparent;
 }
 
 .arrow-container-red:hover {
@@ -1002,6 +1003,7 @@ h6 {
 .arrow-container-orange.active {
     background-color: orange;
     color: white;
+    border: transparent;
 }
 
 .arrow-container-orange {
@@ -1038,6 +1040,7 @@ h6 {
     background-color: orange;
     color: white;
     box-shadow: none;
+    border: transparent;
 }
 
 
@@ -1063,6 +1066,7 @@ h6 {
     background-color: lightgreen;
     color: white;
     box-shadow: none;
+    border: transparent;
 }
 
 .overlay-hidden {

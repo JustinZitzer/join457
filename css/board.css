@@ -136,7 +136,7 @@ h3 {
 
 .title-findtask:focus {
     outline: none;
-    border: 3px solid #29ABE2;
+    border: 1px solid #29ABE2;
 }
 
 .inputfield-task-content {
@@ -170,6 +170,7 @@ h3 {
     justify-content: center;
     box-sizing: border-box;
     min-width: 100px;
+    border: transparent;
 }
 
 .add-task-box:hover {
@@ -1322,12 +1323,17 @@ h5 {
     height: 24px;
     font-family: Inter;
     font-weight: 700;
-    font-size: 21px;
+    font-size: 19px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #FFFFFF;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
 
+.svg-check-open-overlay {
+    margin-bottom: 2px;
 }
 
 .clear-create-container-board {
@@ -2480,16 +2486,19 @@ h2 {
 .active-red {
     background-color: rgb(247, 67, 67);
     color: white;
+    border: transparent;
 }
 
 .active-yellow {
     background-color: orange;
     color: white;
+    border: transparent;
 }
 
 .active-green {
     background-color: lightgreen;
     color: white;
+    border: transparent;
 }
 
 .subtask-edit-inputfield {
