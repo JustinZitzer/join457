@@ -2837,14 +2837,26 @@ h2 {
 }
 
 .no-tasks-to-do {
-    font-size: 24px;
-    color: #888888;
-    height: 200px;
+    font-size: 16px;
+    color: #A8A8A8;
+    line-height: 120%;
+    font-weight: 400;
+    height: 48px;
     width: 244px;
-    border-radius: 24px;
+    border-radius: 10px;
+    background-color: #E7E7E7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px dashed #A8A8A8;
 }
 
 @media (max-width: 1400px) {
+
+    .no-tasks-to-do {
+        width: 95.5vw;
+    }
 
     main {
         margin-left: 0px;
@@ -3190,6 +3202,11 @@ h2 {
 }
 
 @media (max-width: 1000px) {
+
+    .no-tasks-to-do {
+        width: 95.0vw;
+    }
+
     .title-findtask {
         width: 95vw;
     }
@@ -3278,9 +3295,17 @@ h2 {
     .done-box {
         width: 92.5vw;
     }
+
+    .no-tasks-to-do {
+        width: 94vw;
+    }
 }
 
 @media (max-width: 700px) {
+
+    .no-tasks-to-do {
+        width: 92vw;
+    }
 
     .todo-box {
         width: 92vw;
@@ -3487,6 +3512,10 @@ h2 {
 
 @media (max-width: 600px) {
 
+    .no-tasks-to-do {
+        width: 90.5vw;
+    }
+
     .todo-box {
         width: 89vw;
     }
@@ -3663,6 +3692,10 @@ h2 {
 
 
 @media (max-width: 500px) {
+
+    .no-tasks-to-do {
+        width: 88.5vw;
+    }
 
     .todo-box {
         width: 87.8vw;
@@ -3945,6 +3978,11 @@ h2 {
 }
 
 @media (max-width: 400px) {
+
+    .no-tasks-to-do {
+        width: 95.5vw;
+    }
+
     .todo-box {
         width: 87.5vw;
     }

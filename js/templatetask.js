@@ -487,7 +487,7 @@ function getContactCircleTemplate(className, initials) {
 }
 
 function getEmptyTodoTemplate() {
-  return `<div class="empty-todo-hint">Keine Aufgaben vorhanden.</div>`;
+  return `<div class="no-tasks-to-do">No tasks To do</div>`;
 }
 
 function getAssignedContactBigTemplate(circleClass, initials, name) {

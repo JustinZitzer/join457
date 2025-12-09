@@ -704,7 +704,12 @@ function updateTasksHtml() {
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
-  renderTasksForColumn(toDoTasks, toDoContentFinalDiv);
+
+  if (toDoTasks.length === 0) {
+    toDoContentFinalDiv.innerHTML = getEmptyTodoTemplate();
+  } else {
+    renderTasksForColumn(toDoTasks, toDoContentFinalDiv);
+  }
   renderTasksForColumn(inProgressTasks, inProgressContent);
   renderTasksForColumn(awaitFeedbackTasks, awaitFeedbackContent);
   renderTasksForColumn(doneTasks, doneContent);
