@@ -546,3 +546,18 @@ async function postNewTaskToFirebase() {
     alert("Please select a category for the task.");
   }
 }
+
+function addCrossAndCheckIconStyle()  {
+  const input = document.getElementById("inputfield-subtask-assign-in-board");
+  const plusIcon = document.getElementById("add-icon-container-board");
+  const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
+
+  plusIcon.classList.add("display-none");
+  inputfieldDiv.classList.remove("display-none");
+}
+
+
+function deleteCurrentSubtaskText() {
+  const input = document.getElementById("inputfield-subtask-assign-in-board");
+  input.value = "";
+}

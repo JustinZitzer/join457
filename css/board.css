@@ -1247,6 +1247,7 @@ h5 {
     font-size: 20px;
     font-weight: 400;
     border: 1px solid #ccc;
+    cursor: pointer;
 }
 
 .inputfield-subtask-assign-board:focus {
@@ -1506,6 +1507,45 @@ h5 {
     width: 24px;
     color: #2A3647;
     cursor: pointer;
+}
+
+.inputfield-and-icons-subtask-board-overlay-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40px;
+    left: 175px;
+}
+
+.seperator-for-open-overlay {
+    width: 1px;
+    height: 22px;
+    background-color: #D1D1D1;
+    margin-left: 8px;
+    margin-right: 2px;
+}
+
+.check-icon-open-overlay {
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+
+.check-icon-open-overlay:hover {
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    padding: 1px;
+}
+
+.close-icon-open-overlay{
+    cursor: pointer;
+}
+
+.close-icon-open-overlay:hover{
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    padding: 2px;
+    scale: 1.75;
 }
 
 .assigned-arrow-icon-board {
@@ -2843,6 +2883,10 @@ h2 {
     opacity: 1;
     z-index: 1;
     /* sicherstellen, dass es über anderen Elementen liegt */
+}
+
+.inputfield-and-icons-subtask-board-overlay {
+    width: 100%;
 }
 
 .no-tasks-to-do {
