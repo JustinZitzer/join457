@@ -1272,8 +1272,22 @@ h6 {
     cursor: pointer;
 }
 
+.subtask-icon-cross:hover {
+    cursor: pointer;
+    padding: 1px;
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;    
+}
+
 .subtask-icon-check {
     cursor: pointer;
+}
+
+.subtask-icon-check:hover {
+    cursor: pointer;
+    padding: 1px;
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
 }
 
 @media (max-width: 1400px) {
