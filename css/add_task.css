@@ -535,6 +535,9 @@ h6 {
     height: auto;
     justify-content: space-between;
     margin-top: 15px;
+}
+
+.margin-bottom-negative {
     margin-bottom: -25px;
 }
 
