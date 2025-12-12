@@ -2962,6 +2962,48 @@ h2 {
 
 @media (max-width: 1400px) {
 
+    .task-big-container {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(100vw, -50%) !important;
+        transition: transform 0.5s ease !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: 75% !important;
+        width: 98% !important;
+        background-color: white !important;
+        border-radius: 16px !important;
+        z-index: 112 !important;
+    }
+
+    .task-board-big-delete-edit-div-first {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+    }
+
+    .task-category-and-cross-icon-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 35px;
+        margin-bottom: 20px
+    }
+
+    .task-board-big-headline {
+        font-size: 38px;
+    }
+
+    .task-board-big-description {
+        font-size: 16px;
+    }
+
     .no-tasks-to-do {
         width: 95.5vw;
     }
