@@ -537,6 +537,7 @@ async function postNewTaskToFirebase() {
     const newTaskKey = taskTitel.value;
     const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
     clearInputFieldsForNewTask();
+    showTaskAddedMessage();
     console.log(dataPost);
   } else if (!taskTitel.value) {
     alert("Please enter a title for the task.");
@@ -560,4 +561,22 @@ function addCrossAndCheckIconStyle()  {
 function deleteCurrentSubtaskText() {
   const input = document.getElementById("inputfield-subtask-assign-in-board");
   input.value = "";
+}
+
+function showTaskAddedMessage() {
+  const taskAddedDiv = document.getElementById("task-added-add-task-div");
+  taskAddedDiv.classList.remove("display-none");
+  taskAddedDiv.classList.add("show-success");
+  setTimeout(() => {
+    taskAddedDiv.classList.remove("show-success");
+    taskAddedDiv.classList.add("display-none");
+  }, 1000);
+}
+
+function showTaskAddedMessageBoard() {
+  const taskAddedDiv = document.getElementById("task-added-in-board-div");
+  taskAddedDiv.classList.remove("display-none");
+  setTimeout(() => {
+    taskAddedDiv.classList.add("display-none");
+  }, 1000);
 }

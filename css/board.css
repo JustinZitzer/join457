@@ -427,6 +427,24 @@ h3 {
     letter-spacing: 0%;
     text-align: center;
 }
+.technical-task-box-big {
+    width: 208px;
+    height: 36px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #1FD7C1;
+    color: white;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+}
 
 .technikal-story-box {
     width: 144px;
@@ -479,22 +497,22 @@ h3 {
 }
 
 .progressbar-content {
-    width: 128px;
+    width: 110px;
     height: 8px;
     top: 4px;
     gap: 10px;
-    border-radius: 8px;
+    border-radius: 16px;
     margin-right: 10px;
     background-color: #F4F4F4;
 
 }
 
 .subtask-text {
-    width: 75px;
+    width: 98px;
     height: auto;
     left: 139px;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #000000;
@@ -545,13 +563,13 @@ h3 {
 }
 
 .single-circle-first-big {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     gap: 10px;
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     display: flex;
@@ -568,7 +586,7 @@ h3 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     display: flex;
@@ -597,13 +615,13 @@ h3 {
 }
 
 .single-circle-second-big {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     gap: 10px;
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     display: flex;
@@ -620,7 +638,7 @@ h3 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     display: flex;
@@ -680,7 +698,7 @@ h5 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     text-align: center;
@@ -690,8 +708,8 @@ h5 {
 }
 
 .single-circle-third-big {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -699,7 +717,7 @@ h5 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     background-color: orange;
@@ -1820,11 +1838,20 @@ h2 {
 
 .big-board-user-or-technical {
     margin-left: 30px;
+    height: 36px;
+    width: 164px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    font-weight: 400;
 }
 
 .close-icon-big-task {
     margin-right: 30px;
     cursor: pointer;
+    width: 13.15px;
+    height: 13.15px;
 }
 
 .close-icon-big-task:hover {
@@ -1835,7 +1862,10 @@ h2 {
 }
 
 .task-board-big-headline {
-    font-size: 50px;
+    font-size: 61px;
+    font-weight: bold;
+    line-height: 120%;
+    letter-spacing: 0%;
     width: 100%;
     margin-left: 30px;
     margin-bottom: 15px;
@@ -1845,6 +1875,7 @@ h2 {
     width: 100%;
     font-size: 20px;
     margin-left: 30px;
+    font-weight: 400;
 }
 
 .task-board-big-date-div {
@@ -1857,11 +1888,14 @@ h2 {
 
 .task-board-big-date-text {
     color: #2A3647;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
 }
 
 .task-board-big-date-number {
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .task-board-big-priority-div {
@@ -1869,16 +1903,21 @@ h2 {
     align-items: center;
     width: 100%;
     margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 32px;
 }
 
 .task-board-big-priority-text {
     color: #2A3647;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
 }
 
 .task-board-big-priority {
     margin-left: 38px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
 }
 
 .task-board-big-priority-icon {
@@ -1900,8 +1939,10 @@ h2 {
 }
 
 .assigned-to-big-task-headline {
-    font-size: 18px;
+    font-size: 20px;
     color: #2A3647;
+    font-weight: 400;
+    line-height: 120%;
 }
 
 .task-board-big-first-contact {
@@ -1943,9 +1984,9 @@ h2 {
 
 .subtasks-board-big-headline {
     width: 100%;
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 30px;
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: 400;
     color: #2A3647;
 }
@@ -1976,7 +2017,6 @@ h2 {
 
 .task-board-big-delete-edit-div {
     width: 80%;
-    margin-top: 50px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -1985,9 +2025,9 @@ h2 {
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: relative;
-    left: 70px;
-    top: 150px;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
 }
 
 .seperator-big-subtask {
@@ -2004,6 +2044,18 @@ h2 {
 
 .delete-text-board {
     margin-right: 10px;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-weight: 400;
+}
+
+.edit-text-board {
+    margin-right: 10px;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-weight: 400;
 }
 
 .bin-hover-effect-div:hover .delete-text-board,
@@ -2864,6 +2916,9 @@ h2 {
 
 .checkbox-subtask-text {
     margin-left: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
 }
 
 .task-margin-bottom-subtask {
@@ -2906,6 +2961,48 @@ h2 {
 }
 
 @media (max-width: 1400px) {
+
+    .task-big-container {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(100vw, -50%) !important;
+        transition: transform 0.5s ease !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: 75% !important;
+        width: 98% !important;
+        background-color: white !important;
+        border-radius: 16px !important;
+        z-index: 112 !important;
+    }
+
+    .task-board-big-delete-edit-div-first {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+    }
+
+    .task-category-and-cross-icon-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 35px;
+        margin-bottom: 20px
+    }
+
+    .task-board-big-headline {
+        font-size: 38px;
+    }
+
+    .task-board-big-description {
+        font-size: 16px;
+    }
 
     .no-tasks-to-do {
         width: 95.5vw;
