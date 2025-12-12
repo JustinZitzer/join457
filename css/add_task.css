@@ -1293,6 +1293,54 @@ h6 {
     border-radius: 50%;
 }
 
+.task-added-to-board {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50%;
+    z-index: 11;
+}
+
+.show-success {
+    animation: fly-up 0.1s ease-out forwards;
+}
+
+.added-task-icon {
+    width: 25px;
+    height: 29.55px;
+
+}
+
+.added-task-message {
+    height: 74px;
+    width: 326px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-success-text {
+    height: 24px;
+    width: 235px;
+}
+
+@keyframes fly-up {
+    0% {
+        bottom: -80px;
+    }
+    100% {
+        bottom: 50%;
+    }
+}
+
 @media (max-width: 1400px) {
 
     #header-title-project-management-tool,

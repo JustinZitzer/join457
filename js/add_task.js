@@ -1062,6 +1062,7 @@ async function handleTaskCreationBoard(status, taskTitel) {
   const newTaskKey = taskTitel.value;
   const dataPost = await putRegistryDataBaseFunction(`tasks/${status}/` + newTaskKey, inputsForTask);
   clearInputFieldsForNewTaskBoard();
+  showTaskAddedMessageBoard();
   console.log(dataPost);
 }
 
