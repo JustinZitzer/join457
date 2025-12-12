@@ -197,7 +197,8 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
     userOrTechnicalDivBig.classList.add("user-story-box");
   } else if (userOrTechnicalTextBox.innerHTML == "Technical Task") {
     userOrTechnicalDiv.classList.add("technical-task-box");
-    userOrTechnicalDivBig.classList.add("technical-task-box");
+    userOrTechnicalDivBig.classList.add("technical-task-box-big");
+    userOrTechnicalDivBig.style.width = "208px";
   }
 }
 
