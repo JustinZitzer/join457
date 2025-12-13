@@ -1299,11 +1299,11 @@ h5 {
     height: 56px;
     gap: 16px;
     top: 300px;
-    left: 280px
+    left: 263px
 }
 
 .clear-field-board {
-    width: 33 vh;
+    width: 33vh;
     height: 56px;
     border-width: 1px;
     gap: 4px;
@@ -1328,7 +1328,7 @@ h5 {
 }
 
 .create-field-board {
-    width: 183px;
+    width: 186px;
     height: 56px;
     gap: 4px;
     border-radius: 10px;

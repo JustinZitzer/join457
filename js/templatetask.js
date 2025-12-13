@@ -406,10 +406,10 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
         <div class="subtask-bullet-margin-right">•</div>
         <span id="subtask-task-text-edit${taskKey}${i}">${subtaskText}</span>
         <svg onclick="changeSubtaskContent('${taskKey}', '${i}', '${subtaskText}')"
-             id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon"
-             width="25" height="25" viewBox="0 0 33 32" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
-          <mask id="mask0_313493_6285" style="mask-type:alpha"
+            id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon"
+            width="25" height="25" viewBox="0 0 33 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_313493_6285" style="mask-type:alpha"
                 maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
             <rect x="0.5" width="32" height="32" fill="#D9D9D9"/>
           </mask>
@@ -419,8 +419,8 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
         </svg>
         <div id="seperator-for-subtasks${taskKey}${i}" class="seperator-for-subtasks"></div>
         <svg onclick="cancelEditSubtask('${taskKey}', '${i}')" id="waste-icon${taskKey}${i}" class="waste-icon"
-             width="23" height="23" viewBox="0 0 24 24" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
+            width="23" height="23" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
           <mask id="mask0_314135_4497" style="mask-type:alpha"
                 maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
             <rect width="24" height="24" fill="#D9D9D9"/>
@@ -433,7 +433,6 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
     </div>
   `;
 }
-
 
 function subtasksInBoard(i, subtaskText) {
   return `
@@ -486,15 +485,21 @@ function changeSubtasksIntoInputfield(i, subtaskText) {
       </svg>
     </div>
   </div>
-  `
+  `;
 }
 
 function getContactCardForDropdown(contact) {
-  const name = contact.lastName? `${contact.firstName} ${contact.lastName}`: contact.firstName;
+  const name = contact.lastName
+    ? `${contact.firstName} ${contact.lastName}`
+    : contact.firstName;
   return `
     <label class="contact-option">
       <span id="contact-name-${contact.id}">${name}</span>
-      <input id="contact-checkbox-${contact.id}" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ""}">
+      <input id="contact-checkbox-${
+        contact.id
+      }" type="checkbox" class="contact-checkbox" data-contact-id="${
+    contact.id || ""
+  }">
     </label>
   `;
 }
@@ -564,13 +569,17 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
 function contactCardDropdownEditTemplate(contact, taskKey, initials, name) {
   return `
     <label class="contact-option-edit">
-      <span id="circles-edit${contact.id}${taskKey}" class="circles-edit">${initials}</span>
+      <span id="circles-edit${
+        contact.id
+      }${taskKey}" class="circles-edit">${initials}</span>
       <div class="name-checkbox-flexbox">
-        <span class="contact-name-edit" id="contact-name-edit${contact.id}${taskKey}">${name}</span>
+        <span class="contact-name-edit" id="contact-name-edit${
+          contact.id
+        }${taskKey}">${name}</span>
         <input id="contact-checkbox-${contact.id}${taskKey}" 
-               type="checkbox" 
-               class="contact-checkbox-edit" 
-               data-contact-id="${contact.id || ""}">
+              type="checkbox" 
+              class="contact-checkbox-edit" 
+              data-contact-id="${contact.id || ""}">
       </div>
     </label>
   `;
@@ -586,10 +595,10 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
   return `
     <div class="flexbox-inputfield-subtask-edit">
       <svg onclick="cancelEditSubtask('${taskKey}', '${i}')" 
-           id="subtask-delete-icon-edit${taskKey}${i}" 
-           class="subtask-delete-icon-edit" 
-           width="24" height="24" viewBox="0 0 24 24" fill="none" 
-           xmlns="http://www.w3.org/2000/svg">
+          id="subtask-delete-icon-edit${taskKey}${i}" 
+          class="subtask-delete-icon-edit" 
+          width="24" height="24" viewBox="0 0 24 24" fill="none" 
+          xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_314135_4497" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
           <rect width="22" height="22" fill="#D9D9D9"/>
         </mask>
@@ -601,10 +610,10 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
       <div id="subtask-inputfield-edit-seperator${taskKey}${i}" class="subtask-inputfield-edit-seperator"></div>
 
       <svg onclick="confirmChangeForEditSubtask('${taskKey}', '${i}', '${subtaskText}')" 
-           id="subtask-confirm-icon-edit${taskKey}${i}" 
-           class="subtask-confirm-icon-edit" 
-           width="24" height="25" viewBox="0 0 24 25" fill="none" 
-           xmlns="http://www.w3.org/2000/svg">
+          id="subtask-confirm-icon-edit${taskKey}${i}" 
+          class="subtask-confirm-icon-edit" 
+          width="24" height="25" viewBox="0 0 24 25" fill="none" 
+          xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
           <rect y="0.5" width="25" height="25" fill="#D9D9D9"/>
         </mask>
@@ -614,8 +623,8 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
       </svg>
 
       <input class="subtask-edit-inputfield" 
-             id="subtask-edit-inputfield${taskKey}${i}" 
-             type="text" value="${subtaskText}">
+            id="subtask-edit-inputfield${taskKey}${i}" 
+            type="text" value="${subtaskText}">
     </div>
   `;
 }
