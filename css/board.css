@@ -390,9 +390,28 @@ h3 {
     background-color: #FFFFFF;
 }
 
+.user-story-box-big {
+    height: 36px;
+    width: 164px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #0038FF;
+    color: white;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
 .user-story-box {
-    width: 113px;
     height: 27px;
+    width: 113px;
     padding-top: 4px;
     padding-right: 16px;
     padding-bottom: 4px;
@@ -427,6 +446,7 @@ h3 {
     letter-spacing: 0%;
     text-align: center;
 }
+
 .technical-task-box-big {
     width: 208px;
     height: 36px;
@@ -1838,8 +1858,6 @@ h2 {
 
 .big-board-user-or-technical {
     margin-left: 30px;
-    height: 36px;
-    width: 164px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1869,6 +1887,22 @@ h2 {
     width: 100%;
     margin-left: 30px;
     margin-bottom: 15px;
+    overflow-wrap: anywhere;
+    padding-right: 30px;
+}
+
+.change-todo-status-icon {
+    cursor: pointer;
+    width: 26px;
+    height: 24px;
+    display: none;
+}
+
+.flexbox-for-user-story-and-icon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .task-board-big-description {
@@ -2961,6 +2995,122 @@ h2 {
 }
 
 @media (max-width: 1400px) {
+
+    .user-story-box-big {
+        height: 27px;
+        width: 113px;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #0038FF;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    .technical-task-box-big {
+        width: 144px;
+        height: 27px;
+        padding-top: 4px;
+        padding-right: 16px;
+        padding-bottom: 4px;
+        padding-left: 16px;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #1FD7C1;
+        color: white;
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    .task-board-big-date-number {
+        font-size: 16px;
+    }
+
+    .task-board-big-date-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .task-board-big-priority-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .task-board-big-priority {
+        font-size: 16px;
+    }
+
+    .assigned-to-big-task-headline {
+        font-size: 16px;
+    }
+
+    .task-board-big-first-contact-name-big {
+        font-size: 16px;
+    }
+
+    .subtasks-board-big-headline {
+        font-size: 16px;
+    }
+
+    .task-board-big-priority-icon {
+        margin-left: 10px;
+        height: 12px;
+        width: 17px;
+    }
+
+    .change-todo-status-icon {
+        display: block;
+    }
+
+    .user-profile-menu-mobile {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        right: -150px;
+        width: 160px;
+        height: 200px;
+        border-radius: 0px 20px 20px 20px;
+        background-color: rgba(42, 54, 71, 1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .move-to-headline {
+        font-size: 16px;
+        color: white;
+        margin-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .status-link {
+        font-size: 16px;
+        color: white;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+
+    .status-link:hover {
+        background-color: #091931;
+        cursor: pointer;
+        padding: px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
 
     .task-big-container {
         position: absolute !important;

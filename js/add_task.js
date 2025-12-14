@@ -157,6 +157,14 @@ function clearAllTasks() {
   doneContent.innerHTML = "";
 }
 
+function renderMoveToCategoryDropdown() {
+  
+}
+
+function moveToCategoryMobile() {
+  
+}
+
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
   currentDraggedCategory = category;
@@ -194,11 +202,10 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
 
   if (userOrTechnicalTextBox.innerHTML == "User Story") {
     userOrTechnicalDiv.classList.add("user-story-box");
-    userOrTechnicalDivBig.classList.add("user-story-box");
+    userOrTechnicalDivBig.classList.add("user-story-box-big");
   } else if (userOrTechnicalTextBox.innerHTML == "Technical Task") {
     userOrTechnicalDiv.classList.add("technical-task-box");
     userOrTechnicalDivBig.classList.add("technical-task-box-big");
-    userOrTechnicalDivBig.style.width = "208px";
   }
 }
 
