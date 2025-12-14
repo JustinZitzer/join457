@@ -580,3 +580,41 @@ function showTaskAddedMessageBoard() {
     taskAddedDiv.classList.add("display-none");
   }, 1000);
 }
+
+function showMoveToCategoryIcon(event, taskKey) {
+  event.stopPropagation();
+  const moveToDropdown = document.getElementById(`user-profile-menu-mobile${taskKey}`);
+  if (moveToDropdown.classList.contains("display-none")) {
+    moveToDropdown.classList.remove("display-none");
+  } else {
+    moveToDropdown.classList.add("display-none");
+  }
+}
+
+async function moveTaskToCategory(event, taskId, newCategory) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdownMenu = document.getElementById(`user-profile-menu-mobile${taskId}`);
+
+  const task = todosArray.find(t => t.id === taskId);
+  if (!task) return;
+
+  const oldCategory = task.category;
+  if (oldCategory === newCategory) {
+    dropdownMenu?.classList.add("display-none");
+    return;
+  }
+
+  await fetch(FireBaseUrl + `tasks/${oldCategory}/${task.id}.json`, { method: "DELETE" });
+
+  task.category = newCategory;
+  await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(task),
+  });
+
+  dropdownMenu?.classList.add("display-none");
+
+  loadAllTasksFromFirebase();
+}

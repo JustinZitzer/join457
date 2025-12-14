@@ -3072,6 +3072,7 @@ h2 {
 
     .change-todo-status-icon {
         display: block;
+        z-index: 11;
     }
 
     .user-profile-menu-mobile {

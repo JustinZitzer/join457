@@ -134,7 +134,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
           <div class="user-story-box" id="user-story-box${taskKey}">
             <span id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
           </div>
-          <svg id="change-todo-status-icon${taskKey}" class="change-todo-status-icon display-none" id="change-todo-status-icon" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg onclick="showMoveToCategoryIcon(event, '${taskKey}')" id="change-todo-status-icon${taskKey}" class="change-todo-status-icon" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.75" y="25.25" width="24.5" height="22.5" rx="5.25" transform="rotate(-90 0.75 25.25)" stroke="#2A3647" stroke-width="1.5"/>
             <mask id="mask0_294678_9869" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="3" width="20" height="20">
             <rect x="2" y="23" width="20" height="20" transform="rotate(-90 2 23)" fill="#D9D9D9"/>
@@ -145,10 +145,10 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
           </svg>
           <div class="user-profile-menu-mobile display-none" id="user-profile-menu-mobile${taskKey}">
             <p class="move-to-headline">Move to</p>
-            <a class="status-link">To do</a>
-            <a class="status-link">In progress</a>
-            <a class="status-link">Await feedback</a>
-            <a class="status-link">Done</a>
+            <a onclick="moveTaskToCategory(event, '${taskKey}', 'toDo')" class="status-link">To do</a>
+            <a onclick="moveTaskToCategory(event, '${taskKey}', 'inProgress')" class="status-link">In progress</a>
+            <a onclick="moveTaskToCategory(event, '${taskKey}', 'awaitFeedback')" class="status-link">Await feedback</a>
+            <a onclick="moveTaskToCategory(event, '${taskKey}', 'done')" class="status-link">Done</a>
           </div>
         </div>
       <div class="text-contact-box">

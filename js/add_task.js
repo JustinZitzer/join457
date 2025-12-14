@@ -157,14 +157,6 @@ function clearAllTasks() {
   doneContent.innerHTML = "";
 }
 
-function renderMoveToCategoryDropdown() {
-  
-}
-
-function moveToCategoryMobile() {
-  
-}
-
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
   currentDraggedCategory = category;
