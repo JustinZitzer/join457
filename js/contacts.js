@@ -98,7 +98,6 @@ function showEditContactDropsdownMobile() {
 
 function closeEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
-    if(!dropdown) return;
     if(!dropdown.classList.contains("display-none")){
         dropdown.classList.add("display-none");
     }
