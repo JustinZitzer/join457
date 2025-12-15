@@ -83,7 +83,7 @@ function showThreeDotsMenu() {
     const threeDotsMenu = document.getElementById('edit-delete-contact-button');
     const contactOverlayActive = document.getElementById('contacts_side_overlay');
     
-    if (!contactOverlayActive.classList.contains('contacts-overlay-container.active-side-overlay')) {
+    if (!contactOverlayActive.classList.contains('active')) {
         addContactButton.style.display = 'none';
         threeDotsMenu.style.display = 'block';
     }
@@ -98,6 +98,7 @@ function showEditContactDropsdownMobile() {
 
 function closeEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
+    if(!dropdown) return;
     if(!dropdown.classList.contains("display-none")){
         dropdown.classList.add("display-none");
     }
