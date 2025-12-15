@@ -20,19 +20,26 @@ function openContactsSideCardOverlay(contactId) {
     const contactsRightSection = document.getElementById('contacts_right_section');
     const existingOverlay = document.getElementById('contacts_side_overlay');
     const dropdownEditDelete = document.getElementById('delete-edit-dropdown-contacts');
+    const backIcon = document.getElementById('close-side-contact-arrow-icon');
     if (existingOverlay) {
         existingOverlay.remove();
         dropdownEditDelete.remove();
+        backIcon.remove();
     }
     contactsRightSection.innerHTML += (getContactOverlay(contact));
 }
 
 function openContactsSideCardOverlayById(contactId) {
-    openContactsSideCardOverlay(contactId);
-    toggleContactCardColor(contactId);
-    requestAnimationFrame(flyInOverlay);
+  openContactsSideCardOverlay(contactId);
+  toggleContactCardColor(contactId);
+
+  requestAnimationFrame(() => {
+    const overlay = document.getElementById('contacts_side_overlay');
+    overlay?.classList.add('active-side-overlay');
+    flyInOverlay();
     showContactsCardOverlayMobile();
     showThreeDotsMenu();
+  });
 }
 
 function showContactsCardOverlayMobile() {
@@ -48,19 +55,27 @@ function showContactsCardOverlayMobile() {
 }
 
 function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
-    if (displayResolution < 1400) {
-        if (!isActive) {
-            contactsRightSection.style.display = 'block';
-            contactsLeftSection.style.display = 'none';
-        } else if(isActive) {
-            contactsRightSection.style.display = 'none';
-            contactsLeftSection.style.display = 'block';
-        }
+  if (displayResolution < 1400) {
+    if (isActive) {
+      contactsRightSection.style.display = 'flex';
+      contactsLeftSection.style.display = 'none';
+    } else {
+      contactsRightSection.style.display = 'none';
+      contactsLeftSection.style.display = 'block';
     }
-    else if(displayResolution > 1400) {
-        contactsRightSection.style.display = 'flex';
-        contactsLeftSection.style.display = 'block';
-    }
+  } else {
+    contactsRightSection.style.display = 'flex';
+    contactsLeftSection.style.display = 'block';
+  }
+}
+
+function closeContactsSideCardOverlay(contactId) {
+    const contactsRightSection = document.getElementById('contacts_right_section');
+    const contactsLeftSection = document.getElementById('contacts-sidebar-container');
+    openContactsSideCardOverlay(contactId);
+    contactsLeftSection.style.display = 'block';
+    contactsRightSection.style.display = 'none';
+    showThreeDotsMenu();
 }
 
 function showThreeDotsMenu() {
@@ -68,7 +83,7 @@ function showThreeDotsMenu() {
     const threeDotsMenu = document.getElementById('edit-delete-contact-button');
     const contactOverlayActive = document.getElementById('contacts_side_overlay');
     
-    if (!contactOverlayActive.classList.contains('.contacts-overlay-container.active-side-overlay')) {
+    if (!contactOverlayActive.classList.contains('contacts-overlay-container.active-side-overlay')) {
         addContactButton.style.display = 'none';
         threeDotsMenu.style.display = 'block';
     }
