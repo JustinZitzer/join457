@@ -72,10 +72,14 @@ function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection,
 function closeContactsSideCardOverlay(contactId) {
     const contactsRightSection = document.getElementById('contacts_right_section');
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
+    const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
+    const threeDotsMenu = document.getElementById('edit-delete-contact-button');
     openContactsSideCardOverlay(contactId);
     contactsLeftSection.style.display = 'block';
     contactsRightSection.style.display = 'none';
     showThreeDotsMenu();
+    addContactButton.style.display = 'block';
+    threeDotsMenu.style.display = 'none';
 }
 
 function showThreeDotsMenu() {
