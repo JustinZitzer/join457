@@ -532,6 +532,7 @@ function getPriorityForNewTask() {
 }
 
 async function postNewTaskToFirebase() {
+  const errorMessage = document.getElementById("error-please-fill-inputs");
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
@@ -540,11 +541,11 @@ async function postNewTaskToFirebase() {
     showTaskAddedMessage();
     console.log(dataPost);
   } else if (!taskTitel.value) {
-    alert("Please enter a title for the task.");
+    errorMessage.classList.remove("display-none");
   } else if (!taskDueDate.value) {
-    alert("Please enter a due date for the task.");
+    errorMessage.classList.remove("display-none");
   } else if (!taskCategory.value) {
-    alert("Please select a category for the task.");
+    errorMessage.classList.remove("display-none");
   }
 }
 

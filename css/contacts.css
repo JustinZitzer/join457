@@ -562,6 +562,10 @@
     display: none;
 }
 
+.close-side-contact-arrow-icon {
+    display: none;
+}
+
 @media screen and (max-width: 1920px) {
 
     .add-contact-overlay {
@@ -602,6 +606,41 @@
 
 @media screen and (max-width: 1400px) {
 
+    .contacts-side-headline h1 {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 47px;
+    }
+
+    .close-side-contact-arrow-icon {
+        display: block;
+        position: fixed;
+        top: 160px;
+        right: 6vw;
+        cursor: pointer;
+    }
+
+    .contacts-overlay-user-profile {
+        background-color: #FF7A00;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 27px;
+        font-weight: 500;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        border: 3px solid white;
+        gap: 10px;
+    }
+
+    .contacts-details-container h4 {
+        font-weight: 700;
+        font-size: 19px;
+    }
+
     .contact-list-fix-container {
         display: none;
     }
@@ -635,7 +674,7 @@
 
     .contacts-side-headline {
         margin-top: 150px;
-        margin-left: 60px;
+        margin-left: 5px;
         width: auto;
         height: auto;
         display: flex;
@@ -647,6 +686,7 @@
 
     .contacts-overlay-container {
         margin-top: 50px;
+        margin-left: 5px;
     }
 
     .contacts-headline-seperator {
@@ -664,7 +704,7 @@
     .contacts-side-headline h3 {
         display: flex;
         font-weight: 400;
-        font-size: 27px;
+        font-size: 20px;
         margin-top: 0px;
         align-items: start;
         height: auto;
@@ -679,9 +719,10 @@
     }
 
     .contacts-info-container h3 {
-        font-size: 47px;
-        padding-top: 30px;
+        font-size: 36px;
+        padding-top: 17px;
         font-weight: bold;
+        margin-left: -40px;
     }
 
     .edit-delete-contact-button {

@@ -49,15 +49,15 @@ function showContactsCardOverlayMobile() {
 
 function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
     if (displayResolution < 1400) {
-        if (isActive) {
+        if (!isActive) {
             contactsRightSection.style.display = 'block';
             contactsLeftSection.style.display = 'none';
-        } else {
+        } else if(isActive) {
             contactsRightSection.style.display = 'none';
             contactsLeftSection.style.display = 'block';
         }
     }
-    else {
+    else if(displayResolution > 1400) {
         contactsRightSection.style.display = 'flex';
         contactsLeftSection.style.display = 'block';
     }

@@ -1253,6 +1253,13 @@ h6 {
     width: 100%;
 }
 
+.error-please-fill-inputs {
+    color: red;
+    position: absolute;
+    bottom: -25px;
+    font-size: 14px;
+}
+
 .input-icon-container {
     position: absolute;
     right: 16px;

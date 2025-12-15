@@ -3081,7 +3081,7 @@ h2 {
         top: 10px;
         right: -150px;
         width: 160px;
-        height: 200px;
+        height: 250px;
         border-radius: 0px 20px 20px 20px;
         background-color: rgba(42, 54, 71, 1);
         display: flex;
@@ -3098,19 +3098,20 @@ h2 {
     }
 
     .status-link {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 8px 14px 8px 30px;
         font-size: 16px;
         color: white;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        margin-left: 30px;
+        text-decoration: none;
     }
 
     .status-link:hover {
         background-color: #091931;
         cursor: pointer;
-        padding: px 14px;
         border-radius: 8px;
-        text-decoration: none;
     }
 
     .task-big-container {
