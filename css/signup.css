@@ -388,14 +388,18 @@ h1 {
 }
 
 .privacy-policy-accept-button {
-    width: 16px;
-    height: 16px;
-    top: 4px;
-    left: 4px;
-    border: 2px solid black;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
     border-radius: 3px;
-    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    border: 2px solid #2A3647;
+    border-radius: 3px;
+    background: none;
+    position: relative;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .text-accept {
@@ -542,6 +546,10 @@ h1 {
 
 @media screen and (max-width: 1400px) {
 
+    .blue-underline-headline {
+        width: 88px;
+    }
+
     .join-logo {
         position: absolute;
         width: 64px;
@@ -597,8 +605,8 @@ h1 {
     }
 
     .arrow-left {
-        width: 41px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
     }
 
     .title {
@@ -613,6 +621,7 @@ h1 {
     .title-text-div-headline {
         width: 100%;
         text-align: center;
+        font-size: 47px;
     }
 
     .signup-inputfield-container {
@@ -979,7 +988,7 @@ h1 {
     }
 
     .arrow-left {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
 }
