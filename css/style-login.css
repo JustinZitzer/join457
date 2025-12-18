@@ -153,7 +153,7 @@ body {
   font-size: 61px;
   line-height: 120%;
   letter-spacing: 0%;
-  text-align: center; 
+  text-align: center;
   font-weight: bold;
 }
 
@@ -386,6 +386,7 @@ body {
 
   .Header-Login-Right-Button {
     margin-right: 0px;
+    margin-bottom: 16px;
     width: 110px;
   }
 
