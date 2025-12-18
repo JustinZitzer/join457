@@ -54,9 +54,9 @@ async function postValueDataIntoFirebase() {
     clearInputFields();
     console.log(dataPost);
   } else if (!checkboxSignUp.checked) {
-    alert("Please accept the privacy policy");
+    failureMessage();
   } else if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
-    alert("Please check your Password they do not match");
+    failureMessage();
   }
 }
 
@@ -68,9 +68,13 @@ function enterFullInformation() {
     grayBodyEffect();
     showSuccessMessage();
   } else {
-    failureAllFieldsDiv.classList.remove("display-none");
-    failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
+    failureMessage();
   }
+}
+
+function failureMessage() {
+  failureAllFieldsDiv.classList.remove("display-none");
+  failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
 }
 
 function showSuccessMessage() {
