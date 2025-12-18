@@ -374,7 +374,6 @@ function cancelEditTask(taskKey) {
 
 async function deleteTask(category, taskKey) {
   const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
-
   try {
     const response = await fetch(url, {
       method: "DELETE",
@@ -382,6 +381,7 @@ async function deleteTask(category, taskKey) {
     if (response.ok) {
       console.log(`Task ${taskKey} aus Kategorie "${category}" gelöscht.`);
       await loadAllTasksFromFirebase();
+      hideBigTaskInfo(taskKey);
     }
   } catch (error) {
     error = console.error("Error deleting task:", error);
