@@ -1,10 +1,10 @@
 * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    font-family: 'inter';
-  }
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'inter';
+}
 
 body {
   background-color: #f6f7f8;
@@ -25,7 +25,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  pointer-events: none; /* Z-Index is above but you can still click everything*/
+  pointer-events: none;
+  /* Z-Index is above but you can still click everything*/
 }
 
 .Animation-Logo-Div {
@@ -42,7 +43,8 @@ body {
   z-index: 8;
   top: 50%;
   left: 50%;
-  width: 300px; /* Beispiel-Startgröße – anpassen nach Bedarf */
+  width: 300px;
+  /* Beispiel-Startgröße – anpassen nach Bedarf */
   height: auto;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: top left;
@@ -138,9 +140,9 @@ body {
 }
 
 .Login-Box {
- display: flex;
- flex-direction: column;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Login-Box-Text {
@@ -278,12 +280,12 @@ body {
   text-align: center;
 }
 
-.footer-login-site{
+.footer-login-site {
   display: flex;
   justify-content: center;
   flex-grow: 1;
   align-items: flex-end;
-  margin-bottom: 80px;
+  padding-bottom: 18px;
 }
 
 .Privacy-Policy-Text-Login-Site {
@@ -318,7 +320,7 @@ body {
 }
 
 
-.error-message-login{
+.error-message-login {
   color: red;
   font-size: 16px;
   margin-top: 0px;
@@ -332,16 +334,16 @@ body {
 }
 
 .border-color-red {
-  border:  1px solid red;
+  border: 1px solid red;
 }
 
 .border-color-grey {
-  border:  1px solid #A8A8A8
+  border: 1px solid #A8A8A8
 }
 
 @media screen and (max-width: 651px) {
 
-    .Login-Body-Div {
+  .Login-Body-Div {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -356,15 +358,16 @@ body {
   }
 
   .Loading-Screen-Logo-Big {
-  position: absolute;
-  z-index: 8;
-  top: 50%;
-  left: 50%;
-  width: 150px; /* Beispiel-Startgröße – anpassen nach Bedarf */
-  height: auto;
-  transform: translate(-50%, -50%) scale(1);
-  transform-origin: top left;
-  transition: transform 700ms ease-in-out;
+    position: absolute;
+    z-index: 8;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    /* Beispiel-Startgröße – anpassen nach Bedarf */
+    height: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: top left;
+    transition: transform 700ms ease-in-out;
   }
 
   .Loading-Screen-Logo-Mini {
@@ -373,10 +376,10 @@ body {
   }
 
   .Header-Login-Right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
   }
 
   .Header-Login-Right-Button {
@@ -408,14 +411,16 @@ body {
   }
 
   .input-icon {
-    left: 95%; /* oder z. B. 320px, je nach Design */
+    left: 95%;
+    /* oder z. B. 320px, je nach Design */
     transform: translateX(-100%) translateY(-50%);
   }
 
   .eye-icon-size-postition-login {
-    left: 95%; /* oder z. B. 320px, je nach Design */
+    left: 95%;
+    /* oder z. B. 320px, je nach Design */
     transform: translateX(-100%) translateY(-50%);
-}
+  }
 
   .Login-Box-Button-Div {
     display: flex;
