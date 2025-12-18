@@ -445,4 +445,11 @@ body {
     margin-bottom: 35px;
   }
 
+  @media screen and (max-height: 801px) {
+    .footer-login-site{
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
 }
