@@ -144,10 +144,10 @@ body {
 }
 
 .Login-Box-Text {
-  width: 315px;
-  height: 73px;
+  width: 139px;
+  height: 56px;
   font-weight: 700;
-  font-size: 61px;
+  font-size: 47px;
   line-height: 120%;
   letter-spacing: 0%;
   text-align: center;
@@ -368,8 +368,8 @@ body {
   }
 
   .Loading-Screen-Logo-Mini {
-    height: auto;
-    width: 70px;
+    width: 64px;
+    height: 78.03px;
   }
 
   .Header-Login-Right {
