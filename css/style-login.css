@@ -456,6 +456,12 @@ body {
       margin-top: 40px;
       padding-bottom: 40px;
     }
+
+    .Header-Login-Right-Button {
+      margin-right: 0px;
+      margin-bottom: 0; 
+      width: 110px;
+    }
   }
 
 }
