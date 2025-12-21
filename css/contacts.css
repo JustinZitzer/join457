@@ -157,6 +157,7 @@
 .contacts-right-main-container {
     display: flex;
     flex-direction: column;
+    margin-left: 24px;
 }
 
 .contacts-side-headline {
@@ -621,6 +622,12 @@
         cursor: pointer;
     }
 
+    .close-side-contact-arrow-icon:hover {
+        border-radius: 100%;
+        background-color: #d1d1d1;
+        transform: scale(1.15);
+    }
+
     .contacts-overlay-user-profile {
         background-color: #FF7A00;
         color: white;
@@ -1078,6 +1085,24 @@
 }
 
 @media screen and (max-width: 500px) {
+
+    .contacts-right-main-container {
+        margin-left: 4px;
+    }
+
+    .contacts-overlay-header h3 {
+        font-size: 27px;
+    }
+
+    .contacts-overlay-user-profile {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contacts-overlay-user-profile p {
+        font-size: 20px;
+    }
+
     .add-new-contact-btn-mobile-version {
         width: 56px;
         height: 56px;
