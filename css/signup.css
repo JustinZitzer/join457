@@ -390,23 +390,26 @@ h1 {
 .privacy-policy-accept-button {
   -webkit-appearance: none;
   appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   border: 2px solid #2A3647;
   border-radius: 3px;
   background: none;
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
+  margin-right: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .privacy-policy-accept-button::after {
   content: "";
   position: absolute;
-  width: 6px;
-  height: 20px;
-  left: 10px;
-  top: -7px;
+  width: 4px;
+  height: 14px;
+  left: 6px;
+  top: -6px;
   border: solid #2A3647;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
@@ -436,9 +439,9 @@ h1 {
 }
 
 .text-accept {
-    width: 78px;
+    width: 90px;
     height: 19px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     font-size: 16px;
     color: #A8A8A8;
@@ -469,6 +472,7 @@ h1 {
     background-color: #2A3647;
     bottom: 40px;
     cursor: pointer;
+    border: transparent;
 }
 
 .sign-up-button-container:hover {
@@ -574,6 +578,18 @@ h1 {
     100% {
         bottom: 50%;
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .arrow-box {
+        left: 44%
+    }
+}
+
+@media screen and (min-width: 2100px)   {
+    .arrow-box {
+        left: 42%
     }
 }
 
@@ -1057,7 +1073,10 @@ h1 {
         left: 20px;
     }
 
-    .signup-main-container {
-        margin-top: 290px;
-    }
+}
+
+@media screen and (min-height: 599px) and (max-height: 750px) {
+  .signup-main-container {
+    margin-top: 290px;
+  }
 }

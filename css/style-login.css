@@ -230,6 +230,7 @@ body {
   line-height: 120%;
   text-align: center;
   margin-right: 30px;
+  border: transparent;
 }
 
 .Login-Box-Email-Input-Button:hover {
@@ -259,6 +260,7 @@ body {
   color: #FFFFFF;
   text-align: center;
   cursor: pointer;
+  
 }
 
 .Login-Box-Passwort-Input-Button:hover {
