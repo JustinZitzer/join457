@@ -1434,9 +1434,9 @@ h6 {
 
     .main-box-inputfield {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         gap: 16px;
-        width: 100%;
+        width: 99%;
     }
 
     .arrow-container-main-red {
@@ -1572,6 +1572,13 @@ h6 {
 
 @media (max-width: 1000px) {
 
+    .main-box-inputfield {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: 96%;
+    }
+
     .input-icon-container {
         right: 5%;
     }
@@ -1613,7 +1620,7 @@ h6 {
     }
 
     .arrow-container-orange {
-        width: 30vw;
+        width: 26vw;
     }
 
     .arrow-container-green {
@@ -1661,6 +1668,13 @@ h6 {
 }
 
 @media (max-width: 700px) {
+
+        .main-box-inputfield {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: 95%;
+        }
 
     .input-icon-container {
         right: 8%;
@@ -1784,7 +1798,7 @@ h6 {
         display: flex;
         justify-content: space-around;
         gap: 16px;
-        width: 91.7%;
+        width: 91%;
     }
 
     .arrow-container-main-red {
