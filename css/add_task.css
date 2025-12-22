@@ -976,8 +976,9 @@ h6 {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-radius: 6px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
+
 }
 
 .arrow-container-red.active {
@@ -1001,7 +1002,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-radius: 6px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
@@ -1059,7 +1060,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-radius: 6px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
@@ -1350,6 +1351,10 @@ h6 {
 
 @media (max-width: 1400px) {
 
+    .input-icon-container {
+        right: 30px;
+    }
+
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
@@ -1444,14 +1449,17 @@ h6 {
 
     .arrow-container-red {
         width: 30vw;
+        height: 41px;
     }
 
     .arrow-container-orange {
         width: 30vw;
+        height: 41px;
     }
 
     .arrow-container-green {
         width: 30vw;
+        height: 41px;
     }
 
     .field-required {
@@ -1563,6 +1571,11 @@ h6 {
 }
 
 @media (max-width: 1000px) {
+
+    .input-icon-container {
+        right: 5%;
+    }
+
     .title-inputfield-enter-title {
         width: 92vw;
     }
@@ -1648,6 +1661,11 @@ h6 {
 }
 
 @media (max-width: 700px) {
+
+    .input-icon-container {
+        right: 8%;
+    }
+
     .title-inputfield-enter-title {
         width: 90vw;
     }
@@ -1733,6 +1751,11 @@ h6 {
 
 
 @media (max-width: 500px) {
+
+    .input-icon-container {
+        right: 10%;
+    }
+
     .title-inputfield-enter-title {
         width: 87vw;
     }
@@ -1837,3 +1860,4 @@ h6 {
         margin-top: 0px;
     }
 }
+
