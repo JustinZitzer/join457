@@ -444,7 +444,84 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1400px){
+
+    .Circle-Logo-Svg-Summary {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .Counter-To-Do {
+        font-size: 47px;
+    }
+
+    .Counter-Done {
+        font-size: 47px;
+    }
+
+    .Counter-Urgent {
+        font-size: 47px;
+    }
+
+    .Counter-Tiny-Div {
+        font-size: 47px;
+    }
+
+    .To-Do-Box-Text {
+        font-size: 16px;
+    }
+    
+    .Done-Box-Text {
+        font-size: 16px;
+    }
+
+    .Urgent-Text {
+        font-size: 16px;
+    }
+
+    .Tasks-In-Board-Tiny-Div {
+        font-size: 16px;
+    }
+
+    .Tasks-In-Progress-Tiny-Div {
+        font-size: 16px;
+    }
+
+    .Awaiting-Feedback-Tiny-Div {
+        font-size: 16px;
+    }
+
+    .Date-Of-The-Deadline {
+        font-size: 16px;
+    }
+
+    .Text-Upcoming-Deadline {
+        font-size: 16px;
+    }
+
+    .Pencil-Icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .Checked-Icon {
+        width: 21px;
+        height: 21px;
+        position: absolute;
+        left: 24%;
+        top: 26%;
+    }
+
+    .Second-One-Box-Container-Line {
+        height: 89px;
+    }
+
+    .Double-Arrow-Up-Icon {
+        width: 24px;
+        height: 24px;
+        left: 8.5px;
+    }
+
     .Loading-Screen-Mobile-Z-Container {
         display: block;
         position: absolute;
@@ -496,7 +573,8 @@ body {
         flex-direction: column;
         margin-top: 0px;
         width: 100%;
-        margin-left: 60px;
+        margin-left: 0px;
+        padding-left: 10px;
     }
 
     #header-title-project-management-tool,
@@ -536,24 +614,24 @@ body {
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-        width: 100%;
+        width: 97.5%;
     }
 
     .To-Do-Box {
-        height: 150px;
+        height: 110px;
         border-radius: 30px;
         background-color: #FFFFFF;
         box-shadow: 0px 0px 14px 3px #0000000A;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 45.5%;
-        margin-left: 0px;
+        width: 186px;
+        margin-left: 4%;
     }
 
     .Done-Box {
-        height: 150px;
-        width: 45.5%;
+        height: 110px;
+        width: 186px;
         border-radius: 30px;
         background-color: #FFFFFF;
         box-shadow: 0px 0px 14px 3px #0000000A;
@@ -575,7 +653,9 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 92%;
+        margin-right: 4%;
+        margin-left: 4%;
     }
 
     .Second-One-Box-Container {
@@ -583,8 +663,8 @@ body {
         justify-content: center;
         align-items: center;
         border-radius: 30px;
-        height: 150px;
-        width: 94%;
+        height: 110px;
+        width: 396px;
         background-color: #FFFFFF;
         box-shadow: 0px 0px 14px 3px #0000000A;
         align-items: center;
@@ -623,8 +703,8 @@ body {
         align-items: center;
         justify-content: center;
         box-shadow: 0px 0px 14px 3px #0000000A;
-        height: 100%;
-        width: 96%;
+        height: 116px;
+        width: 116px;
         margin-left: 4%;
         background-color: #FFFFFF;
         border-radius: 30px;
@@ -636,11 +716,11 @@ body {
         align-items: center;
         justify-content: center;
         box-shadow: 0px 0px 14px 3px #0000000A;
-        height: 100%;
-        width: 96%;
+        height: 116px;
+        width: 116px;
         background-color: #FFFFFF;
         border-radius: 30px;
-        margin-left: 4%;
+        margin-left: 2.5%;
     }
 
     .tiny-box3-div {
@@ -649,12 +729,12 @@ body {
         align-items: center;
         justify-content: center;
         box-shadow: 0px 0px 14px 3px #0000000A;
-        height: 100%;
-        width: 96%;
-        margin-left: 4%;
+        height: 116px;
+        width: 116px;
+        margin-left: 2.5%;
         background-color: #FFFFFF;
         border-radius: 30px;
-        margin-right: 3%;
+        margin-right: 4%;
     }
 }
 
@@ -679,8 +759,8 @@ body {
         justify-content: center;
         align-items: center;
         border-radius: 30px;
-        height: 150px;
-        width: 94%;
+        height: 110px;
+        width: 396px;
         background-color: #FFFFFF;
         box-shadow: 0px 0px 14px 3px #0000000A;
         align-items: center;
@@ -692,6 +772,8 @@ body {
         align-items: center;
         position: relative;
         margin-left: 35px;
+        height: 40px;
+        width: 40px;
     }
 
     .Counter-Urgent-Text-Div {
@@ -702,7 +784,7 @@ body {
     }
 
     .Second-One-Box-Container-Line {
-        height: 102px;
+        height: 89px;
         border: 1px solid #D1D1D1;
         border-radius: 2px;
         margin-left: 30px;
@@ -713,15 +795,46 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .Date-Of-The-Deadline {
         font-weight: 700;
-        font-size: 21px;
+        font-size: 16px;
         line-height: 120%;
     }
 
     .Text-Upcoming-Deadline {
-        font-size: 18px;
+        font-size: 16px;
     }
+}
+
+@media screen and (max-height: 741px) {
+
+    .Summary-Box-Z-Index-Container {
+        height: 100vh;
+    }
+
+    .Summary-Box-Container {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-height: 670px) {
+
+    .Summary-Box-Z-Index-Container {
+        height: 120vh;
+    }
+
+    .Summary-Box-Container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 100px;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 10px;
+    }
+
 }
