@@ -7,6 +7,7 @@ const taskInBoardElement = document.getElementById("Counter-All-Tasks");
 const inProgressCounterElement = document.getElementById("Counter-Tasks-In-Progress");
 const awaitFeedbackCounterElement = document.getElementById("Counter-Await-Feedback");
 const dueDateUrgentDiv = document.getElementById("Date-Of-The-Deadline");
+const bodySummaryHtml = document.getElementById("Body-Summary-Html");
 let toDoCounter = 0;
 let inProgressCounter = 0;
 let awaitFeedbackCounter = 0;
@@ -33,10 +34,14 @@ function handleSidebarNavClick(event) {
 
 window.addEventListener("load", () => {
   const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
+  const whiteBackground = document.getElementById("White-Loading-Background-Mobile");
 
   if (window.location.pathname === "/summary.html") {
     setTimeout(() => {
       loadingScreenMobileDiv.classList.add('hidden');
+      whiteBackground.classList.add('hidden');
+      bodySummaryHtml.style.overflowY = 'auto';
+      bodySummaryHtml.style.overflowX = 'hidden';
     }, 1000);
 
     document.addEventListener('click', function(event) {

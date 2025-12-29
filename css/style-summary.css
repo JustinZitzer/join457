@@ -1,6 +1,6 @@
 body {
     width: 100vw;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -531,7 +531,7 @@ body {
     .Loading-Screen-Mobile-Z-Container {
         display: block;
         position: absolute;
-        z-index: 3;
+        z-index: 4;
         top: 0px;
         left: 0px;
         width: 100vw;
@@ -542,6 +542,23 @@ body {
     }
 
     .Loading-Screen-Mobile-Z-Container.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .White-Loading-Background-Mobile {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 200vh;
+        background-color: #FFFFFF;
+        opacity: 1;
+        transition: opacity 1s ease-out, visibility 0s 1s;
+        z-index: 3;
+    }
+
+    .White-Loading-Background-Mobile.hidden {
         opacity: 0;
         visibility: hidden;
     }
