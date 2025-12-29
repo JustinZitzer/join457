@@ -6,8 +6,10 @@
   font-family: 'inter';
 }
 
-body {
+.Body-Login {
   background-color: #f6f7f8;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 .display-none {
@@ -54,11 +56,10 @@ body {
 .Login-Body-Div {
   display: flex;
   flex-direction: column;
-  max-height: 1080vh;
   opacity: 0;
   transition: opacity 700ms ease-in-out;
   max-width: 1920px;
-
+  margin: 0 auto;
 }
 
 .Header-Login {
@@ -295,7 +296,7 @@ body {
   align-items: flex-end;
   padding-bottom: 36px;
   max-height: 100px;
-  padding-top: 15%;
+  padding-top: 12%;
 }
 
 .Privacy-Policy-Text-Login-Site {
