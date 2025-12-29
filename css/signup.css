@@ -2,8 +2,9 @@ body {
     margin: 0px;
 }
 
-html, body {
-  font-family: open-sans, sans-serif;
+html,
+body {
+    font-family: open-sans, sans-serif;
 }
 
 .main-container-join {
@@ -80,15 +81,21 @@ html, body {
     margin-top: 0px;
 }
 
+.signup-headline-underline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .arrow-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 30px;
-  width: 100%;
-  left: 38%;
-  transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    left: 38%;
+    transform: translateX(-50%);
 }
 
 .arrow-left {
@@ -98,18 +105,21 @@ html, body {
 }
 
 .arrow-left:hover {
-  background-color: #f2f2f2;
-  cursor: pointer;
+    background-color: #f2f2f2;
+    cursor: pointer;
 }
 
 .underline-headline-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
+.underline-headline-container a {
+    position: absolute;
+    left: 48px;
+}
 
 .title {
     display: flex;
@@ -265,23 +275,23 @@ html, body {
 }
 
 .eye-icon-size-postition {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  right: -27px;
-  top: 85%;
-  transform: translateY(-50%);
-  z-index: 5;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: -27px;
+    top: 85%;
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
 .eye-icon-size-postition-confirm {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  right: -27px;
-  top: 85%;
-  transform: translateY(-50%);
-  z-index: 5;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: -27px;
+    top: 85%;
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
 .lock-icon-size-second {
@@ -388,54 +398,54 @@ h1 {
 }
 
 .privacy-policy-accept-button {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #2A3647;
-  border-radius: 3px;
-  background: none;
-  position: relative;
-  cursor: pointer;
-  box-sizing: border-box;
-  margin-right: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2A3647;
+    border-radius: 3px;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-right: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .privacy-policy-accept-button::after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 14px;
-  left: 6px;
-  top: -6px;
-  border: solid #2A3647;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-  border-radius: 2.5px;
-  z-index: 3;
-  opacity: 0;
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 14px;
+    left: 6px;
+    top: -6px;
+    border: solid #2A3647;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    border-radius: 2.5px;
+    z-index: 3;
+    opacity: 0;
 }
 
 .privacy-policy-accept-button:checked::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 .privacy-policy-accept-button::before {
-  content: "";
-  position: absolute;
-  right: -2px;
-  top: -2px;
-  width: 2px;
-  height: 8px;
-  background: #fff;
-  z-index: 2;
-  opacity: 0;
+    content: "";
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 2px;
+    height: 8px;
+    background: #fff;
+    z-index: 2;
+    opacity: 0;
 }
 
 .privacy-policy-accept-button:checked::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 .text-accept {
@@ -499,9 +509,7 @@ h1 {
 
 .privacy-text:hover {
     cursor: pointer;
-    scale: 1.1;
     color: #29ABE2;
-    font-weight: bold;
 }
 
 .Legal-text {
@@ -516,9 +524,7 @@ h1 {
 
 .Legal-text:hover {
     cursor: pointer;
-    scale: 1.1;
     color: #29ABE2;
-    font-weight: bold;
 }
 
 .blue-underline-headline {
@@ -543,7 +549,7 @@ h1 {
     align-items: center;
 }
 
-.button-position-success-message{
+.button-position-success-message {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -575,6 +581,7 @@ h1 {
         bottom: -80px;
         opacity: 0;
     }
+
     100% {
         bottom: 50%;
         opacity: 1;
@@ -587,7 +594,7 @@ h1 {
     }
 }
 
-@media screen and (min-width: 2100px)   {
+@media screen and (min-width: 2100px) {
     .arrow-box {
         left: 42%
     }
@@ -642,7 +649,7 @@ h1 {
         height: 700px;
         border-radius: 30px;
         background-color: #FFFFFF;
-        margin-top: 190px;
+        margin-top: 420px;
     }
 
     .title {
@@ -880,6 +887,7 @@ h1 {
             bottom: -80px;
             opacity: 0;
         }
+
         100% {
             bottom: 25%;
             opacity: 1;
@@ -958,6 +966,18 @@ h1 {
 
 @media screen and (max-width: 500px) {
 
+    .underline-headline-container a {
+        left: 8px;
+    }
+
+    .title-text-div-headline {
+        font-size: 28px;
+    }
+
+    .blue-underline-headline {
+        width: 60px;
+    }
+
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
@@ -976,6 +996,7 @@ h1 {
     .hr-line-signup {
         width: 25%;
     }
+
     .arrow-box {
         left: 9%;
     }
@@ -1076,7 +1097,7 @@ h1 {
 }
 
 @media screen and (min-height: 599px) and (max-height: 750px) {
-  .signup-main-container {
-    margin-top: 290px;
-  }
+    .signup-main-container {
+        margin-top: 290px;
+    }
 }
