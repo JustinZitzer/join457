@@ -110,7 +110,7 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     width: 232px;
-    height: 100dvh;
+    height: 100%;
     background-color: rgba(42, 54, 71, 1);
     position: fixed;
     top: 0;
