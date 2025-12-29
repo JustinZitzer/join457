@@ -81,6 +81,12 @@ body {
     margin-top: 0px;
 }
 
+.signup-headline-underline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .arrow-box {
     display: flex;
     align-items: center;
@@ -105,12 +111,15 @@ body {
 
 .underline-headline-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
+.underline-headline-container a {
+    position: absolute;
+    left: 48px;
+}
 
 .title {
     display: flex;
@@ -640,7 +649,7 @@ h1 {
         height: 700px;
         border-radius: 30px;
         background-color: #FFFFFF;
-        margin-top: 190px;
+        margin-top: 420px;
     }
 
     .title {
@@ -956,6 +965,18 @@ h1 {
 }
 
 @media screen and (max-width: 500px) {
+
+    .underline-headline-container a {
+        left: 8px;
+    }
+
+    .title-text-div-headline {
+        font-size: 28px;
+    }
+
+    .blue-underline-headline {
+        width: 60px;
+    }
 
     .name-icon-size,
     .email-icon-size,
