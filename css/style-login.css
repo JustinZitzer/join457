@@ -60,6 +60,8 @@
   transition: opacity 700ms ease-in-out;
   max-width: 1920px;
   margin: 0 auto;
+  min-height: 1080px;
+  justify-content: center;
 }
 
 .Header-Login {
