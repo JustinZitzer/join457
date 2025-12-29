@@ -69,7 +69,7 @@ function getAddContactOverlay() {
                 <div class="add-contact-left-section-content">
                     <img class="add-contact-join-logo" src="./assets/img/join-logo-white.svg" alt="join-logo-white">
                     <div class="add-contact-headline">
-                        <h1>Add contact</h1>
+                        <h1 class="add-contact-headline-text">Add contact</h1>
                         <h2>Tasks are better with a team!</h2>
                         <div class="add-contact-underlined"></div>
                     </div>
