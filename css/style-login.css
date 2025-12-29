@@ -54,9 +54,11 @@ body {
 .Login-Body-Div {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-height: 1080vh;
   opacity: 0;
   transition: opacity 700ms ease-in-out;
+  max-width: 1920px;
+
 }
 
 .Header-Login {
@@ -124,6 +126,8 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 60px;
+  height: 65%;
+  align-items: center;
 }
 
 .Login-Box {
@@ -289,7 +293,9 @@ body {
   justify-content: center;
   flex-grow: 1;
   align-items: flex-end;
-  padding-bottom: 18px;
+  padding-bottom: 36px;
+  max-height: 100px;
+  padding-top: 15%;
 }
 
 .Privacy-Policy-Text-Login-Site {
