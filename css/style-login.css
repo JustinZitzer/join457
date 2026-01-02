@@ -265,7 +265,7 @@
   color: #FFFFFF;
   text-align: center;
   cursor: pointer;
-  
+
 }
 
 .Login-Box-Passwort-Input-Button:hover {
@@ -338,6 +338,7 @@
   position: absolute;
   bottom: 130px;
   left: 120px;
+  margin-bottom: 20px;
 }
 
 .Login-Box-Button-Div {
@@ -403,7 +404,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 80px;
   }
 
   .Header-Login-Right-Button {
@@ -421,6 +422,7 @@
     width: 93%;
     gap: 24px;
     height: 470px;
+    margin-top: 20px;
   }
 
   .Input-Wrapper-Log-In {
@@ -474,14 +476,14 @@
   }
 
   @media screen and (max-height: 801px) {
-    .footer-login-site{
+    .footer-login-site {
       margin-top: 40px;
       padding-bottom: 40px;
     }
 
     .Header-Login-Right-Button {
       margin-right: 0px;
-      margin-bottom: 0; 
+      margin-bottom: 0;
       width: 110px;
     }
   }
