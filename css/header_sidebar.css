@@ -197,6 +197,12 @@ footer a:hover {
 }
 
 @media screen and (max-width: 1400px) {
+
+    .sidebar-join-logo-alternative {
+        margin-bottom: 0px;
+        display: none;
+    }
+    
     .nav-links li:hover {
         background-color: rgba(9, 25, 49, 1);
         color: white;
