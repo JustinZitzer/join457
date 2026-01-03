@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
   const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
   const whiteBackground = document.getElementById("White-Loading-Background-Mobile");
 
-  if (window.location.pathname === "/summary.html") {
+  if (window.location.pathname.endsWith("summary.html")) {
     setTimeout(() => {
       loadingScreenMobileDiv.classList.add('hidden');
       whiteBackground.classList.add('hidden');
