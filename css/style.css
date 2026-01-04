@@ -146,8 +146,130 @@ body {
     letter-spacing: 0%;
 
   }
+}
 
-  
-
+.privacy-policy-subtitle-general-information{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
 
 }
+
+
+.privacy-policy-subtitle-responsible-entity{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-data-collection{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-usage-data{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-cookies{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-contact-email{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-cookies{
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-your-rights{ 
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-data-security{ 
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-changes-to-privacy-policy{ 
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+.privacy-policy-subtitle-contact{ 
+  opacity: 1;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 27px;
+  line-height: 120%;
+  letter-spacing: 0%;
+
+}
+
+
+
+
