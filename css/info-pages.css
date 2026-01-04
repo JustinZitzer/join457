@@ -9,10 +9,6 @@
     color: rgba(75, 183, 232);
 }
 
-.info-pages p {
-    margin-left: 20px;
-}
-
 .headline-arrow-container {
     display: flex;
     justify-content: space-between;
