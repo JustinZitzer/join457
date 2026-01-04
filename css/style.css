@@ -47,6 +47,85 @@ body {
     margin-top: 40px;
     font-size: 47px;
     margin-bottom: 40px;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 120%;
+    letter-spacing: 0%;
+    width: 286px;
+    height: 56px;
+    opacity: 1;
+    gap: 20px;
+
   }
+
+  .legal-notice-subtitle-join-kanban {
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  .legal-notice-subtitle-company-info {
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  .legal-notice-subtitle-representedBy{
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  .legal-notice-subtitle-contact-information {
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  .legal-notice-subtitle-commercial-register{
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  .legal-notice-subtitle-Vat-id{
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+  }
+
+  
+
 
 }
