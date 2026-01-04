@@ -6,6 +6,7 @@ body {
     background-color: #f6f7f8;
     min-height: 100vh;
     margin: 0 auto;
+    max-width: 1920px;
 }
 
 html,
@@ -22,7 +23,6 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
     max-width: 1920px;
     margin: 0 auto
 }
@@ -41,12 +41,18 @@ body {
 }
 
 .join-logo {
-    position: absolute;
     width: 100px;
     height: 121px;
-    top: 30px;
-    left: 47px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
 
+.join-logo-container-signup {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1920px;
+    width: 100%;
+    max-height: 150px;
 }
 
 .failure-signup-div {
@@ -507,6 +513,7 @@ h1 {
     width: 260px;
     height: 35px;
     margin-top: 70px;
+    max-width: 1920px;
 }
 
 .privacy-text {
@@ -634,9 +641,8 @@ h1 {
     .text-privacy-policy {
         font-size: 16px;
         line-height: 120%;
-        width: 323px;
-        height: 56px;
         font-weight: 700;
+        padding-left: 2px;
     }
 
 
@@ -645,23 +651,18 @@ h1 {
     }
 
     .join-logo {
-        position: absolute;
         width: 64px;
         height: 78.03px;
-        top: 40px;
-        left: 40px;
     }
 
     .signup-main-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
         width: 95%;
         height: 700px;
         border-radius: 30px;
         background-color: #FFFFFF;
-        margin-top: 420px;
     }
 
     .title {
@@ -1055,6 +1056,14 @@ h1 {
         left: 89%;
     }
 
+    .main-container-join {
+        margin-top: 50px;
+    }
+
+    .join-logo {
+        margin-bottom: 50px;
+    }
+
 }
 
 @media screen and (max-width: 350px) {
@@ -1110,6 +1119,36 @@ h1 {
 
 @media screen and (min-height: 599px) and (max-height: 750px) {
     .signup-main-container {
-        margin-top: 290px;
+        margin-top: 0px;
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-height: 800px) {
+    .signup-main-container {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (min-width: 540px) and (max-height: 720px) {
+    .main-container-join {
+        margin-top: 20px;
+    }
+
+    .join-logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-height: 600px) {
+    .main-container-join {
+        margin-top: 40px;
+    }
+
+    .join-logo {
+        margin-bottom: 20px;
+    }
+
+    .title-text-arrow-div {
+        padding-top: 20px;
     }
 }
