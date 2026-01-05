@@ -48,7 +48,7 @@ header h1 {
 }
 
 .user-profile-menu {
-    position: absolute;
+    position: fixed;
     z-index: 999;
     top: 80px;
     right: 80px;
@@ -199,6 +199,24 @@ footer a:hover {
     display: none;
 }
 
+@media screen and (min-width: 1921px) {
+    .user-profile-menu {
+        position: relative;
+        z-index: 999;
+        top: 80px;
+        left: 1680px;
+        width: 160px;
+        height: 158px;
+        border-radius: 20px 0px 20px 20px;
+        background-color: rgba(42, 54, 71, 1);
+    }
+
+    .Summary-Box-Z-Index-Container {
+        margin-top: -150px;
+    }
+    
+}
+
 @media screen and (max-width: 1400px) {
 
     .sidebar-join-logo-alternative {
@@ -227,6 +245,8 @@ footer a:hover {
         left: 0;
         padding: 0;
         z-index: 3;
+        margin-bottom: -2px;
+        margin-right: -2px;
     }
 
     .sidebar-join-logo {
@@ -376,6 +396,8 @@ footer a:hover {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        margin-bottom: -2px;
+        margin-right: -5px;
     }
 
     .nav-links {
