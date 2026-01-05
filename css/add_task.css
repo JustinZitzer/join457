@@ -657,13 +657,13 @@ h6 {
 
 .clear-create-container {
     display: flex;
-    position: absolute;
+    position: relative;
     width: 309px;
     height: 56px;
-    left: 950px;
     gap: 16px;
-    top: 780px;
     overflow-y: auto;
+    margin-top: 100px;
+    margin-left: 125px;
 }
 
 .clear-field {
@@ -1357,6 +1357,12 @@ h6 {
 .message-success-text {
     height: 24px;
     width: 235px;
+}
+
+.subtask-added-tasks-container {
+    max-height: 90px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @keyframes fly-up {

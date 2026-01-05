@@ -367,16 +367,14 @@ function updateSubtasksArray() {
 function addSubtaskInContainer() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
   const savedSubtasks = document.getElementById("subtask-added-tasks");
+  const buttonDiv = document.getElementById("clear-create-container");
+  let currentMargin = parseInt(window.getComputedStyle(buttonDiv).marginTop) || 0;
   let subtask = taskSubtask.value.trim();
 
   if (subtask) {
-    savedSubtasks.innerHTML += getSubtaskListElementTemplate(
-      subtask,
-      subtaskSavedCounter
-    );
+    savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
     subtaskSavedCounter++;
     taskSubtask.value = "";
-
     updateSubtasksArray();
   }
 }
@@ -533,6 +531,7 @@ function getPriorityForNewTask() {
 
 async function postNewTaskToFirebase() {
   const errorMessage = document.getElementById("error-please-fill-inputs");
+  const subtaskDiv = document.getElementById("subtask-added-tasks");
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
@@ -542,10 +541,13 @@ async function postNewTaskToFirebase() {
     console.log(dataPost);
   } else if (!taskTitel.value) {
     errorMessage.classList.remove("display-none");
+    subtaskDiv.style.marginTop = "20px";
   } else if (!taskDueDate.value) {
     errorMessage.classList.remove("display-none");
+    subtaskDiv.style.marginTop = "20px";
   } else if (!taskCategory.value) {
     errorMessage.classList.remove("display-none");
+    subtaskDiv.style.marginTop = "20px";
   }
 }
 
