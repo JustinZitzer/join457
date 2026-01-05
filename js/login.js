@@ -146,8 +146,8 @@ function handleLoginResult(loginSuccessful, loggedInUserName) {
 function changeColorAndShowErrorMessage() {
   const errorMessageDiv = document.getElementById("error-message-login");
 
-  emailInput.classList.add("border-color-grey");
-  passwordInput.classList.add("border-color-grey");
+  emailInput.classList.remove("border-color-grey");
+  passwordInput.classList.remove("border-color-grey");
   errorMessageDiv.classList.remove("display-none");
   emailInput.classList.add("border-color-red");
   passwordInput.classList.add("border-color-red");
