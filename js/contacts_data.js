@@ -69,6 +69,12 @@ async function createNewContact(event) {
   const { name, email, phone } = getNewContactInputs();
   if (!validateContactInputs(name, email, phone)) return;
 
+  const existingContact = allContacts.some(contact => contact.email.toLowerCase() === email.toLowerCase());
+  if (existingContact) {
+    alert('Ein Kontakt mit dieser E-Mail existiert bereits.');
+    return;
+  }
+
   const newContact = buildNewContact(name, email, phone);
   await saveContactToDatabase(newContact);
 }
