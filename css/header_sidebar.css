@@ -21,6 +21,8 @@ header {
     padding-left: 348px;
     background-color: white;
     z-index: 110;
+    max-width: 1920px;
+    max-height: 1080px;
 }
 
 header h1 {
@@ -117,6 +119,7 @@ header h1 {
     padding-top: 64px;
     padding-bottom: 64px;
     z-index: 120;
+    max-height: 1080px;
 }
 
 .nav-links {
