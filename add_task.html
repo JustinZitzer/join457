@@ -33,7 +33,7 @@
                     </div>
                     <input type="text" id="titleInput"  placeholder="Enter a title" class="title-inputfield-enter-title"
                         onblur="validateInput()">
-                    <div id="error-message" class="error-message"></div>
+                    <div id="error-message" class="error-message display-none">This field is required.</div>
                 </div>
 
 
@@ -53,7 +53,7 @@
 
                         <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()">
-                        <div id="due-date-error" class="error-message"></div>
+                        <div id="due-date-error" class="error-message display-none"></div>
                     </div>
 
                 </div>
@@ -96,7 +96,9 @@
 
                         <div class="assigned-inputfield-box">
                             <span>Assigned to</span>
-                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign" class="inputfield-text-assign">
+                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign"
+                            onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()"
+                            class="inputfield-text-assign" readonly>
                         </div>
 
                         <img id="contact-list" onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon"
@@ -124,7 +126,7 @@
                                 <span>Category</span>
                             </div>
                             <input id="category-input" type="text" placeholder="Select task category"
-                                class="inputfield-category-assign" readonly>
+                                class="inputfield-category-assign" onclick="toggleDropdown()" readonly>
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
                                 onclick="toggleDropdown()">
@@ -170,20 +172,21 @@
                     <div id="field-required" class="field-required">
                         <span>This field is required</span>
                     </div>
+                    
+                    <div id="clear-create-container" class="clear-create-container">
+                        <div onclick="clearInputFieldsForNewTask()" class="clear-field">
+                            <div class="clear-text">Clear</div>
+                            <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
+                        </div>
+
+                        <div onclick="postNewTaskToFirebase()" class="create-field">
+                            <div class="text-create-field">Create Task</div>
+                            <img class="check-button" src="./assets/icons/check.png" alt="check-button">
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="clear-create-container">
-        <div onclick="clearInputFieldsForNewTask()" class="clear-field">
-            <div onclick="clearAndCloseOverlay()" class="clear-text">Clear</div>
-            <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
-        </div>
-
-        <div onclick="postNewTaskToFirebase()" class="create-field">
-            <div class="text-create-field">Create Task</div>
-            <img class="check-button" src="./assets/icons/check.png" alt="check-button">
         </div>
     </div>
 

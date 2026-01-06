@@ -178,13 +178,9 @@ function validateInput() {
   const errorMsg = document.getElementById("error-message");
 
   if (input.value.trim() === "") {
-    errorMsg.textContent = "This field is required.";
-    errorMsg.style.display = "block";
-    input.classList.add("input-error");
+    errorMsg.classList.remove("display-none");
   } else {
-    errorMsg.textContent = "";
-    errorMsg.style.display = "none";
-    input.classList.remove("input-error");
+    errorMsg.classList.add("display-none");
   }
 }
 
@@ -220,32 +216,28 @@ function validateDueDateInput() {
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
 
-  const dateCheckSlash =
-    /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+  const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
     showInputError(input, errorMsg, "This field is required.");
+    return false;
   } else if (!dateCheckSlash.test(value)) {
-    showInputError(
-      input,
-      errorMsg,
-      "Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein."
-    );
+    showInputError(input, errorMsg, "Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
+    return false;
   } else {
     clearInputError(input, errorMsg);
+    return true;
   }
 }
 
 function showInputError(input, errorMsgElement, message) {
   errorMsgElement.textContent = message;
-  errorMsgElement.style.display = "block";
-  input.classList.add("input-error");
+  errorMsgElement.classList.remove("display-none");
 }
 
 function clearInputError(input, errorMsgElement) {
   errorMsgElement.textContent = "";
-  errorMsgElement.style.display = "none";
-  input.classList.remove("input-error");
+  errorMsgElement.classList.add("display-none");
 }
 
 function validateDueDateInputOverlay() {
@@ -367,16 +359,14 @@ function updateSubtasksArray() {
 function addSubtaskInContainer() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
   const savedSubtasks = document.getElementById("subtask-added-tasks");
+  const buttonDiv = document.getElementById("clear-create-container");
+  let currentMargin = parseInt(window.getComputedStyle(buttonDiv).marginTop) || 0;
   let subtask = taskSubtask.value.trim();
 
   if (subtask) {
-    savedSubtasks.innerHTML += getSubtaskListElementTemplate(
-      subtask,
-      subtaskSavedCounter
-    );
+    savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
     subtaskSavedCounter++;
     taskSubtask.value = "";
-
     updateSubtasksArray();
   }
 }
@@ -492,6 +482,9 @@ function renderCirclesForAssignedContacts(nameInitialesArray) {
     const initials = nameInitialesArray[i];
     circleRenderContainer.innerHTML += getContactCircleTemplate(circleClasses[i], initials);
   }
+  if (nameInitialesArray.length > 3) {
+    circleRenderContainer.innerHTML += `+${nameInitialesArray.length - 3}`;
+  }
 
   circleFlexContainer.classList.remove("display-none");
 }
@@ -507,16 +500,39 @@ function clearInnerHtmlAndValues() {
 
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
+  const errorMessage = document.getElementById("error-please-fill-inputs");
+  const threeCirclesContainer = document.getElementById("three-circle-container");
 
   clearInnerHtmlAndValues();
 
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
   taskPriorityLow.classList.remove("active");
+  resetAllErrorMessages();
+  errorMessage.classList.add("display-none");
+  threeCirclesContainer.innerHTML = "";
 
   for (let i = 0; i < contacts.length; i++) {
     contacts[i].checked = false;
   }
+}
+
+function resetAllErrorMessages() {
+  const titleInput = document.getElementById("titleInput");
+  const dueDateInput = document.getElementById("dueDateInput");
+  const categoryInput = document.getElementById("category-input");
+  const titleErrorMessage = document.getElementById("error-message");
+  const dueDateErrorMessage = document.getElementById("due-date-error");
+  const categoryErrorMessage = document.getElementById("error-field-category");
+  
+
+  titleInput.classList.remove("border-red-add-task");
+  dueDateInput.classList.remove("border-red-add-task");
+  categoryInput.classList.remove("border-red-add-task");
+
+  titleErrorMessage.classList.add("display-none");
+  dueDateErrorMessage.classList.add("display-none");
+  categoryErrorMessage.classList.add("display-none");
 }
 
 function getPriorityForNewTask() {
@@ -532,20 +548,63 @@ function getPriorityForNewTask() {
 }
 
 async function postNewTaskToFirebase() {
-  const errorMessage = document.getElementById("error-please-fill-inputs");
-  if (taskTitel.value && taskDueDate.value && taskCategory.value) {
+  if (taskTitel.value && taskCategory.value && validateDueDateInput()) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
     const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
     clearInputFieldsForNewTask();
     showTaskAddedMessage();
+    resetAllErrorMessages();
     console.log(dataPost);
-  } else if (!taskTitel.value) {
-    errorMessage.classList.remove("display-none");
-  } else if (!taskDueDate.value) {
-    errorMessage.classList.remove("display-none");
-  } else if (!taskCategory.value) {
-    errorMessage.classList.remove("display-none");
+  } else {
+    allErrorRulesForNewTask();
+  }
+}
+
+function allErrorRulesForNewTask() {
+  const errorMessage = document.getElementById("error-please-fill-inputs");
+  const subtaskDiv = document.getElementById("subtask-added-tasks");
+  showErrorForNewTaskTitle();
+  showErrorForNewTaskDueDate();
+  showErrorForNewTaskCategory();
+  errorMessage.classList.remove("display-none");
+  subtaskDiv.style.marginTop = "20px";
+}
+
+function showErrorForNewTaskTitle() {
+  const titleInput = document.getElementById("titleInput");
+  const errorMessage = document.getElementById("error-please-fill-inputs");
+  const titleErrorMessage = document.getElementById("error-message");
+
+  if(!titleInput.value) {
+    errorMessage.classList.add("display-none");
+    titleInput.classList.add("border-red-add-task");
+    titleErrorMessage.classList.remove("display-none");
+  }
+}
+
+function showErrorForNewTaskDueDate() {
+  const dueDateInput = document.getElementById("dueDateInput");
+  const errorMessage = document.getElementById("error-please-fill-inputs");
+  const dueDateErrorMessage = document.getElementById("due-date-error");
+
+  if(!dueDateInput.value) {
+    errorMessage.classList.add("display-none");
+    dueDateInput.classList.add("border-red-add-task");
+    dueDateErrorMessage.classList.remove("display-none");
+    dueDateErrorMessage.textContent = "Bitte gib ein gültiges Datum im Format TT/MM/JJJJ ein.";
+  }
+}
+
+function showErrorForNewTaskCategory() {
+  const categoryInput = document.getElementById("category-input");
+  const errorMessage = document.getElementById("error-please-fill-inputs");
+  const categoryErrorMessage = document.getElementById("error-field-category");
+
+  if(!categoryInput.value) {
+    errorMessage.classList.add("display-none");
+    categoryInput.classList.add("border-red-add-task");
+    categoryErrorMessage.classList.remove("display-none");
   }
 }
 
