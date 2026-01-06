@@ -1152,7 +1152,6 @@ h6 {
     color: red;
     font-size: 14px;
     margin-top: 5px;
-    display: none;
 }
 
 .due-date-text-field.input-error {
@@ -1164,7 +1163,6 @@ h6 {
     color: red;
     font-size: 14px;
     margin-top: 5px;
-    display: none;
 }
 
 .subtask-list-element {
@@ -1363,6 +1361,10 @@ h6 {
     max-height: 90px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.border-red-add-task {
+    border: 1px solid red;
 }
 
 @keyframes fly-up {

@@ -33,7 +33,7 @@
                     </div>
                     <input type="text" id="titleInput"  placeholder="Enter a title" class="title-inputfield-enter-title"
                         onblur="validateInput()">
-                    <div id="error-message" class="error-message"></div>
+                    <div id="error-message" class="error-message display-none">This field is required.</div>
                 </div>
 
 
@@ -53,7 +53,7 @@
 
                         <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()">
-                        <div id="due-date-error" class="error-message"></div>
+                        <div id="due-date-error" class="error-message display-none"></div>
                     </div>
 
                 </div>
@@ -175,7 +175,7 @@
                     
                     <div id="clear-create-container" class="clear-create-container">
                         <div onclick="clearInputFieldsForNewTask()" class="clear-field">
-                            <div onclick="clearAndCloseOverlay()" class="clear-text">Clear</div>
+                            <div class="clear-text">Clear</div>
                             <img class="close-button" src="./assets/icons/close.png" alt="close-icon">
                         </div>
 
