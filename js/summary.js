@@ -32,6 +32,22 @@ function handleSidebarNavClick(event) {
   }
 }
 
+function handleSidebarNavClick(event) {
+  const targetLink = event.target.closest('.nav-links a');
+  if (!targetLink) return;
+
+  const links = document.querySelectorAll('.nav-links a');
+
+  links.forEach(l => l.classList.remove('active'));
+  targetLink.classList.add('active');
+
+  // speichern
+  localStorage.setItem('activeNav', targetLink.getAttribute('href'));
+
+  // weiterleiten
+  window.location.href = targetLink.getAttribute('href');
+}
+
 window.addEventListener("load", () => {
   const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
   const whiteBackground = document.getElementById("White-Loading-Background-Mobile");

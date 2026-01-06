@@ -150,6 +150,10 @@ header h1 {
     width: 232px;
 }
 
+.nav-links li {
+    list-style: none;
+}
+
 .nav-links a:hover img {
     filter: brightness(0) invert(1);
 }
