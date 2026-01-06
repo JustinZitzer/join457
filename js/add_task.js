@@ -232,7 +232,21 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
     if (name == "undefined") return;
 
     container.innerHTML += getAssignedContactBigTemplate(circleClasses[i], initials, name);
+  }
+  for (let i = 0 ; i < Math.min(assignedTo.length, 3); i++) {
+    const name = assignedTo[i];
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
+
+    if (name == "undefined") return;
+
     containerTask.innerHTML += getAssignedContactLittleTemplate(circleClassesTask[i], initials);
+  }
+  assignedToPlusNumber(assignedTo, containerTask);
+}
+
+function assignedToPlusNumber(assignedTo, containerTask) {
+  if(assignedTo.length > 3) {
+    containerTask.innerHTML += `<div class="text-align-contacts-counter">+${assignedTo.length - 3}</div>`;
   }
 }
 
@@ -428,11 +442,14 @@ function assignedContactsEdit (taskKey, assignedTo) {
   if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
     return;
   }
-  for (let i = 0; i < assignedTo.length; i++) {
+  for (let i = 0; i < Math.min(assignedTo.length, 3); i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
     if (name == "undefined") return;
     containerTaskEdit.innerHTML += getAssignedContactEditTemplate(taskKey, circleClassesTask[i], initials);
+  }
+  if(assignedTo.length > 3) {
+    containerTaskEdit.innerHTML += `<div class="plus-counter-edit">+${assignedTo.length - 3}</div>`;
   }
 }
 
@@ -455,6 +472,7 @@ async function loadContactsForDropdownInEdit(taskKey) {
   if (container.innerHTML == "") {
     try {
       await renderContactsForEditDropdown(container, taskKey);
+
     } catch (error) {
       console.error("Error loading contacts in Editing Dropdown:", error);
     }
@@ -511,6 +529,9 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
 
   for (let i = 0; i < Math.min(initialsArray.length, 3); i++) {
     container.innerHTML += getEditCircleTemplate(circleClasses[i], initialsArray[i]);
+  }
+  if(initialsArray.length > 3) {
+    container.innerHTML += `<div class="plus-counter-edit">+${initialsArray.length - 3}</div>`;
   }
 
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);

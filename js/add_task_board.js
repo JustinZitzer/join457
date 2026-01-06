@@ -482,6 +482,9 @@ function renderCirclesForAssignedContacts(nameInitialesArray) {
     const initials = nameInitialesArray[i];
     circleRenderContainer.innerHTML += getContactCircleTemplate(circleClasses[i], initials);
   }
+  if (nameInitialesArray.length > 3) {
+    circleRenderContainer.innerHTML += `+${nameInitialesArray.length - 3}`;
+  }
 
   circleFlexContainer.classList.remove("display-none");
 }
