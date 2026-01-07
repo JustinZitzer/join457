@@ -88,12 +88,33 @@ function getNewContactInputs() {
 }
 
 function validateContactInputs(name, email, phone) {
-  if (!name || !email || !phone) {
-    alert("Bitte alle Felder ausfüllen.");
-    return false;
-  }
+  if (!name || !email || !phone)
+    return alert("Bitte alle Felder ausfüllen."), false;
+
+  if (!isValidEmail(email))
+    return alert("Bitte eine gültige E-Mail-Adresse eingeben (z. B. email@gmx.de)."), false;
+
+  if (!isValidPhone(phone))
+    return alert("Die Telefonnummer darf nur Zahlen enthalten."), false;
+
   return true;
 }
+
+function isValidEmail(email) {
+  const parts = email.split('@');
+  if (parts.length !== 2) return false;
+  if (!parts[0] || !parts[1]) return false;
+  if (!parts[1].includes('.')) return false;
+  return true;
+}
+
+function isValidPhone(phone) {
+  for (let char of phone) {
+    if (char < '0' || char > '9') return false;
+  }
+  return phone.length > 0;
+}
+
 
 function buildNewContact(name, email, phone) {
   const parts = name.split(" ");
