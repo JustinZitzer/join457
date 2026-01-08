@@ -752,6 +752,40 @@ h5 {
     color: white;
 }
 
+.single-circle-fourth-big {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: green;
+    color: white;
+}
+
+.single-circle-fifth-big {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 45px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    background-color: rgb(63, 63, 245);
+    color: white;
+}
+
 .single-circle-third-little {
     width: 32px;
     height: 32px;

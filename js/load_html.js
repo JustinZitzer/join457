@@ -33,6 +33,21 @@ async function loadInfoIndexHTML() {
     }
 }
 
+async function initInfoPages() {
+  await loadHTML();
+  linkBackgroundStyleInfoPages();
+}
+
+async function linkBackgroundStyleInfoPages() {
+  const privacyPolicyMarker = document.getElementById('privacy-policy-marker-id');
+  const legalNoticeMarker = document.getElementById('legal-notice-marker-id');
+  if(window.location.pathname.includes("privacy_policy.html")) {
+    privacyPolicyMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
+  } else if(window.location.pathname.includes("legal_notice.html")) {
+    legalNoticeMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
+  }
+}
+
 function shortName() {
   const storedName = localStorage.getItem("loggedInUserName") || "";
   const trimmedName = storedName.trim();
@@ -85,4 +100,22 @@ function triggerResizeEvent() {
     requestAnimationFrame(() => {
         body.style.width = originalWidth || '';
     });
+}
+
+function selectedSiteBackgroundStyle() {
+    const summaryMarker = document.getElementById('summary-marker-id');
+    const boardMarker = document.getElementById('board-marker-id');
+    const addTaskMarker = document.getElementById('add-task-marker-id');
+    const contactsMarker = document.getElementById('contacts-marker-id');
+    const activeColor = "rgba(9, 25, 49, 1)";
+
+    if(window.location.pathname.includes("summary.html")) {
+      summaryMarker.style.backgroundColor = activeColor;
+    } else if(window.location.pathname.includes("board.html")) {
+      boardMarker.style.backgroundColor = activeColor;
+    } else if(window.location.pathname.includes("add_task.html")) {
+      addTaskMarker.style.backgroundColor = activeColor;
+    } else if(window.location.pathname.includes("contacts.html")) {
+      contactsMarker.style.backgroundColor = activeColor;
+    }
 }

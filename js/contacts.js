@@ -11,6 +11,12 @@ window.addEventListener('resize', () => {
     resizeTimeout = setTimeout(showContactsCardOverlayMobile, 10);
 });
 
+async function initContact() {
+    await loadHTML();
+    await loadContacts();
+    selectedSiteBackgroundStyle();
+}
+
 function openContactsSideCardOverlay(contactId) {
     const contact = allContacts.find(c => c.id === contactId);
     if (!contact) {

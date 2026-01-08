@@ -1,3 +1,10 @@
+async function initBoard() {
+  await loadHTML();
+  await loadAllTasksFromFirebase();
+  await loadDataBoard();
+  selectedSiteBackgroundStyle();
+}
+
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 

@@ -21,6 +21,7 @@ async function initSummaryAndHTML() {
     await loadTasksFromFirebaseSummary();
     counterTasksSummary();
     showOldestUrgentDueDate();
+    selectedSiteBackgroundStyle();
 }
 
 function handleSidebarNavClick(event) {

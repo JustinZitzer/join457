@@ -75,6 +75,7 @@ async function loadToDoTasksFromFirebase() {
 
 async function initAddTask() {
   await loadDataSignUp();
+  selectedSiteBackgroundStyle();
 }
 
 function pushTasksIntoArray(data, todosArray) {
@@ -224,6 +225,14 @@ function priorityStyle(taskKey) {
   applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture);
 }
 
+function getClassFromName(name, classArray) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash += name.charCodeAt(i);
+  }
+  return classArray[hash % classArray.length];
+}
+
 function renderAssignedContactItems(assignedTo, container, containerTask, circleClasses, circleClassesTask) {
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
@@ -231,7 +240,9 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
 
     if (name == "undefined") return;
 
-    container.innerHTML += getAssignedContactBigTemplate(circleClasses[i], initials, name);
+    const circleClass = getClassFromName(name, circleClasses);
+
+    container.innerHTML += getAssignedContactBigTemplate(circleClass, initials, name);
   }
   for (let i = 0 ; i < Math.min(assignedTo.length, 3); i++) {
     const name = assignedTo[i];
@@ -239,6 +250,8 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
 
     if (name == "undefined") return;
 
+    const circleClass = getClassFromName(name, circleClasses);
+    
     containerTask.innerHTML += getAssignedContactLittleTemplate(circleClassesTask[i], initials);
   }
   assignedToPlusNumber(assignedTo, containerTask);
@@ -254,7 +267,7 @@ function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
   const containerTask = document.getElementById(`three-circle-container${taskKey}`);
 
-  const circleClasses = ["single-circle-first-big", "single-circle-second-big", "single-circle-third-big",];
+  const circleClasses = ["single-circle-first-big", "single-circle-second-big", "single-circle-third-big","single-circle-fourth-big","single-circle-fifth-big"];
 
   const circleClassesTask = [ "single-circle-first-little", "single-circle-second-little", "single-circle-third-little",];
 
