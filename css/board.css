@@ -2,10 +2,18 @@ body {
     overflow-x: hidden;
 }
 
+.body-board {
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: 0 auto;
+}
+
 main {
     display: flex;
     margin-left: 232px;
-    margin-top: 200px;
+    padding-top: 200px;
+    max-height: 1080px;
+    max-width: 1920px;
 }
 
 .header-content-board {

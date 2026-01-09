@@ -2,6 +2,14 @@
     display: flex;
     height: 100dvh;
     max-width: 1920px;
+    max-height: 1080px;
+}
+
+.body-contacts {
+    max-height: 1080px;
+    max-width: 1920px;
+    overflow-y: hidden !important;
+    margin : 0 auto;
 }
 
 .display-none {
@@ -28,11 +36,16 @@
     margin-top: -18px;
 }
 
+.edit-delete-contact-button {
+    display: none;
+}
+
 .contact-list {
     margin-top: 90px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    max-height: 892.5px;
 }
 
 .contact-list-fix-container {
@@ -570,7 +583,21 @@
     display: none;
 }
 
+@media screen and (min-width: 1921px) {
+    .edit-delete-contact-button {
+        display: none!important;
+    }
+    
+}
+
 @media screen and (max-width: 1920px) {
+
+    .body-contacts {
+        max-height: 1080px;
+        max-width: 1920px;
+        overflow-y: auto;
+        margin : 0 auto;
+    }
 
     .add-contact-overlay {
         display: flex;
@@ -1157,6 +1184,10 @@
         font-size: 35px;
         white-space: nowrap;
     }
+}
+
+@media screen and (max-width: 500px) {
+
 }
 
 @media screen and (min-width: 1024px) and (max-height: 600px) {
