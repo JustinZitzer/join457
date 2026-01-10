@@ -20,7 +20,7 @@ header {
     padding-bottom: 20px;
     padding-left: 348px;
     background-color: white;
-    z-index: 110;
+    z-index: 4;
     max-width: 1920px;
     max-height: 1080px;
 }
@@ -118,7 +118,7 @@ header h1 {
     top: 0;
     padding-top: 64px;
     padding-bottom: 64px;
-    z-index: 120;
+    z-index: 5;
     max-height: 1080px;
 }
 
@@ -217,7 +217,7 @@ footer a:hover {
     }
 
     .Summary-Box-Z-Index-Container {
-        margin-top: -150px;
+        margin-top: 0px;
     }
     
 }
