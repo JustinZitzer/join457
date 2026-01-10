@@ -607,6 +607,10 @@ body {
         padding-left: 20px;
     }
 
+    .Summary-Box-Positioning-Container {
+        width: 430px;
+    }
+
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
@@ -961,4 +965,21 @@ body {
         padding-left: 20px;
     }
 
+}
+
+@media screen and (max-width: 420px) {
+    .Summary-Box-Positioning-Container {
+        width: 95%;
+    }
+
+    .Summary-Box-Container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 100px;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 10px;
+    }
 }
