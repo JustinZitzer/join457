@@ -1,4 +1,4 @@
-.privacy-policy-body {
+.privacy-policy-legal-notice-body {
     height: 1080px;
     margin: 0 auto;
     max-height: 1080px;
@@ -19,6 +19,7 @@
     overflow-y: auto;
     width: 1590px;
     height: 1080px;
+    padding-bottom: 10px;
 }
 
 .info-pages a {
