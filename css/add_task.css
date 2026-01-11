@@ -1423,16 +1423,36 @@ h6 {
     }
 
     .clear-create-container {
-        position: absolute;
-        top: 1150px;
-        left: 50%;
+        position: fixed;
+        left: 70%;
+        bottom: 175px;
         transform: translateX(-50%);
+        z-index: 6;
         height: 56px;
         display: flex;
         gap: 16px;
-        overflow-y: auto;
+        overflow: visible;
     }
 
+    .clear-field {
+        height: 56px;
+        width: 110px;
+        margin-right: 32px;
+    }
+
+    .create-field {
+        height: 56px;
+        width: 183px;
+    }
+
+    .check-button {
+        position: absolute;
+        top: 16.5px;
+        width: 24px;
+        height: 24px;
+        left: 290px;
+        color: #FFFFFF;
+    }
 
     #header-index-html {
         z-index: 2;
@@ -1764,7 +1784,9 @@ h6 {
         margin-top: 0px;
     }
 
-
+    .clear-create-container {
+        left: 50%;
+    }
 }
 
 @media (max-width: 700px) {
@@ -1864,10 +1886,17 @@ h6 {
         margin-top: 0px;
     }
 
+    .clear-create-container {
+        left: 40%;
+    }
 }
 
 
 @media (max-width: 500px) {
+
+    .clear-create-container {
+        left: 30%;
+    }
 
     .subtask-input-with-icons {
         width: 99%;
@@ -1988,6 +2017,10 @@ h6 {
     .input-icon-container-no-edit {
         right: 30px;
     }
+
+    .clear-create-container {
+        left: 20%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1997,6 +2030,16 @@ h6 {
 
     .input-icon-container-no-edit {
         right: 25px;
+    }
+
+    .clear-create-container {
+        left: 15%;
+    }
+}
+
+@media (max-width: 350px) {
+    .clear-create-container {
+        left: 10%;
     }
 }
 
