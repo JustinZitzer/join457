@@ -4,7 +4,7 @@ function getTaskOverlayTemplate(status) {
     <div class="container-both-sides-board">
       <div class="add-task-text-box-board">
       <div class="container-add-task">
-        <h2>Add Task</h2>
+        <h2 class="add-task-headline-in-overlay">Add Task</h2>
         <img class="x-close-button-add-task-overlay" src="./assets/icons/system-single-close-line-svgrepo-com.svg" alt="">
         </div>
       </div>
@@ -98,28 +98,28 @@ function getTaskOverlayTemplate(status) {
               <input onclick="addCrossAndCheckIconStyle()" type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board" id="inputfield-subtask-assign-in-board">
             </div>
           </div>
+          <div class="clear-create-container-board">
+            <div onclick="clearInputFieldsForNewTaskBoard()" class="clear-field-board">
+              <div class="clear-text-board">Cancel</div>
+              <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
+            </div>
+            <div onclick="postTaskIntoFirebaseBoard('${status}')" class="create-field-board">
+              <div class="text-create-field-board">Create Task</div>
+              <svg class="svg-check-open-overlay" width="28" height="28" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                <rect y="0.5" width="24" height="24" fill="#D9D9D9"/>
+                </mask>
+                <g mask="url(#mask0_314253_4333)">
+                <path d="M9.55057 15.65L18.0256 7.175C18.2256 6.975 18.4631 6.875 18.7381 6.875C19.0131 6.875 19.2506 6.975 19.4506 7.175C19.6506 7.375 19.7506 7.6125 19.7506 7.8875C19.7506 8.1625 19.6506 8.4 19.4506 8.6L10.2506 17.8C10.0506 18 9.81724 18.1 9.55057 18.1C9.28391 18.1 9.05057 18 8.85057 17.8L4.55057 13.5C4.35057 13.3 4.25474 13.0625 4.26307 12.7875C4.27141 12.5125 4.37557 12.275 4.57557 12.075C4.77557 11.875 5.01307 11.775 5.28807 11.775C5.56307 11.775 5.80057 11.875 6.00057 12.075L9.55057 15.65Z" fill="white"/>
+                </g>
+              </svg>
+            </div>
+          </div>
           <div class="subtasks-in-board display-none" id="subtasks-in-board"></div>
         </div>
         <div class="field-required-board">
           <span>This field is required</span>
         </div>
-      </div>
-    </div>
-    <div class="clear-create-container-board">
-      <div onclick="clearInputFieldsForNewTaskBoard()" class="clear-field-board">
-        <div class="clear-text-board">Cancel</div>
-        <img class="close-button-board" src="./assets/icons/close.png" alt="close-icon">
-      </div>
-      <div onclick="postTaskIntoFirebaseBoard('${status}')" class="create-field-board">
-        <div class="text-create-field-board">Create Task</div>
-        <svg class="svg-check-open-overlay" width="28" height="28" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <mask id="mask0_314253_4333" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
-          <rect y="0.5" width="24" height="24" fill="#D9D9D9"/>
-          </mask>
-          <g mask="url(#mask0_314253_4333)">
-          <path d="M9.55057 15.65L18.0256 7.175C18.2256 6.975 18.4631 6.875 18.7381 6.875C19.0131 6.875 19.2506 6.975 19.4506 7.175C19.6506 7.375 19.7506 7.6125 19.7506 7.8875C19.7506 8.1625 19.6506 8.4 19.4506 8.6L10.2506 17.8C10.0506 18 9.81724 18.1 9.55057 18.1C9.28391 18.1 9.05057 18 8.85057 17.8L4.55057 13.5C4.35057 13.3 4.25474 13.0625 4.26307 12.7875C4.27141 12.5125 4.37557 12.275 4.57557 12.075C4.77557 11.875 5.01307 11.775 5.28807 11.775C5.56307 11.775 5.80057 11.875 6.00057 12.075L9.55057 15.65Z" fill="white"/>
-          </g>
-        </svg>
       </div>
     </div>
   </div>

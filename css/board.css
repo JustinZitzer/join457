@@ -1364,16 +1364,15 @@ h5 {
 
 .clear-create-container-board {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 31vh;
     height: 56px;
     gap: 16px;
-    top: 300px;
-    left: 263px
+    bottom: 80px;
 }
 
 .clear-field-board {
-    width: 33vh;
+    width: 126px;
     height: 56px;
     border-width: 1px;
     gap: 4px;
@@ -1423,14 +1422,6 @@ h5 {
 
 .svg-check-open-overlay {
     margin-bottom: 2px;
-}
-
-.clear-create-container-board {
-    display: flex;
-    gap: 16px;
-    position: relative;
-    margin-left: 100px;
-    
 }
 
 /* --------------------- CANCEL BUTTON --------------------- */
@@ -1723,14 +1714,18 @@ h5 {
     gap: 32px;
     top: 50px;
     left: 270px;
-    width: 71%;
-    height: 88vh;
+    width: 1300px;
+    min-width: 1300px;
+    min-height: 870px;
+    height: 870px;
     transform: translateX(100%);
     animation: slideInRight 0.2s ease forwards;
     padding: 16px;
     border-radius: 30px;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
     background-color: white;
+    max-width: 1920px;
+    max-height: 1080px;
 }
 
 
@@ -1738,12 +1733,21 @@ h5 {
 
 .add-task-text-box-board {
     position: absolute;
-    left: 90px;
-    bottom: 650px;
+    left: 128px;
+    width: 88%;
+    top: 0%;
+    margin-bottom: 500px;
+    height: 250px;
+}
+
+.add-task-headline-in-overlay {
+    padding-top: 120px;
 }
 
 .container-add-task {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-left: 48px;
 }
 
@@ -1753,8 +1757,8 @@ h5 {
     cursor: pointer;
     left: 59vw;
     top: 0vh;
-    position: absolute;
     border-radius: 56px;
+    margin-bottom: 120px;
 }
 
 .x-close-button-add-task-overlay:hover {
@@ -3041,6 +3045,12 @@ h2 {
     align-items: center;
     margin-top: 10px;
     border: 1px dashed #A8A8A8;
+}
+
+@media (max-width: 1600px) {
+    .container-both-sides-board {
+        left: 100px;
+    }
 }
 
 @media (max-width: 1400px) {
