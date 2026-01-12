@@ -20,20 +20,20 @@
     display: flex;
     flex-direction: column;
     width: 456px;
-    height: 100dvh;
     margin-top: 96px;
     margin-left: 232px;
     padding-top: 20px;
+    height: calc(100dvh - 96px);
+    overflow: hidden;   
 }
 
 .contacts-sidebar-scrollbar {
-    overflow-y: auto;
-    scrollbar-width: 24px;
-    scrollbar-color: #a8a8a8 white;
-    background-color: white;
-    margin-bottom: 20px;
-    width: 100%;
-    margin-top: -18px;
+  width: 100%;
+  background-color: white;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #a8a8a8 white;
+  margin-top: -18px;
 }
 
 .edit-delete-contact-button {
@@ -41,11 +41,12 @@
 }
 
 .contact-list {
-    margin-top: 90px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    max-height: 892.5px;
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 892px;
+  height: auto;
 }
 
 .contact-list-fix-container {
@@ -710,10 +711,20 @@
         align-items: center;
         background-color: white;
         width: 100vw;
-        height: 139vh;
+        height: calc(100vh - 170px);
         margin-top: 96px;
         margin-left: 0px;
         padding-top: 20px;
+    }
+
+    .contacts-sidebar-scrollbar {
+        width: 100%;
+        background-color: white;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #a8a8a8 white;
+        margin-top: -18px;
+        overflow-x: hidden;
     }
 
     .contacts-sidebar-container::-webkit-scrollbar {
@@ -1129,6 +1140,11 @@
     .add-contact-overlay {
         width: 94vw;
     }
+
+    .contacts-sidebar-container {
+        height: calc(100vh - 0px);
+    }
+    
 }
 
 @media screen and (max-width: 900px) {
@@ -1138,6 +1154,10 @@
 
     .add-contact-overlay {
         width: 93vw;
+    }
+
+    .contacts-sidebar-container {
+        height: calc(100vh - 200px);
     }
 }
 
@@ -1190,15 +1210,48 @@
         font-size: 35px;
         white-space: nowrap;
     }
+
+    .contacts-sidebar-container {
+        height: calc(100vh - 180px);
+    }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
+    .contacts-sidebar-scrollbar {
+        width: 100%;
+        background-color: white;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #a8a8a8 white;
+        margin-top: -18px;
+    }
 
+    .contacts-sidebar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        width: 100vw;
+        height: calc(100vh - 180px);
+        margin-top: 96px;
+        margin-left: 0px;
+        padding-top: 20px;
+    }
 }
 
 @media screen and (min-width: 1024px) and (max-height: 600px) {
     .add-contact-overlay {
         height: 90vh;
         top: -5vh;
+    }
+
+    .contacts-sidebar-container {
+        height: calc(100vh - 195px);
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-height: 800px) {
+    .contacts-sidebar-container {
+        height: calc(100vh - 200px);
     }
 }
