@@ -721,6 +721,7 @@
         margin-top: 96px;
         margin-left: 0px;
         padding-top: 20px;
+        max-height: none;
     }
 
     .contacts-sidebar-scrollbar {
