@@ -1031,7 +1031,7 @@ function categoryUserOrTechnicalTaskBoard() {
 
 function selectUserCategoryBoard() {
   const inputfield = document.getElementById("inputfield-category-assign-board");
-  inputfield.value = "User Task";
+  inputfield.value = "User Story";
   categoryUserOrTechnicalTaskBoard();
 }
 
@@ -1108,9 +1108,9 @@ async function postTaskIntoFirebaseBoard(status) {
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     await handleTaskCreationBoard(status, taskTitel);
   } else if (!taskTitel.value) {
-    alert("Please enter a title for the task.");
+    validateInputBoard();
   } else if (!taskDueDate.value) {
-    alert("Please enter a due date for the task.");
+    validateDueDateInputBoard();
   } else if (!taskCategory.value) {
     alert("Please select a category for the task.");
   }

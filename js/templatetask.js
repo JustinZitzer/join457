@@ -70,8 +70,8 @@ function getTaskOverlayTemplate(status) {
             <div class="category-mark-board">
               <span>Category</span>
             </div>
-            <input type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
-            <img onclick="categoryUserOrTechnicalTaskBoard()" class="arrow-icon-board-category" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="arrow-icon-board-category">
+            <input onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
+            <img onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" class="arrow-icon-board-category" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="arrow-icon-board-category">
           </div>
           <div class="category-dropdown-board" id="category-dropdown-board">
           <div onclick="selectUserCategoryBoard()" id="user-technical-task-board-user" class="user-technical-task-board-user">User Story</div>

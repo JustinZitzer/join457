@@ -2881,10 +2881,12 @@ h2 {
 
 .subtasks-in-board {
     margin-top: -18px;
-    height: 30px;
+    height: 75px;
     display: flex;
     width: 100%;
     flex-direction: column;
+    max-height: 80px;
+    overflow-y: auto;
 }
 
 .subtask-board-dot-and-text-div:hover {
@@ -3045,6 +3047,10 @@ h2 {
     align-items: center;
     margin-top: 10px;
     border: 1px dashed #A8A8A8;
+}
+
+.border-red-board {
+    border: 1px solid red;
 }
 
 @media (max-width: 1600px) {

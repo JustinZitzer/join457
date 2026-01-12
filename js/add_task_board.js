@@ -685,3 +685,14 @@ async function moveTaskToCategory(event, taskId, newCategory) {
 
   loadAllTasksFromFirebase();
 }
+
+function validateCategoryInBoardInput() {
+  const inputField = document.getElementById("inputfield-category-assign-board");
+  const value = inputField.value.trim();
+
+  if (value !== "Technical Task" && value !== "User Story") {
+    inputField.classList.add("border-red-board");
+  } else {
+    inputField.classList.remove("border-red-board");
+  }
+}
