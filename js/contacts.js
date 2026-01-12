@@ -86,6 +86,7 @@ function closeContactsSideCardOverlay(contactId) {
     showThreeDotsMenu();
     addContactButton.style.display = 'block';
     threeDotsMenu.style.display = 'none';
+    contactsLeftSection.style.display = '';
 }
 
 function showThreeDotsMenu() {
