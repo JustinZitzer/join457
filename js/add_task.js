@@ -1025,8 +1025,12 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
 function categoryUserOrTechnicalTaskBoard() {
   const input = document.getElementById("inputfield-category-assign-board");
   const dropdown = document.getElementById("category-dropdown-board");
+  const isOpen = dropdown.classList.contains("open");
   dropdown.classList.toggle("open");
   input.classList.toggle("inputfield-blue-border-top-right");
+  if (isOpen) {
+    validateCategoryInBoardInput();
+  }
 }
 
 function selectUserCategoryBoard() {
