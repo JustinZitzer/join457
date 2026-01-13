@@ -3,6 +3,7 @@ async function initBoard() {
   await loadAllTasksFromFirebase();
   await loadDataBoard();
   selectedSiteBackgroundStyle();
+  selectedSiteBackgroundStyleMobile();
 }
 
 function setupOverlayClose(overlay, overlayContent) {

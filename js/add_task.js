@@ -76,6 +76,7 @@ async function loadToDoTasksFromFirebase() {
 async function initAddTask() {
   await loadDataSignUp();
   selectedSiteBackgroundStyle();
+  selectedSiteBackgroundStyleMobile();
 }
 
 function pushTasksIntoArray(data, todosArray) {

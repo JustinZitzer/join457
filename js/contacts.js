@@ -15,6 +15,7 @@ async function initContact() {
     await loadHTML();
     await loadContacts();
     selectedSiteBackgroundStyle();
+    selectedSiteBackgroundStyleMobile();
 }
 
 function openContactsSideCardOverlay(contactId) {

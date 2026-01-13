@@ -22,6 +22,7 @@ async function initSummaryAndHTML() {
     counterTasksSummary();
     showOldestUrgentDueDate();
     selectedSiteBackgroundStyle();
+    selectedSiteBackgroundStyleMobile();
 }
 
 function handleSidebarNavClick(event) {
