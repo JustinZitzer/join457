@@ -1155,10 +1155,9 @@ function clearInputFieldsForNewTaskBoard() {
   const circleContainer = document.getElementById("three-circle-container-board");
 
   resetBoardInputValues( taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
-
   resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow);
-
   resetBoardContacts(contacts);
+  resetAllInfosInBoardOverlay();
 }
 
 function filterTasksBySearch(taskTitles, toDos, inputStart) {

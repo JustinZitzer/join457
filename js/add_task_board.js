@@ -698,3 +698,19 @@ function validateCategoryInBoardInput() {
     inputField.classList.remove("border-red-board");
   }
 }
+
+function resetAllInfosInBoardOverlay() {
+  const errorTitle = document.getElementById("field-required-in-board");
+  const errorDueDate = document.getElementById("due-date-required-board-error");
+  const errorCategory = document.getElementById("field-required-in-board-category");
+  const titleInput = document.getElementById("titleInputBoard");
+  const dueDateInput = document.getElementById("dueDateInputBoard");
+  const categoryInput = document.getElementById("inputfield-category-assign-board");
+
+  errorTitle.classList.add("display-none");
+  errorDueDate.classList.add("display-none");
+  errorCategory.classList.add("display-none");
+  titleInput.style.border = "";
+  dueDateInput.style.border = "";
+  categoryInput.classList.remove("border-red-board");
+}
