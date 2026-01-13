@@ -689,9 +689,11 @@ async function moveTaskToCategory(event, taskId, newCategory) {
 function validateCategoryInBoardInput() {
   const inputField = document.getElementById("inputfield-category-assign-board");
   const value = inputField.value.trim();
+  const errorField = document.getElementById("field-required-in-board-category");
 
   if (value !== "Technical Task" && value !== "User Story") {
     inputField.classList.add("border-red-board");
+    errorField.classList.remove("display-none");
   } else {
     inputField.classList.remove("border-red-board");
   }

@@ -73,7 +73,7 @@ function getTaskOverlayTemplate(status) {
             <input onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
             <img onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" class="arrow-icon-board-category" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="arrow-icon-board-category">
           </div>
-          <div class="display-none" id="field-required-in-board-category">
+          <div class="field-required-in-board category-failure-message-position-board display-none" id="field-required-in-board-category">
           <p>This field is required</p>
           </div>
           <div class="category-dropdown-board" id="category-dropdown-board">

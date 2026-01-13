@@ -1111,12 +1111,10 @@ async function postTaskIntoFirebaseBoard(status) {
 
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     await handleTaskCreationBoard(status, taskTitel);
-  } else if (!taskTitel.value) {
+  } else {
     validateInputBoard();
-  } else if (!taskDueDate.value) {
     validateDueDateInputBoard();
-  } else if (!taskCategory.value) {
-    alert("Please select a category for the task.");
+    validateCategoryInBoardInput();
   }
 }
 
