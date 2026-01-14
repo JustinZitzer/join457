@@ -7,7 +7,7 @@ function getContactOverlay(contact) {
                         <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                     </div>
                     <div class="contacts-info-container">
-                        <h3>${contact.firstName} ${contact.lastName}</h3>
+                        <h3 class="name-contacts-template-div">${contact.firstName} ${contact.lastName}</h3>
                         <div class="contacts-overlay-action-buttons-container" id="contacts-overlay-action-buttons-container">
                             <div onclick="openEditContactOverlay(${contact.id})" class="contacts-overlay-edit-container">
                                 <img src="./assets/icons/edit-icon.svg" alt="edit-icon">

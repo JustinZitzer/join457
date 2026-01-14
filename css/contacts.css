@@ -1131,6 +1131,10 @@
         font-size: 21px;
         transition: box-shadow 0.2s ease-in-out;
     }
+    
+    .name-contacts-template-div {
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 1200px) {
