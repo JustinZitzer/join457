@@ -104,9 +104,20 @@ function isValidEmail(email) {
   const parts = email.split('@');
   if (parts.length !== 2) return false;
   if (!parts[0] || !parts[1]) return false;
-  if (!parts[1].includes('.')) return false;
+
+  return isValidDomain(parts[1]);
+}
+
+function isValidDomain(domain) {
+  const domainParts = domain.split('.');
+  if (domainParts.length !== 2) return false;
+  if (!domainParts[0] || !domainParts[1]) return false;
+
+  if (domainParts[1].length < 2) return false;
+
   return true;
 }
+
 
 function isValidPhone(phone) {
   for (let char of phone) {
