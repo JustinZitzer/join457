@@ -61,20 +61,25 @@ async function postValueDataIntoFirebase() {
 }
 
 function enterFullInformation() {
-  if(nameInputSignUp.value !== "" && emailInputSignUp.value !== "" && 
-  passwordInputSignUp.value !== "" && confirmPasswordInputSignUp.value !== ""
-  && checkboxSignUp.checked) {
+  const isNameValid = enterNameSignUp();
+  const isEmailValid = enterEmailSignUp();
+  const isPasswordValid = enterPasswordSignUp();
+  const isPasswordMatch = checkPasswordMatch();
+  const isCheckboxValid = checkboxSignUp.checked;
+
+  if (isNameValid && isEmailValid && isPasswordValid && isPasswordMatch && isCheckboxValid) {
     postValueDataIntoFirebase();
     grayBodyEffect();
     showSuccessMessage();
   } else {
     failureMessage();
+    failureMessageInputFields();
   }
 }
 
 function failureMessage() {
   failureAllFieldsDiv.classList.remove("display-none");
-  failureAllFieldsMessage.innerText = "*Please enter all the fields and accept the privacy policy";
+  failureAllFieldsMessage.innerText = "*Please enter all fields and accept the privacy policy";
 }
 
 function showSuccessMessage() {
@@ -90,20 +95,6 @@ function grayBodyEffect() {
   const grayBodyDiv = document.getElementById("gray-background-for-body");
   grayBodyDiv.classList.remove("display-none");
   grayBodyDiv.classList.add("gray-background-for-body-effect");
-}
-
-function checkPasswordMatch() {
-  if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
-    failureAllFieldsDiv.classList.remove("display-none");
-    failureAllFieldsMessage.innerText = "*Your passwords don't match, please try again";
-    confirmPasswordInputSignUp.classList.remove("grey-border");
-    confirmPasswordInputSignUp.classList.add("red-border");
-  } else {
-    failureAllFieldsDiv.classList.add("display-none");
-    failureAllFieldsMessage.innerText = "";
-    confirmPasswordInputSignUp.classList.remove("red-border");
-    confirmPasswordInputSignUp.classList.add("grey-border");
-  }
 }
 
 function changeLockIconToEyeIconFirstField() {
@@ -153,4 +144,117 @@ function changeClosedToOpenEyeConfirm() {
     openEyeIconConfirm.classList.add("display-none");
     confirmPasswordInputSignUp.type = "password";
   }
+}
+
+function failureMessageInputFields() {
+  enterNameSignUp();
+  enterEmailSignUp();
+  enterPasswordSignUp();
+  checkPasswordMatch();
+}
+
+function enterNameSignUp() {
+  const nameErrorDiv = document.getElementById("failure-signup-div-message-name");
+  const name = nameInputSignUp.value.trim();
+
+  if(name.length < 3 )  {
+    nameErrorDiv.classList.remove("display-none");
+    nameErrorDiv.innerText = "*Name must be at least 3 characters long";
+    nameInputSignUp.classList.remove("grey-border");
+    nameInputSignUp.classList.add("red-border");
+    return false;
+  } else {
+    nameErrorDiv.classList.add("display-none");
+    nameInputSignUp.classList.remove("red-border");
+    return true;
+  }
+}
+
+function enterEmailSignUp() {
+  const emailErrorDiv = document.getElementById("failure-signup-div-message-email");
+  const email = emailInputSignUp.value.trim();
+
+  if(!isValidEmail(email)) {
+    emailErrorDiv.classList.remove("display-none");
+    emailErrorDiv.innerText = "*Please enter a valid email address";
+    emailInputSignUp.classList.add("red-border");
+    emailInputSignUp.classList.remove("grey-border");
+    return false;
+  } else {
+    emailErrorDiv.classList.add("display-none");
+    emailInputSignUp.classList.remove("red-border");  
+    return true;
+  }
+}
+
+function enterPasswordSignUp() {
+  const passwordErrorDiv = document.getElementById("failure-signup-div-message-password");
+  const password = passwordInputSignUp.value.trim();
+
+  if(password.length < 6 )  {
+    passwordErrorDiv.classList.remove("display-none");
+    passwordErrorDiv.innerText = "*Password must be at least 6 characters long";
+    passwordInputSignUp.classList.add("red-border");
+    passwordInputSignUp.classList.remove("grey-border");
+    return false;
+  } else {
+    passwordErrorDiv.classList.add("display-none");
+    passwordInputSignUp.classList.remove("red-border");
+    passwordInputSignUp.classList.add("grey-border");
+    return true;
+  }
+}
+
+function checkPasswordMatch() {
+  if (!confirmPasswordEmptyFailure()) return false;
+
+  if (!confirmPasswordMatchFailure()) return false;
+
+  confirmPasswordMatchSuccess();
+  return true;
+}
+
+function confirmPasswordEmptyFailure() {
+  const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
+  const confirmPassword = confirmPasswordInputSignUp.value.trim();
+
+  if (confirmPassword === "") {
+    failureMessage.classList.remove("display-none");
+    failureMessage.innerText = "*Please confirm your password";
+    confirmPasswordInputSignUp.classList.add("red-border");
+    confirmPasswordInputSignUp.classList.remove("grey-border");
+    return false;
+  }
+
+  return true;
+}
+
+function confirmPasswordMatchFailure() {
+  const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
+  const password = passwordInputSignUp.value.trim();
+  const confirmPassword = confirmPasswordInputSignUp.value.trim();
+
+  if (password !== confirmPassword) {
+    failureMessage.classList.remove("display-none");
+    failureMessage.innerText = "*Your passwords don't match, please try again";
+    confirmPasswordInputSignUp.classList.add("red-border");
+    confirmPasswordInputSignUp.classList.remove("grey-border");
+    return false;
+  }
+
+  return true;
+}
+
+function confirmPasswordMatchSuccess() {
+  const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
+
+  failureMessage.classList.add("display-none");
+  failureMessage.innerText = "";
+  confirmPasswordInputSignUp.classList.remove("red-border");
+  confirmPasswordInputSignUp.classList.add("grey-border");
+}
+
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
 }
