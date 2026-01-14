@@ -59,7 +59,6 @@ window.addEventListener("load", () => {
       loadingScreenMobileDiv.classList.add('hidden');
       whiteBackground.classList.add('hidden');
       bodySummaryHtml.style.overflowY = 'auto';
-      bodySummaryHtml.style.overflowX = 'hidden';
     }, 1000);
 
     document.addEventListener('click', function(event) {

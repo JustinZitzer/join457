@@ -1,6 +1,16 @@
 body {
 }
 
+.hide-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .Body-Summary-Html {
     height: 100vh;
     max-width: 1920px;

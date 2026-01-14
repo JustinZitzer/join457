@@ -20,6 +20,16 @@
   visibility: hidden;
 }
 
+.hide-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .Animation-Logo-Div-Z-Index {
   position: absolute;
   top: 0;
