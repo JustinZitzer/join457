@@ -8,7 +8,7 @@
 .body-contacts {
     max-height: 1080px;
     max-width: 1920px;
-    margin : 0 auto;
+    margin: 0 auto;
 }
 
 .display-none {
@@ -25,16 +25,16 @@
     height: 100vh;
     overflow: hidden;
     max-height: 982px;
-    height: calc(100vh - 96px)!important;
+    height: calc(100vh - 96px) !important;
 }
 
 .contacts-sidebar-scrollbar {
-  width: 100%;
-  background-color: white;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #a8a8a8 white;
-  margin-top: -18px;
+    width: 100%;
+    background-color: white;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #a8a8a8 white;
+    margin-top: -18px;
 }
 
 .edit-delete-contact-button {
@@ -42,12 +42,12 @@
 }
 
 .contact-list {
-  margin-top: 90px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  max-height: 892px;
-  height: auto;
+    margin-top: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-height: 892px;
+    height: auto;
 }
 
 .contact-list-fix-container {
@@ -526,7 +526,7 @@
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 56px;
+    height: 51px;
     background-color: white;
     border: 1px solid rgba(42, 54, 71, 1);
     border-radius: 10px;
@@ -562,6 +562,7 @@
     font-weight: 700;
     font-size: 21px;
     transition: box-shadow 0.2s ease-in-out;
+    border: none;
 }
 
 .add-contact-create-contact-btn:hover {
@@ -586,25 +587,25 @@
 }
 
 .hide-scrollbar {
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 @media screen and (min-width: 1921px) and (min-height: 1081px) {
     .edit-delete-contact-button {
         display: none !important;
     }
-    
+
     .add-new-contact-btn-mobile-version {
-    height: 60px;
-    width: 60px;
-    border-radius: 100%;
-    display: none !important;
+        height: 60px;
+        width: 60px;
+        border-radius: 100%;
+        display: none !important;
     }
 
     .contact-list {
@@ -618,7 +619,7 @@
         max-height: 1080px;
         max-width: 1920px;
         overflow-y: auto;
-        margin : 0 auto;
+        margin: 0 auto;
     }
 
     .add-contact-overlay {
@@ -754,10 +755,6 @@
         margin-left: 0px;
         padding-left: 4px;
         max-width: 100%;
-    }
-
-    .add-contact-cancel-btn {
-        display: none;
     }
 
     .contacts-side-headline {
@@ -1141,7 +1138,7 @@
         font-size: 21px;
         transition: box-shadow 0.2s ease-in-out;
     }
-    
+
     .name-contacts-template-div {
         max-width: 100%;
     }
@@ -1165,7 +1162,7 @@
     .contacts-sidebar-container {
         height: calc(100vh - 0px);
     }
-    
+
 }
 
 @media screen and (max-width: 900px) {
