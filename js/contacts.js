@@ -37,16 +37,16 @@ function openContactsSideCardOverlay(contactId) {
 }
 
 function openContactsSideCardOverlayById(contactId) {
-  openContactsSideCardOverlay(contactId);
-  toggleContactCardColor(contactId);
+    openContactsSideCardOverlay(contactId);
+    toggleContactCardColor(contactId);
 
-  requestAnimationFrame(() => {
-    const overlay = document.getElementById('contacts_side_overlay');
-    overlay?.classList.add('active-side-overlay');
-    flyInOverlay();
-    showContactsCardOverlayMobile();
-    showThreeDotsMenu();
-  });
+    requestAnimationFrame(() => {
+        const overlay = document.getElementById('contacts_side_overlay');
+        overlay?.classList.add('active-side-overlay');
+        flyInOverlay();
+        showContactsCardOverlayMobile();
+        showThreeDotsMenu();
+    });
 }
 
 function showContactsCardOverlayMobile() {
@@ -62,18 +62,18 @@ function showContactsCardOverlayMobile() {
 }
 
 function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
-  if (displayResolution < 1400) {
-    if (isActive) {
-      contactsRightSection.style.display = 'flex';
-      contactsLeftSection.style.display = 'none';
+    if (displayResolution < 1400) {
+        if (isActive) {
+            contactsRightSection.style.display = 'flex';
+            contactsLeftSection.style.display = 'none';
+        } else {
+            contactsRightSection.style.display = 'none';
+            contactsLeftSection.style.display = 'block';
+        }
     } else {
-      contactsRightSection.style.display = 'none';
-      contactsLeftSection.style.display = 'block';
+        contactsRightSection.style.display = 'flex';
+        contactsLeftSection.style.display = 'block';
     }
-  } else {
-    contactsRightSection.style.display = 'flex';
-    contactsLeftSection.style.display = 'block';
-  }
 }
 
 function closeContactsSideCardOverlay(contactId) {
@@ -94,7 +94,7 @@ function showThreeDotsMenu() {
     const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
     const threeDotsMenu = document.getElementById('edit-delete-contact-button');
     const contactOverlayActive = document.getElementById('contacts_side_overlay');
-    
+
     if (!contactOverlayActive.classList.contains('active')) {
         addContactButton.style.display = 'none';
         threeDotsMenu.style.display = 'block';
@@ -103,14 +103,14 @@ function showThreeDotsMenu() {
 
 function showEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
-    if(dropdown.classList.contains("display-none")){
+    if (dropdown.classList.contains("display-none")) {
         dropdown.classList.remove("display-none");
     }
 }
 
 function closeEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
-    if(!dropdown.classList.contains("display-none")){
+    if (!dropdown.classList.contains("display-none")) {
         dropdown.classList.add("display-none");
     }
 }
@@ -222,4 +222,16 @@ function getColorForContact(id) {
         saveColorMap(map);
     }
     return map[id];
+}
+
+async function handleCreatedContactOverlay() {
+    const container = document.getElementById('main_contacts');
+
+    container.insertAdjacentHTML('beforeend', getCreatedContactOverlay());
+
+    const overlay = container.querySelector('.created-contact-successfully-container');
+
+    setTimeout(() => {
+        overlay.remove();
+    }, 800);
 }

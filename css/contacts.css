@@ -596,6 +596,22 @@
     display: none;
 }
 
+.created-contact-successfully-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 36%;
+    background-color: #2A3647;
+    font-size: 20px;
+    width: 326px;
+    height: 74px;
+    border-radius: 20px;
+    color: white;
+    z-index: 100;
+}
+
 @media screen and (min-width: 1921px) and (min-height: 1081px) {
     .edit-delete-contact-button {
         display: none !important;

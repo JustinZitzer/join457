@@ -191,3 +191,11 @@ function showDeleteAndEditContactButton() {
     </div>
     `;
 }
+
+function getCreatedContactOverlay() {
+    return `
+        <div class="created-contact-successfully-container">
+            <p>Contact successfully created</p>
+        </div>
+    `;
+}

@@ -77,6 +77,7 @@ async function createNewContact(event) {
 
   const newContact = buildNewContact(name, email, phone);
   await saveContactToDatabase(newContact);
+  handleCreatedContactOverlay();
 }
 
 function getNewContactInputs() {
