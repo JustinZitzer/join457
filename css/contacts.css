@@ -8,7 +8,6 @@
 .body-contacts {
     max-height: 1080px;
     max-width: 1920px;
-    overflow-y: hidden !important;
     margin : 0 auto;
 }
 
@@ -732,6 +731,7 @@
         margin-left: 0px;
         padding-top: 20px;
         max-height: none;
+        padding-bottom: 30px;
     }
 
     .contacts-sidebar-scrollbar {
@@ -741,7 +741,7 @@
         scrollbar-width: thin;
         scrollbar-color: #a8a8a8 white;
         margin-top: -18px;
-        overflow-x: hidden;
+        min-height: 100vh;
     }
 
     .contacts-sidebar-container::-webkit-scrollbar {
