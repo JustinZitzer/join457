@@ -687,6 +687,10 @@ h6 {
     color: #2A3647;
     border: solid 1px #2A3647;
     cursor: pointer;
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
 }
 
 .clear-text {
@@ -752,14 +756,9 @@ h6 {
 
 .clear-field:hover {
     border-color: #1a9fff;
-}
-
-.clear-field:hover .clear-text {
-    color: #1a9fff;
-}
-
-.clear-field:hover .close-button {
-    filter: brightness(0) saturate(100%) invert(57%) sepia(87%) saturate(422%) hue-rotate(177deg) brightness(101%) contrast(96%);
+    transform: translate(-1px, -1px);
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
+    filter: invert(48%) sepia(89%) saturate(2300%) hue-rotate(183deg) brightness(103%) contrast(102%);
 }
 
 /* ---------- Create Task Button ---------- */
