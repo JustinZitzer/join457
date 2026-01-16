@@ -53,6 +53,7 @@ async function renderContacts(contacts) {
 
 async function deleteContact(key) {
   try {
+    closeContactsSideCardOverlay();
     await deleteData('contacts', key);
     console.log(`Kontakt gelöscht: ${key}`);
     loadContacts();
