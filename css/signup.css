@@ -29,13 +29,13 @@ body {
 }
 
 .hide-scrollbar {
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .red-border {
@@ -141,6 +141,7 @@ body {
     justify-content: center;
     width: 100%;
     position: relative;
+    margin-top: 48px;
 }
 
 .underline-headline-container a {
@@ -155,6 +156,9 @@ body {
     font-size: 61px;
     font-weight: 700;
     width: 100%;
+    height: 630px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
 }
 
 .signup-content {
