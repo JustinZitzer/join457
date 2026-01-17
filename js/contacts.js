@@ -224,7 +224,7 @@ function getColorForContact(id) {
     return map[id];
 }
 
-async function handleCreatedContactOverlay() {
+function handleCreatedContactOverlay() {
     const container = document.getElementById('main_contacts');
 
     container.insertAdjacentHTML('beforeend', getCreatedContactOverlay());
