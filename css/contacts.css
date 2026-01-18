@@ -1001,7 +1001,7 @@
         flex-direction: column;
         position: fixed;
         left: 2.1vw;
-        top: -8vh;
+        top: -4vh;
         width: 95vw;
         height: 94vh;
         z-index: 4;
@@ -1072,7 +1072,7 @@
     .add-contact-person-svg-container {
         position: fixed;
         left: 51%;
-        top: 27%;
+        top: 31%;
         transform: translateX(-50%);
         border: 3px solid white;
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
@@ -1273,6 +1273,29 @@
         margin-left: 0px;
         padding-top: 20px;
         padding-bottom: 80px;
+    }
+
+    .add-contact-person-svg-container {
+        width: 85px;
+        height: 85px;
+        top: 33%;
+    }
+
+    .add-contact-create-contact-btn {
+        font-size: 16px;
+    }
+
+    .add-contact-cancel-btn {
+        font-size: 16px;
+    }
+
+    .add-contact-create-contact-btn {
+        width: 135px;
+    }
+
+    .add-contact-close-btn {
+        top: 30px;
+        right: 30px;
     }
 }
 
