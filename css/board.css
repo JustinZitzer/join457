@@ -1,10 +1,10 @@
-body {
-}
+body {}
 
 .body-board {
     max-width: 1920px;
     max-height: 1080px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 main {
@@ -28,8 +28,7 @@ main {
     left: 232px;
 }
 
-.header-container-board {
-}
+.header-container-board {}
 
 h3 {
     font-weight: 700;
@@ -1615,11 +1614,11 @@ h5 {
     padding: 1px;
 }
 
-.close-icon-open-overlay{
+.close-icon-open-overlay {
     cursor: pointer;
 }
 
-.close-icon-open-overlay:hover{
+.close-icon-open-overlay:hover {
     background-color: rgba(88, 85, 85, 0.3);
     border-radius: 50%;
     padding: 2px;
