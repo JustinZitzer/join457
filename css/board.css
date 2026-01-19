@@ -3589,7 +3589,119 @@ h2 {
         font-size: 47px;
     }
 
+    .titel-edit-div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .big-task-title-edit {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .titel-edit-task-big {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .description-edit-div {
+        margin-left: 0px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .description-headline-edit {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .description-edit-task-big {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .due-date-edit-div {
+        margin-left: 0px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .due-date-headline-edit {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .inputfield-due-date-container-edit-div {
+        margin-left: 0px;
+        width: 100%;
+    }
+    
+    .due-date-edit-task-big {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .priority-bold-edit-headline {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .edit-button-div {
+        width: 100%;
+    }
+
+    .urgent-edit-button-div {
+        margin-left: 0px;
+    }
+
+    .assigned-to-edit-headline {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .inputfield-text-assign-edit {
+        margin-left: 0px;
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .assigned-arrow-icon-edit {
+        right: 15px;
+    }
+    
+    .contacts-dropdown-edit {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .subtasks-headline-edited {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .inputfield-subtask-edit-div {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .bullet-subtask-flexbox {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .subtasks-board-first-task-edit {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .calendar-icon-edit-task-big {
+        right: 18px;
+    }
 }
+
+
 
 @media (max-width: 1200px) {
     .search-button-container {
