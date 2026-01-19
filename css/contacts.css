@@ -612,6 +612,20 @@
     z-index: 100;
 }
 
+.red-border-contacts {
+    border: 1px solid red;
+}
+
+.failure-message-add-contact {
+    font-size: 16px;
+    color: red;
+    width: 325px;
+    height: 20px;
+    margin-left: 60px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
 @media screen and (min-width: 1921px) and (min-height: 1081px) {
     .edit-delete-contact-button {
         display: none !important;
@@ -675,6 +689,15 @@
 }
 
 @media screen and (max-width: 1400px) {
+    .failure-message-add-contact {
+        font-size: 16px;
+        color: red;
+        width: 400px;
+        height: 20px;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 
     .contacts-overlay-header {
         display: flex;

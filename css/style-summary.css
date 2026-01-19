@@ -461,6 +461,14 @@ body {
     display: none;
 }
 
+@media screen and (min-width: 1400px) {
+    .Summary-Box-Z-Index-Container {
+        margin-left: 0px;
+        padding-left: 350px;
+    }
+
+}
+
 @media screen and (max-width: 1400px){
 
     .Urgent-Picture-Div {

@@ -66,13 +66,15 @@ async function deleteContact(key) {
 
 
 async function createNewContact(event) {
+  const failMessage = document.getElementById('failure-message-add-contact');
   event.preventDefault();
   const { name, email, phone } = getNewContactInputs();
   if (!validateContactInputs(name, email, phone)) return;
 
   const existingContact = allContacts.some(contact => contact.email.toLowerCase() === email.toLowerCase());
   if (existingContact) {
-    alert('Ein Kontakt mit dieser E-Mail existiert bereits.');
+    failMessage.classList.remove('display-none');
+    failMessage.innerHTML = 'Ein Kontakt mit dieser E-Mail-Adresse existiert bereits.';
     return;
   }
 
@@ -90,16 +92,62 @@ function getNewContactInputs() {
 }
 
 function validateContactInputs(name, email, phone) {
-  if (!name || !email || !phone)
-    return alert("Bitte alle Felder ausfüllen."), false;
+  if (!name || !email || !phone) return redBoarderForInputs();
 
-  if (!isValidEmail(email))
-    return alert("Bitte eine gültige E-Mail-Adresse eingeben (z. B. email@gmx.de)."), false;
+  if (name.length < 3) return nameErrorAddContact();
 
-  if (!isValidPhone(phone))
-    return alert("Die Telefonnummer darf nur Zahlen enthalten."), false;
+  if (!isValidEmail(email)) return emailAddContactFailure();
+
+  if (!isValidPhone(phone)) return phoneNumberError();
 
   return true;
+}
+
+function redBoarderForInputs() {
+  const nameInput = document.getElementById('add-contact-name-input');
+  const emailInput = document.getElementById('add-contact-email-input');
+  const phoneInput = document.getElementById('add-contact-phone-input');
+  const failMessage = document.getElementById('failure-message-add-contact');
+
+  nameInput.style.borderColor = 'red';
+  emailInput.style.borderColor = 'red';
+  phoneInput.style.borderColor = 'red';
+  failMessage.classList.remove('display-none');
+  failMessage.innerHTML = '*Bitte alle Felder ausfüllen.';
+
+  return false;
+}
+
+function emailAddContactFailure() {
+  const emailInput = document.getElementById('add-contact-email-input');
+  const errorMessage = document.getElementById('failure-message-add-contact-email');
+
+  emailInput.style.borderColor = 'red';
+  errorMessage.classList.remove('display-none');
+
+  return false;
+}
+
+function phoneNumberError() {
+  const failMessage = document.getElementById('failure-message-add-contact');
+  const phoneInput = document.getElementById('add-contact-phone-input');
+
+  phoneInput.style.borderColor = 'red';
+  failMessage.classList.remove('display-none');
+  failMessage.innerHTML = '*Bitte eine gültige Telefonnummer eingeben.';
+
+  return false;
+}
+
+function nameErrorAddContact() {
+  const failMessage = document.getElementById('failure-message-add-contact-name');
+  const nameInput = document.getElementById('add-contact-name-input');
+
+  nameInput.style.borderColor = 'red';
+  failMessage.classList.remove('display-none');
+  failMessage.innerHTML = '*Namen mit mindestens 3 Zeichen eingeben.';
+
+  return false;
 }
 
 function isValidEmail(email) {
