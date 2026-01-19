@@ -360,6 +360,10 @@
     gap: 15px;
 }
 
+.contacts-phone-details-container a {
+    color: rgba(41, 171, 226, 1);
+}
+
 .contacts-details-container a:hover {
     color: rgba(41, 171, 226, 1);
     text-decoration: underline;

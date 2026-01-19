@@ -24,11 +24,11 @@ function getContactOverlay(contact) {
                 <div class="contacts-details-container">
                     <div class="contacts-email-details-container">
                         <h4>Email</h4>
-                        <a class="blue-color">${contact.email}</a>
+                        <a href="mailto:${contact.email}" class="blue-color">${contact.email}</a>
                     </div>
                     <div class="contacts-phone-details-container">
                         <h4>Phone</h4>
-                        <a>+${contact.phoneNumber}</a>
+                        <a href="tel:${contact.phoneNumber}">+${contact.phoneNumber}</a>
                     </div>
                 </div>
             </div>
