@@ -3348,6 +3348,10 @@ h2 {
         min-height: 100px;
         max-height: 300px;
         width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
 
     .todo-content-box {
@@ -3376,6 +3380,10 @@ h2 {
         min-height: 100px;
         max-height: 300px;
         width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
 
     .await-feedback-box {
@@ -3394,6 +3402,10 @@ h2 {
         min-height: 100px;
         max-height: 300px;
         width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
 
     .await-feedback-content {
@@ -3416,11 +3428,15 @@ h2 {
     }
 
     .done-content-task {
-        display: flex;
+         display: flex;
         min-height: 100px;
         max-height: 300px;
-        margin-bottom: 150px;
         width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 150px;
     }
 
     #header-title-project-management-tool,
