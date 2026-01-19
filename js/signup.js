@@ -29,11 +29,11 @@ async function checkIfEmailExists() {
     const storedEmail = userData[userName]?.email?.toLowerCase();
 
     if (storedEmail === emailInput) {
-      return true; // ❌ E-Mail existiert bereits
+      return true;
     }
   }
 
-  return false; // ✅ E-Mail ist neu
+  return false;
 }
 
 async function emailExistsError() {
@@ -47,7 +47,7 @@ function showEmailAlreadyExistsError() {
   const errorMessage = document.getElementById("failure-signup-div-message-email");
 
   errorMessage.classList.remove("display-none");
-  errorMessage.innerHTML = "E-Mail existiert bereits";
+  errorMessage.innerHTML = "*E-Mail existiert bereits";
   emailInput.classList.add("red-border");
   emailInput.classList.remove("grey-border");
 }
