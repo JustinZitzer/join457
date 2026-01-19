@@ -687,6 +687,11 @@ h1 {
         width: 88px;
     }
 
+    .join-logo-container-signup {
+        display: flex;
+        justify-content: center;
+    }
+
     .join-logo {
         width: 64px;
         height: 78.03px;
