@@ -47,7 +47,7 @@ function showEmailAlreadyExistsError() {
   const errorMessage = document.getElementById("failure-signup-div-message-email");
 
   errorMessage.classList.remove("display-none");
-  errorMessage.innerHTML = "*E-Mail existiert bereits";
+  errorMessage.innerHTML = "*E-Mail already exists";
   emailInput.classList.add("red-border");
   emailInput.classList.remove("grey-border");
 }
