@@ -16,6 +16,12 @@ async function loadDataSignUp(path="") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
   console.log(responseToJson);
+  return responseToJson;
+}
+
+async function checkIfEmailExists() {
+  const emailInput = document.getElementById("inputfield-email").value.trim();
+  const userData = await loadDataSignUp("userData");
 }
 
 function valueOfInputFields() {
