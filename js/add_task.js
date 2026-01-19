@@ -245,21 +245,21 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
 
     container.innerHTML += getAssignedContactBigTemplate(circleClass, initials, name);
   }
-  for (let i = 0 ; i < Math.min(assignedTo.length, 3); i++) {
+  for (let i = 0; i < Math.min(assignedTo.length, 3); i++) {
     const name = assignedTo[i];
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
 
     if (name == "undefined") return;
 
     const circleClass = getClassFromName(name, circleClasses);
-    
+
     containerTask.innerHTML += getAssignedContactLittleTemplate(circleClassesTask[i], initials);
   }
   assignedToPlusNumber(assignedTo, containerTask);
 }
 
 function assignedToPlusNumber(assignedTo, containerTask) {
-  if(assignedTo.length > 3) {
+  if (assignedTo.length > 3) {
     containerTask.innerHTML += `<div class="text-align-contacts-counter">+${assignedTo.length - 3}</div>`;
   }
 }
@@ -268,9 +268,9 @@ function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
   const containerTask = document.getElementById(`three-circle-container${taskKey}`);
 
-  const circleClasses = ["single-circle-first-big", "single-circle-second-big", "single-circle-third-big","single-circle-fourth-big","single-circle-fifth-big"];
+  const circleClasses = ["single-circle-first-big", "single-circle-second-big", "single-circle-third-big", "single-circle-fourth-big", "single-circle-fifth-big"];
 
-  const circleClassesTask = [ "single-circle-first-little", "single-circle-second-little", "single-circle-third-little",];
+  const circleClassesTask = ["single-circle-first-little", "single-circle-second-little", "single-circle-third-little",];
 
   container.innerHTML = "";
   containerTask.innerHTML = "";
@@ -284,7 +284,6 @@ async function loadDataBoard(path = "") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
   fullTaskInfoArray.push(responseToJson);
-  console.log(fullTaskInfoArray);
 }
 
 function showBigTaskOverlay(overlay, wrapper) {
@@ -407,7 +406,6 @@ async function deleteTask(category, taskKey) {
       method: "DELETE",
     });
     if (response.ok) {
-      console.log(`Task ${taskKey} aus Kategorie "${category}" gelöscht.`);
       await loadAllTasksFromFirebase();
       hideBigTaskInfo(taskKey);
     }
@@ -449,10 +447,10 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
-function assignedContactsEdit (taskKey, assignedTo) {
+function assignedContactsEdit(taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
-  const circleClassesTask = ["single-circle-first-edit","single-circle-second-edit","single-circle-third-edit",];
-  
+  const circleClassesTask = ["single-circle-first-edit", "single-circle-second-edit", "single-circle-third-edit",];
+
   if (!assignedTo || assignedTo === "Not Assigned to anyone" || assignedTo.length === 0) {
     return;
   }
@@ -462,7 +460,7 @@ function assignedContactsEdit (taskKey, assignedTo) {
     if (name == "undefined") return;
     containerTaskEdit.innerHTML += getAssignedContactEditTemplate(taskKey, circleClassesTask[i], initials);
   }
-  if(assignedTo.length > 3) {
+  if (assignedTo.length > 3) {
     containerTaskEdit.innerHTML += `<div class="plus-counter-edit">+${assignedTo.length - 3}</div>`;
   }
 }
@@ -544,23 +542,23 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
   for (let i = 0; i < Math.min(initialsArray.length, 3); i++) {
     container.innerHTML += getEditCircleTemplate(circleClasses[i], initialsArray[i]);
   }
-  if(initialsArray.length > 3) {
+  if (initialsArray.length > 3) {
     container.innerHTML += `<div class="plus-counter-edit">+${initialsArray.length - 3}</div>`;
   }
 
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
-function showAndHideCirclesInEditTemplate (container, initialsArray, taskKey) {
+function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-   if (initialsArray.length === 0) {
+  if (initialsArray.length === 0) {
     container.classList.add("hidden");
     container.classList.add("height-zero");
-  } else if(!dropdown.classList.contains("hidden")){
+  } else if (!dropdown.classList.contains("hidden")) {
     container.classList.add("hidden");
     container.classList.add("height-zero");
   }
-    else {
+  else {
     container.classList.remove("hidden");
     container.classList.remove("height-zero");
   }
@@ -716,7 +714,7 @@ function addNewSubtaskInEdit(taskKey) {
   document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
 
-function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask) {
+function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
   const description = document.getElementById(`description-edit-task-big${taskKey}`).value;
@@ -725,8 +723,10 @@ function getInformationForEditTask(taskKey,category, categoryUserOrTechnicalTask
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
-  return {titel, description, dueDate, priority, assignedTo, subtasks,
-  categoryUserOrTechnicalTask, id, category};
+  return {
+    titel, description, dueDate, priority, assignedTo, subtasks,
+    categoryUserOrTechnicalTask, id, category
+  };
 }
 
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
@@ -761,7 +761,7 @@ function saveEditTaskPriority(taskKey) {
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
   const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
 
-  if (buttonUrgent.classList.contains("active-red")) { 
+  if (buttonUrgent.classList.contains("active-red")) {
     return "Urgent";
   } else if (buttonMedium.classList.contains("active-yellow")) {
     return "Medium";
@@ -848,7 +848,7 @@ function taskInfosForFirebaseBoard() {
   let assignedTo = getAssignedToValue() || "Not Assigned to anyone";
   let categoryUserOrTechnicalTask = document.getElementById("inputfield-category-assign-board").value;
   let subtasks = subtasksInfoForFirebase() || "No subtasks";
-  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks,};
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks, };
 }
 
 function validateInputBoard() {
@@ -861,7 +861,7 @@ function validateInputBoard() {
     inputfield.style.border = "1px solid red";
   } else {
     if (!errorMsg.classList.contains("display-none"))
-    errorMsg.classList.add("display-none");
+      errorMsg.classList.add("display-none");
   }
   return input;
 }
@@ -917,7 +917,7 @@ function togglePriorityBoard(priority) {
   if (priority === "Urgent") urgentButton.classList.add("active");
   if (priority === "Medium") mediumButton.classList.add("active");
   if (priority === "Low") lowButton.classList.add("active");
-  
+
   return getSelectedPriority();
 }
 
@@ -1009,7 +1009,7 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   const circleRenderContainer = document.getElementById("three-circle-container-board");
   circleRenderContainer.innerHTML = "";
 
-  const circleClasses = ["single-circle-first","single-circle-second","single-circle-third"];
+  const circleClasses = ["single-circle-first", "single-circle-second", "single-circle-third"];
 
   if (nameInitialesArray.length === 0) {
     circleRenderContainer.classList.add("display-none");
@@ -1092,7 +1092,6 @@ function subtasksInfoForFirebase() {
       statusCheckbox: notChecked
     });
   }
-  console.log(subtasksArray);
   return subtasksArray;
 }
 
@@ -1102,7 +1101,6 @@ async function handleTaskCreationBoard(status, taskTitel) {
   const dataPost = await putRegistryDataBaseFunction(`tasks/${status}/` + newTaskKey, inputsForTask);
   clearInputFieldsForNewTaskBoard();
   showTaskAddedMessageBoard();
-  console.log(dataPost);
 }
 
 async function postTaskIntoFirebaseBoard(status) {
@@ -1155,7 +1153,7 @@ function clearInputFieldsForNewTaskBoard() {
   const savedSubtasks = document.getElementById("subtasks-in-board");
   const circleContainer = document.getElementById("three-circle-container-board");
 
-  resetBoardInputValues( taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
+  resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
   resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow);
   resetBoardContacts(contacts);
   resetAllInfosInBoardOverlay();

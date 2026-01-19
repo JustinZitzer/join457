@@ -12,10 +12,9 @@ async function initSignUp() {
   await loadDataSignUp();
 }
 
-async function loadDataSignUp(path="") {
+async function loadDataSignUp(path = "") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
-  console.log(responseToJson);
   return responseToJson;
 }
 
@@ -37,7 +36,7 @@ async function checkIfEmailExists() {
 }
 
 async function emailExistsError() {
-  if(await checkIfEmailExists()) {
+  if (await checkIfEmailExists()) {
     showEmailAlreadyExistsError();
   }
 }
@@ -69,13 +68,13 @@ function clearInputFields() {
   checkboxSignUp.checked = false;
 }
 
-async function postRegistryDataBaseFunction(path= "", data= {}) {
-  let response = await fetch (FireBaseUrl + path + ".json", {
-    method : "PUT",
-    headers : {
-      "Content-Type" : "application/json"
+async function postRegistryDataBaseFunction(path = "", data = {}) {
+  let response = await fetch(FireBaseUrl + path + ".json", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
     },
-    body : JSON.stringify(data)
+    body: JSON.stringify(data)
   });
   return responseToJson = await response.json();
 }
@@ -86,7 +85,6 @@ async function postValueDataIntoFirebase() {
     const safeName = userData.name.replace(/\s+/g, "_");
     const dataPost = await postRegistryDataBaseFunction(`userData/${safeName}`, userData);
     clearInputFields();
-    console.log(dataPost);
   } else if (!checkboxSignUp.checked) {
     failureMessage();
   } else if (passwordInputSignUp.value !== confirmPasswordInputSignUp.value) {
@@ -121,7 +119,7 @@ function showSuccessMessage() {
   successButtonDiv.classList.remove("display-none");
   successButtonDiv.classList.add("show-success");
   setTimeout(() => {
-    window.location.href='./login.html';
+    window.location.href = './login.html';
   }, 1000);
 }
 
@@ -135,7 +133,7 @@ function changeLockIconToEyeIconFirstField() {
   const firstLockIcon = document.getElementById("lock-icon-size-first");
   const eyeIcon = document.getElementById("closed-eye-icon");
 
-  if(!firstLockIcon.classList.contains("display-none")) {
+  if (!firstLockIcon.classList.contains("display-none")) {
     firstLockIcon.classList.add("display-none");
     eyeIcon.classList.remove("display-none");
   }
@@ -144,7 +142,7 @@ function changeLockIconToEyeIconFirstField() {
 function changeLockIconToEyeIconSecondField() {
   const secondLockIcon = document.getElementById("lock-icon-size-second");
   const eyeIconConfirm = document.getElementById("closed-eye-icon-confirm")
-  if(!secondLockIcon.classList.contains("display-none")) {
+  if (!secondLockIcon.classList.contains("display-none")) {
     secondLockIcon.classList.add("display-none");
     eyeIconConfirm.classList.remove("display-none");
   }
@@ -154,7 +152,7 @@ function changeClosedToOpenEye() {
   const closedEyeIcon = document.getElementById("closed-eye-icon");
   const openEyeIcon = document.getElementById("open-eye-icon");
 
-  if(!closedEyeIcon.classList.contains("display-none")) {
+  if (!closedEyeIcon.classList.contains("display-none")) {
     closedEyeIcon.classList.add("display-none");
     openEyeIcon.classList.remove("display-none");
     passwordInputSignUp.type = "text";
@@ -169,7 +167,7 @@ function changeClosedToOpenEyeConfirm() {
   const closedEyeIconConfirm = document.getElementById("closed-eye-icon-confirm");
   const openEyeIconConfirm = document.getElementById("open-eye-icon-confirm");
 
-  if(!closedEyeIconConfirm.classList.contains("display-none")) {
+  if (!closedEyeIconConfirm.classList.contains("display-none")) {
     closedEyeIconConfirm.classList.add("display-none");
     openEyeIconConfirm.classList.remove("display-none");
     confirmPasswordInputSignUp.type = "text";
@@ -192,7 +190,7 @@ function enterNameSignUp() {
   const nameErrorDiv = document.getElementById("failure-signup-div-message-name");
   const name = nameInputSignUp.value.trim();
 
-  if(name.length < 3 )  {
+  if (name.length < 3) {
     nameErrorDiv.classList.remove("display-none");
     nameErrorDiv.innerText = "*Name must be at least 3 characters long";
     nameInputSignUp.classList.remove("grey-border");
@@ -209,7 +207,7 @@ function enterEmailSignUp() {
   const emailErrorDiv = document.getElementById("failure-signup-div-message-email");
   const email = emailInputSignUp.value.trim();
 
-  if(!isValidEmail(email)) {
+  if (!isValidEmail(email)) {
     emailErrorDiv.classList.remove("display-none");
     emailErrorDiv.innerText = "*Please enter a valid email address";
     emailInputSignUp.classList.add("red-border");
@@ -217,7 +215,7 @@ function enterEmailSignUp() {
     return false;
   } else {
     emailErrorDiv.classList.add("display-none");
-    emailInputSignUp.classList.remove("red-border");  
+    emailInputSignUp.classList.remove("red-border");
     return true;
   }
 }
@@ -226,7 +224,7 @@ function enterPasswordSignUp() {
   const passwordErrorDiv = document.getElementById("failure-signup-div-message-password");
   const password = passwordInputSignUp.value.trim();
 
-  if(password.length < 6 )  {
+  if (password.length < 6) {
     passwordErrorDiv.classList.remove("display-none");
     passwordErrorDiv.innerText = "*Password must be at least 6 characters long";
     passwordInputSignUp.classList.add("red-border");

@@ -55,7 +55,6 @@ async function deleteContact(key) {
   try {
     closeContactsSideCardOverlay();
     await deleteData('contacts', key);
-    console.log(`Kontakt gelöscht: ${key}`);
     loadContacts();
     removeSideOverlay();
     activeCard = null;
@@ -191,7 +190,6 @@ function buildNewContact(name, email, phone) {
 async function saveContactToDatabase(contact) {
   try {
     const result = await postData('contacts', contact);
-    console.log("Kontakt gespeichert:", contact, "→", result);
     removeAddNewContactOverlay();
     loadContacts();
   } catch (error) {
@@ -233,7 +231,6 @@ function buildUpdatedContact(name, email, phone, key) {
 async function commitContactChanges(contact, key) {
   try {
     await updateData(`contacts/${key}`, contact);
-    console.log("Kontakt aktualisiert:", contact);
     removeEditContactOverlay();
     await loadContacts();
     openContactsSideCardOverlayById(contact.id);

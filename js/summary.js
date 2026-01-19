@@ -16,13 +16,13 @@ let urgentCounter = 0;
 let allTasksCounter = 0;
 
 async function initSummaryAndHTML() {
-    await loadHTML();
-    await initSummaryBoard();
-    await loadTasksFromFirebaseSummary();
-    counterTasksSummary();
-    showOldestUrgentDueDate();
-    selectedSiteBackgroundStyle();
-    selectedSiteBackgroundStyleMobile();
+  await loadHTML();
+  await initSummaryBoard();
+  await loadTasksFromFirebaseSummary();
+  counterTasksSummary();
+  showOldestUrgentDueDate();
+  selectedSiteBackgroundStyle();
+  selectedSiteBackgroundStyleMobile();
 }
 
 function handleSidebarNavClick(event) {
@@ -61,14 +61,14 @@ window.addEventListener("load", () => {
       bodySummaryHtml.style.overflowY = 'auto';
     }, 1000);
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
       handleSidebarNavClick(event);
     });
   }
 });
 
 
-async function getInfoForSummaryBoardBaseFunction (path) {
+async function getInfoForSummaryBoardBaseFunction(path) {
   let response = await fetch(fireBaseUrlSummary + path + ".json");
   return await response.json();
 }
@@ -110,7 +110,6 @@ async function loadTasksFromFirebaseSummary() {
   taskArray = [];
   const response = await fetch(fireBaseUrlSummary + "tasks.json");
   const data = await response.json();
-  console.log(data);
 
   if (data) {
     extractTasksFromFirebaseDataSummary(data, taskArray);
@@ -137,7 +136,7 @@ function filterTasksByCategorySummary() {
   return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks };
 }
 
-function renderSummaryCounters( toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter) {
+function renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter) {
   toDoCounterElement.innerHTML = toDoCounter;
   inProgressCounterElement.innerHTML = inProgressCounter;
   awaitFeedbackCounterElement.innerHTML = awaitFeedbackCounter;
@@ -156,7 +155,7 @@ function counterTasksSummary() {
   urgentCounter = realTasks.filter((task) => task.priority === 'Urgent').length;
   allTasksCounter = realTasks.length;
 
-  renderSummaryCounters( toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter);
+  renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter);
 
   const urgentTasks = realTasks.filter((task) => task.priority === 'Urgent');
   return urgentTasks;
@@ -165,7 +164,6 @@ function counterTasksSummary() {
 function showOldestUrgentDueDate() {
   const urgentTasks = counterTasksSummary();
   const dueDateArray = urgentTasks.map(task => task.dueDate);
-  console.log('Closest Urgent Task', dueDateArray);
 
   const parseDate = (value) => {
     const match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);

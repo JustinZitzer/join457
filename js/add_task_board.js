@@ -55,11 +55,11 @@ if (window.location.pathname.endsWith("board.html")) {
 }
 
 if (window.location.pathname.endsWith("board.html")) {
-document
-  .getElementById("content-add-task-overlay")
-  .addEventListener("click", function (event) {
-    event.stopPropagation();
-  });
+  document
+    .getElementById("content-add-task-overlay")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
 }
 
 function selectContacts() {
@@ -313,7 +313,7 @@ function getInfoForNewTask() {
   let assignedTo = getAssignedToValue();
   let categoryUserOrTechnicalTask = getCategoryForNewTask();
   let subtasks = updateSubtasksArray() || "No subtasks";
-  return {titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks};
+  return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
 }
 
 function getCategoryForNewTask() {
@@ -532,7 +532,7 @@ function resetAllErrorMessages() {
   const titleErrorMessage = document.getElementById("error-message");
   const dueDateErrorMessage = document.getElementById("due-date-error");
   const categoryErrorMessage = document.getElementById("error-field-category");
-  
+
 
   titleInput.classList.remove("border-red-add-task");
   dueDateInput.classList.remove("border-red-add-task");
@@ -563,7 +563,6 @@ async function postNewTaskToFirebase() {
     clearInputFieldsForNewTask();
     showTaskAddedMessage();
     resetAllErrorMessages();
-    console.log(dataPost);
   } else {
     allErrorRulesForNewTask();
   }
@@ -584,7 +583,7 @@ function showErrorForNewTaskTitle() {
   const errorMessage = document.getElementById("error-please-fill-inputs");
   const titleErrorMessage = document.getElementById("error-message");
 
-  if(!titleInput.value) {
+  if (!titleInput.value) {
     errorMessage.classList.add("display-none");
     titleInput.classList.add("border-red-add-task");
     titleErrorMessage.classList.remove("display-none");
@@ -596,7 +595,7 @@ function showErrorForNewTaskDueDate() {
   const errorMessage = document.getElementById("error-please-fill-inputs");
   const dueDateErrorMessage = document.getElementById("due-date-error");
 
-  if(!dueDateInput.value) {
+  if (!dueDateInput.value) {
     errorMessage.classList.add("display-none");
     dueDateInput.classList.add("border-red-add-task");
     dueDateErrorMessage.classList.remove("display-none");
@@ -609,14 +608,14 @@ function showErrorForNewTaskCategory() {
   const errorMessage = document.getElementById("error-please-fill-inputs");
   const categoryErrorMessage = document.getElementById("error-field-category");
 
-  if(!categoryInput.value) {
+  if (!categoryInput.value) {
     errorMessage.classList.add("display-none");
     categoryInput.classList.add("border-red-add-task");
     categoryErrorMessage.classList.remove("display-none");
   }
 }
 
-function addCrossAndCheckIconStyle()  {
+function addCrossAndCheckIconStyle() {
   const input = document.getElementById("inputfield-subtask-assign-in-board");
   const plusIcon = document.getElementById("add-icon-container-board");
   const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
