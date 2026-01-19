@@ -626,16 +626,22 @@
     margin-bottom: -20px;
 }
 
-@media screen and (min-width: 1921px) and (min-height: 1081px) {
+@media screen and (min-width: 1400px) and (min-height: 1081px) {
     .edit-delete-contact-button {
-        display: none !important;
+        display: none;
+        height: 0px;
+        width: 0px;
+        opacity: 1;
     }
 
     .add-new-contact-btn-mobile-version {
         height: 60px;
         width: 60px;
         border-radius: 100%;
-        display: none !important;
+        display: none;
+        height: 0px;
+        width: 0px;
+        opacity: 1;
     }
 
     .contact-list {
