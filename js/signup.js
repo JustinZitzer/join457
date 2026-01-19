@@ -20,8 +20,36 @@ async function loadDataSignUp(path="") {
 }
 
 async function checkIfEmailExists() {
-  const emailInput = document.getElementById("inputfield-email").value.trim();
+  const emailInput = document.getElementById("inputfield-email").value.trim().toLowerCase();
   const userData = await loadDataSignUp("userData");
+
+  if (!userData) return false;
+
+  for (const userName in userData) {
+    const storedEmail = userData[userName]?.email?.toLowerCase();
+
+    if (storedEmail === emailInput) {
+      return true; // ❌ E-Mail existiert bereits
+    }
+  }
+
+  return false; // ✅ E-Mail ist neu
+}
+
+async function emailExistsError() {
+  if(await checkIfEmailExists()) {
+    showEmailAlreadyExistsError();
+  }
+}
+
+function showEmailAlreadyExistsError() {
+  const emailInput = document.getElementById("inputfield-email");
+  const errorMessage = document.getElementById("failure-signup-div-message-email");
+
+  errorMessage.classList.remove("display-none");
+  errorMessage.innerHTML = "E-Mail existiert bereits";
+  emailInput.classList.add("red-border");
+  emailInput.classList.remove("grey-border");
 }
 
 function valueOfInputFields() {
@@ -157,6 +185,7 @@ function failureMessageInputFields() {
   enterEmailSignUp();
   enterPasswordSignUp();
   checkPasswordMatch();
+  showEmailAlreadyExistsError();
 }
 
 function enterNameSignUp() {
