@@ -1,40 +1,13 @@
-.privacy-policy-legal-notice-body {
-    height: 1080px;
-    margin: 0 auto;
-    max-height: 1080px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
 .info-pages {
+    margin-top: 100px;
     margin-left: 328px;
-    padding-top: 130px;
     padding-right: 80px;
-    max-width: 1920px;
-    max-height: 1080px;
-    overflow-y: auto;
-    width: 1590px;
     height: 1080px;
     padding-bottom: 200px;
 }
 
 .info-pages a {
     color: rgba(75, 183, 232);
-}
-
-.info-pages {
-  overflow-y: auto;
-
-  scrollbar-width: none;
-
-  -ms-overflow-style: none;
-}
-
-.info-pages::-webkit-scrollbar {
-  display: none;
 }
 
 .headline-arrow-container {

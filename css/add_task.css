@@ -1,7 +1,4 @@
-body {}
-
 .body-add-task {
-    margin: 0 auto;
     max-height: 1080px;
     max-width: 1920px;
     align-items: center;
@@ -1700,7 +1697,6 @@ h6 {
 
     .arrow-container-red {
         width: 26vw;
-        font
     }
 
     .arrow-container-orange {

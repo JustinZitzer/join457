@@ -1,11 +1,6 @@
-body {
-    margin: 0 auto;
-}
-
 .body-signup {
     background-color: #f6f7f8;
     min-height: 100vh;
-    margin: 0 auto;
     max-width: 1920px;
 }
 
@@ -14,7 +9,6 @@ body {
     font-family: open-sans, sans-serif;
     background-color: #f6f7f8;
     min-height: 100vh;
-    margin: 0 auto;
 }
 
 .main-container-join {
@@ -23,7 +17,6 @@ body {
     flex-direction: column;
     height: 100vh;
     max-width: 1920px;
-    margin: 0 auto;
     max-height: 1080px;
 
 }

@@ -1,21 +1,17 @@
-body {
-}
-
 .hide-scrollbar {
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .Body-Summary-Html {
     height: 100vh;
     max-width: 1920px;
     max-height: 1080px;
-    margin: 0 auto;
 }
 
 .Summary-Box-Z-Index-Container {
@@ -469,7 +465,7 @@ body {
 
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1400px) {
 
     .Urgent-Picture-Div {
         margin-left: 40px;
@@ -481,7 +477,7 @@ body {
         height: 40px;
         width: 40px;
     }
-    
+
     .Counter-To-Do {
         font-size: 47px;
     }
@@ -501,7 +497,7 @@ body {
     .To-Do-Box-Text {
         font-size: 16px;
     }
-    
+
     .Done-Box-Text {
         font-size: 16px;
     }
