@@ -1338,6 +1338,11 @@ h6 {
 
 @media (max-width: 1400px) {
 
+    .body-add-task {
+        overflow-y: auto;
+        /*löschen, wenn -> add task mobile komplett responsive*/
+    }
+
     .input-icon-container-no-edit {
         right: 50px;
     }
@@ -1411,6 +1416,8 @@ h6 {
         width: 100%;
         height: 155vh;
         gap: 24px;
+        padding-left: 16px;
+        margin-top: 180px;
     }
 
     .container-both-sides {
