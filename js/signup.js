@@ -36,9 +36,16 @@ async function checkIfEmailExists() {
 }
 
 async function emailExistsError() {
-  if (await checkIfEmailExists()) {
+  const email = document.getElementById("inputfield-email").value.trim();
+
+  if (!isValidEmail(email)) return true;
+
+  const exists = await checkIfEmailExists();
+  if (exists) {
     showEmailAlreadyExistsError();
+    return false;
   }
+  return true;
 }
 
 function showEmailAlreadyExistsError() {
@@ -46,7 +53,7 @@ function showEmailAlreadyExistsError() {
   const errorMessage = document.getElementById("failure-signup-div-message-email");
 
   errorMessage.classList.remove("display-none");
-  errorMessage.innerHTML = "*Please enter a valid email address";
+  errorMessage.innerText = "*This email is already registered";
   emailInput.classList.add("red-border");
   emailInput.classList.remove("grey-border");
 }
@@ -92,20 +99,21 @@ async function postValueDataIntoFirebase() {
   }
 }
 
-function enterFullInformation() {
+async function enterFullInformation() {
   const isNameValid = enterNameSignUp();
   const isEmailValid = enterEmailSignUp();
   const isPasswordValid = enterPasswordSignUp();
   const isPasswordMatch = checkPasswordMatch();
   const isCheckboxValid = checkboxSignUp.checked;
+  const isEmailNotExisting = await emailExistsError();
 
   if (isNameValid && isEmailValid && isPasswordValid && isPasswordMatch && isCheckboxValid) {
-    postValueDataIntoFirebase();
+    await postValueDataIntoFirebase();
     grayBodyEffect();
     showSuccessMessage();
   } else {
     failureMessage();
-    failureMessageInputFields();
+    await failureMessageInputFields();
   }
 }
 
@@ -178,12 +186,12 @@ function changeClosedToOpenEyeConfirm() {
   }
 }
 
-function failureMessageInputFields() {
+async function failureMessageInputFields() {
   enterNameSignUp();
   enterEmailSignUp();
+  await emailExistsError();
   enterPasswordSignUp();
   checkPasswordMatch();
-  showEmailAlreadyExistsError();
 }
 
 function enterNameSignUp() {
