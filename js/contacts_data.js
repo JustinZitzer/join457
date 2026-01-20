@@ -67,6 +67,7 @@ async function deleteContact(key) {
 async function createNewContact(event) {
   const failMessage = document.getElementById('failure-message-add-contact');
   event.preventDefault();
+  resetAddContactErrors();
   const { name, email, phone } = getNewContactInputs();
   if (!validateContactInputs(name, email, phone)) return;
 
@@ -149,6 +150,20 @@ function nameErrorAddContact() {
   failMessage.innerHTML = '*Namen mit mindestens 3 Zeichen eingeben.';
 
   return false;
+}
+
+function resetAddContactErrors() {
+  const nameInput = document.getElementById('add-contact-name-input');
+  const emailInput = document.getElementById('add-contact-email-input');
+  const phoneInput = document.getElementById('add-contact-phone-input');
+  const failMessage = document.getElementById('failure-message-add-contact');
+
+  nameInput.style.borderColor = '';
+  emailInput.style.borderColor = '';
+  phoneInput.style.borderColor = '';
+
+  failMessage.classList.add('display-none');
+  failMessage.innerHTML = '';
 }
 
 function isValidEmail(email) {
