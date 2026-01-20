@@ -418,9 +418,8 @@
     margin-top: 80px;
   }
 
-  .Header-Login{
+  .Header-Login {
     display: flex;
-    justify-content: center;
   }
 
   .Header-Login-Right-Button {
