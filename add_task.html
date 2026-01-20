@@ -19,12 +19,10 @@
 
 <body class="body-add-task" id="body-add-task" onload="loadHTML(), initAddTask()">
     <div id="index_html"></div>
-    <div class="add-task-box-headline-container">
-        <span class="add-task-box-headline">Add Task</span>
-    </div>
-
-
     <div class="main-container-for-two-inputfield-container">
+        <div class="add-task-box-headline-container">
+            <span class="add-task-box-headline">Add Task</span>
+        </div>
         <div class="container-both-sides" onclick="event.stopPropagation()">
             <div class="inputfield-box-left-side">
                 <div class="text-title">
@@ -186,26 +184,22 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div id="field-required" class="field-required">
-                        <span>This field is required</span>
-                    </div>
-
-                    <div id="clear-create-container" class="clear-create-container">
-                        <div onclick="clearInputFieldsForNewTask()" class="clear-field">
-                            <div class="clear-text">Clear</div>
-                            <img class="close-button" src="./assets/icons/add-task-cancel.svg" alt="close-icon">
-                        </div>
-
-                        <div onclick="postNewTaskToFirebase()" class="create-field">
-                            <div class="text-create-field">Create Task</div>
-                            <img class="check-button" src="./assets/icons/check-icon.svg" alt="check-button">
-                        </div>
-                    </div>
-
                 </div>
             </div>
+        </div>
+        <div id="clear-create-container" class="clear-create-container">
+            <div onclick="clearInputFieldsForNewTask()" class="clear-field">
+                <div class="clear-text">Clear</div>
+                <img class="close-button" src="./assets/icons/add-task-cancel.svg" alt="close-icon">
+            </div>
+
+            <div onclick="postNewTaskToFirebase()" class="create-field">
+                <div class="text-create-field">Create Task</div>
+                <img class="check-button" src="./assets/icons/check-icon.svg" alt="check-button">
+            </div>
+        </div>
+        <div id="field-required" class="field-required">
+            <span>This field is required</span>
         </div>
     </div>
 

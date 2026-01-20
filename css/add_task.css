@@ -1,22 +1,16 @@
 .body-add-task {
     max-height: 1080px;
     max-width: 1920px;
-    align-items: center;
+    overflow-y: hidden;
 }
 
 h3 {
-    width: 278px;
-    height: 73px;
     font-size: 61px;
 }
 
 /* Hier habe ich die Klasse unbenannt damit die Überschrift richtig im Add Task dargestellt wird und deine Template function nicht in board stört*/
 .add-task-box-headline-container {
-    position: relative;
-    width: 278px;
-    height: 73px;
-    top: 190px;
-    left: 328px;
+    display: flex;
     gap: 1px;
     font-weight: 700;
     font-size: 61px;
@@ -30,26 +24,22 @@ h3 {
 }
 
 .main-container-for-two-inputfield-container {
+    margin-top: 206px;
+    padding-left: 328px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     max-width: 1920px;
     max-height: 980px;
     width: 100%;
     height: 90vh;
     gap: 24px;
-    position: relative;
 }
 
 .container-both-sides {
-    position: absolute;
     display: flex;
-    align-items: center;
     gap: 24px;
     width: 976.24853515625px;
     height: 424px;
-    top: 290px;
-    left: 328px;
     border-width: 1px;
 }
 
@@ -650,11 +640,9 @@ h6 {
 }
 
 .field-required {
-    position: absolute;
+    display: flex;
     width: 230px;
     height: 27px;
-    top: 510px;
-    left: 0px;
 
 }
 
@@ -665,13 +653,11 @@ h6 {
 
 .clear-create-container {
     display: flex;
-    position: relative;
     width: 309px;
     height: 56px;
     gap: 16px;
     overflow-y: auto;
-    margin-top: 100px;
-    margin-left: 125px;
+    margin-left: 550px;
 }
 
 .clear-field {
@@ -1422,8 +1408,6 @@ h6 {
 
     .main-container-for-two-inputfield-container {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
         width: 100%;
         height: 155vh;
         gap: 24px;
