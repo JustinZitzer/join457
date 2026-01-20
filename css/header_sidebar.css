@@ -129,6 +129,7 @@ header h1 {
     list-style: none;
     color: rgba(168, 168, 168, 1);
     gap: 15px;
+    max-height: 100px;
 }
 
 .nav-links a:hover {
