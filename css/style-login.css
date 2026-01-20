@@ -113,12 +113,14 @@
   justify-content: center;
   align-items: center;
   border: transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .Header-Login-Right-Button:hover {
   background-color: #29ABE2;
   box-shadow: 0px 5px 0px 0px #0000001c;
   border: none;
+  transform: translate(-1px, -1px);
 }
 
 .Header-Login-Right-Button-Text {
