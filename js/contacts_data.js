@@ -93,6 +93,7 @@ function getNewContactInputs() {
 function validateContactInputs(name, email, phone) {
   if (!name || !email || !phone) return redBoarderForInputs();
 
+  if (!hasValidSpaces(name)) return nameErrorAddContact();
   if (name.length < 3) return nameErrorAddContact();
 
   if (!isValidEmail(email)) return emailAddContactFailure();
@@ -101,6 +102,7 @@ function validateContactInputs(name, email, phone) {
 
   return true;
 }
+
 
 function redBoarderForInputs() {
   const nameInput = document.getElementById('add-contact-name-input');
@@ -150,6 +152,9 @@ function nameErrorAddContact() {
 }
 
 function isValidEmail(email) {
+  if (!hasValidSpaces(email)) return false;
+  if (email.includes(' ')) return false;
+
   const parts = email.split('@');
   if (parts.length !== 2) return false;
   if (!parts[0] || !parts[1]) return false;
@@ -157,7 +162,11 @@ function isValidEmail(email) {
   return isValidDomain(parts[1]);
 }
 
+
 function isValidDomain(domain) {
+  if (!hasValidSpaces(domain)) return false;
+  if (domain.includes(' ')) return false;
+
   const domainParts = domain.split('.');
   if (domainParts.length !== 2) return false;
   if (!domainParts[0] || !domainParts[1]) return false;
@@ -168,12 +177,25 @@ function isValidDomain(domain) {
 }
 
 
+
 function isValidPhone(phone) {
+  if (!hasValidSpaces(phone)) return false;
+
   for (let char of phone) {
-    if (char < '0' || char > '9') return false;
+    if (char !== ' ' && (char < '0' || char > '9')) {
+      return false;
+    }
   }
+
   return phone.length > 0;
 }
+
+function hasValidSpaces(value) {
+  if (value.startsWith(' ') || value.endsWith(' ')) return false;
+  if (value.includes('  ')) return false;
+  return true;
+}
+
 
 
 function buildNewContact(name, email, phone) {
