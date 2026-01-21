@@ -177,7 +177,6 @@ function isValidEmail(email) {
   return isValidDomain(parts[1]);
 }
 
-
 function isValidDomain(domain) {
   if (!hasValidSpaces(domain)) return false;
   if (domain.includes(' ')) return false;
@@ -190,8 +189,6 @@ function isValidDomain(domain) {
 
   return true;
 }
-
-
 
 function isValidPhone(phone) {
   if (!hasValidSpaces(phone)) return false;
@@ -210,8 +207,6 @@ function hasValidSpaces(value) {
   if (value.includes('  ')) return false;
   return true;
 }
-
-
 
 function buildNewContact(name, email, phone) {
   const parts = name.split(" ");
