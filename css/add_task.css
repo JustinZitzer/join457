@@ -238,13 +238,6 @@ h6 {
     display: none;
 }
 
-/* Clear-Button */
-.clear-field {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
 .arrow-container-green {
     justify-content: center;
     display: flex;
@@ -655,9 +648,13 @@ h6 {
     width: 100%;
     height: 56px;
     gap: 16px;
+    margin-top: 90px;
 }
 
 .clear-field {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     width: 110px;
     height: 56px;
     border-width: 1px;
@@ -667,6 +664,9 @@ h6 {
     color: #2A3647;
     border: solid 1px #2A3647;
     cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    z-index: 6;
+    background-color: white;
 }
 
 .clear-text {
@@ -702,23 +702,12 @@ h6 {
     cursor: pointer;
 }
 
-/* ---------- Clear Button ---------- */
-.clear-field {
-    display: flex;
-    align-items: center;
-    border: 2px solid #2A3647;
-    color: #2A3647;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.2s ease, color 0.2s ease;
-}
-
 .clear-text {
     color: #2A3647;
     font-weight: 500;
     transition: color 0.2s ease;
     margin-right: 8px;
+    z-index: 6;
 }
 
 .close-button {
@@ -731,7 +720,16 @@ h6 {
     border-color: #1a9fff;
     transform: translate(-1px, -1px);
     box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
-    filter: invert(48%) sepia(89%) saturate(2300%) hue-rotate(183deg) brightness(103%) contrast(102%);
+}
+
+.clear-field:hover .clear-text {
+    color: #1a9fff;
+}
+
+.clear-field:hover .close-button {
+    filter: brightness(0) saturate(100%)
+            invert(57%) sepia(87%) saturate(422%)
+            hue-rotate(177deg) brightness(101%) contrast(96%);
 }
 
 /* ---------- Create Task Button ---------- */
@@ -741,10 +739,10 @@ h6 {
     background-color: #2A3647;
     /* Standard-Hintergrund */
     border-radius: 6px;
-    padding: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     margin-right: 60px;
+    z-index: 6;
 }
 
 .text-create-field {
@@ -839,7 +837,6 @@ h6 {
     height: 24px;
     color: #2A3647;
     border-width: 2px;
-
 }
 
 /*contact assigned to*/
@@ -903,9 +900,9 @@ h6 {
     justify-content: space-between;
     align-items: center;
     padding: 6px 12px;
-    background-color: #f5f5f5;
     border-radius: 5px;
     transition: background-color 0.2s;
+    cursor: pointer;
 }
 
 .contact-option:hover {
@@ -1389,7 +1386,7 @@ h6 {
 
     .create-field {
         height: 56px;
-        width: 183px;
+        width: 186px;
     }
 
     .check-button {
@@ -1966,21 +1963,22 @@ h6 {
     }
 
     .clear-field {
-        width: 30%;
         margin-left: auto;
     }
 
     .create-field {
-        width: 50%;
         margin-left: auto;
         white-space: nowrap;
+        margin-right: 5px;
     }
 }
 
 @media (max-width: 350px) {
     .clear-create-container {
         left: 10%;
+        width: 100%;
     }
+
 }
 
 @media (min-width: 375px) and (max-height: 668px) {
@@ -2005,6 +2003,10 @@ h6 {
 @media (max-width: 390px) {
     .main-container-for-two-inputfield-container {
         margin-bottom: 84px;
+    }
+
+    .create-field {
+        margin-right: 7px;
     }
 }
 
