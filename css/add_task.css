@@ -31,7 +31,7 @@ h3 {
     max-width: 1200px;
     width: 100%;
     gap: 24px;
-    padding-top: 120px;
+    padding-top: 206px;
 }
 
 .container-both-sides {
@@ -1373,6 +1373,8 @@ h6 {
         gap: 16px;
         overflow: visible;
         padding-left: 24px;
+        margin-top: 0px;
+        margin-bottom: 100px;
     }
 
     .clear-field {
@@ -1406,6 +1408,7 @@ h6 {
         padding-top: 100px;
         gap: 4px;
         margin-bottom: 42px;
+
     }
 
     .container-both-sides {
