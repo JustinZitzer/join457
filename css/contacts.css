@@ -459,7 +459,7 @@
     height: 20px;
     top: 40px;
     right: 40px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 }
 
 .add-contact-close-btn:hover {
