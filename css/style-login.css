@@ -377,6 +377,15 @@
 }
 
 @media screen and (max-width: 651px) {
+  html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden !important;
+  }
+}
+
+@media screen and (max-width: 651px) {
 
   .error-message-login {
     width: 85vw;
