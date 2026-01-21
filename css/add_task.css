@@ -876,7 +876,7 @@ h6 {
     transition: transform 0.3s ease, opacity 0.3s ease;
     max-height: 230px;
     overflow-y: auto;
-    z-index: 1;
+    z-index: 0;
     position: relative;
     top: 0px;
     margin-top: 12px;
@@ -2006,7 +2006,7 @@ h6 {
     }
 
     .create-field {
-        margin-right: 7px;
+        margin-right: 5px;
     }
 }
 
