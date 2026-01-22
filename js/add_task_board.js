@@ -171,6 +171,7 @@ function selectCategory(category) {
 
   var dropdown = document.getElementById("category-dropdown");
   dropdown.classList.remove("dropdown-open");
+  validateGetCategoryForNewTask();
 }
 
 function selectCategoryOverlay(category) {
@@ -329,10 +330,14 @@ function getCategoryForNewTask() {
 function validateGetCategoryForNewTask() {
   const taskCategory = document.getElementById("category-input");
   const fieldRequired = document.getElementById("error-field-category");
-  if (taskCategory == "Technical Task" || taskCategory == "User Story") {
+  if (taskCategory.value == "Technical Task" || taskCategory.value == "User Story") {
+    fieldRequired.classList.add("display-none");
+    taskCategory.classList.remove("border-red-add-task");
     return taskCategory.value;
-  } else {
-    fieldRequired.classList.remove("display-none");
+  } else { 
+    if (taskCategory.value == "") {
+      fieldRequired.classList.remove("display-none");
+    }
   }
 }
 
