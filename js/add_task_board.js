@@ -6,6 +6,11 @@ async function initBoard() {
   selectedSiteBackgroundStyleMobile();
 }
 
+function loadMediumButtonPriority() {
+  const mediumButton = document.getElementById('arrow-container-orange');
+  mediumButton.classList.add('active');
+}
+
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
@@ -342,7 +347,7 @@ function validateGetCategoryForNewTask() {
     fieldRequired.classList.add("display-none");
     taskCategory.classList.remove("border-red-add-task");
     return taskCategory.value;
-  } else { 
+  } else {
     if (taskCategory.value == "") {
       fieldRequired.classList.remove("display-none");
     }
