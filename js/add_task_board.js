@@ -225,17 +225,25 @@ function validateDueDateInput() {
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
 
-  const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+  const dateCheck = /^\d{4}-\d{2}-\d{2}$/;
 
   if (!value) {
     showInputError(input, errorMsg, "This field is required.");
     return false;
-  } else if (!dateCheckSlash.test(value)) {
+  } else if (!dateCheck.test(value)) {
     showInputError(input, errorMsg, "Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
     return false;
   } else {
     clearInputError(input, errorMsg);
     return true;
+  }
+}
+
+function openDatePicker(event) {
+  const input = document.getElementById("dueDateInput");
+  if (event.target !== input) {
+    input.focus();
+    if (typeof input.showPicker === "function") input.showPicker();
   }
 }
 

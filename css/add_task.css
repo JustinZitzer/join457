@@ -370,6 +370,7 @@ h6 {
     gap: 8px;
     top: 296px;
     left: 0.25px;
+    margin-top: 20px;
 }
 
 .due-date-mark:after {
@@ -394,6 +395,9 @@ h6 {
     padding-left: 16px;
     border: 1px solid #D1D1D1;
     cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 2;
 }
 
 .due-date-text-field:focus {
