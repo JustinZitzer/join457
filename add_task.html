@@ -43,13 +43,13 @@
                     </div>
 
 
-                    <div onclick="openDatePicker(event)" class="inputfield-due-date-container">
+                    <div class="inputfield-due-date-container">
 
                         <div class="due-date-mark">
                             <span>Due date</span>
                         </div>
 
-                        <input type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                        <input onclick="openDatePicker(event)" type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()" oninput="validateDueDateInput()">
                         <div id="due-date-error" class="error-message display-none"></div>
                     </div>

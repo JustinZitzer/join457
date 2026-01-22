@@ -246,9 +246,11 @@ function validateDueDateInput() {
 
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
-  if (event.target !== input) {
-    input.focus();
-    if (typeof input.showPicker === "function") input.showPicker();
+  input.focus();
+
+  // Chrome/Edge: öffnet sicher
+  if (typeof input.showPicker === "function") {
+    input.showPicker();
   }
 }
 
