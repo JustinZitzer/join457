@@ -43,15 +43,14 @@
                     </div>
 
 
-                    <div class="inputfield-due-date-container">
-                        <img class="calendar-clock" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
+                    <div onclick="openDatePicker(event)" class="inputfield-due-date-container">
 
                         <div class="due-date-mark">
                             <span>Due date</span>
                         </div>
 
-                        <input type="text" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
-                            onblur="validateDueDateInput()">
+                        <input type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
+                            onblur="validateDueDateInput()" oninput="validateDueDateInput()">
                         <div id="due-date-error" class="error-message display-none"></div>
                     </div>
 
