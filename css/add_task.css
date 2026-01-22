@@ -31,7 +31,7 @@ h3 {
     max-width: 1200px;
     width: 100%;
     gap: 24px;
-    padding-top: 206px;
+    padding-top: 150px;
 }
 
 .container-both-sides {
@@ -187,14 +187,14 @@ h6 {
     position: relative;
     width: 20px;
     height: 14.51px;
-
+    color: #FF3D00;
 }
 
 .arrow-green {
     position: relative;
     width: 20px;
     height: 14.51px;
-
+    color: #7AE229;
 }
 
 /* Overlay-Hintergrund */
@@ -933,10 +933,14 @@ h6 {
 }
 
 .arrow-container-red.active {
-    background-color: red;
+    background-color: #FF3D00;
     color: white;
     box-shadow: none !important;
     border: transparent;
+}
+
+.arrow-container-red.active .arrow-red {
+    color: white;
 }
 
 .arrow-container-red:hover {
@@ -958,8 +962,8 @@ h6 {
     transition: background-color 0.3s ease;
 }
 
-.arrow-container-orange.active {
-    background-color: orange;
+.arrow-container-orange.active .medium-icon-class {
+    background-color: #FFA800;
     color: white;
     border: transparent;
 }
@@ -1000,7 +1004,7 @@ h6 {
 }
 
 .arrow-container-orange.active {
-    background-color: orange;
+    background-color: #FFA800;
     color: white;
     box-shadow: none;
     border: transparent;
@@ -1026,10 +1030,14 @@ h6 {
 }
 
 .arrow-container-green.active {
-    background-color: lightgreen;
+    background-color: #7AE229;
     color: white;
     box-shadow: none;
     border: transparent;
+}
+
+.arrow-container-green.active .arrow-green {
+    color: white;
 }
 
 .overlay-hidden {
