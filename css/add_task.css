@@ -396,7 +396,7 @@ h6 {
     cursor: pointer;
     display: block;
     position: relative;
-    z-index: 2;
+    z-index: 0;
 }
 
 .due-date-text-field:focus {
@@ -413,7 +413,7 @@ h6 {
     height: 35px;
     color: #2A3647;
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 
@@ -454,7 +454,7 @@ h6 {
     box-sizing: border-box;
     background: #fff;
     position: relative;
-    z-index: 3;
+    z-index: 10;
     cursor: pointer;
 }
 
@@ -488,7 +488,7 @@ h6 {
     font-weight: 400;
     border: none;
     position: relative;
-    z-index: 2;
+    z-index: 7;
     border-bottom: 1.9px solid #D1D1D1;
     border-right: 1.5px solid #D1D1D1;
 }
@@ -824,7 +824,7 @@ h6 {
 
 .assigned-arrow-icon-down {
     position: relative;
-    z-index: 2;
+    z-index: 8;
     width: 24px;
     height: 24px;
     left: 400px;
@@ -858,7 +858,7 @@ h6 {
     margin-top: 4px;
     align-self: flex-start;
     position: relative;
-    z-index: 5;
+    z-index: 11;
 }
 
 /* Kontaktliste direkt anschließen, ohne Abstand */
@@ -877,10 +877,12 @@ h6 {
     transition: transform 0.3s ease, opacity 0.3s ease;
     max-height: 230px;
     overflow-y: auto;
-    z-index: 0;
-    position: relative;
+    z-index: 9;
+    position: absolute;
     top: 0px;
     margin-top: 12px;
+    top: 420px;
+    width: 440px;
 }
 
 /* versteckt */
@@ -1069,15 +1071,14 @@ h6 {
 } */
 .category-dropdown {
     border-radius: 8px;
-    top: -12px;
-    left: 0;
-    width: 100%;
+    top: 524px;
+    width: 440px;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 6;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     /* Animation */
     max-height: 0;
     opacity: 0;
@@ -1089,7 +1090,6 @@ h6 {
     color: red;
     position: absolute;
     bottom: -20px;
-
 }
 
 /* Sichtbar */
@@ -1366,11 +1366,13 @@ h6 {
     }
 
     .category-dropdown {
-        top: -18px;
+        top: 760px;
+        max-width: 90%;
     }
 
     .category-dropdown div {
         font-size: 16px;
+        top: 760px;
     }
 
     .contact-option {
@@ -1457,7 +1459,7 @@ h6 {
 
     .inputfield-due-date-container {
         width: 100%;
-        margin-top: -10px;
+        margin-top: 10px;
     }
 
     .assigned-inputfield-box {
@@ -1559,6 +1561,7 @@ h6 {
         padding: 8px;
         width: 95vw;
         font-size: 16px;
+        z-index: 10;
     }
 
     .assigned-arrow-icon {
@@ -1569,7 +1572,7 @@ h6 {
         align-self: flex-start;
         left: 91.9vw;
         bottom: 50px;
-        z-index: 1;
+        z-index: 11;
     }
 
 
@@ -1582,6 +1585,8 @@ h6 {
     .contacts-dropdown {
         width: 95vw;
         margin-top: 0px;
+        top: 672px;
+        z-index: 9;
     }
 
     .assigned-arrow-icon-down {

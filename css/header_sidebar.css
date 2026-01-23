@@ -117,7 +117,7 @@ header h1 {
     top: 0;
     padding-top: 64px;
     padding-bottom: 64px;
-    z-index: 5;
+    z-index: 8;
     max-width: 1920px;
 }
 
@@ -256,7 +256,7 @@ footer a:hover {
         left: 0;
         top: auto;
         padding: 0;
-        z-index: 7;
+        z-index: 11;
     }
 
     .sidebar-join-logo {
