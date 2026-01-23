@@ -79,7 +79,7 @@ h3 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
-
+    position: relative;
 }
 
 .text-title-mark:after {
@@ -368,9 +368,8 @@ h6 {
     width: 440px;
     height: 96px;
     gap: 8px;
-    top: 296px;
-    left: 0.25px;
-    margin-top: 20px;
+    margin-top: 15px;
+    position: relative;
 }
 
 .due-date-mark:after {
@@ -436,6 +435,7 @@ h6 {
     height: 80px;
     color: #2A3647;
     top: 12px;
+    margin-top: 0px;
 }
 
 .inputfield-text-assign {
@@ -1087,6 +1087,9 @@ h6 {
 .error-field-category {
     font-size: 14px;
     color: red;
+    position: absolute;
+    bottom: -20px;
+
 }
 
 /* Sichtbar */
@@ -1111,15 +1114,26 @@ h6 {
     box-shadow: 0 0 5px red;
 }
 
-.error-message {
+.error-message-title {
     color: red;
     font-size: 14px;
     margin-top: 5px;
+    position: absolute;
+    bottom: -25px;
+
 }
 
 .due-date-text-field.input-error {
     border: 1px solid red;
     box-shadow: 0 0 5px red;
+}
+
+.error-message-date {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    position: absolute;
+    bottom: -25px;
 }
 
 .error-message {

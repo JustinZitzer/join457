@@ -31,7 +31,7 @@
                     </div>
                     <input type="text" id="titleInput" placeholder="Enter a title" class="title-inputfield-enter-title"
                         onblur="validateInput()">
-                    <div id="error-message" class="error-message display-none">This field is required.</div>
+                    <div id="error-message" class="error-message-title display-none">*This field is required.</div>
                 </div>
 
 
@@ -51,7 +51,7 @@
 
                         <input onclick="openDatePicker(event)" type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
                             onblur="validateDueDateInput()" oninput="validateDueDateInput()">
-                        <div id="due-date-error" class="error-message display-none"></div>
+                        <div id="due-date-error" class="error-message-date display-none"></div>
                     </div>
 
                 </div>
@@ -144,16 +144,13 @@
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
                                 onclick="toggleDropdown()">
+                            <div id="error-field-category" class="error-field-category display-none">*This field is required</div>
                         </div>
 
                         <div id="category-dropdown" class="category-dropdown dropdown-closed">
                             <div onclick="selectCategory('Technical Task')">Technical Task</div>
                             <div onclick="selectCategory('User Story')">User Story</div>
                         </div>
-
-                        <div id="error-field-category" class="error-field-category display-none">This field is required
-                        </div>
-
 
                         <div class="subtask-inputfield-box">
                             <div id="subtask-inputfield-container" class="subtask-inputfield-container">
