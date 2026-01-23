@@ -233,10 +233,10 @@ function validateDueDateInput() {
   const dateCheck = /^\d{4}-\d{2}-\d{2}$/;
 
   if (!value) {
-    showInputError(input, errorMsg, "This field is required.");
+    showInputError(input, errorMsg, "*This field is required.");
     return false;
   } else if (!dateCheck.test(value)) {
-    showInputError(input, errorMsg, "Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
+    showInputError(input, errorMsg, "*Please pick a date.");
     return false;
   } else {
     clearInputError(input, errorMsg);
@@ -246,9 +246,11 @@ function validateDueDateInput() {
 
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
-  if (event.target !== input) {
-    input.focus();
-    if (typeof input.showPicker === "function") input.showPicker();
+  input.focus();
+
+  // Chrome/Edge: öffnet sicher
+  if (typeof input.showPicker === "function") {
+    input.showPicker();
   }
 }
 
@@ -271,9 +273,9 @@ function validateDueDateInputOverlay() {
     /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
-    showInputError(input, errorMsg, "This field is required.");
+    showInputError(input, errorMsg, "*This field is required.");
   } else if (!dateCheckSlash.test(value)) {
-    showInputError(input, errorMsg, "Bitte gib ein gültiges Datum im Format TT.MM.JJJJ ein.");
+    showInputError(input, errorMsg, "*Please pick a date.");
   } else {
     clearInputError(input, errorMsg);
   }
