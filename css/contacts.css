@@ -381,6 +381,23 @@
     z-index: 200;
 }
 
+.bg-contact-overlay {
+    position: fixed;
+    /* WICHTIG */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    /* höher als Header / Sidebar */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .add-contact-left-section {
     width: 467px;
     height: 594px;

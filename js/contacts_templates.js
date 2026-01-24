@@ -64,6 +64,7 @@ function getContactOverlay(contact) {
 
 function getAddContactOverlay() {
     return `
+    <div id="bg_contact_overlay" class="bg-contact-overlay">
     <div id="add_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
                 <div class="add-contact-left-section-content">
@@ -106,13 +107,15 @@ function getAddContactOverlay() {
                 </form>
             </div>
         </div>
+    </div>
         `;
 }
 
 function getEditContactOverlay(contact) {
     const color = getColorForContact(contact.id);
     return `
-    <div id="edit_contact_overlay" class="add-contact-overlay">
+    <div id="bg_contact_overlay" class="bg-contact-overlay">
+        <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
                 <div class="add-contact-left-section-content">
                     <img class="add-contact-join-logo" src="./assets/img/join-logo-white.svg" alt="join-logo-white">
@@ -146,6 +149,7 @@ function getEditContactOverlay(contact) {
                 </form>
             </div>
         </div>
+    </div>
     `;
 }
 

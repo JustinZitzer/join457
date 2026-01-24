@@ -168,6 +168,7 @@ function removeAddNewContactOverlay() {
         openedAddNewContactOverlay = false;
         addContactButton.style.display = 'block';
     }
+    toggleBgColorContactOverlay();
 }
 
 function openEditContactOverlay(contactId) {
@@ -189,6 +190,7 @@ function removeEditContactOverlay() {
         editContactOverlay.remove();
         openedEditContactsOverlay = false;
     }
+    toggleBgColorContactOverlay();
 }
 
 function handleContactClick(contact) {
@@ -234,4 +236,9 @@ function handleCreatedContactOverlay() {
     setTimeout(() => {
         overlay.remove();
     }, 800);
+}
+
+function toggleBgColorContactOverlay() {
+    const bgContactOverlay = document.getElementById('bg_contact_overlay');
+    bgContactOverlay.remove();
 }
