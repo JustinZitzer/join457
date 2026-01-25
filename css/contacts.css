@@ -8,6 +8,7 @@
 .body-contacts {
     max-height: 1080px;
     max-width: 1920px;
+    overflow-y: hidden;
 }
 
 .display-none {
@@ -670,7 +671,7 @@
     .body-contacts {
         max-height: 1080px;
         max-width: 1920px;
-        overflow-y: auto;
+        overflow-y: hidden;
     }
 
     .add-contact-overlay {
