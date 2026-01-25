@@ -38,7 +38,9 @@ function openContactsSideCardOverlay(contactId) {
 
 function openContactsSideCardOverlayById(contactId) {
     openContactsSideCardOverlay(contactId);
+    removeActivatedContactCard();
     toggleContactCardColor(contactId);
+
 
     requestAnimationFrame(() => {
         const overlay = document.getElementById('contacts_side_overlay');
@@ -119,6 +121,15 @@ function handleActiveCard(contactId) {
     const contactCard = document.getElementById(`contact_card_${contactId}`);
     contactCard.classList.remove('contact-card-activated');
 }
+
+function removeActivatedContactCard() {
+    const activatedCard = document.querySelector(".contact-card-activated");
+
+    if (activatedCard) {
+        activatedCard.classList.remove("contact-card-activated");
+    }
+}
+
 
 function flyInOverlay() {
     const overlay = document.getElementById('contacts_side_overlay');
