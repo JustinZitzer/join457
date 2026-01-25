@@ -214,3 +214,13 @@ function getCreatedContactOverlay() {
     </div>
     `;
 }
+
+function getEditedContactOverlay() {
+    return `
+    <div id="bg_contact_succesfully" class="bg-contact-overlay">
+        <div class="created-contact-successfully-container">
+            <p>Contact successfully edited</p>
+        </div>
+    </div>
+    `;
+}

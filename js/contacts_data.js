@@ -266,6 +266,7 @@ async function commitContactChanges(contact, key) {
     removeEditContactOverlay();
     await loadContacts();
     openContactsSideCardOverlayById(contact.id);
+    handleEditedContactOverlay();
   } catch (error) {
     console.error("Fehler beim Speichern:", error);
     alert("Fehler beim Speichern. Bitte versuche es erneut.");

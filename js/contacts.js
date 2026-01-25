@@ -240,6 +240,20 @@ function handleCreatedContactOverlay() {
 
 }
 
+function handleEditedContactOverlay() {
+    const container = document.getElementById('main_contacts');
+
+    container.insertAdjacentHTML('beforeend', getEditedContactOverlay());
+
+    const overlay = container.querySelector('.bg-contact-overlay');
+
+    setTimeout(() => {
+        overlay.remove();
+
+    }, 800);
+
+}
+
 function toggleBgColorContactOverlay() {
     const bgContactOverlay = document.getElementById('bg_contact_overlay');
     bgContactOverlay.remove();
