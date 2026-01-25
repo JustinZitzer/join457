@@ -231,11 +231,13 @@ function handleCreatedContactOverlay() {
 
     container.insertAdjacentHTML('beforeend', getCreatedContactOverlay());
 
-    const overlay = container.querySelector('.created-contact-successfully-container');
+    const overlay = container.querySelector('.bg-contact-overlay');
 
     setTimeout(() => {
         overlay.remove();
+
     }, 800);
+
 }
 
 function toggleBgColorContactOverlay() {

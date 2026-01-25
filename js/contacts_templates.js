@@ -207,8 +207,10 @@ function showDeleteAndEditContactButton() {
 
 function getCreatedContactOverlay() {
     return `
+    <div id="bg_contact_succesfully" class="bg-contact-overlay">
         <div class="created-contact-successfully-container">
             <p>Contact successfully created</p>
         </div>
+    </div>
     `;
 }
