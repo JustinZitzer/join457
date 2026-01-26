@@ -619,7 +619,7 @@ function showErrorForNewTaskDueDate() {
     errorMessage.classList.add("display-none");
     dueDateInput.classList.add("border-red-add-task");
     dueDateErrorMessage.classList.remove("display-none");
-    dueDateErrorMessage.textContent = "Please pick a date TT/MM/YYYY.";
+    dueDateErrorMessage.textContent = "*Please pick a date TT/MM/YYYY.";
   }
 }
 
