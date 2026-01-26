@@ -370,10 +370,10 @@
 
 .add-contact-overlay {
     display: flex;
-    margin-top: 60px;
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 1212px;
     height: 592px;
     border-radius: 30px;
@@ -676,9 +676,10 @@
 
     .add-contact-overlay {
         display: flex;
-        position: absolute;
-        top: 200px;
-        left: 350px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 1212px;
         height: 592px;
         border-radius: 30px;
@@ -691,9 +692,10 @@
 @media screen and (max-width: 1600px) {
     .add-contact-overlay {
         display: flex;
-        position: absolute;
-        top: 200px;
-        left: 350px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 1012px;
         height: 592px;
         border-radius: 30px;
@@ -1045,8 +1047,9 @@
         display: flex;
         flex-direction: column;
         position: fixed;
-        left: 2.1vw;
-        top: -4vh;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         width: 95vw;
         height: 94vh;
         z-index: 4;
