@@ -277,7 +277,7 @@ function confirmPasswordMatchFailure() {
 
   if (password !== confirmPassword) {
     failureMessage.classList.remove("display-none");
-    failureMessage.innerText = "*Your passwords don't match, please try again";
+    failureMessage.innerText = "*Your passwords don't match";
     confirmPasswordInputSignUp.classList.add("red-border");
     confirmPasswordInputSignUp.classList.remove("grey-border");
     return false;
