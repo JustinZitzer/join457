@@ -468,19 +468,24 @@
 }
 
 .add-contact-close-btn {
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    color: #2A3647;
-    width: 20px;
-    height: 20px;
     top: 40px;
     right: 40px;
+    width: 20px;
+    height: 20px;
+    padding: 12px;
+    box-sizing: content-box;
+    cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
 
 .add-contact-close-btn:hover {
+    background-color: #d1d1d1;
+    border-radius: 100%;
     transform: scale(1.15);
-    filter: invert(56%) sepia(60%) saturate(428%) hue-rotate(163deg) brightness(94%) contrast(92%);
 }
 
 .add-contact-right-section form {
@@ -1167,8 +1172,7 @@
     }
 
     .add-contact-close-btn:hover {
-        transform: scale(1.0);
-        filter: brightness(0) invert(1);
+        transform: scale(1.15);
     }
 
     .add-contact-cancel-btn {

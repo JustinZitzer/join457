@@ -77,7 +77,9 @@ function getAddContactOverlay() {
                 </div>
             </div>
             <div class="add-contact-right-section">
-                <img onclick="removeAddNewContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                <div onclick="removeAddNewContactOverlay()" class="add-contact-close-btn">
+                <img src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                </div>
                 <div class="add-contact-person-svg-container">
                     <img src="./assets/img/contacts-person.svg" alt="contact-person">
                 </div>
@@ -126,7 +128,9 @@ function getEditContactOverlay(contact) {
                 </div>
             </div>
             <div class="add-contact-right-section">
-                <img onclick="removeEditContactOverlay()" class="add-contact-close-btn" src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                <div onclick="removeAddNewContactOverlay()" class="add-contact-close-btn">
+                <img src="./assets/icons/contacts-close-icon.svg" alt="close-button">
+                </div>
                 <div class="add-contact-person-svg-container" style="background-color:${color};">
                     <p>${contact.firstName[0]}${contact.lastName[0]}</p>
                 </div>
