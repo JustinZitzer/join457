@@ -941,7 +941,8 @@ h1 {
         width: 100%;
         height: 24px;
         background-color: #FFFFFF;
-        top: 45px;
+        top: 50px;
+        min-width: 227px;
     }
 
     .inputfield-name,
@@ -1082,6 +1083,9 @@ h1 {
 
 @media screen and (max-width: 500px) {
 
+    .failure-signup-div-message-all-fields-signup {
+        left: 0px;
+    }
 
     .underline-headline-container a {
         left: 8px;
@@ -1125,6 +1129,23 @@ h1 {
 
 @media screen and (max-width: 400px) {
 
+    .privacy-policy-accept-button {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2A3647;
+    border-radius: 3px;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
@@ -1165,6 +1186,11 @@ h1 {
         width: 117px;
     }
 
+    .signup-main-container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
 }
 
 @media screen and (max-width: 350px) {
@@ -1181,13 +1207,20 @@ h1 {
     .inputfield-name {
     }
 
+    .failure-signup-div-message-name-signup,
+    .failure-signup-div-message-email-signup,
+    .failure-signup-div-message-password-signup,
+    .failure-signup-div-message-password-confirm-signup,
+    .failure-signup-div-message-all-fields-signup {
+        left: 0px;
+    }
+
+    .failure-signup-div-message-all-fields-signup {
+        word-wrap: break-word;
+    }
 
     .hr-line-signup {
         width: 35%;
-    }
-
-    .signup-main-container {
-        width: 95%;
     }
 
     .arrow-box {

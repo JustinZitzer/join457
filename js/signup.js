@@ -119,7 +119,7 @@ async function enterFullInformation() {
 
 function failureMessage() {
   failureAllFieldsDiv.classList.remove("display-none");
-  failureAllFieldsMessage.innerText = "*Please enter all fields and accept the privacy policy";
+  failureAllFieldsMessage.innerText = "*Enter all fields and accept the privacy policy";
 }
 
 function showSuccessMessage() {
@@ -234,7 +234,7 @@ function enterPasswordSignUp() {
 
   if (password.length < 6) {
     passwordErrorDiv.classList.remove("display-none");
-    passwordErrorDiv.innerText = "*Password must be at least 6 characters long";
+    passwordErrorDiv.innerText = "*Password must be 6 characters long";
     passwordInputSignUp.classList.add("red-border");
     passwordInputSignUp.classList.remove("grey-border");
     return false;
@@ -261,7 +261,7 @@ function confirmPasswordEmptyFailure() {
 
   if (confirmPassword === "") {
     failureMessage.classList.remove("display-none");
-    failureMessage.innerText = "*Please confirm your password";
+    failureMessage.innerText = "*Confirm your password";
     confirmPasswordInputSignUp.classList.add("red-border");
     confirmPasswordInputSignUp.classList.remove("grey-border");
     return false;
