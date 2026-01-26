@@ -195,6 +195,7 @@ body {
     padding-bottom: 12px;
     padding-left: 21px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .inputfield-name:focus {
@@ -217,6 +218,7 @@ body {
     padding-bottom: 12px;
     padding-left: 21px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .inputfield-email:focus {
@@ -239,6 +241,7 @@ body {
     padding-left: 21px;
     background-color: #FFFFFF;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .inputfield-password:focus {
@@ -259,6 +262,7 @@ body {
     padding-left: 21px;
     background-color: #FFFFFF;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .grey-border {
@@ -338,8 +342,8 @@ body {
     width: 380px;
     height: 24px;
     justify-content: space-between;
-
-
+    position: relative;
+    margin-bottom: 7px;
 }
 
 .email-box {
@@ -349,7 +353,8 @@ body {
     width: 380px;
     height: 24px;
     justify-content: space-between;
-
+    position: relative;
+    margin-bottom: 7px;
 }
 
 .password-box {
@@ -360,6 +365,7 @@ body {
     height: 24px;
     justify-content: space-between;
     position: relative;
+    margin-bottom: 7px;
 }
 
 .Confirm-box {
@@ -414,7 +420,7 @@ h1 {
     width: 400px;
     height: 24px;
     background-color: #FFFFFF;
-    top: 0px;
+    top: 30px;
 }
 
 .privacy-policy-accept-button {
@@ -605,11 +611,41 @@ h1 {
     margin-bottom: -30px;
 }
 
-.failure-signup-div-message {
+.failure-signup-div-message-name-signup {
     color: red;
-    font-size: 14px;
-    margin-top: -10px;
-    margin-bottom: -30px;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+}
+
+.failure-signup-div-message-email-signup {
+    color: red;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+}
+
+.failure-signup-div-message-password-signup {
+    color: red;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+}
+
+.failure-signup-div-message-password-confirm-signup {
+    color: red;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+    width: 100%;
+}
+
+.failure-signup-div-message-all-fields-signup {
+    color: red;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+    width: 100%;
 }
 
 .red-border {
@@ -700,6 +736,7 @@ h1 {
         background-color: #FFFFFF;
         padding-bottom: 0px;
         padding-top: 0px;
+        margin-top: 20px;
     }
 
     .title {
@@ -902,7 +939,7 @@ h1 {
         width: 100%;
         height: 24px;
         background-color: #FFFFFF;
-        top: 16px;
+        top: 20px;
     }
 
     .inputfield-name,
@@ -948,7 +985,6 @@ h1 {
 @media screen and (max-width: 1000px) {
     html, body {
         height: 100%;
-        overflow: hidden !important;
     }
 }
 
@@ -1102,7 +1138,7 @@ h1 {
     }
 
     .main-container-join {
-        margin-top: 50px;
+        margin-top: 0px;
     }
 
     .join-logo {

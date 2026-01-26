@@ -42,15 +42,15 @@
                         <input oninput="enterNameSignUp()" type="inputfield" id="inputfield-name" class="inputfield-name grey-border"
                             placeholder="Name">
                         <img class="name-icon-size" src="./assets/icons/person (1).png" alt="person-icon">
+                        <div id="failure-signup-div-message-name" class="failure-signup-div-message-name-signup display-none">*Hier steht der Fehler</div>
                     </div>
-                    <div id="failure-signup-div-message-name" class="failure-signup-div-message display-none">*Hier steht der Fehler</div>
 
                     <div class="email-box">
                         <input oninput="enterEmailSignUp()" type="email" id="inputfield-email" class="inputfield-email grey-border"
                             placeholder="Email">
                         <img class="email-icon-size" src="./assets/icons/mail.png" alt="mail-icon" alt="email-icon">
+                        <div id="failure-signup-div-message-email" class="failure-signup-div-message-email-signup display-none">*Hier steht der Fehler</div>
                     </div>
-                    <div id="failure-signup-div-message-email" class="failure-signup-div-message display-none">*Hier steht der Fehler</div>
 
                     <div class="password-box">
                         <input oninput="enterPasswordSignUp()" onclick="changeLockIconToEyeIconFirstField()" type="password" id="inputfield-password"
@@ -75,9 +75,8 @@
                             <line x1="4" y1="20" x2="20" y2="4" stroke="#A8A8A8" stroke-width="1.5"
                                 stroke-linecap="round" />
                         </svg>
+                        <div id="failure-signup-div-message-password" class="failure-signup-div-message-password-signup display-none">*Hier steht der Fehler</div>
                     </div>
-                    <div id="failure-signup-div-message-password" class="failure-signup-div-message display-none">*Hier steht der Fehler</div>
-
 
 
                     <div class="Confirm-box">
@@ -104,17 +103,15 @@
                             <line x1="4" y1="20" x2="20" y2="4" stroke="#A8A8A8" stroke-width="1.5"
                                 stroke-linecap="round" />
                         </svg>
-                    </div>
-                    <div id="failure-signup-div-message-confirm-password" class="failure-signup-div-message display-none">*Hier steht der Fehler</div>
-
-                    <div class="failure-signup-div display-none" id="failure-signup-div">
-                        <p id="failure-signup-div-message">Hier stehen alle Fehler</p>
-                    </div>
-
-                    <div class="privacy-policy-container">
-                        <input type="checkbox" id="privacy-policy-accept-button" class="privacy-policy-accept-button">
-                        <div class="text-accept">I accept the</div>
-                        <a class="text-privacy-policy" href="privacy_policy_login.html">Privacy Policy</a>
+                        <div id="failure-signup-div-message-confirm-password" class="failure-signup-div-message-password-confirm-signup display-none">*Hier steht der Fehler</div>
+                        <div class="failure-signup-div-message-all-fields-signup display-none" id="failure-signup-div">
+                            <p id="failure-signup-div-message">Hier stehen alle Fehler</p>
+                        </div>
+                        <div class="privacy-policy-container">
+                            <input type="checkbox" id="privacy-policy-accept-button" class="privacy-policy-accept-button">
+                            <div class="text-accept">I accept the</div>
+                            <a class="text-privacy-policy" href="privacy_policy_login.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 

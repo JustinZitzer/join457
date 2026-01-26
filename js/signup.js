@@ -200,7 +200,7 @@ function enterNameSignUp() {
 
   if (name.length < 3) {
     nameErrorDiv.classList.remove("display-none");
-    nameErrorDiv.innerText = "*Name must be at least 3 characters long";
+    nameErrorDiv.innerText = "*Name must be 3 characters long";
     nameInputSignUp.classList.remove("grey-border");
     nameInputSignUp.classList.add("red-border");
     return false;
