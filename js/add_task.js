@@ -888,7 +888,7 @@ function validateDueDateInputBoard() {
 function isValidDDMMYYYYRealDate(value) {
   const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
   if (!value) return { valid: false, message: "This field is required." };
-  if (!dateRegex.test(value)) return { valid: false, message: "Please enter a valid date in DD/MM/YYYY format." };
+  if (!dateRegex.test(value)) return { valid: false, message: "*Please enter a valid date in DD/MM/YYYY format." };
 
   const [, day, month, year] = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   const parsedDate = new Date(Number(year), Number(month) - 1, Number(day));
