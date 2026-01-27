@@ -27,7 +27,7 @@ function getTaskOverlayTemplate(status) {
             <div class="due-date-mark-board">
               <span>Due date</span>
             </div>
-            <input onblur="validateDueDateInputBoard()" type="date" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
+            <input onclick="openDatePickerBoard()" onblur="validateDueDateInputBoard()" type="date" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
           </div>
             <div>
               <p class="field-required-in-board display-none" id="due-date-required-board-error">This field is required</p>
@@ -60,7 +60,7 @@ function getTaskOverlayTemplate(status) {
           </div>
           <div class="assigned-inputfield-box-board">
             <span>Assigned to</span>
-            <input type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
+            <input onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
             <img onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
           </div>
             <div class="contacts-dropdown-board display-none" id="contacts-dropdown-board"></div>

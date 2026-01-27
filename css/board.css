@@ -1018,10 +1018,11 @@ h5 {
     padding-left: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
+    background-color: white;
 }
 
 .arrow-container-red-board.active {
-    background-color: rgba(255, 0, 0, 0.699);
+    background-color: #FF3D00;
     color: white;
 }
 
@@ -1072,6 +1073,7 @@ h5 {
     padding-bottom: 16px;
     padding-left: 10px;
     border: 1px solid #ccc;
+    background-color: white;
 }
 
 
@@ -1101,10 +1103,11 @@ h5 {
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+    background-color: white;
 }
 
 .arrow-container-orange-board.active {
-    background-color: orange;
+    background-color: #FFA800;
     color: white;
 }
 
@@ -1227,6 +1230,9 @@ h5 {
     padding-bottom: 12px;
     padding-left: 16px;
     cursor: pointer;
+    position: relative;
+    z-index: 11;
+    pointer-events: auto;
 }
 
 .due-date-text-field-board:focus {
@@ -1587,7 +1593,8 @@ h5 {
     align-items: center;
     position: relative;
     top: 40px;
-    left: 175px;
+    left: 380px;
+    max-width: 50px;
 }
 
 .seperator-for-open-overlay {

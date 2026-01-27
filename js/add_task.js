@@ -859,9 +859,13 @@ function validateInputBoard() {
 
   if (input.trim() == "") {
     errorMsg.classList.remove("display-none");
-  } else {
+  } else if (input.trim().length < 3){
+    errorMsg.classList.remove("display-none");
+    errorMsg.innerHTML = "Title must be 3 characters long.";
+  }
+  else {
     if (!errorMsg.classList.contains("display-none"))
-      errorMsg.classList.add("display-none");
+    errorMsg.classList.add("display-none");
   }
   return input;
 }

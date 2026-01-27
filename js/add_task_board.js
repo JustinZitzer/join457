@@ -734,3 +734,12 @@ function resetAllInfosInBoardOverlay() {
   dueDateInput.style.border = "";
   categoryInput.classList.remove("border-red-board");
 }
+
+function openDatePickerBoard() {
+  const input = document.getElementById("dueDateInputBoard");
+  input.focus();
+
+  if (input.showPicker) {
+    input.showPicker();
+  }
+}
