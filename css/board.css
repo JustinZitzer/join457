@@ -1705,12 +1705,12 @@ h5 {
     align-items: center;
     justify-content: center;
     gap: 32px;
-    top: 50px;
+    top: 30px;
     left: 270px;
     width: 1300px;
     min-width: 1300px;
-    min-height: 870px;
-    height: 870px;
+    min-height: 800px;
+    height: 820px;
     transform: translateX(100%);
     animation: slideInRight 0.2s ease forwards;
     padding: 16px;

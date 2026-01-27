@@ -547,6 +547,7 @@ h6 {
     align-items: center;
     width: 210px;
     gap: 8px;
+    margin-top: 5px;
 }
 
 .text-align-contacts-counter {
@@ -1402,7 +1403,7 @@ h6 {
         gap: 16px;
         overflow: visible;
         padding-left: 24px;
-        margin-top: 0px;
+        margin-top: 60px;
         margin-bottom: 100px;
     }
 

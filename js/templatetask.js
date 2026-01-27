@@ -24,11 +24,10 @@ function getTaskOverlayTemplate(status) {
             <input type="text" placeholder="Enter Description" class="inputfield-description-board" id="inputfield-description-board">
           </div>
           <div class="inputfield-due-date-container-board">
-            <img class="calendar-clock-board" src="./assets/icons/calendar_clock.png" alt="clock-calendar">
             <div class="due-date-mark-board">
               <span>Due date</span>
             </div>
-            <input onblur="validateDueDateInputBoard()" type="text" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
+            <input onblur="validateDueDateInputBoard()" type="date" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
           </div>
             <div>
               <p class="field-required-in-board display-none" id="due-date-required-board-error">This field is required</p>

@@ -859,7 +859,6 @@ function validateInputBoard() {
 
   if (input.trim() == "") {
     errorMsg.classList.remove("display-none");
-    inputfield.style.border = "1px solid red";
   } else {
     if (!errorMsg.classList.contains("display-none"))
       errorMsg.classList.add("display-none");
@@ -877,7 +876,6 @@ function validateDueDateInputBoard() {
   if (!result.valid) {
     errorMsg.innerHTML = result.message;
     errorMsg.classList.remove("display-none");
-    input.style.border = "1px solid red";
     return false;
   }
 
@@ -886,18 +884,27 @@ function validateDueDateInputBoard() {
 }
 
 function isValidDDMMYYYYRealDate(value) {
-  const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
-  if (!value) return { valid: false, message: "This field is required." };
-  if (!dateRegex.test(value)) return { valid: false, message: "*Please enter a valid date in DD/MM/YYYY format." };
+  const dateRegex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
-  const [, day, month, year] = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  const parsedDate = new Date(Number(year), Number(month) - 1, Number(day));
+  if (!value) {
+    return { valid: false, message: "Please pick a valid date." };
+  }
+
+  if (!dateRegex.test(value)) {
+    return { valid: false, message: "*Please pick a valid date." };
+  }
+
+  const [year, month, day] = value.split("-").map(Number);
+
+  const parsedDate = new Date(year, month - 1, day);
 
   if (
-    parsedDate.getFullYear() !== Number(year) ||
-    parsedDate.getMonth() !== Number(month) - 1 ||
-    parsedDate.getDate() !== Number(day)
-  ) return { valid: false, message: "Please enter a real, valid date." };
+    parsedDate.getFullYear() !== year ||
+    parsedDate.getMonth() !== month - 1 ||
+    parsedDate.getDate() !== day
+  ) {
+    return { valid: false, message: "Please enter a real, valid date." };
+  }
 
   return { valid: true, message: "" };
 }
