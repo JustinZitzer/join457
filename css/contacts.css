@@ -752,6 +752,7 @@
         top: 160px;
         right: 6vw;
         cursor: pointer;
+        transition: transform 0.3s ease-in-out;
     }
 
     .close-side-contact-arrow-icon:hover {
