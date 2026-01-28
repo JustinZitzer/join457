@@ -1173,7 +1173,9 @@
 
     .add-contact-close-btn:hover {
         transform: scale(1.15);
+        background-color: transparent;
     }
+
 
     .add-contact-cancel-btn {
         width: 120px;
