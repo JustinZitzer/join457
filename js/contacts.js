@@ -185,19 +185,22 @@ function removeAddNewContactOverlay() {
 function openEditContactOverlay(contactId) {
     const main = document.getElementById('main_contacts');
     const contact = allContacts.find(c => c.id === contactId);
-    if (!contact) {
-        console.warn(`Kontakt mit ID ${contactId} nicht gefunden.`);
-        return;
+    if (!contact) return;
+
+    let overlay = document.getElementById('edit_contact_overlay');
+
+    if (!overlay) {
+        main.insertAdjacentHTML('beforeend', getEditContactOverlay(contact));
+        overlay = document.getElementById('edit_contact_overlay');
     }
-    if (!openedEditContactsOverlay) {
-        main.innerHTML += getEditContactOverlay(contact);
-        openedEditContactsOverlay = true;
-    }
+
+    overlay.classList.add('active');
 }
+
 
 function removeEditContactOverlay() {
     if (openedEditContactsOverlay) {
-        const editContactOverlay = document.getElementById('edit_contact_overlay');
+        const editContactOverlay = document.getElementById('bg_contact_overlay');
         editContactOverlay.remove();
         openedEditContactsOverlay = false;
     }
