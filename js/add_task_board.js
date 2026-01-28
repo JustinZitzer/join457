@@ -11,6 +11,11 @@ function loadMediumButtonPriority() {
   mediumButton.classList.add('active');
 }
 
+function loadMediumButtonPriorityBoard() {
+  const mediumButton = document.getElementById('arrow-container-orange-board');
+  mediumButton.classList.add('active');
+}
+
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
