@@ -30,7 +30,7 @@ function getTaskOverlayTemplate(status) {
             <input onclick="openDatePickerBoard()" onblur="validateDueDateInputBoard()" type="date" placeholder="dd/mm/yyy" class="due-date-text-field-board" id="dueDateInputBoard">
           </div>
             <div>
-              <p class="field-required-in-board display-none" id="due-date-required-board-error">This field is required</p>
+              <p class="field-required-in-board-date-board display-none" id="due-date-required-board-error">This field is required</p>
             </div>
         </div>
       </div>

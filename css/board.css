@@ -1247,6 +1247,7 @@ h5 {
     width: 440px;
     height: 80px;
     color: #2A3647;
+    position: relative;
 }
 
 
@@ -1271,6 +1272,7 @@ h5 {
     font-size: 20px;
     font-weight: 400;
     border: 1px solid #ccc;
+    z-index: 6;
 }
 
 .inputfield-text-assign-board:focus {
@@ -1300,6 +1302,7 @@ h5 {
     font-size: 20px;
     font-weight: 400;
     border: 1px solid #ccc;
+    z-index: 5;
 }
 
 .inputfield-category-assign-board:hover {
@@ -1634,6 +1637,7 @@ h5 {
     left: 400px;
     bottom: 45px;
     cursor: pointer;
+    z-index: 6;
 
 }
 
@@ -2760,8 +2764,16 @@ h2 {
 }
 
 .field-required-in-board {
-    font-size: 15px;
+    font-size: 16px;
     color: red;
+    z-index: 0;
+}
+
+.field-required-in-board-date-board {
+    font-size: 16px;
+    color: red;
+    z-index: 0;
+    position: absolute;
 }
 
 .contacts-dropdown-board {
@@ -2784,9 +2796,9 @@ h2 {
     transition: transform 0.3s ease, opacity 0.3s ease;
     max-height: 230px;
     overflow-y: auto;
-    z-index: 1;
-    position: relative;
-    top: -40px;
+    z-index: 3;
+    position: absolute;
+    top: 395px;
     margin-top: 12px;
 }
 
@@ -2808,17 +2820,21 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
     border-top: none;
-    position: relative;
-    z-index: 0;
+    position: absolute;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
+    z-index: 5;
+    top: 560px;
+    max-width: 440px;
 }
 
 .category-dropdown-board.open {
     max-height: 150px;
     opacity: 1;
+    max-width: 440px;
+    z-index: 5;
 }
 
 .user-technical-task-board-user {
@@ -3056,6 +3072,7 @@ h2 {
 .category-failure-message-position-board {
     margin-top: -55px;
     margin-bottom: 20px;
+    z-index: 0;
 }
 
 @media (max-width: 1600px) {
