@@ -19,36 +19,37 @@ function loadMediumButtonPriorityBoard() {
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
-  if (!closeButton) {
-    console.warn("Close Button nicht gefunden!");
-    return;
-  }
-
   closeButton.addEventListener("click", () => {
     overlayContent.classList.remove("slide-in");
     overlayContent.classList.add("slide-out");
 
     setTimeout(() => {
-      overlay.classList.add("display-none");      // 👈 WIRKLICH weg
+      overlay.classList.add("display-none");
       overlay.classList.remove("overlay-visible");
 
       overlayContent.classList.remove("slide-out");
-      overlayContent.innerHTML = "";              // 👈 Inputs komplett entfernen
-    }, 200); // ⏱ muss zur CSS-Animation passen
+      overlayContent.innerHTML = "";
+    }, 200);
   });
-  overlay.addEventListener("click", () => {
+
+  closeOverlayBackground(overlay, overlayContent);
+}
+
+function closeOverlayBackground(overlay, overlayContent) {
+   overlay.addEventListener("click", () => {
     overlayContent.classList.remove("slide-in");
     overlayContent.classList.add("slide-out");
 
     setTimeout(() => {
-      overlay.classList.add("display-none");      // 👈 WIRKLICH weg
+      overlay.classList.add("display-none");
       overlay.classList.remove("overlay-visible");
 
       overlayContent.classList.remove("slide-out");
-      overlayContent.innerHTML = "";              // 👈 Inputs komplett entfernen
-    }, 200); // ⏱ muss zur CSS-Animation passen
+      overlayContent.innerHTML = "";
+    }, 200);
   });
 }
+
 
 function openOverlay(status) {
   const overlay = document.getElementById("overlay");
