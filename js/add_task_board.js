@@ -768,3 +768,13 @@ function openDatePickerBoard() {
     input.showPicker();
   }
 }
+
+function openDatePickerEditTask(taskKey) {
+  const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
+  input.focus();
+
+  if (input.showPicker) {
+    input.showPicker();
+  }
+
+}

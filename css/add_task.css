@@ -188,6 +188,11 @@ h6 {
     width: 20px;
     height: 14.51px;
     color: #FF3D00;
+    margin-left: 5px;
+}
+
+.active-red .arrow-red {
+    filter: brightness(0) invert(1);
 }
 
 .arrow-green {
@@ -195,6 +200,8 @@ h6 {
     width: 20px;
     height: 14.51px;
     color: #7AE229;
+    margin-left: 5px;
+    margin-top: 3px;
 }
 
 /* Overlay-Hintergrund */
