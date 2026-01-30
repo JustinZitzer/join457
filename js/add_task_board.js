@@ -29,10 +29,24 @@ function setupOverlayClose(overlay, overlayContent) {
     overlayContent.classList.add("slide-out");
 
     setTimeout(() => {
+      overlay.classList.add("display-none");      // 👈 WIRKLICH weg
       overlay.classList.remove("overlay-visible");
-      overlay.classList.add("overlay-hidden");
+
       overlayContent.classList.remove("slide-out");
-    }, 0);
+      overlayContent.innerHTML = "";              // 👈 Inputs komplett entfernen
+    }, 200); // ⏱ muss zur CSS-Animation passen
+  });
+  overlay.addEventListener("click", () => {
+    overlayContent.classList.remove("slide-in");
+    overlayContent.classList.add("slide-out");
+
+    setTimeout(() => {
+      overlay.classList.add("display-none");      // 👈 WIRKLICH weg
+      overlay.classList.remove("overlay-visible");
+
+      overlayContent.classList.remove("slide-out");
+      overlayContent.innerHTML = "";              // 👈 Inputs komplett entfernen
+    }, 200); // ⏱ muss zur CSS-Animation passen
   });
 }
 
@@ -40,16 +54,14 @@ function openOverlay(status) {
   const overlay = document.getElementById("overlay");
   const overlayContent = document.getElementById("content-add-task-overlay");
 
-  overlay.classList.remove("overlay-hidden");
+  overlay.classList.remove("display-none");
   overlay.classList.add("overlay-visible");
 
   if (window.innerWidth > 1400) {
     overlayContent.innerHTML = getTaskOverlayTemplate(status);
-
     overlayContent.classList.add("slide-in");
 
     setupOverlayClose(overlay, overlayContent);
-
   } else {
     window.location.href = "./add_task.html";
   }
