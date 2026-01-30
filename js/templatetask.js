@@ -21,7 +21,7 @@ function getTaskOverlayTemplate(status) {
         <div class="description-main-box-board">
           <div class="description-text-board">
             <span>Description</span>
-            <input type="text" placeholder="Enter Description" class="inputfield-description-board" id="inputfield-description-board">
+            <textarea type="text" placeholder="Enter Description" class="inputfield-description-board" id="inputfield-description-board"></textarea>
           </div>
           <div class="inputfield-due-date-container-board">
             <div class="due-date-mark-board">
@@ -52,7 +52,7 @@ function getTaskOverlayTemplate(status) {
               </button>
               <div class="arrow-container-main-green-board">
                 <button onclick="togglePriorityBoard('Low')" class="arrow-container-green-board" id="arrow-container-green-board">
-                  <h5>Low</h5>
+                  <h5 class="low-icon-headline-board">Low</h5>
                   <img class="arrow-green-board" src="./assets/icons/double-arrow-down-14228.png" alt="green-arrow">
                 </button>
               </div>

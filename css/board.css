@@ -1026,6 +1026,10 @@ h5 {
     color: white;
 }
 
+.arrow-container-red-board.active .arrow-red-board {
+    filter: brightness(0) invert(1);
+}
+
 
 h4 {
     font-weight: 400;
@@ -1068,18 +1072,31 @@ h5 {
     height: 56px;
     gap: 8px;
     border-radius: 10px;
-    padding-top: 16px;
+    padding-top: 10px;
     padding-right: 10px;
     padding-bottom: 16px;
     padding-left: 10px;
     border: 1px solid #ccc;
     background-color: white;
+    font-size: 21px;
 }
 
 
 .arrow-container-green-board.active {
     background-color: lightgreen;
     color: white;
+}
+
+.arrow-container-green-board.active .arrow-green-board  {
+    filter: brightness(0) invert(1);
+}
+
+.arrow-container-green-board.active .low-icon-headline-board {
+    filter: brightness(0) invert(1);
+}
+
+.low-icon-headline-board {
+    color: #000;
 }
 
 .text-inputfield-urgent::placeholder {
@@ -1110,6 +1127,11 @@ h5 {
     background-color: #FFA800;
     color: white;
 }
+
+.arrow-container-orange-board.active .medium-icon-board {
+  color: white;
+}
+
 
 .text-inputfield-medium-board::placeholder {
     color: #FFFFFF;
@@ -2846,7 +2868,7 @@ h2 {
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     z-index: 1;
-    top: 502px;
+    top: 513px;
     max-width: 440px;
     background-color: white;
 }
@@ -3100,6 +3122,7 @@ h2 {
     width: 20px;
     height: 8px;
     padding-bottom: 25px;
+    color: #FFA800;
 }
 
 @media (max-width: 1600px) {
