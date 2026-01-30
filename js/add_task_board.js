@@ -652,7 +652,13 @@ function addCrossAndCheckIconStyle() {
 
 function deleteCurrentSubtaskText() {
   const input = document.getElementById("inputfield-subtask-assign-in-board");
+  const plusIcon = document.getElementById("add-icon-container-board");
+  const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
+
   input.value = "";
+
+  plusIcon.classList.remove("display-none");
+  inputfieldDiv.classList.add("display-none");
 }
 
 function showTaskAddedMessage() {

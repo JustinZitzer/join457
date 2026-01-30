@@ -1124,6 +1124,7 @@ async function postTaskIntoFirebaseBoard(status) {
 
   if (taskTitel.value && taskDueDate.value && taskCategory.value) {
     await handleTaskCreationBoard(status, taskTitel);
+    await loadAllTasksFromFirebase();
   } else {
     validateInputBoard();
     validateDueDateInputBoard();
