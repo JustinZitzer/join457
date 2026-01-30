@@ -15,7 +15,7 @@ function getTaskOverlayTemplate(status) {
           </div>
           <input onblur="validateInputBoard()" type="text" placeholder="Enter a title" class="title-inputfield-enter-title-board" id="titleInputBoard">
           <div>
-            <p class="field-required-in-board display-none" id="field-required-in-board">This field is required</p>
+            <p class="field-required-in-board-title display-none" id="field-required-in-board">This field is required</p>
           </div>
         </div>
         <div class="description-main-box-board">
@@ -48,7 +48,7 @@ function getTaskOverlayTemplate(status) {
               </div>
               <button onclick="togglePriorityBoard('Medium')" class="arrow-container-orange-board" id="arrow-container-orange-board">
                 <h4>Medium</h4>
-                <h4>=</h4>
+                <h4 class="medium-icon-board">=</h4>
               </button>
               <div class="arrow-container-main-green-board">
                 <button onclick="togglePriorityBoard('Low')" class="arrow-container-green-board" id="arrow-container-green-board">
@@ -60,20 +60,20 @@ function getTaskOverlayTemplate(status) {
           </div>
           <div class="assigned-inputfield-box-board">
             <span>Assigned to</span>
-            <input onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
+            <input readonly onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
             <img onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
+            <div class="three-circle-container-board display-none" id="three-circle-container-board"></div>
           </div>
             <div class="contacts-dropdown-board display-none" id="contacts-dropdown-board"></div>
-            <div class="three-circle-container-board display-none" id="three-circle-container-board"></div>
           <div class="task-inputfield-box-board">
             <div class="category-mark-board">
               <span>Category</span>
             </div>
-            <input onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
+            <input readonly onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" type="text" placeholder="Select task category" class="inputfield-category-assign-board" id="inputfield-category-assign-board">
             <img onclick="categoryUserOrTechnicalTaskBoard()" onblur="validateCategoryInBoardInput()" class="arrow-icon-board-category" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="arrow-icon-board-category">
-          </div>
-          <div class="field-required-in-board category-failure-message-position-board display-none" id="field-required-in-board-category">
-          <p>This field is required</p>
+            <div class="field-required-in-board-category display-none" id="field-required-in-board-category">
+              <p>This field is required</p>
+            </div>
           </div>
           <div class="category-dropdown-board" id="category-dropdown-board">
           <div onclick="selectUserCategoryBoard()" id="user-technical-task-board-user" class="user-technical-task-board-user">User Story</div>

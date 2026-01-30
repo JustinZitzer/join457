@@ -1030,9 +1030,11 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   }
 
   renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray);
+  circleRenderContainer.classList.remove("display-none", "hidden");
 
-  circleRenderContainer.classList.remove("display-none");
-  circleRenderContainer.classList.remove("hidden");
+  if (nameInitialesArray.length > 3) {
+    circleRenderContainer.innerHTML += `<div class="plus-counter">+${nameInitialesArray.length - 3}</div>`;
+  }
 }
 
 function categoryUserOrTechnicalTaskBoard() {

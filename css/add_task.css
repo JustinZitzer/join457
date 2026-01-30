@@ -223,7 +223,6 @@ h6 {
 
 /* Inhalt-Box (Modal) */
 #content-add-task-overlay {
-    background: white;
     padding: 20px;
     border-radius: 8px;
     min-width: 300px;

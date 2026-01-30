@@ -721,6 +721,7 @@ function validateCategoryInBoardInput() {
     errorField.classList.remove("display-none");
   } else {
     inputField.classList.remove("border-red-board");
+    errorField.classList.add("display-none");
   }
 }
 

@@ -940,7 +940,7 @@ h5 {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
-
+    position: relative;
 }
 
 .text-title-mark-board:after {
@@ -1250,6 +1250,12 @@ h5 {
     position: relative;
 }
 
+.task-inputfield-box-board {
+    position: relative;
+    height: 80px;
+    margin-top: 10px;
+}
+
 
 .subtask-inputfield-box-board {
     display: flex;
@@ -1273,6 +1279,7 @@ h5 {
     font-weight: 400;
     border: 1px solid #ccc;
     z-index: 6;
+    cursor: pointer;
 }
 
 .inputfield-text-assign-board:focus {
@@ -1303,6 +1310,7 @@ h5 {
     font-weight: 400;
     border: 1px solid #ccc;
     z-index: 5;
+    cursor: pointer;
 }
 
 .inputfield-category-assign-board:hover {
@@ -1348,14 +1356,15 @@ h5 {
 
 .subtask-inputfield-container-board {
     position: absolute;
+    margin-top: 5px;
 }
 
 .field-required-board {
-    position: relative;
+    position: absolute;
     width: 170px;
     height: 27px;
-    right: 510px;
-    top: 70px
+    left: 180px;
+    bottom: 70px;
 }
 
 .field-required-board:before {
@@ -1370,7 +1379,7 @@ h5 {
     width: 31vh;
     height: 56px;
     gap: 16px;
-    bottom: 80px;
+    bottom: 45px;
 }
 
 .clear-field-board {
@@ -2763,10 +2772,20 @@ h2 {
     transition: width 0.3s ease;
 }
 
-.field-required-in-board {
+.field-required-in-board-title {
     font-size: 16px;
     color: red;
     z-index: 0;
+    position: absolute;
+    top: 85px;
+}
+
+.field-required-in-board-category {
+    color: red;
+    font-size: 16px;
+    z-index: 1;
+    position: absolute;
+    top: 75px;
 }
 
 .field-required-in-board-date-board {
@@ -2806,15 +2825,16 @@ h2 {
     display: flex;
     align-items: center;
     margin-top: 0px;
-    width: 110px;
+    width: 440px;
     height: 0px;
     gap: 8px;
     padding-bottom: 0px;
+    position: absolute;
+    top: 98px;
 }
 
 .category-dropdown-board {
     font-size: 20px;
-    margin-top: -57px;
     border-radius: 8px;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -2825,16 +2845,17 @@ h2 {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
-    z-index: 5;
-    top: 560px;
+    z-index: 1;
+    top: 502px;
     max-width: 440px;
+    background-color: white;
 }
 
 .category-dropdown-board.open {
     max-height: 150px;
     opacity: 1;
     max-width: 440px;
-    z-index: 5;
+    z-index: 1;
 }
 
 .user-technical-task-board-user {
@@ -2882,7 +2903,7 @@ h2 {
     font-size: 20px;
     font-weight: 400;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .arrow-icon-board-category {
@@ -3073,6 +3094,12 @@ h2 {
     margin-top: -55px;
     margin-bottom: 20px;
     z-index: 0;
+}
+
+.medium-icon-board {
+    width: 20px;
+    height: 8px;
+    padding-bottom: 25px;
 }
 
 @media (max-width: 1600px) {
