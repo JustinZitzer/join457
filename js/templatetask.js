@@ -305,16 +305,15 @@ function getTaskEditTemplate(task, taskKey) {
       <div class="assigned-inputfield-box-edit-div">
         <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
-          <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit ${taskKey}" class="inputfield-text-assign-edit">
+          <input readonly onclick="loadContactsForDropdownInEdit('${taskKey}'), changeContactCircleInEditTemplate('${taskKey}')" type="text" placeholder="Select contacts to assign" id="inputfield-text-assign-edit ${taskKey}" class="inputfield-text-assign-edit">
           <img id="contact-list-edit-div${taskKey}" onclick="loadContactsForDropdownInEdit('${taskKey}'), changeContactCircleInEditTemplate('${taskKey}')" class="assigned-arrow-icon-edit" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+        </div>
+        <div id="three-circle-todo-edit${taskKey}" class="three-circle-todo-edit">
+          <div id="three-circle-container-edit${taskKey}" class="three-circle-container-edit">
         </div>
       </div>
 
       <div id="contacts-dropdown-edit${taskKey}" class="contacts-dropdown-edit hidden height-zero"></div>
-
-      <div id="three-circle-todo-edit${taskKey}" class="three-circle-todo-edit">
-        <div id="three-circle-container-edit${taskKey}" class="three-circle-container-edit">
-      </div>
 
       <div class="subtask-headline-edit-div">
         <h2 class="subtasks-headline-edited">Subtasks</h2>
@@ -333,10 +332,9 @@ function getTaskEditTemplate(task, taskKey) {
             </g>
           </svg>
         </div>
+        <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
       </div>
-
-      <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
-
+      
       <div id="add-changes-div${taskKey}" class="add-changes-div">
         <button onclick="saveEditedTaskToFirebase('${taskKey}', '${task.category}', '${task.categoryUserOrTechnicalTask}')" id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
       </div>

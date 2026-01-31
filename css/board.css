@@ -2316,6 +2316,7 @@ h2 {
     font-weight: 500;
     padding-left: 10px;
     cursor: pointer;
+    padding-right: 16px;
 }
 
 .due-date-edit-task-big:focus {
@@ -2402,6 +2403,7 @@ h2 {
 
 .assigned-inputfield-box-edit-div {
     width: 100%;
+    position: relative;
 }
 
 .assigned-to-edit-headline {
@@ -2420,6 +2422,8 @@ h2 {
     width: 90%;
     height: 35px;
     font-weight: 500;
+    cursor: pointer;
+    padding-left: 10px;
 }
 
 .inputfield-text-assign-edit:focus {
@@ -2448,12 +2452,13 @@ h2 {
 
 .subtask-headline-edit-div {
     width: 100%;
+    position: relative;
 }
 
 .subtasks-headline-edited {
     font-size: 20px;
     margin-left: 20px;
-    margin-top: 30px;
+    margin-top: 35px;
     margin-bottom: 5px;
     color: #42526E;
 }
@@ -2466,6 +2471,7 @@ h2 {
     width: 90%;
     height: 35px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .inputfield-subtask-edit-div:focus {
@@ -2484,8 +2490,8 @@ h2 {
 
 .assigned-arrow-icon-edit {
     position: absolute;
-    right: 40px;
-    top: 4px;
+    right: 36px;
+    top: 5px;
     cursor: pointer;
 }
 
@@ -2497,15 +2503,24 @@ h2 {
     border-bottom: 0.5px;
     border-right: 0.5px;
     height: 200px;
+    max-height: 200px;
     width: 90%;
     box-shadow: 2px 2px 8px #42526e70;
     overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
 }
 
 .contact-option-edit {
     display: flex;
     align-items: center;
     margin-top: 10px;
+}
+
+.contact-option-edit:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
 }
 
 .contact-in-edit-template {
@@ -2574,7 +2589,8 @@ h2 {
     display: flex;
     margin-left: 20px;
     width: 90%;
-    margin-top: 10px;
+    position: absolute;
+    top: 66px;
 }
 
 .circles-edit {
@@ -2606,10 +2622,15 @@ h2 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    cursor: pointer;
+    min-height: 40px;
+    align-items: center;
 }
+
 
 .contact-checkbox-edit {
     margin-right: 15px;
+    cursor: pointer;
 }
 
 .subtask-inputfield-icon-edit-div {
@@ -2768,7 +2789,7 @@ h2 {
     justify-content: end;
     margin-right: 30px;
     margin-bottom: 40px;
-    margin-top: 20px;
+    margin-top: 110px;
 }
 
 .add-changes-button {
@@ -3140,6 +3161,14 @@ h2 {
 
 .active-yellow .medium-icon-edit {
     color: white;
+}
+
+.subtasks-edit-div {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    max-height: 105px;
+    overflow-y: auto;
 }
 
 @media (max-width: 1600px) {
