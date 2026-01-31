@@ -99,6 +99,9 @@ function getAddContactOverlay() {
                     <div class="add-contact-input-containers">
                         <input id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone">
                     </div>
+                    <div id="failure-message-add-contact-phone" class="failure-message-add-contact display-none">
+                        *Bitte eine gültige Telefonnummer eingeben.
+                    </div>
                     <div id="failure-message-add-contact" class="failure-message-add-contact display-none">
                         *Bitte alle Felder ausfüllen.
                     </div>
@@ -136,13 +139,25 @@ function getEditContactOverlay(contact) {
                 </div>
                 <form onsubmit="saveEditedContact(event, '${contact.key}')">
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-name-input" type="text" placeholder="Name" value="${contact.firstName} ${contact.lastName}">
+                        <input id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name" value="${contact.firstName} ${contact.lastName}">
+                    </div>
+                    <div id="failure-message-add-contact-name" class="failure-message-add-contact display-none">
+                        *Namen mit mindestens 3 Zeichen eingeben.
                     </div>
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-email-input" type="text" placeholder="Email" value="${contact.email}">
+                        <input id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email" value="${contact.email}">
+                    </div>
+                    <div id="failure-message-add-contact-email" class="failure-message-add-contact display-none">
+                        Bitte eine gültige E-Mail-Adresse eingeben.
                     </div>
                     <div class="add-contact-input-containers">
-                        <input class="add-contact-phone-input" type="text" placeholder="Phone" value="${contact.phoneNumber}">
+                        <input id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone" value="${contact.phoneNumber}">
+                    </div>
+                    <div id="failure-message-add-contact-phone" class="failure-message-add-contact display-none">
+                        *Bitte eine gültige Telefonnummer eingeben.
+                    </div>
+                    <div id="failure-message-add-contact" class="failure-message-add-contact display-none">
+                        *Bitte alle Felder ausfüllen.
                     </div>
                     <div class="add-contact-btn-section">
                         <button onclick="deleteContact('${contact.key}')" class="add-contact-cancel-btn">Delete<img src="./assets/icons/delete-icon.svg"

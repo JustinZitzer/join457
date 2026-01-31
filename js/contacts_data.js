@@ -121,7 +121,7 @@ function redBoarderForInputs() {
 }
 
 function emailAddContactFailure() {
-  const emailInput = document.getElementById('add-contact-email-input');
+  const emailInput = document.querySelector('.add-contact-email-input');
   const errorMessage = document.getElementById('failure-message-add-contact-email');
 
   emailInput.style.borderColor = 'red';
@@ -131,7 +131,7 @@ function emailAddContactFailure() {
 }
 
 function phoneNumberError() {
-  const failMessage = document.getElementById('failure-message-add-contact');
+  const failMessage = document.getElementById('failure-message-add-contact-phone');
   const phoneInput = document.getElementById('add-contact-phone-input');
 
   phoneInput.style.borderColor = 'red';
