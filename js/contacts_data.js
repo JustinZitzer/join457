@@ -74,7 +74,7 @@ async function createNewContact(event) {
   const existingContact = allContacts.some(contact => contact.email.toLowerCase() === email.toLowerCase());
   if (existingContact) {
     failMessage.classList.remove('display-none');
-    failMessage.innerHTML = 'Ein Kontakt mit dieser E-Mail-Adresse existiert bereits.';
+    failMessage.innerHTML = 'A contact with this email already exists.';
     return;
   }
 
@@ -136,7 +136,7 @@ function phoneNumberError() {
 
   phoneInput.style.borderColor = 'red';
   failMessage.classList.remove('display-none');
-  failMessage.innerHTML = '*Bitte eine gültige Telefonnummer eingeben.';
+  failMessage.innerHTML = '*Please enter a valid phone number.';
 
   return false;
 }
@@ -147,7 +147,7 @@ function nameErrorAddContact() {
 
   nameInput.style.borderColor = 'red';
   failMessage.classList.remove('display-none');
-  failMessage.innerHTML = '*Namen mit mindestens 3 Zeichen eingeben.';
+  failMessage.innerHTML = '*Name must be 3 characters long.';
 
   return false;
 }

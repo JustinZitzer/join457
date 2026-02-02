@@ -637,13 +637,59 @@
     border: 1px solid red;
 }
 
+.form-add-contact {
+}
+
 .failure-message-add-contact {
     font-size: 16px;
     color: red;
     width: 325px;
     height: 20px;
-    margin-left: 60px;
-    margin-top: -20px;
+    position: absolute;
+    top: 63px;
+    left: 60px;
+}
+
+.input-error-message-container-name {
+    position: relative;
+}
+
+.failure-message-add-contact-name {
+    font-size: 16px;
+    color: red;
+    width: 325px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 60px;
+}
+
+.input-error-message-container-email {
+    position: relative;
+}
+
+.failure-message-add-contact-email {
+    font-size: 16px;
+    color: red;
+    width: 325px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 60px;
+}
+
+.input-error-message-container-phone-all-fields {
+    position: relative;
+}
+
+.failure-message-add-contact-phonenumber {
+    font-size: 16px;
+    color: red;
+    width: 325px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 60px;
 }
 
 @media screen and (min-width: 1400px) and (min-height: 1081px) {
@@ -716,6 +762,47 @@
 }
 
 @media screen and (max-width: 1400px) {
+
+    .failure-message-add-contact {
+    font-size: 16px;
+    color: red;
+    width: 325px;
+    height: 20px;
+    position: absolute;
+    top: 63px;
+    left: 0px;
+    }
+
+    .failure-message-add-contact-name {
+        font-size: 16px;
+        color: red;
+        width: 325px;
+        height: 20px;
+        position: absolute;
+        top: 40px;
+        left: 0px;
+    }
+
+    .failure-message-add-contact-email {
+        font-size: 16px;
+        color: red;
+        width: 325px;
+        height: 20px;
+        position: absolute;
+        top: 40px;
+        left: 0px;
+    }
+
+    .failure-message-add-contact-phonenumber {
+        font-size: 16px;
+        color: red;
+        width: 325px;
+        height: 20px;
+        position: absolute;
+        top: 40px;
+        left: 0px;
+    }
+
     .failure-message-add-contact {
         font-size: 16px;
         color: red;
@@ -1184,7 +1271,7 @@
     .add-contact-btn-section {
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 20px;
         width: 100%;
         padding-top: 0px;
         height: 57px;
