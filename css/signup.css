@@ -1,6 +1,7 @@
 .body-signup {
     background-color: #f6f7f8;
-    max-width: 1920px;
+    display: flex;
+    justify-content: center;
 }
 
 html,
@@ -656,7 +657,7 @@ h1 {
 @keyframes fly-up {
 
 
-    
+
     0% {
         bottom: -80px;
         opacity: 0;
@@ -986,7 +987,9 @@ h1 {
 }
 
 @media screen and (max-width: 1000px) {
-    html, body {
+
+    html,
+    body {
         height: 100%;
     }
 }
@@ -1032,7 +1035,7 @@ h1 {
     }
 
     .eye-icon-size-postition-confirm {
-         position: absolute;
+        position: absolute;
         top: 90%;
         right: 40px;
         transform: translateY(-50%);
@@ -1046,8 +1049,7 @@ h1 {
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
-    .lock-icon-size-second {
-    }
+    .lock-icon-size-second {}
 
     .hr-line-signup {
         width: 20%;
@@ -1102,8 +1104,7 @@ h1 {
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
-    .lock-icon-size-second {
-    }
+    .lock-icon-size-second {}
 
     .inputfield-name,
     .inputfield-email,
@@ -1120,37 +1121,34 @@ h1 {
         left: 9%;
     }
 
-    .eye-icon-size-postition {
-    }
+    .eye-icon-size-postition {}
 
-    .eye-icon-size-postition-confirm {
-    }
+    .eye-icon-size-postition-confirm {}
 }
 
 @media screen and (max-width: 400px) {
 
     .privacy-policy-accept-button {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #2A3647;
-    border-radius: 3px;
-    background: none;
-    position: relative;
-    cursor: pointer;
-    box-sizing: border-box;
-    margin-right: 5px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-}
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #2A3647;
+        border-radius: 3px;
+        background: none;
+        position: relative;
+        cursor: pointer;
+        box-sizing: border-box;
+        margin-right: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
 
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
-    .lock-icon-size-second {
-    }
+    .lock-icon-size-second {}
 
     .hr-line-signup {
         width: 30%;
@@ -1168,11 +1166,9 @@ h1 {
         left: 7%;
     }
 
-    .eye-icon-size-postition {
-    }
+    .eye-icon-size-postition {}
 
-    .eye-icon-size-postition-confirm {
-    }
+    .eye-icon-size-postition-confirm {}
 
     .main-container-join {
         margin-top: 0px;
@@ -1198,14 +1194,12 @@ h1 {
     .name-icon-size,
     .email-icon-size,
     .lock-icon-size-first,
-    .lock-icon-size-second {
-    }
+    .lock-icon-size-second {}
 
     .inputfield-confirm,
     .inputfield-password,
     .inputfield-email,
-    .inputfield-name {
-    }
+    .inputfield-name {}
 
     .failure-signup-div-message-name-signup,
     .failure-signup-div-message-email-signup,
@@ -1227,11 +1221,9 @@ h1 {
         left: 5%;
     }
 
-    .eye-icon-size-postition {
-    }
+    .eye-icon-size-postition {}
 
-    .eye-icon-size-postition-confirm {
-    }
+    .eye-icon-size-postition-confirm {}
 
     .arrow-left {
         width: 32px;
