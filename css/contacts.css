@@ -24,7 +24,6 @@
     padding-top: 20px;
     height: 100vh;
     overflow: hidden;
-    max-height: 982px;
     height: calc(100vh - 96px) !important;
 }
 
@@ -637,8 +636,7 @@
     border: 1px solid red;
 }
 
-.form-add-contact {
-}
+.form-add-contact {}
 
 .failure-message-add-contact {
     font-size: 16px;
@@ -764,13 +762,13 @@
 @media screen and (max-width: 1400px) {
 
     .failure-message-add-contact {
-    font-size: 16px;
-    color: red;
-    width: 325px;
-    height: 20px;
-    position: absolute;
-    top: 63px;
-    left: 0px;
+        font-size: 16px;
+        color: red;
+        width: 325px;
+        height: 20px;
+        position: absolute;
+        top: 63px;
+        left: 0px;
     }
 
     .failure-message-add-contact-name {
