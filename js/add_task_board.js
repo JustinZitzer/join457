@@ -778,3 +778,56 @@ function openDatePickerEditTask(taskKey) {
   }
 
 }
+
+function validateEditTaskTitle(taskKey) {
+  const input = document.getElementById(`titel-edit-task-big${taskKey}`);
+  const error = document.getElementById(`error-title-edit${taskKey}`);
+  if (!input) return;
+  const value = input.value.trim();
+
+  if (value.length < 3) {
+    input.classList.add("border-red-board");
+    error.classList.remove("display-none");
+    return false;
+  } else {
+    input.classList.remove("border-red-board");
+    error.classList.add("display-none");
+    return true;
+  }
+}
+
+function validateEditTaskDueDate(taskKey) {
+  const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
+  const error = document.getElementById(`error-due-date-edit-error${taskKey}`);
+  if (!input) return false;
+
+  const value = input.value.trim();
+
+  if (!validateEditTaskDueDateEmpty(input, value, error)) return false;
+  if (!validateEditTaskDueDateFormat(input, value, error)) return false;
+
+  input.classList.remove("border-red-board");
+  error.classList.add("display-none");
+  return true;
+}
+
+function validateEditTaskDueDateEmpty(input, value, error) {
+  if (!input) return false;
+
+  if (!value) {
+    error.classList.remove("display-none");
+    input.classList.add("border-red-board");
+    return false;
+  }
+  return true;
+}
+
+function validateEditTaskDueDateFormat(input, value, error) {
+  const isValidDate = !isNaN(new Date(value).getTime());
+  if (!isValidDate) {
+    error.classList.remove("display-none");
+    input.classList.add("border-red-board");
+    return false;
+  }
+  return true;
+}

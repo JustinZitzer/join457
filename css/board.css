@@ -1955,7 +1955,7 @@ h2 {
 }
 
 .close-icon-big-task {
-    margin-right: 30px;
+    margin-right: 20px;
     cursor: pointer;
     width: 13.15px;
     height: 13.15px;
@@ -2222,27 +2222,29 @@ h2 {
 .task-category-and-cross-icon-div-edit {
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .titel-edit-div {
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
 }
 
 .big-task-title-edit {
     font-size: 20px;
-    margin-left: 20px;
+    margin-left: 0px;
     margin-bottom: 5px;
     margin-top: 30px;
     color: #42526E;
 }
 
 .titel-edit-task-big {
-    margin-left: 20px;
     border-radius: 5px;
     border-width: 0.5px;
     border-color: #42526e70;
-    width: 90%;
+    width: 100%;
     height: 35px;
     font-weight: 500;
     padding-left: 10px;
@@ -2260,22 +2262,22 @@ h2 {
 
 .description-edit-div {
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .description-headline-edit {
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
 }
 
 .description-edit-task-big {
-    margin-left: 20px;
     border-radius: 5px;
     border-width: 0.5px;
     border-color: #42526e70;
-    width: 90%;
+    width: 100%;
     height: 100px;
     font-weight: 500;
     padding-left: 10px;
@@ -2290,6 +2292,8 @@ h2 {
 
 .due-date-edit-div {
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .inputfield-due-date-container-edit-div {
@@ -2300,18 +2304,16 @@ h2 {
 
 .due-date-headline-edit {
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
 }
 
 .due-date-edit-task-big {
-    margin-left: 20px;
     border-radius: 5px;
     border-width: 0.5px;
     border-color: #42526e70;
-    width: 90%;
+    width: 100%;
     height: 35px;
     font-weight: 500;
     padding-left: 10px;
@@ -2335,7 +2337,6 @@ h2 {
 
 .priority-bold-edit-headline {
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
@@ -2344,14 +2345,13 @@ h2 {
 .edit-button-div {
     display: flex;
     align-items: center;
-    width: 94%;
+    width: 100%;
 }
 
 .urgent-edit-button-div {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 20px;
     border-radius: 5px;
     background-color: #FFFFFF;
     border-width: 0.5px;
@@ -2408,18 +2408,16 @@ h2 {
 
 .assigned-to-edit-headline {
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
 }
 
 .inputfield-text-assign-edit {
-    margin-left: 20px;
     border-radius: 5px;
     border-width: 0.5px;
     border-color: #42526e70;
-    width: 90%;
+    width: 100%;
     height: 35px;
     font-weight: 500;
     cursor: pointer;
@@ -2457,18 +2455,16 @@ h2 {
 
 .subtasks-headline-edited {
     font-size: 20px;
-    margin-left: 20px;
     margin-top: 35px;
     margin-bottom: 5px;
     color: #42526E;
 }
 
 .inputfield-subtask-edit-div {
-    margin-left: 20px;
     border-radius: 5px;
     border-width: 0.5px;
     border-color: #42526e70;
-    width: 90%;
+    width: 100%;
     height: 35px;
     font-weight: 500;
     cursor: pointer;
@@ -2490,7 +2486,7 @@ h2 {
 
 .assigned-arrow-icon-edit {
     position: absolute;
-    right: 36px;
+    right: 17px;
     top: 5px;
     cursor: pointer;
 }
@@ -2498,13 +2494,12 @@ h2 {
 .contacts-dropdown-edit {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
     border-radius: 5px;
     border-bottom: 0.5px;
     border-right: 0.5px;
     height: 200px;
     max-height: 200px;
-    width: 90%;
+    width: 100%;
     box-shadow: 2px 2px 8px #42526e70;
     overflow-y: auto;
     position: absolute;
@@ -2587,8 +2582,7 @@ h2 {
 
 .three-circle-container-edit {
     display: flex;
-    margin-left: 20px;
-    width: 90%;
+    width: 100%;
     position: absolute;
     top: 66px;
 }
@@ -2648,19 +2642,19 @@ h2 {
 
 .delete-subtask-edit-check-icon {
     position: absolute;
-    right: 65px;
+    right: 35px;
     cursor: pointer;
 }
 
 .seperator-subtasks-edit {
     position: absolute;
-    right: 58px;
+    right: 29px;
     cursor: pointer;
 }
 
 .add-new-subtask-edit-icon {
     position: absolute;
-    right: 33px;
+    right: 5px;
     cursor: pointer;
 }
 
@@ -2677,8 +2671,7 @@ h2 {
     justify-content: center;
     margin-top: 5px;
     height: 30px;
-    width: 89%;
-    margin-left: 22px;
+    width: 100%;
 }
 
 .subtasks-board-first-task-edit:hover {
@@ -2695,7 +2688,7 @@ h2 {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    margin-left: 20px;
+    margin-left: 10px;
     position: relative;
 }
 
@@ -2704,19 +2697,35 @@ h2 {
     height: 20px;
     background-color: #b4b4b4;
     position: absolute;
-    right: 58px;
+    right: 39px;
 }
 
 .edit-pencil-icon {
     position: absolute;
-    right: 62px;
+    right: 42px;
     cursor: pointer;
+}
+
+.edit-pencil-icon:hover {
+    box-shadow: 0 0 0px 1px rgba(88, 85, 85, 0.3);
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    scale: 1.05;
 }
 
 .waste-icon {
     position: absolute;
-    right: 31px;
+    right: 14px;
     cursor: pointer;
+}
+
+.waste-icon:hover {
+    box-shadow: 0 0 0px 0px rgba(88, 85, 85, 0.3);
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    scale: 1.05;
 }
 
 .active-red {
@@ -2769,6 +2778,14 @@ h2 {
     cursor: pointer;
 }
 
+.subtask-delete-icon-edit:hover {
+    box-shadow: 0 0 0px 1px rgba(88, 85, 85, 0.3);
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    scale: 1.05;
+}
+
 .subtask-inputfield-edit-seperator {
     position: absolute;
     right: 32px;
@@ -2780,8 +2797,16 @@ h2 {
 
 .subtask-confirm-icon-edit {
     position: absolute;
-    right: 8px;
+    right: 7px;
     cursor: pointer;
+}
+
+.subtask-confirm-icon-edit:hover {
+    box-shadow: 0 0 0px 0px rgba(88, 85, 85, 0.3);
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    scale: 1.03;
 }
 
 .add-changes-div {
@@ -3169,6 +3194,14 @@ h2 {
     width: 100%;
     max-height: 105px;
     overflow-y: auto;
+}
+
+.error-title-edit {
+    font-size: 16px;
+    color: red;
+    position: absolute;
+    top: 65px;
+    z-index: 0;
 }
 
 @media (max-width: 1600px) {

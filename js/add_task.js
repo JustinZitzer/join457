@@ -774,6 +774,8 @@ function saveEditTaskPriority(taskKey) {
 }
 
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
+  if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey)) return;
+
   const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
   const newTitle = inputsForTask.titel;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
@@ -785,7 +787,6 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
     await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
   }
 
-  alert("Task erfolgreich gespeichert!");
   hideBigTaskInfo(taskKey);
   loadAllTasksFromFirebase();
 }
