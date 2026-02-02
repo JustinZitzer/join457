@@ -9,6 +9,8 @@
 .Body-Login {
   background-color: #f6f7f8;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .display-none {
@@ -72,9 +74,13 @@
 }
 
 .Header-Login {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .Header-Login-Right {
@@ -140,6 +146,7 @@
   margin-top: 60px;
   height: 65%;
   align-items: center;
+  padding-top: 200px;
 }
 
 .Login-Box {
@@ -379,11 +386,13 @@
 }
 
 @media screen and (max-width: 651px) {
-  html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden !important;
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden !important;
   }
 }
 
