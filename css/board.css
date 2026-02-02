@@ -2149,8 +2149,8 @@ h2 {
     display: flex;
     align-items: center;
     position: absolute;
-    right: 50px;
-    bottom: 50px;
+    right: 30px;
+    bottom: 10px;
 }
 
 .seperator-big-subtask {
@@ -2217,6 +2217,7 @@ h2 {
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    position: relative;
 }
 
 .task-category-and-cross-icon-div-edit {
@@ -3212,6 +3213,14 @@ h2 {
 
 @media (max-width: 1400px) {
 
+    .subtask-task-text-edit {
+        max-width: 185px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
     .mobile-button-headline-flexbox {
         display: flex;
         align-items: center;
@@ -3357,9 +3366,6 @@ h2 {
     .task-board-big-delete-edit-div-first {
         display: flex;
         align-items: center;
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
     }
 
     .task-category-and-cross-icon-div {
@@ -4680,5 +4686,23 @@ h2 {
 
     .search-button-container {
         left: 70vw;
+    }
+
+    .subtask-task-text-edit {
+        max-width: 185px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .task-board-big-delete-edit-div-first {
+        position: relative;
+        bottom: 10px;
+        right: 20px;
+    }
+
+    .task-board-big-delete-edit-div {
+        width: 100%;
     }
 }

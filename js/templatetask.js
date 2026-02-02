@@ -421,7 +421,7 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
         class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
       <div class="bullet-subtask-flexbox">
         <div class="subtask-bullet-margin-right">•</div>
-        <span id="subtask-task-text-edit${taskKey}${i}">${subtaskText}</span>
+        <span class="subtask-task-text-edit" id="subtask-task-text-edit${taskKey}${i}">${subtaskText}</span>
         <svg onclick="changeSubtaskContent('${taskKey}', '${i}', '${subtaskText}')"
             id="edit-pencil-icon${taskKey}${i}" class="edit-pencil-icon"
             width="25" height="25" viewBox="0 0 33 32" fill="none"
