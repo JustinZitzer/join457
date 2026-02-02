@@ -221,6 +221,7 @@
     height: 364px;
     margin-top: 120px;
     gap: 21px;
+    margin-left: 60px;
 }
 
 .contacts-overlay-container.active-side-overlay {
