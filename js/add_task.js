@@ -77,7 +77,6 @@ async function initAddTask() {
   await loadDataSignUp();
   loadMediumButtonPriority();
   selectedSiteBackgroundStyle();
-  selectedSiteBackgroundStyleMobile();
 }
 
 function pushTasksIntoArray(data, todosArray) {

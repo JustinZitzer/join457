@@ -103,14 +103,13 @@ function triggerResizeEvent() {
 }
 
 function selectedSiteBackgroundStyle() {
-    const summaryMarker = document.getElementById('summary-marker-id');
-    const boardMarker = document.getElementById('board-marker-id');
-    const addTaskMarker = document.getElementById('add-task-marker-id');
-    const contactsMarker = document.getElementById('contacts-marker-id');
+    const summaryMarker = document.getElementById('summary-marker-list-id');
+    const boardMarker = document.getElementById('board-marker-list-id');
+    const addTaskMarker = document.getElementById('add-task-marker-list-id');
+    const contactsMarker = document.getElementById('contacts-marker-list-id');
     const activeColor = "rgba(9, 25, 49, 1)";
     const windowSize = window.innerWidth;
 
-    if(windowSize > 1400) {
       if(window.location.pathname.includes("summary.html")) {
         summaryMarker.style.backgroundColor = activeColor;
       } else if(window.location.pathname.includes("board.html")) {
@@ -120,27 +119,4 @@ function selectedSiteBackgroundStyle() {
       } else if(window.location.pathname.includes("contacts.html")) {
         contactsMarker.style.backgroundColor = activeColor;
       }
-    }
-}
-
-function selectedSiteBackgroundStyleMobile() {
-    const summaryMarker = document.getElementById('summary-marker-list-id');
-    const boardMarker = document.getElementById('add-task-marker-list-id');
-    const addTaskMarker = document.getElementById('board-marker-list-id');
-    const contactsMarker = document.getElementById('contacts-marker-list-id');
-    const activeColor = "rgba(9, 25, 49, 1)";
-
-    if(window.location.pathname.includes("summary.html")) {
-      summaryMarker.style.backgroundColor = activeColor;
-      summaryMarker.style.borderRadius = "8px 8px 8px 8px";
-    } else if(window.location.pathname.includes("board.html")) {
-      addTaskMarker.style.backgroundColor = activeColor;
-      addTaskMarker.style.borderRadius = "8px 8px 8px 8px";
-    } else if(window.location.pathname.includes("add_task.html")) {
-      boardMarker.style.backgroundColor = activeColor;
-      boardMarker.style.borderRadius = "8px 8px 8px 8px";
-    } else if(window.location.pathname.includes("contacts.html")) {
-      contactsMarker.style.backgroundColor = activeColor;
-      contactsMarker.style.borderRadius = "8px 8px 8px 8px";
-    }
 }

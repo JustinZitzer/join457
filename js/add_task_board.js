@@ -3,7 +3,6 @@ async function initBoard() {
   await loadAllTasksFromFirebase();
   await loadDataBoard();
   selectedSiteBackgroundStyle();
-  selectedSiteBackgroundStyleMobile();
 }
 
 function loadMediumButtonPriority() {
