@@ -244,10 +244,12 @@ async function saveEditedContact(event, key) {
 }
 
 function clearContactErrors() {
+  const failMessage = document.querySelector('.failure-message-add-contact');
   const failMessageName = document.querySelector('.failure-message-add-contact-name');
   const failMessageEmail = document.querySelector('.failure-message-add-contact-email');
   const failMessagePhone = document.querySelector('.failure-message-add-contact-phonenumber');
 
+  failMessage.classList.add('display-none');
   failMessageName.classList.add('display-none');
   failMessageEmail.classList.add('display-none');
   failMessagePhone.classList.add('display-none');
