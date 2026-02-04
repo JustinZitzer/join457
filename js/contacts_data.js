@@ -92,6 +92,8 @@ function getNewContactInputs() {
 }
 
 function validateContactInputs(name, email, phone) {
+  clearContactErrors();
+  clearContactBorder();
   if (!name || !email || !phone) return redBoarderForInputs();
 
   if (!hasValidSpaces(name)) return nameErrorAddContact();
@@ -157,7 +159,9 @@ function resetAddContactErrors() {
   const emailInput = document.getElementById('add-contact-email-input');
   const phoneInput = document.getElementById('add-contact-phone-input');
   const failMessage = document.getElementById('failure-message-add-contact');
-
+  if (failMessage) {
+    failMessage.innerHTML = '';
+  }
   nameInput.style.borderColor = '';
   emailInput.style.borderColor = '';
   phoneInput.style.borderColor = '';
@@ -237,6 +241,26 @@ async function saveEditedContact(event, key) {
 
   const updatedContact = buildUpdatedContact(name, email, phone, key);
   await commitContactChanges(updatedContact, key);
+}
+
+function clearContactErrors() {
+  const failMessageName = document.querySelector('.failure-message-add-contact-name');
+  const failMessageEmail = document.querySelector('.failure-message-add-contact-email');
+  const failMessagePhone = document.querySelector('.failure-message-add-contact-phonenumber');
+
+  failMessageName.classList.add('display-none');
+  failMessageEmail.classList.add('display-none');
+  failMessagePhone.classList.add('display-none');
+}
+
+function clearContactBorder() {
+  const failMessageName = document.getElementById('add-contact-name-input');
+  const failMessageEmail = document.getElementById('add-contact-email-input');
+  const failMessagePhone = document.getElementById('add-contact-phone-input');
+
+  failMessageName.style.borderColor = '';
+  failMessageEmail.style.borderColor = '';
+  failMessagePhone.style.borderColor = '';
 }
 
 function getEditedContactInputs() {
