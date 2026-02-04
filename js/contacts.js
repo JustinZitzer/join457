@@ -82,13 +82,15 @@ function closeContactsSideCardOverlay(contactId) {
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
     const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
     const threeDotsMenu = document.getElementById('edit-delete-contact-button');
-    openContactsSideCardOverlay(contactId);
+
+    document.getElementById('contacts_side_overlay')?.remove();
+    document.getElementById('delete-edit-dropdown-contacts')?.remove();
+    document.getElementById('close-side-contact-arrow-icon')?.remove();                   
+
     contactsLeftSection.style.display = 'block';
     contactsRightSection.style.display = 'none';
-    showThreeDotsMenu();
     addContactButton.style.display = 'block';
     threeDotsMenu.style.display = 'none';
-    contactsLeftSection.style.display = '';
 }
 
 function showThreeDotsMenu() {
@@ -111,7 +113,7 @@ function showEditContactDropsdownMobile() {
 
 function closeEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
-    if (!dropdown.classList.contains("display-none")) {
+    if (dropdown && !dropdown.classList.contains("display-none")) {
         dropdown.classList.add("display-none");
     }
 }
