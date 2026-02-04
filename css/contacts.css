@@ -601,7 +601,7 @@
 
 .add-contact-create-contact-btn {
     cursor: pointer;
-    width: 214px;
+    width: 223px;
     height: 57px;
     display: flex;
     justify-content: center;
@@ -788,9 +788,7 @@
 
 }
 
-@media screen and (max-width: 1600px) {
-
-}
+@media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1400px) {
 
@@ -1475,9 +1473,7 @@
         margin-top: -40px;
     }
 
-    .add-contact-person-svg-container {
-
-    }
+    .add-contact-person-svg-container {}
 
     .add-contact-create-contact-btn {
         font-size: 16px;
@@ -1487,8 +1483,7 @@
         font-size: 16px;
     }
 
-    .add-contact-create-contact-btn {
-    }
+    .add-contact-create-contact-btn {}
 
     .add-contact-close-btn {
         top: 20px;
@@ -1497,9 +1492,7 @@
 }
 
 @media screen and (min-width: 1024px) and (max-height: 600px) {
-    .add-contact-overlay {
-
-    }
+    .add-contact-overlay {}
 
     .add-contact-btn-section {
         padding-bottom: 10px;
