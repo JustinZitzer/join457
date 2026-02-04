@@ -172,9 +172,9 @@ function getEditContactOverlay(contact) {
                         </div>
                     </div>
                     <div class="add-contact-btn-section">
-                        <button onclick="deleteContact('${contact.key}')" class="add-contact-cancel-btn">Delete<img src="./assets/icons/delete-icon.svg"
+                        <button onclick="deleteContact('${contact.key}')" class="add-contact-cancel-edit-btn">Delete<img src="./assets/icons/delete-icon.svg"
                                 alt="close-icon"></button>
-                        <button class="add-contact-create-contact-btn">Save<img src="./assets/icons/check-icon.svg"
+                        <button class="add-contact-edit-contact-btn">Save<img src="./assets/icons/check-icon.svg"
                                 alt="check-icon"></button>
                     </div>
                 </form>

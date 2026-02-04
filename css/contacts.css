@@ -571,6 +571,34 @@
     filter: invert(56%) sepia(60%) saturate(428%) hue-rotate(163deg) brightness(94%) contrast(92%);
 }
 
+.add-contact-cancel-edit-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 113px;
+    height: 57px;
+    background-color: white;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    color: #2A3647;
+    padding: 16px;
+    gap: 9px;
+    font-weight: 400;
+    font-size: 20px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.add-contact-cancel-edit-btn:hover {
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
+    color: rgba(41, 171, 226, 1);
+    border: 1px solid rgba(41, 171, 226, 1);
+}
+
+.add-contact-cancel-edit-btn:hover img {
+    filter: invert(56%) sepia(60%) saturate(428%) hue-rotate(163deg) brightness(94%) contrast(92%);
+}
+
 .add-contact-create-contact-btn {
     cursor: pointer;
     width: 214px;
@@ -593,6 +621,31 @@
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
     background-color: rgba(41, 171, 226, 1);
     border: 1px solid rgba(41, 171, 226, 1);
+}
+
+.add-contact-edit-contact-btn {
+    cursor: pointer;
+    width: 111px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 21px;
+    transition: box-shadow 0.2s ease-in-out;
+    border: none;
+}
+
+.add-contact-edit-contact-btn:hover {
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(41, 171, 226, 1);
+    border: 1px solid rgba(41, 171, 226, 1);
+
 }
 
 .add-new-contact-btn-mobile-version {
@@ -741,8 +794,16 @@
 
 @media screen and (max-width: 1400px) {
 
+    .add-contact-edit-contact-btn {
+        margin-left: 15px;
+    }
+
+    .add-contact-cancel-edit-btn {
+        margin-right: 15px;
+    }
+
     .add-contact-btn-section {
-        margin-left: 0px;
+        margin-left: -10px;
     }
 
     .failure-message-add-contact {
@@ -1335,6 +1396,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .contacts-details-container {
+        padding-bottom: 50px;
+    }
 
     .contacts-right-main-container {
         margin-left: 0px;
