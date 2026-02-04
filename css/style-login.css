@@ -445,6 +445,11 @@
 
   .Header-Login {
     display: flex;
+    position: unset;
+  }
+
+  .Login-Box-Div {
+  padding-top: 0px;
   }
 
   .Header-Login-Right-Button {
@@ -528,4 +533,18 @@
     }
   }
 
+}
+
+@media screen and (max-height: 801px) and (min-width: 1280px) {
+    .footer-login-site {
+      padding-top: 15%;
+      padding-bottom: 0px;
+    }
+  }
+
+@media screen and (max-height: 600px) and (min-width: 1024px) {
+    .footer-login-site {
+      padding-top: 30%;
+      padding-bottom: 0px;
+    }
 }
