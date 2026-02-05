@@ -521,10 +521,12 @@ h1 {
 .box-privacy-legal-notice {
     display: flex;
     justify-content: center;
+    position: fixed;
     width: 260px;
     height: 35px;
-    margin-top: 70px;
     max-width: 1920px;
+    top: 880px;
+
 }
 
 .privacy-text {
