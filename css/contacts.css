@@ -22,8 +22,7 @@
     margin-top: 96px;
     margin-left: 232px;
     padding-top: 20px;
-    height: 100vh;
-    height: calc(100vh - 96px) !important;
+    height: 100dvh;
 }
 
 .contacts-sidebar-scrollbar {
@@ -32,6 +31,7 @@
     scrollbar-width: thin;
     scrollbar-color: #a8a8a8 white;
     margin-top: -18px;
+    overflow-y: auto;
 }
 
 .edit-delete-contact-button {
@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: auto;
+    height: 100%;
 }
 
 .contact-list-fix-container {
@@ -662,6 +662,7 @@
 
 .hide-scrollbar {
     -ms-overflow-style: none;
+    overflow-y: auto;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -902,6 +903,10 @@
         display: none;
     }
 
+    .hide-scrollbar {
+        overflow-y: visible;
+    }
+
     .contact-card-activated {
         background-color: initial;
         color: initial;
@@ -913,6 +918,7 @@
         align-items: center;
         background-color: white;
         width: 100vw;
+        height: 100%;
         margin-top: 96px;
         margin-left: 0px;
         padding-top: 20px;
@@ -923,6 +929,7 @@
 
     .contacts-sidebar-scrollbar {
         width: 100%;
+        overflow-y: hidden;
         background-color: white;
         scrollbar-width: thin;
         scrollbar-color: #a8a8a8 white;
@@ -1027,6 +1034,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        height: 100%;
     }
 
     .delete-edit-dropdown-contacts-mobile {
@@ -1070,13 +1078,12 @@
     }
 
     .contact-card {
-        width: 100vw;
+        width: 100%;
         height: 78px;
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 0px;
+        padding-left: 12px;
         padding-right: 0px;
-        margin-left: 12.5vw;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -1091,7 +1098,6 @@
         flex-direction: column;
         align-items: center;
         min-width: none;
-        padding-bottom: 100px;
     }
 
     .contact-list-seperator {
@@ -1120,7 +1126,6 @@
     .contact-info span {
         font-weight: 400;
         font-size: 26px;
-        margin-left: 10px;
         margin-bottom: 7px;
     }
 
@@ -1129,7 +1134,7 @@
         font-size: 19px;
         text-decoration: none;
         color: rgba(41, 171, 226, 1);
-        margin-left: 10px;
+        word-break: break-word;
     }
 
     .add-new-contact-btn {
@@ -1334,12 +1339,6 @@
 
     .add-new-contact-btn-container {
         width: 100%;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .contact-list {
-        padding-bottom: 100px;
     }
 }
 
