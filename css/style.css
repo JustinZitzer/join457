@@ -24,7 +24,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1399px) {
 
   .info-pages {
     margin-left: 16px;
@@ -147,7 +147,7 @@ body {
 }
 
 @media screen and (max-width: 450px) {
-  .legal-notice-headline{
+  .legal-notice-headline {
     font-size: 40px;
   }
 }

@@ -1087,7 +1087,7 @@ h5 {
     color: white;
 }
 
-.arrow-container-green-board.active .arrow-green-board  {
+.arrow-container-green-board.active .arrow-green-board {
     filter: brightness(0) invert(1);
 }
 
@@ -1129,7 +1129,7 @@ h5 {
 }
 
 .arrow-container-orange-board.active .medium-icon-board {
-  color: white;
+    color: white;
 }
 
 
@@ -3211,7 +3211,7 @@ h2 {
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
 
     .subtask-task-text-edit {
         max-width: 185px;
@@ -4207,9 +4207,7 @@ h2 {
         left: 80vw;
     }
 
-    .await-feedback-content-task {
-
-    }
+    .await-feedback-content-task {}
 }
 
 .title-inputfield-enter-title {

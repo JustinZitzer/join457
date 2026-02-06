@@ -737,7 +737,7 @@
     left: 60px;
 }
 
-@media screen and (min-width: 1400px) and (min-height: 1081px) {
+@media screen and (min-width: 1399px) and (min-height: 1081px) {
     .edit-delete-contact-button {
         display: none;
         height: 0px;
@@ -780,7 +780,7 @@
 
 @media screen and (max-width: 1600px) {}
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1399px) {
 
     .add-contact-edit-contact-btn {
         margin-left: 15px;
