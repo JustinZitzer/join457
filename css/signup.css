@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     margin: 0;
+    height: 100vh;
+    width: 100%;
 }
 
 html,
@@ -76,11 +78,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 598px;
-    top: 197px;
-    left: 421px;
     border-radius: 30px;
     background-color: #FFFFFF;
-    padding-bottom: 10px;
 }
 
 .hr-line-signup {
