@@ -43,6 +43,7 @@ header h1 {
     align-items: center;
     width: 104px;
     height: 56px;
+    padding-right: 50px;
     gap: 16px;
     transition: transform 0.3s ease-in-out;
 }
@@ -250,7 +251,7 @@ footer a:hover {
 
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1399px) {
 
     .sidebar-join-logo-alternative {
         margin-bottom: 0px;
