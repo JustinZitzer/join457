@@ -150,10 +150,8 @@
 .Login-Box-Div {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  height: 65%;
+  padding-top: 85px;
   align-items: center;
-  padding-top: 200px;
 }
 
 .Login-Box {
@@ -321,10 +319,8 @@
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  align-items: flex-end;
-  padding-bottom: 36px;
-  max-height: 100px;
-  padding-top: 12%;
+  align-items: center;
+  min-height: 200px;
 }
 
 .Privacy-Policy-Text-Login-Site {
@@ -455,7 +451,7 @@
   }
 
   .Login-Box-Div {
-  padding-top: 0px;
+  padding-top: 85px;
   }
 
   .Header-Login-Right-Button {
@@ -523,13 +519,10 @@
   .footer-login-site {
     display: flex;
     justify-content: center;
-    margin-bottom: 35px;
   }
 
   @media screen and (max-height: 801px) {
     .footer-login-site {
-      margin-top: 40px;
-      padding-bottom: 40px;
     }
 
     .Header-Login-Right-Button {
@@ -543,14 +536,12 @@
 
 @media screen and (max-height: 801px) and (min-width: 1280px) {
     .footer-login-site {
-      padding-top: 15%;
       padding-bottom: 0px;
     }
   }
 
 @media screen and (max-height: 600px) and (min-width: 1024px) {
     .footer-login-site {
-      padding-top: 30%;
       padding-bottom: 0px;
     }
 }
