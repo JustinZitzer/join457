@@ -684,6 +684,12 @@ h1 {
     }
 }
 
+@media screen and (min-width: 1920px) {
+    .body-signup {
+        
+    }
+}
+
 @media screen and (max-width: 1000px) {
 
     .privacy-text {
