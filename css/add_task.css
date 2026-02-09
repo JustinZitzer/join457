@@ -2030,13 +2030,13 @@ h6 {
 
     .text-create-field {
         display: flex;
-        font-size: 16px;
+        font-size: 21px;
         align-items: center;
     }
 
     .clear-text {
         display: flex;
-        font-size: 16px;
+        font-size: 21px;
         align-items: center;
     }
 }
