@@ -26,7 +26,7 @@ header {
 .max-width-header {
     width: 100%;
     background-color: white;
-    z-index: 3;
+    z-index: 12;
     position: fixed;
     top: 0;
     height: 96px;
@@ -138,7 +138,7 @@ header h1 {
     background-color: rgba(42, 54, 71, 1);
     position: fixed;
     top: 0;
-    z-index: 7;
+    z-index: 14;
     max-width: 1920px;
 }
 
@@ -311,7 +311,7 @@ footer a:hover {
         left: 0;
         top: auto;
         padding: 0;
-        z-index: 10;
+        z-index: 14;
     }
 
     .sidebar-join-logo {

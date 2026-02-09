@@ -1,7 +1,6 @@
 .body-add-task {
     max-height: 1080px;
     max-width: 1920px;
-    overflow-y: hidden;
     margin: 0;
 }
 
@@ -28,10 +27,14 @@ h3 {
     padding-left: 328px;
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 1540px;
     width: 100%;
     gap: 24px;
     padding-top: 150px;
+    overflow-y: auto;
+    max-height: 1080px;
+    min-height: 832px;
+    padding-bottom: 30px;
 }
 
 .container-both-sides {
@@ -658,7 +661,6 @@ h6 {
     width: 100%;
     height: 56px;
     gap: 16px;
-    margin-top: 90px;
 }
 
 .clear-field {
@@ -1435,6 +1437,8 @@ h6 {
 
     .add-task-box-headline-container {
         font-size: 47px;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .main-container-for-two-inputfield-container {
@@ -1444,6 +1448,7 @@ h6 {
         padding-top: 100px;
         gap: 4px;
         margin-bottom: 42px;
+        max-height: unset;
 
     }
 
@@ -2036,25 +2041,6 @@ h6 {
     }
 }
 
-@media (min-width: 375px) and (max-height: 668px) {
-    .main-container-for-two-inputfield-container {
-        height: 190vh;
-    }
-
-}
-
-@media (min-width: 414px) and (max-height: 897px) {
-    .main-container-for-two-inputfield-container {
-        height: 145vh;
-    }
-}
-
-@media (min-width: 390px) and (max-height: 845px) {
-    .main-container-for-two-inputfield-container {
-        height: 150vh;
-    }
-}
-
 @media (max-width: 390px) {
     .main-container-for-two-inputfield-container {
         margin-bottom: 84px;
@@ -2062,75 +2048,5 @@ h6 {
 
     .create-field {
         margin-right: 5px;
-    }
-}
-
-@media (min-width: 430px) and (max-height: 933px) {
-    .main-container-for-two-inputfield-container {
-        height: 140vh;
-    }
-}
-
-@media (min-width: 412px) and (max-height: 916px) {
-    .main-container-for-two-inputfield-container {
-        height: 140vh;
-    }
-}
-
-@media (max-width: 361px) and (max-height: 741px) {
-    .main-container-for-two-inputfield-container {
-        height: 175vh;
-    }
-}
-
-@media (min-width: 768px) and (max-height: 1025px) {
-    .main-container-for-two-inputfield-container {
-        height: 130vh;
-    }
-}
-
-@media (min-width: 820px) and (max-height: 1180px) {
-    .main-container-for-two-inputfield-container {
-        height: 115vh;
-    }
-}
-
-@media (min-width: 1024px) and (max-height: 1367px) {
-    .main-container-for-two-inputfield-container {
-        height: 100vh;
-    }
-}
-
-@media (min-width: 912px) and (max-height: 1368px) {
-    .main-container-for-two-inputfield-container {
-        height: 100vh;
-    }
-}
-
-@media (min-width: 540px) and (max-height: 720px) {
-    .main-container-for-two-inputfield-container {
-        height: 180vh;
-    }
-}
-
-@media (min-width: 853px) and (max-height: 1280px) {
-    .main-container-for-two-inputfield-container {
-        height: 105vh;
-    }
-}
-
-@media (min-width: 1024px) and (max-height: 600px) {
-    .main-container-for-two-inputfield-container {
-        height: 215vh;
-    }
-
-    .clear-create-container {
-        bottom: 18%;
-    }
-}
-
-@media (min-width: 1280px) and (max-height: 800px) {
-    .main-container-for-two-inputfield-container {
-        height: 170vh;
     }
 }
