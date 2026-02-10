@@ -306,7 +306,7 @@ h3 {
 }
 
 .await-feedback-content-task {
-    display: grid;
+    display: block;
     min-height: 500px;
     min-width: 244px;
 }
@@ -330,7 +330,7 @@ h3 {
 }
 
 .done-content-task {
-    display: grid;
+    display: block;
     min-height: 500px;
     min-width: 244px;
 
@@ -3498,9 +3498,9 @@ h2 {
     }
 
     .todo-content-task {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
         min-height: 100px;
+        max-height: 300px;
         width: 100%;
         max-width: 100vw;
         overflow-x: auto;
@@ -3530,7 +3530,9 @@ h2 {
     }
 
     .inprogress-content-task {
+        display: flex;
         min-height: 100px;
+        max-height: 300px;
         width: 100%;
         max-width: 100vw;
         overflow-x: auto;
@@ -3550,13 +3552,13 @@ h2 {
     }
 
     .await-feedback-content-task {
-        grid-template-columns: repeat(4, 1fr);
         min-height: 100px;
         width: 100%;
         max-width: 100vw;
         overflow-x: auto;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
+        display: flex;
     }
 
     .await-feedback-content {
@@ -3579,9 +3581,12 @@ h2 {
     }
 
     .done-content-task {
+        display: flex;
         min-height: 100px;
+        max-height: 300px;
         width: 100%;
         max-width: 100vw;
+        overflow-x: auto;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
         margin-bottom: 150px;
@@ -3868,10 +3873,6 @@ h2 {
 
 
 @media (max-width: 1200px) {
-    .inprogress-content-task {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .search-button-container {
         left: 90vw;
     }
@@ -3888,21 +3889,6 @@ h2 {
     .await-feedback-box,
     .done-box {
         width: 100%;
-    }
-}
-
-@media (max-width: 1100px) {
-    .todo-content-task {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .await-feedback-content-task {
-        grid-template-columns: repeat(3, 1fr);
-
-    }
-
-    .done-content-task {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -3976,17 +3962,8 @@ h2 {
 
 @media (max-width: 900px) {
 
-    .todo-content-task {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .await-feedback-content-task {
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-    .done-content-task {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
     }
 
     .search-button-container {
@@ -4177,12 +4154,24 @@ h2 {
 
     .done-content-task {
         min-width: 252px;
+        max-height: 300px;
         min-height: 200px;
+        display: flex;
         margin-bottom: 100px;
+    }
+
+    .todo-content-task {
+        display: flex;
+        max-height: 300px;
     }
 
     .todo-content-box {
         margin-right: 15px;
+    }
+
+    .inprogress-content-task {
+        display: flex;
+        max-height: 300px;
     }
 
     .title-findtask {
@@ -4217,6 +4206,8 @@ h2 {
     .search-button-container {
         left: 80vw;
     }
+
+    .await-feedback-content-task {}
 }
 
 .title-inputfield-enter-title {
@@ -4303,8 +4294,12 @@ h2 {
 
 @media (max-width: 560px) {
     .todo-content-task {
-        grid-template-columns: repeat(1, 1fr);
         max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: hidden;
         padding-right: 0px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -4316,8 +4311,11 @@ h2 {
 
     .inprogress-content-task {
         max-width: 100vw;
-        grid-template-columns: repeat(1, 1fr);
+        overflow-x: auto;
+        display: flex;
         min-height: 100px;
+        max-height: 300px;
+        overflow-y: hidden;
         padding-right: 0px;
         margin-left: 0px;
         -webkit-overflow-scrolling: touch;
@@ -4330,12 +4328,13 @@ h2 {
 
     .await-feedback-content-task {
         max-width: 100vw;
+        overflow-x: auto;
         min-height: 100px;
+        overflow-y: hidden;
         padding-right: 0px;
         margin-left: 0px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        grid-template-columns: repeat(1, 1fr);
     }
 
     .await-feedback-content-task::-webkit-scrollbar {
@@ -4344,13 +4343,15 @@ h2 {
 
     .done-content-task {
         max-width: 100vw;
+        overflow-x: auto;
+        display: flex;
         min-height: 100px;
+        max-height: 300px;
         overflow-y: hidden;
         padding-right: 0px;
         margin-left: 0px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        grid-template-columns: repeat(1, 1fr);
     }
 
     .done-content-task::-webkit-scrollbar {
