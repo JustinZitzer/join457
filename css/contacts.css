@@ -694,8 +694,6 @@
     border: 1px solid red;
 }
 
-.form-add-contact {}
-
 .failure-message-add-contact {
     font-size: 16px;
     color: red;
@@ -1484,8 +1482,6 @@
     .add-contact-cancel-btn {
         font-size: 16px;
     }
-
-    .add-contact-create-contact-btn {}
 
     .add-contact-close-btn {
         top: 20px;
