@@ -4,7 +4,7 @@
     max-width: 1920px;
     max-height: 1080px;
 }
-
+/* 1215px for edit and add contact template. Change media query to 1200px for these two*/
 .scrollable-overlay {
     max-height: 100dvh;
     height: 100%;
