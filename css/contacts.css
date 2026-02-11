@@ -4,6 +4,7 @@
     max-width: 1920px;
     max-height: 1080px;
 }
+
 /* 1215px for edit and add contact template. Change media query to 1200px for these two*/
 .scrollable-overlay {
     max-height: 100dvh;
@@ -11,7 +12,7 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 50px;
-  }
+}
 
 .body-contacts {
     max-height: 1080px;
@@ -950,9 +951,12 @@
         width: 100%;
         margin-left: 0px;
         padding-left: 4px;
-        height: 100dvh;         /* volle Höhe des Viewports */
-        overflow-y: auto;       /* Scroll aktivieren */
-        -webkit-overflow-scrolling: touch; /* für iOS */
+        height: 100dvh;
+        /* volle Höhe des Viewports */
+        overflow-y: auto;
+        /* Scroll aktivieren */
+        -webkit-overflow-scrolling: touch;
+        /* für iOS */
         padding-bottom: 80px;
     }
 
@@ -1352,6 +1356,12 @@
     }
 }
 
+@media screen and (max-width: 1250px) {
+    .add-contact-overlay {
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 1100px) {
     .add-new-contact-btn-mobile-version {
         right: 5vw;
@@ -1458,7 +1468,13 @@
         margin-top: -40px;
     }
 
-    .add-contact-person-svg-container {}
+    .add-contact-person-svg-container p {
+        font-size: 30px;
+    }
+
+    .add-contact-input-containers input {
+        font-size: 15px;
+    }
 
     .add-contact-create-contact-btn {
         font-size: 16px;
@@ -1477,7 +1493,6 @@
 }
 
 @media screen and (min-width: 1024px) and (max-height: 600px) {
-    .add-contact-overlay {}
 
     .add-contact-btn-section {
         padding-bottom: 10px;
