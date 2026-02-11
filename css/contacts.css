@@ -1199,6 +1199,7 @@
         border-radius: 30px;
         background-color: white;
         box-shadow: 0px 0px 10px rgba(42, 54, 71, 1);
+        width: 98vw;
     }
 
     .add-contact-left-section {
