@@ -5,6 +5,14 @@
     max-height: 1080px;
 }
 
+.scrollable-overlay {
+    max-height: 100dvh;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 50px;
+  }
+
 .body-contacts {
     max-height: 1080px;
     max-width: 1920px;
@@ -941,11 +949,15 @@
         width: 100%;
         margin-left: 0px;
         padding-left: 4px;
-        max-width: 100%;
+        height: 100dvh;         /* volle Höhe des Viewports */
+        overflow-y: auto;       /* Scroll aktivieren */
+        -webkit-overflow-scrolling: touch; /* für iOS */
+        padding-bottom: 80px;
     }
 
     .contacts-side-headline {
-        margin-top: 105px;
+        margin-top: 0px;
+        padding-top: 120px;
         margin-left: 5px;
         width: auto;
         height: auto;
@@ -955,11 +967,16 @@
         flex-direction: column;
         gap: 8px;
         width: 100%;
+        position: unset;
     }
 
     .contacts-overlay-container {
-        margin-top: 50px;
+        margin-top: 0px;
         margin-left: 5px;
+        position: unset;
+        height: unset;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .contacts-headline-seperator {
