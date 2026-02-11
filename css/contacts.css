@@ -219,7 +219,7 @@
 .contacts-overlay-container {
     transform: translateX(100%);
     opacity: 0;
-    transition: transform 0.7s ease-in, opacity 0.7s ease-out;
+    transition: transform 0.7s ease-in, opacity 0.7s ease-in;
     display: flex;
     position: fixed;
     flex-direction: column;
