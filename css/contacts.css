@@ -93,6 +93,7 @@
     padding-bottom: 12px;
     gap: 16px;
     transition: box-shadow 0.2s ease-in-out;
+    z-index: 10;
 }
 
 .add-new-contact-btn:hover {

@@ -86,15 +86,15 @@ function getAddContactOverlay() {
                 <form class="form-add-contact">
                     <div class="input-error-message-container-name">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name">
+                            <input onblur="nameErrorAddContact()" id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name">
                         </div>
-                        <div id="failure-message-add-contact-name" class="failure-message-add-contact-name display-none">
+                        <div onblur="emailAddContactFailure()" id="failure-message-add-contact-name" class="failure-message-add-contact-name display-none">
                             *Name must be 3 characters long.
                         </div>
                     </div>
                     <div class="input-error-message-container-email">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email">
+                            <input onblur="phoneNumberError()" id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email">
                         </div>
                         <div id="failure-message-add-contact-email" class="failure-message-add-contact-email display-none">
                             *Please enter a valid email adress.
@@ -146,7 +146,7 @@ function getEditContactOverlay(contact) {
                 <form onsubmit="saveEditedContact(event, '${contact.key}')">
                     <div class="input-error-message-container-name">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name" value="${contact.firstName} ${contact.lastName}">
+                            <input onblur="nameErrorAddContact()" id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name" value="${contact.firstName} ${contact.lastName}">
                         </div>
                         <div id="failure-message-add-contact-name" class="failure-message-add-contact-name display-none">
                             *Namen mit mindestens 3 Zeichen eingeben.
@@ -154,7 +154,7 @@ function getEditContactOverlay(contact) {
                     </div>
                     <div class="input-error-message-container-email">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email" value="${contact.email}">
+                            <input onblur="emailAddContactFailure()" id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email" value="${contact.email}">
                         </div>
                         <div id="failure-message-add-contact-email" class="failure-message-add-contact-email display-none">
                             *Please enter a valid email adress.
@@ -162,7 +162,7 @@ function getEditContactOverlay(contact) {
                     </div>
                     <div class="input-error-message-container-phone-all-fields">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone" value="${contact.phoneNumber}">
+                            <input onblur="phoneNumberError()" id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone" value="${contact.phoneNumber}">
                         </div>
                         <div id="failure-message-add-contact-phone" class="failure-message-add-contact-phonenumber display-none">
                             *Please enter a vaild phone number.
