@@ -2,6 +2,7 @@
     background-color: #f6f7f8;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0;
     height: 100vh;
     width: 100%;
@@ -56,6 +57,8 @@ body {
 .join-logo-container-signup {
     display: flex;
     justify-content: flex-start;
+    position: fixed;
+    top: 0;
     max-width: 1920px;
     width: 100%;
     max-height: 150px;
@@ -685,9 +688,7 @@ h1 {
 }
 
 @media screen and (min-width: 1920px) {
-    .body-signup {
-        
-    }
+    .body-signup {}
 }
 
 @media screen and (max-width: 1000px) {
