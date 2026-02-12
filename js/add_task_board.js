@@ -35,7 +35,7 @@ function setupOverlayClose(overlay, overlayContent) {
 }
 
 function closeOverlayBackground(overlay, overlayContent) {
-   overlay.addEventListener("click", () => {
+  overlay.addEventListener("click", () => {
     overlayContent.classList.remove("slide-in");
     overlayContent.classList.add("slide-out");
 
@@ -560,6 +560,7 @@ function clearInputFieldsForNewTask() {
   for (let i = 0; i < contacts.length; i++) {
     contacts[i].checked = false;
   }
+  loadMediumButtonPriority();
 }
 
 function resetAllErrorMessages() {

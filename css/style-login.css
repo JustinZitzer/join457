@@ -450,7 +450,7 @@
   }
 
   .Login-Box-Div {
-  padding-top: 85px;
+    padding-top: 85px;
   }
 
   .Header-Login-Right-Button {
@@ -521,8 +521,7 @@
   }
 
   @media screen and (max-height: 801px) {
-    .footer-login-site {
-    }
+    .footer-login-site {}
 
     .Header-Login-Right-Button {
       margin-right: 0px;
@@ -534,13 +533,13 @@
 }
 
 @media screen and (max-height: 801px) and (min-width: 1280px) {
-    .footer-login-site {
-      padding-bottom: 0px;
-    }
+  .footer-login-site {
+    padding-bottom: 0px;
   }
+}
 
 @media screen and (max-height: 600px) and (min-width: 1024px) {
-    .footer-login-site {
-      padding-bottom: 0px;
-    }
+  .footer-login-site {
+    padding-bottom: 0px;
+  }
 }
