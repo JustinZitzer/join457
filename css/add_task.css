@@ -1502,27 +1502,27 @@ h6 {
     }
 
     .arrow-container-main-red {
-        width: 30vw;
+        width: 100%;
     }
 
     .arrow-container-main-green {
-        width: 30vw;
+        width: 100%;
     }
 
     .arrow-container-red {
-        width: 30vw;
+        width: 100%;
         height: 41px;
         font-size: 16px;
     }
 
     .arrow-container-orange {
-        width: 30vw;
+        width: 100%;
         height: 41px;
         font-size: 16px;
     }
 
     .arrow-container-green {
-        width: 30vw;
+        width: 100%;
         height: 41px;
         font-size: 16px;
     }
@@ -1696,26 +1696,6 @@ h6 {
         transform: translateX(-50%);
     }
 
-    .arrow-container-main-red {
-        width: 26vw;
-    }
-
-    .arrow-container-main-green {
-        width: 26vw;
-    }
-
-    .arrow-container-red {
-        width: 26vw;
-    }
-
-    .arrow-container-orange {
-        width: 26vw;
-    }
-
-    .arrow-container-green {
-        width: 26vw;
-    }
-
     .inputfield-text-assign {
         padding: 8px;
         width: 92vw;
@@ -1797,26 +1777,6 @@ h6 {
         cursor: pointer;
         color: #2A3647;
         transform: translateX(-50%);
-    }
-
-    .arrow-container-main-red {
-        width: 23.4vw;
-    }
-
-    .arrow-container-main-green {
-        width: 23.4vw;
-    }
-
-    .arrow-container-red {
-        width: 26.4vw;
-    }
-
-    .arrow-container-orange {
-        width: 30.4vw;
-    }
-
-    .arrow-container-green {
-        width: 23.4vw;
     }
 
     .inputfield-text-assign {
@@ -1909,26 +1869,6 @@ h6 {
         justify-content: space-around;
         gap: 16px;
         width: 91%;
-    }
-
-    .arrow-container-main-red {
-        width: 23.4vw;
-    }
-
-    .arrow-container-main-green {
-        width: 23.4vw;
-    }
-
-    .arrow-container-red {
-        width: 26.4vw;
-    }
-
-    .arrow-container-orange {
-        width: 28.4vw;
-    }
-
-    .arrow-container-green {
-        width: 26.4vw;
     }
 
     .inputfield-text-assign {
@@ -2048,5 +1988,23 @@ h6 {
 
     .create-field {
         margin-right: 5px;
+    }
+}
+
+@media (max-width: 390px) {
+    .main-box-inputfield {
+        gap: 2px;
+    }
+
+    .main-box-inputfield h4 {
+        font-size: 13px;
+    }
+
+    .arrow-container-green {
+        gap: 0px;
+    }
+
+    .arrow-container-red {
+        gap: 0px;
     }
 }
