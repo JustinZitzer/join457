@@ -666,6 +666,7 @@ h6 {
 .clear-field {
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     width: 110px;
     height: 56px;
@@ -746,6 +747,7 @@ h6 {
 .create-field {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #2A3647;
     /* Standard-Hintergrund */
     border-radius: 6px;
