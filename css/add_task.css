@@ -661,6 +661,7 @@ h6 {
     width: 100%;
     height: 56px;
     gap: 16px;
+    padding-top: 30px;
 }
 
 .clear-field {
@@ -1413,6 +1414,7 @@ h6 {
         overflow: visible;
         padding-left: 24px;
         padding-bottom: 120px;
+        padding-top: 80px;
     }
 
     .clear-field {
