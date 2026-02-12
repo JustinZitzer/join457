@@ -662,6 +662,7 @@ h6 {
     height: 56px;
     gap: 16px;
     padding-top: 30px;
+    max-width: 990px;
 }
 
 .clear-field {
