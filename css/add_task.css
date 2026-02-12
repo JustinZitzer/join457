@@ -1416,6 +1416,7 @@ h6 {
         padding-left: 24px;
         padding-bottom: 120px;
         padding-top: 80px;
+        max-width: 1300px;
     }
 
     .clear-field {
