@@ -762,7 +762,6 @@ h6 {
     /* Immer weiß */
     font-weight: 500;
     transition: color 0.2s ease;
-    margin-right: 8px;
 }
 
 .check-button {
