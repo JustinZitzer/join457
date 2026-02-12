@@ -1412,8 +1412,7 @@ h6 {
         gap: 16px;
         overflow: visible;
         padding-left: 24px;
-        margin-top: 60px;
-        margin-bottom: 100px;
+        padding-bottom: 100px;
     }
 
     .clear-field {
