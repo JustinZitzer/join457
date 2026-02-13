@@ -1378,8 +1378,16 @@ h6 {
     }
 
     .category-dropdown {
-        top: 760px;
-        max-width: 90%;
+        position: relative;   
+        top: 0;   
+        width: 90vw;          
+        border-radius: 8px;
+        background-color: white;    
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
     }
 
     .category-dropdown div {
