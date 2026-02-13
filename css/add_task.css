@@ -1066,6 +1066,7 @@ h6 {
     display: inline-block;
     width: 440px;
     top: 16px;
+    margin-bottom: 12px;
 }
 
 .inputfield-category-assign {
@@ -1411,6 +1412,10 @@ h6 {
     #help-icon-logo {
         display: none;
         scroll-behavior: smooth;
+    }
+
+    .task-inputfield-box {
+        margin-bottom: 0px;
     }
 
     .clear-create-container {
