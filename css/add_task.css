@@ -30,7 +30,7 @@ h3 {
     max-width: 1540px;
     width: 100%;
     gap: 24px;
-    padding-top: 150px;
+    margin-top: 150px;
     overflow-y: auto;
     max-height: 1080px;
     min-height: 832px;
@@ -1378,9 +1378,9 @@ h6 {
     }
 
     .category-dropdown {
-        position: relative;
-        top: 0;
-        width: 90vw;
+        position: absolute;
+        top: 65px;
+        width: 95vw;
         border-radius: 8px;
         background-color: white;
         border: 1px solid #ccc;
@@ -1416,6 +1416,7 @@ h6 {
 
     .task-inputfield-box {
         margin-bottom: 0px;
+        width: 100%;
     }
 
     .clear-create-container {
@@ -1469,7 +1470,7 @@ h6 {
         gap: 4px;
         margin-bottom: 42px;
         max-height: unset;
-
+        margin-top: 0px;
     }
 
     .container-both-sides {
@@ -1518,7 +1519,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 97%;
+        width: 100%;
     }
 
     .arrow-container-main-red {
@@ -1561,19 +1562,19 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 95vw;
+        width: 100%;
         height: 40px;
         font-size: 16px;
     }
 
     .inputfield-description {
-        width: 95vw;
+        width: 100%;
         height: 104px;
         font-size: 16px;
     }
 
     .due-date-text-field {
-        width: 95vw;
+        width: 100%;
         height: 40px;
         font-size: 16px;
     }
@@ -1591,7 +1592,7 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 95vw;
+        width: 100%;
         font-size: 16px;
         z-index: 10;
     }
@@ -1609,15 +1610,15 @@ h6 {
 
 
     .inputfield-category-assign {
-        width: 95vw;
+        width: 100%;
         height: 40px;
         font-size: 16px;
     }
 
     .contacts-dropdown {
-        width: 95vw;
+        width: 100%;
         margin-top: 0px;
-        top: 672px;
+        top: 772px;
         z-index: 9;
     }
 
@@ -1628,7 +1629,7 @@ h6 {
     }
 
     .inputfield-subtask-assign {
-        width: 95vw;
+        width: 100%;
         height: 40px;
         font-size: 16px;
     }
@@ -1680,7 +1681,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 96%;
+        width: 100%;
     }
 
     .input-icon-container {
@@ -1689,11 +1690,11 @@ h6 {
 
 
     .title-inputfield-enter-title {
-        width: 92vw;
+        width: 100%;
     }
 
     .inputfield-description {
-        width: 92vw;
+        width: 100%;
         font-size: 16px;
     }
 
@@ -1702,7 +1703,7 @@ h6 {
     }
 
     .due-date-text-field {
-        width: 92vw;
+        width: 100%;
     }
 
     .calendar-clock {
@@ -1718,7 +1719,7 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 92vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon {
@@ -1726,7 +1727,7 @@ h6 {
     }
 
     .inputfield-category-assign {
-        width: 92vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon-down {
@@ -1734,7 +1735,7 @@ h6 {
     }
 
     .inputfield-subtask-assign {
-        width: 92vw;
+        width: 100%;
     }
 
     .add-icon-container {
@@ -1746,11 +1747,11 @@ h6 {
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
-        width: 92vw;
+        width: 100%;
     }
 
     .contacts-dropdown {
-        width: 92vw;
+        width: 100%;
         margin-top: 0px;
     }
 
@@ -1769,7 +1770,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 95%;
+        width: 100%;
     }
 
     .input-icon-container {
@@ -1777,15 +1778,15 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 90vw;
+        width: 100%;
     }
 
     .inputfield-description {
-        width: 90vw;
+        width: 100%;
     }
 
     .due-date-text-field {
-        width: 90vw;
+        width: 100%;
     }
 
     .calendar-clock {
@@ -1801,7 +1802,7 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 90vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon {
@@ -1809,7 +1810,7 @@ h6 {
     }
 
     .inputfield-category-assign {
-        width: 90vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon-down {
@@ -1817,7 +1818,7 @@ h6 {
     }
 
     .inputfield-subtask-assign {
-        width: 90vw;
+        width: 100%;
     }
 
     .add-icon-container {
@@ -1862,15 +1863,15 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 87vw;
+        width: 100%;
     }
 
     .inputfield-description {
-        width: 87vw;
+        width: 100%;
     }
 
     .due-date-text-field {
-        width: 87vw;
+        width: 100%;
     }
 
     .calendar-clock {
@@ -1888,12 +1889,12 @@ h6 {
         display: flex;
         justify-content: space-around;
         gap: 16px;
-        width: 91%;
+        width: 100%;
     }
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 87vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon {
@@ -1901,7 +1902,7 @@ h6 {
     }
 
     .inputfield-category-assign {
-        width: 87vw;
+        width: 100%;
     }
 
     .assigned-arrow-icon-down {
@@ -1924,7 +1925,7 @@ h6 {
     }
 
     .inputfield-subtask-assign {
-        width: 87vw;
+        width: 100%;
     }
 
     .add-icon-container {
