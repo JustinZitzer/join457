@@ -7,7 +7,7 @@
 }
 
 .Max-Width-Header-Login {
-  height: 206px;
+  height: unset;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -322,9 +322,10 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 20;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .Privacy-Policy-Text-Login-Site {
@@ -454,10 +455,6 @@
     position: unset;
   }
 
-  .Login-Box-Div {
-    padding-top: 85px;
-  }
-
   .Header-Login-Right-Button {
     margin-right: 0px;
     margin-bottom: 16px;
@@ -473,6 +470,10 @@
     width: 93%;
     gap: 24px;
     height: 470px;
+  }
+
+  .Login-Box-Div {
+    padding-top: 150px !important;
   }
 
   .Input-Wrapper-Log-In {
@@ -526,7 +527,6 @@
   }
 
   @media screen and (max-height: 801px) {
-    .footer-login-site {}
 
     .Header-Login-Right-Button {
       margin-right: 0px;
