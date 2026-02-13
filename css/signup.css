@@ -16,13 +16,12 @@ body {
 }
 
 .main-container-join {
-    flex: 1;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     max-width: 1920px;
     max-height: 1080px;
-
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -56,6 +55,7 @@ body {
     max-width: 1920px;
     width: 100%;
     max-height: 150px;
+    background-color: #F6F7F8;
 }
 
 .failure-signup-div {
@@ -76,7 +76,8 @@ body {
     align-items: center;
     width: 598px;
     border-radius: 30px;
-    background-color: #FFFFFF;
+    padding-top: 197px;
+    background-color: #F6F7F8;
 }
 
 .hr-line-signup {
@@ -147,6 +148,8 @@ body {
     height: 630px;
     border-radius: 30px;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+    z-index: 2;
 }
 
 .signup-content {
@@ -730,8 +733,7 @@ h1 {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        max-width: 1000px;
+        width: 60%;
         height: 600px;
         border-radius: 30px;
         padding-right: 10px;
@@ -1046,6 +1048,12 @@ h1 {
 
 }
 
+@media screen and (max-width: 800px) {
+    .signup-main-container {
+        width: 70%;
+    }
+}
+
 @media screen and (max-width: 700px) {
 
     .name-icon-size,
@@ -1055,6 +1063,10 @@ h1 {
 
     .hr-line-signup {
         width: 20%;
+    }
+
+    .signup-main-container {
+        width: 80%;
     }
 
     .inputfield-name,
@@ -1097,6 +1109,10 @@ h1 {
 
     .title-text-div-headline {
         font-size: 28px;
+    }
+
+    .signup-main-container {
+        width: 90%;
     }
 
     .blue-underline-headline {
