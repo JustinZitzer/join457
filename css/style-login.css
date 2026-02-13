@@ -152,7 +152,7 @@
 .Login-Box-Div {
   display: flex;
   justify-content: center;
-  padding-top: 85px;
+  padding-top: 287px;
   align-items: center;
 }
 
@@ -321,7 +321,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  position: fixed;
+  bottom: 20;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .Privacy-Policy-Text-Login-Site {
