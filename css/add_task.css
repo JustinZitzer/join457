@@ -1420,7 +1420,7 @@ h6 {
         margin-bottom: 0px;
         width: 100%;
         top: unset;
-        margin-top: 45px;
+        margin-top: 0px;
     }
 
     .clear-create-container {
@@ -1432,7 +1432,7 @@ h6 {
         overflow: visible;
         padding-left: 24px;
         padding-bottom: 120px;
-        padding-top: 100px;
+        padding-top: 43px;
         max-width: 1300px;
     }
 
@@ -1512,7 +1512,7 @@ h6 {
     .inputfield-box-right-side {
         display: flex;
         flex-direction: column;
-        margin-top: -75px;
+        margin-top: -84px;
         gap: 24px;
         width: 100%;
         height: 400px;
