@@ -556,6 +556,14 @@ h3 {
     display: flex;
 }
 
+.three-circle-todo-tasks-board {
+    width: 210px;
+    height: auto;
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10px;
+}
+
 .priority-icon-task-little {
     width: 20px;
     height: 20px;
