@@ -356,6 +356,7 @@ function getARealDueDateAddTask() {
 
   if (!dueDate || dueDate < today) {
     failureMessage.innerHTML = "*Please pick a valid date";
+    failureMessage.classList.remove("display-none");
     return null;
   }
 
