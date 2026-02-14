@@ -853,7 +853,7 @@ function taskInfosForFirebaseBoard() {
 }
 
 function validateInputBoard() {
-  const input = document.getElementById("titleInputBoard").value;
+  const input = document.getElementById("titleInputBoard").value.trim();
   const inputfield = document.getElementById("titleInputBoard");
   const errorMsg = document.getElementById("field-required-in-board");
 
