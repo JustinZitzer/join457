@@ -2156,7 +2156,7 @@ h2 {
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: 30px;
     bottom: 10px;
 }
