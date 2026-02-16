@@ -99,6 +99,7 @@ async function postValueDataIntoFirebase() {
   }
 }
 
+<<<<<<< Updated upstream
 async function enterFullInformation() {
   const isNameValid = enterNameSignUp();
   const isEmailValid = enterEmailSignUp();
@@ -299,3 +300,11 @@ function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+=======
+
+async function  loadData(path='') {
+  let response = await fetch( FireBaseUrl + path + '.json')
+  let responseAsJson = response.json()
+  console.log(responseAsJson)
+}
+>>>>>>> Stashed changes
