@@ -165,7 +165,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
         </div>
         <div id="subtask-text${taskKey}" class="subtask-text">0/2 subtasks</div>
       </div>
-      <div class="three-circle-todo-tasks-board">
+      <div class="three-circle-todo">
         <div id="three-circle-container${taskKey}" class="three-circle-container">
           <div class="single-circle-first"><h5>AS</h5></div>
           <div class="single-circle-second"><h5>DE</h5></div>

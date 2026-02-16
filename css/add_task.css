@@ -30,7 +30,7 @@ h3 {
     max-width: 1540px;
     width: 100%;
     gap: 24px;
-    margin-top: 150px;
+    padding-top: 150px;
     overflow-y: auto;
     max-height: 1080px;
     min-height: 832px;
@@ -418,19 +418,20 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    top: 16px;
     width: 440px;
     height: 35px;
     color: #2A3647;
     position: relative;
-    z-index: 10;
-    margin-bottom: 43px;
 }
 
 
 .task-inputfield-box {
     display: flex;
     flex-direction: column;
-    margin-top: 28px;
+    top: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     width: 440px;
     height: 80px;
     color: #2A3647;
@@ -442,6 +443,7 @@ h6 {
     flex-direction: column;
     height: 80px;
     color: #2A3647;
+    top: 12px;
     margin-top: 0px;
 }
 
@@ -530,8 +532,7 @@ h6 {
     width: 210px;
     height: auto;
     justify-content: space-between;
-    position: absolute;
-    top: 78px;
+    margin-top: 15px;
 }
 
 .margin-bottom-negative {
@@ -660,7 +661,7 @@ h6 {
     width: 100%;
     height: 56px;
     gap: 16px;
-    padding-top: 90px;
+    padding-top: 30px;
     max-width: 990px;
 }
 
@@ -824,11 +825,11 @@ h6 {
 }
 
 .assigned-arrow-icon {
-    position: absolute;
+    position: relative;
     width: 24px;
     height: 24px;
     left: 400px;
-    top: -50px;
+    top: 9px;
     cursor: pointer;
 
 }
@@ -892,7 +893,7 @@ h6 {
     position: absolute;
     top: 0px;
     margin-top: 12px;
-    top: 65px;
+    top: 420px;
     width: 440px;
 }
 
@@ -1065,7 +1066,7 @@ h6 {
     position: relative;
     display: inline-block;
     width: 440px;
-    margin-bottom: 12px;
+    top: 16px;
 }
 
 .inputfield-category-assign {
@@ -1082,7 +1083,7 @@ h6 {
 } */
 .category-dropdown {
     border-radius: 8px;
-    top: 70px;
+    top: 524px;
     width: 440px;
     background-color: white;
     border: 1px solid #ccc;
@@ -1231,7 +1232,7 @@ h6 {
 
 .input-icon-container-no-edit {
     position: absolute;
-    right: 12px;
+    right: 10px;
     top: 53%;
     transform: translateY(-50%);
     display: flex;
@@ -1367,25 +1368,21 @@ h6 {
 
 @media (max-width: 1399px) {
 
-    .error-field-category {
-        bottom: -12px;
-    }
-
     .body-add-task {
         overflow-y: auto;
         /*löschen, wenn -> add task mobile komplett responsive*/
     }
 
     .input-icon-container-no-edit {
-        right: 15px;
+        right: 50px;
     }
 
     .category-dropdown {
-        position: absolute;
-        top: 60px;
-        width: 100%;
+        position: relative;   
+        top: 0;   
+        width: 90vw;          
         border-radius: 8px;
-        background-color: white;
+        background-color: white;    
         border: 1px solid #ccc;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         max-height: 0;
@@ -1417,13 +1414,6 @@ h6 {
         scroll-behavior: smooth;
     }
 
-    .task-inputfield-box {
-        margin-bottom: 0px;
-        width: 100%;
-        top: unset;
-        margin-top: 33px;
-    }
-
     .clear-create-container {
         z-index: auto;
         height: 56px;
@@ -1433,7 +1423,7 @@ h6 {
         overflow: visible;
         padding-left: 24px;
         padding-bottom: 120px;
-        padding-top: 43px;
+        padding-top: 80px;
         max-width: 1300px;
     }
 
@@ -1463,10 +1453,6 @@ h6 {
         padding-bottom: 50px;
     }
 
-    .subtask-inputfield-container {
-        top: 0px;
-    }
-
     .main-container-for-two-inputfield-container {
         display: flex;
         width: 100%;
@@ -1475,7 +1461,7 @@ h6 {
         gap: 4px;
         margin-bottom: 42px;
         max-height: unset;
-        margin-top: 0px;
+
     }
 
     .container-both-sides {
@@ -1503,7 +1489,6 @@ h6 {
     .assigned-inputfield-box {
         width: 100%;
         z-index: 10;
-        top: 0px;
     }
 
     .line-middle-of-both-container {
@@ -1513,7 +1498,7 @@ h6 {
     .inputfield-box-right-side {
         display: flex;
         flex-direction: column;
-        margin-top: -84px;
+        margin-top: -75px;
         gap: 24px;
         width: 100%;
         height: 400px;
@@ -1525,11 +1510,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 100%;
-    }
-
-    .category-mark {
-        padding-bottom: 0px;
+        width: 97%;
     }
 
     .arrow-container-main-red {
@@ -1572,19 +1553,19 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 100%;
+        width: 95vw;
         height: 40px;
         font-size: 16px;
     }
 
     .inputfield-description {
-        width: 100%;
+        width: 95vw;
         height: 104px;
         font-size: 16px;
     }
 
     .due-date-text-field {
-        width: 100%;
+        width: 95vw;
         height: 40px;
         font-size: 16px;
     }
@@ -1602,7 +1583,7 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 100%;
+        width: 95vw;
         font-size: 16px;
         z-index: 10;
     }
@@ -1613,44 +1594,45 @@ h6 {
         cursor: pointer;
         margin-top: 0px;
         align-self: flex-start;
-        right: 17px;
-        left: unset;
-        top: 37px;
+        left: 91.9vw;
+        bottom: 50px;
         z-index: 11;
-        position: absolute;
     }
 
 
     .inputfield-category-assign {
-        width: 100%;
+        width: 95vw;
         height: 40px;
         font-size: 16px;
     }
 
     .contacts-dropdown {
-        width: 100%;
-        margin-top: 0px;
-        top: 65px;
-        z-index: 9;
+        position: relative;
+        width: 95vw;
+        top: 0px;
     }
 
     .assigned-arrow-icon-down {
-        position: absolute;
-        left: unset;
-        right: 5px;
+        left: 92.9vw;
         transform: translateX(-50%);
-        bottom: 26px;
+        bottom: 34px;
     }
 
     .inputfield-subtask-assign {
-        width: 100%;
+        width: 95vw;
         height: 40px;
         font-size: 16px;
     }
 
     .add-icon-container {
+        left: 91.9vw;
+        transform: translateX(-50%);
+    }
+
+
+    .add-icon-container {
         position: absolute;
-        right: 17px;
+        right: 60px;
         top: 24px;
         transform: translateY(-50%);
         height: 24px;
@@ -1664,6 +1646,7 @@ h6 {
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
+        width: 95vw;
     }
 
     .field-required {
@@ -1688,7 +1671,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 100%;
+        width: 96%;
     }
 
     .input-icon-container {
@@ -1697,11 +1680,11 @@ h6 {
 
 
     .title-inputfield-enter-title {
-        width: 100%;
+        width: 92vw;
     }
 
     .inputfield-description {
-        width: 100%;
+        width: 92vw;
         font-size: 16px;
     }
 
@@ -1710,7 +1693,7 @@ h6 {
     }
 
     .due-date-text-field {
-        width: 100%;
+        width: 92vw;
     }
 
     .calendar-clock {
@@ -1726,18 +1709,27 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 100%;
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 87.8vw;
     }
 
     .inputfield-category-assign {
-        width: 100%;
+        width: 92vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 89.3vw;
     }
 
     .inputfield-subtask-assign {
-        width: 100%;
+        width: 92vw;
     }
 
     .add-icon-container {
+        left: 89.3vw;
         transform: translateX(-50%);
         top: 12px;
     }
@@ -1745,11 +1737,11 @@ h6 {
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
-        width: 100%;
+        width: 92vw;
     }
 
     .contacts-dropdown {
-        width: 100%;
+        width: 92vw;
         margin-top: 0px;
     }
 
@@ -1768,7 +1760,7 @@ h6 {
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        width: 100%;
+        width: 95%;
     }
 
     .input-icon-container {
@@ -1776,15 +1768,15 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 100%;
+        width: 90vw;
     }
 
     .inputfield-description {
-        width: 100%;
+        width: 90vw;
     }
 
     .due-date-text-field {
-        width: 100%;
+        width: 90vw;
     }
 
     .calendar-clock {
@@ -1800,24 +1792,39 @@ h6 {
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 100%;
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 84.4vw;
     }
 
     .inputfield-category-assign {
-        width: 100%;
+        width: 90vw;
+    }
+
+    .assigned-arrow-icon-down {
+        left: 86.3vw;
     }
 
     .inputfield-subtask-assign {
-        width: 100%;
+        width: 90vw;
     }
 
     .add-icon-container {
+        left: 86.1vw;
         transform: translateX(-50%);
     }
 
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
+        width: 90vw;
+    }
+
+    .contacts-dropdown {
+        width: 90vw;
+        margin-top: 0px;
     }
 
     .clear-create-container {
@@ -1846,15 +1853,15 @@ h6 {
     }
 
     .title-inputfield-enter-title {
-        width: 100%;
+        width: 87vw;
     }
 
     .inputfield-description {
-        width: 100%;
+        width: 87vw;
     }
 
     .due-date-text-field {
-        width: 100%;
+        width: 87vw;
     }
 
     .calendar-clock {
@@ -1872,18 +1879,33 @@ h6 {
         display: flex;
         justify-content: space-around;
         gap: 16px;
-        width: 100%;
+        width: 91%;
     }
 
     .inputfield-text-assign {
         padding: 8px;
-        width: 100%;
+        width: 87vw;
+    }
+
+    .assigned-arrow-icon {
+        left: 77.5vw;
     }
 
     .inputfield-category-assign {
-        width: 100%;
-        height: 30px;
+        width: 87vw;
     }
+
+    .assigned-arrow-icon-down {
+        position: relative !important;
+        width: 24px !important;
+        height: 24px !important;
+        left: 80.5vw !important;
+        transform: translateX(-50%) !important;
+        bottom: 41px !important;
+        cursor: pointer !important;
+    }
+
+    
 
     .task-inputfield-box {
         display: flex;
@@ -1895,21 +1917,30 @@ h6 {
     }
 
     .inputfield-subtask-assign {
-        width: 100%;
+        width: 87vw;
     }
 
     .add-icon-container {
+        left: 80.5vw;
         transform: translateX(-50%);
     }
 
     .dropdown-open {
         max-height: 200px;
         opacity: 1;
+        width: 87vw;
     }
 
+    .contacts-dropdown {
+        width: 87vw;
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 450px) {
+    .input-icon-container-no-edit {
+        right: 30px;
+    }
 
     .clear-create-container {
         left: 20%;
@@ -1919,6 +1950,10 @@ h6 {
 @media (max-width: 400px) {
     .input-icon-container {
         right: 10px;
+    }
+
+    .input-icon-container-no-edit {
+        right: 25px;
     }
 
     .clear-create-container {
