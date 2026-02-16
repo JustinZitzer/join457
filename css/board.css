@@ -556,6 +556,14 @@ h3 {
     display: flex;
 }
 
+.three-circle-todo-tasks-board {
+    width: 210px;
+    height: auto;
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10px;
+}
+
 .priority-icon-task-little {
     width: 20px;
     height: 20px;
@@ -2148,7 +2156,7 @@ h2 {
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: 30px;
     bottom: 10px;
 }
@@ -4693,7 +4701,6 @@ h2 {
     }
 
     .task-board-big-delete-edit-div-first {
-        position: relative;
         bottom: 10px;
         right: 20px;
     }

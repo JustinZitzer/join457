@@ -50,7 +50,7 @@
                         </div>
 
                         <input onclick="openDatePicker(event)" type="date" id="dueDateInput" placeholder="dd/mm/yyyy" class="due-date-text-field"
-                            onblur="validateDueDateInput()" oninput="validateDueDateInput()">
+                            onblur="getARealDueDateAddTask()" oninput="getARealDueDateAddTask()">
                         <div id="due-date-error" class="error-message-date display-none"></div>
                     </div>
 
@@ -111,13 +111,27 @@
                             <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign"
                                 onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()"
                                 class="inputfield-text-assign" readonly>
-                        </div>
-
-                        <img id="contact-list"
+                                <img id="contact-list"
                             onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()"
                             class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png"
                             alt="assigned-arrow-button">
-                        <div id="contacts-dropdown" class="contacts-dropdown hidden"></div>
+                            <div id="contacts-dropdown" class="contacts-dropdown hidden"></div>
+                            <div id="three-circle-todo" class="three-circle-todo margin-bottom-negative display-none">
+                                <div id="three-circle-container" class="three-circle-container">
+                                    <div class="single-circle-first">
+                                        <h6 id="contact-circle-1">AS</h6>
+                                    </div>
+
+                                    <div class="single-circle-second">
+                                        <h6 id="contact-circle-2">DE</h6>
+                                    </div>
+
+                                    <div class="single-circle-third">
+                                        <h6 id="contact-circle-3">EF</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div id="three-circle-todo" class="three-circle-todo margin-bottom-negative display-none">
                             <div id="three-circle-container" class="three-circle-container">
@@ -144,12 +158,11 @@
                             <img id="dropdown-toggle-btn" class="assigned-arrow-icon-down"
                                 src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button"
                                 onclick="toggleDropdown()">
+                                <div id="category-dropdown" class="category-dropdown dropdown-closed">
+                                    <div onclick="selectCategory('Technical Task')">Technical Task</div>
+                                    <div onclick="selectCategory('User Story')">User Story</div>
+                                </div>
                             <div id="error-field-category" class="error-field-category display-none">*This field is required</div>
-                        </div>
-
-                        <div id="category-dropdown" class="category-dropdown dropdown-closed">
-                            <div onclick="selectCategory('Technical Task')">Technical Task</div>
-                            <div onclick="selectCategory('User Story')">User Story</div>
                         </div>
 
                         <div class="subtask-inputfield-box">

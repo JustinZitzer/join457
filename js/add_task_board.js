@@ -263,9 +263,12 @@ function validateDueDateInput() {
 
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
+
+  const today = new Date().toISOString().split("T")[0];
+  input.min = today;
+
   input.focus();
 
-  // Chrome/Edge: öffnet sicher
   if (typeof input.showPicker === "function") {
     input.showPicker();
   }
@@ -339,14 +342,28 @@ function changeinputFieldAssignToStyle() {
 }
 
 function getInfoForNewTask() {
-  let titel = taskTitel.value || "New Task";
+  let titel = taskTitel.value.trim() || "New Task";
   let description = taskDescription.value || "No description";
-  let dueDate = taskDueDate.value;
+  let dueDate = getARealDueDateAddTask();
   let priority = getPriorityForNewTask();
   let assignedTo = getAssignedToValue();
   let categoryUserOrTechnicalTask = getCategoryForNewTask();
   let subtasks = updateSubtasksArray() || "No subtasks";
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
+}
+
+function getARealDueDateAddTask() {
+  let dueDate = taskDueDate.value;
+  const today = new Date().toISOString().split("T")[0];
+  const failureMessage = document.getElementById("due-date-error");
+
+  if (!dueDate || dueDate < today) {
+    failureMessage.innerHTML = "*Please pick a valid date";
+    failureMessage.classList.remove("display-none");
+    return null;
+  }
+
+  return dueDate;
 }
 
 function getCategoryForNewTask() {
@@ -594,9 +611,11 @@ function getPriorityForNewTask() {
 }
 
 async function postNewTaskToFirebase() {
-  if (taskTitel.value && taskCategory.value && validateDueDateInput()) {
+  const realDueDate = getARealDueDateAddTask();
+  if (taskTitel.value.trim() && taskCategory.value && validateDueDateInput() && realDueDate) {
     const inputsForTask = getInfoForNewTask();
-    const newTaskKey = taskTitel.value;
+    inputsForTask.dueDate = realDueDate;
+    const newTaskKey = taskTitel.value.trim();
     const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
     clearInputFieldsForNewTask();
     showTaskAddedMessage();
