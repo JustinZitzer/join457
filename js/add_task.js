@@ -484,6 +484,7 @@ async function loadContactsForDropdownInEdit(taskKey) {
   if (container.innerHTML == "") {
     try {
       await renderContactsForEditDropdown(container, taskKey);
+      setAssignedContactsCheckedEdit(taskKey);
 
     } catch (error) {
       console.error("Error loading contacts in Editing Dropdown:", error);
@@ -492,6 +493,27 @@ async function loadContactsForDropdownInEdit(taskKey) {
 
   container.classList.toggle("hidden");
   threeCircleDivEdit.classList.toggle("hidden");
+}
+
+function setAssignedContactsCheckedEdit(taskKey) {
+  const task = loadedTasks[taskKey];
+  if (!task || !task.assignedTo) return;
+
+  for (let i = 0; i < task.assignedTo.length; i++) {
+    const assignedName = task.assignedTo[i];
+
+    const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+    const inputs = dropdown.getElementsByClassName("contact-checkbox-edit");
+
+    for (let j = 0; j < inputs.length; j++) {
+      const checkbox = inputs[j];
+      const checkboxName = checkbox.dataset.contactName;
+
+      if (checkboxName === assignedName) {
+        checkbox.checked = true;
+      }
+    }
+  }
 }
 
 

@@ -596,7 +596,8 @@ function contactCardDropdownEditTemplate(contact, taskKey, initials, name) {
         <input id="contact-checkbox-${contact.id}${taskKey}" 
               type="checkbox" 
               class="contact-checkbox-edit" 
-              data-contact-id="${contact.id || ""}">
+              data-contact-id="${contact.id || ""}"
+              data-contact-name="${name}">
       </div>
     </label>
   `;
