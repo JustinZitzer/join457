@@ -557,6 +557,7 @@ h6 {
     width: 210px;
     gap: 8px;
     margin-top: 5px;
+    position: absolute;
 }
 
 .text-align-contacts-counter {
@@ -641,6 +642,7 @@ h6 {
 .subtask-inputfield-container {
     position: relative;
     top: 8px;
+    padding-top: 17px;
 }
 
 .field-required {
@@ -661,7 +663,7 @@ h6 {
     width: 100%;
     height: 56px;
     gap: 16px;
-    padding-top: 30px;
+    padding-top: 90px;
     max-width: 990px;
 }
 
@@ -1067,6 +1069,7 @@ h6 {
     display: inline-block;
     width: 440px;
     top: 16px;
+    margin-top: 35px;
 }
 
 .inputfield-category-assign {
@@ -1083,7 +1086,7 @@ h6 {
 } */
 .category-dropdown {
     border-radius: 8px;
-    top: 524px;
+    top: 544px;
     width: 440px;
     background-color: white;
     border: 1px solid #ccc;
@@ -1423,7 +1426,7 @@ h6 {
         overflow: visible;
         padding-left: 24px;
         padding-bottom: 120px;
-        padding-top: 80px;
+        padding-top: 127px;
         max-width: 1300px;
     }
 
