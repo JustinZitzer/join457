@@ -1178,7 +1178,7 @@ function filterTasksBySearch(taskTitles, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const titleElement = taskTitles[i];
     const title = titleElement.textContent.trim().toLowerCase();
-    const titleStart = title.substring(0, 3);
+    const titleStart = title.substring(0, 1);
 
     if (inputStart === titleStart) {
       toDos[i].classList.remove("display-none");
@@ -1192,7 +1192,7 @@ function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
   const toDos = document.getElementsByClassName("todo-content-box");
-  const inputStart = inputValue.substring(0, 3);
+  const inputStart = inputValue.substring(0, 1);
 
   if (inputValue.length < 1) {
     for (let i = 0; i < toDos.length; i++) {
