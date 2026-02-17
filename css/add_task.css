@@ -642,7 +642,7 @@ h6 {
 .subtask-inputfield-container {
     position: relative;
     top: 8px;
-    padding-top: 17px;
+    padding-top: 0px;
 }
 
 .field-required {
@@ -1381,8 +1381,8 @@ h6 {
     }
 
     .category-dropdown {
-        position: relative;   
-        top: 0;   
+        position: absolute;   
+        top: 875px;
         width: 90vw;          
         border-radius: 8px;
         background-color: white;    
@@ -1391,6 +1391,14 @@ h6 {
         max-height: 0;
         opacity: 0;
         transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .three-circle-container {
+     top: 775px;
+    }
+
+    .task-inputfield-box {
+        margin-top: 30px;
     }
 
     .category-dropdown div {
@@ -1610,9 +1618,9 @@ h6 {
     }
 
     .contacts-dropdown {
-        position: relative;
+        position: absolute;
         width: 95vw;
-        top: 0px;
+        top: 759px;
     }
 
     .assigned-arrow-icon-down {
