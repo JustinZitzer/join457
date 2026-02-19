@@ -29,6 +29,7 @@ let subtaskSavedCounter = 1;
 let todosArray = [];
 let fullTaskInfoArray = [];
 const loadedTasks = {};
+document.addEventListener("click", dropdownCloseOnClickOutside, true);
 
 const taskTitel1 = document.getElementById("titleInput1");
 const taskDescription1 = document.getElementById("inputfield-description1");

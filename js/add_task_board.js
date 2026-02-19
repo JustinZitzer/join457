@@ -193,6 +193,7 @@ function selectCategory(category) {
 
   var dropdown = document.getElementById("category-dropdown");
   dropdown.classList.remove("dropdown-open");
+  dropdown.classList.add("display-none");
   validateGetCategoryForNewTask();
 }
 
@@ -202,6 +203,7 @@ function selectCategoryOverlay(category) {
 
   var dropdown = document.getElementById("category-dropdown");
   dropdown.classList.remove("dropdown-open");
+  dropdown.classList.add("display-none");
 }
 
 function validateInput() {
@@ -830,4 +832,47 @@ function validateEditTaskDueDateFormat(input, value, error) {
     return false;
   }
   return true;
+}
+
+function dropdownCloseOnClickOutside(event) {
+  dropdownCloseOnClickOutsideContacts(event);
+  dropdownCloseOnClickOutsideCategory(event);
+}
+
+function dropdownCloseOnClickOutsideContacts(event) {
+  const dropdown = document.getElementById("contacts-dropdown");
+  const input = document.getElementById("inputfield-text-assign");
+  const icon = document.getElementById("contact-list");
+
+  if (!dropdown || dropdown.classList.contains("hidden")) return;
+
+  // Klick im Dropdown oder auf Öffner → nichts tun
+  if (
+    dropdown.contains(event.target) ||
+    input.contains(event.target) ||
+    icon.contains(event.target)
+  ) {
+    return;
+  }
+
+  // echter Klick daneben → toggle schließen
+  selectContacts();
+}
+
+function dropdownCloseOnClickOutsideCategory(event) {
+  const dropdown = document.getElementById("category-dropdown");
+  const input = document.getElementById("category-input");
+  const icon = document.getElementById("dropdown-toggle-btn");
+
+  if (dropdown.classList.contains("display-none")) return;
+
+  if (
+    dropdown.contains(event.target) ||
+    input.contains(event.target) ||
+    icon.contains(event.target)
+  ) {
+    return;
+  }
+
+  toggleDropdown();
 }
