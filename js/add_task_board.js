@@ -839,24 +839,19 @@ function dropdownCloseOnClickOutside(event) {
   dropdownCloseOnClickOutsideCategory(event);
 }
 
-function dropdownCloseOnClickOutsideContacts(event) {
+async function dropdownCloseOnClickOutsideContacts(event) {
   const dropdown = document.getElementById("contacts-dropdown");
   const input = document.getElementById("inputfield-text-assign");
   const icon = document.getElementById("contact-list");
 
   if (!dropdown || dropdown.classList.contains("hidden")) return;
 
-  // Klick im Dropdown oder auf Öffner → nichts tun
-  if (
-    dropdown.contains(event.target) ||
-    input.contains(event.target) ||
-    icon.contains(event.target)
-  ) {
+  if (dropdown.contains(event.target) ||input.contains(event.target) ||icon.contains(event.target)) {
     return;
   }
 
-  // echter Klick daneben → toggle schließen
-  selectContacts();
+  await loadContactsForDropdown();
+  getContactForCircle();
 }
 
 function dropdownCloseOnClickOutsideCategory(event) {
@@ -866,11 +861,7 @@ function dropdownCloseOnClickOutsideCategory(event) {
 
   if (dropdown.classList.contains("display-none")) return;
 
-  if (
-    dropdown.contains(event.target) ||
-    input.contains(event.target) ||
-    icon.contains(event.target)
-  ) {
+  if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
     return;
   }
 
