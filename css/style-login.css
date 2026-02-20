@@ -95,6 +95,7 @@
 .Header-Login-Right {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .Header-Login-Left {
@@ -152,7 +153,7 @@
 .Login-Box-Div {
   display: flex;
   justify-content: center;
-  padding-top: 85px;
+  padding-top: 250px;
   align-items: center;
 }
 
@@ -400,6 +401,12 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .Login-Box {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 651px) {
 
   .error-message-login {
@@ -440,9 +447,6 @@
   }
 
   .Header-Login-Right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: 80px;
   }
 
@@ -452,12 +456,11 @@
   }
 
   .Login-Box-Div {
-    padding-top: 85px;
+    padding-top: 174px;
   }
 
   .Header-Login-Right-Button {
     margin-right: 0px;
-    margin-bottom: 16px;
     width: 110px;
   }
 
@@ -467,7 +470,6 @@
   }
 
   .Login-Box {
-    width: 93%;
     gap: 24px;
     height: 470px;
   }
