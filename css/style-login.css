@@ -525,7 +525,6 @@
   }
 
   @media screen and (max-height: 801px) {
-    .footer-login-site {}
 
     .Header-Login-Right-Button {
       margin-right: 0px;
