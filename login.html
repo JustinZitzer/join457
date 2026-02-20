@@ -7,17 +7,15 @@
   <title>Log in | Join</title>
   <link rel="stylesheet" href="./css/style-login.css">
   <link rel="stylesheet" href="./css/style-summary.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
   <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
 
 <body class="Body-Login hide-scrollbar" onload="initLogin()">
-  
+
   <div id="Animation-Logo-Div-Z-Index" class="Animation-Logo-Div-Z-Index">
     <div class="Animation-Logo-Div">
-      <img id="Loading-Screen-Logo-Big" class="Loading-Screen-Logo-Big" src="./assets/icons/loading-screen-logo.svg" alt="">
+      <img id="Loading-Screen-Logo-Big" class="Loading-Screen-Logo-Big" src="./assets/icons/loading-screen-logo.svg"
+        alt="">
     </div>
   </div>
 
@@ -27,10 +25,11 @@
       <div id="Header-Login" class="Header-Login">
         <div class="Header-Login-Left-Div">
           <div class="Header-Login-Left">
-            <img id="Loading-Screen-Logo-Mini" class="Loading-Screen-Logo-Mini Visibility-Hidden" src="./assets/icons/join-logo-mini.svg" alt="">
+            <img id="Loading-Screen-Logo-Mini" class="Loading-Screen-Logo-Mini Visibility-Hidden"
+              src="./assets/icons/join-logo-mini.svg" alt="">
           </div>
         </div>
-        
+
         <div id="Header-Login-Right" class="Header-Login-Right">
           <p class="Header-Login-Right-Thin-Text">Not a Join user?</p>
           <Button onclick="window.location.href='./signup.html'" class="Header-Login-Right-Button">
@@ -51,25 +50,28 @@
 
         <div class="Input-Wrapper-Log-In">
           <img class="input-icon" src="./assets/icons/mail.svg" alt="Mail Icon">
-          <input id="Login-Box-Email-Input" class="Login-Box-Email-Input border-color-grey" placeholder="Email" type="email">
+          <input id="Login-Box-Email-Input" class="Login-Box-Email-Input border-color-grey" placeholder="Email"
+            type="email">
         </div>
 
         <div class="Input-Wrapper-Log-In">
           <img onclick="" id="input-icon-login" class="input-icon" src="./assets/icons/lock.svg" alt="Lock Icon">
-          <input onclick="showClosedEyeIconLogin()" id="Login-Box-Passwort-Input" class="Login-Box-Passwort-Input border-color-grey" placeholder="Password" type="password">
-          <svg onclick="showClosedEyeIconLoginToggle()" id="open-eye-icon-login" class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
-                  stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5"/>
-          </svg>
-          <svg onclick="showOpenEyeIconLogin()" id="closed-eye-icon-login" class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          <input onclick="showClosedEyeIconLogin()" id="Login-Box-Passwort-Input"
+            class="Login-Box-Passwort-Input border-color-grey" placeholder="Password" type="password">
+          <svg onclick="showClosedEyeIconLoginToggle()" id="open-eye-icon-login"
+            class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
-                stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5"/>
-              <line x1="4" y1="20" x2="20" y2="4"
-              stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
+              stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5" />
+          </svg>
+          <svg onclick="showOpenEyeIconLogin()" id="closed-eye-icon-login"
+            class="display-none eye-icon-size-postition-login" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 12C3.8 8.5 7.2 6 12 6C16.8 6 20.2 8.5 22 12C20.2 15.5 16.8 18 12 18C7.2 18 3.8 15.5 2 12Z"
+              stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="12" cy="12" r="3" stroke="#A8A8A8" stroke-width="1.5" />
+            <line x1="4" y1="20" x2="20" y2="4" stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <div id="error-message-login" class="error-message-login display-none">*Check your email and password.</div>
         </div>
@@ -88,14 +90,16 @@
     <div id="Header-Login-Right-Mobile-Version-Div" class="Header-Login-Right-Mobile-Version-Div"></div>
 
     <footer class="footer-login-site">
-      <p onclick="window.location.href='./privacy_policy_login.html'" class="Privacy-Policy-Text-Login-Site">Privacy Policy</p>
-      <p onclick="window.location.href='./legal_notice_login.html'" class="Legal-Notice-Text-Login-Site">Legal Notice</p>
+      <p onclick="window.location.href='./privacy_policy_login.html'" class="Privacy-Policy-Text-Login-Site">Privacy
+        Policy</p>
+      <p onclick="window.location.href='./legal_notice_login.html'" class="Legal-Notice-Text-Login-Site">Legal Notice
+      </p>
     </footer>
 
   </div>
 
-    <script src="./js/login.js"></script>
-    <script src="./js/summary.js"></script>
+  <script src="./js/login.js"></script>
+  <script src="./js/summary.js"></script>
 </body>
 
 </html>

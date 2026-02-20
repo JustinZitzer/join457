@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary | Join</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./css/style-summary.css">
     <link rel="stylesheet" href="./css/style-login.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/add_task.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-        
+
 </head>
+
 <body class="Body-Summary-Html" id="Body-Summary-Html" onload="initSummaryAndHTML()">
     <div id="index_html"></div>
     <div class="White-Loading-Background-Mobile" id="White-Loading-Background-Mobile"></div>
@@ -24,97 +21,105 @@
         <div class="Loading-Screen-Mobile">Good Morning!</div>
     </div>
     <div class="Summary-Box-Z-Index-Container hide-scrollbar">
-            <div class="Summary-Box-Positioning-Container">
-                <div class="Summary-Box-Container">
-                    <h1 class="Headline-Join-360">Join 360</h1>
-                    <hr id="Headline-Blue-Line" class="Headline-Blue-Line">
-                    <p class="Headline-Join-360-Text">Key Metrics at a Glance</p>
-                    <div id="Headline-Blue-Line-Mobile-Container" class="Headline-Blue-Line-Mobile-Container">
-                        <hr id="Headline-Blue-Line-Mobile" class="Headline-Blue-Line-Mobile">
-                    </div>
+        <div class="Summary-Box-Positioning-Container">
+            <div class="Summary-Box-Container">
+                <h1 class="Headline-Join-360">Join 360</h1>
+                <hr id="Headline-Blue-Line" class="Headline-Blue-Line">
+                <p class="Headline-Join-360-Text">Key Metrics at a Glance</p>
+                <div id="Headline-Blue-Line-Mobile-Container" class="Headline-Blue-Line-Mobile-Container">
+                    <hr id="Headline-Blue-Line-Mobile" class="Headline-Blue-Line-Mobile">
                 </div>
             </div>
+        </div>
 
-            <div class="To-Do-Six-Box-Container">
-                <div class="First-Two-Box-Container">
-                    <a href="board.html" class="To-Do-Box">
-                        <div class="Circle-Logo-Container">
-                            <svg class="Circle-Logo-Svg-Summary" width="69" height="70" viewBox="0 0 69 70" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="34.5" cy="35" r="34.5"/>
-                            </svg>
-                            <svg class="Pencil-Icon" width="33" height="32" viewBox="0 0 33 32" xmlns="http://www.w3.org/2000/svg">
-                                <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="32">
-                                    <rect x="0.5" width="32" height="32" fill="#D9D9D9"/>
-                                </mask>
-                                <g mask="url(#mask0_313493_6285)">
-                                    <path d="M7.16667 25.3332H9.03333L20.5333 13.8332L18.6667 11.9665L7.16667 23.4665V25.3332ZM26.2333 11.8998L20.5667 6.29984L22.4333 4.43317C22.9444 3.92206 23.5722 3.6665 24.3167 3.6665C25.0611 3.6665 25.6889 3.92206 26.2 4.43317L28.0667 6.29984C28.5778 6.81095 28.8444 7.42761 28.8667 8.14984C28.8889 8.87206 28.6444 9.48873 28.1333 9.99984L26.2333 11.8998ZM24.3 13.8665L10.1667 27.9998H4.5V22.3332L18.6333 8.19984L24.3 13.8665Z"/>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="Counter-Text-To-Do-Box-Wrapper">
-                            <p id="Counter-To-Do" class="Counter-To-Do">1</p>
-                            <p class="To-Do-Box-Text">To-Do</p>
-                        </div>
-                    </a>
-                    <a href="board.html" class="Done-Box">
-                        <div class="Circle-Logo-Container">
-                            <svg class="Circle-Logo-Svg-Summary" width="69" height="70" viewBox="0 0 69 70" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="34.5" cy="35" r="34.5"/>
-                            </svg>
-                            <svg class="Checked-Icon" width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="Counter-Text-Done-Box-Wrapper">
-                            <p id="Counter-Done" class="Counter-Done">1</p>
-                            <p class="Done-Box-Text">Done</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="Second-Container-Box-Greeting-Wrapper">
-                    <a href="board.html" class="Second-One-Box-Container">
-                        <div class="Urgent-Picture-Div">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="30" cy="30" r="30" fill="#FF3D00"/>
-                            </svg>
-                            <img class="Double-Arrow-Up-Icon" src="./assets/icons/Double-Arrow-Up-Summary.svg" alt="">
-                        </div>
-                        <div class="Counter-Urgent-Text-Div">
-                            <p id="Counter-Urgent" class="Counter-Urgent">1</p>
-                            <p class="Urgent-Text">Urgent</p>
-                        </div>
-                        <div>
-                            <hr class="Second-One-Box-Container-Line">
-                        </div>
-                        <div class="Date-And-Deadline-Div">
-                            <p id="Date-Of-The-Deadline" class="Date-Of-The-Deadline">October 16, 2022</p>
-                            <p class="Text-Upcoming-Deadline">Upcoming-Deadline</p>
-                        </div>
-                    </a>
-                    <div class="Text-Wrapper-Div">
-                        <p id="Good-Morning-Text" class="Good-Morning-Text">Good Morning,</p>
-                        <p id="Summary-Name-Text-Greeting" class="Name-Text"></p>
-                    </div>   
-                </div>
-                <div class="Third-Box-Container">
-                    <a href="board.html" class="tiny-box-div">
-                        <p id="Counter-All-Tasks" class="Counter-Tiny-Div">5</p>
-                        <p class="Tasks-In-Board-Tiny-Div">Tasks in <br> Board</p>
-                    </a>
-                    <a href="board.html" class="tiny-box2-div">
-                        <p id="Counter-Tasks-In-Progress" class="Counter-Tiny-Div">2</p>
-                        <p class="Tasks-In-Progress-Tiny-Div">Tasks in Progress</p>
-                    </a>
-                    <a href="board.html" class="tiny-box3-div">
-                        <p id="Counter-Await-Feedback" class="Counter-Tiny-Div">2</p>
-                        <p class="Awaiting-Feedback-Tiny-Div">Awaiting Feedback</p>
-                    </a>
+        <div class="To-Do-Six-Box-Container">
+            <div class="First-Two-Box-Container">
+                <a href="board.html" class="To-Do-Box">
+                    <div class="Circle-Logo-Container">
+                        <svg class="Circle-Logo-Svg-Summary" width="69" height="70" viewBox="0 0 69 70"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="34.5" cy="35" r="34.5" />
+                        </svg>
+                        <svg class="Pencil-Icon" width="33" height="32" viewBox="0 0 33 32"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_313493_6285" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                                width="33" height="32">
+                                <rect x="0.5" width="32" height="32" fill="#D9D9D9" />
+                            </mask>
+                            <g mask="url(#mask0_313493_6285)">
+                                <path
+                                    d="M7.16667 25.3332H9.03333L20.5333 13.8332L18.6667 11.9665L7.16667 23.4665V25.3332ZM26.2333 11.8998L20.5667 6.29984L22.4333 4.43317C22.9444 3.92206 23.5722 3.6665 24.3167 3.6665C25.0611 3.6665 25.6889 3.92206 26.2 4.43317L28.0667 6.29984C28.5778 6.81095 28.8444 7.42761 28.8667 8.14984C28.8889 8.87206 28.6444 9.48873 28.1333 9.99984L26.2333 11.8998ZM24.3 13.8665L10.1667 27.9998H4.5V22.3332L18.6333 8.19984L24.3 13.8665Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="Counter-Text-To-Do-Box-Wrapper">
+                        <p id="Counter-To-Do" class="Counter-To-Do">1</p>
+                        <p class="To-Do-Box-Text">To-Do</p>
+                    </div>
+                </a>
+                <a href="board.html" class="Done-Box">
+                    <div class="Circle-Logo-Container">
+                        <svg class="Circle-Logo-Svg-Summary" width="69" height="70" viewBox="0 0 69 70"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="34.5" cy="35" r="34.5" />
+                        </svg>
+                        <svg class="Checked-Icon" width="38" height="30" viewBox="0 0 38 30" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408" stroke="white" stroke-width="7"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="Counter-Text-Done-Box-Wrapper">
+                        <p id="Counter-Done" class="Counter-Done">1</p>
+                        <p class="Done-Box-Text">Done</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Second-Container-Box-Greeting-Wrapper">
+                <a href="board.html" class="Second-One-Box-Container">
+                    <div class="Urgent-Picture-Div">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="30" fill="#FF3D00" />
+                        </svg>
+                        <img class="Double-Arrow-Up-Icon" src="./assets/icons/Double-Arrow-Up-Summary.svg" alt="">
+                    </div>
+                    <div class="Counter-Urgent-Text-Div">
+                        <p id="Counter-Urgent" class="Counter-Urgent">1</p>
+                        <p class="Urgent-Text">Urgent</p>
+                    </div>
+                    <div>
+                        <hr class="Second-One-Box-Container-Line">
+                    </div>
+                    <div class="Date-And-Deadline-Div">
+                        <p id="Date-Of-The-Deadline" class="Date-Of-The-Deadline">October 16, 2022</p>
+                        <p class="Text-Upcoming-Deadline">Upcoming-Deadline</p>
+                    </div>
+                </a>
+                <div class="Text-Wrapper-Div">
+                    <p id="Good-Morning-Text" class="Good-Morning-Text">Good Morning,</p>
+                    <p id="Summary-Name-Text-Greeting" class="Name-Text"></p>
                 </div>
             </div>
+            <div class="Third-Box-Container">
+                <a href="board.html" class="tiny-box-div">
+                    <p id="Counter-All-Tasks" class="Counter-Tiny-Div">5</p>
+                    <p class="Tasks-In-Board-Tiny-Div">Tasks in <br> Board</p>
+                </a>
+                <a href="board.html" class="tiny-box2-div">
+                    <p id="Counter-Tasks-In-Progress" class="Counter-Tiny-Div">2</p>
+                    <p class="Tasks-In-Progress-Tiny-Div">Tasks in Progress</p>
+                </a>
+                <a href="board.html" class="tiny-box3-div">
+                    <p id="Counter-Await-Feedback" class="Counter-Tiny-Div">2</p>
+                    <p class="Awaiting-Feedback-Tiny-Div">Awaiting Feedback</p>
+                </a>
+            </div>
+        </div>
     </div>
     <script src="./js/script.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/summary.js"></script>
     <script src="./js/load_html.js"></script>
 </body>
+
 </html>

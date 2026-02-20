@@ -4,15 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./css/add_task.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header_sidebar.css">
-  
-    <link
-        href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Bubblegum+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
     <title>Add Task | Join</title>
     <link rel="icon" href="./assets/img/join-logo-white.svg" type="image/svg+xml">
 </head>
@@ -30,7 +24,7 @@
                     <div class="text-title-mark">
                         <span>Title</span>
                     </div>
-                    <input type="text" id="titleInput1"  placeholder="Enter a title" class="title-inputfield-enter-title"
+                    <input type="text" id="titleInput1" placeholder="Enter a title" class="title-inputfield-enter-title"
                         onblur="validateInputOverlay()">
                     <div id="error-message" class="error-message"></div>
                 </div>
@@ -39,7 +33,8 @@
                 <div class="description-main-box">
                     <div class="description-text">
                         <span>Description</span>
-                        <input type="text" id="inputfield-description1" placeholder="Enter Description" class="inputfield-description">
+                        <input type="text" id="inputfield-description1" placeholder="Enter Description"
+                            class="inputfield-description">
                     </div>
 
 
@@ -69,7 +64,8 @@
 
                         <div class="main-box-inputfield">
                             <div class="arrow-container-main-red ">
-                                <button onclick="togglePriority(this)" id="arrow-container-red" class="arrow-container-red arrowgroup">
+                                <button onclick="togglePriority(this)" id="arrow-container-red"
+                                    class="arrow-container-red arrowgroup">
                                     <h4>Urgent</h4>
                                     <img class="arrow-red" src="./assets/icons/double-arrow-up-14221.png"
                                         alt="red-arrow">
@@ -78,14 +74,16 @@
 
                             <div class="main-box-inputfield">
                                 <div class="arrow-container-main-red">
-                                    <button onclick="togglePriority(this)" id="arrow-container-orange" class="arrow-container-orange arrowgroup">
+                                    <button onclick="togglePriority(this)" id="arrow-container-orange"
+                                        class="arrow-container-orange arrowgroup">
                                         <h4>Medium =</h4>
                                     </button>
                                 </div>
 
 
                                 <div class="arrow-container-main-green">
-                                    <button onclick="togglePriority(this)" id="arrow-container-green" class="arrow-container-green arrowgroup">
+                                    <button onclick="togglePriority(this)" id="arrow-container-green"
+                                        class="arrow-container-green arrowgroup">
                                         <h4>Low</h4>
                                         <img class="arrow-green" src="./assets/icons/double-arrow-down-14228.png"
                                             alt="green-arrow">
@@ -96,11 +94,14 @@
 
                         <div class="assigned-inputfield-box">
                             <span>Assigned to</span>
-                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign1" class="inputfield-text-assign">
+                            <input type="text" placeholder="Select contacts to assign" id="inputfield-text-assign1"
+                                class="inputfield-text-assign">
                         </div>
 
-                        <img id="contact-list" onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()" class="assigned-arrow-icon"
-                            src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button">
+                        <img id="contact-list"
+                            onclick="loadContactsForDropdown(), changeinputFieldAssignToStyle(), getContactForCircle()"
+                            class="assigned-arrow-icon" src="./assets/icons/arrow_drop_down.png"
+                            alt="assigned-arrow-button">
                         <div id="contacts-dropdown" class="contacts-dropdown hidden"></div>
 
                         <div id="three-circle-todo" class="three-circle-todo display-none">
@@ -131,11 +132,12 @@
                         </div>
 
                         <div id="category-dropdown1" class="category-dropdown dropdown-closed">
-                                <div onclick="selectCategoryOverlay('Technical Task')">Technical Task</div>
-                                <div onclick="selectCategoryOverlay('User Story')">User Story</div>
+                            <div onclick="selectCategoryOverlay('Technical Task')">Technical Task</div>
+                            <div onclick="selectCategoryOverlay('User Story')">User Story</div>
                         </div>
 
-                        <div id="error-field-category" class="error-field-category display-none">This field is required</div>
+                        <div id="error-field-category" class="error-field-category display-none">This field is required
+                        </div>
 
 
                         <div class="subtask-inputfield-box">
@@ -143,21 +145,32 @@
                                 <div onclick="hidePlusIconShowCheckAndCrossIcon()" id="changed-subtask-inputfield-id">
                                     <span class="subtasks-headline">Subtasks</span>
                                     <div class="subtask-input-icon-flexbox">
-                                        <img class="add-icon-container" id="add-icon-container" src="./assets/icons/subtask-plus-icon.svg">
-                                        <input type="text" id="inputfield-subtask-assign1" placeholder="Add new subtask" class="inputfield-subtask-assign">
+                                        <img class="add-icon-container" id="add-icon-container"
+                                            src="./assets/icons/subtask-plus-icon.svg">
+                                        <input type="text" id="inputfield-subtask-assign1" placeholder="Add new subtask"
+                                            class="inputfield-subtask-assign">
                                         <span class="input-icon-container">
-                                            <svg id="subtask-icon-cross" onclick="clearSubtaskInputField(event)" class="subtask-icon-cross display-none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 5L15 15M15 5L5 15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                            <svg id="subtask-icon-cross" onclick="clearSubtaskInputField(event)"
+                                                class="subtask-icon-cross display-none" width="20" height="20"
+                                                viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 5L15 15M15 5L5 15" stroke="#2A3647" stroke-width="2"
+                                                    stroke-linecap="round" />
                                             </svg>
-                                            <div id="subtask-icon-separator" class="subtask-icon-separator display-none"></div>
-                                            <svg onclick="addSubtaskInContainer()" id="subtask-icon-check" class="subtask-icon-check display-none" width="16" height="16" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408" stroke="#2A3647" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <div id="subtask-icon-separator"
+                                                class="subtask-icon-separator display-none"></div>
+                                            <svg onclick="addSubtaskInContainer()" id="subtask-icon-check"
+                                                class="subtask-icon-check display-none" width="16" height="16"
+                                                viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.02832 15.0001L15.2571 26.0662L33.9717 3.93408"
+                                                    stroke="#2A3647" stroke-width="4" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </span>
                                     </div>
                                 </div>
                                 <div>
-                                    <ul class="subtask-added-tasks-container list-subtask" id="subtask-added-tasks"></ul>
+                                    <ul class="subtask-added-tasks-container list-subtask" id="subtask-added-tasks">
+                                    </ul>
                                 </div>
                             </div>
                         </div>
