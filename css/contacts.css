@@ -385,6 +385,7 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     z-index: 200;
 }
+
 .bg-contact-overlay {
     position: fixed;
     top: 0;
@@ -790,23 +791,27 @@
             max-width: 500px;
             height: auto;
             border-radius: 20px;
-    
-            top: 100%; /* start unten */
+
+            top: 100%;
+            /* start unten */
             left: 50%;
             transform: translateX(-50%);
             animation: slideUpCenter 0.35s ease-out forwards;
         }
     }
 
-@keyframes slideUpCenter {
-    from {
-        top: 100%;
+    @keyframes slideUpCenter {
+        from {
+            top: 100%;
+        }
+
+        to {
+            top: 50%;
+            /* Ziel: vertikale Mitte */
+            transform: translate(-50%, -50%);
+        }
     }
-    to {
-        top: 50%;  /* Ziel: vertikale Mitte */
-        transform: translate(-50%, -50%);
-    }
-}}
+}
 
 @media screen and (max-width: 1600px) {}
 

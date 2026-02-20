@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/static/Inter_18pt-Regular.ttf') format('woff2');
+}
+
 body {
   background-color: #F6F7F8;
+  font-family: 'Inter', sans-serif;
 }
 
 .blue-arrow-left {
