@@ -267,7 +267,22 @@ footer a:hover {
     .Summary-Box-Z-Index-Container {
         margin-top: 0px;
     }
+}
 
+@media screen and (max-width: 1399px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar-max-background {
+        width: 200px;
+    }
+
+    .nav-links a {
+        padding-left: 40px;
+        width: 200px;
+    }
 }
 
 @media screen and (max-width: 1023px) {
