@@ -63,7 +63,7 @@ function showContactsCardOverlayMobile() {
 }
 
 function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
-    if (displayResolution < 1400) {
+    if (displayResolution < 1023) {
         if (isActive) {
             contactsRightSection.style.display = 'flex';
             contactsLeftSection.style.display = 'none';
@@ -85,7 +85,7 @@ function closeContactsSideCardOverlay(contactId) {
 
     document.getElementById('contacts_side_overlay')?.remove();
     document.getElementById('delete-edit-dropdown-contacts')?.remove();
-    document.getElementById('close-side-contact-arrow-icon')?.remove();                   
+    document.getElementById('close-side-contact-arrow-icon')?.remove();
 
     contactsLeftSection.style.display = 'block';
     contactsRightSection.style.display = 'none';

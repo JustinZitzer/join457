@@ -3214,11 +3214,11 @@ h2 {
 
 @media (max-width: 1399px) {
     .todos-bar-container {
-        padding-left: 24px;
+        padding-left: 0px;
     }
 
     .header-content-board {
-        padding-left: 24px;
+        padding-left: 0px;
     }
 }
 
