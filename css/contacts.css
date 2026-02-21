@@ -813,7 +813,18 @@
     }
 }
 
-@media screen and (max-width: 1600px) {}
+@media screen and (max-width: 1399px) {
+
+    .contacts-sidebar-container {
+        margin-left: 195px;
+        min-width: 385px;
+        width: 0;
+    }
+
+    .contacts-right-main-container {
+        margin-left: 0px;
+    }
+}
 
 @media screen and (max-width: 1023px) {
 
