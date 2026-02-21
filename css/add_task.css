@@ -1380,9 +1380,21 @@ h6 {
     .inputfield-box-left-side {
         width: 295px;
     }
+
+    .clear-create-container {
+        width: 780px;
+    }
+
+    .create-field {
+        margin-right: 0px;
+    }
 }
 
 @media (max-width: 1023px) {
+
+    .create-field {
+        margin-right: 60px;
+    }
 
     .subtask-inputfield-container {
         padding-top: 10px;
