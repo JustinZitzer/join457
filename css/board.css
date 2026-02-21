@@ -2445,6 +2445,7 @@ h2 {
 }
 
 .done-box {
+    width: 98%;
     display: flex;
     justify-content: space-between;
 }
@@ -3208,6 +3209,16 @@ h2 {
 @media (max-width: 1600px) {
     .container-both-sides-board {
         left: 100px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .todos-bar-container {
+        padding-left: 24px;
+    }
+
+    .header-content-board {
+        padding-left: 24px;
     }
 }
 
