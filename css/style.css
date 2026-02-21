@@ -30,7 +30,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1023px) {
 
   .info-pages {
     margin-left: 16px;

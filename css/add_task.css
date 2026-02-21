@@ -1369,7 +1369,7 @@ h6 {
     }
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1023px) {
 
     .subtask-inputfield-container {
         padding-top: 10px;
