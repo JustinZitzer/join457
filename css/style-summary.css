@@ -807,7 +807,7 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 700px) {
     .Headline-Join-360 {
         font-size: 42px;
     }
