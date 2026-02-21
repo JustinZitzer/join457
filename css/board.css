@@ -3211,7 +3211,7 @@ h2 {
     }
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1023px) {
 
     .subtask-task-text-edit {
         max-width: 185px;

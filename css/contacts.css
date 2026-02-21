@@ -815,7 +815,7 @@
 
 @media screen and (max-width: 1600px) {}
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1023px) {
 
     .add-contact-edit-contact-btn {
         margin-left: 15px;
