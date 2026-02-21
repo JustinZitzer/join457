@@ -22,7 +22,6 @@
     align-items: flex-start;
     flex-direction: column;
     height: 100%;
-    width: 100%;
     max-width: 1550px;
     max-height: 1080px;
     padding-top: 100px;
@@ -470,12 +469,17 @@
     display: none;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1399px) {
     .Summary-Box-Z-Index-Container {
         margin-left: 0px;
         padding-left: 350px;
     }
+}
 
+@media screen and (max-width: 1399px) {
+    .Text-Wrapper-Div {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -619,7 +623,6 @@
         align-items: center;
         flex-direction: column;
         height: 100%;
-        width: 100%;
         padding-bottom: 50px;
     }
 
@@ -805,7 +808,6 @@
 
 @media screen and (max-width: 1200px) {
     .Headline-Join-360 {
-        margin-top: 20px;
         font-size: 42px;
     }
 
