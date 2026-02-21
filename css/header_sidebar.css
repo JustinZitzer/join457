@@ -282,6 +282,11 @@ footer a:hover {
     .nav-links a {
         padding-left: 40px;
         width: 200px;
+        white-space: nowrap;
+    }
+
+    footer a {
+        padding-left: 40px;
     }
 }
 
