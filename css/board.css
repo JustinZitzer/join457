@@ -3873,9 +3873,6 @@ h2 {
 
 
 @media (max-width: 1200px) {
-    .search-button-container {
-        left: 90vw;
-    }
 
     .responsive-btn {
         left: 92.5vw;
