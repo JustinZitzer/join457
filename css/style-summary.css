@@ -469,7 +469,7 @@
     display: none;
 }
 
-@media screen and (min-width: 1399px) {
+@media screen and (max-width: 1399px) {
     .Summary-Box-Z-Index-Container {
         margin-left: 0px;
         padding-left: 350px;
@@ -624,6 +624,7 @@
         flex-direction: column;
         height: 100%;
         padding-bottom: 50px;
+        padding-left: 0px;
     }
 
     .Summary-Box-Container {
