@@ -1520,6 +1520,41 @@
 }
 
 @media screen and (max-width: 400px) {
+    .contacts-letter-group p {
+        font-size: 14px;
+    }
+
+    .contact-list p {
+        width: 100%;
+    }
+
+    .contact-list-seperator {
+        width: 260px;
+    }
+
+    .contacts-letter-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-profile {
+        width: 42px;
+        height: 42px;
+    }
+
+    .contact-card a {
+        font-size: 14px;
+    }
+
+    .contact-card span {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
     .contacts-sidebar-scrollbar {
         width: 100%;
         background-color: white;
