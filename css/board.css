@@ -3449,7 +3449,7 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-left: 16px;
-        width: 100dvw;
+        width: 98%;
     }
 
     .find-task-add-task-container {
@@ -3480,7 +3480,7 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-left: 16px;
-        width: 100%;
+        width: 98%;
         padding-right: 23.5px;
     }
 
