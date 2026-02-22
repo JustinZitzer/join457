@@ -24,14 +24,13 @@ h3 {
 }
 
 .main-container-for-two-inputfield-container {
-    padding-left: 328px;
+    padding-left: 320px;
     display: flex;
     flex-direction: column;
     max-width: 1540px;
     width: 100%;
     gap: 24px;
     padding-top: 150px;
-    overflow-y: auto;
     max-height: 1080px;
     min-height: 832px;
     padding-bottom: 30px;
@@ -122,7 +121,7 @@ h3 {
     line-height: 120%;
     letter-spacing: 0;
     color: #333;
-    width: 440px;
+    width: 100%;
     height: 48px;
     border-radius: 10px;
     border: 1px solid #D1D1D1;
@@ -311,7 +310,7 @@ h6 {
 .description-main-box {
     display: flex;
     flex-direction: column;
-    width: 440px;
+    width: 100%;
     height: 168px;
     gap: 8px;
     top: 112px;
@@ -322,7 +321,7 @@ h6 {
 }
 
 .inputfield-description {
-    width: 440px;
+    width: 100%;
     height: 120px;
     border-width: 1px;
     gap: 10px;
@@ -374,7 +373,7 @@ h6 {
 .inputfield-due-date-container {
     display: flex;
     flex-direction: column;
-    width: 440px;
+    width: 100%;
     height: 96px;
     gap: 8px;
     margin-top: 15px;
@@ -392,7 +391,7 @@ h6 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #333;
-    width: 440px;
+    width: 100%;
     height: 48px;
     border-width: 1px;
     justify-content: space-between;
@@ -1369,15 +1368,36 @@ h6 {
     }
 }
 
+@media (max-width: 1399px) {
+
+    .main-container-for-two-inputfield-container {
+        padding-left: 230px;
+    }
+}
+
+@media (max-width: 1199px) {
+
+    .inputfield-box-left-side {
+        width: 295px;
+    }
+
+    .clear-create-container {
+        width: 780px;
+    }
+
+    .create-field {
+        margin-right: 0px;
+    }
+}
+
 @media (max-width: 1023px) {
+
+    .create-field {
+        margin-right: 60px;
+    }
 
     .subtask-inputfield-container {
         padding-top: 10px;
-    }
-
-    .body-add-task {
-        overflow-y: auto;
-        /*löschen, wenn -> add task mobile komplett responsive*/
     }
 
     .input-icon-container-no-edit {
@@ -1472,7 +1492,6 @@ h6 {
         gap: 4px;
         margin-bottom: 42px;
         max-height: unset;
-
     }
 
     .container-both-sides {

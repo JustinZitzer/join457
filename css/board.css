@@ -2445,6 +2445,7 @@ h2 {
 }
 
 .done-box {
+    width: 98%;
     display: flex;
     justify-content: space-between;
 }
@@ -3211,6 +3212,16 @@ h2 {
     }
 }
 
+@media (max-width: 1399px) {
+    .todos-bar-container {
+        padding-left: 0px;
+    }
+
+    .header-content-board {
+        padding-left: 0px;
+    }
+}
+
 @media (max-width: 1023px) {
 
     .subtask-task-text-edit {
@@ -3873,9 +3884,6 @@ h2 {
 
 
 @media (max-width: 1200px) {
-    .search-button-container {
-        left: 90vw;
-    }
 
     .responsive-btn {
         left: 92.5vw;
