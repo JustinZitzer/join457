@@ -1,7 +1,6 @@
 .body-board {
     max-width: 1920px;
     max-height: 1080px;
-    overflow-x: hidden;
 }
 
 main {
@@ -3220,6 +3219,17 @@ h2 {
     .header-content-board {
         padding-left: 0px;
     }
+}
+
+@media (max-width: 1299px) {
+    .find-task-add-task-container {
+        width: 100%;
+    }
+
+    .add-task-box {
+        width: 193px;
+    }
+
 }
 
 @media (max-width: 1023px) {
