@@ -1,7 +1,6 @@
 .body-board {
     max-width: 1920px;
     max-height: 1080px;
-    overflow-x: hidden;
 }
 
 main {
@@ -3222,6 +3221,17 @@ h2 {
     }
 }
 
+@media (max-width: 1299px) {
+    .find-task-add-task-container {
+        width: 100%;
+    }
+
+    .add-task-box {
+        width: 193px;
+    }
+
+}
+
 @media (max-width: 1023px) {
 
     .subtask-task-text-edit {
@@ -3439,7 +3449,7 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-left: 16px;
-        width: 100dvw;
+        width: 98%;
     }
 
     .find-task-add-task-container {
@@ -3470,7 +3480,7 @@ h2 {
         display: flex;
         flex-direction: column;
         padding-left: 16px;
-        width: 100%;
+        width: 98%;
         padding-right: 23.5px;
     }
 

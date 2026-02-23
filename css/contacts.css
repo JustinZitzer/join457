@@ -225,7 +225,7 @@
     flex-direction: column;
     width: 461px;
     height: 364px;
-    padding-top: 311px;
+    padding-top: 330px;
     gap: 21px;
     margin-left: 60px;
 }
@@ -826,6 +826,58 @@
     }
 }
 
+@media screen and (max-width: 1240px) {
+    .contacts-headline-seperator {
+        display: none;
+    }
+
+    .contacts-headline-seperator-mobile {
+        display: block;
+        position: absolute;
+        top: 70px;
+        height: 4px;
+        width: 120px;
+        border-radius: 3px;
+        background-color: rgba(41, 171, 226, 1);
+    }
+
+    .contacts-side-headline {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .contacts-overlay-container {
+        margin-top: 24px;
+    }
+
+    .contacts-info-container h3 {
+        font-size: 36px;
+    }
+
+    .contacts-overlay-user-profile {
+        width: 90px;
+        height: 90px;
+    }
+
+    .contacts-overlay-header {
+        gap: 6px;
+    }
+
+    .contacts-overlay-user-profile {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .contacts-overlay-container {
+        margin-left: 14px;
+    }
+
+    .contacts-side-headline {
+        margin-left: 14px;
+    }
+}
+
 @media screen and (max-width: 1023px) {
 
     .add-contact-edit-contact-btn {
@@ -1016,18 +1068,6 @@
         padding-bottom: 50px;
     }
 
-    .contacts-headline-seperator {
-        display: none;
-    }
-
-    .contacts-headline-seperator-mobile {
-        display: block;
-        height: 4px;
-        width: 120px;
-        border-radius: 3px;
-        background-color: rgba(41, 171, 226, 1);
-    }
-
     .contacts-side-headline h3 {
         display: flex;
         font-weight: 400;
@@ -1039,6 +1079,7 @@
 
     .contacts-headline-seperator-mobile {
         margin-top: 5px;
+        position: unset;
     }
 
     .contacts-overlay-action-buttons-container {
@@ -1426,6 +1467,11 @@
 }
 
 @media screen and (max-width: 500px) {
+
+    .contacts-overlay-container {
+        margin-left: 0px;
+    }
+
     .contacts-details-container {
         padding-bottom: 50px;
     }
@@ -1470,6 +1516,41 @@
         font-weight: 700;
         font-size: 35px;
         white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contacts-letter-group p {
+        font-size: 14px;
+    }
+
+    .contact-list p {
+        width: 100%;
+    }
+
+    .contact-list-seperator {
+        width: 260px;
+    }
+
+    .contacts-letter-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-profile {
+        width: 42px;
+        height: 42px;
+    }
+
+    .contact-card a {
+        font-size: 14px;
+    }
+
+    .contact-card span {
+        font-size: 20px;
     }
 }
 
