@@ -19,9 +19,14 @@ main {
 }
 
 .header-main-container {
+    width: 100%;
     height: 176px;
     top: 96px;
     left: 232px;
+}
+
+.header-container-board {
+    width: 100%;
 }
 
 h3 {
@@ -375,12 +380,12 @@ h3 {
 
 .todo-content-box {
     margin-top: 10px;
-    height: auto;
+    height: 224px;
     width: 252px;
     gap: 10px;
     border-radius: 24px;
     padding: 16px;
-    background-color: #FFFFFF;
+    background-color: green;
     cursor: pointer;
 }
 
@@ -558,7 +563,6 @@ h3 {
 .priority-icon-task-little {
     width: 20px;
     height: 20px;
-    margin-top: 22px;
 }
 
 .three-circle-await {
@@ -2431,22 +2435,26 @@ h2 {
 .todo-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .inprogress-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .await-feedback-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .done-box {
     width: 98%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .subtask-headline-edit-div {
@@ -3211,6 +3219,17 @@ h2 {
     }
 }
 
+@media screen and (max-width: 1419px) {
+    .todos-bar-container {
+        padding-left: 19px;
+        padding-right: 4px;
+    }
+
+    .header-content-board {
+        padding-left: 19px;
+    }
+}
+
 @media (max-width: 1399px) {
     .todos-bar-container {
         padding-left: 0px;
@@ -3221,7 +3240,20 @@ h2 {
     }
 }
 
-@media (max-width: 1299px) {
+@media (max-width: 1359px) {
+
+    .todos-bar-container {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 1309px) {
+    main {
+        margin-left: 216px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1299px) {
     .find-task-add-task-container {
         width: 100%;
     }
@@ -3230,7 +3262,141 @@ h2 {
         width: 193px;
     }
 
+    .todo-content-box {
+        width: 230px;
+    }
+
+    .done-content-task {
+        width: 230px;
+    }
+
+    .done-content {
+        width: 230px;
+    }
+
+    .await-feedback-task-container {
+        width: 230px;
+    }
+
+    .inprogress-container {
+        width: 230px;
+    }
+
+    .todo-container {
+        width: 230px;
+    }
+
+    .todo-content {
+        width: 230px;
+    }
+
+    .header-content-board {
+        width: 100%;
+    }
+
+    .text-create-box {
+        font-size: 14px;
+    }
+
+    .progressbar-content {
+        width: 84px;
+    }
+
+    .done-content-task {
+        min-width: unset;
+    }
+
 }
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+
+    .todos-bar-container p {
+        font-size: 17px;
+    }
+
+    .await-feedback-content-task {
+        width: 180px;
+    }
+
+    .await-feedback-content {
+        width: 180px;
+    }
+
+    .await-feedback-task-container {
+        width: 180px;
+    }
+
+    .todo-content-box {
+        width: 180px;
+    }
+
+    .done-content-task {
+        width: 180px;
+    }
+
+    .done-content {
+        width: 180px;
+    }
+
+    .three-circle-container {
+        width: 180px;
+    }
+
+    .progressbar-content {
+        width: 50px;
+    }
+
+    .inprogress-container {
+        width: 180px;
+    }
+
+    .todo-container {
+        width: 180px;
+    }
+
+    .todo-content {
+        width: 180px;
+    }
+
+    .text-create-box {
+        font-size: 11px;
+    }
+
+    .text-contact-box {
+        font-size: 14px;
+    }
+
+    .text-create-box {
+        width: 100%;
+    }
+
+    .done-task-container {
+        width: 180px;
+    }
+
+    .text-contact-box {
+        width: 100%;
+    }
+
+    .progressbar-box {
+        width: 100%;
+    }
+
+}
+
+
+@media (min-width: 1119px) and (max-width: 1199px) {
+    .todos-bar-container {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 1118px) {
+    .todos-bar-container {
+        gap: 9px;
+    }
+}
+
 
 @media (max-width: 1023px) {
 
@@ -3416,7 +3582,7 @@ h2 {
     }
 
     .header-main-container {
-        width: 100dvw;
+        width: 100%;
     }
 
     .responsive-btn {

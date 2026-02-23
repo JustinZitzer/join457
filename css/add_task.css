@@ -555,7 +555,7 @@ h6 {
     align-items: center;
     width: 210px;
     gap: 8px;
-    margin-top: 5px;
+    margin-top: 13px;
     position: absolute;
 }
 
@@ -1387,6 +1387,14 @@ h6 {
 
     .create-field {
         margin-right: 0px;
+    }
+
+    .three-circle-container {
+        width: 140px;
+    }
+
+    .three-circle-todo {
+        width: 140px;
     }
 }
 
