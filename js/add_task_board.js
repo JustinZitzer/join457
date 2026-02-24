@@ -859,6 +859,7 @@ function dropdownCloseOnClickOutsideCategory(event) {
   const input = document.getElementById("category-input");
   const icon = document.getElementById("dropdown-toggle-btn");
 
+  if(!dropdown) return;
   if (dropdown.classList.contains("display-none")) return;
 
   if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
