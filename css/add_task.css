@@ -550,12 +550,12 @@ h6 {
 
 }
 
-.three-circle-container {
+.three-circle-container-add-task-html {
     display: flex;
     align-items: center;
     width: 210px;
     gap: 8px;
-    margin-top: 13px;
+    margin-top: 5px;
     position: absolute;
 }
 
@@ -1394,11 +1394,13 @@ h6 {
     }
 
     .three-circle-todo {
-        width: 140px;
     }
 }
 
 @media (max-width: 1023px) {
+    .three-circle-container-add-task-html {
+        margin-top: 0px;
+    }
 
     .create-field {
         margin-right: 60px;

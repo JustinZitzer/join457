@@ -559,6 +559,7 @@ h3 {
     justify-content: space-between;
     padding-top: 10px;
     display: flex;
+    align-items: flex-end;
 }
 
 .priority-icon-task-little {
@@ -2590,6 +2591,11 @@ h2 {
     margin-left: 5px;
 }
 
+.three-circle-container{
+    display: flex;
+    width: 100%;
+}
+
 .three-circle-container-edit {
     display: flex;
     width: 100%;
@@ -3223,7 +3229,7 @@ h2 {
 @media screen and (max-width: 1419px) {
     .todos-bar-container {
         padding-left: 19px;
-        padding-right: 4px;
+        padding-right: 0px;
     }
 
     .header-content-board {
@@ -3328,7 +3334,8 @@ h2 {
     }
 
     .todo-content-box {
-        width: 180px;
+        width: 190px;
+        height: 210px;
     }
 
     .done-content-task {
@@ -3646,9 +3653,9 @@ h2 {
     .todos-bar-container {
         display: flex;
         flex-direction: column;
-        padding-left: 16px;
-        width: 98%;
-        padding-right: 23.5px;
+        padding-left: 0px;
+        width: 100%;
+        padding-right: 0px;
     }
 
     .todo-container {
@@ -3698,6 +3705,7 @@ h2 {
 
     .todo-content-box {
         margin-right: 15px;
+        margin-left: 10px;
     }
 
     .inprogress-box {
