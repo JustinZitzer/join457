@@ -3634,7 +3634,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 96vw;
+        width: 98%;
         height: 54px;
     }
 
@@ -4084,7 +4084,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 95vw;
+        width: 98%;
     }
 
     .todo-box {
@@ -4156,7 +4156,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 94vw;
+        width: 98%;
     }
 
     .todo-box {
@@ -4171,6 +4171,24 @@ h2 {
 
     .no-tasks-to-do {
         width: 100%;
+    }
+}
+
+@media (max-width: 739px) {
+    .todo-content-task {
+        min-width: unset;
+    }
+
+    .await-feedback-content-task {
+        min-width: unset;
+    }
+
+    .three-circle-todo {
+        width: unset;
+    }
+
+    .three-circle-container {
+        width: unset;
     }
 }
 
@@ -4360,7 +4378,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 92.0vw;
+        width: 98%;
     }
 
     .search-button-container {
@@ -4385,7 +4403,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 91.0vw;
+        width: 98%;
     }
 
     .search-button-container {
@@ -4560,7 +4578,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 89.0vw;
+        width: 98%;
     }
 
     .search-button-container {
@@ -4842,7 +4860,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 89.0vw;
+        width: 98%;
     }
 
     .search-button-container {
@@ -4862,7 +4880,7 @@ h2 {
     }
 
     .title-findtask {
-        width: 89.0vw;
+        width: 98%;
     }
 
     .search-button-container {
