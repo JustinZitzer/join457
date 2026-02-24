@@ -4186,10 +4186,6 @@ h2 {
     .three-circle-todo {
         width: unset;
     }
-
-    .three-circle-container {
-        width: unset;
-    }
 }
 
 @media (max-width: 700px) {
