@@ -528,7 +528,7 @@ h6 {
 }
 
 .three-circle-todo {
-    width: 210px;
+    width: 100%;
     height: auto;
     justify-content: space-between;
     margin-top: 15px;
@@ -1391,9 +1391,6 @@ h6 {
 
     .three-circle-container {
         width: 140px;
-    }
-
-    .three-circle-todo {
     }
 }
 

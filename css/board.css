@@ -105,7 +105,6 @@ h3 {
 .search-button {
     width: 17.6px;
     height: 17.6px;
-
 }
 
 
@@ -127,7 +126,6 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     vertical-align: middle;
-
 }
 
 .title-findtask {
@@ -152,7 +150,6 @@ h3 {
     width: 280px;
     height: 32px;
     justify-content: space-between;
-
 }
 
 
@@ -2591,7 +2588,7 @@ h2 {
     margin-left: 5px;
 }
 
-.three-circle-container{
+.three-circle-container {
     display: flex;
     width: 100%;
 }
@@ -3408,6 +3405,14 @@ h2 {
 
 @media (max-width: 1023px) {
 
+    .search-button-container {
+        position: unset;
+    }
+
+    .inputfield-task-content {
+        display: flex;
+    }
+
     .subtask-task-text-edit {
         max-width: 185px;
         overflow-x: auto;
@@ -3632,8 +3637,13 @@ h2 {
     }
 
     .inputfield-task {
+        width: 98%;
         padding-top: 40px;
         padding-left: 0px;
+    }
+
+    .inputfield-task-content {
+        width: 98%;
     }
 
     .add-task-box {
@@ -3646,7 +3656,6 @@ h2 {
     }
 
     .search-button-container {
-        left: 90.5vw;
         bottom: 42px;
     }
 
@@ -4105,10 +4114,6 @@ h2 {
         width: 100%;
     }
 
-    .search-button-container {
-        left: 87.5vw;
-    }
-
     .inputfield-text-assign {
         padding: 8px;
         width: 92vw;
@@ -4157,10 +4162,6 @@ h2 {
 
     .await-feedback-content-task {
         display: flex;
-    }
-
-    .search-button-container {
-        left: 85.5vw;
     }
 
     .title-findtask {
@@ -4384,10 +4385,6 @@ h2 {
     .title-findtask {
         width: 98%;
     }
-
-    .search-button-container {
-        left: 81vw;
-    }
 }
 
 @media (max-width: 600px) {
@@ -4408,10 +4405,6 @@ h2 {
 
     .title-findtask {
         width: 98%;
-    }
-
-    .search-button-container {
-        left: 80vw;
     }
 }
 
@@ -4583,10 +4576,6 @@ h2 {
 
     .title-findtask {
         width: 98%;
-    }
-
-    .search-button-container {
-        left: 75vw;
     }
 
     .main-container-for-two-inputfield-container {
@@ -4866,10 +4855,6 @@ h2 {
     .title-findtask {
         width: 98%;
     }
-
-    .search-button-container {
-        left: 72vw;
-    }
 }
 
 @media (max-width: 350px) {
@@ -4885,10 +4870,6 @@ h2 {
 
     .title-findtask {
         width: 98%;
-    }
-
-    .search-button-container {
-        left: 70vw;
     }
 
     .subtask-task-text-edit {
