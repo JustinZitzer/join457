@@ -272,10 +272,6 @@ footer a:hover {
 
 @media screen and (max-width: 1023px) {
 
-    .info-pages {
-        padding-top: 50px;
-    }
-
     .sidebar-join-logo-alternative {
         margin-bottom: 0px;
         display: none;
