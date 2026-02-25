@@ -382,8 +382,7 @@ h3 {
     gap: 10px;
     border-radius: 24px;
     padding: 16px;
-    background-color: green;
-    /*zurück auf #FFFFFF*/
+    background-color: #FFFFFF;
     cursor: pointer;
 }
 
