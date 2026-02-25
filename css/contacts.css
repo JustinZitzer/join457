@@ -787,9 +787,6 @@
 
     @media (max-width: 768px) {
         .add-contact-overlay {
-            width: 90vw;
-            max-width: 500px;
-            height: auto;
             border-radius: 20px;
 
             top: 100%;
@@ -826,7 +823,7 @@
     }
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1249px) {
     .contacts-headline-seperator {
         display: none;
     }
@@ -844,6 +841,10 @@
     .contacts-side-headline {
         flex-direction: column;
         align-items: unset;
+    }
+
+    .add-contact-input-containers input {
+        width: 320px;
     }
 
     .contacts-overlay-container {
@@ -865,6 +866,10 @@
 
     .contacts-overlay-user-profile {
         font-size: 32px;
+    }
+
+    .add-contact-headline h1 {
+        font-size: 50px;
     }
 }
 
@@ -1272,7 +1277,6 @@
         border-radius: 30px;
         background-color: white;
         box-shadow: 0px 0px 10px rgba(42, 54, 71, 1);
-        width: 98vw;
     }
 
     .add-contact-left-section {
@@ -1440,29 +1444,17 @@
     .add-new-contact-btn-mobile-version {
         right: 5vw;
     }
-
-    .add-contact-overlay {
-        width: 94vw;
-    }
 }
 
 @media screen and (max-width: 900px) {
     .add-new-contact-btn-mobile-version {
         right: 4vw;
     }
-
-    .add-contact-overlay {
-        width: 93vw;
-    }
 }
 
 @media screen and (max-width: 700px) {
     .add-new-contact-btn-mobile-version {
         right: 2vw;
-    }
-
-    .add-contact-overlay {
-        width: 92vw;
     }
 }
 
@@ -1506,10 +1498,6 @@
     .add-new-contact-btn-mobile-version img {
         width: 32px;
         height: 32px;
-    }
-
-    .add-contact-overlay {
-        width: 91vw;
     }
 
     .add-contact-headline h1 {
