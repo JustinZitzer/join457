@@ -1743,15 +1743,11 @@ h5 {
 /* Der weiße Slide-In-Bereich von rechts */
 
 .container-both-sides-board {
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 32px;
-    top: 30px;
-    left: 270px;
     width: 1300px;
-    min-width: 1300px;
     min-height: 800px;
     height: 820px;
     transform: translateX(100%);
@@ -3216,11 +3212,7 @@ h2 {
     z-index: 0;
 }
 
-@media (max-width: 1600px) {
-    .container-both-sides-board {
-        left: 100px;
-    }
-}
+@media (max-width: 1600px) {}
 
 @media screen and (max-width: 1419px) {
     .todos-bar-container {
@@ -3247,6 +3239,14 @@ h2 {
 
     .todos-bar-container {
         gap: 4px;
+    }
+
+    .container-both-sides-board {
+        width: 1100px;
+    }
+
+    .x-close-button-add-task-overlay {
+        margin-right: 20px;
     }
 }
 
@@ -3392,6 +3392,13 @@ h2 {
 @media (min-width: 1119px) and (max-width: 1199px) {
     .todos-bar-container {
         gap: 24px;
+    }
+}
+
+@media (max-width: 1199px) {
+
+    .container-both-sides-board {
+        width: 961px;
     }
 }
 
@@ -3799,10 +3806,6 @@ h2 {
     #header-title-project-management-tool,
     #help-icon-logo {
         display: none;
-    }
-
-    .container-both-sides-board {
-        width: 100%;
     }
 
     #header-index-html {
@@ -4877,12 +4880,6 @@ h2 {
         overflow-y: hidden;
         white-space: nowrap;
         scrollbar-width: none;
-    }
-
-    .task-board-big-delete-edit-div-first {
-        position: relative;
-        bottom: 10px;
-        right: 20px;
     }
 
     .task-board-big-delete-edit-div {
