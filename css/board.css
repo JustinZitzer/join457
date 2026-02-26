@@ -87,17 +87,19 @@ h3 {
 }
 
 .search-button-container {
+    position: absolute;
+    right: 16px;
+    height: 100%;
     display: flex;
     align-items: center;
-    width: 48px;
-    height: 32px;
-    right: 16px;
     gap: 12px;
-    border: 1px solid #D1D1D1;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
     cursor: pointer;
+}
+
+.line-infind-task-field {
+    width: 1px;
+    height: 31px;
+    background-color: #D1D1D1;
 }
 
 .search-button {
@@ -126,7 +128,7 @@ h3 {
     display: flex;
     align-items: center;
     position: relative;
-    width: 280px;
+    width: 100%;
     height: 48px;
 }
 
@@ -3409,8 +3411,7 @@ h2 {
 @media (max-width: 1023px) {
 
     .search-button-container {
-        left: 840px;
-        top: 11px;
+        right: 35px;
     }
 
     .inputfield-task-content {
