@@ -89,9 +89,9 @@ h3 {
 .search-button-container {
     display: flex;
     align-items: center;
-    position: relative;
-    left: 240px;
-    bottom: 38px;
+    position: absolute;
+    left: 250px;
+    top: 8px;
     width: 48px;
     height: 32px;
     gap: 12px;
@@ -126,6 +126,10 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     vertical-align: middle;
+    position: relative;
+    width: 280px;
+    height: 32px;
+    justify-content: space-between;
 }
 
 .title-findtask {
@@ -145,13 +149,6 @@ h3 {
     outline: none;
     border: 1px solid #29ABE2;
 }
-
-.inputfield-task-content {
-    width: 280px;
-    height: 32px;
-    justify-content: space-between;
-}
-
 
 .add-task-box {
     display: flex;
@@ -3412,7 +3409,8 @@ h2 {
 @media (max-width: 1023px) {
 
     .search-button-container {
-        position: unset;
+        left: 840px;
+        top: 11px;
     }
 
     .inputfield-task-content {
@@ -3659,10 +3657,6 @@ h2 {
     .title-findtask {
         width: 98%;
         height: 54px;
-    }
-
-    .search-button-container {
-        bottom: 42px;
     }
 
     .todos-bar-container {

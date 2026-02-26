@@ -440,6 +440,7 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
 function progressBarStyle(taskKey, subtasks) {
   const progressBar = document.getElementById(`progressbar-content${taskKey}`);
   const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
+  const threeCircleContainer = document.getElementById(`three-circle-container${taskKey}`);
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
