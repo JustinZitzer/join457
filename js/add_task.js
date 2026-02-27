@@ -924,14 +924,18 @@ function isValidDDMMYYYYRealDate(value) {
 
   const [year, month, day] = value.split("-").map(Number);
 
-  const parsedDate = new Date(year, month - 1, day);
+  const selectedDate = new Date(year, month - 1, day);
+  selectedDate.setHours(0, 0, 0, 0);
 
-  if (
-    parsedDate.getFullYear() !== year ||
-    parsedDate.getMonth() !== month - 1 ||
-    parsedDate.getDate() !== day
-  ) {
+  if (selectedDate.getFullYear() !== year ||selectedDate.getMonth() !== month - 1 ||selectedDate.getDate() !== day) {
     return { valid: false, message: "Please enter a real, valid date." };
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  if (selectedDate < today) {
+    return { valid: false, message: "The due date cannot be in the past." };
   }
 
   return { valid: true, message: "" };
@@ -1145,8 +1149,9 @@ async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
   const taskCategory = document.getElementById("inputfield-category-assign-board");
+  const isDateValid = validateDueDateInputBoard();
 
-  if (taskTitel.value && taskDueDate.value && taskCategory.value) {
+  if (taskTitel.value && taskDueDate.value && taskCategory.value && isDateValid) {
     await handleTaskCreationBoard(status, taskTitel);
     await loadAllTasksFromFirebase();
   } else {
