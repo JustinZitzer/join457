@@ -912,22 +912,26 @@ function validateDueDateInputBoard() {
 }
 
 function isValidDDMMYYYYRealDate(value) {
+  const dateRegex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
   if (!value) {
     return { valid: false, message: "Please pick a valid date." };
   }
 
-  const selectedDate = new Date(value);
-  if (isNaN(selectedDate)) {
-    return { valid: false, message: "Please pick a valid date." };
+  if (!dateRegex.test(value)) {
+    return { valid: false, message: "*Please pick a valid date." };
   }
 
-  selectedDate.setHours(0, 0, 0, 0);
+  const [year, month, day] = value.split("-").map(Number);
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const parsedDate = new Date(year, month - 1, day);
 
-  if (selectedDate < today) {
-    return { valid: false, message: "The due date cannot be in the past." };
+  if (
+    parsedDate.getFullYear() !== year ||
+    parsedDate.getMonth() !== month - 1 ||
+    parsedDate.getDate() !== day
+  ) {
+    return { valid: false, message: "Please enter a real, valid date." };
   }
 
   return { valid: true, message: "" };
