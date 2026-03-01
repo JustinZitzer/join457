@@ -438,9 +438,7 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
 }
 
 function progressBarStyle(taskKey, subtasks) {
-  const progressBar = document.getElementById(`progressbar-content${taskKey}`);
   const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
-  const threeCircleContainer = document.getElementById(`three-circle-container${taskKey}`);
   if (!subtasks) return;
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
@@ -837,6 +835,7 @@ async function patchRegistryDataBaseFunction(path, data) {
 }
 
 function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
+  const threeCircleToDo = document.getElementById(`three-circle-todo${taskKey}`);
   if (subtasksCheckboxes.length > 0) {
     subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
 
@@ -845,6 +844,7 @@ function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv,
 
     progressBarFillDiv.style.width = `${progressPercentage}%`;
   } else {
+    threeCircleToDo.style.marginTop = "33px";
     progressBarDiv.classList.add("display-none");
   }
 }
