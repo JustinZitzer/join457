@@ -1822,6 +1822,12 @@ h2 {
 
 }
 
+.error-due-date-edit-error {
+    color: red;
+    position: absolute;
+    top: 40px;
+}
+
 /* Animationen */
 @keyframes slideInRight {
     from {
@@ -2295,8 +2301,8 @@ h2 {
 
 .inputfield-due-date-container-edit-div {
     display: flex;
-    align-items: center;
     position: relative;
+    flex-direction: column;
 }
 
 .due-date-headline-edit {

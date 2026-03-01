@@ -807,6 +807,7 @@ function validateEditTaskDueDate(taskKey) {
 
   if (!validateEditTaskDueDateEmpty(input, value, error)) return false;
   if (!validateEditTaskDueDateFormat(input, value, error)) return false;
+  if (!validateEditTaskDueDateNotPast(input, value, error)) return false;
 
   input.classList.remove("border-red-board");
   error.classList.add("display-none");
@@ -869,29 +870,11 @@ function dropdownCloseOnClickOutsideCategory(event) {
   toggleDropdown();
 }
 
-function validateEditedTaskDueDate(taskKey) {
-   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
-  const error = document.getElementById(`error-due-date-edit-error${taskKey}`);
-  if (!input) return false;
-
-  const value = input.value.trim();
-
-  if (!validateEditTaskDueDateEmpty(input, value, error)) return false;
-  if (!validateEditTaskDueDateFormat(input, value, error)) return false;
-  if (!validateEditTaskDueDateNotPast(input, value, error)) return false;
-
-  input.classList.remove("border-red-board");
-  error.classList.add("display-none");
-  return true;
-}
-
 function validateEditTaskDueDateNotPast(input, value, error) {
   if (!value) return false;
 
-  // value kommt als "YYYY-MM-DD"
   const selected = new Date(value + "T00:00:00");
 
-  // Heute (lokal) auf 00:00 setzen
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 

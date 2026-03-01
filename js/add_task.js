@@ -268,6 +268,7 @@ function assignedToPlusNumber(assignedTo, containerTask) {
 function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
   const containerTask = document.getElementById(`three-circle-container${taskKey}`);
+  const priorityBoxPicture = document.getElementById(`priority-icon-task-little${taskKey}`);
 
   const circleClasses = ["single-circle-first-big", "single-circle-second-big", "single-circle-third-big", "single-circle-fourth-big", "single-circle-fifth-big"];
 
@@ -278,6 +279,8 @@ function renderAssignedContacts(taskKey, assignedTo) {
 
   if (assignedTo) {
     renderAssignedContactItems(assignedTo, container, containerTask, circleClasses, circleClassesTask);
+  } else if(!assignedTo) {
+    priorityBoxPicture.style.marginTop = "22px";
   }
 }
 
@@ -795,7 +798,7 @@ function saveEditTaskPriority(taskKey) {
 }
 
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
-  if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey) || !validateEditedTaskDueDate(taskKey)) return;
+  if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey)) return;
 
   const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
   const newTitle = inputsForTask.titel;
