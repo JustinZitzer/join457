@@ -279,7 +279,7 @@ function getTaskEditTemplate(task, taskKey) {
         <h2 class="due-date-headline-edit">Due Date</h2>
         <div class="img-input-date-edit-div">
           <div class="inputfield-due-date-container-edit-div">
-            <input onblur="validateEditTaskDueDate('${taskKey}')" onclick="openDatePickerEditTask('${taskKey}')" class="due-date-edit-task-big" id="due-date-edit-task-big${taskKey}" type="date" value="${task.dueDate}">
+            <input oninput="validateEditedTaskDueDate('${taskKey}')" onblur="validateEditTaskDueDate('${taskKey}')" onclick="openDatePickerEditTask('${taskKey}')" class="due-date-edit-task-big" id="due-date-edit-task-big${taskKey}" type="date" value="${task.dueDate}">
             <div class="error-due-date-edit-error display-none" id="error-due-date-edit-error${taskKey}">Please pick a valid Date</div>
           </div>
         <div>

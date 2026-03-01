@@ -797,7 +797,7 @@ function saveEditTaskPriority(taskKey) {
 }
 
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
-  if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey)) return;
+  if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey) || !validateEditedTaskDueDate(taskKey)) return;
 
   const inputsForTask = getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask);
   const newTitle = inputsForTask.titel;
