@@ -966,7 +966,7 @@
         display: block;
         position: absolute;
         top: 160px;
-        right: 6vw;
+        right: 5vw;
         cursor: pointer;
         transition: transform 0.3s ease-in-out;
     }
