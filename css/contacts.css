@@ -951,7 +951,7 @@
     .contacts-overlay-header {
         display: flex;
         width: 100%;
-        height: 54px;
+        height: 74px;
         gap: 54px;
     }
 
@@ -1474,11 +1474,13 @@
     }
 
     .contacts-overlay-container {
-        width: 280px;
+        padding-top: 12px;
+        gap: 6px;
     }
 
     .contacts-overlay-header h3 {
         font-size: 25px;
+        height: 44px;
     }
 
     .contacts-overlay-user-profile {
