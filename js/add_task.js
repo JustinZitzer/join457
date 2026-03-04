@@ -1210,9 +1210,17 @@ function filterTasksBySearch(taskTitles, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const titleElement = taskTitles[i];
     const title = titleElement.textContent.trim().toLowerCase();
-    const titleStart = title.substring(0, 1);
+    const words = title.split(" ");
+    let match = false;
 
-    if (inputStart === titleStart) {
+    for (let j = 0; j < words.length; j++) {
+      if (words[j].startsWith(inputStart)) {
+        match = true;
+        break;
+      }
+    }
+
+    if (match) {
       toDos[i].classList.remove("display-none");
     } else {
       toDos[i].classList.add("display-none");
@@ -1224,7 +1232,7 @@ function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
   const toDos = document.getElementsByClassName("todo-content-box");
-  const inputStart = inputValue.substring(0, 1);
+  const inputStart = inputValue.substring(0, 3);
 
   if (inputValue.length < 1) {
     for (let i = 0; i < toDos.length; i++) {
