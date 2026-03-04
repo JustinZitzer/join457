@@ -4,6 +4,7 @@ async function loadHTML() {
 
 async function loadAlternativeHTML() {
   await loadInfoIndexHTML();
+  backgroundStyleLoginInfoAlternativePages();
 }
 
 async function loadIndexHTML() {
@@ -41,9 +42,24 @@ async function initInfoPages() {
 async function linkBackgroundStyleInfoPages() {
   const privacyPolicyMarker = document.getElementById('privacy-policy-marker-id');
   const legalNoticeMarker = document.getElementById('legal-notice-marker-id');
-  if(window.location.pathname.includes("privacy_policy.html")) {
+  const privacyPolicyIdentifier = document.getElementById('privacy-policy-identifier');
+  const legalNoticeIdentifier = document.getElementById('legal-notice-identifier');
+  if(privacyPolicyIdentifier) {
     privacyPolicyMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
-  } else if(window.location.pathname.includes("legal_notice.html")) {
+  } else if(legalNoticeIdentifier) {
+    legalNoticeMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
+  }
+}
+
+async function backgroundStyleLoginInfoAlternativePages() {
+  const privacyPolicyIdentifier = document.getElementById('privacy-policy-identifier-login');
+  const legalNoticeIdentifier = document.getElementById('legal-notice-identifier-login');
+
+  if(privacyPolicyIdentifier) {
+    const privacyPolicyMarker = document.getElementById('privacy-policy-link-alternative');
+    privacyPolicyMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
+  } else if(legalNoticeIdentifier) {
+    const legalNoticeMarker = document.getElementById('legal-notice-link-alternative');
     legalNoticeMarker.style.backgroundColor = "rgba(9, 25, 49, 1)";
   }
 }
@@ -108,15 +124,17 @@ function selectedSiteBackgroundStyle() {
     const addTaskMarker = document.getElementById('add-task-marker-list-id');
     const contactsMarker = document.getElementById('contacts-marker-list-id');
     const activeColor = "rgba(9, 25, 49, 1)";
-    const windowSize = window.innerWidth;
-
-      if(window.location.pathname.includes("summary.html")) {
+    const summaryIdentifier = document.getElementById('Summary-Identity');
+    const addTaskIdentifier = document.getElementById('add-task-identifier');
+    const boardIdentifier = document.getElementById('board-identifier');
+    const contactsIdentifier = document.getElementById('contacts-identifier');
+      if(summaryIdentifier) {
         summaryMarker.style.backgroundColor = activeColor;
-      } else if(window.location.pathname.includes("board.html")) {
+      } else if(boardIdentifier) {
         boardMarker.style.backgroundColor = activeColor;
-      } else if(window.location.pathname.includes("add_task.html")) {
+      } else if(addTaskIdentifier) {
         addTaskMarker.style.backgroundColor = activeColor;
-      } else if(window.location.pathname.includes("contacts.html")) {
+      } else if(contactsIdentifier) {
         contactsMarker.style.backgroundColor = activeColor;
       }
 }
