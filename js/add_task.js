@@ -812,7 +812,7 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   }
 
   hideBigTaskInfo(taskKey);
-  loadAllTasksFromFirebase();
+  await loadAllTasksFromFirebase();
 }
 
 async function saveSubtaskStatus(taskKey, category, titel, i) {
@@ -846,9 +846,6 @@ function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv,
     const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
 
     progressBarFillDiv.style.width = `${progressPercentage}%`;
-  } else {
-    threeCircleToDo.style.marginTop = "33px";
-    progressBarDiv.classList.add("display-none");
   }
 }
 
