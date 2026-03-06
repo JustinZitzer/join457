@@ -510,14 +510,21 @@ h3 {
     line-height: 120%;
     letter-spacing: 0%;
     color: #A8A8A8;
+    max-height: 38px;
 }
 
+.text-create-box-mini-task {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 .progressbar-box {
     display: flex;
     width: 220px;
     height: 16px;
-    padding-top: 15px;
+    padding-top: 30px;
     align-items: center;
 }
 

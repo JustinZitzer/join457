@@ -156,7 +156,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
       <div class="text-contact-box">
         <span class="task-titel-mini-task" id="task-titel-mini-task">${task.titel}</span>
         <div class="text-create-box">
-          <span>${task.description}</span>
+          <div class="text-create-box-mini-task">${task.description}</div>
         </div>
       </div>
       <div id="progressbar-box${taskKey}" class="progressbar-box">
