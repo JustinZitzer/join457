@@ -861,9 +861,13 @@ function subtaskCounter(taskKey) {
   const progressBarDiv = document.getElementById(`progressbar-box${taskKey}`);
   let counter = 0;
 
+  if (!subtasksCheckboxes || subtasksCheckboxes.length === 0) {
+    if (progressBarDiv) progressBarDiv.style.display = "none";
+    return;
+  }
+
   for (let i = 0; i < subtasksCheckboxes.length; i++) {
-    const checkbox = subtasksCheckboxes[i];
-    if (checkbox.checked) {
+    if (subtasksCheckboxes[i].checked) {
       counter++;
     }
   }
