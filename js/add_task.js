@@ -502,15 +502,21 @@ function setAssignedContactsCheckedEdit(taskKey) {
   const task = loadedTasks[taskKey];
   if (!task || !task.assignedTo) return;
 
-  for (let i = 0; i < task.assignedTo.length; i++) {
-    const assignedName = task.assignedTo[i];
+  const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  if (!dropdown) return;
 
-    const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-    const inputs = dropdown.getElementsByClassName("contact-checkbox-edit");
+  const inputs = dropdown.getElementsByClassName("contact-checkbox-edit");
+
+  for (let j = 0; j < inputs.length; j++) {
+    inputs[j].checked = false;
+  }
+
+  for (let i = 0; i < task.assignedTo.length; i++) {
+    const assignedName = task.assignedTo[i].trim();
 
     for (let j = 0; j < inputs.length; j++) {
       const checkbox = inputs[j];
-      const checkboxName = checkbox.dataset.contactName;
+      const checkboxName = checkbox.dataset.contactName.trim();
 
       if (checkboxName === assignedName) {
         checkbox.checked = true;
