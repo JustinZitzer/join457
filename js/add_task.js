@@ -859,10 +859,13 @@ function subtaskCounter(taskKey) {
   const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
   const progressBarDiv = document.getElementById(`progressbar-box${taskKey}`);
+  const priorityIcon = document.getElementById(`priority-icon-task-little${taskKey}`);
+
   let counter = 0;
 
   if (!subtasksCheckboxes || subtasksCheckboxes.length === 0) {
     if (progressBarDiv) progressBarDiv.style.display = "none";
+    priorityIcon.style.marginTop = "50px";
     return;
   }
 
