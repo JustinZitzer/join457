@@ -86,15 +86,15 @@ function getAddContactOverlay() {
                 <form class="form-add-contact">
                     <div class="input-error-message-container-name">
                         <div class="add-contact-input-containers">
-                            <input onblur="nameErrorAddContact()" id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name">
+                            <input onblur="validateNameField()" id="add-contact-name-input" class="add-contact-name-input" type="text" placeholder="Name">
                         </div>
-                        <div onblur="emailAddContactFailure()" id="failure-message-add-contact-name" class="failure-message-add-contact-name display-none">
+                        <div id="failure-message-add-contact-name" class="failure-message-add-contact-name display-none">
                             *Name must be 3 characters long.
                         </div>
                     </div>
                     <div class="input-error-message-container-email">
                         <div class="add-contact-input-containers">
-                            <input onblur="phoneNumberError()" id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email">
+                            <input onblur="validateEmailField()" id="add-contact-email-input" class="add-contact-email-input" type="text" placeholder="Email">
                         </div>
                         <div id="failure-message-add-contact-email" class="failure-message-add-contact-email display-none">
                             *Please enter a valid email adress.
@@ -102,7 +102,7 @@ function getAddContactOverlay() {
                     </div>
                     <div class="input-error-message-container-phone-all-fields">
                         <div class="add-contact-input-containers">
-                            <input id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone">
+                            <input onblur="validatePhoneField()" id="add-contact-phone-input" class="add-contact-phone-input" type="text" placeholder="Phone">
                         </div>
                         <div id="failure-message-add-contact-phone" class="failure-message-add-contact-phonenumber display-none">
                             *Please enter a valid phone number.

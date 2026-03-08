@@ -92,124 +92,205 @@ function getNewContactInputs() {
 }
 
 function validateContactInputs(name, email, phone) {
-  clearContactErrors();
-  clearContactBorder();
-  if (!name || !email || !phone) return redBoarderForInputs();
+  resetAddContactErrors();
 
-  if (!hasValidSpaces(name)) return nameErrorAddContact();
-  if (name.length < 3) return nameErrorAddContact();
+  const nameIsValid = validateNameField(name);
+  const emailIsValid = validateEmailField(email);
+  const phoneIsValid = validatePhoneField(phone);
 
-  if (!isValidEmail(email)) return emailAddContactFailure();
+  if (!name || !email || !phone) {
+  return false;
+}
 
-  if (!isValidPhone(phone)) return phoneNumberError();
+  return nameIsValid && emailIsValid && phoneIsValid && name && email && phone;
+}
+
+function validateNameField() {
+  const name = document.getElementById('add-contact-name-input').value;
+
+  if (!isValidName(name)) {
+    showNameError('*Name must be at least 3 characters long.');
+    return false;
+  }
+
+  resetNameError();
+  return true;
+}
+
+function validateEmailField() {
+  const email = document.getElementById('add-contact-email-input').value;
+
+  if (!isValidEmail(email)) {
+    showEmailError('*Please enter a valid email address.');
+    return false;
+  }
+
+  resetEmailError();
+  return true;
+}
+
+function validatePhoneField() {
+  const phone = document.getElementById('add-contact-phone-input').value;
+
+  if (!isValidPhone(phone)) {
+    showPhoneError('*Please enter a valid phone number.');
+    return false;
+  }
+
+  resetPhoneError();
+  return true;
+}
+
+function resetNameError() {
+  const input = document.getElementById('add-contact-name-input');
+  const error = document.getElementById('failure-message-add-contact-name');
+
+  input.style.borderColor = '';
+  error.classList.add('display-none');
+  error.innerHTML = '';
+}
+
+function resetEmailError() {
+  const input = document.getElementById('add-contact-email-input');
+  const error = document.getElementById('failure-message-add-contact-email');
+
+  input.style.borderColor = '';
+  error.classList.add('display-none');
+  error.innerHTML = '';
+}
+
+function resetPhoneError() {
+  const input = document.getElementById('add-contact-phone-input');
+  const error = document.getElementById('failure-message-add-contact-phone');
+
+  input.style.borderColor = '';
+  error.classList.add('display-none');
+  error.innerHTML = '';
+}
+
+function showGeneralContactError(message) {
+  const generalError = document.getElementById('failure-message-add-contact');
+  generalError.classList.remove('display-none');
+  generalError.innerHTML = message;
+}
+
+function showNameError(message) {
+  const nameInput = document.getElementById('add-contact-name-input');
+  const nameError = document.getElementById('failure-message-add-contact-name');
+
+  nameInput.style.borderColor = 'red';
+  nameError.classList.remove('display-none');
+  nameError.innerHTML = message;
+}
+
+function showEmailError(message) {
+  const emailInput = document.getElementById('add-contact-email-input');
+  const emailError = document.getElementById('failure-message-add-contact-email');
+
+  emailInput.style.borderColor = 'red';
+  emailError.classList.remove('display-none');
+  emailError.innerHTML = message;
+}
+
+function showPhoneError(message) {
+  const phoneInput = document.getElementById('add-contact-phone-input');
+  const phoneError = document.getElementById('failure-message-add-contact-phone');
+
+  phoneInput.style.borderColor = 'red';
+  phoneError.classList.remove('display-none');
+  phoneError.innerHTML = message;
+}
+
+function isValidName(name) {
+  if (!name) return false;
+  if (!hasValidSpaces(name)) return false;
+  if (name.trim().length < 3) return false;
 
   return true;
 }
 
+function isValidEmail(email) {
+  if (!email) return false;
+  if (!hasValidSpaces(email)) return false;
+  if (email.includes(' ')) return false;
 
-function redBoarderForInputs() {
-  const nameInput = document.getElementById('add-contact-name-input');
-  const emailInput = document.getElementById('add-contact-email-input');
-  const phoneInput = document.getElementById('add-contact-phone-input');
-  const failMessage = document.getElementById('failure-message-add-contact');
+  const parts = email.split('@');
+  if (parts.length !== 2) return false;
 
-  nameInput.style.borderColor = 'red';
-  emailInput.style.borderColor = 'red';
-  phoneInput.style.borderColor = 'red';
-  failMessage.classList.remove('display-none');
-  failMessage.innerHTML = '*Bitte alle Felder ausfüllen.';
+  const localPart = parts[0];
+  const domain = parts[1];
 
-  return false;
+  if (!localPart || !domain) return false;
+  if (!isValidDomain(domain)) return false;
+
+  return true;
 }
 
-function emailAddContactFailure() {
-  const emailInput = document.querySelector('.add-contact-email-input');
-  const errorMessage = document.getElementById('failure-message-add-contact-email');
+function isValidDomain(domain) {
+  if (!domain) return false;
+  if (!hasValidSpaces(domain)) return false;
+  if (domain.includes(' ')) return false;
+  if (!domain.includes('.')) return false;
 
-  emailInput.style.borderColor = 'red';
-  errorMessage.classList.remove('display-none');
+  const domainParts = domain.split('.');
 
-  return false;
+  for (let i = 0; i < domainParts.length; i++) {
+    if (domainParts[i].length === 0) return false;
+  }
+
+  const lastPart = domainParts[domainParts.length - 1];
+  if (lastPart.length < 2) return false;
+
+  return true;
 }
 
-function phoneNumberError() {
-  const failMessage = document.getElementById('failure-message-add-contact-phone');
-  const phoneInput = document.getElementById('add-contact-phone-input');
+function isValidPhone(phone) {
+  if (!phone) return false;
+  if (!hasValidSpaces(phone)) return false;
 
-  phoneInput.style.borderColor = 'red';
-  failMessage.classList.remove('display-none');
-  failMessage.innerHTML = '*Please enter a valid phone number.';
+  for (let i = 0; i < phone.length; i++) {
+    const char = phone[i];
 
-  return false;
+    if (char !== ' ' && (char < '0' || char > '9')) {
+      return false;
+    }
+  }
+
+  const digitsOnly = phone.replaceAll(' ', '');
+  return digitsOnly.length >= 5;
 }
 
-function nameErrorAddContact() {
-  const failMessage = document.getElementById('failure-message-add-contact-name');
-  const nameInput = document.getElementById('add-contact-name-input');
+function hasValidSpaces(value) {
+  if (!value) return false;
+  if (value.startsWith(' ') || value.endsWith(' ')) return false;
+  if (value.includes('  ')) return false;
 
-  nameInput.style.borderColor = 'red';
-  failMessage.classList.remove('display-none');
-  failMessage.innerHTML = '*Name must be 3 characters long.';
-
-  return false;
+  return true;
 }
 
 function resetAddContactErrors() {
   const nameInput = document.getElementById('add-contact-name-input');
   const emailInput = document.getElementById('add-contact-email-input');
   const phoneInput = document.getElementById('add-contact-phone-input');
-  const failMessage = document.getElementById('failure-message-add-contact');
-  if (failMessage) {
-    failMessage.innerHTML = '';
-  }
+
+  const generalError = document.getElementById('failure-message-add-contact');
+  const nameError = document.getElementById('failure-message-add-contact-name');
+  const emailError = document.getElementById('failure-message-add-contact-email');
+  const phoneError = document.getElementById('failure-message-add-contact-phone');
+
   nameInput.style.borderColor = '';
   emailInput.style.borderColor = '';
   phoneInput.style.borderColor = '';
 
-  failMessage.classList.add('display-none');
-  failMessage.innerHTML = '';
-}
+  generalError.classList.add('display-none');
+  nameError.classList.add('display-none');
+  emailError.classList.add('display-none');
+  phoneError.classList.add('display-none');
 
-function isValidEmail(email) {
-  if (!hasValidSpaces(email)) return false;
-  if (email.includes(' ')) return false;
-
-  const parts = email.split('@');
-  if (parts.length !== 2) return false;
-  if (!parts[0] || !parts[1]) return false;
-
-  return isValidDomain(parts[1]);
-}
-
-function isValidDomain(domain) {
-  if (!hasValidSpaces(domain)) return false;
-  if (domain.includes(' ')) return false;
-
-  const domainParts = domain.split('.');
-  if (domainParts.length !== 2) return false;
-  if (!domainParts[0] || !domainParts[1]) return false;
-
-  if (domainParts[1].length < 2) return false;
-
-  return true;
-}
-
-function isValidPhone(phone) {
-  if (!hasValidSpaces(phone)) return false;
-
-  for (let char of phone) {
-    if (char !== ' ' && (char < '0' || char > '9')) {
-      return false;
-    }
-  }
-
-  return phone.length > 0;
-}
-
-function hasValidSpaces(value) {
-  if (value.startsWith(' ') || value.endsWith(' ')) return false;
-  if (value.includes('  ')) return false;
-  return true;
+  generalError.innerHTML = '';
+  nameError.innerHTML = '';
+  emailError.innerHTML = '';
+  phoneError.innerHTML = '';
 }
 
 function buildNewContact(name, email, phone) {
