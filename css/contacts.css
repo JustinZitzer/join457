@@ -846,6 +846,7 @@
 
     .contacts-overlay-container {
         margin-top: 24px;
+        width: unset;
     }
 
     .contacts-info-container h3 {
