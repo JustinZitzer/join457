@@ -301,6 +301,8 @@ function showBigTaskOverlay(overlay, wrapper) {
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
+  const dueDateEdit = document.getElementById(`due-date-edit-task-big${taskKey}`);
+  const today = new Date().toISOString().split("T")[0];
 
   const panels = wrapper.getElementsByClassName("big-task-panel");
   for (let i = 0; i < panels.length; i++) {
@@ -316,7 +318,10 @@ function showBigTaskInfo(taskKey) {
   if (task) task.classList.remove("display-none");
 
   showBigTaskOverlay(overlay, wrapper);
-
+  if(dueDateEdit) {
+    dueDateEdit.min = today;
+  }
+  
   currentTaskKey = taskKey;
 }
 
