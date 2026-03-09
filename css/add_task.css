@@ -1429,14 +1429,14 @@ h6 {
         top: 760px;
     }
 
-    .contact-option {
-        font-size: 16px;
-    }
+        .contact-option {
+            font-size: 16px;
+        }
 
-    .contact-option:hover {
-        background-color: rgba(42, 54, 71, 1);
-        color: white;
-    }
+        .contact-option:hover {
+            background-color: rgba(42, 54, 71, 1);
+            color: white;
+        }
 
     .subtask-list-element-div {
         width: 98.3%;
