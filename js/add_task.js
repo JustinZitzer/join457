@@ -78,6 +78,7 @@ async function initAddTask() {
   await loadDataSignUp();
   loadMediumButtonPriority();
   selectedSiteBackgroundStyle();
+  checkTodaysDate();
 }
 
 function pushTasksIntoArray(data, todosArray) {

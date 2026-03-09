@@ -3,6 +3,7 @@ async function initBoard() {
   await loadAllTasksFromFirebase();
   await loadDataBoard();
   selectedSiteBackgroundStyle();
+  checkTodaysDate();
 }
 
 function loadMediumButtonPriority() {
@@ -62,6 +63,7 @@ function openOverlay(status) {
     overlayContent.classList.add("slide-in");
 
     setupOverlayClose(overlay, overlayContent);
+    checkTodaysDate();
   } else {
     window.location.href = "./add_task.html";
   }
@@ -886,4 +888,18 @@ function validateEditTaskDueDateNotPast(input, value, error) {
   }
 
   return true;
+}
+
+function checkTodaysDate() {
+  const today = new Date().toISOString().split("T")[0];
+  const dueDateBoard = document.getElementById("dueDateInputBoard");
+  const dueDateAddTask = document.getElementById("dueDateInput");
+
+  if(dueDateBoard) {
+    dueDateBoard.min = today;
+  }
+
+  if(dueDateAddTask) {
+    dueDateAddTask.min = today;
+  }
 }
