@@ -499,8 +499,8 @@ function addBackgroundForDropwdown() {
     const contact = allContacts[i];
     const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
     const nameBox = document.getElementById(`contact-option-add-task${contact.id}`);
-    
-    if(checkbox.checked) {
+
+    if (checkbox.checked) {
       nameBox.style.backgroundColor = "rgba(42, 54, 71, 1)";
       nameBox.style.color = "white";
     } else {
@@ -513,7 +513,7 @@ function addBackgroundForDropwdown() {
 function showCirclesInDropdownAddTask() {
   let namesInitialsDropdownArray = [];
 
-   for (let i = 0; i < allContacts.length; i++) {
+  for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
     const fullNames = document.getElementById(`contact-name-${contact.id}`);
     const names = fullNames.split(" ");
@@ -639,6 +639,7 @@ async function postNewTaskToFirebase() {
     clearInputFieldsForNewTask();
     showTaskAddedMessage();
     resetAllErrorMessages();
+    goToBoardHtml();
   } else {
     allErrorRulesForNewTask();
   }
@@ -883,7 +884,7 @@ async function dropdownCloseOnClickOutsideContacts(event) {
 
   if (!dropdown || dropdown.classList.contains("hidden")) return;
 
-  if (dropdown.contains(event.target) ||input.contains(event.target) ||icon.contains(event.target)) {
+  if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
     return;
   }
 
@@ -896,7 +897,7 @@ function dropdownCloseOnClickOutsideCategory(event) {
   const input = document.getElementById("category-input");
   const icon = document.getElementById("dropdown-toggle-btn");
 
-  if(!dropdown) return;
+  if (!dropdown) return;
   if (dropdown.classList.contains("display-none")) return;
 
   if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
@@ -929,11 +930,11 @@ function checkTodaysDate() {
   const dueDateBoard = document.getElementById("dueDateInputBoard");
   const dueDateAddTask = document.getElementById("dueDateInput");
 
-  if(dueDateBoard) {
+  if (dueDateBoard) {
     dueDateBoard.min = today;
   }
 
-  if(dueDateAddTask) {
+  if (dueDateAddTask) {
     dueDateAddTask.min = today;
   }
 }
