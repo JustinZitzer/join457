@@ -510,7 +510,7 @@ function getContactCardForDropdown(contact) {
     ? `${contact.firstName} ${contact.lastName}`
     : contact.firstName;
   return `
-    <label class="contact-option">
+    <label onclick="addBackgroundForDropwdown()" id="contact-option-add-task${contact.id}" class="contact-option">
       <span id="contact-name-${contact.id}">${name}</span>
       <input id="contact-checkbox-${
         contact.id

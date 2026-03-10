@@ -23,6 +23,10 @@ h3 {
     display: none;
 }
 
+.blue-gray-background {
+    background-color: rgba(42, 54, 71, 1);
+}
+
 .main-container-for-two-inputfield-container {
     padding-left: 320px;
     display: flex;

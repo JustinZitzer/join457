@@ -482,6 +482,8 @@ function getAssignedToValue() {
     const contact = allContacts[i];
     const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
     const nameElem = document.getElementById(`contact-name-${contact.id}`);
+    const nameBox = document.getElementById(`contact-option-add-task${contact.id}`);
+
     if (checkbox && checkbox.checked && nameElem) {
       assignedTo.push(nameElem.textContent.trim());
     }
@@ -490,6 +492,22 @@ function getAssignedToValue() {
     assignedTo = ["Not Assigned to anyone"];
   }
   return assignedTo;
+}
+
+function addBackgroundForDropwdown() {
+  for (let i = 0; i < allContacts.length; i++) {
+    const contact = allContacts[i];
+    const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
+    const nameBox = document.getElementById(`contact-option-add-task${contact.id}`);
+    
+    if(checkbox.checked) {
+      nameBox.style.backgroundColor = "rgba(42, 54, 71, 1)";
+      nameBox.style.color = "white";
+    } else {
+      nameBox.style.backgroundColor = "";
+      nameBox.style.color = "";
+    }
+  }
 }
 
 function getContactForCircle() {
