@@ -1362,6 +1362,11 @@ h6 {
     border: 1px solid red;
 }
 
+
+.flexbox-for-dropdown-contacts-add-task {
+    display: flex;
+}
+
 @keyframes fly-up {
     0% {
         bottom: -80px;

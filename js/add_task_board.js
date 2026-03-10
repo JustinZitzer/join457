@@ -510,6 +510,22 @@ function addBackgroundForDropwdown() {
   }
 }
 
+function showCirclesInDropdownAddTask() {
+  let namesInitialsDropdownArray = [];
+
+   for (let i = 0; i < allContacts.length; i++) {
+    const contact = allContacts[i];
+    const fullNames = document.getElementById(`contact-name-${contact.id}`);
+    const names = fullNames.split(" ");
+    let initials = "";
+
+    if (names[0]) initials += names[0][0].toUpperCase();
+    if (names[1]) initials += names[1][0].toUpperCase();
+    namesInitialsDropdownArray.push(initials);
+  }
+  //renderCirclesInCircleDiv
+}
+
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
   assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");

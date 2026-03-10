@@ -511,7 +511,10 @@ function getContactCardForDropdown(contact) {
     : contact.firstName;
   return `
     <label onclick="addBackgroundForDropwdown()" id="contact-option-add-task${contact.id}" class="contact-option">
-      <span id="contact-name-${contact.id}">${name}</span>
+      <div class="flexbox-for-dropdown-contacts-add-task">
+        <div id="circle-initials-in-dropdown${contact.id}"></div>
+        <span id="contact-name-${contact.id}">${name}</span>
+      </div>
       <input id="contact-checkbox-${
         contact.id
       }" type="checkbox" class="contact-checkbox" data-contact-id="${
