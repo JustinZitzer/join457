@@ -1990,8 +1990,9 @@ h2 {
     line-height: 120%;
     letter-spacing: 0%;
     width: 100%;
-    margin-left: 30px;
-    margin-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
     overflow-wrap: anywhere;
     padding-right: 30px;
 }
@@ -2010,11 +2011,16 @@ h2 {
     position: relative;
 }
 
+.task-board-big-description-container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .task-board-big-description {
     width: 100%;
     font-size: 20px;
-    margin-left: 30px;
     font-weight: 400;
+    overflow-wrap: break-word;
 }
 
 .task-board-big-date-div {

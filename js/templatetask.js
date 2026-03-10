@@ -187,8 +187,9 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
         </div>
 
         <h1 id="task-board-big-headline${taskKey}" class="task-board-big-headline">${task.titel}</h1>
+        <div class="task-board-big-description-container">
         <span id="task-board-big-description" class="task-board-big-description">${task.description}</span>
-
+        </div>
         <div class="task-board-big-date-div">
           <p class="task-board-big-date-text">Due Date:</p>
           <span id="task-board-big-date-number" class="task-board-big-date-number">${task.dueDate}</span>
@@ -515,11 +516,9 @@ function getContactCardForDropdown(contact) {
         <div id="circle-initials-in-dropdown${contact.id}"></div>
         <span id="contact-name-${contact.id}">${name}</span>
       </div>
-      <input id="contact-checkbox-${
-        contact.id
-      }" type="checkbox" class="contact-checkbox" data-contact-id="${
-    contact.id || ""
-  }">
+      <input id="contact-checkbox-${contact.id
+    }" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ""
+    }">
     </label>
   `;
 }
@@ -589,13 +588,11 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
 function contactCardDropdownEditTemplate(contact, taskKey, initials, name) {
   return `
     <label class="contact-option-edit">
-      <span id="circles-edit${
-        contact.id
-      }${taskKey}" class="circles-edit">${initials}</span>
+      <span id="circles-edit${contact.id
+    }${taskKey}" class="circles-edit">${initials}</span>
       <div class="name-checkbox-flexbox">
-        <span class="contact-name-edit" id="contact-name-edit${
-          contact.id
-        }${taskKey}">${name}</span>
+        <span class="contact-name-edit" id="contact-name-edit${contact.id
+    }${taskKey}">${name}</span>
         <input id="contact-checkbox-${contact.id}${taskKey}" 
               type="checkbox" 
               class="contact-checkbox-edit" 
