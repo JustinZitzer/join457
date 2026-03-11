@@ -482,19 +482,17 @@ function deleteSavedSubTask(subtaskSavedCounter, subtask) {
 
 function getAssignedToValue() {
   let assignedTo = [];
+
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
     const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
     const nameElem = document.getElementById(`contact-name-${contact.id}`);
-    const nameBox = document.getElementById(`contact-option-add-task${contact.id}`);
 
     if (checkbox && checkbox.checked && nameElem) {
       assignedTo.push(nameElem.textContent.trim());
     }
   }
-  if (assignedTo.length === 0) {
-    assignedTo = ["Not Assigned to anyone"];
-  }
+
   return assignedTo;
 }
 
