@@ -615,6 +615,32 @@ h6 {
 
 }
 
+.circle-initials-in-dropdown {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #29abe2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.initials-in-dropdown {
+    font-weight: 400;
+    padding-top: 2px;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: white;
+}
+
+.contact-name-dropdown {
+    display: flex;
+    align-items: center;
+}
 
 .inputfield-subtask-assign {
     display: flex;

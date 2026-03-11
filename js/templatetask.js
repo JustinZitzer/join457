@@ -514,12 +514,20 @@ function getContactCardForDropdown(contact) {
     <label onclick="addBackgroundForDropwdown()" id="contact-option-add-task${contact.id}" class="contact-option">
       <div class="flexbox-for-dropdown-contacts-add-task">
         <div id="circle-initials-in-dropdown${contact.id}"></div>
-        <span id="contact-name-${contact.id}">${name}</span>
+        <span class="contact-name-dropdown" id="contact-name-${contact.id}">${name}</span>
       </div>
       <input id="contact-checkbox-${contact.id
     }" type="checkbox" class="contact-checkbox" data-contact-id="${contact.id || ""
     }">
     </label>
+  `;
+}
+
+function getContactCircleTemplateDropwdown(className, initials, color) {
+  return `
+    <div class="${className}" style="background-color:${color}">
+      <h6 class="initials-in-dropdown">${initials}</h6>
+    </div>
   `;
 }
 
@@ -585,11 +593,12 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
   `;
 }
 
-function contactCardDropdownEditTemplate(contact, taskKey, initials, name) {
+function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color) {
   return `
-    <label class="contact-option-edit">
+    <label class="contact-option-edit" id="contact-option-edit${contact.id
+    }${taskKey}">
       <span id="circles-edit${contact.id
-    }${taskKey}" class="circles-edit">${initials}</span>
+    }${taskKey}" class="circles-edit" style="background-color:${color}">${initials}</span>
       <div class="name-checkbox-flexbox">
         <span class="contact-name-edit" id="contact-name-edit${contact.id
     }${taskKey}">${name}</span>

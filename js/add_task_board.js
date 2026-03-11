@@ -1,3 +1,6 @@
+const contactColors = ["#FF7A00","#FF5EB3","#6E52FF","#9327FF","#00BEE8","#1FD7C1",
+"#FF745E","#FFA35E","#FC71FF","#FFC701","#0038FF","#C3FF2B"];
+
 async function initBoard() {
   await loadHTML();
   await loadAllTasksFromFirebase();
@@ -321,6 +324,7 @@ async function loadContactsForDropdown() {
   if (container.innerHTML === "") {
     try {
       await loadAndRenderContacts(container);
+      showCirclesInDropdownAddTask();
     } catch (error) {
       console.error("Error loading contacts:", error);
     }
@@ -511,19 +515,24 @@ function addBackgroundForDropwdown() {
 }
 
 function showCirclesInDropdownAddTask() {
-  let namesInitialsDropdownArray = [];
-
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
-    const fullNames = document.getElementById(`contact-name-${contact.id}`);
-    const names = fullNames.split(" ");
+
+    const nameElement = document.getElementById(`contact-name-${contact.id}`);
+    const circleElement = document.getElementById(`circle-initials-in-dropdown${contact.id}`);
+
+    const fullName = nameElement.textContent;
+    const names = fullName.split(" ");
+
     let initials = "";
 
     if (names[0]) initials += names[0][0].toUpperCase();
     if (names[1]) initials += names[1][0].toUpperCase();
-    namesInitialsDropdownArray.push(initials);
+
+    const color = contactColors[i % contactColors.length];
+
+    circleElement.innerHTML = getContactCircleTemplateDropwdown("circle-initials-in-dropdown", initials, color);
   }
-  //renderCirclesInCircleDiv
 }
 
 function getContactForCircle() {

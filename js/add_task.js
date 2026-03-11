@@ -526,6 +526,12 @@ function setAssignedContactsCheckedEdit(taskKey) {
 
       if (checkboxName === assignedName) {
         checkbox.checked = true;
+
+        const contactId = checkbox.dataset.contactId;
+        const container = document.getElementById(`contact-option-edit${contactId}${taskKey}`);
+        if(container) {
+          container.classList.add("blue-gray-background");
+        }
       }
     }
   }
@@ -1025,6 +1031,7 @@ async function loadContactsForDropdownInBoard() {
       for (const key in contacts) {
         container.innerHTML += getContactCardForDropdown(contacts[key]);
       }
+      showCirclesInDropdownAddTask();
     } catch (error) {
       console.error("Error loading contacts:", error);
     }
