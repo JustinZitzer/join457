@@ -550,6 +550,10 @@ function showCirclesInDropdownAddTask() {
   }
 }
 
+function getContactColor(index) {
+  return contactColors[index % contactColors.length];
+}
+
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
   assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");

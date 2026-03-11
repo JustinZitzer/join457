@@ -482,7 +482,8 @@ async function renderContactsForEditDropdown(container, taskKey) {
   allContacts = contacts;
 
   for (let i = 0; i < contacts.length; i++) {
-    container.innerHTML += getContactCardForDropdownInEdit(contacts[i], taskKey);
+    const color = contactColors[i % contactColors.length];
+    container.innerHTML += getContactCardForDropdownInEdit(contacts[i], taskKey, color);
   }
 }
 
@@ -539,14 +540,14 @@ function setAssignedContactsCheckedEdit(taskKey) {
 }
 
 
-function getContactCardForDropdownInEdit(contact, taskKey) {
+function getContactCardForDropdownInEdit(contact, taskKey, color) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
     : contact.firstName;
 
   const initials = getInitials(contact.firstName, contact.lastName);
 
-  return contactCardDropdownEditTemplate(contact, taskKey, initials, name);
+  return contactCardDropdownEditTemplate(contact, taskKey, initials, name, color);
 }
 
 function handleCheckedContact(fullName, initialsArray, fullNamesArray) {
