@@ -514,6 +514,21 @@ function addBackgroundForDropwdown() {
   }
 }
 
+function toggleContactEditBackground(contactId, taskKey) {
+  const checkbox = document.getElementById(`contact-checkbox-${contactId}${taskKey}`);
+  const container = document.getElementById(`contact-option-edit${contactId}${taskKey}`);
+
+  if (!checkbox || !container) return;
+
+  if (checkbox.checked) {
+    container.style.backgroundColor = "rgba(42, 54, 71, 1)";
+    container.style.color = "white";
+  } else {
+    container.style.backgroundColor = "";
+    container.style.color = "";
+  }
+}
+
 function showCirclesInDropdownAddTask() {
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];

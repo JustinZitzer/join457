@@ -595,19 +595,29 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
 
 function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color) {
   return `
-    <label class="contact-option-edit" id="contact-option-edit${contact.id
-    }${taskKey}">
-      <span id="circles-edit${contact.id
-    }${taskKey}" class="circles-edit" style="background-color:${color}">${initials}</span>
+    <label onclick="toggleContactEditBackground('${contact.id}', '${taskKey}')" 
+           class="contact-option-edit" 
+           id="contact-option-edit${contact.id}${taskKey}">
+
+      <span id="circles-edit${contact.id}${taskKey}" 
+            class="circles-edit" 
+            style="background-color:${color}">
+        ${initials}
+      </span>
+
       <div class="name-checkbox-flexbox">
-        <span class="contact-name-edit" id="contact-name-edit${contact.id
-    }${taskKey}">${name}</span>
+        <span class="contact-name-edit" 
+              id="contact-name-edit${contact.id}${taskKey}">
+          ${name}
+        </span>
+
         <input id="contact-checkbox-${contact.id}${taskKey}" 
               type="checkbox" 
               class="contact-checkbox-edit" 
               data-contact-id="${contact.id || ""}"
               data-contact-name="${name}">
       </div>
+
     </label>
   `;
 }

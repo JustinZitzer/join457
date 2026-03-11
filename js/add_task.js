@@ -514,7 +514,11 @@ function setAssignedContactsCheckedEdit(taskKey) {
   const inputs = dropdown.getElementsByClassName("contact-checkbox-edit");
 
   for (let j = 0; j < inputs.length; j++) {
-    inputs[j].checked = false;
+    const checkbox = inputs[j];
+    checkbox.checked = false;
+
+    const contactId = checkbox.dataset.contactId;
+    toggleContactEditBackground(contactId, taskKey);
   }
 
   for (let i = 0; i < task.assignedTo.length; i++) {
@@ -528,10 +532,7 @@ function setAssignedContactsCheckedEdit(taskKey) {
         checkbox.checked = true;
 
         const contactId = checkbox.dataset.contactId;
-        const container = document.getElementById(`contact-option-edit${contactId}${taskKey}`);
-        if(container) {
-          container.classList.add("blue-gray-background");
-        }
+        toggleContactEditBackground(contactId, taskKey);
       }
     }
   }
