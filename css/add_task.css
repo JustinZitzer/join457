@@ -1117,7 +1117,7 @@ h6 {
 } */
 .category-dropdown {
     border-radius: 8px;
-    top: 544px;
+    top: 566px;
     width: 440px;
     background-color: white;
     border: 1px solid #ccc;
@@ -1135,7 +1135,7 @@ h6 {
     font-size: 14px;
     color: red;
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
 }
 
 /* Sichtbar */
