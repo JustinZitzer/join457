@@ -1094,6 +1094,14 @@ h1 {
 
 @media screen and (max-width: 500px) {
 
+    .box-privacy-legal-notice {
+        min-height: unset;
+        padding-top: 190px;
+        padding-bottom: 20px;
+        margin-top: unset;
+        margin-bottom: unset;
+    }
+
     .signup-main-container {
         width: 90%;
     }
