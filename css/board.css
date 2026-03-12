@@ -15,14 +15,13 @@ main {
     display: flex;
     justify-content: space-between;
     width: 1056px;
-    padding-left: 64px;
+    padding-left: 98px;
 }
 
 .header-main-container {
     width: 1056px;
     height: 176px;
     top: 96px;
-    left: 328px;
 }
 
 .header-container-board {
@@ -219,7 +218,7 @@ h3 {
     display: flex;
     top: 200.5px;
     padding-right: 64px;
-    padding-left: 64px;
+    padding-left: 98px;
     padding-top: 64px;
     gap: 16px;
 }
