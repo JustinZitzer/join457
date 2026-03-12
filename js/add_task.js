@@ -209,14 +209,14 @@ function applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture)
   if (priorityBoxText.innerHTML == "No priority selected") {
     priorityBoxPicture.classList.add("display-none");
   } else if (priorityBoxText.innerHTML == "Urgent") {
-    priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.png";
-    priorityBoxPicture.src = "./assets/icons/double-arrow-up-14221.png";
+    priorityBoxLogo.src = "./assets/icons/double-arrow-up-14221.svg";
+    priorityBoxPicture.src = "./assets/icons/double-arrow-up-14221.svg";
   } else if (priorityBoxText.innerHTML == "Medium") {
-    priorityBoxLogo.src = "./assets/icons/medium-priority-icon.png";
-    priorityBoxPicture.src = "./assets/icons/medium-priority-icon.png";
+    priorityBoxLogo.src = "./assets/icons/medium-priority-icon.svg";
+    priorityBoxPicture.src = "./assets/icons/medium-priority-icon.svg";
   } else if (priorityBoxText.innerHTML == "Low") {
-    priorityBoxLogo.src = "./assets/icons/double-arrow-down-14228.png";
-    priorityBoxPicture.src = "./assets/icons/double-arrow-down-14228.png";
+    priorityBoxLogo.src = "./assets/icons/double-arrow-down-14228.svg";
+    priorityBoxPicture.src = "./assets/icons/double-arrow-down-14228.svg";
   }
 }
 
@@ -280,7 +280,7 @@ function renderAssignedContacts(taskKey, assignedTo) {
 
   if (assignedTo) {
     renderAssignedContactItems(assignedTo, container, containerTask, circleClasses, circleClassesTask);
-  } else if(!assignedTo) {
+  } else if (!assignedTo) {
     priorityBoxPicture.style.marginTop = "22px";
   }
 }
@@ -318,10 +318,10 @@ function showBigTaskInfo(taskKey) {
   if (task) task.classList.remove("display-none");
 
   showBigTaskOverlay(overlay, wrapper);
-  if(dueDateEdit) {
+  if (dueDateEdit) {
     dueDateEdit.min = today;
   }
-  
+
   currentTaskKey = taskKey;
 }
 
@@ -910,13 +910,13 @@ function validateInputBoard() {
 
   if (input.trim() == "") {
     errorMsg.classList.remove("display-none");
-  } else if (input.trim().length < 3){
+  } else if (input.trim().length < 3) {
     errorMsg.classList.remove("display-none");
     errorMsg.innerHTML = "Title must be 3 characters long.";
   }
   else {
     if (!errorMsg.classList.contains("display-none"))
-    errorMsg.classList.add("display-none");
+      errorMsg.classList.add("display-none");
   }
   return input;
 }
@@ -954,7 +954,7 @@ function isValidDDMMYYYYRealDate(value) {
   const selectedDate = new Date(year, month - 1, day);
   selectedDate.setHours(0, 0, 0, 0);
 
-  if (selectedDate.getFullYear() !== year ||selectedDate.getMonth() !== month - 1 ||selectedDate.getDate() !== day) {
+  if (selectedDate.getFullYear() !== year || selectedDate.getMonth() !== month - 1 || selectedDate.getDate() !== day) {
     return { valid: false, message: "Please enter a real, valid date." };
   }
 
