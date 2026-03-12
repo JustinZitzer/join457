@@ -22,11 +22,12 @@ main {
     width: 1056px;
     height: 176px;
     top: 96px;
-    left: 232px;
+    left: 328px;
 }
 
 .header-container-board {
     width: 100%;
+    left: 328px;
 }
 
 h3 {
@@ -3246,7 +3247,7 @@ h2 {
         padding-right: 0px;
     }
 
-    .header-content-board {
+    .rrd {
         padding-left: 19px;
     }
 }
