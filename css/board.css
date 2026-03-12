@@ -3287,6 +3287,10 @@ h2 {
         width: 100%;
     }
 
+    .header-main-container {
+        width: 100%;
+    }
+
     .add-task-box {
         width: 193px;
     }
