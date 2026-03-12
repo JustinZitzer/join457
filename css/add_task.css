@@ -488,7 +488,6 @@ h6 {
 }
 
 .inputfield-category-assign {
-    height: 48px;
     width: 440px;
     border-width: 1px;
     justify-content: space-between;
@@ -1099,8 +1098,8 @@ h6 {
     position: relative;
     display: inline-block;
     width: 440px;
-    top: 18px;
-    margin-top: 35px;
+    top: 16px;
+    margin-top: 33px;
 }
 
 .inputfield-category-assign {
@@ -1135,7 +1134,7 @@ h6 {
     font-size: 14px;
     color: red;
     position: absolute;
-    bottom: -30px;
+    bottom: -18px;
 }
 
 /* Sichtbar */
@@ -1558,7 +1557,7 @@ h6 {
 
     .inputfield-due-date-container {
         width: 100%;
-        margin-top: 10px;
+        margin-top: 6px;
     }
 
     .assigned-inputfield-box {
@@ -2033,6 +2032,13 @@ h6 {
     }
 }
 
+.error-field-category {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    bottom: -23px;
+}
+
 @media (max-width: 400px) {
     .input-icon-container {
         right: 10px;
@@ -2061,6 +2067,13 @@ h6 {
     .clear-field {
         width: 42%;
         font-size: 13px;
+    }
+
+    .error-field-category {
+        font-size: 14px;
+        color: red;
+        position: absolute;
+        bottom: -23px;
     }
 
     .create-field {
