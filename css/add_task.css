@@ -422,6 +422,7 @@ h6 {
     flex-direction: column;
     gap: 8px;
     top: 16px;
+    margin-bottom: 6px;
     width: 440px;
     height: 35px;
     color: #2A3647;
@@ -529,6 +530,7 @@ h6 {
 
 .category-mark {
     padding-bottom: 6px;
+    margin-top: 8px;
 }
 
 .three-circle-todo {
