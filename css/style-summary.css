@@ -17,7 +17,7 @@
 
 .Summary-Box-Z-Index-Container {
     margin-top: 0px;
-    margin-left: 350px;
+    margin-left: 328px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -862,7 +862,7 @@
     .Urgent-Picture-Div {
         margin-left: 40px;
         height: 40px;
-        width: 40px;F
+        width: 40px;
     }
 }
 

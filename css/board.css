@@ -15,18 +15,18 @@ main {
     display: flex;
     justify-content: space-between;
     width: 1056px;
-    padding-left: 64px;
+    padding-left: 98px;
 }
 
 .header-main-container {
     width: 1056px;
     height: 176px;
     top: 96px;
-    left: 232px;
 }
 
 .header-container-board {
     width: 100%;
+    left: 328px;
 }
 
 h3 {
@@ -218,7 +218,7 @@ h3 {
     display: flex;
     top: 200.5px;
     padding-right: 64px;
-    padding-left: 64px;
+    padding-left: 98px;
     padding-top: 64px;
     gap: 16px;
 }
@@ -3246,7 +3246,7 @@ h2 {
         padding-right: 0px;
     }
 
-    .header-content-board {
+    .rrd {
         padding-left: 19px;
     }
 }
