@@ -407,7 +407,18 @@
   }
 }
 
+@media screen and (max-width: 1024px) and (max-height: 600px) {
+  .Max-Width-Header-Login {
+    position: unset;
+  }
+
+}
+
 @media screen and (max-width: 651px) {
+
+  .Max-Width-Header-Login {
+    position: unset;
+  }
 
   .error-message-login {
     width: 85vw;
@@ -456,7 +467,7 @@
   }
 
   .Login-Box-Div {
-    padding-top: 174px;
+    padding-top: 50px;
   }
 
   .Header-Login-Right-Button {
