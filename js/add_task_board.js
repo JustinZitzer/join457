@@ -678,7 +678,6 @@ function allErrorRulesForNewTask() {
   showErrorForNewTaskDueDate();
   showErrorForNewTaskCategory();
   errorMessage.classList.remove("display-none");
-  subtaskDiv.style.marginTop = "20px";
 }
 
 function showErrorForNewTaskTitle() {
