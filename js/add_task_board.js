@@ -963,3 +963,12 @@ function checkTodaysDate() {
     dueDateAddTask.min = today;
   }
 }
+
+function clearHighlightedContacts() {
+  const contacts = document.getElementsByClassName("contact-option");
+  for (let i = 0; i < contacts.length; i++) {
+    const contact = contacts[i];
+    contact.style.backgroundColor = "";
+    contact.style.color = "";
+  }
+}

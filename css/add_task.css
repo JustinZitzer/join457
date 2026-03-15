@@ -1107,6 +1107,7 @@ h6 {
     box-sizing: border-box;
     padding: 8px;
     cursor: pointer;
+    height: 48px;
 }
 
 /* Dropdown-Styling .inputfield-subtask-assign:focus {
