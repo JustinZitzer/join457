@@ -22,7 +22,6 @@ body {
     flex-direction: column;
     max-width: 1920px;
     max-height: 1080px;
-
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -521,6 +520,7 @@ h1 {
     align-items: center;
     width: 260px;
     max-width: 1920px;
+    padding-top: 50px;
 }
 
 .privacy-text {
@@ -683,7 +683,17 @@ h1 {
     .body-signup {}
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-height: 1080px) {
+    .join-logo-container-signup {
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 1000px) and (max-height: 1080px) {
+
+    .main-container-join {
+        height: 100vh;
+    }
 
     .privacy-text {
         width: 130px;
@@ -717,6 +727,10 @@ h1 {
 
     .join-logo-container-signup {
         display: flex;
+        position: unset;
+        padding-top: 0px;
+        align-items: center;
+        min-height: 150px;
     }
 
     .join-logo {
@@ -728,16 +742,20 @@ h1 {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 70%;
+        width: 100%;
         max-width: 1000px;
         height: 600px;
         border-radius: 30px;
         padding-right: 10px;
         padding-left: 10px;
-        padding-top: 230px;
+        padding-top: 0px;
         box-sizing: border-box;
         background-color: #f6f7f8;
+    }
 
+    .padding-main-container {
+        padding-top: 50px;
+        width: 95%;
     }
 
     .title {
@@ -751,10 +769,8 @@ h1 {
     .box-privacy-legal-notice {
         width: 272px;
         height: 35px;
-        top: 849px;
-        left: 597px;
-        margin-top: 140px;
         margin-bottom: 40px;
+        padding-top: 50px;
     }
 
     .hr-line-signup {
@@ -1043,8 +1059,16 @@ h1 {
 
 @media screen and (max-width: 800px) {
     .signup-main-container {
-        width: 75%;
+        width: 100%;
     }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 600px) {
+    .padding-main-container {
+        padding-top: 200px;
+
+    }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -1088,7 +1112,7 @@ h1 {
 
 @media screen and (max-width: 700px) {
     .signup-main-container {
-        width: 85%;
+        width: 100%;
     }
 }
 
@@ -1096,14 +1120,14 @@ h1 {
 
     .box-privacy-legal-notice {
         min-height: unset;
-        padding-top: 190px;
+        padding-top: 50px;
         padding-bottom: 20px;
         margin-top: unset;
         margin-bottom: unset;
     }
 
     .signup-main-container {
-        width: 90%;
+        width: 100%;
     }
 
     .failure-signup-div-message-all-fields-signup {
@@ -1196,7 +1220,6 @@ h1 {
     }
 
     .join-logo {
-        margin-bottom: 50px;
     }
 
     .text-privacy-policy {
@@ -1277,7 +1300,6 @@ h1 {
     }
 
     .join-logo {
-        margin-bottom: 20px;
     }
 }
 
@@ -1287,7 +1309,6 @@ h1 {
     }
 
     .join-logo {
-        margin-bottom: 20px;
     }
 
     .title-text-arrow-div {
