@@ -1939,6 +1939,8 @@ h2 {
     background-color: white !important;
     border-radius: 16px !important;
     z-index: 112 !important;
+    max-height: 962px;
+    max-width: 600px;
 }
 
 /* Aktiver Zustand: in die Mitte sliden */
@@ -2170,7 +2172,7 @@ h2 {
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: 30px;
     bottom: 10px;
 }
