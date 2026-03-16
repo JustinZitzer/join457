@@ -383,7 +383,7 @@ function initBigTaskInfoOverlay() {
   }
 }
 
-function editTask(taskKey) {
+async function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
@@ -392,9 +392,12 @@ function editTask(taskKey) {
     showTaskPanel.classList.add("display-none");
     task.classList.add("height-zero");
   }
+
   if (editTaskPanel) {
     editTaskPanel.classList.remove("display-none");
   }
+
+  await initEditTaskContacts(taskKey);
 }
 
 function cancelEditTask(taskKey) {
@@ -489,21 +492,29 @@ async function renderContactsForEditDropdown(container, taskKey) {
   }
 }
 
+async function initEditTaskContacts(taskKey) {
+  const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  if (!container) return;
+
+  if (container.innerHTML === "") {
+    try {
+      await renderContactsForEditDropdown(container, taskKey);
+      setAssignedContactsCheckedEdit(taskKey);
+      changeContactCircleInEditTemplate(taskKey);
+    } catch (error) {
+      console.error("Error initializing contacts in edit mode:", error);
+    }
+  }
+}
+
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
 
-  if (container.innerHTML == "") {
-    try {
-      await renderContactsForEditDropdown(container, taskKey);
-      setAssignedContactsCheckedEdit(taskKey);
-
-    } catch (error) {
-      console.error("Error loading contacts in Editing Dropdown:", error);
-    }
-  }
+  await initEditTaskContacts(taskKey);
 
   container.classList.toggle("hidden");
+  container.classList.toggle("height-zero");
   threeCircleDivEdit.classList.toggle("hidden");
 }
 
