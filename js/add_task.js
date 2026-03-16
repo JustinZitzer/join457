@@ -643,31 +643,6 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   inputfield.value = "";
 }
 
-function hideIconsInEditSubtasks(taskKey, i) {
-  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
-  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
-
-  if (!inputfield) {
-    penIcon.classList.add("hidden");
-    seperator.classList.add("hidden");
-    wasteIcon.classList.add("hidden");
-  }
-}
-
-function showIconsInEditSubtasks(taskKey, i) {
-  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
-  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
-  if (!inputfield) {
-    penIcon.classList.remove("hidden");
-    seperator.classList.remove("hidden");
-    wasteIcon.classList.remove("hidden");
-  }
-}
-
 function buttonPriorityStyle(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);

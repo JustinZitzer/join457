@@ -418,8 +418,7 @@ function circleAssignedToTemplate(i, circleClasses, initials, name) {
 
 function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   return `
-    <div onmouseenter="showIconsInEditSubtasks('${taskKey}', '${i}')" onmouseleave="hideIconsInEditSubtasks('${taskKey}', '${i}')"
-        class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
+    <div class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
       <div class="bullet-subtask-flexbox">
         <div class="subtask-bullet-margin-right">•</div>
         <span class="subtask-task-text-edit" id="subtask-task-text-edit${taskKey}${i}">${subtaskText}</span>
