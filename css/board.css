@@ -2267,6 +2267,7 @@ h2 {
     margin-bottom: 5px;
     margin-top: 30px;
     color: #42526E;
+    font-weight: 400;
 }
 
 .titel-edit-task-big {
@@ -2300,6 +2301,7 @@ h2 {
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
+    font-weight: 400;
 }
 
 .description-edit-task-big {
@@ -2336,6 +2338,7 @@ h2 {
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
+    font-weight: 400;
 }
 
 .due-date-edit-task-big {
@@ -2440,6 +2443,7 @@ h2 {
     margin-top: 30px;
     margin-bottom: 5px;
     color: #42526E;
+    font-weight: 400;
 }
 
 .inputfield-text-assign-edit {
@@ -2492,6 +2496,7 @@ h2 {
     margin-top: 35px;
     margin-bottom: 5px;
     color: #42526E;
+    font-weight: 400;
 }
 
 .inputfield-subtask-edit-div {
