@@ -972,3 +972,13 @@ function clearHighlightedContacts() {
     contact.style.color = "";
   }
 }
+
+function backgroundNotScrollable() {
+  const overlay = document.getElementById("task-big-container-absolute");
+
+  if (!overlay.classList.contains("display-none")) {
+    document.body.classList.add("overflow-hidden");
+  } else if (overlay.classList.contains("display-none")){
+    document.body.classList.remove("overflow-hidden");
+  }
+}

@@ -322,6 +322,7 @@ function showBigTaskInfo(taskKey) {
     dueDateEdit.min = today;
   }
 
+  backgroundNotScrollable();
   currentTaskKey = taskKey;
 }
 
@@ -345,6 +346,7 @@ function hideBigTaskUI(overlay, wrapper, taskKey) {
     }
 
     currentTaskKey = null;
+    backgroundNotScrollable();
   }, 500);
 }
 
