@@ -164,6 +164,7 @@ function clearAllTasks() {
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
   currentDraggedCategory = category;
+  highlightDropZones();
 }
 
 function allowDrop(ev) {
@@ -185,6 +186,8 @@ async function moveTo(newCategory) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task),
   });
+
+  removeDropHighlight();
 
   loadAllTasksFromFirebase();
 }

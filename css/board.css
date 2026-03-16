@@ -3263,6 +3263,12 @@ h2 {
     z-index: 0;
 }
 
+.drop-highlight {
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    transition: background-color 0.15s ease;
+}
+
 @media (max-width: 1600px) {}
 
 @media screen and (max-width: 1419px) {
