@@ -1233,15 +1233,25 @@ function clearInputFieldsForNewTaskBoard() {
   resetAllInfosInBoardOverlay();
 }
 
-function filterTasksBySearch(taskTitles, toDos, inputStart) {
+function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const titleElement = taskTitles[i];
+    const descriptionElement = descriptions[i];
     const title = titleElement.textContent.trim().toLowerCase();
-    const words = title.split(" ");
+    const description = descriptionElement.textContent.trim().toLowerCase();
+    const titleWords = title.split(" ");
+    const descriptionWords = description.split(" ");
     let match = false;
 
-    for (let j = 0; j < words.length; j++) {
-      if (words[j].startsWith(inputStart)) {
+    for (let j = 0; j < titleWords.length; j++) {
+      if (titleWords[j].startsWith(inputStart)) {
+        match = true;
+        break;
+      }
+    }
+
+    for (let j = 0; j < descriptionWords.length; j++) {
+      if (descriptionWords[j].startsWith(inputStart)) {
         match = true;
         break;
       }
@@ -1258,6 +1268,7 @@ function filterTasksBySearch(taskTitles, toDos, inputStart) {
 function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
+  const descriptions = document.getElementsByClassName("task-board-big-description");
   const toDos = document.getElementsByClassName("todo-content-box");
   const inputStart = inputValue.substring(0, 3);
 
@@ -1268,5 +1279,5 @@ function searchTask() {
     return;
   }
 
-  filterTasksBySearch(taskTitles, toDos, inputStart);
+  filterTasksBySearch(taskTitles, descriptions, toDos, inputStart);
 }
