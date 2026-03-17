@@ -164,6 +164,7 @@ function clearAllTasks() {
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
   currentDraggedCategory = category;
+  highlightDropZones();
 }
 
 function allowDrop(ev) {
@@ -185,6 +186,8 @@ async function moveTo(newCategory) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task),
   });
+
+  removeDropHighlight();
 
   loadAllTasksFromFirebase();
 }
@@ -383,7 +386,7 @@ function initBigTaskInfoOverlay() {
   }
 }
 
-function editTask(taskKey) {
+async function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
@@ -392,9 +395,12 @@ function editTask(taskKey) {
     showTaskPanel.classList.add("display-none");
     task.classList.add("height-zero");
   }
+
   if (editTaskPanel) {
     editTaskPanel.classList.remove("display-none");
   }
+
+  await initEditTaskContacts(taskKey);
 }
 
 function cancelEditTask(taskKey) {
@@ -489,21 +495,29 @@ async function renderContactsForEditDropdown(container, taskKey) {
   }
 }
 
+async function initEditTaskContacts(taskKey) {
+  const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
+  if (!container) return;
+
+  if (container.innerHTML === "") {
+    try {
+      await renderContactsForEditDropdown(container, taskKey);
+      setAssignedContactsCheckedEdit(taskKey);
+      changeContactCircleInEditTemplate(taskKey);
+    } catch (error) {
+      console.error("Error initializing contacts in edit mode:", error);
+    }
+  }
+}
+
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
 
-  if (container.innerHTML == "") {
-    try {
-      await renderContactsForEditDropdown(container, taskKey);
-      setAssignedContactsCheckedEdit(taskKey);
-
-    } catch (error) {
-      console.error("Error loading contacts in Editing Dropdown:", error);
-    }
-  }
+  await initEditTaskContacts(taskKey);
 
   container.classList.toggle("hidden");
+  container.classList.toggle("height-zero");
   threeCircleDivEdit.classList.toggle("hidden");
 }
 
@@ -641,31 +655,6 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   addIcon.classList.add("hidden");
   inputfield.classList.remove('input-border-left-bottom');
   inputfield.value = "";
-}
-
-function hideIconsInEditSubtasks(taskKey, i) {
-  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
-  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
-
-  if (!inputfield) {
-    penIcon.classList.add("hidden");
-    seperator.classList.add("hidden");
-    wasteIcon.classList.add("hidden");
-  }
-}
-
-function showIconsInEditSubtasks(taskKey, i) {
-  const penIcon = document.getElementById(`edit-pencil-icon${taskKey}${i}`);
-  const seperator = document.getElementById(`seperator-for-subtasks${taskKey}${i}`);
-  const wasteIcon = document.getElementById(`waste-icon${taskKey}${i}`);
-  const inputfield = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
-  if (!inputfield) {
-    penIcon.classList.remove("hidden");
-    seperator.classList.remove("hidden");
-    wasteIcon.classList.remove("hidden");
-  }
 }
 
 function buttonPriorityStyle(taskKey, priority) {
@@ -1233,15 +1222,25 @@ function clearInputFieldsForNewTaskBoard() {
   resetAllInfosInBoardOverlay();
 }
 
-function filterTasksBySearch(taskTitles, toDos, inputStart) {
+function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const titleElement = taskTitles[i];
+    const descriptionElement = descriptions[i];
     const title = titleElement.textContent.trim().toLowerCase();
-    const words = title.split(" ");
+    const description = descriptionElement.textContent.trim().toLowerCase();
+    const titleWords = title.split(" ");
+    const descriptionWords = description.split(" ");
     let match = false;
 
-    for (let j = 0; j < words.length; j++) {
-      if (words[j].startsWith(inputStart)) {
+    for (let j = 0; j < titleWords.length; j++) {
+      if (titleWords[j].startsWith(inputStart)) {
+        match = true;
+        break;
+      }
+    }
+
+    for (let j = 0; j < descriptionWords.length; j++) {
+      if (descriptionWords[j].startsWith(inputStart)) {
         match = true;
         break;
       }
@@ -1258,6 +1257,7 @@ function filterTasksBySearch(taskTitles, toDos, inputStart) {
 function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
+  const descriptions = document.getElementsByClassName("task-board-big-description");
   const toDos = document.getElementsByClassName("todo-content-box");
   const inputStart = inputValue.substring(0, 3);
 
@@ -1268,5 +1268,5 @@ function searchTask() {
     return;
   }
 
-  filterTasksBySearch(taskTitles, toDos, inputStart);
+  filterTasksBySearch(taskTitles, descriptions, toDos, inputStart);
 }

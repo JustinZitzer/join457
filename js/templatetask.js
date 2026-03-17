@@ -131,7 +131,7 @@ function getTaskOverlayTemplate(status) {
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
     <div onclick="showBigTaskInfo('${taskKey}')" id="todo-content-box${taskKey}" class="todo-content-box"
-        draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')">
+        draggable="true" ondragstart="startDragging('${taskKey}', '${task.category}')" ondragend="endDragging()">
         <div class="flexbox-for-user-story-and-icon">
           <div class="user-story-box" id="user-story-box${taskKey}">
             <span id="user-story-or-technical-task-box${taskKey}">${task.categoryUserOrTechnicalTask}</span>
@@ -418,8 +418,7 @@ function circleAssignedToTemplate(i, circleClasses, initials, name) {
 
 function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   return `
-    <div onmouseenter="showIconsInEditSubtasks('${taskKey}', '${i}')" onmouseleave="hideIconsInEditSubtasks('${taskKey}', '${i}')"
-        class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
+    <div class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
       <div class="bullet-subtask-flexbox">
         <div class="subtask-bullet-margin-right">•</div>
         <span class="subtask-task-text-edit" id="subtask-task-text-edit${taskKey}${i}">${subtaskText}</span>

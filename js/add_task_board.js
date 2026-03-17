@@ -982,3 +982,31 @@ function backgroundNotScrollable() {
     document.body.classList.remove("overflow-hidden");
   }
 }
+
+function highlightDropZones() {
+  const todo = document.getElementById("todo-content-task");
+  const inprogress = document.getElementById("inprogress-content-task");
+  const awaitFeedback = document.getElementById("await-feedback-content-task");
+  const done = document.getElementById("done-content-task");
+
+  todo.classList.add("drop-highlight");
+  inprogress.classList.add("drop-highlight");
+  awaitFeedback.classList.add("drop-highlight");
+  done.classList.add("drop-highlight");
+}
+
+function removeDropHighlight() {
+  const todo = document.getElementById("todo-content-task");
+  const inprogress = document.getElementById("inprogress-content-task");
+  const awaitFeedback = document.getElementById("await-feedback-content-task");
+  const done = document.getElementById("done-content-task");
+
+  todo.classList.remove("drop-highlight");
+  inprogress.classList.remove("drop-highlight");
+  awaitFeedback.classList.remove("drop-highlight");
+  done.classList.remove("drop-highlight");
+}
+
+function endDragging() {
+  removeDropHighlight();
+}

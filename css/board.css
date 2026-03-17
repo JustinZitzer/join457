@@ -2073,7 +2073,8 @@ h2 {
 
 .task-board-big-priority-icon {
     margin-left: 10px;
-    height: 18px;
+    height: 12px;
+    width: 17px;
 }
 
 .task-board-big-assigned-to-div {
@@ -2085,8 +2086,11 @@ h2 {
 .task-board-big-assigned-to-contacts-div {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     margin-left: 20px;
+    max-height: 180px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .assigned-to-big-task-headline {
@@ -2143,17 +2147,31 @@ h2 {
 }
 
 .subtasks-board-tasks-div {
-    width: 100%;
+    width: 90%;
     margin-left: 50px;
     margin-top: 5px;
     display: flex;
     flex-direction: column;
+    max-height: 230px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .subtasks-board-first-task {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.subtasks-board-first-task:hover {
+    background-color: #f0f0f0;
 }
 
 .subtasks-board-second-task {
@@ -2753,8 +2771,6 @@ h2 {
 }
 
 .edit-pencil-icon:hover {
-    box-shadow: 0 0 0px 1px rgba(88, 85, 85, 0.3);
-    background-color: rgba(88, 85, 85, 0.3);
     border-radius: 50%;
     cursor: pointer;
     scale: 1.05;
@@ -2767,8 +2783,6 @@ h2 {
 }
 
 .waste-icon:hover {
-    box-shadow: 0 0 0px 0px rgba(88, 85, 85, 0.3);
-    background-color: rgba(88, 85, 85, 0.3);
     border-radius: 50%;
     cursor: pointer;
     scale: 1.05;
@@ -2860,7 +2874,7 @@ h2 {
     justify-content: end;
     margin-right: 30px;
     margin-bottom: 40px;
-    margin-top: 110px;
+    margin-top: 130px;
 }
 
 .add-changes-button {
@@ -3248,6 +3262,12 @@ h2 {
     position: absolute;
     top: 65px;
     z-index: 0;
+}
+
+.drop-highlight {
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    transition: background-color 0.15s ease;
 }
 
 @media (max-width: 1600px) {}
