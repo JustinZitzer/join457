@@ -3385,6 +3385,7 @@ h2 {
 
     .await-feedback-content {
         width: 180px;
+        
     }
 
     .await-feedback-task-container {
@@ -3734,6 +3735,7 @@ h2 {
     .todo-container {
         width: 100%;
         padding-left: 16px;
+        padding-right: 16px;
     }
 
     .todo-content {
@@ -3789,7 +3791,8 @@ h2 {
     }
 
     .inprogress-container {
-        padding-left: 0px;
+        padding-left: 16px;
+        padding-right: 16px;
         width: 100%;
     }
 
@@ -3837,6 +3840,8 @@ h2 {
 
     .done-content {
         width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .done-box {
@@ -4134,7 +4139,10 @@ h2 {
     .calendar-icon-edit-task-big {
         right: 18px;
     }
+    
 }
+
+
 
 
 
@@ -4386,7 +4394,6 @@ h2 {
     }
 
 
-
     .inputfield-category-assign {
         width: 95vw;
     }
@@ -4443,6 +4450,11 @@ h2 {
         display: flex;
         max-height: 300px;
     }
+
+
+    .await-feedback-task-container {
+        padding-left: 16px;
+        padding-right: 16px;
 
     .title-findtask {
         width: 98%;
@@ -4919,6 +4931,7 @@ h2 {
     }
 }
 
+
 @media (max-width: 350px) {
     .todo-box {
         width: 100%;
@@ -4933,6 +4946,7 @@ h2 {
     .title-findtask {
         width: 98%;
     }
+
 
     .subtask-task-text-edit {
         max-width: 185px;
