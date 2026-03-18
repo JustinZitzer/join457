@@ -2142,7 +2142,7 @@ h2 {
     width: 100%;
     font-size: 20px;
     margin-left: 30px;
-    margin-top: 60px;
+    margin-top: 65px;
     font-weight: 400;
     color: #2A3647;
 }
@@ -2194,8 +2194,8 @@ h2 {
     display: flex;
     align-items: center;
     position: fixed;
+    gap: 8px;
     right: 30px;
-    bottom: 10px;
 }
 
 .seperator-big-subtask {
@@ -3633,6 +3633,7 @@ h2 {
     .task-board-big-delete-edit-div-first {
         display: flex;
         align-items: center;
+    
     }
 
     .task-category-and-cross-icon-div {
