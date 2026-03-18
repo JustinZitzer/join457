@@ -3733,6 +3733,7 @@ h2 {
 
     .todo-container {
         width: 100%;
+        padding-left: 16px;
     }
 
     .todo-content {
@@ -4435,6 +4436,7 @@ h2 {
 
     .todo-content-box {
         margin-right: 15px;
+        margin-left: 0px;
     }
 
     .inprogress-content-task {
