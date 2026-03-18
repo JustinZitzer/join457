@@ -4229,6 +4229,14 @@ h2 {
 
 @media (max-width: 900px) {
 
+    .flexbox-mobile-board-flex {
+        display: flex;
+        width: 102%;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 18px;
+    }
+
     .await-feedback-content-task {
         display: flex;
     }
