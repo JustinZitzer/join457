@@ -2648,6 +2648,7 @@ h2 {
 .three-circle-container {
     display: flex;
     width: 100%;
+    gap: 10px;
 }
 
 .three-circle-container-edit {
@@ -3413,6 +3414,7 @@ h2 {
 
     .three-circle-container {
         width: 180px;
+        gap: 10px;
     }
 
     .progressbar-content {
