@@ -2142,7 +2142,7 @@ h2 {
     width: 100%;
     font-size: 20px;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 60px;
     font-weight: 400;
     color: #2A3647;
 }
@@ -2153,8 +2153,6 @@ h2 {
     margin-top: 5px;
     display: flex;
     flex-direction: column;
-    max-height: 230px;
-    overflow-y: auto;
     scrollbar-width: none;
 }
 
@@ -3622,12 +3620,11 @@ h2 {
         left: 50% !important;
         transform: translate(100vw, -50%) !important;
         transition: transform 0.5s ease !important;
-
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        height: 75% !important;
-        width: 98% !important;
+        height: 100% !important;
+        width: 100% !important;
         background-color: white !important;
         border-radius: 16px !important;
         z-index: 112 !important;
