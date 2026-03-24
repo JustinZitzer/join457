@@ -154,7 +154,6 @@ function updateTasksHtml() {
   renderTasksForColumn(doneTasks, doneContent);
 }
 
-
 function clearAllTasks() {
   toDoContentFinalDiv.innerHTML = "";
   inProgressContent.innerHTML = "";
@@ -171,7 +170,6 @@ function startDragging(taskId, category) {
 function allowDrop(ev) {
   ev.preventDefault();
 }
-
 
 async function moveTo(newCategory) {
   const taskIndex = todosArray.findIndex((t) => t.id === currentDraggedElement && t.category === currentDraggedCategory);
