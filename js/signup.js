@@ -305,4 +305,3 @@ async function  loadData(path='') {
   let responseAsJson = response.json()
   console.log(responseAsJson)
 }
-
