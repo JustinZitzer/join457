@@ -205,16 +205,14 @@
                 <span>This field is required</span>
             </div>
 
-            <div class="clear-create-button-flexbox">
-                <div onclick="clearInputFieldsForNewTask(), clearHighlightedContacts()" class="clear-field">
-                    <div class="clear-text">Clear</div>
-                    <img class="close-button" src="./assets/icons/add-task-cancel.svg" alt="close-icon">
-                </div>  
+            <div onclick="clearInputFieldsForNewTask(), clearHighlightedContacts()" class="clear-field">
+                <div class="clear-text">Clear</div>
+                <img class="close-button" src="./assets/icons/add-task-cancel.svg" alt="close-icon">
+            </div>
 
-                <div onclick="postNewTaskToFirebase()" class="create-field">
-                    <div class="text-create-field">Create Task</div>
-                    <img class="check-button" src="./assets/icons/check-icon.svg" alt="check-button">
-                </div>
+            <div onclick="postNewTaskToFirebase()" class="create-field">
+                <div class="text-create-field">Create Task</div>
+                <img class="check-button" src="./assets/icons/check-icon.svg" alt="check-button">
             </div>
         </div>
 
