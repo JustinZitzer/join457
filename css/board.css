@@ -2961,19 +2961,6 @@ h2 {
     margin-top: 12px;
 }
 
-/* CSS für Empty-State */
-.empty-state {
-    width: 100%;
-    padding: 16px;
-    text-align: center;
-    color: #b0b0b0;           /* hellgrauer Text */
-    background-color: #f7f7f7; /* hellgrauer Hintergrund */
-    border-radius: 10px;
-    border: 1px dashed #d3d3d3;
-    font-size: 14px;
-    font-style: italic;
-  }
-
 .three-circle-container-board {
     display: flex;
     align-items: center;
