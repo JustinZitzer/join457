@@ -563,7 +563,8 @@ h3 {
 
 .plus-counter-edit {
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: unset;
+    margin-top: 4px;
 }
 
 .three-circle-todo {
@@ -1952,7 +1953,7 @@ h2 {
 }
 
 .task-big-container * {
-    margin-top: 0;
+    margin-top: ;
 }
 
 /* Aktiver Zustand: in die Mitte sliden */
