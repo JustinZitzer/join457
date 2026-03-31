@@ -542,6 +542,11 @@ function getEmptyTodoTemplate() {
   return `<div class="no-tasks-to-do">No tasks To do</div>`;
 }
 
+function getEmptyInProgressTemplate() {
+  return `<div class="no-tasks-in-progress">No tasks To do</div>`;
+}
+
+
 function getAssignedContactBigTemplate(circleClass, initials, name) {
   return `
     <div class="task-board-big-first-contact-big">

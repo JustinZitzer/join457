@@ -562,8 +562,7 @@ h3 {
 
 .plus-counter-edit {
     margin-left: 10px;
-    margin-top: unset;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 .three-circle-todo {
@@ -1954,7 +1953,7 @@ h2 {
 }
 
 .task-big-container * {
-    margin-top: ;
+    margin-top: 0;
 }
 
 /* Aktiver Zustand: in die Mitte sliden */
@@ -3227,6 +3226,7 @@ h2 {
     margin-top: 10px;
     border: 1px dashed #A8A8A8;
 }
+
 
 .border-red-board {
     border: 1px solid red;
