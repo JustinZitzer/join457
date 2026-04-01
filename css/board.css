@@ -550,7 +550,7 @@ h3 {
 }
 
 .subtask-text {
-    width: 102px;
+    width: 120px;
     height: auto;
     left: 139px;
     font-weight: 500;
@@ -3382,7 +3382,7 @@ h2 {
     }
 
     .progressbar-content {
-        width: 84px;
+        width: 100px;
     }
 
     .done-content-task {
@@ -3392,6 +3392,10 @@ h2 {
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
+
+    .todo-content-box {
+        padding-right: 10px;
+    }
 
     .todos-bar-container p {
         font-size: 17px;
@@ -3428,7 +3432,7 @@ h2 {
     }
 
     .progressbar-content {
-        width: 50px;
+        width: 100px;
     }
 
     .inprogress-container {
@@ -3464,7 +3468,8 @@ h2 {
     }
 
     .progressbar-box {
-        width: 100%;
+        width: 200px;
+        margin-left: -5px;
     }
 
 }
