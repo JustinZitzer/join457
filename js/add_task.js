@@ -75,6 +75,7 @@ async function loadToDoTasksFromFirebase() {
 }
 
 async function initAddTask() {
+  loadHTML();
   await loadDataSignUp();
   loadMediumButtonPriority();
   selectedSiteBackgroundStyle();
