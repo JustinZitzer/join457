@@ -2192,19 +2192,24 @@ h2 {
 }
 
 .task-board-big-delete-edit-div {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    margin-top: auto;
+    padding-bottom: 48px;
+    padding-right: 40px;
+}
+
+.big-task-show-hide-div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: fixed;
     gap: 8px;
-    right: 30px;
-    bottom: 30px;
 }
 
 .seperator-big-subtask {
