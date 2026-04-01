@@ -1913,15 +1913,15 @@ h2 {
 
 /* Overlay-Hintergrund */
 .task-big-container-absolute {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 111 !important;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 111;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* Sichtbar */
@@ -1930,19 +1930,20 @@ h2 {
 }
 
 .task-big-container {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(100vw, -50%) !important;
-    transition: transform 0.5s ease !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    height: 89% !important;
-    width: 31% !important;
-    background-color: white !important;
-    border-radius: 16px !important;
-    z-index: 112 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100vw, -50%);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 89%;
+    width: 31%;
+    min-width: 487px;
+    background-color: white;
+    border-radius: 16px;
+    z-index: 112;
     max-height: 962px;
     max-width: 600px;
     box-sizing: border-box;
@@ -3648,8 +3649,9 @@ h2 {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        height: 100% !important;
+        height: 90% !important;
         width: 100% !important;
+        min-width: unset !important;
         background-color: white !important;
         border-radius: 16px !important;
         z-index: 112 !important;
@@ -3659,6 +3661,11 @@ h2 {
         display: flex;
         align-items: center;
 
+    }
+
+    .task-board-big-delete-edit-div {
+        padding-bottom: 20px;
+        padding-right: 20px;
     }
 
     .task-category-and-cross-icon-div {
