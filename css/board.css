@@ -379,7 +379,7 @@ h3 {
 
 .todo-content-box {
     margin-top: 10px;
-    height: 224px;
+    min-height: 224px;
     width: 252px;
     gap: 10px;
     border-radius: 24px;
@@ -505,7 +505,7 @@ h3 {
 }
 
 .text-create-box {
-    width: 220px;
+    width: 214px;
     height: 38px;
     font-weight: 400;
     padding-top: 4px;
@@ -3309,7 +3309,7 @@ h2 {
 @media (max-width: 1359px) {
 
     .todos-bar-container {
-        gap: 4px;
+        gap: 16px;
     }
 
     .container-both-sides-board {
@@ -3411,7 +3411,6 @@ h2 {
 
     .todo-content-box {
         width: 190px;
-        height: 210px;
     }
 
     .done-content-task {
@@ -3479,7 +3478,7 @@ h2 {
 @media (min-width: 1119px) and (max-width: 1199px) {
 
     .todos-bar-container {
-        gap: 24px;
+        gap: 16px;
     }
 }
 
@@ -3492,7 +3491,7 @@ h2 {
 
 @media (max-width: 1118px) {
     .todos-bar-container {
-        gap: 9px;
+        gap: 16px;
     }
 }
 
