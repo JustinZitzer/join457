@@ -144,53 +144,31 @@ function updateTasksHtml() {
   clearAllTasks();
   bigTaskDiv.innerHTML = "";
 
-  // ToDo
   if (toDoTasks.length === 0) {
     toDoContentFinalDiv.innerHTML = getEmptyTodoTemplate();
   } else {
     renderTasksForColumn(toDoTasks, toDoContentFinalDiv);
   }
-<<<<<<< HEAD
-=======
-  if (inProgressTasks.length === 0) {
-    inProgressContent.innerHTML = getEmptyInProgressTemplate();
-  } else {
-  renderTasksForColumn(inProgressTasks, inProgressContent);
-  }
-  if (awaitFeedbackTasks.length === 0) {
-    awaitFeedbackContent.innerHTML = getEmptyAwaitFeedbackTemplate();
-  } else {
-  renderTasksForColumn(awaitFeedbackTasks, awaitFeedbackContent);
-  }
-  if (doneTasks.length === 0) {
-    doneContent.innerHTML = getEmptyDoneTemplate();
-  } else {
-  renderTasksForColumn(doneTasks, doneContent);
-  }
-}
->>>>>>> 3a1baef429b23b67968b2d5521bd7116f617abfb
 
-  // In Progress
   if (inProgressTasks.length === 0) {
     inProgressContent.innerHTML = getEmptyTodoTemplate();
   } else {
     renderTasksForColumn(inProgressTasks, inProgressContent);
   }
 
-  // Await Feedback
   if (awaitFeedbackTasks.length === 0) {
     awaitFeedbackContent.innerHTML = getEmptyTodoTemplate();
   } else {
     renderTasksForColumn(awaitFeedbackTasks, awaitFeedbackContent);
   }
 
-  // Done
   if (doneTasks.length === 0) {
     doneContent.innerHTML = getEmptyTodoTemplate();
   } else {
     renderTasksForColumn(doneTasks, doneContent);
   }
 }
+
 function clearAllTasks() {
   toDoContentFinalDiv.innerHTML = "";
   inProgressContent.innerHTML = "";
