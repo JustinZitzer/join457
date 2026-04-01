@@ -149,9 +149,21 @@ function updateTasksHtml() {
   } else {
     renderTasksForColumn(toDoTasks, toDoContentFinalDiv);
   }
+  if (inProgressTasks.length === 0) {
+    inProgressContent.innerHTML = getEmptyInProgressTemplate();
+  } else {
   renderTasksForColumn(inProgressTasks, inProgressContent);
+  }
+  if (awaitFeedbackTasks.length === 0) {
+    awaitFeedbackContent.innerHTML = getEmptyAwaitFeedbackTemplate();
+  } else {
   renderTasksForColumn(awaitFeedbackTasks, awaitFeedbackContent);
+  }
+  if (doneTasks.length === 0) {
+    doneContent.innerHTML = getEmptyDoneTemplate();
+  } else {
   renderTasksForColumn(doneTasks, doneContent);
+  }
 }
 
 function clearAllTasks() {
