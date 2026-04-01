@@ -2097,8 +2097,6 @@ h2 {
     flex-direction: column;
     width: 90%;
     margin-left: 20px;
-    max-height: 180px;
-    overflow-y: unset;
     scrollbar-width: none;
 }
 
@@ -2150,7 +2148,7 @@ h2 {
     width: 100%;
     font-size: 20px;
     margin-left: 30px;
-    margin-top: 70px;
+    margin-top: 24px;
     font-weight: 400;
     color: #2A3647;
 }
@@ -2192,19 +2190,24 @@ h2 {
 }
 
 .task-board-big-delete-edit-div {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    margin-top: auto;
+    padding-bottom: 40px;
+    padding-right: 40px;
+}
+
+.big-task-show-hide-div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: fixed;
     gap: 8px;
-    right: 30px;
-    bottom: 30px;
 }
 
 .seperator-big-subtask {
@@ -2267,7 +2270,7 @@ h2 {
 }
 
 .big-task-panel {
-    height: 94%;
+    height: 100%;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
