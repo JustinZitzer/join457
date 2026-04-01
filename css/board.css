@@ -815,7 +815,7 @@ h5 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     background-color: orange;
@@ -2661,7 +2661,7 @@ h2 {
     display: flex;
     width: 100%;
     position: absolute;
-    top: 66px;
+    top: 67.5px;
 }
 
 .circles-edit {
