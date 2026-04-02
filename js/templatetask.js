@@ -539,19 +539,7 @@ function getContactCircleTemplate(className, initials) {
 }
 
 function getEmptyTodoTemplate() {
-  return `<div class="no-tasks-to-do">No tasks to do</div>`;
-}
-
-function getEmptyInProgressTemplate() {
-  return `<div class="no-tasks-to-do">No tasks in progress</div>`;
-}
-
-function getEmptyAwaitFeedbackTemplate() {
-  return `<div class="no-tasks-to-do">No tasks are awaiting feedback</div>`;
-}
-
-function getEmptyDoneTemplate() {
-  return `<div class="no-tasks-to-do">No tasks are done</div>`;
+  return `<div class="no-tasks-to-do">No tasks To do</div>`;
 }
 
 function getEmptyInProgressTemplate() {
