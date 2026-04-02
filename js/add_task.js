@@ -140,34 +140,28 @@ function renderTasksForColumn(tasks, columnElement) {
 }
 
 function updateTasksHtml() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks } = filterTasksByCategory();
+  const {
+    toDoTasks,
+    inProgressTasks,
+    awaitFeedbackTasks,
+    doneTasks,
+  } = filterTasksByCategory();
 
-  clearAllTasks();
+  const categories = [
+    [toDoContentFinalDiv, toDoTasks],
+    [inProgressContent, inProgressTasks],
+    [awaitFeedbackContent, awaitFeedbackTasks],
+    [doneContent, doneTasks],
+  ];
+
   bigTaskDiv.innerHTML = "";
 
-  if (toDoTasks.length === 0) {
-    toDoContentFinalDiv.innerHTML = getEmptyTodoTemplate();
-  } else {
-    renderTasksForColumn(toDoTasks, toDoContentFinalDiv);
-  }
-
-  if (inProgressTasks.length === 0) {
-    inProgressContent.innerHTML = getEmptyTodoTemplate();
-  } else {
-    renderTasksForColumn(inProgressTasks, inProgressContent);
-  }
-
-  if (awaitFeedbackTasks.length === 0) {
-    awaitFeedbackContent.innerHTML = getEmptyTodoTemplate();
-  } else {
-    renderTasksForColumn(awaitFeedbackTasks, awaitFeedbackContent);
-  }
-
-  if (doneTasks.length === 0) {
-    doneContent.innerHTML = getEmptyTodoTemplate();
-  } else {
-    renderTasksForColumn(doneTasks, doneContent);
-  }
+  categories.forEach(([container, tasks]) => {
+    container.innerHTML = "";
+    tasks.length
+      ? renderTasksForColumn(tasks, container)
+      : (container.innerHTML = getEmptyTodoTemplate());
+  });
 }
 
 function clearAllTasks() {
