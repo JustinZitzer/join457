@@ -1395,6 +1395,10 @@ h6 {
     display: flex;
 }
 
+.inputfield-subtask-edit-div {
+    padding-left: 10px;
+}
+
 @keyframes fly-up {
     0% {
         bottom: -80px;

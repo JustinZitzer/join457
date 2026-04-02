@@ -379,7 +379,7 @@ h3 {
 
 .todo-content-box {
     margin-top: 10px;
-    height: 224px;
+    min-height: 224px;
     width: 252px;
     gap: 10px;
     border-radius: 24px;
@@ -505,7 +505,7 @@ h3 {
 }
 
 .text-create-box {
-    width: 220px;
+    width: 214px;
     height: 38px;
     font-weight: 400;
     padding-top: 4px;
@@ -550,7 +550,7 @@ h3 {
 }
 
 .subtask-text {
-    width: 102px;
+    width: 120px;
     height: auto;
     left: 139px;
     font-weight: 500;
@@ -815,7 +815,7 @@ h5 {
     border-radius: 45px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
     background-color: orange;
@@ -1913,15 +1913,15 @@ h2 {
 
 /* Overlay-Hintergrund */
 .task-big-container-absolute {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 111 !important;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 111;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* Sichtbar */
@@ -1930,19 +1930,20 @@ h2 {
 }
 
 .task-big-container {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(100vw, -50%) !important;
-    transition: transform 0.5s ease !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    height: 89% !important;
-    width: 31% !important;
-    background-color: white !important;
-    border-radius: 16px !important;
-    z-index: 112 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100vw, -50%);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 89%;
+    width: 31%;
+    min-width: 487px;
+    background-color: white;
+    border-radius: 16px;
+    z-index: 112;
     max-height: 962px;
     max-width: 600px;
     box-sizing: border-box;
@@ -1953,7 +1954,7 @@ h2 {
 }
 
 .task-big-container * {
-    margin-top: 0;
+    margin-top: ;
 }
 
 /* Aktiver Zustand: in die Mitte sliden */
@@ -2657,7 +2658,7 @@ h2 {
     display: flex;
     width: 100%;
     position: absolute;
-    top: 66px;
+    top: 67.5px;
 }
 
 .circles-edit {
@@ -3306,7 +3307,7 @@ h2 {
 @media (max-width: 1359px) {
 
     .todos-bar-container {
-        gap: 4px;
+        gap: 16px;
     }
 
     .container-both-sides-board {
@@ -3378,7 +3379,7 @@ h2 {
     }
 
     .progressbar-content {
-        width: 84px;
+        width: 100px;
     }
 
     .done-content-task {
@@ -3389,55 +3390,58 @@ h2 {
 
 @media (min-width: 1024px) and (max-width: 1199px) {
 
+    .todo-content-box {
+        padding-right: 10px;
+    }
+
     .todos-bar-container p {
         font-size: 17px;
     }
 
     .await-feedback-content-task {
-        width: 180px;
+        width: 210px;
     }
 
     .await-feedback-content {
-        width: 180px;
+        width: 210px;
 
     }
 
     .await-feedback-task-container {
-        width: 180px;
+        width: 210px;
     }
 
     .todo-content-box {
-        width: 190px;
-        height: 210px;
+        width: 210px;
     }
 
     .done-content-task {
-        width: 180px;
+        width: 210px;
     }
 
     .done-content {
-        width: 180px;
+        width: 210px;
     }
 
     .three-circle-container {
-        width: 180px;
+        width: 210px;
         gap: 10px;
     }
 
     .progressbar-content {
-        width: 50px;
+        width: 100px;
     }
 
     .inprogress-container {
-        width: 180px;
+        width: 210px;
     }
 
     .todo-container {
-        width: 180px;
+        width: 210px;
     }
 
     .todo-content {
-        width: 180px;
+        width: 210px;
     }
 
     .text-create-box {
@@ -3461,7 +3465,8 @@ h2 {
     }
 
     .progressbar-box {
-        width: 100%;
+        width: 200px;
+        margin-left: -5px;
     }
 
 }
@@ -3476,7 +3481,7 @@ h2 {
 @media (min-width: 1119px) and (max-width: 1199px) {
 
     .todos-bar-container {
-        gap: 24px;
+        gap: 16px;
     }
 }
 
@@ -3489,7 +3494,7 @@ h2 {
 
 @media (max-width: 1118px) {
     .todos-bar-container {
-        gap: 9px;
+        gap: 16px;
     }
 }
 
@@ -3646,8 +3651,9 @@ h2 {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        height: 100% !important;
+        height: 90% !important;
         width: 100% !important;
+        min-width: unset !important;
         background-color: white !important;
         border-radius: 16px !important;
         z-index: 112 !important;
@@ -3657,6 +3663,11 @@ h2 {
         display: flex;
         align-items: center;
 
+    }
+
+    .task-board-big-delete-edit-div {
+        padding-bottom: 20px;
+        padding-right: 20px;
     }
 
     .task-category-and-cross-icon-div {
