@@ -778,15 +778,17 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
     const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
-    if (span) {
-      const text = span.textContent.trim();
-      if (text) {
-        subtasks.push({
-          subtaskText: text,
-          statusCheckbox: false
-        });
-      }
-    }
+    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+
+    if (!span) continue;
+
+    const text = span.textContent.trim();
+    if (!text) continue;
+
+    subtasks.push({
+      subtaskText: text,
+      statusCheckbox: checkbox ? checkbox.checked : false
+    });
   }
 }
 
