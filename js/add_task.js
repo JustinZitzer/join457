@@ -1109,27 +1109,6 @@ function subtaskIntoBoard() {
 
 }
 
-function deleteSubtasksInBoard(i) {
-  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
-  if (subtaskDiv) {
-    subtaskDiv.remove();
-  }
-}
-
-function changeSubtasksInBoard(i, subtaskText) {
-  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
-  subtaskDiv.innerHTML = changeSubtasksIntoInputfield(i, subtaskText);
-}
-
-function changedSubtasksBoard(i) {
-  const input = document.getElementById(`new-subtask-text-field${i}`);
-  const newSubtaskText = input.value.trim();
-  if (!newSubtaskText) return;
-
-  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
-  subtaskDiv.innerHTML = subtasksInBoard(i, newSubtaskText);
-}
-
 function subtasksInfoForFirebase() {
   let subtasksArray = [];
   subtasksArray = [];
