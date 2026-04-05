@@ -2098,7 +2098,6 @@ h2 {
     flex-direction: column;
     width: 90%;
     margin-left: 20px;
-    max-height: 180px;
     overflow-y: unset;
     scrollbar-width: none;
 }
@@ -2151,7 +2150,7 @@ h2 {
     width: 100%;
     font-size: 20px;
     margin-left: 30px;
-    margin-top: 70px;
+    margin-top: 24px;
     font-weight: 400;
     color: #2A3647;
 }
@@ -3325,6 +3324,18 @@ h2 {
     }
 }
 
+@media (min-width: 1120px) and (max-width: 1199px) {
+    .no-tasks-to-do {
+        width: 210px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1299px) {
+    .no-tasks-to-do {
+        width: 230px;
+    }
+}
+
 @media (min-width: 1024px) and (max-width: 1299px) {
     .find-task-add-task-container {
         width: 100%;
@@ -3336,10 +3347,6 @@ h2 {
 
     .add-task-box {
         width: 193px;
-    }
-
-    .no-tasks-to-do {
-        width: 90%;
     }
 
     .todo-content-box {
@@ -3474,7 +3481,7 @@ h2 {
 @media (max-width: 1119px) {
 
     .no-tasks-to-do {
-        width: 72%;
+        width: 210px;
     }
 }
 
@@ -3869,6 +3876,8 @@ h2 {
 
     .await-feedback-content {
         width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .done-content {
