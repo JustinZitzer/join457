@@ -824,6 +824,48 @@ function resetAllInfosInBoardOverlay() {
   categoryInput.classList.remove("border-red-board");
 }
 
+function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer) {
+  taskTitel.value = "";
+  taskDescription.value = "";
+  taskDueDate.value = "";
+  taskCategory.value = "";
+  taskSubtask.value = "";
+  savedSubtasks.innerHTML = "";
+  circleContainer.innerHTML = "";
+}
+
+function resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow) {
+  taskPriorityUrgent.classList.remove("active");
+  taskPriorityMedium.classList.remove("active");
+  taskPriorityLow.classList.remove("active");
+}
+
+function resetBoardContacts(contacts) {
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contact.checked = false;
+  }
+}
+
+function clearInputFieldsForNewTaskBoard() {
+  const taskTitel = document.getElementById("titleInputBoard");
+  const taskDescription = document.getElementById("inputfield-description-board");
+  const taskDueDate = document.getElementById("dueDateInputBoard");
+  const taskPriorityUrgent = document.getElementById("arrow-container-red-board");
+  const taskPriorityMedium = document.getElementById("arrow-container-orange-board");
+  const taskPriorityLow = document.getElementById("arrow-container-green-board");
+  const contacts = document.getElementsByClassName("contact-checkbox");
+  const taskCategory = document.getElementById("inputfield-category-assign-board");
+  const taskSubtask = document.getElementById("inputfield-subtask-assign-in-board");
+  const savedSubtasks = document.getElementById("subtasks-in-board");
+  const circleContainer = document.getElementById("three-circle-container-board");
+
+  resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
+  resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow);
+  resetBoardContacts(contacts);
+  resetAllInfosInBoardOverlay();
+}
+
 function openDatePickerBoard() {
   const input = document.getElementById("dueDateInputBoard");
   input.focus();
@@ -1009,4 +1051,97 @@ function removeDropHighlight() {
 
 function endDragging() {
   removeDropHighlight();
+}
+
+function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
+  for (let i = 0; i < taskTitles.length; i++) {
+    const titleElement = taskTitles[i];
+    const descriptionElement = descriptions[i];
+    const title = titleElement.textContent.trim().toLowerCase();
+    const description = descriptionElement.textContent.trim().toLowerCase();
+    const titleWords = title.split(" ");
+    const descriptionWords = description.split(" ");
+    let match = false;
+
+    for (let j = 0; j < titleWords.length; j++) {
+      if (titleWords[j].startsWith(inputStart)) {
+        match = true;
+        break;
+      }
+    }
+
+    for (let j = 0; j < descriptionWords.length; j++) {
+      if (descriptionWords[j].startsWith(inputStart)) {
+        match = true;
+        break;
+      }
+    }
+
+    if (match) {
+      toDos[i].classList.remove("display-none");
+    } else {
+      toDos[i].classList.add("display-none");
+    }
+  }
+}
+
+function searchTask() {
+  const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
+  const taskTitles = document.getElementsByClassName("task-titel-mini-task");
+  const descriptions = document.getElementsByClassName("task-board-big-description");
+  const toDos = document.getElementsByClassName("todo-content-box");
+  const inputStart = inputValue.substring(0, 3);
+
+  if (inputValue.length < 1) {
+    for (let i = 0; i < toDos.length; i++) {
+      toDos[i].classList.remove("display-none");
+    }
+    return;
+  }
+
+  filterTasksBySearch(taskTitles, descriptions, toDos, inputStart);
+}
+
+function categoryUserOrTechnicalTaskBoard() {
+  const input = document.getElementById("inputfield-category-assign-board");
+  const dropdown = document.getElementById("category-dropdown-board");
+  const isOpen = dropdown.classList.contains("open");
+  dropdown.classList.toggle("open");
+  input.classList.toggle("inputfield-blue-border-top-right");
+  if (isOpen) {
+    validateCategoryInBoardInput();
+  }
+}
+
+function selectUserCategoryBoard() {
+  const inputfield = document.getElementById("inputfield-category-assign-board");
+  inputfield.value = "User Story";
+  categoryUserOrTechnicalTaskBoard();
+}
+
+function selectTechnicalCategoryBoard() {
+  const inputfield = document.getElementById("inputfield-category-assign-board");
+  inputfield.value = "Technical Task";
+  categoryUserOrTechnicalTaskBoard();
+}
+
+function changeSubtasksInBoard(i, subtaskText) {
+  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
+  subtaskDiv.innerHTML = changeSubtasksIntoInputfield(i, subtaskText);
+}
+
+function changedSubtasksBoard(i) {
+  const input = document.getElementById(`new-subtask-text-field${i}`);
+  const newSubtaskText = input.value.trim();
+  if (!newSubtaskText) return;
+
+  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
+  subtaskDiv.innerHTML = subtasksInBoard(i, newSubtaskText);
+}
+
+function deleteSubtasksInBoard(i) {
+  const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
+  if (subtaskDiv) {
+    subtaskDiv.remove();
+  }
 }
