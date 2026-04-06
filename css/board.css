@@ -4501,14 +4501,8 @@ h2 {
         max-height: 300px;
     }
 
-
-    .await-feedback-task-container {
-        padding-left: 16px;
-        padding-right: 16px;
-
-        .title-findtask {
-            width: 98%;
-        }
+    .title-findtask {
+        width: 98%;
     }
 }
 
