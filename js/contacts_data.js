@@ -1,5 +1,10 @@
 let allContacts = [];
 
+/**
+ * Fetches contact data from storage
+ * @async
+ * @returns {Promise<Object>} The contacts data or an empty object if no data is found or an error occurs
+ */
 async function fetchContacts() {
   try {
     const data = await loadData('contacts');
@@ -10,12 +15,23 @@ async function fetchContacts() {
   }
 }
 
+/**
+ * Loads contacts and renders them into the contact list container
+ * @async
+ * @returns {Promise<void>}
+ */
+
 async function loadContacts() {
   const container = document.getElementById('contact_list');
   container.innerHTML = '';
+
   try {
     const contacts = await getSortedContacts();
-    if (!contacts) return container.innerHTML = '<p>Keine Kontakte gefunden.</p>';
+    if (!contacts) {
+      container.innerHTML = '<p>Keine Kontakte gefunden.</p>';
+      return;
+    }
+
     allContacts = contacts;
     renderContactsList(container, contacts);
   } catch (error) {
@@ -24,27 +40,51 @@ async function loadContacts() {
   }
 }
 
+/**
+ * Fetches contacts, converts them into an array and sorts them by first name
+ * @async
+ * @returns {Promise<Array<Object>|null>} Sorted contacts array or null if no contacts are found
+ */
+
 async function getSortedContacts() {
   const contactsUnsorted = await fetchContacts();
   if (!contactsUnsorted) return null;
+
   const contacts = Object.entries(contactsUnsorted).map(([key, value]) => ({
     ...value,
     key,
   }));
+
   return contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
 }
 
+/**
+ * Renders the contact list into the given container, grouped by first letter
+ * @param {HTMLElement} container - The HTML element where the contacts will be rendered
+ * @param {Array<Object>} contacts - The list of contact objects to render
+ */
+
 function renderContactsList(container, contacts) {
   let lastLetter = "";
+
   for (const contact of contacts) {
     const currentLetter = contact.firstName[0].toUpperCase();
+
     if (currentLetter !== lastLetter) {
       container.innerHTML += getLetterGroup(currentLetter);
       lastLetter = currentLetter;
     }
+
     container.innerHTML += getContactCard(contact);
   }
 }
+
+/**
+ * Renders a single contact into the contact list container
+ * @async
+ * @param {Object} contacts - The contact object to render
+ * @returns {Promise<void>}
+ */
 
 async function renderContacts(contacts) {
   const container = document.getElementById('contact_list');
@@ -99,8 +139,8 @@ function validateContactInputs(name, email, phone) {
   const phoneIsValid = validatePhoneField(phone);
 
   if (!name || !email || !phone) {
-  return false;
-}
+    return false;
+  }
 
   return nameIsValid && emailIsValid && phoneIsValid && name && email && phone;
 }
