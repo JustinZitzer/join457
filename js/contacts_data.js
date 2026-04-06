@@ -115,17 +115,19 @@ async function createNewContact(event) {
 
   const { name, email, phone } = getNewContactInputs();
   if (!validateContactInputs(name, email, phone)) return;
-
   if (allContacts.some(c => c.email.toLowerCase() === email.toLowerCase())) {
     failMessage.classList.remove('display-none');
     failMessage.innerHTML = 'A contact with this email already exists.';
     return;
   }
-
   await saveContactToDatabase(buildNewContact(name, email, phone));
   handleCreatedContactOverlay();
 }
 
+/**
+ * Retrieves input values for a new contact from the form
+ * @returns {Object} An object containing name, email, and phone
+ */
 function getNewContactInputs() {
   return {
     name: document.querySelector('.add-contact-name-input').value.trim(),
@@ -134,6 +136,13 @@ function getNewContactInputs() {
   };
 }
 
+/**
+ * Validates name, email, and phone inputs for a new contact
+ * @param {string} name - The contact's name
+ * @param {string} email - The contact's email
+ * @param {string} phone - The contact's phone number
+ * @returns {boolean} True if all inputs are valid, false otherwise
+ */
 function validateContactInputs(name, email, phone) {
   resetAddContactErrors();
 
@@ -141,13 +150,15 @@ function validateContactInputs(name, email, phone) {
   const emailIsValid = validateEmailField(email);
   const phoneIsValid = validatePhoneField(phone);
 
-  if (!name || !email || !phone) {
-    return false;
-  }
+  if (!name || !email || !phone) return false;
 
-  return nameIsValid && emailIsValid && phoneIsValid && name && email && phone;
+  return nameIsValid && emailIsValid && phoneIsValid;
 }
 
+/**
+ * Validates the name input field for a new contact
+ * @returns {boolean} True if the name is valid, false otherwise
+ */
 function validateNameField() {
   const name = document.getElementById('add-contact-name-input').value;
 
@@ -160,6 +171,10 @@ function validateNameField() {
   return true;
 }
 
+/**
+ * Validates the email input field for a new contact
+ * @returns {boolean} True if the email is valid, false otherwise
+ */
 function validateEmailField() {
   const email = document.getElementById('add-contact-email-input').value;
 
@@ -172,6 +187,10 @@ function validateEmailField() {
   return true;
 }
 
+/**
+ * Validates the phone input field for a new contact
+ * @returns {boolean} True if the phone number is valid, false otherwise
+ */
 function validatePhoneField() {
   const phone = document.getElementById('add-contact-phone-input').value;
 
@@ -184,6 +203,9 @@ function validatePhoneField() {
   return true;
 }
 
+/**
+ * Resets the error message and styling for the name input field
+ */
 function resetNameError() {
   const input = document.getElementById('add-contact-name-input');
   const error = document.getElementById('failure-message-add-contact-name');
@@ -193,6 +215,9 @@ function resetNameError() {
   error.innerHTML = '';
 }
 
+/**
+ * Resets the error message and styling for the email input field
+ */
 function resetEmailError() {
   const input = document.getElementById('add-contact-email-input');
   const error = document.getElementById('failure-message-add-contact-email');
