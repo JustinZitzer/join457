@@ -20,17 +20,13 @@ async function fetchContacts() {
  * @async
  * @returns {Promise<void>}
  */
-
 async function loadContacts() {
   const container = document.getElementById('contact_list');
   container.innerHTML = '';
 
   try {
     const contacts = await getSortedContacts();
-    if (!contacts) {
-      container.innerHTML = '<p>Keine Kontakte gefunden.</p>';
-      return;
-    }
+    if (!contacts) return container.innerHTML = '<p>Keine Kontakte gefunden.</p>';
 
     allContacts = contacts;
     renderContactsList(container, contacts);
@@ -45,7 +41,6 @@ async function loadContacts() {
  * @async
  * @returns {Promise<Array<Object>|null>} Sorted contacts array or null if no contacts are found
  */
-
 async function getSortedContacts() {
   const contactsUnsorted = await fetchContacts();
   if (!contactsUnsorted) return null;
@@ -63,7 +58,6 @@ async function getSortedContacts() {
  * @param {HTMLElement} container - The HTML element where the contacts will be rendered
  * @param {Array<Object>} contacts - The list of contact objects to render
  */
-
 function renderContactsList(container, contacts) {
   let lastLetter = "";
 
@@ -85,12 +79,17 @@ function renderContactsList(container, contacts) {
  * @param {Object} contacts - The contact object to render
  * @returns {Promise<void>}
  */
-
 async function renderContacts(contacts) {
   const container = document.getElementById('contact_list');
   container.innerHTML += getContactCard(contacts);
 }
 
+/**
+ * Deletes a contact by key and updates the contact list
+ * @async
+ * @param {string} key - The unique key of the contact to delete
+ * @returns {Promise<void>}
+ */
 async function deleteContact(key) {
   try {
     closeContactsSideCardOverlay();
@@ -103,23 +102,27 @@ async function deleteContact(key) {
   }
 }
 
-
+/**
+ * Creates a new contact after validating input and checking for duplicates
+ * @async
+ * @param {Event} event - The submit event from the form
+ * @returns {Promise<void>}
+ */
 async function createNewContact(event) {
   const failMessage = document.getElementById('failure-message-add-contact');
   event.preventDefault();
   resetAddContactErrors();
+
   const { name, email, phone } = getNewContactInputs();
   if (!validateContactInputs(name, email, phone)) return;
 
-  const existingContact = allContacts.some(contact => contact.email.toLowerCase() === email.toLowerCase());
-  if (existingContact) {
+  if (allContacts.some(c => c.email.toLowerCase() === email.toLowerCase())) {
     failMessage.classList.remove('display-none');
     failMessage.innerHTML = 'A contact with this email already exists.';
     return;
   }
 
-  const newContact = buildNewContact(name, email, phone);
-  await saveContactToDatabase(newContact);
+  await saveContactToDatabase(buildNewContact(name, email, phone));
   handleCreatedContactOverlay();
 }
 
