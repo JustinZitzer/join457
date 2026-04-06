@@ -767,31 +767,21 @@ function showMoveToCategoryIcon(event, taskKey) {
 }
 
 async function moveTaskToCategory(event, taskId, newCategory) {
-  event.preventDefault();
-  event.stopPropagation();
+  event.preventDefault(); event.stopPropagation();
   const dropdownMenu = document.getElementById(`user-profile-menu-mobile${taskId}`);
-
-  const task = todosArray.find(t => t.id === taskId);
-  if (!task) return;
-
+  const task = todosArray.find(t => t.id == taskId); if (!task) return;
   const oldCategory = task.category;
-  if (oldCategory === newCategory) {
-    dropdownMenu?.classList.add("display-none");
-    return;
-  }
+  if (oldCategory === newCategory) { dropdownMenu?.classList.add("display-none"); return; }
 
   await fetch(FireBaseUrl + `tasks/${oldCategory}/${task.id}.json`, { method: "DELETE" });
-
   task.category = newCategory;
+
   await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(task),
+    method: "PUT", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(task)
   });
 
-  dropdownMenu?.classList.add("display-none");
-
-  loadAllTasksFromFirebase();
+  dropdownMenu?.classList.add("display-none"); loadAllTasksFromFirebase();
 }
 
 function validateCategoryInBoardInput() {
