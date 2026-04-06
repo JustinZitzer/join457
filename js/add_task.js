@@ -317,26 +317,18 @@ function showBigTaskInfo(taskKey) {
   const dueDateEdit = document.getElementById(`due-date-edit-task-big${taskKey}`);
   const today = new Date().toISOString().split("T")[0];
 
-  const panels = wrapper.getElementsByClassName("big-task-panel");
-  for (let i = 0; i < panels.length; i++) {
-    panels[i].classList.add("display-none");
-  }
+  [...wrapper.getElementsByClassName("big-task-panel")]
+    .forEach(p => p.classList.add("display-none"));
 
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
-  if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
-    cancelEditTask(taskKey);
-  }
+  if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) cancelEditTask(taskKey);
 
-  const task = document.getElementById(`big-task-${taskKey}`);
-  if (task) task.classList.remove("display-none");
+  document.getElementById(`big-task-${taskKey}`)?.classList.remove("display-none");
 
   showBigTaskOverlay(overlay, wrapper);
-  if (dueDateEdit) {
-    dueDateEdit.min = today;
-  }
+  if (dueDateEdit) dueDateEdit.min = today;
 
-  backgroundNotScrollable();
-  currentTaskKey = taskKey;
+  backgroundNotScrollable(); currentTaskKey = taskKey;
 }
 
 function handleHideEditPanel(taskKey, editTaskPanel) {
