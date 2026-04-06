@@ -1043,35 +1043,23 @@ function endDragging() {
   removeDropHighlight();
 }
 
+
 function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
-    const titleElement = taskTitles[i];
-    const descriptionElement = descriptions[i];
-    const title = titleElement.textContent.trim().toLowerCase();
-    const description = descriptionElement.textContent.trim().toLowerCase();
-    const titleWords = title.split(" ");
-    const descriptionWords = description.split(" ");
+    const title = taskTitles[i].textContent.trim().toLowerCase();
+    const description = descriptions[i].textContent.trim().toLowerCase();
+    const titleWords = title.split(" "), descriptionWords = description.split(" ");
     let match = false;
 
     for (let j = 0; j < titleWords.length; j++) {
-      if (titleWords[j].startsWith(inputStart)) {
-        match = true;
-        break;
-      }
+      if (titleWords[j].startsWith(inputStart)) { match = true; break; }
     }
 
     for (let j = 0; j < descriptionWords.length; j++) {
-      if (descriptionWords[j].startsWith(inputStart)) {
-        match = true;
-        break;
-      }
+      if (descriptionWords[j].startsWith(inputStart)) { match = true; break; }
     }
 
-    if (match) {
-      toDos[i].classList.remove("display-none");
-    } else {
-      toDos[i].classList.add("display-none");
-    }
+    toDos[i].classList.toggle("display-none", !match);
   }
 }
 
