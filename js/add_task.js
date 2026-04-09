@@ -31,6 +31,7 @@ let fullTaskInfoArray = [];
 const loadedTasks = {};
 document.addEventListener("click", dropdownCloseOnClickOutside, true);
 
+/** Sends data to Firebase using a PUT request. */
 async function putRegistryDataBaseFunction(path = "", data = {}) {
   let response = await fetch(FireBaseUrl + path + ".json", {
     method: "PUT",
@@ -42,6 +43,7 @@ async function putRegistryDataBaseFunction(path = "", data = {}) {
   return (responseToJson = await response.json());
 }
 
+/** Renders todo tasks into a given container. */
 function renderTodoTasks(keys, data, container) {
   for (let i = 0; i < keys.length; i++) {
     const taskKey = keys[i];
@@ -50,6 +52,7 @@ function renderTodoTasks(keys, data, container) {
   }
 }
 
+/** Loads all todo tasks from Firebase and renders them. */
 async function loadToDoTasksFromFirebase() {
   const response = await fetch(FireBaseUrl + "tasks/toDo.json");
   const data = await response.json();
@@ -66,6 +69,7 @@ async function loadToDoTasksFromFirebase() {
   }
 }
 
+/** Initializes the add task page and loads required data. */
 async function initAddTask() {
   loadHTML();
   await loadDataSignUp();
@@ -74,6 +78,7 @@ async function initAddTask() {
   checkTodaysDate();
 }
 
+/** Pushes all tasks from Firebase into a flat array. */
 function pushTasksIntoArray(data, todosArray) {
   for (const categoryKey in data) {
     const categoryTasks = data[categoryKey];
@@ -86,6 +91,7 @@ function pushTasksIntoArray(data, todosArray) {
   }
 }
 
+/** Loads all tasks from Firebase and updates the UI. */
 async function loadAllTasksFromFirebase() {
   todosArray = [];
   const response = await fetch(FireBaseUrl + "tasks.json");
@@ -98,6 +104,7 @@ async function loadAllTasksFromFirebase() {
   updateTasksHtml();
 }
 
+/** Filters tasks by their category. */
 function filterTasksByCategory() {
   let toDoTasks = todosArray.filter((task) => task.category === "toDo");
   let inProgressTasks = todosArray.filter(
@@ -110,6 +117,7 @@ function filterTasksByCategory() {
   return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks };
 }
 
+/** Renders a single task including all details and UI elements. */
 function renderSingleTask(task) {
   loadedTasks[task.id] = task;
   bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
@@ -123,6 +131,7 @@ function renderSingleTask(task) {
   subtaskCounter(task.id);
 }
 
+/** Renders all tasks inside a specific column. */
 function renderTasksForColumn(tasks, columnElement) {
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
@@ -131,6 +140,7 @@ function renderTasksForColumn(tasks, columnElement) {
   }
 }
 
+/** Updates the entire board UI with current tasks. */
 function updateTasksHtml() {
   const {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks,} = filterTasksByCategory();
 
@@ -149,6 +159,7 @@ function updateTasksHtml() {
   });
 }
 
+/** Clears all task columns in the UI. */
 function clearAllTasks() {
   toDoContentFinalDiv.innerHTML = "";
   inProgressContent.innerHTML = "";
@@ -156,16 +167,19 @@ function clearAllTasks() {
   doneContent.innerHTML = "";
 }
 
+/** Starts dragging a task and highlights drop zones. */
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
   currentDraggedCategory = category;
   highlightDropZones();
 }
 
+/** Allows dropping elements during drag and drop. */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
+/** Moves a task to a new category in Firebase. */
 async function moveTo(newCategory) {
   const taskIndex = todosArray.findIndex((t) => t.id === currentDraggedElement && t.category === currentDraggedCategory);
   if (taskIndex === -1) return;
@@ -187,6 +201,7 @@ async function moveTo(newCategory) {
   loadAllTasksFromFirebase();
 }
 
+/** Applies styling depending on task type (User Story or Technical Task). */
 function userStoryOrTechnicalTaskStyle(taskKey) {
   const userOrTechnicalTextBox = document.getElementById(`user-story-or-technical-task-box${taskKey}`);
   const userOrTechnicalDiv = document.getElementById(`user-story-box${taskKey}`);
@@ -203,6 +218,7 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
   }
 }
 
+/** Applies the correct icon based on task priority. */
 function applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture) {
   if (priorityBoxText.innerHTML == "No priority selected") {
     priorityBoxPicture.classList.add("display-none");
@@ -218,6 +234,7 @@ function applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture)
   }
 }
 
+/** Styles the priority display of a task. */
 function priorityStyle(taskKey) {
   const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
   const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
@@ -226,6 +243,7 @@ function priorityStyle(taskKey) {
   applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture);
 }
 
+/** Generates a deterministic class name based on a string. */
 function getClassFromName(name, classArray) {
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
@@ -234,6 +252,7 @@ function getClassFromName(name, classArray) {
   return classArray[hash % classArray.length];
 }
 
+/** Renders assigned contacts in big and small formats. */
 function renderAssignedContactItems(assignedTo, container, containerTask, circleClasses, circleClassesTask) {
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
@@ -255,12 +274,14 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
   assignedToPlusNumber(assignedTo, containerTask);
 }
 
+/** Displays "+X" if more than 3 contacts are assigned. */
 function assignedToPlusNumber(assignedTo, containerTask) {
   if (assignedTo.length > 3) {
     containerTask.innerHTML += `<div class="text-align-contacts-counter">+${assignedTo.length - 3}</div>`;
   }
 }
 
+/** Renders assigned contacts for a task. */
 function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
   const containerTask = document.getElementById(`three-circle-container${taskKey}`);
@@ -280,12 +301,14 @@ function renderAssignedContacts(taskKey, assignedTo) {
   }
 }
 
+/** Loads additional board data from Firebase. */
 async function loadDataBoard(path = "") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
   fullTaskInfoArray.push(responseToJson);
 }
 
+/** Shows the overlay for a big task view. */
 function showBigTaskOverlay(overlay, wrapper) {
   overlay.classList.remove("display-none");
   wrapper.classList.remove("display-none");
@@ -293,6 +316,7 @@ function showBigTaskOverlay(overlay, wrapper) {
   wrapper.classList.add("active");
 }
 
+/** Displays detailed information for a selected task. */
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
@@ -313,6 +337,7 @@ function showBigTaskInfo(taskKey) {
   backgroundNotScrollable(); currentTaskKey = taskKey;
 }
 
+/** Handles delayed hiding of the edit panel. */
 function handleHideEditPanel(taskKey, editTaskPanel) {
   setTimeout(() => {
     if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
@@ -322,6 +347,7 @@ function handleHideEditPanel(taskKey, editTaskPanel) {
   }, 500);
 }
 
+/** Hides the big task UI with animation. */
 function hideBigTaskUI(overlay, wrapper, taskKey) {
   setTimeout(() => {
     overlay.classList.add("display-none");
@@ -337,6 +363,7 @@ function hideBigTaskUI(overlay, wrapper, taskKey) {
   }, 500);
 }
 
+/** Closes the big task detail view. */
 function hideBigTaskInfo(taskKey) {
   if (!taskKey) {
     taskKey = currentTaskKey;
@@ -354,6 +381,7 @@ function hideBigTaskInfo(taskKey) {
   hideBigTaskUI(overlay, wrapper, taskKey);
 }
 
+/** Initializes click handling for closing task overlay. */
 function initBigTaskInfoOverlay() {
   const overlay = document.getElementById("task-big-container-absolute");
   const taskWindow = document.getElementById("task-big-container");
@@ -370,6 +398,7 @@ function initBigTaskInfoOverlay() {
   }
 }
 
+/** Switches a task into edit mode. */
 async function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
@@ -387,6 +416,7 @@ async function editTask(taskKey) {
   await initEditTaskContacts(taskKey);
 }
 
+/** Cancels edit mode and restores original task view. */
 function cancelEditTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
@@ -401,6 +431,7 @@ function cancelEditTask(taskKey) {
   }
 }
 
+/** Deletes a task from Firebase and updates UI. */
 async function deleteTask(category, taskKey) {
   const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
   try {
@@ -416,6 +447,7 @@ async function deleteTask(category, taskKey) {
   }
 }
 
+/** Renders subtasks inside the big task view. */
 function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
@@ -438,6 +470,7 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   }
 }
 
+/** Updates the subtask progress text. */
 function progressBarStyle(taskKey, subtasks) {
   const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
   if (!subtasks) return;
@@ -448,6 +481,7 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
+/** Renders assigned contacts in edit mode. */
 function assignedContactsEdit(taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
   const circleClassesTask = ["single-circle-first-edit", "single-circle-second-edit", "single-circle-third-edit",];
@@ -466,6 +500,7 @@ function assignedContactsEdit(taskKey, assignedTo) {
   }
 }
 
+/** Renders all contacts inside the edit dropdown. */
 async function renderContactsForEditDropdown(container, taskKey) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
@@ -479,6 +514,7 @@ async function renderContactsForEditDropdown(container, taskKey) {
   }
 }
 
+/** Initializes contacts in edit mode if not already loaded. */
 async function initEditTaskContacts(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   if (!container) return;
@@ -494,6 +530,7 @@ async function initEditTaskContacts(taskKey) {
   }
 }
 
+/** Toggles the visibility of the edit contacts dropdown. */
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
@@ -505,6 +542,7 @@ async function loadContactsForDropdownInEdit(taskKey) {
   threeCircleDivEdit.classList.toggle("hidden");
 }
 
+/** Sets assigned contacts as checked in edit mode. */
 function setAssignedContactsCheckedEdit(taskKey) {
   const task = loadedTasks[taskKey];
   if (!task || !task.assignedTo) return;
@@ -525,6 +563,7 @@ function setAssignedContactsCheckedEdit(taskKey) {
   setAssignedContactsLoopEdit(task, inputs, taskKey);
 }
 
+/** Matches assigned contacts with checkboxes in edit mode. */
 function setAssignedContactsLoopEdit(task, inputs, taskKey) {
   for (let i = 0; i < task.assignedTo.length; i++) {
     const assignedName = task.assignedTo[i].trim();
@@ -543,7 +582,7 @@ function setAssignedContactsLoopEdit(task, inputs, taskKey) {
   }
 }
 
-
+/** Generates a contact card for edit dropdown. */
 function getContactCardForDropdownInEdit(contact, taskKey, color) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
@@ -554,6 +593,7 @@ function getContactCardForDropdownInEdit(contact, taskKey, color) {
   return contactCardDropdownEditTemplate(contact, taskKey, initials, name, color);
 }
 
+/** Extracts initials and full name for selected contacts. */
 function handleCheckedContact(fullName, initialsArray, fullNamesArray) {
   const names = fullName.split(" ");
   let initials = "";
@@ -565,6 +605,7 @@ function handleCheckedContact(fullName, initialsArray, fullNamesArray) {
   fullNamesArray.push(fullName);
 }
 
+/** Updates assigned contact circles in edit mode. */
 function changeContactCircleInEditTemplate(taskKey) {
   let initialsArray = [];
   let fullNamesArray = [];
@@ -583,6 +624,7 @@ function changeContactCircleInEditTemplate(taskKey) {
   return fullNamesArray || ["Not Assigned to anyone"];
 }
 
+/** Renders contact circles in edit mode. */
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
   const container = document.getElementById(`three-circle-container-edit${taskKey}`);
   container.innerHTML = "";
@@ -598,6 +640,7 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
+/** Handles visibility of contact circles in edit mode. */
 function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   if (initialsArray.length === 0) {
@@ -613,6 +656,7 @@ function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   }
 }
 
+/** Returns initials from first and last name. */
 function getInitials(firstName, lastName) {
   let initials = "";
   if (firstName && firstName.length > 0) initials += firstName[0].toUpperCase();
@@ -620,6 +664,7 @@ function getInitials(firstName, lastName) {
   return initials;
 }
 
+/** Shows subtask input icons in edit mode. */
 function showInputFieldEditSubtasksIcons(taskKey) {
   const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
@@ -632,6 +677,7 @@ function showInputFieldEditSubtasksIcons(taskKey) {
   inputfield.classList.add('input-border-left-bottom');
 }
 
+/** Clears subtask input and hides icons. */
 function clearInputHideIconsSubtasksInput(taskKey) {
   const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
@@ -645,6 +691,7 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   inputfield.value = "";
 }
 
+/** Applies active styling to priority buttons in edit mode. */
 function buttonPriorityStyle(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -659,6 +706,7 @@ function buttonPriorityStyle(taskKey, priority) {
   }
 }
 
+/** Changes the selected priority in edit mode. */
 function changePriorityInEdit(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -671,12 +719,14 @@ function changePriorityInEdit(taskKey, priority) {
   addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive);
 }
 
+/** Removes active state from all priority buttons. */
 function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
   buttonUrgent.classList.remove("active-red");
   buttonMedium.classList.remove("active-yellow");
   buttonLow.classList.remove("active-green");
 }
 
+/** Adds active state to selected priority button. */
 function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
   if (priority === "Urgent" && !isUrgentActive) {
     buttonUrgent.classList.add("active-red");
@@ -693,12 +743,14 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   return "No priority selected";
 }
 
+/** Replaces subtask content with input field for editing. */
 function changeSubtaskContent(taskKey, i, subtaskText) {
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   subtaskContainer.innerHTML = getEditSubtaskInputTemplate(taskKey, i, subtaskText);
   return i;
 }
 
+/** Cancels editing of a subtask. */
 function cancelEditSubtask(taskKey, i) {
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   if (subtaskContainer) {
@@ -706,6 +758,7 @@ function cancelEditSubtask(taskKey, i) {
   }
 }
 
+/** Saves edited subtask content. */
 function confirmChangeForEditSubtask(taskKey, i) {
   const oldSubtaskDiv = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   const inputfieldSubtask = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
@@ -719,6 +772,7 @@ function confirmChangeForEditSubtask(taskKey, i) {
   oldSubtaskDiv.parentNode.replaceChild(newSubtaskDivFirstElementChild, oldSubtaskDiv);
 }
 
+/** Adds a new subtask in edit mode. */
 function addNewSubtaskInEdit(taskKey) {
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
@@ -738,6 +792,7 @@ function addNewSubtaskInEdit(taskKey) {
   document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
 
+/** Collects all edited task data for saving. */
 function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
@@ -753,6 +808,7 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
   };
 }
 
+/** Iterates through subtasks and builds Firebase array. */
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
     const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
@@ -770,6 +826,7 @@ function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   }
 }
 
+/** Retrieves all edited subtasks for Firebase. */
 function getEditedSubtasksForFirebase(taskKey) {
   const subtasks = [];
   const container = document.getElementById(`subtasks-edit-div${taskKey}`);
@@ -782,6 +839,7 @@ function getEditedSubtasksForFirebase(taskKey) {
   return subtasks;
 }
 
+/** Returns selected priority in edit mode. */
 function saveEditTaskPriority(taskKey) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -798,6 +856,7 @@ function saveEditTaskPriority(taskKey) {
   }
 }
 
+/** Saves edited task data to Firebase. */
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
   if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey)) return;
 
@@ -816,6 +875,7 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   await loadAllTasksFromFirebase();
 }
 
+/** Saves the checkbox state of a subtask. */
 async function saveSubtaskStatus(taskKey, category, titel, i) {
   const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
   if (!checkbox) return;
@@ -830,6 +890,7 @@ async function saveSubtaskStatus(taskKey, category, titel, i) {
   }
 }
 
+/** Sends a PATCH request to Firebase. */
 async function patchRegistryDataBaseFunction(path, data) {
   const url = `${FireBaseUrl}${path}.json`;
   return fetch(url, {
@@ -838,6 +899,7 @@ async function patchRegistryDataBaseFunction(path, data) {
   });
 }
 
+/** Updates subtask progress bar and counter. */
 function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
   const threeCircleToDo = document.getElementById(`three-circle-todo${taskKey}`);
   if (subtasksCheckboxes.length > 0) {
@@ -850,6 +912,7 @@ function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv,
   }
 }
 
+/** Calculates and displays subtask completion progress. */
 function subtaskCounter(taskKey) {
   const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
@@ -873,6 +936,7 @@ function subtaskCounter(taskKey) {
   updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv);
 }
 
+/** Collects all task input data for Firebase (board view). */
 function taskInfosForFirebaseBoard() {
   let titel = validateInputBoard() || "New Task";
   let description = document.getElementById("inputfield-description-board").value || "No description";
@@ -884,6 +948,7 @@ function taskInfosForFirebaseBoard() {
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks, };
 }
 
+/** Validates task title input and shows error message. */
 function validateInputBoard() {
   const input = document.getElementById("titleInputBoard").value;
   const inputfield = document.getElementById("titleInputBoard");
@@ -902,6 +967,7 @@ function validateInputBoard() {
   return input;
 }
 
+/** Validates due date input. */
 function validateDueDateInputBoard() {
   const input = document.getElementById("dueDateInputBoard");
   const errorMsg = document.getElementById("due-date-required-board-error");
@@ -919,6 +985,7 @@ function validateDueDateInputBoard() {
   return value;
 }
 
+/** Validates a real date in YYYY-MM-DD format. */
 function isValidDDMMYYYYRealDate(value) {
   const regex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
   if (!value) return { valid: false, message: "Please pick a valid date." };
@@ -936,6 +1003,7 @@ function isValidDDMMYYYYRealDate(value) {
   return { valid: true, message: "" };
 }
 
+/** Toggles priority selection in board view. */
 function togglePriorityBoard(priority) {
   const urgentButton = document.getElementById("arrow-container-red-board");
   const mediumButton = document.getElementById("arrow-container-orange-board");
@@ -956,6 +1024,7 @@ function togglePriorityBoard(priority) {
   return getSelectedPriority();
 }
 
+/** Returns selected priority from board buttons. */
 function getSelectedPriority() {
   const urgentButton = document.getElementById("arrow-container-red-board");
   const mediumButton = document.getElementById("arrow-container-orange-board");
@@ -967,6 +1036,7 @@ function getSelectedPriority() {
   return "No priority selected";
 }
 
+/** Toggles off active priority if already selected. */
 function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
   if (priority === "Urgent" && urgentButton.classList.contains("active")) {
     urgentButton.classList.remove("active");
@@ -983,6 +1053,7 @@ function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
   return false;
 }
 
+/** Loads and sorts contacts alphabetically. */
 async function loadAndSortContacts() {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
@@ -991,6 +1062,7 @@ async function loadAndSortContacts() {
   return contacts;
 }
 
+/** Loads contacts into board dropdown. */
 async function loadContactsForDropdownInBoard() {
   const container = document.getElementById("contacts-dropdown-board");
   if (!container) return;
@@ -1010,6 +1082,7 @@ async function loadContactsForDropdownInBoard() {
   container.classList.toggle("display-none");
 }
 
+/** Extracts initials for assigned contacts in board view. */
 function getContactForCircleBoard() {
   let assignedContacts = getAssignedToValue();
   assignedContacts = assignedContacts.filter(
@@ -1029,11 +1102,13 @@ function getContactForCircleBoard() {
   return nameInitialesArray;
 }
 
+/** Toggles styling of assigned-to input field. */
 function changeAssignedToBoardInputStyle() {
   const inputfield = document.getElementById("inputfield-text-assign-board");
   inputfield.classList.toggle("inputfield-blue-border-top-right");
 }
 
+/** Renders contact circles (shared helper). */
 function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray) {
   for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
@@ -1041,6 +1116,7 @@ function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesAr
   }
 }
 
+/** Renders assigned contact circles in board view. */
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   const circleRenderContainer = document.getElementById("three-circle-container-board");
   circleRenderContainer.innerHTML = "";
@@ -1061,6 +1137,7 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   }
 }
 
+/** Adds a subtask in board view. */
 function subtaskIntoBoard() {
   const subtasksContainer = document.getElementById("subtasks-in-board");
   const inputfield = document.getElementById("inputfield-subtask-assign-in-board");
@@ -1074,6 +1151,7 @@ function subtaskIntoBoard() {
 
 }
 
+/** Collects subtasks for Firebase (board view). */
 function subtasksInfoForFirebase() {
   let subtasksArray = [];
   subtasksArray = [];
@@ -1089,6 +1167,7 @@ function subtasksInfoForFirebase() {
   return subtasksArray;
 }
 
+/** Handles creation of a new task in Firebase. */
 async function handleTaskCreationBoard(status, taskTitel) {
   const inputsForTask = taskInfosForFirebaseBoard();
   const newTaskKey = taskTitel.value;
@@ -1097,6 +1176,7 @@ async function handleTaskCreationBoard(status, taskTitel) {
   showTaskAddedMessageBoard();
 }
 
+/** Validates and submits a new task to Firebase. */
 async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
