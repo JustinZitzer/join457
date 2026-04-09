@@ -540,6 +540,10 @@ function setAssignedContactsCheckedEdit(taskKey) {
     toggleContactEditBackground(contactId, taskKey);
   }
 
+  setAssignedContactsLoopEdit(task, inputs, taskKey);
+}
+
+function setAssignedContactsLoopEdit(task, inputs, taskKey) {
   for (let i = 0; i < task.assignedTo.length; i++) {
     const assignedName = task.assignedTo[i].trim();
 
