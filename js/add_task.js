@@ -938,31 +938,18 @@ function validateDueDateInputBoard() {
 }
 
 function isValidDDMMYYYYRealDate(value) {
-  const dateRegex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
-
-  if (!value) {
-    return { valid: false, message: "Please pick a valid date." };
-  }
-
-  if (!dateRegex.test(value)) {
-    return { valid: false, message: "*Please pick a valid date." };
-  }
+  const regex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+  if (!value) return { valid: false, message: "Please pick a valid date." };
+  if (!regex.test(value)) return { valid: false, message: "*Please pick a valid date." };
 
   const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day); date.setHours(0, 0, 0, 0);
 
-  const selectedDate = new Date(year, month - 1, day);
-  selectedDate.setHours(0, 0, 0, 0);
-
-  if (selectedDate.getFullYear() !== year || selectedDate.getMonth() !== month - 1 || selectedDate.getDate() !== day) {
+  if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day)
     return { valid: false, message: "Please enter a real, valid date." };
-  }
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  if (selectedDate < today) {
-    return { valid: false, message: "The due date cannot be in the past." };
-  }
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  if (date < today) return { valid: false, message: "The due date cannot be in the past." };
 
   return { valid: true, message: "" };
 }
