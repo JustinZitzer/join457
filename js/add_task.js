@@ -31,14 +31,6 @@ let fullTaskInfoArray = [];
 const loadedTasks = {};
 document.addEventListener("click", dropdownCloseOnClickOutside, true);
 
-const taskTitel1 = document.getElementById("titleInput1");
-const taskDescription1 = document.getElementById("inputfield-description1");
-const taskDueDate1 = document.getElementById("dueDateInput1");
-const inputFieldAssignTo1 = document.getElementById("inputfield-text-assign1");
-const taskCategory1 = document.getElementById("category-input1");
-const subtaskInputFieldContainer1 = document.getElementById("subtask-inputfield-container1");
-const taskSubtask1 = document.getElementById("inputfield-subtask-assign1");
-
 async function putRegistryDataBaseFunction(path = "", data = {}) {
   let response = await fetch(FireBaseUrl + path + ".json", {
     method: "PUT",
@@ -140,12 +132,7 @@ function renderTasksForColumn(tasks, columnElement) {
 }
 
 function updateTasksHtml() {
-  const {
-    toDoTasks,
-    inProgressTasks,
-    awaitFeedbackTasks,
-    doneTasks,
-  } = filterTasksByCategory();
+  const {toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks,} = filterTasksByCategory();
 
   const categories = [
     [toDoContentFinalDiv, toDoTasks],
@@ -158,9 +145,7 @@ function updateTasksHtml() {
 
   categories.forEach(([container, tasks]) => {
     container.innerHTML = "";
-    tasks.length
-      ? renderTasksForColumn(tasks, container)
-      : (container.innerHTML = getEmptyTodoTemplate());
+    tasks.length ? renderTasksForColumn(tasks, container) : (container.innerHTML = getEmptyTodoTemplate());
   });
 }
 
@@ -265,9 +250,6 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
     const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("").substring(0, 2);
 
     if (name == "undefined") return;
-
-    const circleClass = getClassFromName(name, circleClasses);
-
     containerTask.innerHTML += getAssignedContactLittleTemplate(circleClassesTask[i], initials);
   }
   assignedToPlusNumber(assignedTo, containerTask);
