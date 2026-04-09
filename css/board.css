@@ -1987,7 +1987,7 @@ h2 {
 }
 
 .close-icon-big-task {
-    margin-right: 20px;
+    margin-right: 40px;
     cursor: pointer;
     width: 13.15px;
     height: 13.15px;
@@ -2192,7 +2192,7 @@ h2 {
 }
 
 .task-board-big-delete-edit-div {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -2201,10 +2201,9 @@ h2 {
 .task-board-big-delete-edit-div-first {
     display: flex;
     align-items: center;
-    position: fixed;
     gap: 8px;
-    right: 30px;
-    bottom: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
 }
 
 .seperator-big-subtask {
@@ -2267,7 +2266,7 @@ h2 {
 }
 
 .big-task-panel {
-    height: 94%;
+    height: 100%;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
