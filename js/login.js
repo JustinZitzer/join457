@@ -1,7 +1,6 @@
 const emailInput = document.getElementById("Login-Box-Email-Input");
 const passwordInput = document.getElementById("Login-Box-Passwort-Input");
-const FireBaseUrl =
-  "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
+const FireBaseUrl = "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
 const bigLogoLogin = document.getElementById("Loading-Screen-Logo-Big");
 const smallLogoLogin = document.getElementById("Loading-Screen-Logo-Mini");
 const animationLogoDiv = document.getElementById("Animation-Logo-Div-Z-Index");
