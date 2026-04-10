@@ -15,6 +15,7 @@ let doneCounter = 0;
 let urgentCounter = 0;
 let allTasksCounter = 0;
 
+/** Initializes the summary page, loads tasks, and updates all summary elements. */
 async function initSummaryAndHTML() {
   await loadHTML();
   await initSummaryBoard();
@@ -24,6 +25,7 @@ async function initSummaryAndHTML() {
   selectedSiteBackgroundStyle();
 }
 
+/** Handles sidebar navigation clicks and redirects to the selected page. */
 function handleSidebarNavClick(event) {
   let targetLink = event.target.closest('.sidebar .nav-links a');
   if (targetLink) {
@@ -33,6 +35,7 @@ function handleSidebarNavClick(event) {
   }
 }
 
+/** Handles nav link activation, stores the active link, and redirects to the target page. */
 function handleSidebarNavClick(event) {
   const targetLink = event.target.closest('.nav-links a');
   if (!targetLink) return;
@@ -42,10 +45,7 @@ function handleSidebarNavClick(event) {
   links.forEach(l => l.classList.remove('active'));
   targetLink.classList.add('active');
 
-  // speichern
   localStorage.setItem('activeNav', targetLink.getAttribute('href'));
-
-  // weiterleiten
   window.location.href = targetLink.getAttribute('href');
 }
 
@@ -66,12 +66,13 @@ window.addEventListener("load", () => {
   }
 });
 
-
+/** Fetches summary-related data from Firebase for the given path. */
 async function getInfoForSummaryBoardBaseFunction(path) {
   let response = await fetch(fireBaseUrlSummary + path + ".json");
   return await response.json();
 }
 
+/** Displays the correct greeting and logged-in user name on the summary page. */
 function getInformationSummaryBoard(path) {
   const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
   const storedName = localStorage.getItem("loggedInUserName");
@@ -89,10 +90,12 @@ function getInformationSummaryBoard(path) {
   }
 }
 
+/** Initializes the summary board greeting information. */
 async function initSummaryBoard() {
   await getInformationSummaryBoard("/userData");
 }
 
+/** Extracts all tasks from Firebase data and stores them in the task array. */
 function extractTasksFromFirebaseDataSummary(data, taskArray) {
   for (const categoryKey in data) {
     const categoryTasks = data[categoryKey];
@@ -105,6 +108,7 @@ function extractTasksFromFirebaseDataSummary(data, taskArray) {
   }
 }
 
+/** Loads all tasks from Firebase into the summary task array. */
 async function loadTasksFromFirebaseSummary() {
   taskArray = [];
   const response = await fetch(fireBaseUrlSummary + "tasks.json");
@@ -115,6 +119,7 @@ async function loadTasksFromFirebaseSummary() {
   }
 }
 
+/** Checks whether a task is a valid task object and not a placeholder. */
 function isRealTask(task) {
   return (
     task &&
@@ -124,6 +129,7 @@ function isRealTask(task) {
   );
 }
 
+/** Filters tasks into categories and returns grouped summary data. */
 function filterTasksByCategorySummary() {
   const realTasks = taskArray.filter(isRealTask);
 
@@ -135,6 +141,7 @@ function filterTasksByCategorySummary() {
   return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks };
 }
 
+/** Renders all summary task counters into the DOM. */
 function renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter) {
   toDoCounterElement.innerHTML = toDoCounter;
   inProgressCounterElement.innerHTML = inProgressCounter;
@@ -144,6 +151,7 @@ function renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCoun
   taskInBoardElement.innerHTML = allTasksCounter;
 }
 
+/** Counts tasks by category and priority and updates the summary counters. */
 function counterTasksSummary() {
   const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } = filterTasksByCategorySummary();
 
@@ -160,6 +168,7 @@ function counterTasksSummary() {
   return urgentTasks;
 }
 
+/** Finds and displays the oldest due date among all urgent tasks. */
 function showOldestUrgentDueDate() {
   const urgentTasks = counterTasksSummary();
   const dueDateArray = urgentTasks.map(task => task.dueDate);
@@ -171,9 +180,17 @@ function showOldestUrgentDueDate() {
 
   if (!dueDateArray.length) return dueDateUrgentDiv.innerHTML = 'No upcoming Deadline';
 
-  const sortedDates = dueDateArray.map(parseDate).filter(date => !isNaN(date)).sort((a, b) => a - b);
+  const sortedDates = dueDateArray
+    .map(parseDate)
+    .filter(date => !isNaN(date))
+    .sort((a, b) => a - b);
+
   if (!sortedDates.length) return dueDateUrgentDiv.innerHTML = 'No valid dates';
 
   const oldestDate = sortedDates[0];
-  dueDateUrgentDiv.innerHTML = oldestDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  dueDateUrgentDiv.innerHTML = oldestDate.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
 }
