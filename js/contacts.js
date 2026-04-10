@@ -11,12 +11,14 @@ window.addEventListener('resize', () => {
     resizeTimeout = setTimeout(showContactsCardOverlayMobile, 10);
 });
 
+/** Initializes the contacts page and loads all required data. */
 async function initContact() {
     await loadHTML();
     await loadContacts();
     selectedSiteBackgroundStyle();
 }
 
+/** Opens the contact side overlay for a given contact ID. */
 function openContactsSideCardOverlay(contactId) {
     const contact = allContacts.find(c => c.id === contactId);
     if (!contact) {
@@ -35,11 +37,11 @@ function openContactsSideCardOverlay(contactId) {
     contactsRightSection.innerHTML += (getContactOverlay(contact));
 }
 
+/** Opens the contact overlay by ID and triggers animations and UI updates. */
 function openContactsSideCardOverlayById(contactId) {
     openContactsSideCardOverlay(contactId);
     removeActivatedContactCard();
     toggleContactCardColor(contactId);
-
 
     requestAnimationFrame(() => {
         const overlay = document.getElementById('contacts_side_overlay');
@@ -50,6 +52,7 @@ function openContactsSideCardOverlayById(contactId) {
     });
 }
 
+/** Handles responsive behavior for the contact overlay on mobile devices. */
 function showContactsCardOverlayMobile() {
     const contactOverlayActive = document.getElementById('contacts_side_overlay');
     const contactsRightSection = document.getElementById('contacts_right_section');
@@ -62,6 +65,7 @@ function showContactsCardOverlayMobile() {
     ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection);
 }
 
+/** Applies mobile or desktop layout rules for the contact overlay. */
 function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection, contactsLeftSection) {
     if (displayResolution < 1023) {
         if (isActive) {
@@ -77,6 +81,7 @@ function ifElseRuleCardMobile(displayResolution, isActive, contactsRightSection,
     }
 }
 
+/** Closes the contact side overlay and restores default layout. */
 function closeContactsSideCardOverlay(contactId) {
     const contactsRightSection = document.getElementById('contacts_right_section');
     const contactsLeftSection = document.getElementById('contacts-sidebar-container');
@@ -93,6 +98,7 @@ function closeContactsSideCardOverlay(contactId) {
     threeDotsMenu.style.display = 'none';
 }
 
+/** Shows the mobile menu with edit and delete options. */
 function showThreeDotsMenu() {
     const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
     const threeDotsMenu = document.getElementById('edit-delete-contact-button');
@@ -104,6 +110,7 @@ function showThreeDotsMenu() {
     }
 }
 
+/** Opens the edit/delete dropdown menu on mobile. */
 function showEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
     if (dropdown.classList.contains("display-none")) {
@@ -111,6 +118,7 @@ function showEditContactDropsdownMobile() {
     }
 }
 
+/** Closes the edit/delete dropdown menu on mobile. */
 function closeEditContactDropsdownMobile() {
     const dropdown = document.getElementById("delete-edit-dropdown-contacts");
     if (dropdown && !dropdown.classList.contains("display-none")) {
@@ -118,20 +126,21 @@ function closeEditContactDropsdownMobile() {
     }
 }
 
+/** Removes the active styling from a specific contact card. */
 function handleActiveCard(contactId) {
     const contactCard = document.getElementById(`contact_card_${contactId}`);
     contactCard.classList.remove('contact-card-activated');
 }
 
+/** Removes the active styling from any currently active contact card. */
 function removeActivatedContactCard() {
     const activatedCard = document.querySelector(".contact-card-activated");
-
     if (activatedCard) {
         activatedCard.classList.remove("contact-card-activated");
     }
 }
 
-
+/** Triggers the fly-in animation for the contact overlay. */
 function flyInOverlay() {
     const overlay = document.getElementById('contacts_side_overlay');
     if (activeCard) {
@@ -142,6 +151,7 @@ function flyInOverlay() {
     }
 }
 
+/** Hides the contact overlay with an animation. */
 function removeSideOverlay() {
     const overlay = document.getElementById('contacts_side_overlay');
     if (!overlay) return;
@@ -151,6 +161,7 @@ function removeSideOverlay() {
     );
 }
 
+/** Toggles the active styling of a contact card. */
 function toggleContactCardColor(contactId) {
     const contactCard = document.getElementById(`contact_card_${contactId}`);
     if (activeCard && activeCard !== contactCard) {
@@ -160,6 +171,7 @@ function toggleContactCardColor(contactId) {
     activeCard = isNowActive ? contactCard : null;
 }
 
+/** Opens the overlay for adding a new contact. */
 function openAddNewContactOverlay() {
     const main = document.getElementById('main_contacts');
     const containerGreyBackground = document.getElementById('contacts-sidebar-container');
@@ -172,6 +184,7 @@ function openAddNewContactOverlay() {
     }
 }
 
+/** Removes the add contact overlay and resets UI state. */
 function removeAddNewContactOverlay() {
     const overlay = document.getElementById('add_contact_overlay');
     const addContactButton = document.getElementById('add-new-contact-btn-mobile-version');
@@ -183,6 +196,7 @@ function removeAddNewContactOverlay() {
     toggleBgColorContactOverlay();
 }
 
+/** Opens the edit contact overlay for a given contact. */
 function openEditContactOverlay(contactId) {
     const main = document.getElementById('main_contacts');
     const contact = allContacts.find(c => c.id === contactId);
@@ -198,7 +212,7 @@ function openEditContactOverlay(contactId) {
     overlay.classList.add('active');
 }
 
-
+/** Removes the edit contact overlay and resets UI state. */
 function removeEditContactOverlay() {
     if (openedEditContactsOverlay) {
         const editContactOverlay = document.getElementById('bg_contact_overlay');
@@ -208,30 +222,34 @@ function removeEditContactOverlay() {
     toggleBgColorContactOverlay();
 }
 
+/** Handles click events on a contact card. */
 function handleContactClick(contact) {
     openContactsSideCardOverlay(contact);
     toggleContactCardColor(contact);
 }
 
+/** Returns a contact object by its ID. */
 function getContactById(contactId) {
     return allContacts[contactId];
 }
 
+/** Generates a random HSL color string. */
 function getRandomColor() {
     const hue = Math.floor(Math.random() * 360);
-    const saturation = 100;
-    const lightness = 50;
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    return `hsl(${hue}, 100%, 50%)`;
 }
 
+/** Loads the stored color mapping from localStorage. */
 function loadColorMap() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 }
 
+/** Saves the color mapping to localStorage. */
 function saveColorMap(map) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
 }
 
+/** Returns a consistent color for a contact based on its ID. */
 function getColorForContact(id) {
     const map = loadColorMap();
     if (!map[id]) {
@@ -241,34 +259,23 @@ function getColorForContact(id) {
     return map[id];
 }
 
+/** Shows a temporary overlay indicating a contact was created. */
 function handleCreatedContactOverlay() {
     const container = document.getElementById('main_contacts');
-
     container.insertAdjacentHTML('beforeend', getCreatedContactOverlay());
-
     const overlay = container.querySelector('.bg-contact-overlay');
-
-    setTimeout(() => {
-        overlay.remove();
-
-    }, 800);
-
+    setTimeout(() => overlay.remove(), 800);
 }
 
+/** Shows a temporary overlay indicating a contact was edited. */
 function handleEditedContactOverlay() {
     const container = document.getElementById('main_contacts');
-
     container.insertAdjacentHTML('beforeend', getEditedContactOverlay());
-
     const overlay = container.querySelector('.bg-contact-overlay');
-
-    setTimeout(() => {
-        overlay.remove();
-
-    }, 800);
-
+    setTimeout(() => overlay.remove(), 800);
 }
 
+/** Removes the background overlay color effect. */
 function toggleBgColorContactOverlay() {
     const bgContactOverlay = document.getElementById('bg_contact_overlay');
     bgContactOverlay.remove();
