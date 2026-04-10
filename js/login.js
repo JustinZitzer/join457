@@ -12,10 +12,12 @@ const rightHeaderDivMobileVersion = document.getElementById(
 const headerDiv = document.getElementById("Header-Login");
 const browserResulution = window.innerWidth;
 
+/** Initializes the summary page and checks for guest login. */
 function initSummary() {
   getLoginGuest();
 }
 
+/** Initializes the login page and handles mobile layout. */
 function initLogin() {
   showMobileVersion();
 }
@@ -32,17 +34,21 @@ window.addEventListener("load", () => {
     smallLogoSizeAndPostion.top - bigLogoSizeAndPosition.top;
   const scaleFactorForLogo =
     smallLogoSizeAndPostion.width / bigLogoSizeAndPosition.width;
+
   requestAnimationFrame(() => {
     bigLogoLogin.style.transform = `
-            translate(calc(-50% + ${differenceXPostion}px), calc(-50% + ${differenceYPostion}px)) scale(${scaleFactorForLogo})
-        `;
+      translate(calc(-50% + ${differenceXPostion}px), calc(-50% + ${differenceYPostion}px)) scale(${scaleFactorForLogo})
+    `;
   });
+
   hideLoadingScreen();
 });
 
+/** Handles switching header layout between mobile and desktop. */
 function showMobileVersion() {
   if (!window.location.pathname.endsWith("login.html")) return;
   const currentWidth = window.innerWidth;
+
   if (currentWidth < 652) {
     if (!rightHeaderDivMobileVersion.contains(rightHeaderDiv)) {
       rightHeaderDivMobileVersion.appendChild(rightHeaderDiv);
@@ -54,6 +60,7 @@ function showMobileVersion() {
   }
 }
 
+/** Handles the loading animation for mobile devices. */
 function handleMobileLoadingAnimation(
   bigLogoLogin,
   animationLogoDiv,
@@ -66,21 +73,24 @@ function handleMobileLoadingAnimation(
     smallLogoLogin.classList.remove("Visibility-Hidden");
     loginBodyDiv.style.opacity = "1";
   });
+
   setTimeout(() => {
     animationLogoDiv.classList.add("display-none");
   }, 710);
 }
 
+/** Hides the loading screen and shows the login content. */
 function hideLoadingScreen() {
   if (browserResulution > 652) {
     setTimeout(() => {
       animationLogoDiv.classList.add("display-none");
       smallLogoLogin.classList.remove("Visibility-Hidden");
     }, 710);
+
     requestAnimationFrame(() => {
       loginBodyDiv.style.opacity = "1";
     });
-  } else if (browserResulution < 652) {
+  } else {
     handleMobileLoadingAnimation(
       bigLogoLogin,
       animationLogoDiv,
@@ -90,10 +100,12 @@ function hideLoadingScreen() {
   }
 }
 
+/** Logs in a user locally if email and password are provided. */
 function login() {
   const email = emailInput.value;
   const password = passwordInput.value;
   sessionStorage.setItem("username", email);
+
   if (email && password) {
     window.location.href = "./summary.html";
   } else {
@@ -101,6 +113,7 @@ function login() {
   }
 }
 
+/** Fetches user data from Firebase for login validation. */
 async function fetchUserDataFromFirebaseLogin(path = "") {
   try {
     let response = await fetch(FireBaseUrl + path + ".json");
@@ -111,6 +124,7 @@ async function fetchUserDataFromFirebaseLogin(path = "") {
   }
 }
 
+/** Validates user login credentials against Firebase data. */
 async function loginUserForSummary() {
   const email = document.getElementById("Login-Box-Email-Input").value.trim();
   const password = document.getElementById("Login-Box-Passwort-Input").value;
@@ -133,6 +147,7 @@ async function loginUserForSummary() {
   handleLoginResult(loginSuccessful, loggedInUserName);
 }
 
+/** Handles the result of the login attempt. */
 function handleLoginResult(loginSuccessful, loggedInUserName) {
   if (loginSuccessful) {
     localStorage.setItem("loggedInUserName", loggedInUserName);
@@ -142,6 +157,7 @@ function handleLoginResult(loginSuccessful, loggedInUserName) {
   }
 }
 
+/** Displays an error message and highlights invalid login inputs. */
 function changeColorAndShowErrorMessage() {
   const errorMessageDiv = document.getElementById("error-message-login");
 
@@ -152,18 +168,21 @@ function changeColorAndShowErrorMessage() {
   passwordInput.classList.add("border-color-red");
 }
 
+/** Logs in as a guest user and redirects to summary page. */
 function loginAsAGuest() {
   let loggedInUserName = "Guest";
   localStorage.setItem("loggedInUserName", loggedInUserName);
   window.location.href = "./summary.html";
 }
 
+/** Logs in as a guest and redirects to guest summary page. */
 function loginGuest() {
   const guestName = "Gast";
   sessionStorage.setItem("guestUsername", guestName);
   window.location.href = "./summary-guest.html";
 }
 
+/** Checks if a guest user is logged in and updates UI accordingly. */
 function getLoginGuest() {
   const usernameGuest = sessionStorage.getItem("guestUsername");
   const summaryNameTextDiv = document.getElementById(
@@ -175,6 +194,7 @@ function getLoginGuest() {
   }
 }
 
+/** Shows the closed eye icon when password input is active. */
 function showClosedEyeIconLogin() {
   const closedEyeIcon = document.getElementById("closed-eye-icon-login");
   const lockIcon = document.getElementById("input-icon-login");
@@ -185,6 +205,7 @@ function showClosedEyeIconLogin() {
   }
 }
 
+/** Shows the open eye icon and reveals the password. */
 function showOpenEyeIconLogin() {
   const closedEyeIcon = document.getElementById("closed-eye-icon-login");
   const openEyeIcon = document.getElementById("open-eye-icon-login");
@@ -197,6 +218,7 @@ function showOpenEyeIconLogin() {
   }
 }
 
+/** Toggles back to the closed eye icon and hides the password. */
 function showClosedEyeIconLoginToggle() {
   const closedEyeIcon = document.getElementById("closed-eye-icon-login");
   const openEyeIcon = document.getElementById("open-eye-icon-login");
