@@ -1,3 +1,4 @@
+/** Returns the HTML template for the login navigation link. */
 function getNavLinkLogInTemplate() {
     return `
         <ul class="nav-links">
@@ -11,6 +12,7 @@ function getNavLinkLogInTemplate() {
     `;
 }
 
+/** Returns the HTML template for the user profile menu overlay. */
 function getUserProfileMenuOverlay() {
     return `
     <div class="user-profile-menu">
