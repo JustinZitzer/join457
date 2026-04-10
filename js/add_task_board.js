@@ -88,9 +88,7 @@ if (window.location.pathname.endsWith("board.html")) {
 }
 
 if (window.location.pathname.endsWith("board.html")) {
-  document
-    .getElementById("content-add-task-overlay")
-    .addEventListener("click", function (event) {
+  document.getElementById("content-add-task-overlay").addEventListener("click", function (event) {
       event.stopPropagation();
     });
 }
@@ -295,18 +293,6 @@ function openDatePicker(event) {
   if (typeof input.showPicker === "function") {
     input.showPicker();
   }
-}
-
-/** Displays an error message for an invalid input field. */
-function showInputError(input, errorMsgElement, message) {
-  errorMsgElement.textContent = message;
-  errorMsgElement.classList.remove("display-none");
-}
-
-/** Clears the error message of an input field. */
-function clearInputError(input, errorMsgElement) {
-  errorMsgElement.textContent = "";
-  errorMsgElement.classList.add("display-none");
 }
 
 /** Validates the due date input in the overlay form. */

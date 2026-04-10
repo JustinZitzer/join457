@@ -1131,13 +1131,6 @@ h6 {
     transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-.error-field-category {
-    font-size: 14px;
-    color: red;
-    position: absolute;
-    bottom: -18px;
-}
-
 /* Sichtbar */
 .dropdown-open {
     max-height: 200px;
@@ -2041,7 +2034,7 @@ h6 {
     font-size: 14px;
     color: red;
     position: absolute;
-    bottom: -23px;
+    bottom: -25px;
 }
 
 @media (max-width: 400px) {
