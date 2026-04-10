@@ -1,5 +1,6 @@
 const BASE_URL = "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
 
+/** Sends data to Firebase using a POST request. */
 async function postData(path = '', data = {}) {
     try {
         const url = `${BASE_URL}${path}.json`;
@@ -11,6 +12,7 @@ async function postData(path = '', data = {}) {
     }
 }
 
+/** Creates the request options object for a POST request. */
 function createPostOptions(data) {
     return {
         method: 'POST',
@@ -19,6 +21,7 @@ function createPostOptions(data) {
     };
 }
 
+/** Executes a fetch request and returns parsed JSON data if available. */
 async function fetchData(url, options) {
     const response = await fetch(url, options);
     if (!response.ok) {
@@ -28,6 +31,7 @@ async function fetchData(url, options) {
     return hasBody ? await response.json() : null;
 }
 
+/** Loads data from Firebase using a GET request. */
 async function loadData(path = '') {
   try {
     const response = await fetch(BASE_URL + path + '.json');
@@ -39,6 +43,7 @@ async function loadData(path = '') {
   }
 }
 
+/** Updates existing data in Firebase using a PUT request. */
 async function updateData(path = '', data = {}) {
     try {
         const url = `${BASE_URL}${path}.json`;
@@ -54,6 +59,7 @@ async function updateData(path = '', data = {}) {
     }
 }
 
+/** Deletes data from Firebase using a DELETE request. */
 async function deleteData(path = '', key = '') {
     try {
         const url = `${BASE_URL}${path}/${key}.json`;
