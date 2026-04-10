@@ -1,3 +1,4 @@
+/** Returns the HTML template for the contact detail overlay. */
 function getContactOverlay(contact) {
     const color = getColorForContact(contact.id);
     return `
@@ -62,6 +63,7 @@ function getContactOverlay(contact) {
     `;
 }
 
+/** Returns the HTML template for the add-contact overlay. */
 function getAddContactOverlay() {
     return `
     <div id="bg_contact_overlay" class="bg-contact-overlay">
@@ -122,6 +124,7 @@ function getAddContactOverlay() {
         `;
 }
 
+/** Returns the HTML template for the edit-contact overlay. */
 function getEditContactOverlay(contact) {
     const color = getColorForContact(contact.id);
     return `
@@ -184,6 +187,7 @@ function getEditContactOverlay(contact) {
     `;
 }
 
+/** Returns the HTML template for a single contact card. */
 function getContactCard(contact) {
     const color = getColorForContact(contact.id);
     return `
@@ -198,6 +202,7 @@ function getContactCard(contact) {
   `;
 }
 
+/** Returns the HTML template for a grouped contact letter header. */
 function getLetterGroup(currentFirstLetter) {
     return `
     <div class="contacts-letter-group">
@@ -207,6 +212,7 @@ function getLetterGroup(currentFirstLetter) {
         `;
 }
 
+/** Returns the HTML template for the delete and edit contact button menu. */
 function showDeleteAndEditContactButton() {
     return `
     <div class="delete-edit-dropdown-contacts">
@@ -236,6 +242,7 @@ function showDeleteAndEditContactButton() {
     `;
 }
 
+/** Returns the HTML template for the created-contact success overlay. */
 function getCreatedContactOverlay() {
     return `
     <div id="bg_contact_succesfully" class="bg-contact-overlay">
@@ -246,6 +253,7 @@ function getCreatedContactOverlay() {
     `;
 }
 
+/** Returns the HTML template for the edited-contact success overlay. */
 function getEditedContactOverlay() {
     return `
     <div id="bg_contact_succesfully" class="bg-contact-overlay">
