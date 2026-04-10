@@ -227,7 +227,6 @@ function resetEmailError() {
   error.innerHTML = '';
 }
 
-Nachgedacht für ein paar Sekunden
 /** Resets the phone input error state and hides its error message. */
 function resetPhoneError() {
   const input = document.getElementById('add-contact-phone-input');
