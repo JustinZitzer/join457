@@ -1,3 +1,4 @@
+/** Returns the HTML template for the add-task overlay. */
 function getTaskOverlayTemplate(status) {
   return `
   <div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
@@ -128,6 +129,7 @@ function getTaskOverlayTemplate(status) {
   `;
 }
 
+/** Returns the HTML template for a task card loaded from Firebase. */
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
     <div onclick="showBigTaskInfo('${taskKey}')" id="todo-content-box${taskKey}" class="todo-content-box"
@@ -177,6 +179,7 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
   `;
 }
 
+/** Returns the HTML template for the expanded task detail view. */
 function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
     <div id="big-task-${taskKey}" class="big-task-panel  display-none">
@@ -258,6 +261,7 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   `;
 }
 
+/** Returns the HTML template for editing a task. */
 function getTaskEditTemplate(task, taskKey) {
   return `
     <div id="big-task-edit${taskKey}" class="big-task-panel">
@@ -346,6 +350,7 @@ function getTaskEditTemplate(task, taskKey) {
   `;
 }
 
+/** Returns the HTML template for a saved subtask list element. */
 function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
   return `
     <li class="subtask-list-element" id="subtask-${subtaskSavedCounter}">
@@ -378,6 +383,7 @@ function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
   `;
 }
 
+/** Returns the HTML template for editing a saved subtask. */
 function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
   return `
   <div class="subtask-input-with-icons">
@@ -407,6 +413,7 @@ function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
   `;
 }
 
+/** Returns the HTML template for an assigned contact circle with name. */
 function circleAssignedToTemplate(i, circleClasses, initials, name) {
   return `
   <div class="task-board-big-first-contact">
@@ -416,6 +423,7 @@ function circleAssignedToTemplate(i, circleClasses, initials, name) {
   `;
 }
 
+/** Returns the HTML template for an editable subtask in task edit mode. */
 function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   return `
     <div class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
@@ -451,6 +459,7 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   `;
 }
 
+/** Returns the HTML template for a subtask displayed in the board view. */
 function subtasksInBoard(i, subtaskText) {
   return `
   <div id="subtasks-in-container-board${i}" class="subtask-board-dot-and-text-div">
@@ -482,6 +491,7 @@ function subtasksInBoard(i, subtaskText) {
   `;
 }
 
+/** Returns the HTML template for turning a board subtask into an input field. */
 function changeSubtasksIntoInputfield(i, subtaskText) {
   return `
     <div class="new-subtask-inputfield-div">
@@ -505,6 +515,7 @@ function changeSubtasksIntoInputfield(i, subtaskText) {
   `;
 }
 
+/** Returns the HTML template for a contact card inside the dropdown. */
 function getContactCardForDropdown(contact) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
@@ -522,6 +533,7 @@ function getContactCardForDropdown(contact) {
   `;
 }
 
+/** Returns the HTML template for a contact initials circle in the dropdown. */
 function getContactCircleTemplateDropwdown(className, initials, color) {
   return `
     <div class="${className}" style="background-color:${color}">
@@ -530,6 +542,7 @@ function getContactCircleTemplateDropwdown(className, initials, color) {
   `;
 }
 
+/** Returns the HTML template for a generic contact initials circle. */
 function getContactCircleTemplate(className, initials) {
   return `
     <div class="${className}">
@@ -538,15 +551,17 @@ function getContactCircleTemplate(className, initials) {
   `;
 }
 
+/** Returns the HTML template for an empty to-do state. */
 function getEmptyTodoTemplate() {
   return `<div class="no-tasks-to-do">No tasks To do</div>`;
 }
 
+/** Returns the HTML template for an empty in-progress state. */
 function getEmptyInProgressTemplate() {
   return `<div class="no-tasks-in-progress">No tasks To do</div>`;
 }
 
-
+/** Returns the HTML template for an assigned contact in the big task view. */
 function getAssignedContactBigTemplate(circleClass, initials, name) {
   return `
     <div class="task-board-big-first-contact-big">
@@ -556,6 +571,7 @@ function getAssignedContactBigTemplate(circleClass, initials, name) {
   `;
 }
 
+/** Returns the HTML template for an assigned contact in the small task view. */
 function getAssignedContactLittleTemplate(circleClass, initials) {
   return `
     <div class="task-board-big-first-contact-big">
@@ -564,6 +580,7 @@ function getAssignedContactLittleTemplate(circleClass, initials) {
   `;
 }
 
+/** Returns the HTML template for an unchecked subtask. */
 function getSubtaskUncheckedTemplate(taskKey, i, category, titel, text) {
   return `
     <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
@@ -576,6 +593,7 @@ function getSubtaskUncheckedTemplate(taskKey, i, category, titel, text) {
   `;
 }
 
+/** Returns the HTML template for a checked subtask. */
 function getSubtaskCheckedTemplate(taskKey, i, category, titel, text) {
   return `
     <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
@@ -589,6 +607,7 @@ function getSubtaskCheckedTemplate(taskKey, i, category, titel, text) {
   `;
 }
 
+/** Returns the HTML template for an assigned contact in edit mode. */
 function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
   return `
     <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
@@ -597,6 +616,7 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
   `;
 }
 
+/** Returns the HTML template for a contact card inside the edit dropdown. */
 function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color) {
   return `
     <label onclick="toggleContactEditBackground('${contact.id}', '${taskKey}')" 
@@ -626,12 +646,14 @@ function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color
   `;
 }
 
+/** Returns the HTML template for a circle shown in edit mode. */
 function getEditCircleTemplate(circleClass, initials) {
   return `
     <div class="${circleClass}">${initials}</div>
   `;
 }
 
+/** Returns the HTML template for editing a subtask input in task edit mode. */
 function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
   return `
     <div class="flexbox-inputfield-subtask-edit">
@@ -670,6 +692,7 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
   `;
 }
 
+/** Returns the HTML template for an assigned initials circle. */
 function getAssignedCircleTemplate(circleClass, initials) {
   return `
     <div class="${circleClass}">
