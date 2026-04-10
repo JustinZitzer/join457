@@ -227,6 +227,8 @@ function resetEmailError() {
   error.innerHTML = '';
 }
 
+Nachgedacht für ein paar Sekunden
+/** Resets the phone input error state and hides its error message. */
 function resetPhoneError() {
   const input = document.getElementById('add-contact-phone-input');
   const error = document.getElementById('failure-message-add-contact-phone');
@@ -236,12 +238,14 @@ function resetPhoneError() {
   error.innerHTML = '';
 }
 
+/** Displays a general error message for the add-contact form. */
 function showGeneralContactError(message) {
   const generalError = document.getElementById('failure-message-add-contact');
   generalError.classList.remove('display-none');
   generalError.innerHTML = message;
 }
 
+/** Displays an error message and highlights the name input field. */
 function showNameError(message) {
   const nameInput = document.getElementById('add-contact-name-input');
   const nameError = document.getElementById('failure-message-add-contact-name');
@@ -251,6 +255,7 @@ function showNameError(message) {
   nameError.innerHTML = message;
 }
 
+/** Displays an error message and highlights the email input field. */
 function showEmailError(message) {
   const emailInput = document.getElementById('add-contact-email-input');
   const emailError = document.getElementById('failure-message-add-contact-email');
@@ -260,6 +265,7 @@ function showEmailError(message) {
   emailError.innerHTML = message;
 }
 
+/** Displays an error message and highlights the phone input field. */
 function showPhoneError(message) {
   const phoneInput = document.getElementById('add-contact-phone-input');
   const phoneError = document.getElementById('failure-message-add-contact-phone');
@@ -269,6 +275,7 @@ function showPhoneError(message) {
   phoneError.innerHTML = message;
 }
 
+/** Validates the name input based on length and spacing rules. */
 function isValidName(name) {
   if (!name) return false;
   if (!hasValidSpaces(name)) return false;
@@ -277,6 +284,7 @@ function isValidName(name) {
   return true;
 }
 
+/** Validates the email input based on structure and formatting rules. */
 function isValidEmail(email) {
   if (!email) return false;
   if (!hasValidSpaces(email)) return false;
@@ -294,6 +302,7 @@ function isValidEmail(email) {
   return true;
 }
 
+/** Validates the domain part of an email address. */
 function isValidDomain(domain) {
   if (!domain) return false;
   if (!hasValidSpaces(domain)) return false;
@@ -312,6 +321,7 @@ function isValidDomain(domain) {
   return true;
 }
 
+/** Validates the phone number to contain only digits and spaces. */
 function isValidPhone(phone) {
   if (!phone) return false;
   if (!hasValidSpaces(phone)) return false;
@@ -328,6 +338,7 @@ function isValidPhone(phone) {
   return digitsOnly.length >= 5;
 }
 
+/** Checks if a value contains valid spacing (no leading, trailing, or double spaces). */
 function hasValidSpaces(value) {
   if (!value) return false;
   if (value.startsWith(' ') || value.endsWith(' ')) return false;
@@ -336,6 +347,7 @@ function hasValidSpaces(value) {
   return true;
 }
 
+/** Resets all error messages and input styles in the add-contact form. */
 function resetAddContactErrors() {
   const nameInput = document.getElementById('add-contact-name-input');
   const emailInput = document.getElementById('add-contact-email-input');
@@ -361,6 +373,7 @@ function resetAddContactErrors() {
   phoneError.innerHTML = '';
 }
 
+/** Builds a new contact object from the provided input values. */
 function buildNewContact(name, email, phone) {
   const parts = name.split(" ");
   return {
@@ -372,6 +385,7 @@ function buildNewContact(name, email, phone) {
   };
 }
 
+/** Saves a new contact to the database and reloads contacts. */
 async function saveContactToDatabase(contact) {
   try {
     const result = await postData('contacts', contact);
@@ -383,6 +397,7 @@ async function saveContactToDatabase(contact) {
   }
 }
 
+/** Handles saving an edited contact after validation. */
 async function saveEditedContact(event, key) {
   event.preventDefault();
   const { name, email, phone } = getEditedContactInputs();
@@ -392,6 +407,7 @@ async function saveEditedContact(event, key) {
   await commitContactChanges(updatedContact, key);
 }
 
+/** Clears all contact-related error messages from the UI. */
 function clearContactErrors() {
   const failMessage = document.querySelector('.failure-message-add-contact');
   const failMessageName = document.querySelector('.failure-message-add-contact-name');
@@ -404,6 +420,7 @@ function clearContactErrors() {
   failMessagePhone.classList.add('display-none');
 }
 
+/** Resets the border styling of all contact input fields. */
 function clearContactBorder() {
   const failMessageName = document.getElementById('add-contact-name-input');
   const failMessageEmail = document.getElementById('add-contact-email-input');
@@ -414,6 +431,7 @@ function clearContactBorder() {
   failMessagePhone.style.borderColor = '';
 }
 
+/** Retrieves and returns trimmed input values from the edit contact form. */
 function getEditedContactInputs() {
   return {
     name: document.querySelector('#edit_contact_overlay .add-contact-name-input').value.trim(),
@@ -422,6 +440,7 @@ function getEditedContactInputs() {
   };
 }
 
+/** Builds an updated contact object based on edited values. */
 function buildUpdatedContact(name, email, phone, key) {
   const parts = name.split(" ");
   const original = allContacts.find(c => c.key === key);
@@ -435,6 +454,7 @@ function buildUpdatedContact(name, email, phone, key) {
   };
 }
 
+/** Commits updated contact data to the database and refreshes the UI. */
 async function commitContactChanges(contact, key) {
   try {
     await updateData(`contacts/${key}`, contact);
