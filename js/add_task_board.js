@@ -1,6 +1,7 @@
 const contactColors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1",
   "#FF745E", "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B"];
 
+/** Initializes the board view and loads all required data. */
 async function initBoard() {
   await loadHTML();
   await loadAllTasksFromFirebase();
@@ -9,16 +10,19 @@ async function initBoard() {
   checkTodaysDate();
 }
 
+/** Activates the medium priority button in the add-task view. */
 function loadMediumButtonPriority() {
   const mediumButton = document.getElementById('arrow-container-orange');
   mediumButton.classList.add('active');
 }
 
+/** Activates the medium priority button in the board overlay. */
 function loadMediumButtonPriorityBoard() {
   const mediumButton = document.getElementById('arrow-container-orange-board');
   mediumButton.classList.add('active');
 }
 
+/** Sets up the overlay close behavior for button and background interaction. */
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
@@ -38,6 +42,7 @@ function setupOverlayClose(overlay, overlayContent) {
   closeOverlayBackground(overlay, overlayContent);
 }
 
+/** Closes the overlay when the background is clicked. */
 function closeOverlayBackground(overlay, overlayContent) {
   overlay.addEventListener("click", () => {
     overlayContent.classList.remove("slide-in");
@@ -53,7 +58,7 @@ function closeOverlayBackground(overlay, overlayContent) {
   });
 }
 
-
+/** Opens the add-task overlay or redirects to the add-task page on smaller screens. */
 function openOverlay(status) {
   const overlay = document.getElementById("overlay");
   const overlayContent = document.getElementById("content-add-task-overlay");
@@ -72,6 +77,7 @@ function openOverlay(status) {
   }
 }
 
+/** Closes the overlay by removing its visible state. */
 function closeOverlay() {
   const overlay = document.getElementById("overlay");
   overlay.classList.remove("overlay-visible");
@@ -89,6 +95,7 @@ if (window.location.pathname.endsWith("board.html")) {
     });
 }
 
+/** Toggles the visibility of the contacts dropdown. */
 function selectContacts() {
   const fieldRequiered = document.getElementById("field-required");
   const windowWidth = window.innerWidth;
@@ -104,6 +111,7 @@ function selectContacts() {
   }
 }
 
+/** Toggles the active state of a priority button and resets others if needed. */
 function togglePriority(button) {
   const anyActive = arrowContainerRed.classList.contains("active") || arrowContainerOrange.classList.contains("active") || arrowContainerGreen.classList.contains("active");
 
@@ -119,6 +127,7 @@ function togglePriority(button) {
   }
 }
 
+/** Opens the category dropdown and adjusts input border styling. */
 function openDropdown(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
@@ -133,6 +142,7 @@ function openDropdown(taskSubtask, dropdown) {
   }
 }
 
+/** Toggles the category dropdown in the add-task form. */
 function toggleDropdown() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
   const dropdown = document.getElementById("category-dropdown");
@@ -154,6 +164,7 @@ function toggleDropdown() {
   }
 }
 
+/** Opens the category dropdown in the overlay and adjusts input border styling. */
 function openDropdownOverlay(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
@@ -168,6 +179,7 @@ function openDropdownOverlay(taskSubtask, dropdown) {
   }
 }
 
+/** Toggles the category dropdown inside the overlay form. */
 function toggleDropdownOverlay() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign1");
   const dropdown = document.getElementById("category-dropdown");
@@ -191,7 +203,7 @@ function toggleDropdownOverlay() {
   }
 }
 
-
+/** Selects a category and closes the dropdown in the add-task form. */
 function selectCategory(category) {
   var input = document.getElementById("category-input");
   input.value = category;
@@ -202,6 +214,7 @@ function selectCategory(category) {
   validateGetCategoryForNewTask();
 }
 
+/** Selects a category and closes the dropdown in the overlay form. */
 function selectCategoryOverlay(category) {
   var input = document.getElementById("category-input1");
   input.value = category;
@@ -211,6 +224,7 @@ function selectCategoryOverlay(category) {
   dropdown.classList.add("display-none");
 }
 
+/** Validates the title input field in the add-task form. */
 function validateInput() {
   const input = document.getElementById("titleInput");
   const errorMsg = document.getElementById("error-message");
@@ -222,6 +236,7 @@ function validateInput() {
   }
 }
 
+/** Validates the title input field in the overlay form. */
 function validateInputOverlay() {
   const input = document.getElementById("titleInput1");
   const errorMsg = document.getElementById("error-message");
@@ -237,18 +252,21 @@ function validateInputOverlay() {
   }
 }
 
+/** Displays an error message for an invalid input field. */
 function showInputError(input, errorMsgElement, message) {
   errorMsgElement.textContent = message;
   errorMsgElement.style.display = "block";
   input.classList.add("input-error");
 }
 
+/** Clears the error message of an input field. */
 function clearInputError(input, errorMsgElement) {
   errorMsgElement.textContent = "";
   errorMsgElement.style.display = "none";
   input.classList.remove("input-error");
 }
 
+/** Validates the due date input in the add-task form. */
 function validateDueDateInput() {
   const input = document.getElementById("dueDateInput");
   const errorMsg = document.getElementById("due-date-error");
@@ -268,6 +286,7 @@ function validateDueDateInput() {
   }
 }
 
+/** Opens the native date picker for the due date input. */
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
   input.focus();
@@ -278,23 +297,25 @@ function openDatePicker(event) {
   }
 }
 
+/** Displays an error message for an invalid input field. */
 function showInputError(input, errorMsgElement, message) {
   errorMsgElement.textContent = message;
   errorMsgElement.classList.remove("display-none");
 }
 
+/** Clears the error message of an input field. */
 function clearInputError(input, errorMsgElement) {
   errorMsgElement.textContent = "";
   errorMsgElement.classList.add("display-none");
 }
 
+/** Validates the due date input in the overlay form. */
 function validateDueDateInputOverlay() {
   const input = document.getElementById("dueDateInput1");
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
 
-  const dateCheckSlash =
-    /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+  const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
     showInputError(input, errorMsg, "*This field is required.");
@@ -305,6 +326,7 @@ function validateDueDateInputOverlay() {
   }
 }
 
+/** Loads contacts, sorts them, and renders them into the given container. */
 async function loadAndRenderContacts(container) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
@@ -317,6 +339,7 @@ async function loadAndRenderContacts(container) {
   }
 }
 
+/** Loads contacts into the dropdown if not already rendered. */
 async function loadContactsForDropdown() {
   const container = document.getElementById("contacts-dropdown");
   if (!container) return;
@@ -334,6 +357,7 @@ async function loadContactsForDropdown() {
   }
 }
 
+/** Toggles the border styling of the assign-to input field. */
 function changeinputFieldAssignToStyle() {
   if (inputFieldAssignTo.classList.contains("custom-border")) {
     inputFieldAssignTo.style.borderTop = "";
@@ -346,6 +370,7 @@ function changeinputFieldAssignToStyle() {
   }
 }
 
+/** Collects and returns all entered values for creating a new task. */
 function getInfoForNewTask() {
   let titel = taskTitel.value || "New Task";
   let description = taskDescription.value || "No description";
@@ -357,6 +382,7 @@ function getInfoForNewTask() {
   return { titel, description, dueDate, priority, assignedTo, categoryUserOrTechnicalTask, subtasks };
 }
 
+/** Returns the selected category for a new task. */
 function getCategoryForNewTask() {
   const taskCategory = document.getElementById("category-input");
 
@@ -367,6 +393,7 @@ function getCategoryForNewTask() {
   }
 }
 
+/** Validates the selected category for a new task. */
 function validateGetCategoryForNewTask() {
   const taskCategory = document.getElementById("category-input");
   const fieldRequired = document.getElementById("error-field-category");
@@ -381,11 +408,13 @@ function validateGetCategoryForNewTask() {
   }
 }
 
+/** Makes the category dropdown visible for animation. */
 function addStyleForDropdownAnimation() {
   const dropdown = document.getElementById("category-dropdown");
   dropdown.classList.remove("display-none");
 }
 
+/** Adds a subtask object to the subtasks array. */
 function pushSubtaskToArray(subtasksArray, subtaskTextElement) {
   const subtask = subtaskTextElement.textContent.trim().replace("• ", "");
   subtasksArray.push({
@@ -394,6 +423,7 @@ function pushSubtaskToArray(subtasksArray, subtaskTextElement) {
   });
 }
 
+/** Rebuilds and returns the current subtasks array from the DOM. */
 function updateSubtasksArray() {
   let subtasksArray = [];
 
@@ -409,11 +439,11 @@ function updateSubtasksArray() {
   return subtasksArray;
 }
 
+/** Adds the current subtask input as a new subtask element. */
 function addSubtaskInContainer() {
   const taskSubtask = document.getElementById("inputfield-subtask-assign");
   const savedSubtasks = document.getElementById("subtask-added-tasks");
   const buttonDiv = document.getElementById("clear-create-container");
-  let currentMargin = parseInt(window.getComputedStyle(buttonDiv).marginTop) || 0;
   let subtask = taskSubtask.value.trim();
 
   if (subtask) {
@@ -424,6 +454,7 @@ function addSubtaskInContainer() {
   }
 }
 
+/** Replaces the plus icon with check and cross icons in the subtask input. */
 function hidePlusIconShowCheckAndCrossIcon() {
   const plusIcon = document.getElementById("add-icon-container");
   const checkIcon = document.getElementById("subtask-icon-cross");
@@ -435,6 +466,7 @@ function hidePlusIconShowCheckAndCrossIcon() {
   checkIconCheck.classList.remove("display-none");
 }
 
+/** Clears the subtask input field and restores the default icons. */
 function clearSubtaskInputField(event) {
   if (event) event.stopPropagation();
   const plusIcon = document.getElementById("add-icon-container");
@@ -449,16 +481,13 @@ function clearSubtaskInputField(event) {
   checkIconCheck.classList.add("display-none");
 }
 
+/** Replaces a saved subtask with an editable input field. */
 function editSavedSubtask(subtaskSavedCounter, subtask) {
-  const subTaskElement = document.getElementById(
-    `subtask-list-element-div${subtaskSavedCounter}`
-  );
-  subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(
-    subtask,
-    subtaskSavedCounter
-  );
+  const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
+  subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter);
 }
 
+/** Saves the edited subtask text and updates the DOM. */
 function saveEditedSubtask(subtaskSavedCounter) {
   const input = document.getElementById(`edit-subtask-inputfield${subtaskSavedCounter}`);
   if (!input) return;
@@ -473,6 +502,7 @@ function saveEditedSubtask(subtaskSavedCounter) {
   updateSubtasksArray();
 }
 
+/** Deletes a saved subtask from the DOM. */
 function deleteSavedSubTask(subtaskSavedCounter, subtask) {
   const subTaskElement = document.getElementById(`subtask-${subtaskSavedCounter}`);
   if (subTaskElement) subTaskElement.remove();
@@ -480,6 +510,7 @@ function deleteSavedSubTask(subtaskSavedCounter, subtask) {
   updateSubtasksArray();
 }
 
+/** Returns an array of all selected contacts. */
 function getAssignedToValue() {
   let assignedTo = [];
 
@@ -496,6 +527,7 @@ function getAssignedToValue() {
   return assignedTo;
 }
 
+/** Updates the background styling of selected contacts in the dropdown. */
 function addBackgroundForDropwdown() {
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -512,6 +544,7 @@ function addBackgroundForDropwdown() {
   }
 }
 
+/** Toggles the selected background styling for a contact in edit mode. */
 function toggleContactEditBackground(contactId, taskKey) {
   const checkbox = document.getElementById(`contact-checkbox-${contactId}${taskKey}`);
   const container = document.getElementById(`contact-option-edit${contactId}${taskKey}`);
@@ -527,6 +560,7 @@ function toggleContactEditBackground(contactId, taskKey) {
   }
 }
 
+/** Renders initials circles for all contacts in the add-task dropdown. */
 function showCirclesInDropdownAddTask() {
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
@@ -548,10 +582,12 @@ function showCirclesInDropdownAddTask() {
   }
 }
 
+/** Returns a contact color based on its index. */
 function getContactColor(index) {
   return contactColors[index % contactColors.length];
 }
 
+/** Creates initials for assigned contacts and triggers circle rendering. */
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
   assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");
@@ -569,6 +605,7 @@ function getContactForCircle() {
   return nameInitialesArray;
 }
 
+/** Determines whether assigned contact circles should be hidden. */
 function shouldHideAssignedCircles(nameInitialesArray, contactsDropdown) {
   return (
     nameInitialesArray.length === 0 ||
@@ -577,6 +614,7 @@ function shouldHideAssignedCircles(nameInitialesArray, contactsDropdown) {
   );
 }
 
+/** Renders up to three initials circles for assigned contacts. */
 function renderCirclesForAssignedContacts(nameInitialesArray) {
   circleRenderContainer.innerHTML = "";
 
@@ -598,6 +636,7 @@ function renderCirclesForAssignedContacts(nameInitialesArray) {
   circleFlexContainer.classList.remove("display-none");
 }
 
+/** Clears all relevant input values and subtask content. */
 function clearInnerHtmlAndValues() {
   taskTitel.value = "";
   taskDescription.value = "";
@@ -607,6 +646,7 @@ function clearInnerHtmlAndValues() {
   savedSubtasks.innerHTML = "";
 }
 
+/** Resets all input fields and UI states for creating a new task. */
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
   const errorMessage = document.getElementById("error-please-fill-inputs");
@@ -627,6 +667,7 @@ function clearInputFieldsForNewTask() {
   loadMediumButtonPriority();
 }
 
+/** Resets all visible error messages and input error styles. */
 function resetAllErrorMessages() {
   const titleInput = document.getElementById("titleInput");
   const dueDateInput = document.getElementById("dueDateInput");
@@ -645,6 +686,7 @@ function resetAllErrorMessages() {
   categoryErrorMessage.classList.add("display-none");
 }
 
+/** Returns the currently selected task priority. */
 function getPriorityForNewTask() {
   if (taskPriorityUrgent.classList.contains("active")) {
     return "Urgent";
@@ -657,6 +699,7 @@ function getPriorityForNewTask() {
   }
 }
 
+/** Validates and posts a new task to Firebase. */
 async function postNewTaskToFirebase() {
   if (taskTitel.value && taskCategory.value && validateDueDateInput()) {
     const inputsForTask = getInfoForNewTask();
@@ -671,6 +714,7 @@ async function postNewTaskToFirebase() {
   }
 }
 
+/** Applies all validation error rules for an invalid new task form. */
 function allErrorRulesForNewTask() {
   const errorMessage = document.getElementById("error-please-fill-inputs");
   const subtaskDiv = document.getElementById("subtask-added-tasks");
@@ -680,6 +724,7 @@ function allErrorRulesForNewTask() {
   errorMessage.classList.remove("display-none");
 }
 
+/** Shows an error state for the title input if it is empty. */
 function showErrorForNewTaskTitle() {
   const titleInput = document.getElementById("titleInput");
   const errorMessage = document.getElementById("error-please-fill-inputs");
@@ -692,6 +737,7 @@ function showErrorForNewTaskTitle() {
   }
 }
 
+/** Shows an error state for the due date input if it is empty. */
 function showErrorForNewTaskDueDate() {
   const dueDateInput = document.getElementById("dueDateInput");
   const errorMessage = document.getElementById("error-please-fill-inputs");
@@ -705,6 +751,7 @@ function showErrorForNewTaskDueDate() {
   }
 }
 
+/** Shows an error state for the category input if it is empty. */
 function showErrorForNewTaskCategory() {
   const categoryInput = document.getElementById("category-input");
   const errorMessage = document.getElementById("error-please-fill-inputs");
@@ -717,8 +764,8 @@ function showErrorForNewTaskCategory() {
   }
 }
 
+/** Shows the check and cross icons for subtask input in the board overlay. */
 function addCrossAndCheckIconStyle() {
-  const input = document.getElementById("inputfield-subtask-assign-in-board");
   const plusIcon = document.getElementById("add-icon-container-board");
   const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
 
@@ -726,7 +773,7 @@ function addCrossAndCheckIconStyle() {
   inputfieldDiv.classList.remove("display-none");
 }
 
-
+/** Clears the current subtask text in the board overlay input. */
 function deleteCurrentSubtaskText() {
   const input = document.getElementById("inputfield-subtask-assign-in-board");
   const plusIcon = document.getElementById("add-icon-container-board");
@@ -738,6 +785,7 @@ function deleteCurrentSubtaskText() {
   inputfieldDiv.classList.add("display-none");
 }
 
+/** Displays the success message after adding a task. */
 function showTaskAddedMessage() {
   const taskAddedDiv = document.getElementById("task-added-add-task-div");
   taskAddedDiv.classList.remove("display-none");
@@ -748,6 +796,7 @@ function showTaskAddedMessage() {
   }, 1000);
 }
 
+/** Displays the success message after adding a task in the board view. */
 function showTaskAddedMessageBoard() {
   const taskAddedDiv = document.getElementById("task-added-in-board-div");
   taskAddedDiv.classList.remove("display-none");
@@ -756,6 +805,7 @@ function showTaskAddedMessageBoard() {
   }, 1000);
 }
 
+/** Toggles the move-to-category dropdown icon menu for mobile view. */
 function showMoveToCategoryIcon(event, taskKey) {
   event.stopPropagation();
   const moveToDropdown = document.getElementById(`user-profile-menu-mobile${taskKey}`);
@@ -766,6 +816,7 @@ function showMoveToCategoryIcon(event, taskKey) {
   }
 }
 
+/** Moves a task from one category to another in Firebase. */
 async function moveTaskToCategory(event, taskId, newCategory) {
   event.preventDefault(); event.stopPropagation();
   const dropdownMenu = document.getElementById(`user-profile-menu-mobile${taskId}`);
@@ -784,6 +835,7 @@ async function moveTaskToCategory(event, taskId, newCategory) {
   dropdownMenu?.classList.add("display-none"); loadAllTasksFromFirebase();
 }
 
+/** Validates the category input field in the board overlay. */
 function validateCategoryInBoardInput() {
   const inputField = document.getElementById("inputfield-category-assign-board");
   const value = inputField.value.trim();
@@ -798,6 +850,7 @@ function validateCategoryInBoardInput() {
   }
 }
 
+/** Resets all validation messages and styles in the board overlay. */
 function resetAllInfosInBoardOverlay() {
   const errorTitle = document.getElementById("field-required-in-board");
   const errorDueDate = document.getElementById("due-date-required-board-error");
@@ -814,6 +867,7 @@ function resetAllInfosInBoardOverlay() {
   categoryInput.classList.remove("border-red-board");
 }
 
+/** Clears all board overlay input values and related container content. */
 function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer) {
   taskTitel.value = "";
   taskDescription.value = "";
@@ -824,12 +878,14 @@ function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCate
   circleContainer.innerHTML = "";
 }
 
+/** Resets all priority button states in the board overlay. */
 function resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow) {
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
   taskPriorityLow.classList.remove("active");
 }
 
+/** Unchecks all selected contacts in the board overlay. */
 function resetBoardContacts(contacts) {
   for (let i = 0; i < contacts.length; i++) {
     let contact = contacts[i];
@@ -837,6 +893,7 @@ function resetBoardContacts(contacts) {
   }
 }
 
+/** Clears and resets all input fields in the board overlay. */
 function clearInputFieldsForNewTaskBoard() {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDescription = document.getElementById("inputfield-description-board");
@@ -856,6 +913,7 @@ function clearInputFieldsForNewTaskBoard() {
   resetAllInfosInBoardOverlay();
 }
 
+/** Opens the native date picker for the board due date input. */
 function openDatePickerBoard() {
   const input = document.getElementById("dueDateInputBoard");
   input.focus();
@@ -865,6 +923,7 @@ function openDatePickerBoard() {
   }
 }
 
+/** Opens the native date picker for the edit-task due date input. */
 function openDatePickerEditTask(taskKey) {
   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
   input.focus();
@@ -875,6 +934,7 @@ function openDatePickerEditTask(taskKey) {
 
 }
 
+/** Validates the task title while editing a task. */
 function validateEditTaskTitle(taskKey) {
   const input = document.getElementById(`titel-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-title-edit${taskKey}`);
@@ -892,6 +952,7 @@ function validateEditTaskTitle(taskKey) {
   }
 }
 
+/** Validates the due date while editing a task. */
 function validateEditTaskDueDate(taskKey) {
   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-due-date-edit-error${taskKey}`);
@@ -908,6 +969,7 @@ function validateEditTaskDueDate(taskKey) {
   return true;
 }
 
+/** Validates that the edit-task due date is not empty. */
 function validateEditTaskDueDateEmpty(input, value, error) {
   if (!input) return false;
 
@@ -919,6 +981,7 @@ function validateEditTaskDueDateEmpty(input, value, error) {
   return true;
 }
 
+/** Validates the format of the edit-task due date. */
 function validateEditTaskDueDateFormat(input, value, error) {
   const isValidDate = !isNaN(new Date(value).getTime());
   if (!isValidDate) {
@@ -929,11 +992,13 @@ function validateEditTaskDueDateFormat(input, value, error) {
   return true;
 }
 
+/** Closes open dropdowns when clicking outside of them. */
 function dropdownCloseOnClickOutside(event) {
   dropdownCloseOnClickOutsideContacts(event);
   dropdownCloseOnClickOutsideCategory(event);
 }
 
+/** Closes the contacts dropdown when clicking outside of it. */
 async function dropdownCloseOnClickOutsideContacts(event) {
   const dropdown = document.getElementById("contacts-dropdown");
   const input = document.getElementById("inputfield-text-assign");
@@ -949,6 +1014,7 @@ async function dropdownCloseOnClickOutsideContacts(event) {
   getContactForCircle();
 }
 
+/** Closes the category dropdown when clicking outside of it. */
 function dropdownCloseOnClickOutsideCategory(event) {
   const dropdown = document.getElementById("category-dropdown");
   const input = document.getElementById("category-input");
@@ -964,6 +1030,7 @@ function dropdownCloseOnClickOutsideCategory(event) {
   toggleDropdown();
 }
 
+/** Validates that the edit-task due date is not in the past. */
 function validateEditTaskDueDateNotPast(input, value, error) {
   if (!value) return false;
 
@@ -982,6 +1049,7 @@ function validateEditTaskDueDateNotPast(input, value, error) {
   return true;
 }
 
+/** Sets the minimum selectable date for all due date inputs to today. */
 function checkTodaysDate() {
   const today = new Date().toISOString().split("T")[0];
   const dueDateBoard = document.getElementById("dueDateInputBoard");
@@ -996,6 +1064,7 @@ function checkTodaysDate() {
   }
 }
 
+/** Removes highlight styles from all contacts. */
 function clearHighlightedContacts() {
   const contacts = document.getElementsByClassName("contact-option");
   for (let i = 0; i < contacts.length; i++) {
@@ -1005,6 +1074,7 @@ function clearHighlightedContacts() {
   }
 }
 
+/** Toggles body scrolling depending on overlay visibility. */
 function backgroundNotScrollable() {
   const overlay = document.getElementById("task-big-container-absolute");
 
@@ -1015,6 +1085,7 @@ function backgroundNotScrollable() {
   }
 }
 
+/** Highlights all board drop zones during drag operations. */
 function highlightDropZones() {
   const todo = document.getElementById("todo-content-task");
   const inprogress = document.getElementById("inprogress-content-task");
@@ -1027,6 +1098,7 @@ function highlightDropZones() {
   done.classList.add("drop-highlight");
 }
 
+/** Removes the highlight from all board drop zones. */
 function removeDropHighlight() {
   const todo = document.getElementById("todo-content-task");
   const inprogress = document.getElementById("inprogress-content-task");
@@ -1039,11 +1111,12 @@ function removeDropHighlight() {
   done.classList.remove("drop-highlight");
 }
 
+/** Ends the dragging state and removes all drop zone highlights. */
 function endDragging() {
   removeDropHighlight();
 }
 
-
+/** Filters visible tasks based on the search input. */
 function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const title = taskTitles[i].textContent.trim().toLowerCase();
@@ -1063,6 +1136,7 @@ function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   }
 }
 
+/** Searches tasks by title or description and updates visibility. */
 function searchTask() {
   const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
@@ -1080,6 +1154,7 @@ function searchTask() {
   filterTasksBySearch(taskTitles, descriptions, toDos, inputStart);
 }
 
+/** Toggles the category dropdown in the board overlay. */
 function categoryUserOrTechnicalTaskBoard() {
   const input = document.getElementById("inputfield-category-assign-board");
   const dropdown = document.getElementById("category-dropdown-board");
@@ -1091,23 +1166,27 @@ function categoryUserOrTechnicalTaskBoard() {
   }
 }
 
+/** Selects the User Story category in the board overlay. */
 function selectUserCategoryBoard() {
   const inputfield = document.getElementById("inputfield-category-assign-board");
   inputfield.value = "User Story";
   categoryUserOrTechnicalTaskBoard();
 }
 
+/** Selects the Technical Task category in the board overlay. */
 function selectTechnicalCategoryBoard() {
   const inputfield = document.getElementById("inputfield-category-assign-board");
   inputfield.value = "Technical Task";
   categoryUserOrTechnicalTaskBoard();
 }
 
+/** Replaces a board subtask with an editable input field. */
 function changeSubtasksInBoard(i, subtaskText) {
   const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
   subtaskDiv.innerHTML = changeSubtasksIntoInputfield(i, subtaskText);
 }
 
+/** Saves the changed subtask text in the board overlay. */
 function changedSubtasksBoard(i) {
   const input = document.getElementById(`new-subtask-text-field${i}`);
   const newSubtaskText = input.value.trim();
@@ -1117,6 +1196,7 @@ function changedSubtasksBoard(i) {
   subtaskDiv.innerHTML = subtasksInBoard(i, newSubtaskText);
 }
 
+/** Deletes a subtask from the board overlay. */
 function deleteSubtasksInBoard(i) {
   const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
   if (subtaskDiv) {
