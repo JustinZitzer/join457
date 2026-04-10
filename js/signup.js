@@ -7,17 +7,19 @@ const checkboxSignUp = document.getElementById('privacy-policy-accept-button');
 const failureAllFieldsDiv = document.getElementById('failure-signup-div');
 const failureAllFieldsMessage = document.getElementById('failure-signup-div-message');
 
-
+/** Initializes the sign-up page and loads initial data. */
 async function initSignUp() {
   await loadDataSignUp();
 }
 
+/** Loads data from Firebase for the sign-up process. */
 async function loadDataSignUp(path = "") {
   let response = await fetch(FireBaseUrl + path + ".json");
   let responseToJson = await response.json();
   return responseToJson;
 }
 
+/** Checks whether the entered email already exists in Firebase. */
 async function checkIfEmailExists() {
   const emailInput = document.getElementById("inputfield-email").value.trim().toLowerCase();
   const userData = await loadDataSignUp("userData");
@@ -35,6 +37,7 @@ async function checkIfEmailExists() {
   return false;
 }
 
+/** Validates the email and shows an error if it already exists. */
 async function emailExistsError() {
   const email = document.getElementById("inputfield-email").value.trim();
 
@@ -48,6 +51,7 @@ async function emailExistsError() {
   return true;
 }
 
+/** Displays an error message for an already registered email address. */
 function showEmailAlreadyExistsError() {
   const emailInput = document.getElementById("inputfield-email");
   const errorMessage = document.getElementById("failure-signup-div-message-email");
@@ -58,6 +62,7 @@ function showEmailAlreadyExistsError() {
   emailInput.classList.remove("grey-border");
 }
 
+/** Returns the current values from all sign-up input fields. */
 function valueOfInputFields() {
   let name = nameInputSignUp.value;
   let email = emailInputSignUp.value;
@@ -67,6 +72,7 @@ function valueOfInputFields() {
   return { name, email, password, confirmPassword };
 }
 
+/** Clears all sign-up input fields and resets the checkbox. */
 function clearInputFields() {
   nameInputSignUp.value = "";
   emailInputSignUp.value = "";
@@ -75,6 +81,7 @@ function clearInputFields() {
   checkboxSignUp.checked = false;
 }
 
+/** Sends sign-up data to Firebase using a PUT request. */
 async function postRegistryDataBaseFunction(path = "", data = {}) {
   let response = await fetch(FireBaseUrl + path + ".json", {
     method: "PUT",
@@ -86,6 +93,7 @@ async function postRegistryDataBaseFunction(path = "", data = {}) {
   return responseToJson = await response.json();
 }
 
+/** Validates sign-up conditions and stores the new user in Firebase. */
 async function postValueDataIntoFirebase() {
   if (checkboxSignUp.checked && passwordInputSignUp.value === confirmPasswordInputSignUp.value) {
     const userData = valueOfInputFields();
@@ -99,6 +107,7 @@ async function postValueDataIntoFirebase() {
   }
 }
 
+/** Validates all sign-up fields and handles success or failure flow. */
 async function enterFullInformation() {
   const isNameValid = enterNameSignUp();
   const isEmailValid = enterEmailSignUp();
@@ -117,11 +126,13 @@ async function enterFullInformation() {
   }
 }
 
+/** Displays a general failure message for incomplete sign-up input. */
 function failureMessage() {
   failureAllFieldsDiv.classList.remove("display-none");
   failureAllFieldsMessage.innerText = "*Enter all fields and accept the privacy policy";
 }
 
+/** Shows the success message and redirects to the login page. */
 function showSuccessMessage() {
   const successButtonDiv = document.getElementById("button-position-success-message");
   successButtonDiv.classList.remove("display-none");
@@ -131,12 +142,14 @@ function showSuccessMessage() {
   }, 1000);
 }
 
+/** Applies a gray overlay effect to the page background. */
 function grayBodyEffect() {
   const grayBodyDiv = document.getElementById("gray-background-for-body");
   grayBodyDiv.classList.remove("display-none");
   grayBodyDiv.classList.add("gray-background-for-body-effect");
 }
 
+/** Replaces the first lock icon with an eye icon. */
 function changeLockIconToEyeIconFirstField() {
   const firstLockIcon = document.getElementById("lock-icon-size-first");
   const eyeIcon = document.getElementById("closed-eye-icon");
@@ -147,15 +160,18 @@ function changeLockIconToEyeIconFirstField() {
   }
 }
 
+/** Replaces the second lock icon with an eye icon. */
 function changeLockIconToEyeIconSecondField() {
   const secondLockIcon = document.getElementById("lock-icon-size-second");
-  const eyeIconConfirm = document.getElementById("closed-eye-icon-confirm")
+  const eyeIconConfirm = document.getElementById("closed-eye-icon-confirm");
+
   if (!secondLockIcon.classList.contains("display-none")) {
     secondLockIcon.classList.add("display-none");
     eyeIconConfirm.classList.remove("display-none");
   }
 }
 
+/** Toggles password visibility for the first password field. */
 function changeClosedToOpenEye() {
   const closedEyeIcon = document.getElementById("closed-eye-icon");
   const openEyeIcon = document.getElementById("open-eye-icon");
@@ -171,6 +187,7 @@ function changeClosedToOpenEye() {
   }
 }
 
+/** Toggles password visibility for the confirm password field. */
 function changeClosedToOpenEyeConfirm() {
   const closedEyeIconConfirm = document.getElementById("closed-eye-icon-confirm");
   const openEyeIconConfirm = document.getElementById("open-eye-icon-confirm");
@@ -186,6 +203,7 @@ function changeClosedToOpenEyeConfirm() {
   }
 }
 
+/** Triggers validation error messages for all relevant sign-up fields. */
 async function failureMessageInputFields() {
   enterNameSignUp();
   enterEmailSignUp();
@@ -194,6 +212,7 @@ async function failureMessageInputFields() {
   checkPasswordMatch();
 }
 
+/** Validates the entered name in the sign-up form. */
 function enterNameSignUp() {
   const nameErrorDiv = document.getElementById("failure-signup-div-message-name");
   const name = nameInputSignUp.value.trim();
@@ -211,6 +230,7 @@ function enterNameSignUp() {
   }
 }
 
+/** Validates the entered email in the sign-up form. */
 function enterEmailSignUp() {
   const emailErrorDiv = document.getElementById("failure-signup-div-message-email");
   const email = emailInputSignUp.value.trim();
@@ -228,6 +248,7 @@ function enterEmailSignUp() {
   }
 }
 
+/** Validates the entered password in the sign-up form. */
 function enterPasswordSignUp() {
   const passwordErrorDiv = document.getElementById("failure-signup-div-message-password");
   const password = passwordInputSignUp.value.trim();
@@ -246,15 +267,16 @@ function enterPasswordSignUp() {
   }
 }
 
+/** Checks whether the password confirmation field is valid and matches. */
 function checkPasswordMatch() {
   if (!confirmPasswordEmptyFailure()) return false;
-
   if (!confirmPasswordMatchFailure()) return false;
 
   confirmPasswordMatchSuccess();
   return true;
 }
 
+/** Shows an error if the confirm password field is empty. */
 function confirmPasswordEmptyFailure() {
   const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
   const confirmPassword = confirmPasswordInputSignUp.value.trim();
@@ -270,6 +292,7 @@ function confirmPasswordEmptyFailure() {
   return true;
 }
 
+/** Shows an error if the password and confirm password fields do not match. */
 function confirmPasswordMatchFailure() {
   const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
   const password = passwordInputSignUp.value.trim();
@@ -286,6 +309,7 @@ function confirmPasswordMatchFailure() {
   return true;
 }
 
+/** Resets the confirm password error state after a successful match. */
 function confirmPasswordMatchSuccess() {
   const failureMessage = document.getElementById("failure-signup-div-message-confirm-password");
 
@@ -295,6 +319,7 @@ function confirmPasswordMatchSuccess() {
   confirmPasswordInputSignUp.classList.add("grey-border");
 }
 
+/** Validates an email address using a regular expression. */
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
