@@ -280,3 +280,74 @@ function toggleBgColorContactOverlay() {
     const bgContactOverlay = document.getElementById('bg_contact_overlay');
     bgContactOverlay.remove();
 }
+
+/** Handles saving an edited contact after validation. */
+async function saveEditedContact(event, key) {
+  event.preventDefault();
+  const { name, email, phone } = getEditedContactInputs();
+  if (!validateContactInputs(name, email, phone)) return;
+
+  const updatedContact = buildUpdatedContact(name, email, phone, key);
+  await commitContactChanges(updatedContact, key);
+}
+
+/** Clears all contact-related error messages from the UI. */
+function clearContactErrors() {
+  const failMessage = document.querySelector('.failure-message-add-contact');
+  const failMessageName = document.querySelector('.failure-message-add-contact-name');
+  const failMessageEmail = document.querySelector('.failure-message-add-contact-email');
+  const failMessagePhone = document.querySelector('.failure-message-add-contact-phonenumber');
+
+  failMessage.classList.add('display-none');
+  failMessageName.classList.add('display-none');
+  failMessageEmail.classList.add('display-none');
+  failMessagePhone.classList.add('display-none');
+}
+
+/** Resets the border styling of all contact input fields. */
+function clearContactBorder() {
+  const failMessageName = document.getElementById('add-contact-name-input');
+  const failMessageEmail = document.getElementById('add-contact-email-input');
+  const failMessagePhone = document.getElementById('add-contact-phone-input');
+
+  failMessageName.style.borderColor = '';
+  failMessageEmail.style.borderColor = '';
+  failMessagePhone.style.borderColor = '';
+}
+
+/** Retrieves and returns trimmed input values from the edit contact form. */
+function getEditedContactInputs() {
+  return {
+    name: document.querySelector('#edit_contact_overlay .add-contact-name-input').value.trim(),
+    email: document.querySelector('#edit_contact_overlay .add-contact-email-input').value.trim(),
+    phone: document.querySelector('#edit_contact_overlay .add-contact-phone-input').value.trim(),
+  };
+}
+
+/** Builds an updated contact object based on edited values. */
+function buildUpdatedContact(name, email, phone, key) {
+  const parts = name.split(" ");
+  const original = allContacts.find(c => c.key === key);
+  if (!original) throw new Error("Kontakt nicht gefunden");
+  return {
+    ...original,
+    firstName: parts[0],
+    lastName: parts.slice(1).join(" ") || " ",
+    email,
+    phoneNumber: phone,
+  };
+}
+
+/** Commits updated contact data to the database and refreshes the UI. */
+async function commitContactChanges(contact, key) {
+  try {
+    await updateData(`contacts/${key}`, contact);
+    removeEditContactOverlay();
+    await loadContacts();
+    openContactsSideCardOverlayById(contact.id);
+    handleEditedContactOverlay();
+  } catch (error) {
+    console.error("Fehler beim Speichern:", error);
+    alert("Fehler beim Speichern. Bitte versuche es erneut.");
+  }
+}
