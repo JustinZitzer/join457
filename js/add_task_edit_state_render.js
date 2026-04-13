@@ -8,10 +8,7 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
   const assignedTo = changeContactCircleInEditTemplate(taskKey);
   const subtasks = getEditedSubtasksForFirebase(taskKey);
   const id = titel;
-  return {
-    titel, description, dueDate, priority, assignedTo, subtasks,
-    categoryUserOrTechnicalTask, id, category
-  };
+  return {titel, description, dueDate, priority, assignedTo, subtasks, categoryUserOrTechnicalTask, id, category};
 }
 
 /** Iterates through subtasks and builds Firebase array. */
@@ -25,10 +22,7 @@ function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
     const text = span.textContent.trim();
     if (!text) continue;
 
-    subtasks.push({
-      subtaskText: text,
-      statusCheckbox: checkbox ? checkbox.checked : false
-    });
+    subtasks.push({subtaskText: text, statusCheckbox: checkbox ? checkbox.checked : false});
   }
 }
 
@@ -87,10 +81,7 @@ async function saveSubtaskStatus(taskKey, category, titel, i) {
   if (!checkbox) return;
   const isChecked = checkbox.checked;
   try {
-    await patchRegistryDataBaseFunction(
-      `tasks/${category}/${titel}/subtasks/${i}`,
-      { statusCheckbox: isChecked }
-    );
+    await patchRegistryDataBaseFunction(`tasks/${category}/${titel}/subtasks/${i}`,{ statusCheckbox: isChecked });
   } catch (error) {
     console.error("Error saving subtask status:", error);
   }
@@ -107,7 +98,6 @@ async function patchRegistryDataBaseFunction(path, data) {
 
 /** Updates subtask progress bar and counter. */
 function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
-  const threeCircleToDo = document.getElementById(`three-circle-todo${taskKey}`);
   if (subtasksCheckboxes.length > 0) {
     subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
 
@@ -157,7 +147,6 @@ function taskInfosForFirebaseBoard() {
 /** Validates task title input and shows error message. */
 function validateInputBoard() {
   const input = document.getElementById("titleInputBoard").value;
-  const inputfield = document.getElementById("titleInputBoard");
   const errorMsg = document.getElementById("field-required-in-board");
 
   if (input.trim() == "") {
@@ -178,7 +167,6 @@ function validateDueDateInputBoard() {
   const input = document.getElementById("dueDateInputBoard");
   const errorMsg = document.getElementById("due-date-required-board-error");
   const value = input.value.trim();
-
   const result = isValidDDMMYYYYRealDate(value);
 
   if (!result.valid) {
@@ -186,7 +174,6 @@ function validateDueDateInputBoard() {
     errorMsg.classList.remove("display-none");
     return false;
   }
-
   errorMsg.classList.add("display-none");
   return value;
 }
@@ -291,9 +278,7 @@ async function loadContactsForDropdownInBoard() {
 /** Extracts initials for assigned contacts in board view. */
 function getContactForCircleBoard() {
   let assignedContacts = getAssignedToValue();
-  assignedContacts = assignedContacts.filter(
-    (contact) => contact !== "Not Assigned to anyone"
-  );
+  assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");
   let nameInitialesArray = [];
 
   for (let i = 0; i < assignedContacts.length; i++) {
@@ -365,10 +350,7 @@ function subtasksInfoForFirebase() {
   for (let i = 0; i < subtasksText.length; i++) {
     const subtask = subtasksText[i].textContent.trim();
     const notChecked = false;
-    subtasksArray.push({
-      subtaskText: subtask,
-      statusCheckbox: notChecked
-    });
+    subtasksArray.push({subtaskText: subtask, statusCheckbox: notChecked});
   }
   return subtasksArray;
 }
