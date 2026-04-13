@@ -149,17 +149,14 @@ function validateInputBoard() {
   const input = document.getElementById("titleInputBoard").value;
   const errorMsg = document.getElementById("field-required-in-board");
 
-  if (input.trim() == "") {
-    errorMsg.classList.remove("display-none");
-  } else if (input.trim().length < 3) {
-    errorMsg.classList.remove("display-none");
-    errorMsg.innerHTML = "Title must be 3 characters long.";
-  }
+  if (input.trim() == "") errorMsg.innerHTML = "This field is required";
+  else if (input.trim().length < 3) errorMsg.innerHTML = "Title must be 3 characters long.";
+  else if (/[.#$[\]\/?]/.test(input)) errorMsg.innerHTML = "Invalid characters: . # $ [ ] / ?";
   else {
-    if (!errorMsg.classList.contains("display-none"))
-      errorMsg.classList.add("display-none");
+    errorMsg.classList.add("display-none");
+    return input;
   }
-  return input;
+  errorMsg.classList.remove("display-none");
 }
 
 /** Validates due date input. */
@@ -369,9 +366,10 @@ async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
   const taskCategory = document.getElementById("inputfield-category-assign-board");
+  const isTitleValid = validateInputBoard();
   const isDateValid = validateDueDateInputBoard();
 
-  if (taskTitel.value && taskDueDate.value && taskCategory.value && isDateValid) {
+  if (isTitleValid && taskDueDate.value && taskCategory.value && isDateValid) {
     await handleTaskCreationBoard(status, taskTitel);
     await loadAllTasksFromFirebase();
   } else {
