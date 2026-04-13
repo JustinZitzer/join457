@@ -227,11 +227,14 @@ function validateInput() {
   const input = document.getElementById("titleInput");
   const errorMsg = document.getElementById("error-message");
 
-  if (input.value.trim() === "") {
-    errorMsg.classList.remove("display-none");
-  } else {
+  if (input.value.trim() === "") errorMsg.innerHTML = "*This field is required.";
+  else if (input.value.trim().length < 3) errorMsg.innerHTML = "*Title must be 3 characters long.";
+  else if (/[.#$[\]\/?]/.test(input.value)) errorMsg.innerHTML = "*Invalid characters: . # $ [ ] / ?";
+  else {
     errorMsg.classList.add("display-none");
+    return input.value;
   }
+  errorMsg.classList.remove("display-none");
 }
 
 /** Validates the title input field in the overlay form. */
@@ -687,7 +690,10 @@ function getPriorityForNewTask() {
 
 /** Validates and posts a new task to Firebase. */
 async function postNewTaskToFirebase() {
-  if (taskTitel.value && taskCategory.value && validateDueDateInput()) {
+  const isTitleValid = validateInput();
+  const isDateValid = validateDueDateInput();
+
+  if (isTitleValid && taskCategory.value && isDateValid) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
     const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
