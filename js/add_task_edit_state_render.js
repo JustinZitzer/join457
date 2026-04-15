@@ -14,13 +14,18 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
 /** Iterates through subtasks and builds Firebase array. */
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
-    const span = document.getElementById(`subtask-task-text-edit${taskKey}${i}`);
-    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
+    const subtaskElement = allSubtasks[i];
 
+    const span = subtaskElement.getElementsByClassName("subtask-task-text-edit")[0];
     if (!span) continue;
 
     const text = span.textContent.trim();
     if (!text) continue;
+
+    const id = subtaskElement.id;
+    const index = id.replace(`subtasks-board-first-task-edit${taskKey}`, "");
+
+    const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${index}`);
 
     subtasks.push({subtaskText: text, statusCheckbox: checkbox ? checkbox.checked : false});
   }
