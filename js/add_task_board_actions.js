@@ -24,7 +24,6 @@ async function moveTaskToCategory(event, taskId, newCategory) {
     method: "PUT", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task)
   });
-
   dropdownMenu?.classList.add("display-none"); loadAllTasksFromFirebase();
 }
 
@@ -124,7 +123,6 @@ function openDatePickerEditTask(taskKey) {
   if (input.showPicker) {
     input.showPicker();
   }
-
 }
 
 /** Validates the task title while editing a task. */
@@ -137,12 +135,26 @@ function validateEditTaskTitle(taskKey) {
   if (value.length < 3) {
     input.classList.add("border-red-board");
     error.classList.remove("display-none");
+    error.textContent = "Min. 3 characters";
     return false;
-  } else {
-    input.classList.remove("border-red-board");
-    error.classList.add("display-none");
-    return true;
   }
+
+  if (!validateInvalidChars(input, error, value)) return false;
+  input.classList.remove("border-red-board");
+  error.classList.add("display-none");
+  return true;
+}
+
+function validateInvalidChars(input, error, value) {
+  const invalidChars = /[.#$\[\]/?]/;
+
+  if (invalidChars.test(value)) {
+    input.classList.add("border-red-board");
+    error.classList.remove("display-none");
+    error.textContent = "No . # $ [ ] / ? characters allowed";
+    return false;
+  }
+  return true;
 }
 
 /** Validates the due date while editing a task. */
@@ -150,7 +162,6 @@ function validateEditTaskDueDate(taskKey) {
   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-due-date-edit-error${taskKey}`);
   if (!input) return false;
-
   const value = input.value.trim();
 
   if (!validateEditTaskDueDateEmpty(input, value, error)) return false;
@@ -198,11 +209,9 @@ async function dropdownCloseOnClickOutsideContacts(event) {
   const icon = document.getElementById("contact-list");
 
   if (!dropdown || dropdown.classList.contains("hidden")) return;
-
   if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
     return;
   }
-
   await loadContactsForDropdown();
   getContactForCircle();
 }
@@ -215,20 +224,14 @@ function dropdownCloseOnClickOutsideCategory(event) {
 
   if (!dropdown) return;
   if (dropdown.classList.contains("display-none")) return;
-
-  if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {
-    return;
-  }
-
+  if (dropdown.contains(event.target) || input.contains(event.target) || icon.contains(event.target)) {return;}
   toggleDropdown();
 }
 
 /** Validates that the edit-task due date is not in the past. */
 function validateEditTaskDueDateNotPast(input, value, error) {
   if (!value) return false;
-
   const selected = new Date(value + "T00:00:00");
-
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -238,7 +241,6 @@ function validateEditTaskDueDateNotPast(input, value, error) {
     error.textContent = "Date cannot be in the past";
     return false;
   }
-
   return true;
 }
 
