@@ -1,4 +1,8 @@
-/** Returns the HTML template for editing a saved subtask. */
+/** Returns the HTML template for editing a saved subtask. 
+ * @param {string} subtask - The subtask text to display in the input field.
+ * @param {number} subtaskSavedCounter - Unique index used for element IDs and event binding.
+ * @returns {string} HTML string representing the editable subtask UI component.
+*/
 function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
   return `
   <div class="subtask-input-with-icons">
@@ -28,7 +32,13 @@ function getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter) {
   `;
 }
 
-/** Returns the HTML template for an assigned contact circle with name. */
+/** Returns the HTML template for an assigned contact circle with name. 
+ * @param {number} i - Index used to select the circle CSS class.
+ * @param {string[]} circleClasses - Array of CSS class names for styling circles.
+ * @param {string} initials - Initials displayed inside the circle.
+ * @param {string} name - Full contact name displayed next to the circle.
+ * @returns {string} HTML string for an assigned contact entry.
+*/
 function circleAssignedToTemplate(i, circleClasses, initials, name) {
   return `
   <div class="task-board-big-first-contact">
@@ -38,7 +48,12 @@ function circleAssignedToTemplate(i, circleClasses, initials, name) {
   `;
 }
 
-/** Returns the HTML template for an editable subtask in task edit mode. */
+/** Returns the HTML template for an editable subtask in task edit mode. 
+ * @param {string} taskKey - Unique identifier for the parent task.
+ * @param {number} i - Index of the subtask within the task.
+ * @param {string} subtaskText - Text content of the subtask.
+ * @returns {string} HTML string representing an editable subtask component.
+*/
 function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   return `
     <div class="subtasks-board-first-task-edit" id="subtasks-board-first-task-edit${taskKey}${i}">
@@ -74,7 +89,11 @@ function getEditSubtaskTemplate(taskKey, i, subtaskText) {
   `;
 }
 
-/** Returns the HTML template for a subtask displayed in the board view. */
+/** Returns the HTML template for a subtask displayed in the board view. 
+ *  @param {number|string} i - Index used for generating unique element IDs.
+ * @param {string} subtaskText - Text content of the subtask.
+ * @returns {string} HTML string representing a board subtask component.
+*/
 function subtasksInBoard(i, subtaskText) {
   return `
   <div id="subtasks-in-container-board${i}" class="subtask-board-dot-and-text-div">
@@ -106,7 +125,11 @@ function subtasksInBoard(i, subtaskText) {
   `;
 }
 
-/** Returns the HTML template for turning a board subtask into an input field. */
+/** Returns the HTML template for turning a board subtask into an input field. 
+ * @param {number|string} i - Index used for generating unique element IDs.
+ * @param {string} subtaskText - Text content of the subtask.
+ * @returns {string} HTML string representing a board subtask component.
+*/
 function changeSubtasksIntoInputfield(i, subtaskText) {
   return `
     <div class="new-subtask-inputfield-div">
@@ -130,7 +153,11 @@ function changeSubtasksIntoInputfield(i, subtaskText) {
   `;
 }
 
-/** Returns the HTML template for a contact card inside the dropdown. */
+/** Returns the HTML template for a contact card inside the dropdown. 
+ *  @param {Object} contact - Contact object containing id, firstName, and optional lastName.
+ * @returns {string} HTML string representing a dropdown contact option.
+ */
+
 function getContactCardForDropdown(contact) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
@@ -148,7 +175,12 @@ function getContactCardForDropdown(contact) {
   `;
 }
 
-/** Returns the HTML template for a contact initials circle in the dropdown. */
+/** Returns the HTML template for a contact initials circle in the dropdown. 
+ * @param {string} className - CSS class for styling the circle.
+ * @param {string} initials - Contact initials to display.
+ * @param {string} color - Background color for the circle.
+ * @returns {string} HTML string for a styled initials circle.
+*/
 function getContactCircleTemplateDropwdown(className, initials, color) {
   return `
     <div class="${className}" style="background-color:${color}">
@@ -157,7 +189,11 @@ function getContactCircleTemplateDropwdown(className, initials, color) {
   `;
 }
 
-/** Returns the HTML template for a generic contact initials circle. */
+/** Returns the HTML template for a generic contact initials circle. 
+ *  @param {string} className - CSS class used to style the circle.
+ * @param {string} initials - Contact initials to display inside the circle.
+ * @returns {string} HTML string representing a contact avatar element.
+*/
 function getContactCircleTemplate(className, initials) {
   return `
     <div class="${className}">
@@ -176,7 +212,12 @@ function getEmptyInProgressTemplate() {
   return `<div class="no-tasks-in-progress">No tasks To do</div>`;
 }
 
-/** Returns the HTML template for an assigned contact in the big task view. */
+/** Returns the HTML template for an assigned contact in the big task view. 
+ * @param {string} circleClass - CSS class used to style the contact circle.
+ * @param {string} initials - Contact initials displayed inside the circle.
+ * @param {string} name - Full contact name displayed next to the circle.
+ * @returns {string} HTML string representing an assigned contact entry in the detailed task view.
+ */
 function getAssignedContactBigTemplate(circleClass, initials, name) {
   return `
     <div class="task-board-big-first-contact-big">
@@ -186,7 +227,11 @@ function getAssignedContactBigTemplate(circleClass, initials, name) {
   `;
 }
 
-/** Returns the HTML template for an assigned contact in the small task view. */
+/** Returns the HTML template for an assigned contact in the small task view.
+ *  @param {string} circleClass - CSS class used to style the contact circle.
+ * @param {string} initials - Contact initials displayed inside the circle.
+ * @returns {string} HTML string representing a compact assigned contact avatar.
+ */
 function getAssignedContactLittleTemplate(circleClass, initials) {
   return `
     <div class="task-board-big-first-contact-big">
@@ -195,7 +240,14 @@ function getAssignedContactLittleTemplate(circleClass, initials) {
   `;
 }
 
-/** Returns the HTML template for an unchecked subtask. */
+/** Returns the HTML template for an unchecked subtask. 
+ * @param {string|number} taskKey - Unique identifier of the parent task.
+ * @param {number} i - Subtask index used for unique element IDs.
+ * @param {string} category - Task category used for Firebase path.
+ * @param {string} titel - Task title used for Firebase updates.
+ * @param {string} text - Subtask text content.
+ * @returns {string} HTML string representing an unchecked subtask item.
+*/
 function getSubtaskUncheckedTemplate(taskKey, i, category, titel, text) {
   return `
     <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
@@ -208,7 +260,14 @@ function getSubtaskUncheckedTemplate(taskKey, i, category, titel, text) {
   `;
 }
 
-/** Returns the HTML template for a checked subtask. */
+/** Returns the HTML template for a checked subtask. 
+ * @param {string|number} taskKey - Unique identifier of the parent task.
+ * @param {number} i - Subtask index used for unique element IDs.
+ * @param {string} category - Task category used for Firebase updates.
+ * @param {string} titel - Task title used for Firebase updates.
+ * @param {string} text - Subtask text content.
+ * @returns {string} HTML string representing a checked subtask item.
+*/
 function getSubtaskCheckedTemplate(taskKey, i, category, titel, text) {
   return `
     <div class="subtasks-board-first-task task-margin-bottom-subtask" id="subtasks-board-first-task${taskKey}${i}">
@@ -222,7 +281,12 @@ function getSubtaskCheckedTemplate(taskKey, i, category, titel, text) {
   `;
 }
 
-/** Returns the HTML template for an assigned contact in edit mode. */
+/** Returns the HTML template for an assigned contact in edit mode. 
+ *  @param {string|number} taskKey - Unique identifier of the task being edited.
+ * @param {string} circleClass - CSS class used to style the contact circle.
+ * @param {string} initials - Contact initials displayed inside the circle.
+ * @returns {string} HTML string representing an assigned contact avatar in edit mode.
+*/
 function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
   return `
     <div id="contact-in-edit-template${taskKey}" class="contact-in-edit-template">
@@ -231,7 +295,14 @@ function getAssignedContactEditTemplate(taskKey, circleClass, initials) {
   `;
 }
 
-/** Returns the HTML template for a contact card inside the edit dropdown. */
+/** Returns the HTML template for a contact card inside the edit dropdown. 
+ * @param {Object} contact - Contact object containing id and name data.
+ * @param {string|number} taskKey - Unique identifier of the task being edited.
+ * @param {string} initials - Contact initials shown in the avatar circle.
+ * @param {string} name - Full display name of the contact.
+ * @param {string} color - Background color for the avatar circle.
+ * @returns {string} HTML string representing a selectable contact row in edit mode.
+*/
 function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color) {
   return `
     <label onclick="toggleContactEditBackground('${contact.id}', '${taskKey}')" 
@@ -261,14 +332,23 @@ function contactCardDropdownEditTemplate(contact, taskKey, initials, name, color
   `;
 }
 
-/** Returns the HTML template for a circle shown in edit mode. */
+/** Returns the HTML template for a circle shown in edit mode. 
+ * @param {string} circleClass - CSS class used to style the circle.
+ * @param {string} initials - Contact initials displayed inside the circle.
+ * @returns {string} HTML string representing an edit-mode contact circle.
+*/
 function getEditCircleTemplate(circleClass, initials) {
   return `
     <div class="${circleClass}">${initials}</div>
   `;
 }
 
-/** Returns the HTML template for editing a subtask input in task edit mode. */
+/** Returns the HTML template for editing a subtask input in task edit mode. 
+ * @param {string|number} taskKey - Unique identifier of the task.
+ * @param {number|string} i - Index of the subtask used for element IDs.
+ * @param {string} subtaskText - Current text of the subtask being edited.
+ * @returns {string} HTML string representing an editable subtask input row.
+*/
 function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
   return `
     <div class="flexbox-inputfield-subtask-edit">
@@ -307,7 +387,11 @@ function getEditSubtaskInputTemplate(taskKey, i, subtaskText) {
   `;
 }
 
-/** Returns the HTML template for an assigned initials circle. */
+/** Returns the HTML template for an assigned initials circle. 
+ * @param {string} circleClass - CSS class used for styling the avatar circle.
+ * @param {string} initials - Contact initials displayed inside the circle.
+ * @returns {string} HTML string representing an assigned contact avatar.
+*/
 function getAssignedCircleTemplate(circleClass, initials) {
   return `
     <div class="${circleClass}">
