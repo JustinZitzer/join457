@@ -1,11 +1,16 @@
 let taskArray = [];
-const fireBaseUrlSummary = "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
+const fireBaseUrlSummary =
+  "https://join-457-default-rtdb.europe-west1.firebasedatabase.app/";
 const toDoCounterElement = document.getElementById("Counter-To-Do");
 const doneCounterElement = document.getElementById("Counter-Done");
 const urgenCounterElement = document.getElementById("Counter-Urgent");
 const taskInBoardElement = document.getElementById("Counter-All-Tasks");
-const inProgressCounterElement = document.getElementById("Counter-Tasks-In-Progress");
-const awaitFeedbackCounterElement = document.getElementById("Counter-Await-Feedback");
+const inProgressCounterElement = document.getElementById(
+  "Counter-Tasks-In-Progress"
+);
+const awaitFeedbackCounterElement = document.getElementById(
+  "Counter-Await-Feedback"
+);
 const dueDateUrgentDiv = document.getElementById("Date-Of-The-Deadline");
 const bodySummaryHtml = document.getElementById("Body-Summary-Html");
 let toDoCounter = 0;
@@ -25,48 +30,59 @@ async function initSummaryAndHTML() {
   selectedSiteBackgroundStyle();
 }
 
-/** Handles sidebar navigation clicks and redirects to the selected page. */
+/** Handles sidebar navigation clicks and redirects to the selected page.
+ * @param {Event} event - Click event from sidebar navigation.
+ */
 function handleSidebarNavClick(event) {
-  let targetLink = event.target.closest('.sidebar .nav-links a');
+  let targetLink = event.target.closest(".sidebar .nav-links a");
   if (targetLink) {
     event.preventDefault();
-    const href = targetLink.getAttribute('href');
+    const href = targetLink.getAttribute("href");
     window.location.href = href;
   }
 }
 
-/** Handles nav link activation, stores the active link, and redirects to the target page. */
+/** Handles nav link activation, stores the active link, and redirects to the target page.
+ * @param {Event} event - Click event from sidebar navigation.
+ */
 function handleSidebarNavClick(event) {
-  const targetLink = event.target.closest('.nav-links a');
+  const targetLink = event.target.closest(".nav-links a");
   if (!targetLink) return;
 
-  const links = document.querySelectorAll('.nav-links a');
+  const links = document.querySelectorAll(".nav-links a");
 
-  links.forEach(l => l.classList.remove('active'));
-  targetLink.classList.add('active');
+  links.forEach((l) => l.classList.remove("active"));
+  targetLink.classList.add("active");
 
-  localStorage.setItem('activeNav', targetLink.getAttribute('href'));
-  window.location.href = targetLink.getAttribute('href');
+  localStorage.setItem("activeNav", targetLink.getAttribute("href"));
+  window.location.href = targetLink.getAttribute("href");
 }
 
 window.addEventListener("load", () => {
-  const loadingScreenMobileDiv = document.getElementById("Loading-Screen-Mobile-Z-Container");
-  const whiteBackground = document.getElementById("White-Loading-Background-Mobile");
+  const loadingScreenMobileDiv = document.getElementById(
+    "Loading-Screen-Mobile-Z-Container"
+  );
+  const whiteBackground = document.getElementById(
+    "White-Loading-Background-Mobile"
+  );
 
   if (window.location.pathname.endsWith("summary.html")) {
     setTimeout(() => {
-      loadingScreenMobileDiv.classList.add('hidden');
-      whiteBackground.classList.add('hidden');
-      bodySummaryHtml.style.overflowY = 'auto';
+      loadingScreenMobileDiv.classList.add("hidden");
+      whiteBackground.classList.add("hidden");
+      bodySummaryHtml.style.overflowY = "auto";
     }, 1000);
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener("click", function (event) {
       handleSidebarNavClick(event);
     });
   }
 });
 
-/** Fetches summary-related data from Firebase for the given path. */
+/** Fetches summary-related data from Firebase for the given path.
+ * @param {string} path - Firebase database path for summary data.
+ * @returns {Promise<Object>} Parsed JSON data from Firebase.
+ */
 async function getInfoForSummaryBoardBaseFunction(path) {
   let response = await fetch(fireBaseUrlSummary + path + ".json");
   return await response.json();
@@ -74,13 +90,15 @@ async function getInfoForSummaryBoardBaseFunction(path) {
 
 /** Displays the correct greeting and logged-in user name on the summary page. */
 function getInformationSummaryBoard(path) {
-  const summaryGreetingTextName = document.getElementById("Summary-Name-Text-Greeting");
+  const summaryGreetingTextName = document.getElementById(
+    "Summary-Name-Text-Greeting"
+  );
   const storedName = localStorage.getItem("loggedInUserName");
   const goodMorningText = document.getElementById("Good-Morning-Text");
 
-  if (storedName === 'Guest') {
-    summaryGreetingTextName.classList.add('display-none');
-    goodMorningText.innerHTML = 'Good morning!';
+  if (storedName === "Guest") {
+    summaryGreetingTextName.classList.add("display-none");
+    goodMorningText.innerHTML = "Good morning!";
     return;
   }
 
@@ -95,7 +113,10 @@ async function initSummaryBoard() {
   await getInformationSummaryBoard("/userData");
 }
 
-/** Extracts all tasks from Firebase data and stores them in the task array. */
+/** Extracts all tasks from Firebase data and stores them in the task array.
+ * @param {Object} data - Firebase data grouped by category.
+ * @param {Array} taskArray - Target array for storing flattened tasks.
+ */
 function extractTasksFromFirebaseDataSummary(data, taskArray) {
   for (const categoryKey in data) {
     const categoryTasks = data[categoryKey];
@@ -119,13 +140,16 @@ async function loadTasksFromFirebaseSummary() {
   }
 }
 
-/** Checks whether a task is a valid task object and not a placeholder. */
+/** Checks whether a task is a valid task object and not a placeholder.
+ * @param {Object} task - Task object to validate.
+ * @returns {boolean} True if the task is valid and not a placeholder.
+ */
 function isRealTask(task) {
   return (
     task &&
-    typeof task === 'object' &&
-    task.title !== 'Workaround' &&
-    task.title !== ''
+    typeof task === "object" &&
+    task.title !== "Workaround" &&
+    task.title !== ""
   );
 }
 
@@ -133,16 +157,40 @@ function isRealTask(task) {
 function filterTasksByCategorySummary() {
   const realTasks = taskArray.filter(isRealTask);
 
-  const toDoTasks = realTasks.filter((task) => task.category === 'toDo');
-  const inProgressTasks = realTasks.filter((task) => task.category === 'inProgress');
-  const awaitFeedbackTasks = realTasks.filter((task) => task.category === 'awaitFeedback');
-  const doneTasks = realTasks.filter((task) => task.category === 'done');
+  const toDoTasks = realTasks.filter((task) => task.category === "toDo");
+  const inProgressTasks = realTasks.filter(
+    (task) => task.category === "inProgress"
+  );
+  const awaitFeedbackTasks = realTasks.filter(
+    (task) => task.category === "awaitFeedback"
+  );
+  const doneTasks = realTasks.filter((task) => task.category === "done");
 
-  return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks };
+  return {
+    toDoTasks,
+    inProgressTasks,
+    awaitFeedbackTasks,
+    doneTasks,
+    realTasks,
+  };
 }
 
-/** Renders all summary task counters into the DOM. */
-function renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter) {
+/** Renders all summary task counters into the DOM.
+ * @param {number} toDoCounter - Number of "To Do" tasks.
+ * @param {number} inProgressCounter - Number of "In Progress" tasks.
+ * @param {number} awaitFeedbackCounter - Number of "Await Feedback" tasks.
+ * @param {number} doneCounter - Number of completed tasks.
+ * @param {number} urgentCounter - Number of urgent tasks.
+ * @param {number} allTasksCounter - Total number of tasks.
+ */
+function renderSummaryCounters(
+  toDoCounter,
+  inProgressCounter,
+  awaitFeedbackCounter,
+  doneCounter,
+  urgentCounter,
+  allTasksCounter
+) {
   toDoCounterElement.innerHTML = toDoCounter;
   inProgressCounterElement.innerHTML = inProgressCounter;
   awaitFeedbackCounterElement.innerHTML = awaitFeedbackCounter;
@@ -153,44 +201,62 @@ function renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCoun
 
 /** Counts tasks by category and priority and updates the summary counters. */
 function counterTasksSummary() {
-  const { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks, realTasks } = filterTasksByCategorySummary();
+  const {
+    toDoTasks,
+    inProgressTasks,
+    awaitFeedbackTasks,
+    doneTasks,
+    realTasks,
+  } = filterTasksByCategorySummary();
 
   toDoCounter = toDoTasks.length;
   inProgressCounter = inProgressTasks.length;
   awaitFeedbackCounter = awaitFeedbackTasks.length;
   doneCounter = doneTasks.length;
-  urgentCounter = realTasks.filter((task) => task.priority === 'Urgent').length;
+  urgentCounter = realTasks.filter((task) => task.priority === "Urgent").length;
   allTasksCounter = realTasks.length;
 
-  renderSummaryCounters(toDoCounter, inProgressCounter, awaitFeedbackCounter, doneCounter, urgentCounter, allTasksCounter);
+  renderSummaryCounters(
+    toDoCounter,
+    inProgressCounter,
+    awaitFeedbackCounter,
+    doneCounter,
+    urgentCounter,
+    allTasksCounter
+  );
 
-  const urgentTasks = realTasks.filter((task) => task.priority === 'Urgent');
+  const urgentTasks = realTasks.filter((task) => task.priority === "Urgent");
   return urgentTasks;
 }
 
-/** Finds and displays the oldest due date among all urgent tasks. */
+/** Finds and displays the oldest due date among all urgent tasks.
+ * @param {string} value - Date string to parse.
+ * @returns {Date} Parsed Date object.
+ */
 function showOldestUrgentDueDate() {
   const urgentTasks = counterTasksSummary();
-  const dueDateArray = urgentTasks.map(task => task.dueDate);
+  const dueDateArray = urgentTasks.map((task) => task.dueDate);
 
   const parseDate = (value) => {
     const match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
     return match ? new Date(match[3], match[2] - 1, match[1]) : new Date(value);
   };
 
-  if (!dueDateArray.length) return dueDateUrgentDiv.innerHTML = 'No upcoming Deadline';
+  if (!dueDateArray.length)
+    return (dueDateUrgentDiv.innerHTML = "No upcoming Deadline");
 
   const sortedDates = dueDateArray
     .map(parseDate)
-    .filter(date => !isNaN(date))
+    .filter((date) => !isNaN(date))
     .sort((a, b) => a - b);
 
-  if (!sortedDates.length) return dueDateUrgentDiv.innerHTML = 'No valid dates';
+  if (!sortedDates.length)
+    return (dueDateUrgentDiv.innerHTML = "No valid dates");
 
   const oldestDate = sortedDates[0];
-  dueDateUrgentDiv.innerHTML = oldestDate.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  dueDateUrgentDiv.innerHTML = oldestDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 }
