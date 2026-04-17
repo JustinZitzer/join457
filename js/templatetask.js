@@ -1,4 +1,7 @@
-/** Returns the HTML template for the add-task overlay. */
+/** Returns the HTML template for the add-task overlay. 
+ * @param {string} status - The task status/column where the task will be created.
+ * @returns {string} HTML string representing the Add Task overlay UI.
+*/
 function getTaskOverlayTemplate(status) {
   return `
   <div id="overlay-content" class="overlay-content-board" onclick="event.stopPropagation()">
@@ -129,7 +132,11 @@ function getTaskOverlayTemplate(status) {
   `;
 }
 
-/** Returns the HTML template for a task card loaded from Firebase. */
+/** Returns the HTML template for a task card loaded from Firebase. 
+ * @param {Object} task - Task object retrieved from Firebase.
+ * @param {string|number} taskKey - Unique identifier of the task.
+ * @returns {string} HTML string representing a draggable task card.
+*/
 function getTaskFromFirebaseTemplate(task, taskKey) {
   return `
     <div onclick="showBigTaskInfo('${taskKey}')" id="todo-content-box${taskKey}" class="todo-content-box"
@@ -179,7 +186,11 @@ function getTaskFromFirebaseTemplate(task, taskKey) {
   `;
 }
 
-/** Returns the HTML template for the expanded task detail view. */
+/** Returns the HTML template for the expanded task detail view. 
+ * @param {Object} task - Task object retrieved from Firebase.
+ * @param {string|number} taskKey - Unique identifier of the task.
+ * @returns {string} HTML string representing the expanded task detail panel.
+*/
 function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   return `
     <div id="big-task-${taskKey}" class="big-task-panel  display-none">
@@ -261,7 +272,11 @@ function getTaskFromFirebaseBigTaskTemplate(task, taskKey) {
   `;
 }
 
-/** Returns the HTML template for editing a task. */
+/** Returns the HTML template for editing a task. 
+ * @param {Object} task - Task object retrieved from Firebase.
+ * @param {string|number} taskKey - Unique identifier of the task.
+ * @returns {string} HTML string representing the editable task detail panel.
+*/
 function getTaskEditTemplate(task, taskKey) {
   return `
     <div id="big-task-edit${taskKey}" class="big-task-panel">
@@ -350,7 +365,11 @@ function getTaskEditTemplate(task, taskKey) {
   `;
 }
 
-/** Returns the HTML template for a saved subtask list element. */
+/** Returns the HTML template for a saved subtask list element. 
+ * @param {string} subtask - Subtask text content.
+ * @param {number} subtaskSavedCounter - Unique index used for DOM element IDs.
+ * @returns {string} HTML string representing a saved subtask list element.
+*/
 function getSubtaskListElementTemplate(subtask, subtaskSavedCounter) {
   return `
     <li class="subtask-list-element" id="subtask-${subtaskSavedCounter}">

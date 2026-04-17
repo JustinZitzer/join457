@@ -1,7 +1,13 @@
-/** Returns the HTML template for the contact detail overlay. */
+/** Returns the HTML template for the contact detail overlay.
+ * @param {Object} contactData - The contact object used to render the overlay.
+ * @param {string|number} contactData.id - Unique identifier of the contact (used for color mapping and actions).
+ * @param {string} contactData.firstName - First name of the contact.
+ * @param {string} contactData.lastName - Last name of the contact.
+ * @param {string} contactData.key - Database key used for delete operations.
+ */
 function getContactOverlay(contact) {
-    const color = getColorForContact(contact.id);
-    return `
+  const color = getColorForContact(contact.id);
+  return `
     <div id="contacts_side_overlay" class="contacts-overlay-container">
                 <div class="contacts-overlay-header">
                     <div class="contacts-overlay-user-profile" style="background-color:${color};">
@@ -65,7 +71,7 @@ function getContactOverlay(contact) {
 
 /** Returns the HTML template for the add-contact overlay. */
 function getAddContactOverlay() {
-    return `
+  return `
     <div id="bg_contact_overlay" class="bg-contact-overlay">
     <div id="add_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
@@ -124,10 +130,14 @@ function getAddContactOverlay() {
         `;
 }
 
-/** Returns the HTML template for the edit-contact overlay. */
+/** Returns the HTML template for the edit-contact overlay.
+ * @param {Object} contact - The contact object used to populate the edit form.
+ * @param {string|number} contact.id - Unique identifier of the contact (used for color mapping).
+ * @returns {string} HTML string representing the edit-contact overlay.
+ */
 function getEditContactOverlay(contact) {
-    const color = getColorForContact(contact.id);
-    return `
+  const color = getColorForContact(contact.id);
+  return `
     <div id="bg_contact_overlay" class="bg-contact-overlay">
         <div id="edit_contact_overlay" class="add-contact-overlay">
             <div class="add-contact-left-section">
@@ -187,10 +197,14 @@ function getEditContactOverlay(contact) {
     `;
 }
 
-/** Returns the HTML template for a single contact card. */
+/** Returns the HTML template for a single contact card.
+ * @param {Object} contact - The contact object to render.
+ * @param {string|number} contact.id - Unique identifier used for DOM id and color mapping.
+ * @returns {string} HTML string representing a contact card.
+ */
 function getContactCard(contact) {
-    const color = getColorForContact(contact.id);
-    return `
+  const color = getColorForContact(contact.id);
+  return `
     <div id="contact_card_${contact.id}" class="contact-card"
          onclick="openContactsSideCardOverlayById(${contact.id})">
       <div class="contact-profile" style="background-color:${color}">${contact.firstName[0]}${contact.lastName[0]}</div>
@@ -202,9 +216,12 @@ function getContactCard(contact) {
   `;
 }
 
-/** Returns the HTML template for a grouped contact letter header. */
+/** Returns the HTML template for a grouped contact letter header.
+ *@param {string} currentFirstLetter - The letter used as the group header (e.g. "A", "B").
+ * @returns {string} HTML string representing the letter group header.
+ */
 function getLetterGroup(currentFirstLetter) {
-    return `
+  return `
     <div class="contacts-letter-group">
         <p>${currentFirstLetter}</p>
         <div class="contact-list-seperator"></div>
@@ -214,7 +231,7 @@ function getLetterGroup(currentFirstLetter) {
 
 /** Returns the HTML template for the delete and edit contact button menu. */
 function showDeleteAndEditContactButton() {
-    return `
+  return `
     <div class="delete-edit-dropdown-contacts">
         <div>
             <p>Edit</p>
@@ -244,7 +261,7 @@ function showDeleteAndEditContactButton() {
 
 /** Returns the HTML template for the created-contact success overlay. */
 function getCreatedContactOverlay() {
-    return `
+  return `
     <div id="bg_contact_succesfully" class="bg-contact-overlay">
         <div class="created-contact-successfully-container">
             <p>Contact successfully created</p>
@@ -255,7 +272,7 @@ function getCreatedContactOverlay() {
 
 /** Returns the HTML template for the edited-contact success overlay. */
 function getEditedContactOverlay() {
-    return `
+  return `
     <div id="bg_contact_succesfully" class="bg-contact-overlay">
         <div class="created-contact-successfully-container">
             <p>Contact successfully edited</p>

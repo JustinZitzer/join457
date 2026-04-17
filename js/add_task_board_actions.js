@@ -14,11 +14,15 @@ function showMoveToCategoryIcon(event, taskKey) {
   }
 }
 
-/* Moves a task to a different category in Firebase and updates the UI accordingly..
- * Prevents default event behavior, stops event propagation, and closes the dropdown menu if needed.
- * @param {Event} event - The event triggered by the user action.
- * @param {string|number} taskId - The unique identifier of the task to be moved.
- * @param {string} newCategory - The target category to move the task into.
+/**
+ * Handles moving a task between categories (Kanban columns).
+ * Prevents default event behavior, validates whether the move is necessary,
+ * and closes the dropdown if no change is needed.
+ *
+ * @param {Event} event - The triggering UI event.
+ * @param {string|number} taskId - Unique identifier of the task.
+ * @param {string} newCategory - Target category/column for the task.
+ * @returns {Promise<void>}
  */
 
 async function moveTaskToCategory(event, taskId, newCategory) {
