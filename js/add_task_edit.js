@@ -1,4 +1,7 @@
-/** Switches a task into edit mode. */
+/** Switches a task into edit mode. 
+ *@param {string|number} taskKey - Identifier used to locate the task elements in the DOM.
+
+*/
 async function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
@@ -16,7 +19,10 @@ async function editTask(taskKey) {
   await initEditTaskContacts(taskKey);
 }
 
-/** Cancels edit mode and restores original task view. */
+/** Cancels edit mode and restores original task view. 
+ * @param {string|number} taskKey - Identifier used to locate the task elements in the DOM.
+
+*/
 function cancelEditTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
   const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
@@ -31,7 +37,10 @@ function cancelEditTask(taskKey) {
   }
 }
 
-/** Deletes a task from Firebase and updates UI. */
+/** Deletes a task from Firebase and updates UI. 
+ * @param {string} category - The task category in Firebase.
+ * @param {string} taskKey - The unique key/identifier of the task to delete.
+*/
 async function deleteTask(category, taskKey) {
   const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
   try {
@@ -47,7 +56,12 @@ async function deleteTask(category, taskKey) {
   }
 }
 
-/** Renders subtasks inside the big task view. */
+/** Renders subtasks inside the big task view. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {Array} subtasks - Array of subtask objects.
+ * @param {string} titel - Task title used in templates.
+ * @param {string} category - Task category used in templates.
+*/
 function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
@@ -70,7 +84,10 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   }
 }
 
-/** Updates the subtask progress text. */
+/** Updates the subtask progress text. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {Array} subtasks - Array of subtask objects.
+*/
 function progressBarStyle(taskKey, subtasks) {
   const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
   if (!subtasks) return;
@@ -81,7 +98,10 @@ function progressBarStyle(taskKey, subtasks) {
   }
 }
 
-/** Renders assigned contacts in edit mode. */
+/** Renders assigned contacts in edit mode. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {string[]} assignedTo - Array of assigned contact names.
+*/
 function assignedContactsEdit(taskKey, assignedTo) {
   const containerTaskEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
   const circleClassesTask = ["single-circle-first-edit", "single-circle-second-edit", "single-circle-third-edit",];
@@ -100,7 +120,10 @@ function assignedContactsEdit(taskKey, assignedTo) {
   }
 }
 
-/** Renders all contacts inside the edit dropdown. */
+/** Renders all contacts inside the edit dropdown. 
+ * @param {HTMLElement} container - The dropdown container element.
+ * @param {string|number} taskKey - Identifier for the task context.
+*/
 async function renderContactsForEditDropdown(container, taskKey) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
@@ -114,7 +137,9 @@ async function renderContactsForEditDropdown(container, taskKey) {
   }
 }
 
-/** Initializes contacts in edit mode if not already loaded. */
+/** Initializes contacts in edit mode if not already loaded. 
+ * @param {string|number} taskKey - Identifier used to locate edit mode elements.
+*/
 async function initEditTaskContacts(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   if (!container) return;
@@ -130,7 +155,9 @@ async function initEditTaskContacts(taskKey) {
   }
 }
 
-/** Toggles the visibility of the edit contacts dropdown. */
+/** Toggles the visibility of the edit contacts dropdown. 
+ *@param {string|number} taskKey - Identifier used to locate edit mode elements.
+*/
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
@@ -142,7 +169,9 @@ async function loadContactsForDropdownInEdit(taskKey) {
   threeCircleDivEdit.classList.toggle("hidden");
 }
 
-/** Sets assigned contacts as checked in edit mode. */
+/** Sets assigned contacts as checked in edit mode. 
+ * @param {string|number} taskKey - Identifier used to locate the task in loadedTasks and DOM.
+*/
 function setAssignedContactsCheckedEdit(taskKey) {
   const task = loadedTasks[taskKey];
   if (!task || !task.assignedTo) return;
@@ -163,7 +192,11 @@ function setAssignedContactsCheckedEdit(taskKey) {
   setAssignedContactsLoopEdit(task, inputs, taskKey);
 }
 
-/** Matches assigned contacts with checkboxes in edit mode. */
+/** Matches assigned contacts with checkboxes in edit mode. 
+ * @param {Object} task - Task object containing assigned contacts.
+ * @param {HTMLCollection} inputs - Collection of contact checkbox elements.
+ * @param {string|number} taskKey - Identifier used for UI updates.
+*/
 function setAssignedContactsLoopEdit(task, inputs, taskKey) {
   for (let i = 0; i < task.assignedTo.length; i++) {
     const assignedName = task.assignedTo[i].trim();
@@ -182,7 +215,12 @@ function setAssignedContactsLoopEdit(task, inputs, taskKey) {
   }
 }
 
-/** Generates a contact card for edit dropdown. */
+/** Generates a contact card for edit dropdown. 
+ * * @param {Object} contact - Contact object containing user data.
+ * @param {string|number} taskKey - Identifier used for edit mode context.
+ * @param {string} color - Assigned color for the contact circle.
+ * @returns {string} HTML string for the contact dropdown card.
+*/
 function getContactCardForDropdownInEdit(contact, taskKey, color) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`
@@ -193,7 +231,11 @@ function getContactCardForDropdownInEdit(contact, taskKey, color) {
   return contactCardDropdownEditTemplate(contact, taskKey, initials, name, color);
 }
 
-/** Extracts initials and full name for selected contacts. */
+/** Extracts initials and full name for selected contacts. 
+ * @param {string} fullName - Full name of the selected contact.
+ * @param {string[]} initialsArray - Array collecting generated initials.
+ * @param {string[]} fullNamesArray - Array collecting full contact names.
+*/
 function handleCheckedContact(fullName, initialsArray, fullNamesArray) {
   const names = fullName.split(" ");
   let initials = "";
@@ -205,7 +247,10 @@ function handleCheckedContact(fullName, initialsArray, fullNamesArray) {
   fullNamesArray.push(fullName);
 }
 
-/** Updates assigned contact circles in edit mode. */
+/** Updates assigned contact circles in edit mode. 
+ * @param {string|number} taskKey - Identifier used for DOM element selection.
+ * @returns {string[]} Array of selected contact full names.
+*/
 function changeContactCircleInEditTemplate(taskKey) {
   let initialsArray = [];
   let fullNamesArray = [];
@@ -224,7 +269,10 @@ function changeContactCircleInEditTemplate(taskKey) {
   return fullNamesArray || ["Not Assigned to anyone"];
 }
 
-/** Renders contact circles in edit mode. */
+/** Renders contact circles in edit mode. 
+ * @param {string|number} taskKey - Identifier used for DOM selection.
+ * @param {string[]} initialsArray - Array of contact initials to render.
+*/
 function renderCirclesInEditTemplate(taskKey, initialsArray) {
   const container = document.getElementById(`three-circle-container-edit${taskKey}`);
   container.innerHTML = "";
@@ -240,7 +288,11 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
-/** Handles visibility of contact circles in edit mode. */
+/** Handles visibility of contact circles in edit mode. 
+ * @param {HTMLElement} container - The circle container element.
+ * @param {string[]} initialsArray - Array of contact initials.
+ * @param {string|number} taskKey - Identifier used for DOM selection.
+*/
 function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
   if (initialsArray.length === 0) {
@@ -256,7 +308,11 @@ function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   }
 }
 
-/** Returns initials from first and last name. */
+/** Returns initials from first and last name. 
+ * @param {string} firstName - First name of the contact.
+ * @param {string} lastName - Last name of the contact.
+ * @returns {string} Generated initials.
+*/
 function getInitials(firstName, lastName) {
   let initials = "";
   if (firstName && firstName.length > 0) initials += firstName[0].toUpperCase();
@@ -264,7 +320,9 @@ function getInitials(firstName, lastName) {
   return initials;
 }
 
-/** Shows subtask input icons in edit mode. */
+/** Shows subtask input icons in edit mode. 
+ * @param {string|number} taskKey - Identifier used for DOM element selection.
+*/
 function showInputFieldEditSubtasksIcons(taskKey) {
   const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
@@ -277,7 +335,9 @@ function showInputFieldEditSubtasksIcons(taskKey) {
   inputfield.classList.add('input-border-left-bottom');
 }
 
-/** Clears subtask input and hides icons. */
+/** Clears subtask input and hides icons. 
+ * @param {string|number} taskKey - Identifier used for DOM element selection.
+*/
 function clearInputHideIconsSubtasksInput(taskKey) {
   const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
   const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
@@ -291,7 +351,10 @@ function clearInputHideIconsSubtasksInput(taskKey) {
   inputfield.value = "";
 }
 
-/** Applies active styling to priority buttons in edit mode. */
+/** Applies active styling to priority buttons in edit mode. 
+ * @param {string|number} taskKey - Identifier used for DOM element selection.
+ * @param {string} priority - Priority level ("Urgent", "Medium", "Low").
+*/
 function buttonPriorityStyle(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -306,7 +369,10 @@ function buttonPriorityStyle(taskKey, priority) {
   }
 }
 
-/** Changes the selected priority in edit mode. */
+/** Changes the selected priority in edit mode. 
+ * @param {string|number} taskKey - Identifier used for DOM element selection.
+ * @param {string} priority - Selected priority ("Urgent", "Medium", "Low").
+*/
 function changePriorityInEdit(taskKey, priority) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -319,14 +385,27 @@ function changePriorityInEdit(taskKey, priority) {
   addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive);
 }
 
-/** Removes active state from all priority buttons. */
+/** Removes active state from all priority buttons. 
+ * @param {HTMLElement} buttonUrgent - Urgent priority button.
+ * @param {HTMLElement} buttonMedium - Medium priority button.
+ * @param {HTMLElement} buttonLow - Low priority button.
+*/
 function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
   buttonUrgent.classList.remove("active-red");
   buttonMedium.classList.remove("active-yellow");
   buttonLow.classList.remove("active-green");
 }
 
-/** Adds active state to selected priority button. */
+/** Adds active state to selected priority button.
+ * @param {HTMLElement} buttonUrgent - Urgent priority button.
+ * @param {HTMLElement} buttonMedium - Medium priority button.
+ * @param {HTMLElement} buttonLow - Low priority button.
+ * @param {string} priority - Selected priority ("Urgent", "Medium", "Low").
+ * @param {boolean} isUrgentActive - Whether urgent is currently active.
+ * @param {boolean} isMediumActive - Whether medium is currently active.
+ * @param {boolean} isLowActive - Whether low is currently active.
+ * @returns {string} The resulting priority state or fallback message.
+*/
 function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
   if (priority === "Urgent" && !isUrgentActive) {
     buttonUrgent.classList.add("active-red");
@@ -343,14 +422,22 @@ function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, i
   return "No priority selected";
 }
 
-/** Replaces subtask content with input field for editing. */
+/** Replaces subtask content with input field for editing. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {number} i - Index of the subtask.
+ * @param {string} subtaskText - Current text of the subtask.
+ * @returns {number} The subtask index.
+*/
 function changeSubtaskContent(taskKey, i, subtaskText) {
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   subtaskContainer.innerHTML = getEditSubtaskInputTemplate(taskKey, i, subtaskText);
   return i;
 }
 
-/** Cancels editing of a subtask. */
+/** Cancels editing of a subtask. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {number} i - Index of the subtask.
+*/
 function cancelEditSubtask(taskKey, i) {
   const subtaskContainer = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   if (subtaskContainer) {
@@ -358,7 +445,10 @@ function cancelEditSubtask(taskKey, i) {
   }
 }
 
-/** Saves edited subtask content. */
+/** Saves edited subtask content. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {number} i - Index of the subtask.
+*/
 function confirmChangeForEditSubtask(taskKey, i) {
   const oldSubtaskDiv = document.getElementById(`subtasks-board-first-task-edit${taskKey}${i}`);
   const inputfieldSubtask = document.getElementById(`subtask-edit-inputfield${taskKey}${i}`);
@@ -372,7 +462,9 @@ function confirmChangeForEditSubtask(taskKey, i) {
   oldSubtaskDiv.parentNode.replaceChild(newSubtaskDivFirstElementChild, oldSubtaskDiv);
 }
 
-/** Adds a new subtask in edit mode. */
+/** Adds a new subtask in edit mode. 
+ ** @param {string|number} taskKey - Identifier for the task.
+*/
 function addNewSubtaskInEdit(taskKey) {
   const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
   const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
@@ -391,4 +483,3 @@ function addNewSubtaskInEdit(taskKey) {
   document.getElementById(`seperator-subtasks-edit${taskKey}`).classList.add("hidden");
   document.getElementById(`add-new-subtask-edit-icon${taskKey}`).classList.add("hidden");
 }
-/** line 401-793 add_task.js */
