@@ -12,7 +12,10 @@ async function postData(path = '', data = {}) {
     }
 }
 
-/** Creates the request options object for a POST request. */
+/** Creates the request options object for a POST request. 
+ * @param {Object} data - The payload to be sent in the request body.
+ * @returns {Object} Fetch options object for a POST JSON request.
+*/
 function createPostOptions(data) {
     return {
         method: 'POST',
@@ -21,7 +24,13 @@ function createPostOptions(data) {
     };
 }
 
-/** Executes a fetch request and returns parsed JSON data if available. */
+/** Executes a fetch request and returns parsed JSON data if available. 
+ * Throws an error for non-OK HTTP responses and safely handles empty responses.
+ * @param {string} url - Request URL.
+ * @param {Object} options - Fetch configuration object (method, headers, body, etc.).
+ * @returns {Promise<Object|null>} Parsed JSON response or null if no response body.
+ * @throws {Error} If the HTTP response status is not OK.
+*/
 async function fetchData(url, options) {
     const response = await fetch(url, options);
     if (!response.ok) {
