@@ -22,7 +22,10 @@ function loadMediumButtonPriorityBoard() {
   mediumButton.classList.add('active');
 }
 
-/** Sets up the overlay close behavior for button and background interaction. */
+/** Sets up the overlay close behavior for button and background interaction. 
+ * @param {HTMLElement} overlay - The overlay container element.
+ * @param {HTMLElement} overlayContent - The inner content element of the overlay.
+*/
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
@@ -42,7 +45,10 @@ function setupOverlayClose(overlay, overlayContent) {
   closeOverlayBackground(overlay, overlayContent);
 }
 
-/** Closes the overlay when the background is clicked. */
+/** Closes the overlay when the background is clicked. 
+ * @param {HTMLElement} overlay - The overlay container element.
+ * @param {HTMLElement} overlayContent - The inner content element of the overlay.
+*/
 function closeOverlayBackground(overlay, overlayContent) {
   overlay.addEventListener("click", () => {
     overlayContent.classList.remove("slide-in");
@@ -58,7 +64,9 @@ function closeOverlayBackground(overlay, overlayContent) {
   });
 }
 
-/** Opens the add-task overlay or redirects to the add-task page on smaller screens. */
+/** Opens the add-task overlay or redirects to the add-task page on smaller screens. 
+ *@param {string} status - The status used to generate the task overlay template.
+*/
 function openOverlay(status) {
   const overlay = document.getElementById("overlay");
   const overlayContent = document.getElementById("content-add-task-overlay");
@@ -109,7 +117,9 @@ function selectContacts() {
   }
 }
 
-/** Toggles the active state of a priority button and resets others if needed. */
+/** Toggles the active state of a priority button and resets others if needed. 
+ *@param {HTMLElement} button - The priority button that was clicked.
+*/
 function togglePriority(button) {
   const anyActive = arrowContainerRed.classList.contains("active") || arrowContainerOrange.classList.contains("active") || arrowContainerGreen.classList.contains("active");
 
@@ -125,7 +135,10 @@ function togglePriority(button) {
   }
 }
 
-/** Opens the category dropdown and adjusts input border styling. */
+/** Opens the category dropdown and adjusts input border styling. 
+ * @param {HTMLInputElement} taskSubtask - The input field associated with the dropdown.
+ * @param {HTMLElement} dropdown - The dropdown element to be displayed.
+*/
 function openDropdown(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
@@ -162,7 +175,10 @@ function toggleDropdown() {
   }
 }
 
-/** Opens the category dropdown in the overlay and adjusts input border styling. */
+/** Opens the category dropdown in the overlay and adjusts input border styling. 
+ * @param {HTMLInputElement} taskSubtask - The input field associated with the dropdown.
+ * @param {HTMLElement} dropdown - The dropdown element to be displayed.
+*/
 function openDropdownOverlay(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
@@ -201,7 +217,9 @@ function toggleDropdownOverlay() {
   }
 }
 
-/** Selects a category and closes the dropdown in the add-task form. */
+/** Selects a category and closes the dropdown in the add-task form. 
+ *@param {string} category - The selected category name.
+*/
 function selectCategory(category) {
   var input = document.getElementById("category-input");
   input.value = category;
@@ -212,7 +230,9 @@ function selectCategory(category) {
   validateGetCategoryForNewTask();
 }
 
-/** Selects a category and closes the dropdown in the overlay form. */
+/** Selects a category and closes the dropdown in the overlay form. 
+ *@param {string} category - The selected category name.
+*/
 function selectCategoryOverlay(category) {
   var input = document.getElementById("category-input1");
   input.value = category;
@@ -253,14 +273,21 @@ function validateInputOverlay() {
   }
 }
 
-/** Displays an error message for an invalid input field. */
+/** Displays an error message for an invalid input field. 
+ * @param {HTMLElement} input - The input element to mark as invalid.
+ * @param {HTMLElement} errorMsgElement - The element used to display the error message.
+ * @param {string} message - The error message to display.
+*/
 function showInputError(input, errorMsgElement, message) {
   errorMsgElement.textContent = message;
   errorMsgElement.style.display = "block";
   input.classList.add("input-error");
 }
 
-/** Clears the error message of an input field. */
+/** Clears the error message of an input field. 
+ * @param {HTMLElement} input - The input element to reset.
+ * @param {HTMLElement} errorMsgElement - The element displaying the error message.
+*/
 function clearInputError(input, errorMsgElement) {
   errorMsgElement.textContent = "";
   errorMsgElement.style.display = "none";
@@ -287,7 +314,9 @@ function validateDueDateInput() {
   }
 }
 
-/** Opens the native date picker for the due date input. */
+/** Opens the native date picker for the due date input. 
+ *@param {Event} event - The triggering event (currently unused).
+*/
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
   input.focus();
@@ -315,7 +344,10 @@ function validateDueDateInputOverlay() {
   }
 }
 
-/** Loads contacts, sorts them, and renders them into the given container. */
+/** Loads contacts, sorts them, and renders them into the given container. 
+ *@param {HTMLElement} container - The DOM element where contact cards will be rendered.
+
+*/
 async function loadAndRenderContacts(container) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);

@@ -4,22 +4,18 @@ function addStyleForDropdownAnimation() {
   dropdown.classList.remove("display-none");
 }
 
-/** Adds a subtask object to the subtasks array. */
-function pushSubtaskToArray(subtasksArray, subtaskTextElement) {
-  const subtask = subtaskTextElement.textContent.trim().replace("• ", "");
-  subtasksArray.push({
-    subtaskText: subtask,
-    statusCheckbox: false
-  });
-}
-
+/** Adds a subtask object to the subtasks array. *
+ * @param {Array} subtasksArray - The array to which the new subtask object will be added.
+ * @param {HTMLElement} subtaskTextElement - The DOM element containing the subtask text./
 /** Rebuilds and returns the current subtasks array from the DOM. */
 function updateSubtasksArray() {
   let subtasksArray = [];
 
   for (let index = 0; index < subtaskSavedCounter; index++) {
     const subtaskElement = document.getElementById(`subtask-${index}`);
-    const subtaskTextElement = document.getElementById(`subtask-list-element-div${index}`);
+    const subtaskTextElement = document.getElementById(
+      `subtask-list-element-div${index}`
+    );
     const checkboxElement = document.getElementById(`subtask-checkbox${index}`);
 
     if (subtaskElement && subtaskTextElement && checkboxElement) {
@@ -37,7 +33,10 @@ function addSubtaskInContainer() {
   let subtask = taskSubtask.value.trim();
 
   if (subtask) {
-    savedSubtasks.innerHTML += getSubtaskListElementTemplate(subtask, subtaskSavedCounter);
+    savedSubtasks.innerHTML += getSubtaskListElementTemplate(
+      subtask,
+      subtaskSavedCounter
+    );
     subtaskSavedCounter++;
     taskSubtask.value = "";
     updateSubtasksArray();
@@ -56,7 +55,9 @@ function hidePlusIconShowCheckAndCrossIcon() {
   checkIconCheck.classList.remove("display-none");
 }
 
-/** Clears the subtask input field and restores the default icons. */
+/** Clears the subtask input field and restores the default icons. 
+ *@param {Event} event - Optional event used to stop propagation when triggered by user interaction.
+*/
 function clearSubtaskInputField(event) {
   if (event) event.stopPropagation();
   const plusIcon = document.getElementById("add-icon-container");
@@ -71,30 +72,52 @@ function clearSubtaskInputField(event) {
   checkIconCheck.classList.add("display-none");
 }
 
-/** Replaces a saved subtask with an editable input field. */
+/** Replaces a saved subtask with an editable input field.
+ * @param {number} subtaskSavedCounter - The index or identifier used to locate the subtask element.
+ * @param {string} subtask - The current subtask text to prefill the input field.
+ */
 function editSavedSubtask(subtaskSavedCounter, subtask) {
-  const subTaskElement = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
-  subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(subtask, subtaskSavedCounter);
+  const subTaskElement = document.getElementById(
+    `subtask-list-element-div${subtaskSavedCounter}`
+  );
+  subTaskElement.innerHTML = getSubtaskEditInputFieldTemplate(
+    subtask,
+    subtaskSavedCounter
+  );
 }
 
-/** Saves the edited subtask text and updates the DOM. */
+/** Saves the edited subtask text and updates the DOM.
+ * @param {number} subtaskSavedCounter - The index or identifier used to locate the subtask element.
+ */
 function saveEditedSubtask(subtaskSavedCounter) {
-  const input = document.getElementById(`edit-subtask-inputfield${subtaskSavedCounter}`);
+  const input = document.getElementById(
+    `edit-subtask-inputfield${subtaskSavedCounter}`
+  );
   if (!input) return;
   const newValue = input.value;
 
-  const subTaskElementDiv = document.getElementById(`subtask-list-element-div${subtaskSavedCounter}`);
+  const subTaskElementDiv = document.getElementById(
+    `subtask-list-element-div${subtaskSavedCounter}`
+  );
   if (!subTaskElementDiv) return;
   const liElement = subTaskElementDiv.parentElement;
 
-  liElement.outerHTML = getSubtaskListElementTemplate(newValue, subtaskSavedCounter);
+  liElement.outerHTML = getSubtaskListElementTemplate(
+    newValue,
+    subtaskSavedCounter
+  );
 
   updateSubtasksArray();
 }
 
-/** Deletes a saved subtask from the DOM. */
+/** Deletes a saved subtask from the DOM. 
+ * @param {number} subtaskSavedCounter - The identifier used to locate the subtask element.
+ * @param {string} subtask - (Unused in this function) The subtask text.
+*/
 function deleteSavedSubTask(subtaskSavedCounter, subtask) {
-  const subTaskElement = document.getElementById(`subtask-${subtaskSavedCounter}`);
+  const subTaskElement = document.getElementById(
+    `subtask-${subtaskSavedCounter}`
+  );
   if (subTaskElement) subTaskElement.remove();
 
   updateSubtasksArray();
@@ -122,7 +145,9 @@ function addBackgroundForDropwdown() {
   for (let i = 0; i < allContacts.length; i++) {
     const contact = allContacts[i];
     const checkbox = document.getElementById(`contact-checkbox-${contact.id}`);
-    const nameBox = document.getElementById(`contact-option-add-task${contact.id}`);
+    const nameBox = document.getElementById(
+      `contact-option-add-task${contact.id}`
+    );
 
     if (checkbox.checked) {
       nameBox.style.backgroundColor = "rgba(42, 54, 71, 1)";
@@ -134,10 +159,18 @@ function addBackgroundForDropwdown() {
   }
 }
 
-/** Toggles the selected background styling for a contact in edit mode. */
+/** Toggles the selected background styling for a contact in edit mode.
+ * @param {string|number} contactId - The unique identifier of the contact.
+ * @param {string|number} taskKey - The identifier used to target the correct task context.
+ */
+
 function toggleContactEditBackground(contactId, taskKey) {
-  const checkbox = document.getElementById(`contact-checkbox-${contactId}${taskKey}`);
-  const container = document.getElementById(`contact-option-edit${contactId}${taskKey}`);
+  const checkbox = document.getElementById(
+    `contact-checkbox-${contactId}${taskKey}`
+  );
+  const container = document.getElementById(
+    `contact-option-edit${contactId}${taskKey}`
+  );
 
   if (!checkbox || !container) return;
 
@@ -156,7 +189,9 @@ function showCirclesInDropdownAddTask() {
     const contact = allContacts[i];
 
     const nameElement = document.getElementById(`contact-name-${contact.id}`);
-    const circleElement = document.getElementById(`circle-initials-in-dropdown${contact.id}`);
+    const circleElement = document.getElementById(
+      `circle-initials-in-dropdown${contact.id}`
+    );
 
     const fullName = nameElement.textContent;
     const names = fullName.split(" ");
@@ -168,11 +203,18 @@ function showCirclesInDropdownAddTask() {
 
     const color = contactColors[i % contactColors.length];
 
-    circleElement.innerHTML = getContactCircleTemplateDropwdown("circle-initials-in-dropdown", initials, color);
+    circleElement.innerHTML = getContactCircleTemplateDropwdown(
+      "circle-initials-in-dropdown",
+      initials,
+      color
+    );
   }
 }
 
-/** Returns a contact color based on its index. */
+/** Returns a contact color based on its index. 
+ * @param {number} index - The index used to select a color.
+ * @returns {string} - The selected color value.
+*/
 function getContactColor(index) {
   return contactColors[index % contactColors.length];
 }
@@ -180,7 +222,9 @@ function getContactColor(index) {
 /** Creates initials for assigned contacts and triggers circle rendering. */
 function getContactForCircle() {
   let assignedContacts = getAssignedToValue();
-  assignedContacts = assignedContacts.filter((contact) => contact !== "Not Assigned to anyone");
+  assignedContacts = assignedContacts.filter(
+    (contact) => contact !== "Not Assigned to anyone"
+  );
   let nameInitialesArray = [];
 
   for (let i = 0; i < assignedContacts.length; i++) {
@@ -195,7 +239,11 @@ function getContactForCircle() {
   return nameInitialesArray;
 }
 
-/** Determines whether assigned contact circles should be hidden. */
+/** Determines whether assigned contact circles should be hidden.
+ * @param {Array<string>} nameInitialesArray - Array of assigned contact identifiers or labels.
+ * @param {HTMLElement} contactsDropdown - The dropdown element used to select contacts.
+ * @returns {boolean} - Returns true if the circles should be hidden, otherwise false.
+ */
 function shouldHideAssignedCircles(nameInitialesArray, contactsDropdown) {
   return (
     nameInitialesArray.length === 0 ||
@@ -204,7 +252,9 @@ function shouldHideAssignedCircles(nameInitialesArray, contactsDropdown) {
   );
 }
 
-/** Renders up to three initials circles for assigned contacts. */
+/** Renders up to three initials circles for assigned contacts. 
+* @param {Array<string>} nameInitialesArray - Array of assigned contact identifiers or labels.
+*/
 function renderCirclesForAssignedContacts(nameInitialesArray) {
   circleRenderContainer.innerHTML = "";
 
@@ -213,11 +263,18 @@ function renderCirclesForAssignedContacts(nameInitialesArray) {
     return;
   }
 
-  const circleClasses = ["single-circle-first", "single-circle-second", "single-circle-third"];
+  const circleClasses = [
+    "single-circle-first",
+    "single-circle-second",
+    "single-circle-third",
+  ];
 
   for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
-    circleRenderContainer.innerHTML += getContactCircleTemplate(circleClasses[i], initials);
+    circleRenderContainer.innerHTML += getContactCircleTemplate(
+      circleClasses[i],
+      initials
+    );
   }
   if (nameInitialesArray.length > 3) {
     circleRenderContainer.innerHTML += `+${nameInitialesArray.length - 3}`;
@@ -240,7 +297,9 @@ function clearInnerHtmlAndValues() {
 function clearInputFieldsForNewTask() {
   const contacts = document.getElementsByClassName("contact-checkbox");
   const errorMessage = document.getElementById("error-please-fill-inputs");
-  const threeCirclesContainer = document.getElementById("three-circle-container");
+  const threeCirclesContainer = document.getElementById(
+    "three-circle-container"
+  );
 
   clearInnerHtmlAndValues();
 
@@ -265,7 +324,6 @@ function resetAllErrorMessages() {
   const titleErrorMessage = document.getElementById("error-message");
   const dueDateErrorMessage = document.getElementById("due-date-error");
   const categoryErrorMessage = document.getElementById("error-field-category");
-
 
   titleInput.classList.remove("border-red-add-task");
   dueDateInput.classList.remove("border-red-add-task");
@@ -297,7 +355,10 @@ async function postNewTaskToFirebase() {
   if (isTitleValid && taskCategory.value && isDateValid) {
     const inputsForTask = getInfoForNewTask();
     const newTaskKey = taskTitel.value;
-    const dataPost = await putRegistryDataBaseFunction("tasks/toDo/" + newTaskKey, inputsForTask);
+    const dataPost = await putRegistryDataBaseFunction(
+      "tasks/toDo/" + newTaskKey,
+      inputsForTask
+    );
     clearInputFieldsForNewTask();
     showTaskAddedMessage();
     resetAllErrorMessages();
@@ -360,7 +421,9 @@ function showErrorForNewTaskCategory() {
 /** Shows the check and cross icons for subtask input in the board overlay. */
 function addCrossAndCheckIconStyle() {
   const plusIcon = document.getElementById("add-icon-container-board");
-  const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
+  const inputfieldDiv = document.getElementById(
+    "inputfield-and-icons-subtask-board-overlay-open"
+  );
 
   plusIcon.classList.add("display-none");
   inputfieldDiv.classList.remove("display-none");
@@ -370,7 +433,9 @@ function addCrossAndCheckIconStyle() {
 function deleteCurrentSubtaskText() {
   const input = document.getElementById("inputfield-subtask-assign-in-board");
   const plusIcon = document.getElementById("add-icon-container-board");
-  const inputfieldDiv = document.getElementById("inputfield-and-icons-subtask-board-overlay-open");
+  const inputfieldDiv = document.getElementById(
+    "inputfield-and-icons-subtask-board-overlay-open"
+  );
 
   input.value = "";
 

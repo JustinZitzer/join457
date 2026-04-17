@@ -14,12 +14,12 @@ function showMoveToCategoryIcon(event, taskKey) {
   }
 }
 
-/* Moves a task to a different category in Firebase and updates the UI accordingly.. 
+/* Moves a task to a different category in Firebase and updates the UI accordingly..
  * Prevents default event behavior, stops event propagation, and closes the dropdown menu if needed.
  * @param {Event} event - The event triggered by the user action.
  * @param {string|number} taskId - The unique identifier of the task to be moved.
  * @param {string} newCategory - The target category to move the task into.
-*/
+ */
 
 async function moveTaskToCategory(event, taskId, newCategory) {
   event.preventDefault();
@@ -119,7 +119,9 @@ function resetBoardPriority(
   taskPriorityLow.classList.remove("active");
 }
 
-/** Unchecks all selected contacts in the board overlay. */
+/** Unchecks all selected contacts in the board overlay.
+ *@param {HTMLInputElement[]} contacts - Collection of contact checkbox elements.
+ */
 function resetBoardContacts(contacts) {
   for (let i = 0; i < contacts.length; i++) {
     let contact = contacts[i];
@@ -179,7 +181,9 @@ function openDatePickerBoard() {
   }
 }
 
-/** Opens the native date picker for the edit-task due date input. */
+/** Opens the native date picker for the edit-task due date input.
+ * @param {string|number} taskKey - A unique identifier used to target the corresponding
+ */
 function openDatePickerEditTask(taskKey) {
   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
   input.focus();
@@ -189,7 +193,10 @@ function openDatePickerEditTask(taskKey) {
   }
 }
 
-/** Validates the task title while editing a task. */
+/** Validates the task title while editing a task.
+ * @param {string|number} taskKey - A unique identifier used to target the corresponding
+ */
+
 function validateEditTaskTitle(taskKey) {
   const input = document.getElementById(`titel-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-title-edit${taskKey}`);
@@ -209,6 +216,15 @@ function validateEditTaskTitle(taskKey) {
   return true;
 }
 
+/**
+ * Validates an input value against disallowed characters and updates the UI
+ * to display an error state if invalid characters are found.
+ * @param {HTMLElement} input - The input element to apply validation styling to.
+ * @param {HTMLElement} error - The element used to display the error message.
+ * @param {string} value - The input value to be validated.
+ * @returns {boolean} - Returns true if the value is valid, otherwise false.
+ */
+
 function validateInvalidChars(input, error, value) {
   const invalidChars = /[.#$\[\]/?]/;
 
@@ -221,7 +237,9 @@ function validateInvalidChars(input, error, value) {
   return true;
 }
 
-/** Validates the due date while editing a task. */
+/** Validates the due date while editing a task.
+ * @param {string|number} taskKey - A unique identifier used to target the corresponding
+ */
 function validateEditTaskDueDate(taskKey) {
   const input = document.getElementById(`due-date-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-due-date-edit-error${taskKey}`);
@@ -237,7 +255,11 @@ function validateEditTaskDueDate(taskKey) {
   return true;
 }
 
-/** Validates that the edit-task due date is not empty. */
+/** Validates that the edit-task due date is not empty.
+ * @param {HTMLElement} input - The input element to apply validation styling to.
+ * @param {HTMLElement} error - The element used to display the error message.
+ * @param {string} value - The input value to be validated.
+ */
 function validateEditTaskDueDateEmpty(input, value, error) {
   if (!input) return false;
 
@@ -249,7 +271,11 @@ function validateEditTaskDueDateEmpty(input, value, error) {
   return true;
 }
 
-/** Validates the format of the edit-task due date. */
+/** Validates the format of the edit-task due date.
+ * @param {HTMLElement} input - The input element to apply validation styling to.
+ * @param {HTMLElement} error - The element used to display the error message.
+ * @param {string} value - The input value to be validated.
+ */
 function validateEditTaskDueDateFormat(input, value, error) {
   const isValidDate = !isNaN(new Date(value).getTime());
   if (!isValidDate) {
@@ -260,13 +286,17 @@ function validateEditTaskDueDateFormat(input, value, error) {
   return true;
 }
 
-/** Closes open dropdowns when clicking outside of them. */
+/** Closes open dropdowns when clicking outside of them. 
+ *@param {Event} event - The click event used to detect outside interactions.
+*/
 function dropdownCloseOnClickOutside(event) {
   dropdownCloseOnClickOutsideContacts(event);
   dropdownCloseOnClickOutsideCategory(event);
 }
 
-/** Closes the contacts dropdown when clicking outside of it. */
+/** Closes the contacts dropdown when clicking outside of it. 
+ *@param {Event} event - The click event used to detect outside interactions.
+*/
 async function dropdownCloseOnClickOutsideContacts(event) {
   const dropdown = document.getElementById("contacts-dropdown");
   const input = document.getElementById("inputfield-text-assign");
@@ -284,7 +314,9 @@ async function dropdownCloseOnClickOutsideContacts(event) {
   getContactForCircle();
 }
 
-/** Closes the category dropdown when clicking outside of it. */
+/** Closes the category dropdown when clicking outside of it. 
+ * @param {Event} event - The click event used to detect outside interactions.
+*/
 function dropdownCloseOnClickOutsideCategory(event) {
   const dropdown = document.getElementById("category-dropdown");
   const input = document.getElementById("category-input");
@@ -302,7 +334,12 @@ function dropdownCloseOnClickOutsideCategory(event) {
   toggleDropdown();
 }
 
-/** Validates that the edit-task due date is not in the past. */
+/** Validates that the edit-task due date is not in the past. 
+ * @param {HTMLElement} input - The date input element.
+ * @param {string} value - The selected date value from the input field.
+ * @param {HTMLElement} error - The element used to display validation errors.
+ * @returns {boolean} - Returns true if the date is valid, otherwise false.
+*/
 function validateEditTaskDueDateNotPast(input, value, error) {
   if (!value) return false;
   const selected = new Date(value + "T00:00:00");
@@ -318,7 +355,12 @@ function validateEditTaskDueDateNotPast(input, value, error) {
   return true;
 }
 
-/** Sets the minimum selectable date for all due date inputs to today. */
+/** Sets the minimum selectable date for all due date inputs to today. 
+ * @param {HTMLElement} input - The input element to apply validation styling to.
+ * @param {HTMLElement} error - The element used to display the error message.
+ * @param {string} value - The input value to be validated.
+
+*/
 function checkTodaysDate() {
   const today = new Date().toISOString().split("T")[0];
   const dueDateBoard = document.getElementById("dueDateInputBoard");
@@ -385,7 +427,12 @@ function endDragging() {
   removeDropHighlight();
 }
 
-/** Filters visible tasks based on the search input. */
+/** Filters visible tasks based on the search input.
+ * @param {HTMLElement[]} taskTitles - Array of elements containing task titles.
+ * @param {HTMLElement[]} descriptions - Array of elements containing task descriptions.
+ * @param {HTMLElement[]} toDos - Array of task container elements to show or hide.
+ * @param {string} inputStart - The lowercase search string to match against task content.
+ */
 function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
   for (let i = 0; i < taskTitles.length; i++) {
     const title = taskTitles[i].textContent.trim().toLowerCase();
@@ -465,13 +512,18 @@ function selectTechnicalCategoryBoard() {
   categoryUserOrTechnicalTaskBoard();
 }
 
-/** Replaces a board subtask with an editable input field. */
+/** Replaces a board subtask with an editable input field.
+ * @param {number} i - The index or identifier used to locate the subtask element.
+ * @param {string} subtaskText - The current subtask text to prefill the input field.
+ */
 function changeSubtasksInBoard(i, subtaskText) {
   const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
   subtaskDiv.innerHTML = changeSubtasksIntoInputfield(i, subtaskText);
 }
 
-/** Saves the changed subtask text in the board overlay. */
+/** Saves the changed subtask text in the board overlay.
+ * @param {number} i - The index or identifier used to locate the subtask in the board overlay.
+ */
 function changedSubtasksBoard(i) {
   const input = document.getElementById(`new-subtask-text-field${i}`);
   const newSubtaskText = input.value.trim();
@@ -481,7 +533,9 @@ function changedSubtasksBoard(i) {
   subtaskDiv.innerHTML = subtasksInBoard(i, newSubtaskText);
 }
 
-/** Deletes a subtask from the board overlay. */
+/** Deletes a subtask from the board overlay.
+ * @param {number} i - The index or identifier used to locate the subtask element.
+ */
 function deleteSubtasksInBoard(i) {
   const subtaskDiv = document.getElementById(`subtasks-in-container-board${i}`);
   if (subtaskDiv) {

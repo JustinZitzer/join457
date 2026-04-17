@@ -1,4 +1,9 @@
-/** Collects all edited task data for saving. */
+/** Collects all edited task data for saving. 
+ * @param {string|number} taskKey - Identifier used to locate the task in the DOM.
+ * @param {string} category - The task category.
+ * @param {string} categoryUserOrTechnicalTask - Additional category classification for the task.
+ * @returns {Object} The structured task object ready to be saved.
+*/
 function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTask) {
   const titel = document.getElementById(`titel-edit-task-big${taskKey}`).value;
   const oldTitle = document.getElementById(`task-board-big-headline${taskKey}`).textContent;
@@ -11,7 +16,11 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
   return {titel, description, dueDate, priority, assignedTo, subtasks, categoryUserOrTechnicalTask, id, category};
 }
 
-/** Iterates through subtasks and builds Firebase array. */
+/** Iterates through subtasks and builds Firebase array. 
+ * @param {string|number} taskKey - Identifier used to locate related DOM elements.
+ * @param {HTMLElement[]} allSubtasks - Collection of subtask DOM elements.
+ * @param {Array} subtasks - Array where formatted subtask objects are pushed.
+*/
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
     const subtaskElement = allSubtasks[i];
@@ -31,7 +40,10 @@ function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   }
 }
 
-/** Retrieves all edited subtasks for Firebase. */
+/** Retrieves all edited subtasks for Firebase. 
+ * @param {string|number} taskKey - Identifier used to locate the subtask container in the DOM.
+ * @returns {Array} Array of subtask objects formatted for Firebase.
+*/
 function getEditedSubtasksForFirebase(taskKey) {
   const subtasks = [];
   const container = document.getElementById(`subtasks-edit-div${taskKey}`);
@@ -44,7 +56,10 @@ function getEditedSubtasksForFirebase(taskKey) {
   return subtasks;
 }
 
-/** Returns selected priority in edit mode. */
+/** Returns selected priority in edit mode. 
+ * @param {string|number} taskKey - Identifier used to locate the priority buttons in the DOM.
+ * @returns {string} The selected priority ("Urgent", "Medium", "Low", or fallback message).
+*/
 function saveEditTaskPriority(taskKey) {
   const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
@@ -61,7 +76,11 @@ function saveEditTaskPriority(taskKey) {
   }
 }
 
-/** Saves edited task data to Firebase. */
+/** Saves edited task data to Firebase. 
+ * @param {string|number} taskKey - Identifier used to locate the task in the DOM.
+ * @param {string} category - The task category in Firebase.
+ * @param {string} categoryUserOrTechnicalTask - Additional task classification.
+*/
 async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnicalTask) {
   if (!validateEditTaskTitle(taskKey) || !validateEditTaskDueDate(taskKey)) return;
 
@@ -80,7 +99,12 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   await loadAllTasksFromFirebase();
 }
 
-/** Saves the checkbox state of a subtask. */
+/** Saves the checkbox state of a subtask. 
+ * @param {string|number} taskKey - Identifier used to locate the task in the DOM.
+ * @param {string} category - The task category in Firebase.
+ * @param {string} titel - The task title used as part of the database path.
+ * @param {number} i - Index of the subtask within the task.
+*/
 async function saveSubtaskStatus(taskKey, category, titel, i) {
   const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${i}`);
   if (!checkbox) return;
@@ -92,7 +116,11 @@ async function saveSubtaskStatus(taskKey, category, titel, i) {
   }
 }
 
-/** Sends a PATCH request to Firebase. */
+/** Sends a PATCH request to Firebase. 
+ * @param {string} path - The database path where the update should be applied.
+ * @param {Object} data - The partial data object to update.
+ * @returns {Promise<Response>} The fetch response from Firebase.
+*/
 async function patchRegistryDataBaseFunction(path, data) {
   const url = `${FireBaseUrl}${path}.json`;
   return fetch(url, {
@@ -101,7 +129,13 @@ async function patchRegistryDataBaseFunction(path, data) {
   });
 }
 
-/** Updates subtask progress bar and counter. */
+/** Updates subtask progress bar and counter. 
+ * @param {string|number} taskKey - Identifier used to locate the progress bar element.
+ * @param {number} counter - Number of completed (checked) subtasks.
+ * @param {NodeList|Array} subtasksCheckboxes - Collection of all subtask checkboxes.
+ * @param {HTMLElement} subtaskDiv - Element displaying the subtask counter text.
+ * @param {HTMLElement} progressBarDiv - Container element for the progress bar (currently unused).
+*/
 function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
   if (subtasksCheckboxes.length > 0) {
     subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
@@ -113,7 +147,9 @@ function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv,
   }
 }
 
-/** Calculates and displays subtask completion progress. */
+/** Calculates and displays subtask completion progress. 
+ *@param {string|number} taskKey - Identifier used to locate related DOM elements.
+*/
 function subtaskCounter(taskKey) {
   const subtaskDiv = document.getElementById(`subtask-text${taskKey}`);
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
@@ -180,7 +216,10 @@ function validateDueDateInputBoard() {
   return value;
 }
 
-/** Validates a real date in YYYY-MM-DD format. */
+/** Validates a real date in YYYY-MM-DD format. 
+ * @param {string} value - The date string to validate.
+ * @returns {{valid: boolean, message: string}} Validation result object.
+*/
 function isValidDDMMYYYYRealDate(value) {
   const regex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
   if (!value) return { valid: false, message: "Please pick a valid date." };
@@ -198,7 +237,10 @@ function isValidDDMMYYYYRealDate(value) {
   return { valid: true, message: "" };
 }
 
-/** Toggles priority selection in board view. */
+/** Toggles priority selection in board view. 
+ * @param {string} priority - The priority level being selected.
+ * @returns {string|undefined} The selected priority if a change occurs.
+*/
 function togglePriorityBoard(priority) {
   const urgentButton = document.getElementById("arrow-container-red-board");
   const mediumButton = document.getElementById("arrow-container-orange-board");
@@ -231,7 +273,13 @@ function getSelectedPriority() {
   return "No priority selected";
 }
 
-/** Toggles off active priority if already selected. */
+/** Toggles off active priority if already selected. 
+ * @param {string} priority - The priority level to check ("Urgent", "Medium", "Low").
+ * @param {HTMLElement} urgentButton - The urgent priority button element.
+ * @param {HTMLElement} mediumButton - The medium priority button element.
+ * @param {HTMLElement} lowButton - The low priority button element.
+ * @returns {boolean} True if an active priority was deactivated, otherwise false.
+*/
 function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
   if (priority === "Urgent" && urgentButton.classList.contains("active")) {
     urgentButton.classList.remove("active");
@@ -301,7 +349,11 @@ function changeAssignedToBoardInputStyle() {
   inputfield.classList.toggle("inputfield-blue-border-top-right");
 }
 
-/** Renders contact circles (shared helper). */
+/** Renders contact circles (shared helper). 
+ * @param {HTMLElement} circleRenderContainer - The DOM element where circles are appended.
+ * @param {string[]} circleClasses - Array of CSS class names for each circle.
+ * @param {string[]} nameInitialesArray - Array of contact initials to display.
+*/
 function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray) {
   for (let i = 0; i < Math.min(nameInitialesArray.length, 3); i++) {
     const initials = nameInitialesArray[i];
@@ -309,7 +361,9 @@ function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesAr
   }
 }
 
-/** Renders assigned contact circles in board view. */
+/** Renders assigned contact circles in board view. 
+ *@param {string[]} nameInitialesArray - Array of contact initials to display.
+*/
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   const circleRenderContainer = document.getElementById("three-circle-container-board");
   circleRenderContainer.innerHTML = "";
@@ -357,7 +411,10 @@ function subtasksInfoForFirebase() {
   return subtasksArray;
 }
 
-/** Handles creation of a new task in Firebase. */
+/** Handles creation of a new task in Firebase. 
+ * @param {string} status - The task status/category used as Firebase path.
+ * @param {HTMLInputElement} taskTitel - Input element containing the task title used as the task key.
+*/
 async function handleTaskCreationBoard(status, taskTitel) {
   const inputsForTask = taskInfosForFirebaseBoard();
   const newTaskKey = taskTitel.value;
@@ -366,7 +423,9 @@ async function handleTaskCreationBoard(status, taskTitel) {
   showTaskAddedMessageBoard();
 }
 
-/** Validates and submits a new task to Firebase. */
+/** Validates and submits a new task to Firebase. 
+ *@param {string} status - The task status/category used for Firebase storage.
+*/
 async function postTaskIntoFirebaseBoard(status) {
   const taskTitel = document.getElementById("titleInputBoard");
   const taskDueDate = document.getElementById("dueDateInputBoard");
