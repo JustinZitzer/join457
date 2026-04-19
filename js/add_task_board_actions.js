@@ -4,9 +4,7 @@
  */
 function showMoveToCategoryIcon(event, taskKey) {
   event.stopPropagation();
-  const moveToDropdown = document.getElementById(
-    `user-profile-menu-mobile${taskKey}`
-  );
+  const moveToDropdown = document.getElementById(`user-profile-menu-mobile${taskKey}`);
   if (moveToDropdown.classList.contains("display-none")) {
     moveToDropdown.classList.remove("display-none");
   } else {
@@ -28,9 +26,7 @@ function showMoveToCategoryIcon(event, taskKey) {
 async function moveTaskToCategory(event, taskId, newCategory) {
   event.preventDefault();
   event.stopPropagation();
-  const dropdownMenu = document.getElementById(
-    `user-profile-menu-mobile${taskId}`
-  );
+  const dropdownMenu = document.getElementById(`user-profile-menu-mobile${taskId}`);
   const task = todosArray.find((t) => t.id == taskId);
   if (!task) return;
   const oldCategory = task.category;
@@ -39,13 +35,10 @@ async function moveTaskToCategory(event, taskId, newCategory) {
     return;
   }
 
-  await fetch(FireBaseUrl + `tasks/${oldCategory}/${task.id}.json`, {
-    method: "DELETE",
-  });
+  await fetch(FireBaseUrl + `tasks/${oldCategory}/${task.id}.json`, {method: "DELETE",});
   task.category = newCategory;
 
-  await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {
-    method: "PUT",
+  await fetch(FireBaseUrl + `tasks/${newCategory}/${task.id}.json`, {method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task),
   });
@@ -55,13 +48,9 @@ async function moveTaskToCategory(event, taskId, newCategory) {
 
 /** Validates the category input field in the board overlay. */
 function validateCategoryInBoardInput() {
-  const inputField = document.getElementById(
-    "inputfield-category-assign-board"
-  );
+  const inputField = document.getElementById("inputfield-category-assign-board");
   const value = inputField.value.trim();
-  const errorField = document.getElementById(
-    "field-required-in-board-category"
-  );
+  const errorField = document.getElementById("field-required-in-board-category");
 
   if (value !== "Technical Task" && value !== "User Story") {
     inputField.classList.add("border-red-board");
@@ -76,14 +65,10 @@ function validateCategoryInBoardInput() {
 function resetAllInfosInBoardOverlay() {
   const errorTitle = document.getElementById("field-required-in-board");
   const errorDueDate = document.getElementById("due-date-required-board-error");
-  const errorCategory = document.getElementById(
-    "field-required-in-board-category"
-  );
+  const errorCategory = document.getElementById("field-required-in-board-category");
   const titleInput = document.getElementById("titleInputBoard");
   const dueDateInput = document.getElementById("dueDateInputBoard");
-  const categoryInput = document.getElementById(
-    "inputfield-category-assign-board"
-  );
+  const categoryInput = document.getElementById("inputfield-category-assign-board");
 
   errorTitle.classList.add("display-none");
   errorDueDate.classList.add("display-none");
@@ -94,15 +79,7 @@ function resetAllInfosInBoardOverlay() {
 }
 
 /** Clears all board overlay input values and related container content. */
-function resetBoardInputValues(
-  taskTitel,
-  taskDescription,
-  taskDueDate,
-  taskCategory,
-  taskSubtask,
-  savedSubtasks,
-  circleContainer
-) {
+function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer) {
   taskTitel.value = "";
   taskDescription.value = "";
   taskDueDate.value = "";
@@ -113,11 +90,7 @@ function resetBoardInputValues(
 }
 
 /** Resets all priority button states in the board overlay. */
-function resetBoardPriority(
-  taskPriorityUrgent,
-  taskPriorityMedium,
-  taskPriorityLow
-) {
+function resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow) {
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
   taskPriorityLow.classList.remove("active");
@@ -136,40 +109,18 @@ function resetBoardContacts(contacts) {
 /** Clears and resets all input fields in the board overlay. */
 function clearInputFieldsForNewTaskBoard() {
   const taskTitel = document.getElementById("titleInputBoard");
-  const taskDescription = document.getElementById(
-    "inputfield-description-board"
-  );
+  const taskDescription = document.getElementById("inputfield-description-board");
   const taskDueDate = document.getElementById("dueDateInputBoard");
-  const taskPriorityUrgent = document.getElementById(
-    "arrow-container-red-board"
-  );
-  const taskPriorityMedium = document.getElementById(
-    "arrow-container-orange-board"
-  );
-  const taskPriorityLow = document.getElementById(
-    "arrow-container-green-board"
-  );
+  const taskPriorityUrgent = document.getElementById("arrow-container-red-board");
+  const taskPriorityMedium = document.getElementById("arrow-container-orange-board");
+  const taskPriorityLow = document.getElementById("arrow-container-green-board");
   const contacts = document.getElementsByClassName("contact-checkbox");
-  const taskCategory = document.getElementById(
-    "inputfield-category-assign-board"
-  );
-  const taskSubtask = document.getElementById(
-    "inputfield-subtask-assign-in-board"
-  );
+  const taskCategory = document.getElementById("inputfield-category-assign-board");
+  const taskSubtask = document.getElementById("inputfield-subtask-assign-in-board");
   const savedSubtasks = document.getElementById("subtasks-in-board");
-  const circleContainer = document.getElementById(
-    "three-circle-container-board"
-  );
+  const circleContainer = document.getElementById("three-circle-container-board");
 
-  resetBoardInputValues(
-    taskTitel,
-    taskDescription,
-    taskDueDate,
-    taskCategory,
-    taskSubtask,
-    savedSubtasks,
-    circleContainer
-  );
+  resetBoardInputValues( taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer);
   resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow);
   resetBoardContacts(contacts);
   resetAllInfosInBoardOverlay();
@@ -179,7 +130,6 @@ function clearInputFieldsForNewTaskBoard() {
 function openDatePickerBoard() {
   const input = document.getElementById("dueDateInputBoard");
   input.focus();
-
   if (input.showPicker) {
     input.showPicker();
   }
@@ -200,7 +150,6 @@ function openDatePickerEditTask(taskKey) {
 /** Validates the task title while editing a task.
  * @param {string|number} taskKey - A unique identifier used to target the corresponding
  */
-
 function validateEditTaskTitle(taskKey) {
   const input = document.getElementById(`titel-edit-task-big${taskKey}`);
   const error = document.getElementById(`error-title-edit${taskKey}`);
@@ -231,7 +180,6 @@ function validateEditTaskTitle(taskKey) {
 
 function validateInvalidChars(input, error, value) {
   const invalidChars = /[.#$\[\]/?]/;
-
   if (invalidChars.test(value)) {
     input.classList.add("border-red-board");
     error.classList.remove("display-none");
@@ -307,11 +255,7 @@ async function dropdownCloseOnClickOutsideContacts(event) {
   const icon = document.getElementById("contact-list");
 
   if (!dropdown || dropdown.classList.contains("hidden")) return;
-  if (
-    dropdown.contains(event.target) ||
-    input.contains(event.target) ||
-    icon.contains(event.target)
-  ) {
+  if (dropdown.contains(event.target) ||input.contains(event.target) ||icon.contains(event.target)) {
     return;
   }
   await loadContactsForDropdown();
@@ -328,11 +272,7 @@ function dropdownCloseOnClickOutsideCategory(event) {
 
   if (!dropdown) return;
   if (dropdown.classList.contains("display-none")) return;
-  if (
-    dropdown.contains(event.target) ||
-    input.contains(event.target) ||
-    icon.contains(event.target)
-  ) {
+  if (dropdown.contains(event.target) ||input.contains(event.target) ||icon.contains(event.target)) {
     return;
   }
   toggleDropdown();
@@ -363,7 +303,6 @@ function validateEditTaskDueDateNotPast(input, value, error) {
  * @param {HTMLElement} input - The input element to apply validation styling to.
  * @param {HTMLElement} error - The element used to display the error message.
  * @param {string} value - The input value to be validated.
-
 */
 function checkTodaysDate() {
   const today = new Date().toISOString().split("T")[0];
@@ -373,7 +312,6 @@ function checkTodaysDate() {
   if (dueDateBoard) {
     dueDateBoard.min = today;
   }
-
   if (dueDateAddTask) {
     dueDateAddTask.min = today;
   }
@@ -458,21 +396,15 @@ function filterTasksBySearch(taskTitles, descriptions, toDos, inputStart) {
         break;
       }
     }
-
     toDos[i].classList.toggle("display-none", !match);
   }
 }
 
 /** Searches tasks by title or description and updates visibility. */
 function searchTask() {
-  const inputValue = document
-    .getElementById("title-findtask-inputfield")
-    .value.trim()
-    .toLowerCase();
+  const inputValue = document.getElementById("title-findtask-inputfield").value.trim().toLowerCase();
   const taskTitles = document.getElementsByClassName("task-titel-mini-task");
-  const descriptions = document.getElementsByClassName(
-    "task-board-big-description"
-  );
+  const descriptions = document.getElementsByClassName("task-board-big-description");
   const toDos = document.getElementsByClassName("todo-content-box");
   const inputStart = inputValue.substring(0, 3);
 
@@ -500,18 +432,14 @@ function categoryUserOrTechnicalTaskBoard() {
 
 /** Selects the User Story category in the board overlay. */
 function selectUserCategoryBoard() {
-  const inputfield = document.getElementById(
-    "inputfield-category-assign-board"
-  );
+  const inputfield = document.getElementById("inputfield-category-assign-board");
   inputfield.value = "User Story";
   categoryUserOrTechnicalTaskBoard();
 }
 
 /** Selects the Technical Task category in the board overlay. */
 function selectTechnicalCategoryBoard() {
-  const inputfield = document.getElementById(
-    "inputfield-category-assign-board"
-  );
+  const inputfield = document.getElementById("inputfield-category-assign-board");
   inputfield.value = "Technical Task";
   categoryUserOrTechnicalTaskBoard();
 }

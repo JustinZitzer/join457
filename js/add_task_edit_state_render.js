@@ -24,16 +24,13 @@ function getInformationForEditTask(taskKey, category, categoryUserOrTechnicalTas
 function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
   for (let i = 0; i < allSubtasks.length; i++) {
     const subtaskElement = allSubtasks[i];
-
     const span = subtaskElement.getElementsByClassName("subtask-task-text-edit")[0];
     if (!span) continue;
-
     const text = span.textContent.trim();
     if (!text) continue;
 
     const id = subtaskElement.id;
     const index = id.replace(`subtasks-board-first-task-edit${taskKey}`, "");
-
     const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${index}`);
 
     subtasks.push({subtaskText: text, statusCheckbox: checkbox ? checkbox.checked : false});
@@ -94,7 +91,6 @@ async function saveEditedTaskToFirebase(taskKey, category, categoryUserOrTechnic
   } else {
     await putRegistryDataBaseFunction(`tasks/${category}/${oldTitle}`, inputsForTask);
   }
-
   hideBigTaskInfo(taskKey);
   await loadAllTasksFromFirebase();
 }
@@ -142,7 +138,6 @@ function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv,
 
     const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
     const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
-
     progressBarFillDiv.style.width = `${progressPercentage}%`;
   }
 }
@@ -169,7 +164,6 @@ function subtaskCounter(taskKey) {
       counter++;
     }
   }
-
   updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv);
 }
 
@@ -321,7 +315,6 @@ async function loadContactsForDropdownInBoard() {
       console.error("Error loading contacts:", error);
     }
   }
-
   container.classList.toggle("display-none");
 }
 
@@ -367,7 +360,6 @@ function renderCircleItems(circleRenderContainer, circleClasses, nameInitialesAr
 function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
   const circleRenderContainer = document.getElementById("three-circle-container-board");
   circleRenderContainer.innerHTML = "";
-
   const circleClasses = ["single-circle-first", "single-circle-second", "single-circle-third"];
 
   if (nameInitialesArray.length === 0) {
@@ -375,7 +367,6 @@ function renderCirclesForAssignedContactsBoard(nameInitialesArray) {
     circleRenderContainer.classList.add("hidden");
     return;
   }
-
   renderCircleItems(circleRenderContainer, circleClasses, nameInitialesArray);
   circleRenderContainer.classList.remove("display-none", "hidden");
 

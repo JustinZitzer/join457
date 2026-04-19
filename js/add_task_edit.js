@@ -14,7 +14,6 @@ async function editTask(taskKey) {
   if (editTaskPanel) {
     editTaskPanel.classList.remove("display-none");
   }
-
   await initEditTaskContacts(taskKey);
 }
 
@@ -70,7 +69,6 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
     if (!subtask) return;
-
     const text = subtask.subtaskText;
 
     if (subtask.statusCheckbox === false) {
@@ -78,7 +76,6 @@ function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
     } else {
       subtaksContainer.innerHTML += getSubtaskCheckedTemplate(taskKey, i, category, titel, text);
     }
-
     subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, i, text);
   }
 }
@@ -126,7 +123,6 @@ function assignedContactsEdit(taskKey, assignedTo) {
 async function renderContactsForEditDropdown(container, taskKey) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
-
   contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
   allContacts = contacts;
 
@@ -183,11 +179,9 @@ function setAssignedContactsCheckedEdit(taskKey) {
   for (let j = 0; j < inputs.length; j++) {
     const checkbox = inputs[j];
     checkbox.checked = false;
-
     const contactId = checkbox.dataset.contactId;
     toggleContactEditBackground(contactId, taskKey);
   }
-
   setAssignedContactsLoopEdit(task, inputs, taskKey);
 }
 
@@ -226,7 +220,6 @@ function getContactCardForDropdownInEdit(contact, taskKey, color) {
     : contact.firstName;
 
   const initials = getInitials(contact.firstName, contact.lastName);
-
   return contactCardDropdownEditTemplate(contact, taskKey, initials, name, color);
 }
 
@@ -263,7 +256,6 @@ function changeContactCircleInEditTemplate(taskKey) {
       handleCheckedContact(nameElem.textContent.trim(), initialsArray, fullNamesArray);
     }
   }
-
   renderCirclesInEditTemplate(taskKey, initialsArray);
   return fullNamesArray || ["Not Assigned to anyone"];
 }
@@ -283,7 +275,6 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
   if (initialsArray.length > 3) {
     container.innerHTML += `<div class="plus-counter-edit">+${initialsArray.length - 3}</div>`;
   }
-
   showAndHideCirclesInEditTemplate(container, initialsArray, taskKey);
 }
 
