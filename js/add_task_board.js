@@ -1,5 +1,4 @@
-const contactColors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1",
-  "#FF745E", "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B"];
+const contactColors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1", "#FF745E", "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B"];
 
 /** Initializes the board view and loads all required data. */
 async function initBoard() {
@@ -29,19 +28,15 @@ function loadMediumButtonPriorityBoard() {
 function setupOverlayClose(overlay, overlayContent) {
   const closeButton = overlayContent.querySelector(".x-close-button-add-task-overlay");
 
-  closeButton.addEventListener("click", () => {
-    overlayContent.classList.remove("slide-in");
-    overlayContent.classList.add("slide-out");
-
+  closeButton.addEventListener("click", () => {overlayContent.classList.remove("slide-in");
+  overlayContent.classList.add("slide-out");
     setTimeout(() => {
       overlay.classList.add("display-none");
       overlay.classList.remove("overlay-visible");
-
       overlayContent.classList.remove("slide-out");
       overlayContent.innerHTML = "";
     }, 200);
   });
-
   closeOverlayBackground(overlay, overlayContent);
 }
 
@@ -57,7 +52,6 @@ function closeOverlayBackground(overlay, overlayContent) {
     setTimeout(() => {
       overlay.classList.add("display-none");
       overlay.classList.remove("overlay-visible");
-
       overlayContent.classList.remove("slide-out");
       overlayContent.innerHTML = "";
     }, 200);
@@ -77,7 +71,6 @@ function openOverlay(status) {
   if (window.innerWidth > 1400) {
     overlayContent.innerHTML = getTaskOverlayTemplate(status);
     overlayContent.classList.add("slide-in");
-
     setupOverlayClose(overlay, overlayContent);
     checkTodaysDate();
   } else {
@@ -97,7 +90,7 @@ if (window.location.pathname.endsWith("board.html")) {
 
 if (window.location.pathname.endsWith("board.html")) {
   document.getElementById("content-add-task-overlay").addEventListener("click", function (event) {
-      event.stopPropagation();
+    event.stopPropagation();
     });
 }
 
@@ -142,10 +135,7 @@ function togglePriority(button) {
 function openDropdown(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
-  setTimeout(() => {
-    dropdown.classList.add("dropdown-open");
-  }, 1);
-
+  setTimeout(() => {dropdown.classList.add("dropdown-open");}, 1);
   if (taskSubtask.value.trim() !== "") {
     taskSubtask.style.borderTop = "1px solid #29ABE2";
     taskSubtask.style.borderRight = "1px solid #29ABE2";
@@ -160,15 +150,10 @@ function toggleDropdown() {
 
   if (dropdown.classList.contains("dropdown-open")) {
     dropdown.classList.remove("dropdown-open");
-
-    setTimeout(() => {
-      dropdown.classList.add("display-none");
-    }, 300);
-
+    setTimeout(() => {dropdown.classList.add("display-none");}, 300);
     taskSubtask.style.borderBottom = "1px solid #29ABE2";
     taskSubtask.style.borderRight = "1px solid #29ABE2";
     taskSubtask.style.borderTop = "none";
-
     validateGetCategoryForNewTask();
   } else {
     openDropdown(taskSubtask, dropdown);
@@ -182,10 +167,7 @@ function toggleDropdown() {
 function openDropdownOverlay(taskSubtask, dropdown) {
   dropdown.classList.remove("display-none");
 
-  setTimeout(() => {
-    dropdown.classList.add("dropdown-open");
-  }, 1);
-
+  setTimeout(() => {dropdown.classList.add("dropdown-open");}, 1);
   if (taskSubtask.value.trim() !== "") {
     taskSubtask.style.borderTop = "1px solid #29ABE2";
     taskSubtask.style.borderRight = "1px solid #29ABE2";
@@ -199,19 +181,13 @@ function toggleDropdownOverlay() {
   const dropdown = document.getElementById("category-dropdown");
 
   if (dropdown.classList.contains("dropdown-open")) {
-
     dropdown.classList.remove("dropdown-open");
 
-    setTimeout(() => {
-      dropdown.classList.add("display-none");
-    }, 300);
-
+    setTimeout(() => {dropdown.classList.add("display-none");}, 300);
     taskSubtask.style.borderBottom = "1px solid #29ABE2";
     taskSubtask.style.borderRight = "1px solid #29ABE2";
     taskSubtask.style.borderTop = "none";
-
     validateGetCategoryForNewTask();
-
   } else {
     openDropdownOverlay(taskSubtask, dropdown);
   }
@@ -299,7 +275,6 @@ function validateDueDateInput() {
   const input = document.getElementById("dueDateInput");
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
-
   const dateCheck = /^\d{4}-\d{2}-\d{2}$/;
 
   if (!value) {
@@ -320,8 +295,6 @@ function validateDueDateInput() {
 function openDatePicker(event) {
   const input = document.getElementById("dueDateInput");
   input.focus();
-
-  // Chrome/Edge: öffnet sicher
   if (typeof input.showPicker === "function") {
     input.showPicker();
   }
@@ -332,7 +305,6 @@ function validateDueDateInputOverlay() {
   const input = document.getElementById("dueDateInput1");
   const errorMsg = document.getElementById("due-date-error");
   const value = input.value.trim();
-
   const dateCheckSlash = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   if (!value) {
@@ -346,12 +318,10 @@ function validateDueDateInputOverlay() {
 
 /** Loads contacts, sorts them, and renders them into the given container. 
  *@param {HTMLElement} container - The DOM element where contact cards will be rendered.
-
 */
 async function loadAndRenderContacts(container) {
   const contactsUnsorted = await fetchContacts();
   const contacts = Object.values(contactsUnsorted);
-
   contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
   allContacts = contacts;
 
