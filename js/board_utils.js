@@ -103,3 +103,43 @@ function deleteSubtasksInBoard(i) {
     subtaskDiv.remove();
   }
 }
+
+/** Renders subtasks inside the big task view. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {Array} subtasks - Array of subtask objects.
+ * @param {string} titel - Task title used in templates.
+ * @param {string} category - Task category used in templates.
+*/
+function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
+  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
+  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
+  subtaksContainer.innerHTML = "";
+  if (!subtasks) return;
+
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    if (!subtask) return;
+    const text = subtask.subtaskText;
+
+    if (subtask.statusCheckbox === false) {
+      subtaksContainer.innerHTML += getSubtaskUncheckedTemplate(taskKey, i, category, titel, text);
+    } else {
+      subtaksContainer.innerHTML += getSubtaskCheckedTemplate(taskKey, i, category, titel, text);
+    }
+    subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, i, text);
+  }
+}
+
+/** Updates the subtask progress text. 
+ * @param {string|number} taskKey - Identifier for the task.
+ * @param {Array} subtasks - Array of subtask objects.
+*/
+function progressBarStyle(taskKey, subtasks) {
+  const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
+  if (!subtasks) return;
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    if (!subtask) return;
+    progressBarCounter.innerHTML = `${i + 1}/${subtasks.length} subtasks`;
+  }
+}

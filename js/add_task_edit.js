@@ -2,18 +2,13 @@
  *@param {string|number} taskKey - Identifier used to locate the task elements in the DOM.
 */
 async function editTask(taskKey) {
-  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
-  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const show = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const edit = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
 
-  if (showTaskPanel) {
-    showTaskPanel.classList.add("display-none");
-    task.classList.add("height-zero");
-  }
+  if (show) show.classList.add("display-none"), task.classList.add("height-zero");
+  if (edit) edit.classList.remove("display-none");
 
-  if (editTaskPanel) {
-    editTaskPanel.classList.remove("display-none");
-  }
   await initEditTaskContacts(taskKey);
 }
 
@@ -22,17 +17,12 @@ async function editTask(taskKey) {
 
 */
 function cancelEditTask(taskKey) {
-  const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
-  const editTaskPanel = document.getElementById(`big-task-edit${taskKey}`);
+  const show = document.getElementById(`big-task-show-hide-div${taskKey}`);
+  const edit = document.getElementById(`big-task-edit${taskKey}`);
   const task = document.getElementById(`big-task-${taskKey}`);
 
-  if (showTaskPanel) {
-    showTaskPanel.classList.remove("display-none");
-    task.classList.remove("height-zero");
-  }
-  if (editTaskPanel) {
-    editTaskPanel.classList.add("display-none");
-  }
+  if (show) show.classList.remove("display-none"), task.classList.remove("height-zero");
+  if (edit) edit.classList.add("display-none");
 }
 
 /** Deletes a task from Firebase and updates UI. 
@@ -42,55 +32,10 @@ function cancelEditTask(taskKey) {
 async function deleteTask(category, taskKey) {
   const url = `${FireBaseUrl}tasks/${category}/${taskKey}.json`;
   try {
-    const response = await fetch(url, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      await loadAllTasksFromFirebase();
-      hideBigTaskInfo(taskKey);
-    }
+    const res = await fetch(url, { method: "DELETE" });
+    if (res.ok) await loadAllTasksFromFirebase(), hideBigTaskInfo(taskKey);
   } catch (error) {
-    error = console.error("Error deleting task:", error);
-  }
-}
-
-/** Renders subtasks inside the big task view. 
- * @param {string|number} taskKey - Identifier for the task.
- * @param {Array} subtasks - Array of subtask objects.
- * @param {string} titel - Task title used in templates.
- * @param {string} category - Task category used in templates.
-*/
-function renderSubtasksInBigTask(taskKey, subtasks, titel, category) {
-  const subtaksContainer = document.getElementById(`subtasks-board-tasks-div${taskKey}`);
-  const subtasksEditDiv = document.getElementById(`subtasks-edit-div${taskKey}`);
-  subtaksContainer.innerHTML = "";
-  if (!subtasks) return;
-
-  for (let i = 0; i < subtasks.length; i++) {
-    const subtask = subtasks[i];
-    if (!subtask) return;
-    const text = subtask.subtaskText;
-
-    if (subtask.statusCheckbox === false) {
-      subtaksContainer.innerHTML += getSubtaskUncheckedTemplate(taskKey, i, category, titel, text);
-    } else {
-      subtaksContainer.innerHTML += getSubtaskCheckedTemplate(taskKey, i, category, titel, text);
-    }
-    subtasksEditDiv.innerHTML += getEditSubtaskTemplate(taskKey, i, text);
-  }
-}
-
-/** Updates the subtask progress text. 
- * @param {string|number} taskKey - Identifier for the task.
- * @param {Array} subtasks - Array of subtask objects.
-*/
-function progressBarStyle(taskKey, subtasks) {
-  const progressBarCounter = document.getElementById(`subtask-text${taskKey}`);
-  if (!subtasks) return;
-  for (let i = 0; i < subtasks.length; i++) {
-    const subtask = subtasks[i];
-    if (!subtask) return;
-    progressBarCounter.innerHTML = `${i + 1}/${subtasks.length} subtasks`;
+    console.error("Error deleting task:", error);
   }
 }
 
@@ -155,13 +100,12 @@ async function initEditTaskContacts(taskKey) {
 */
 async function loadContactsForDropdownInEdit(taskKey) {
   const container = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-  const threeCircleDivEdit = document.getElementById(`three-circle-container-edit${taskKey}`);
+  const circles = document.getElementById(`three-circle-container-edit${taskKey}`);
 
   await initEditTaskContacts(taskKey);
 
-  container.classList.toggle("hidden");
-  container.classList.toggle("height-zero");
-  threeCircleDivEdit.classList.toggle("hidden");
+  container.classList.toggle("hidden"), container.classList.toggle("height-zero");
+  circles.classList.toggle("hidden");
 }
 
 /** Sets assigned contacts as checked in edit mode. 
@@ -215,10 +159,7 @@ function setAssignedContactsLoopEdit(task, inputs, taskKey) {
  * @returns {string} HTML string for the contact dropdown card.
 */
 function getContactCardForDropdownInEdit(contact, taskKey, color) {
-  const name = contact.lastName
-    ? `${contact.firstName} ${contact.lastName}`
-    : contact.firstName;
-
+  const name = contact.lastName? `${contact.firstName} ${contact.lastName}`: contact.firstName;
   const initials = getInitials(contact.firstName, contact.lastName);
   return contactCardDropdownEditTemplate(contact, taskKey, initials, name, color);
 }
@@ -285,17 +226,10 @@ function renderCirclesInEditTemplate(taskKey, initialsArray) {
 */
 function showAndHideCirclesInEditTemplate(container, initialsArray, taskKey) {
   const dropdown = document.getElementById(`contacts-dropdown-edit${taskKey}`);
-  if (initialsArray.length === 0) {
-    container.classList.add("hidden");
-    container.classList.add("height-zero");
-  } else if (!dropdown.classList.contains("hidden")) {
-    container.classList.add("hidden");
-    container.classList.add("height-zero");
-  }
-  else {
-    container.classList.remove("hidden");
-    container.classList.remove("height-zero");
-  }
+  const hide = !initialsArray.length || !dropdown.classList.contains("hidden");
+
+  container.classList.toggle("hidden", hide);
+  container.classList.toggle("height-zero", hide);
 }
 
 /** Returns initials from first and last name. 
@@ -314,31 +248,27 @@ function getInitials(firstName, lastName) {
  * @param {string|number} taskKey - Identifier used for DOM element selection.
 */
 function showInputFieldEditSubtasksIcons(taskKey) {
-  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
-  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
-  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
-  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+  const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clear = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const sep = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const add = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
 
-  clearIcon.classList.remove("hidden");
-  seperatorIcon.classList.remove("hidden");
-  addIcon.classList.remove("hidden");
-  inputfield.classList.add('input-border-left-bottom');
+  clear.classList.remove("hidden"), sep.classList.remove("hidden"), add.classList.remove("hidden");
+  input.classList.add("input-border-left-bottom");
 }
 
 /** Clears subtask input and hides icons. 
  * @param {string|number} taskKey - Identifier used for DOM element selection.
 */
 function clearInputHideIconsSubtasksInput(taskKey) {
-  const inputfield = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
-  const clearIcon = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
-  const seperatorIcon = document.getElementById(`seperator-subtasks-edit${taskKey}`);
-  const addIcon = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
+  const input = document.getElementById(`inputfield-subtask-edit-div${taskKey}`);
+  const clear = document.getElementById(`delete-subtask-edit-check-icon${taskKey}`);
+  const sep = document.getElementById(`seperator-subtasks-edit${taskKey}`);
+  const add = document.getElementById(`add-new-subtask-edit-icon${taskKey}`);
 
-  clearIcon.classList.add("hidden");
-  seperatorIcon.classList.add("hidden");
-  addIcon.classList.add("hidden");
-  inputfield.classList.remove('input-border-left-bottom');
-  inputfield.value = "";
+  clear.classList.add("hidden"), sep.classList.add("hidden"), add.classList.add("hidden");
+  input.classList.remove("input-border-left-bottom");
+  input.value = "";
 }
 
 /** Applies active styling to priority buttons in edit mode. 
@@ -350,13 +280,9 @@ function buttonPriorityStyle(taskKey, priority) {
   const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
   const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
 
-  if (priority == "Urgent") {
-    buttonUrgent.classList.add("active-red");
-  } else if (priority == "Medium") {
-    buttonMedium.classList.add("active-yellow");
-  } else if (priority == "Low") {
-    buttonLow.classList.add("active-green");
-  }
+  if (priority == "Urgent") buttonUrgent.classList.add("active-red");
+  else if (priority == "Medium") buttonMedium.classList.add("active-yellow");
+  else if (priority == "Low") buttonLow.classList.add("active-green");
 }
 
 /** Changes the selected priority in edit mode. 
@@ -397,18 +323,9 @@ function removeActiveFromButtons(buttonUrgent, buttonMedium, buttonLow) {
  * @returns {string} The resulting priority state or fallback message.
 */
 function addPriorityAndActive(buttonUrgent, buttonMedium, buttonLow, priority, isUrgentActive, isMediumActive, isLowActive) {
-  if (priority === "Urgent" && !isUrgentActive) {
-    buttonUrgent.classList.add("active-red");
-    return "Urgent";
-  }
-  if (priority === "Medium" && !isMediumActive) {
-    buttonMedium.classList.add("active-yellow");
-    return "Medium";
-  }
-  if (priority === "Low" && !isLowActive) {
-    buttonLow.classList.add("active-green");
-    return "Low";
-  }
+  if (priority === "Urgent" && !isUrgentActive) return buttonUrgent.classList.add("active-red"), "Urgent";
+  if (priority === "Medium" && !isMediumActive) return buttonMedium.classList.add("active-yellow"), "Medium";
+  if (priority === "Low" && !isLowActive) return buttonLow.classList.add("active-green"), "Low";
   return "No priority selected";
 }
 
