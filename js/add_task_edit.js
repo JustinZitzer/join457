@@ -1,6 +1,5 @@
 /** Switches a task into edit mode. 
  *@param {string|number} taskKey - Identifier used to locate the task elements in the DOM.
-
 */
 async function editTask(taskKey) {
   const showTaskPanel = document.getElementById(`big-task-show-hide-div${taskKey}`);
@@ -458,7 +457,6 @@ function confirmChangeForEditSubtask(taskKey, i) {
   newSubtaskDiv.innerHTML = getEditSubtaskTemplate(taskKey, i, newSubtaskText);
 
   const newSubtaskDivFirstElementChild = newSubtaskDiv.firstElementChild;
-
   oldSubtaskDiv.parentNode.replaceChild(newSubtaskDivFirstElementChild, oldSubtaskDiv);
 }
 
@@ -471,7 +469,6 @@ function addNewSubtaskInEdit(taskKey) {
   const subtaskText = input.value.trim();
 
   if (!subtaskText) return;
-
   const currentSubtasks = subtasksEditDiv.getElementsByClassName("subtasks-board-first-task-edit");
   const newIndex = currentSubtasks.length;
 
