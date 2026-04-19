@@ -32,7 +32,6 @@ function getEditedSubtasksLoop(taskKey, allSubtasks, subtasks) {
     const id = subtaskElement.id;
     const index = id.replace(`subtasks-board-first-task-edit${taskKey}`, "");
     const checkbox = document.getElementById(`checkbox-board-subtasks${taskKey}${index}`);
-
     subtasks.push({subtaskText: text, statusCheckbox: checkbox ? checkbox.checked : false});
   }
 }
@@ -47,7 +46,6 @@ function getEditedSubtasksForFirebase(taskKey) {
   if (!container) return subtasks;
 
   const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
-
   getEditedSubtasksLoop(taskKey, allSubtasks, subtasks);
 
   return subtasks;
@@ -119,10 +117,7 @@ async function saveSubtaskStatus(taskKey, category, titel, i) {
 */
 async function patchRegistryDataBaseFunction(path, data) {
   const url = `${FireBaseUrl}${path}.json`;
-  return fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(data)
-  });
+  return fetch(url, {method: "PATCH",body: JSON.stringify(data)});
 }
 
 /** Updates subtask progress bar and counter. 
@@ -135,7 +130,6 @@ async function patchRegistryDataBaseFunction(path, data) {
 function updateSubtaskProgress(taskKey, counter, subtasksCheckboxes, subtaskDiv, progressBarDiv) {
   if (subtasksCheckboxes.length > 0) {
     subtaskDiv.innerHTML = `${counter}/${subtasksCheckboxes.length} subtasks`;
-
     const progressBarFillDiv = document.getElementById(`progressbar-fill${taskKey}`);
     const progressPercentage = (counter / subtasksCheckboxes.length) * 100;
     progressBarFillDiv.style.width = `${progressPercentage}%`;
@@ -150,7 +144,6 @@ function subtaskCounter(taskKey) {
   const subtasksCheckboxes = document.getElementsByClassName(`checkbox-board-subtasks${taskKey}`);
   const progressBarDiv = document.getElementById(`progressbar-box${taskKey}`);
   const priorityIcon = document.getElementById(`priority-icon-task-little${taskKey}`);
-
   let counter = 0;
 
   if (!subtasksCheckboxes || subtasksCheckboxes.length === 0) {
@@ -221,7 +214,6 @@ function isValidDDMMYYYYRealDate(value) {
 
   const [year, month, day] = value.split("-").map(Number);
   const date = new Date(year, month - 1, day); date.setHours(0, 0, 0, 0);
-
   if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day)
     return { valid: false, message: "Please enter a real, valid date." };
 
@@ -247,7 +239,6 @@ function togglePriorityBoard(priority) {
   urgentButton.classList.remove("active");
   mediumButton.classList.remove("active");
   lowButton.classList.remove("active");
-
   if (priority === "Urgent") urgentButton.classList.add("active");
   if (priority === "Medium") mediumButton.classList.add("active");
   if (priority === "Low") lowButton.classList.add("active");
@@ -303,7 +294,6 @@ async function loadAndSortContacts() {
 async function loadContactsForDropdownInBoard() {
   const container = document.getElementById("contacts-dropdown-board");
   if (!container) return;
-
   if (container.innerHTML === "") {
     try {
       const contacts = await loadAndSortContacts();
@@ -386,7 +376,6 @@ function subtaskIntoBoard() {
   subtasksContainer.classList.remove("display-none");
   subtasksContainer.innerHTML += subtasksInBoard(i, subtaskText);
   inputfield.value = "";
-
 }
 
 /** Collects subtasks for Firebase (board view). */
