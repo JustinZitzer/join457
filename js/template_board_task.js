@@ -157,7 +157,6 @@ function changeSubtasksIntoInputfield(i, subtaskText) {
  *  @param {Object} contact - Contact object containing id, firstName, and optional lastName.
  * @returns {string} HTML string representing a dropdown contact option.
  */
-
 function getContactCardForDropdown(contact) {
   const name = contact.lastName
     ? `${contact.firstName} ${contact.lastName}`

@@ -287,18 +287,15 @@ function getTaskEditTemplate(task, taskKey) {
       <div id="task-category-and-cross-icon-div" class="task-category-and-cross-icon-div-edit">
         <img class="close-icon-big-task" src="./assets/icons/contacts-close-icon.svg" alt="" onclick="cancelEditTask('${taskKey}')">
       </div>
-
       <div class="titel-edit-div">
         <h2 class="big-task-title-edit" id="big-task-title-edit">Title</h2>
         <input onblur="validateEditTaskTitle('${taskKey}')" class="titel-edit-task-big" id="titel-edit-task-big${taskKey}" type="text" value="${task.titel}">
         <div class="error-title-edit display-none" id="error-title-edit${taskKey}">Enter title with 3 characters</div>
       </div>
-
       <div class="description-edit-div">
         <h2 class="description-headline-edit">Description</h2>
         <textarea class="description-edit-task-big" id="description-edit-task-big${taskKey}" type="text">${task.description}</textarea>
       </div>
-
       <div class="due-date-edit-div">
         <h2 class="due-date-headline-edit">Due Date</h2>
         <div class="img-input-date-edit-div">
@@ -308,7 +305,6 @@ function getTaskEditTemplate(task, taskKey) {
           </div>
         <div>
       </div>
-
       <div class="priority-edit-div">
         <h2 class="priority-bold-edit-headline">Priority</h2>
         <div id="task-priority-value-div${taskKey}" class="hidden height-zero">${task.priority}</div>
@@ -327,7 +323,6 @@ function getTaskEditTemplate(task, taskKey) {
           </button>
         </div>
       </div>
-
       <div class="assigned-inputfield-box-edit-div">
         <h2 class="assigned-to-edit-headline">Assigned to</h2>
         <div class="assigned-inputfield-edit-div">
@@ -338,9 +333,7 @@ function getTaskEditTemplate(task, taskKey) {
           <div id="three-circle-container-edit${taskKey}" class="three-circle-container-edit">
         </div>
       </div>
-
       <div id="contacts-dropdown-edit${taskKey}" class="contacts-dropdown-edit hidden height-zero"></div>
-
       <div class="subtask-headline-edit-div">
         <h2 class="subtasks-headline-edited">Subtasks</h2>
         <div class="subtask-inputfield-icon-edit-div">
@@ -360,7 +353,6 @@ function getTaskEditTemplate(task, taskKey) {
         </div>
         <div class="subtasks-edit-div" id="subtasks-edit-div${taskKey}"></div>
       </div>
-      
       <div id="add-changes-div${taskKey}" class="add-changes-div">
         <button onclick="saveEditedTaskToFirebase('${taskKey}', '${task.category}', '${task.categoryUserOrTechnicalTask}')" id="add-changes-button${taskKey}" class="add-changes-button">Ok</button>
       </div>
