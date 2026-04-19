@@ -104,6 +104,7 @@ function getTaskOverlayTemplate(status) {
               <input onclick="addCrossAndCheckIconStyle()" type="text" placeholder="Add new subtask" class="inputfield-subtask-assign-board" id="inputfield-subtask-assign-in-board">
             </div>
           </div>
+          <div class="subtasks-in-board display-none" id="subtasks-in-board"></div>
           <div class="clear-create-container-board">
             <div onclick="clearInputFieldsForNewTaskBoard()" class="clear-field-board">
               <div class="clear-text-board">Cancel</div>
@@ -121,7 +122,6 @@ function getTaskOverlayTemplate(status) {
               </svg>
             </div>
           </div>
-          <div class="subtasks-in-board display-none" id="subtasks-in-board"></div>
         </div>
         <div class="field-required-board">
           <span>This field is required</span>
