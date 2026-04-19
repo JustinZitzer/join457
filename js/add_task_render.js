@@ -47,7 +47,6 @@ function getEditedSubtasksForFirebase(taskKey) {
 
   const allSubtasks = container.getElementsByClassName("subtasks-board-first-task-edit");
   getEditedSubtasksLoop(taskKey, allSubtasks, subtasks);
-
   return subtasks;
 }
 
@@ -56,19 +55,10 @@ function getEditedSubtasksForFirebase(taskKey) {
  * @returns {string} The selected priority ("Urgent", "Medium", "Low", or fallback message).
 */
 function saveEditTaskPriority(taskKey) {
-  const buttonUrgent = document.getElementById(`urgent-edit-button-div${taskKey}`);
-  const buttonMedium = document.getElementById(`medium-edit-button-div${taskKey}`);
-  const buttonLow = document.getElementById(`low-edit-button-div${taskKey}`);
-
-  if (buttonUrgent.classList.contains("active-red")) {
-    return "Urgent";
-  } else if (buttonMedium.classList.contains("active-yellow")) {
-    return "Medium";
-  } else if (buttonLow.classList.contains("active-green")) {
-    return "Low";
-  } else {
-    return "No priority selected";
-  }
+  if (document.getElementById(`urgent-edit-button-div${taskKey}`).classList.contains("active-red")) return "Urgent";
+  if (document.getElementById(`medium-edit-button-div${taskKey}`).classList.contains("active-yellow")) return "Medium";
+  if (document.getElementById(`low-edit-button-div${taskKey}`).classList.contains("active-green")) return "Low";
+  return "No priority selected";
 }
 
 /** Saves edited task data to Firebase. 
@@ -235,7 +225,6 @@ function togglePriorityBoard(priority) {
   if (toggleIfActive(priority, urgentButton, mediumButton, lowButton)) {
     return getSelectedPriority();
   }
-
   urgentButton.classList.remove("active");
   mediumButton.classList.remove("active");
   lowButton.classList.remove("active");
@@ -248,13 +237,9 @@ function togglePriorityBoard(priority) {
 
 /** Returns selected priority from board buttons. */
 function getSelectedPriority() {
-  const urgentButton = document.getElementById("arrow-container-red-board");
-  const mediumButton = document.getElementById("arrow-container-orange-board");
-  const lowButton = document.getElementById("arrow-container-green-board");
-
-  if (urgentButton.classList.contains("active")) return "Urgent";
-  if (mediumButton.classList.contains("active")) return "Medium";
-  if (lowButton.classList.contains("active")) return "Low";
+  if (document.getElementById("arrow-container-red-board").classList.contains("active")) return "Urgent";
+  if (document.getElementById("arrow-container-orange-board").classList.contains("active")) return "Medium";
+  if (document.getElementById("arrow-container-green-board").classList.contains("active")) return "Low";
   return "No priority selected";
 }
 
@@ -266,18 +251,9 @@ function getSelectedPriority() {
  * @returns {boolean} True if an active priority was deactivated, otherwise false.
 */
 function toggleIfActive(priority, urgentButton, mediumButton, lowButton) {
-  if (priority === "Urgent" && urgentButton.classList.contains("active")) {
-    urgentButton.classList.remove("active");
-    return true;
-  }
-  if (priority === "Medium" && mediumButton.classList.contains("active")) {
-    mediumButton.classList.remove("active");
-    return true;
-  }
-  if (priority === "Low" && lowButton.classList.contains("active")) {
-    lowButton.classList.remove("active");
-    return true;
-  }
+  if (priority === "Urgent" && urgentButton.classList.contains("active")) return urgentButton.classList.remove("active"), true;
+  if (priority === "Medium" && mediumButton.classList.contains("active")) return mediumButton.classList.remove("active"), true;
+  if (priority === "Low" && lowButton.classList.contains("active")) return lowButton.classList.remove("active"), true;
   return false;
 }
 
