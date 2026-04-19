@@ -62,13 +62,15 @@ function getTaskOverlayTemplate(status) {
               </div>
             </div>
           </div>
-          <div class="assigned-inputfield-box-board">
-            <span>Assigned to</span>
-            <input readonly onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
-            <img onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
-            <div class="three-circle-container-board display-none" id="three-circle-container-board"></div>
+          <div class="assigned-dropdown-wrapper-board-mobile">
+            <div class="assigned-inputfield-box-board">
+              <span>Assigned to</span>
+              <input readonly onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" type="text" placeholder="Select contacts to assign" class="inputfield-text-assign-board" id="inputfield-text-assign-board">
+              <img onclick="changeAssignedToBoardInputStyle(); loadContactsForDropdownInBoard(); getContactForCircleBoard();" class="assigned-arrow-icon-board" src="./assets/icons/arrow_drop_down.png" alt="assigned-arrow-button" id="contact-list-board">
+              <div class="three-circle-container-board display-none" id="three-circle-container-board"></div>
+            </div>
+              <div class="contacts-dropdown-board display-none" id="contacts-dropdown-board"></div>
           </div>
-            <div class="contacts-dropdown-board display-none" id="contacts-dropdown-board"></div>
           <div class="task-inputfield-box-board">
             <div class="category-mark-board">
               <span>Category</span>
@@ -79,9 +81,11 @@ function getTaskOverlayTemplate(status) {
               <p>This field is required</p>
             </div>
           </div>
-          <div class="category-dropdown-board" id="category-dropdown-board">
-          <div onclick="selectUserCategoryBoard()" id="user-technical-task-board-user" class="user-technical-task-board-user">User Story</div>
-          <div onclick="selectTechnicalCategoryBoard()" id="user-technical-task-board-technical" class="user-technical-task-board-technical">Technical Task</div>
+          <div class="task-dropdown-wrapper-board-mobile">
+            <div class="category-dropdown-board" id="category-dropdown-board">
+            <div onclick="selectUserCategoryBoard()" id="user-technical-task-board-user" class="user-technical-task-board-user">User Story</div>
+            <div onclick="selectTechnicalCategoryBoard()" id="user-technical-task-board-technical" class="user-technical-task-board-technical">Technical Task</div>
+            </div>
           </div>
           <div class="subtask-inputfield-box-board">
             <span>Subtasks</span>

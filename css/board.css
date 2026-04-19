@@ -3678,11 +3678,11 @@ h2 {
 
     .contacts-dropdown-board {
         position: absolute;
-        top: 692px;
+        top: 73px;
         left: 0;
         width: 100%;
         max-width: 100%;
-        z-index: 15;
+        z-index: 5;
         margin-top: 4px;
 
         background: white;
@@ -3694,9 +3694,19 @@ h2 {
         overflow-y: auto;
     }
 
+    .assigned-dropdown-wrapper-board-mobile {
+        position: relative;
+        width: 100%;
+    }
+
+    .task-dropdown-wrapper-board-mobile {
+        position: relative;
+        width: 100%;
+    }
+
     .category-dropdown-board {
         position: absolute;
-        top: 796px;
+        top: -34px;
         left: 0;
         width: 100%;
         max-width: 100%;
@@ -3715,9 +3725,8 @@ h2 {
     }
 
     .three-circle-container-board {
-        position: static;
         width: auto;
-        margin-top: 8px;
+        margin-top: 1.5px;
     }
 
     .subtask-inputfield-container-board {
