@@ -3746,9 +3746,13 @@ h2 {
 
     #inputfield-and-icons-subtask-board-overlay-open {
         position: absolute;
-        right: 12px;
+        right: 16px;
         top: 50%;
+        left: auto;
         transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0px;
     }
 
     .clear-create-container-board {
@@ -3765,6 +3769,7 @@ h2 {
     .clear-field-board {
         width: 110px;
         height: 56px;
+        padding: 10px 10px;
     }
 
     .create-field-board {
