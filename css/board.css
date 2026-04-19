@@ -3514,6 +3514,226 @@ h2 {
 
 
 @media (max-width: 1023px) {
+    .overlay.overlay-visible,
+    #overlay.overlay-visible {
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+        padding: 80px 16px 24px 16px;
+    }
+
+    #content-add-task-overlay,
+    .overlay-content-board {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .container-both-sides-board {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 24px;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        max-height: none;
+        padding: 88px 16px 24px 16px;
+        border-radius: 30;
+        box-shadow: none;
+        background-color: #F6F7F8;
+        animation: none;
+        transform: none;
+        overflow: visible;
+    }
+
+    .add-task-text-box-board {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .container-add-task {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 8px 0;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .add-task-headline-in-overlay {
+        padding-top: 30px;
+        padding-left: 20px;
+        margin: 0;
+        font-size: 47px;
+        line-height: 120%;
+    }
+
+    .x-close-button-add-task-overlay {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        position: static;
+    }
+
+    .line-middle-of-both-container-board {
+        display: none;
+    }
+
+    .inputfield-box-left-side-board,
+    .inputfield-box-right-side-board {
+        width: 100%;
+        height: auto;
+        gap: 24px;
+        margin-top: 20px;
+    }
+
+    .description-main-box-board,
+    .inputfield-due-date-container-board,
+    .assigned-inputfield-box-board,
+    .task-inputfield-box-board,
+    .subtask-inputfield-box-board {
+        width: 100%;
+        height: auto;
+    }
+
+    .title-inputfield-enter-title-board,
+    .inputfield-description-board,
+    .due-date-text-field-board,
+    .inputfield-text-assign-board,
+    .inputfield-category-assign-board,
+    .inputfield-subtask-assign-board {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .inputfield-description-board {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .main-box-inputfield-board {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        justify-content: space-between;
+    }
+
+    .arrow-container-main-red-board,
+    .arrow-container-main-green-board,
+    .arrow-container-orange-board {
+        width: 33.333%;
+    }
+
+    .arrow-container-red-board,
+    .arrow-container-orange-board,
+    .arrow-container-green-board {
+        width: 100%;
+        min-width: 0;
+        height: 48px;
+        padding: 10px 8px;
+    }
+
+    .arrow-container-red-board h4,
+    .arrow-container-orange-board h4,
+    .arrow-container-green-board h5 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .medium-icon-board {
+        padding-bottom: 0;
+    }
+
+    .low-icon-headline-board {
+        padding-top: 0;
+    }
+
+    .assigned-arrow-icon-board,
+    .arrow-icon-board-category {
+        position: absolute;
+        right: 16px;
+        left: auto;
+        bottom: 12px;
+        top: auto;
+        transform: none;
+    }
+
+    .contacts-dropdown-board,
+    .category-dropdown-board {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .three-circle-container-board {
+        position: static;
+        width: auto;
+        margin-top: 8px;
+    }
+
+    .subtask-inputfield-container-board {
+        width: 100%;
+        top: 0;
+        padding-top: 0;
+        position: relative;
+    }
+
+    .add-icon-container-board {
+        position: absolute;
+        right: 16px;
+        left: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #inputfield-and-icons-subtask-board-overlay-open {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .clear-create-container-board {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        padding-top: 0px;
+        margin-top: 8px;
+        flex-wrap: nowrap;
+        position: unset;
+    }
+
+    .clear-field-board {
+        width: 110px;
+        height: 56px;
+    }
+
+    .create-field-board {
+        width: 186px;
+        height: 56px;
+        margin-right: 0;
+    }
+
+    .field-required-board {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .category-dropdown-board.open{
+        max-width: unset;
+        width: 100%;
+    }
+
+    .field-required-board {
+        display: none;
+    }
 
     .search-button-container {
         right: 35px;
