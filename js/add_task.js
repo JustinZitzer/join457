@@ -43,7 +43,13 @@ async function putRegistryDataBaseFunction(path = "", data = {}) {
   return (responseToJson = await response.json());
 }
 
-/** Renders todo tasks into a given container. */
+/**
+ * Renders todo tasks into a given container.
+ * @param {Array<string>} keys - Array mit allen Task-IDs, die gerendert werden sollen.
+ * @param {Object} data - Objekt, das die Task-Daten enthält (Key = Task-ID, Value = Task-Objekt).
+ * @param {HTMLElement} container - Das HTML-Element, in das die Tasks eingefügt werden.
+ */
+
 function renderTodoTasks(keys, data, container) {
   for (let i = 0; i < keys.length; i++) {
     const taskKey = keys[i];
@@ -78,7 +84,11 @@ async function initAddTask() {
   checkTodaysDate();
 }
 
-/** Pushes all tasks from Firebase into a flat array. */
+/**
+ * Pushes all tasks from Firebase into a flat array.
+ * @param {Object} data - Verschachteltes Objekt mit Tasks, gruppiert nach Kategorien (Key = Kategorie, Value = Tasks-Objekt).
+ * @param {Array<Object>} todosArray - Array, in das alle Tasks als flache Liste eingefügt werden.
+ */
 function pushTasksIntoArray(data, todosArray) {
   for (const categoryKey in data) {
     const categoryTasks = data[categoryKey];
@@ -117,7 +127,10 @@ function filterTasksByCategory() {
   return { toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks };
 }
 
-/** Renders a single task including all details and UI elements. */
+/**
+ * Renders a single task including all details and UI elements.
+ * @param {Object} task - Objekt mit allen Daten einer einzelnen Aufgabe (z. B. id, titel, description, priority, assignedTo, subtasks, category).
+ */
 function renderSingleTask(task) {
   loadedTasks[task.id] = task;
   bigTaskDiv.innerHTML += getTaskFromFirebaseBigTaskTemplate(task, task.id);
@@ -131,7 +144,11 @@ function renderSingleTask(task) {
   subtaskCounter(task.id);
 }
 
-/** Renders all tasks inside a specific column. */
+/**
+ * Renders all tasks inside a specific column.
+ * @param {Array<Object>} tasks - Array mit Task-Objekten, die in der Spalte angezeigt werden sollen.
+ * @param {HTMLElement} columnElement - Das HTML-Element (z. B. eine Spalte im Board), in das die Tasks gerendert werden.
+ */
 function renderTasksForColumn(tasks, columnElement) {
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
@@ -167,6 +184,12 @@ function clearAllTasks() {
   doneContent.innerHTML = "";
 }
 
+/**
+ * Starts dragging a task and highlights drop zones.
+ * @param {string|number} taskId - Eindeutige ID der Aufgabe, die gezogen wird.
+ * @param {string} category - Aktuelle Kategorie/Spalte der Aufgabe (z. B. "todo", "inProgress", "done").
+ */
+
 /** Starts dragging a task and highlights drop zones. */
 function startDragging(taskId, category) {
   currentDraggedElement = taskId;
@@ -179,7 +202,10 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-/** Moves a task to a new category in Firebase. */
+/**
+ * Moves a task to a new category in Firebase.
+ * @param {string} newCategory - Zielkategorie/Spalte, in die die Aufgabe verschoben werden soll.
+ */
 async function moveTo(newCategory) {
   const taskIndex = todosArray.findIndex((t) => t.id === currentDraggedElement && t.category === currentDraggedCategory);
   if (taskIndex === -1) return;
@@ -201,7 +227,10 @@ async function moveTo(newCategory) {
   loadAllTasksFromFirebase();
 }
 
-/** Applies styling depending on task type (User Story or Technical Task). */
+/** Applies styling depending on task type (User Story or Technical Task).
+ * @param {string|number} taskKey - Identifier used to locate the related DOM elements for the task.
+ */
+
 function userStoryOrTechnicalTaskStyle(taskKey) {
   const userOrTechnicalTextBox = document.getElementById(`user-story-or-technical-task-box${taskKey}`);
   const userOrTechnicalDiv = document.getElementById(`user-story-box${taskKey}`);
@@ -218,7 +247,12 @@ function userStoryOrTechnicalTaskStyle(taskKey) {
   }
 }
 
-/** Applies the correct icon based on task priority. */
+/**
+ * Applies the correct icon based on task priority.
+ * @param {HTMLElement} priorityBoxText - DOM-Element, das den Prioritätstext enthält.
+ * @param {HTMLImageElement} priorityBoxLogo - Icon im normalen UI (z. B. im Formular oder Button).
+ * @param {HTMLImageElement} priorityBoxPicture - Icon im größeren Detail-/Board-View der Task.
+ */
 function applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture) {
   if (priorityBoxText.innerHTML == "No priority selected") {
     priorityBoxPicture.classList.add("display-none");
@@ -234,7 +268,10 @@ function applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture)
   }
 }
 
-/** Styles the priority display of a task. */
+/**
+ * Styles the priority display of a task.
+ * @param {string|number} taskKey - Identifier used to locate the related DOM elements of the task.
+ */
 function priorityStyle(taskKey) {
   const priorityBoxText = document.getElementById(`task-board-big-priority${taskKey}`);
   const priorityBoxLogo = document.getElementById(`task-board-big-priority-icon${taskKey}`);
@@ -243,7 +280,12 @@ function priorityStyle(taskKey) {
   applyPriorityIcon(priorityBoxText, priorityBoxLogo, priorityBoxPicture);
 }
 
-/** Generates a deterministic class name based on a string. */
+/**
+ * Generates a deterministic class name based on a string.
+ * @param {string} name - Eingabewert, aus dem der Hash berechnet wird (z. B. ein Name).
+ * @param {Array<string>} classArray - Array mit möglichen CSS-Klassennamen, aus dem ausgewählt wird.
+ * @returns {string} Eine deterministisch ausgewählte Klasse aus dem classArray.
+ */
 function getClassFromName(name, classArray) {
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
@@ -252,7 +294,14 @@ function getClassFromName(name, classArray) {
   return classArray[hash % classArray.length];
 }
 
-/** Renders assigned contacts in big and small formats. */
+/**
+ * Renders assigned contacts in big and small formats.
+ * @param {Array<string>} assignedTo - Liste der zugewiesenen Personen (Namen als Strings).
+ * @param {HTMLElement} container - DOM-Container für die große Kontaktansicht.
+ * @param {HTMLElement} containerTask - DOM-Container für die kleine Kontaktansicht (z. B. Task-Card).
+ * @param {Array<string>} circleClasses - Array von CSS-Klassen für die großen Kontaktkreise.
+ * @param {Array<string>} circleClassesTask - Array von CSS-Klassen für die kleinen Kontaktkreise.
+ */
 function renderAssignedContactItems(assignedTo, container, containerTask, circleClasses, circleClassesTask) {
   for (let i = 0; i < assignedTo.length; i++) {
     const name = assignedTo[i];
@@ -274,14 +323,22 @@ function renderAssignedContactItems(assignedTo, container, containerTask, circle
   assignedToPlusNumber(assignedTo, containerTask);
 }
 
-/** Displays "+X" if more than 3 contacts are assigned. */
+/**
+ * Displays "+X" if more than 3 contacts are assigned.
+ * @param {Array<string>} assignedTo - Liste der zugewiesenen Kontakte.
+ * @param {HTMLElement} containerTask - DOM-Element der Task-Ansicht, in dem der Counter angezeigt wird.
+ */
 function assignedToPlusNumber(assignedTo, containerTask) {
   if (assignedTo.length > 3) {
     containerTask.innerHTML += `<div class="text-align-contacts-counter">+${assignedTo.length - 3}</div>`;
   }
 }
 
-/** Renders assigned contacts for a task. */
+/**
+ * Renders assigned contacts for a task.
+ * @param {string|number} taskKey - Identifier used to locate the related DOM elements of the task.
+ * @param {Array<string>} assignedTo - Array of assigned contact names for the task.
+ */
 function renderAssignedContacts(taskKey, assignedTo) {
   const container = document.getElementById(`task-board-big-assigned-to-contacts-div${taskKey}`);
   const containerTask = document.getElementById(`three-circle-container${taskKey}`);
@@ -308,7 +365,11 @@ async function loadDataBoard(path = "") {
   fullTaskInfoArray.push(responseToJson);
 }
 
-/** Shows the overlay for a big task view. */
+/**
+ * Shows the overlay for a big task view.
+ * @param {HTMLElement} overlay - Das Overlay-Element, das eingeblendet wird.
+ * @param {HTMLElement} wrapper - Der Wrapper der großen Task-Ansicht.
+ */
 function showBigTaskOverlay(overlay, wrapper) {
   overlay.classList.remove("display-none");
   wrapper.classList.remove("display-none");
@@ -316,7 +377,10 @@ function showBigTaskOverlay(overlay, wrapper) {
   wrapper.classList.add("active");
 }
 
-/** Displays detailed information for a selected task. */
+/**
+ * Displays detailed information for a selected task.
+ * @param {string|number} taskKey - Identifier used to locate the related DOM elements of the task.
+ */
 function showBigTaskInfo(taskKey) {
   const overlay = document.getElementById("task-big-container-absolute");
   const wrapper = document.getElementById("task-big-container");
@@ -337,7 +401,11 @@ function showBigTaskInfo(taskKey) {
   backgroundNotScrollable(); currentTaskKey = taskKey;
 }
 
-/** Handles delayed hiding of the edit panel. */
+/**
+ * Handles delayed hiding of the edit panel.
+ * @param {string|number} taskKey - Identifier used to reference the task being edited.
+ * @param {HTMLElement} editTaskPanel - DOM-Element des Edit-Panels, das ggf. geschlossen wird.
+ */
 function handleHideEditPanel(taskKey, editTaskPanel) {
   setTimeout(() => {
     if (editTaskPanel && !editTaskPanel.classList.contains("display-none")) {
@@ -347,7 +415,12 @@ function handleHideEditPanel(taskKey, editTaskPanel) {
   }, 500);
 }
 
-/** Hides the big task UI with animation. */
+/**
+ * Hides the big task UI with animation.
+ * @param {HTMLElement} overlay - Das Overlay-Element der großen Task-Ansicht.
+ * @param {HTMLElement} wrapper - Der Wrapper der großen Task-Ansicht.
+ * @param {string|number} taskKey - Optionaler Identifier der Task, deren Detail-Element zusätzlich versteckt wird.
+ */
 function hideBigTaskUI(overlay, wrapper, taskKey) {
   setTimeout(() => {
     overlay.classList.add("display-none");
@@ -363,7 +436,10 @@ function hideBigTaskUI(overlay, wrapper, taskKey) {
   }, 500);
 }
 
-/** Closes the big task detail view. */
+/**
+ * Closes the big task detail view.
+ * @param {string|number} taskKey - Identifier of the task whose detail view should be closed. Falls nicht vorhanden, wird `currentTaskKey` verwendet.
+ */
 function hideBigTaskInfo(taskKey) {
   if (!taskKey) {
     taskKey = currentTaskKey;
