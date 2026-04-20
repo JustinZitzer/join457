@@ -68,14 +68,10 @@ function openOverlay(status) {
   overlay.classList.remove("display-none");
   overlay.classList.add("overlay-visible");
 
-  if (window.innerWidth > 1400) {
-    overlayContent.innerHTML = getTaskOverlayTemplate(status);
-    overlayContent.classList.add("slide-in");
-    setupOverlayClose(overlay, overlayContent);
-    checkTodaysDate();
-  } else {
-    window.location.href = "./add_task.html";
-  }
+  overlayContent.innerHTML = getTaskOverlayTemplate(status);
+  overlayContent.classList.add("slide-in");
+  setupOverlayClose(overlay, overlayContent);
+  checkTodaysDate();
 }
 
 /** Closes the overlay by removing its visible state. */
