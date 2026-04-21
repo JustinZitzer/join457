@@ -237,14 +237,20 @@ function resetPhoneError() {
   error.innerHTML = '';
 }
 
-/** Displays a general error message for the add-contact form. */
+/**
+ * Displays a general error message for the add-contact form.
+ * @param {string} message - Die anzuzeigende allgemeine Fehlermeldung.
+ */
 function showGeneralContactError(message) {
   const generalError = document.getElementById('failure-message-add-contact');
   generalError.classList.remove('display-none');
   generalError.innerHTML = message;
 }
 
-/** Displays an error message and highlights the name input field. */
+/**
+ * Displays an error message and highlights the name input field.
+ * @param {string} message - Die anzuzeigende Fehlermeldung für das Namensfeld.
+ */
 function showNameError(message) {
   const nameInput = document.getElementById('add-contact-name-input');
   const nameError = document.getElementById('failure-message-add-contact-name');
@@ -254,7 +260,11 @@ function showNameError(message) {
   nameError.innerHTML = message;
 }
 
-/** Displays an error message and highlights the email input field. */
+/**
+ * Displays an error message and highlights the email input field.
+ * @param {string} message - Die anzuzeigende Fehlermeldung.
+ */
+
 function showEmailError(message) {
   const emailInput = document.getElementById('add-contact-email-input');
   const emailError = document.getElementById('failure-message-add-contact-email');
@@ -264,7 +274,10 @@ function showEmailError(message) {
   emailError.innerHTML = message;
 }
 
-/** Displays an error message and highlights the phone input field. */
+/**
+ * Displays an error message and highlights the phone input field.
+ * @param {string} message - Die anzuzeigende Fehlermeldung.
+ */
 function showPhoneError(message) {
   const phoneInput = document.getElementById('add-contact-phone-input');
   const phoneError = document.getElementById('failure-message-add-contact-phone');
@@ -274,7 +287,11 @@ function showPhoneError(message) {
   phoneError.innerHTML = message;
 }
 
-/** Validates the name input based on length and spacing rules. */
+/**
+ * Validates the name input based on length and spacing rules.
+ * @param {string} name - Der zu prüfende Name.
+ * @returns {boolean} True, wenn der Name gültig ist, sonst false.
+ */
 function isValidName(name) {
   if (!name) return false;
   if (!hasValidSpaces(name)) return false;
@@ -283,7 +300,11 @@ function isValidName(name) {
   return true;
 }
 
-/** Validates the email input based on structure and formatting rules. */
+/**
+ * Validates the email input based on structure and formatting rules.
+ * @param {string} email - Die zu prüfende E-Mail-Adresse.
+ * @returns {boolean} True, wenn die E-Mail gültig ist, sonst false.
+ */
 function isValidEmail(email) {
   if (!email) return false;
   if (!hasValidSpaces(email)) return false;
@@ -301,7 +322,11 @@ function isValidEmail(email) {
   return true;
 }
 
-/** Validates the domain part of an email address. */
+/**
+ * Validates the domain part of an email address.
+ * @param {string} domain - Der Domain-Teil einer E-Mail-Adresse (z. B. "example.com").
+ * @returns {boolean} True, wenn die Domain gültig ist, sonst false.
+ */
 function isValidDomain(domain) {
   if (!domain) return false;
   if (!hasValidSpaces(domain)) return false;
@@ -320,7 +345,11 @@ function isValidDomain(domain) {
   return true;
 }
 
-/** Validates the phone number to contain only digits and spaces. */
+/**
+ * Validates the phone number to contain only digits and spaces.
+ * @param {string} phone - Die zu prüfende Telefonnummer.
+ * @returns {boolean} True, wenn die Telefonnummer gültig ist, sonst false.
+ */
 function isValidPhone(phone) {
   if (!phone) return false;
   if (!hasValidSpaces(phone)) return false;
@@ -337,7 +366,11 @@ function isValidPhone(phone) {
   return digitsOnly.length >= 5;
 }
 
-/** Checks if a value contains valid spacing (no leading, trailing, or double spaces). */
+/**
+ * Checks if a value contains valid spacing (no leading, trailing, or double spaces).
+ * @param {string} value - Der zu prüfende String.
+ * @returns {boolean} True, wenn der String gültige Leerzeichenstruktur hat, sonst false.
+ */
 function hasValidSpaces(value) {
   if (!value) return false;
   if (value.startsWith(' ') || value.endsWith(' ')) return false;

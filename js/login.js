@@ -147,7 +147,11 @@ async function loginUserForSummary() {
   handleLoginResult(loginSuccessful, loggedInUserName);
 }
 
-/** Handles the result of the login attempt. */
+/**
+ * Handles the result of the login attempt.
+ * @param {boolean} loginSuccessful - Gibt an, ob der Login erfolgreich war.
+ * @param {string} loggedInUserName - Benutzername des erfolgreich eingeloggten Users.
+ */
 function handleLoginResult(loginSuccessful, loggedInUserName) {
   if (loginSuccessful) {
     localStorage.setItem("loggedInUserName", loggedInUserName);

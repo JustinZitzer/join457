@@ -31,7 +31,13 @@ let fullTaskInfoArray = [];
 const loadedTasks = {};
 document.addEventListener("click", dropdownCloseOnClickOutside, true);
 
-/** Sends data to Firebase using a PUT request. */
+/**
+ * Sends data to Firebase using a PUT request.
+ * @param {string} path - Der Firebase-Pfad, an den die Daten gesendet werden (ohne ".json").
+ * @param {Object} data - Die zu speichernden Daten als Objekt.
+ * @returns {Promise<Object>} Die Antwort von Firebase als JSON-Objekt.
+ */
+
 async function putRegistryDataBaseFunction(path = "", data = {}) {
   let response = await fetch(FireBaseUrl + path + ".json", {
     method: "PUT",

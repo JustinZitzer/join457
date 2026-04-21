@@ -78,7 +78,18 @@ function resetAllInfosInBoardOverlay() {
   categoryInput.classList.remove("border-red-board");
 }
 
-/** Clears all board overlay input values and related container content. */
+
+
+/**
+ * Clears all board overlay input values and related container content.
+ * @param {HTMLInputElement} taskTitel - Inputfeld für den Task-Titel.
+ * @param {HTMLTextAreaElement} taskDescription - Inputfeld für die Task-Beschreibung.
+ * @param {HTMLInputElement} taskDueDate - Inputfeld für das Fälligkeitsdatum.
+ * @param {HTMLSelectElement|HTMLInputElement} taskCategory - Inputfeld für die Task-Kategorie.
+ * @param {HTMLInputElement} taskSubtask - Inputfeld für neue Subtasks.
+ * @param {HTMLElement} savedSubtasks - Container, der gespeicherte Subtasks enthält.
+ * @param {HTMLElement} circleContainer - Container für die Kontakt-/Avatar-Darstellung.
+ */
 function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCategory, taskSubtask, savedSubtasks, circleContainer) {
   taskTitel.value = "";
   taskDescription.value = "";
@@ -89,7 +100,12 @@ function resetBoardInputValues(taskTitel, taskDescription, taskDueDate, taskCate
   circleContainer.innerHTML = "";
 }
 
-/** Resets all priority button states in the board overlay. */
+/**
+ * Resets the visual state of all priority buttons on the board.
+ * @param {HTMLElement} taskPriorityUrgent - Button/Element für die Priorität "Urgent".
+ * @param {HTMLElement} taskPriorityMedium - Button/Element für die Priorität "Medium".
+ * @param {HTMLElement} taskPriorityLow - Button/Element für die Priorität "Low".
+ */
 function resetBoardPriority(taskPriorityUrgent, taskPriorityMedium, taskPriorityLow) {
   taskPriorityUrgent.classList.remove("active");
   taskPriorityMedium.classList.remove("active");
